@@ -60,7 +60,7 @@ class InvitationUpdateParameters implements ModelInterface, ArrayAccess
         'role' => 'string',
         'project_ids' => 'string',
         'locale_ids' => 'string',
-        'permissions' => 'object'
+        'permissions' => 'map[string,string]'
     ];
 
     /**
@@ -297,7 +297,7 @@ class InvitationUpdateParameters implements ModelInterface, ArrayAccess
     /**
      * Gets permissions
      *
-     * @return object|null
+     * @return map[string,string]|null
      */
     public function getPermissions()
     {
@@ -307,7 +307,7 @@ class InvitationUpdateParameters implements ModelInterface, ArrayAccess
     /**
      * Sets permissions
      *
-     * @param object|null $permissions Additional permissions depending on invitation role.
+     * @param map[string,string]|null $permissions Additional permissions depending on invitation role.
      *
      * @return $this
      */

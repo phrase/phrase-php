@@ -60,7 +60,7 @@ class MemberUpdateParameters implements ModelInterface, ArrayAccess
         'role' => 'string',
         'project_ids' => 'string',
         'locale_ids' => 'string',
-        'permissions' => 'object'
+        'permissions' => 'map[string,string]'
     ];
 
     /**
@@ -297,7 +297,7 @@ class MemberUpdateParameters implements ModelInterface, ArrayAccess
     /**
      * Gets permissions
      *
-     * @return object|null
+     * @return map[string,string]|null
      */
     public function getPermissions()
     {
@@ -307,7 +307,7 @@ class MemberUpdateParameters implements ModelInterface, ArrayAccess
     /**
      * Sets permissions
      *
-     * @param object|null $permissions Additional permissions depending on member role. Available permissions are <code>create_upload</code> and <code>review_translations</code>
+     * @param map[string,string]|null $permissions Additional permissions depending on member role. Available permissions are <code>create_upload</code> and <code>review_translations</code>
      *
      * @return $this
      */

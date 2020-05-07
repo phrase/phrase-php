@@ -60,7 +60,7 @@ class DistributionCreateParameters implements ModelInterface, ArrayAccess
         'name' => 'string',
         'project_id' => 'string',
         'platforms' => 'string[]',
-        'format_options' => 'object',
+        'format_options' => 'map[string,string]',
         'fallback_to_non_regional_locale' => 'bool',
         'fallback_to_default_locale' => 'bool',
         'use_last_reviewed_version' => 'bool'
@@ -315,7 +315,7 @@ class DistributionCreateParameters implements ModelInterface, ArrayAccess
     /**
      * Gets format_options
      *
-     * @return object|null
+     * @return map[string,string]|null
      */
     public function getFormatOptions()
     {
@@ -325,7 +325,7 @@ class DistributionCreateParameters implements ModelInterface, ArrayAccess
     /**
      * Sets format_options
      *
-     * @param object|null $format_options Additional formatting and render options. Only <code>enclose_in_cdata</code> is available for platform <code>android</code>.
+     * @param map[string,string]|null $format_options Additional formatting and render options. Only <code>enclose_in_cdata</code> is available for platform <code>android</code>.
      *
      * @return $this
      */
