@@ -27,17 +27,8 @@ Create a new webhook.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure HTTP basic authorization: Basic
-$config = Phrase\Configuration::getDefaultConfiguration()
-              ->setUsername('YOUR_USERNAME')
-              ->setPassword('YOUR_PASSWORD');
-
-// Configure API key authorization: Token
 $config = Phrase\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Phrase\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
+$config = Phrase\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'token');
 
 $apiInstance = new Phrase\Api\WebhooksApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -98,17 +89,8 @@ Delete an existing webhook.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure HTTP basic authorization: Basic
-$config = Phrase\Configuration::getDefaultConfiguration()
-              ->setUsername('YOUR_USERNAME')
-              ->setPassword('YOUR_PASSWORD');
-
-// Configure API key authorization: Token
 $config = Phrase\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Phrase\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
+$config = Phrase\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'token');
 
 $apiInstance = new Phrase\Api\WebhooksApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -169,17 +151,8 @@ Get details on a single webhook.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure HTTP basic authorization: Basic
-$config = Phrase\Configuration::getDefaultConfiguration()
-              ->setUsername('YOUR_USERNAME')
-              ->setPassword('YOUR_PASSWORD');
-
-// Configure API key authorization: Token
 $config = Phrase\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Phrase\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
+$config = Phrase\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'token');
 
 $apiInstance = new Phrase\Api\WebhooksApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -241,17 +214,8 @@ Perform a test request for a webhook.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure HTTP basic authorization: Basic
-$config = Phrase\Configuration::getDefaultConfiguration()
-              ->setUsername('YOUR_USERNAME')
-              ->setPassword('YOUR_PASSWORD');
-
-// Configure API key authorization: Token
 $config = Phrase\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Phrase\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
+$config = Phrase\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'token');
 
 $apiInstance = new Phrase\Api\WebhooksApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -312,17 +276,8 @@ Update an existing webhook.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure HTTP basic authorization: Basic
-$config = Phrase\Configuration::getDefaultConfiguration()
-              ->setUsername('YOUR_USERNAME')
-              ->setPassword('YOUR_PASSWORD');
-
-// Configure API key authorization: Token
 $config = Phrase\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Phrase\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
+$config = Phrase\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'token');
 
 $apiInstance = new Phrase\Api\WebhooksApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -386,17 +341,8 @@ List all webhooks for the given project.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure HTTP basic authorization: Basic
-$config = Phrase\Configuration::getDefaultConfiguration()
-              ->setUsername('YOUR_USERNAME')
-              ->setPassword('YOUR_PASSWORD');
-
-// Configure API key authorization: Token
 $config = Phrase\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Phrase\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
+$config = Phrase\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'token');
 
 $apiInstance = new Phrase\Api\WebhooksApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.

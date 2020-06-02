@@ -1,4 +1,4 @@
-# OpenAPIClient-php
+# phrase-php
 
 Phrase is a translation management platform for software projects. You can collaborate on language file translation with your team or order translations through our platform. The API allows you to import locale files, download locale files, tag keys or interact in other ways with the localization data stored in Phrase for your account.
 
@@ -391,11 +391,11 @@ To install the bindings via [Composer](http://getcomposer.org/), add the followi
   "repositories": [
     {
       "type": "vcs",
-      "url": "https://github.com/GIT_USER_ID/GIT_REPO_ID.git"
+      "url": "https://github.com/phrase/phrase-php.git"
     }
   ],
   "require": {
-    "GIT_USER_ID/GIT_REPO_ID": "*@dev"
+    "phrase/phrase-php": "*@dev"
   }
 }
 ```
@@ -407,7 +407,7 @@ Then run `composer install`
 Download the files and include `autoload.php`:
 
 ```php
-    require_once('/path/to/OpenAPIClient-php/vendor/autoload.php');
+    require_once('/path/to/phrase-php/vendor/autoload.php');
 ```
 
 ## Tests
@@ -428,17 +428,8 @@ Please follow the [installation procedure](#installation--usage) and then run th
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-
-// Configure HTTP basic authorization: Basic
-$config = Phrase\Configuration::getDefaultConfiguration()
-              ->setUsername('YOUR_USERNAME')
-              ->setPassword('YOUR_PASSWORD');
-
-// Configure API key authorization: Token
 $config = Phrase\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Phrase\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
+$config = Phrase\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'token');
 
 $apiInstance = new Phrase\Api\AccountsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -458,6 +449,37 @@ try {
 
 ?>
 ```
+
+## Documentation For Authorization
+
+
+
+## Basic
+
+
+- **Type**: HTTP basic authentication
+
+```php
+$config = Phrase\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
+```
+
+
+
+## Token
+
+
+- **Type**: API key
+- **API key parameter name**: Authorization
+- **Location**: HTTP header
+
+```php
+$config = Phrase\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = Phrase\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'token');
+```
+
+
 
 ## Documentation for API Endpoints
 
@@ -783,26 +805,6 @@ Class | Method | HTTP request | Description
  - [Webhook](docs/Model/Webhook.md)
  - [WebhookCreateParameters](docs/Model/WebhookCreateParameters.md)
  - [WebhookUpdateParameters](docs/Model/WebhookUpdateParameters.md)
-
-
-## Documentation For Authorization
-
-
-
-## Basic
-
-
-- **Type**: HTTP basic authentication
-
-
-
-## Token
-
-
-- **Type**: API key
-- **API key parameter name**: Authorization
-- **Location**: HTTP header
-
 
 
 ## Author

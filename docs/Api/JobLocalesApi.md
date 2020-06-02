@@ -28,17 +28,8 @@ Mark a job locale as completed.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure HTTP basic authorization: Basic
-$config = Phrase\Configuration::getDefaultConfiguration()
-              ->setUsername('YOUR_USERNAME')
-              ->setPassword('YOUR_PASSWORD');
-
-// Configure API key authorization: Token
 $config = Phrase\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Phrase\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
+$config = Phrase\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'token');
 
 $apiInstance = new Phrase\Api\JobLocalesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -104,17 +95,8 @@ Delete an existing job locale.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure HTTP basic authorization: Basic
-$config = Phrase\Configuration::getDefaultConfiguration()
-              ->setUsername('YOUR_USERNAME')
-              ->setPassword('YOUR_PASSWORD');
-
-// Configure API key authorization: Token
 $config = Phrase\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Phrase\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
+$config = Phrase\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'token');
 
 $apiInstance = new Phrase\Api\JobLocalesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -179,17 +161,8 @@ Mark a job locale as uncompleted.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure HTTP basic authorization: Basic
-$config = Phrase\Configuration::getDefaultConfiguration()
-              ->setUsername('YOUR_USERNAME')
-              ->setPassword('YOUR_PASSWORD');
-
-// Configure API key authorization: Token
 $config = Phrase\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Phrase\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
+$config = Phrase\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'token');
 
 $apiInstance = new Phrase\Api\JobLocalesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -255,17 +228,8 @@ Get a single job locale for a given job.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure HTTP basic authorization: Basic
-$config = Phrase\Configuration::getDefaultConfiguration()
-              ->setUsername('YOUR_USERNAME')
-              ->setPassword('YOUR_PASSWORD');
-
-// Configure API key authorization: Token
 $config = Phrase\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Phrase\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
+$config = Phrase\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'token');
 
 $apiInstance = new Phrase\Api\JobLocalesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -331,17 +295,8 @@ Update an existing job locale.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure HTTP basic authorization: Basic
-$config = Phrase\Configuration::getDefaultConfiguration()
-              ->setUsername('YOUR_USERNAME')
-              ->setPassword('YOUR_PASSWORD');
-
-// Configure API key authorization: Token
 $config = Phrase\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Phrase\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
+$config = Phrase\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'token');
 
 $apiInstance = new Phrase\Api\JobLocalesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -407,17 +362,8 @@ Create a new job locale.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure HTTP basic authorization: Basic
-$config = Phrase\Configuration::getDefaultConfiguration()
-              ->setUsername('YOUR_USERNAME')
-              ->setPassword('YOUR_PASSWORD');
-
-// Configure API key authorization: Token
 $config = Phrase\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Phrase\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
+$config = Phrase\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'token');
 
 $apiInstance = new Phrase\Api\JobLocalesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -480,17 +426,8 @@ List all job locales for a given job.
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-
-// Configure HTTP basic authorization: Basic
-$config = Phrase\Configuration::getDefaultConfiguration()
-              ->setUsername('YOUR_USERNAME')
-              ->setPassword('YOUR_PASSWORD');
-
-// Configure API key authorization: Token
 $config = Phrase\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Phrase\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
+$config = Phrase\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'token');
 
 $apiInstance = new Phrase\Api\JobLocalesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
