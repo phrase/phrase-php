@@ -384,7 +384,12 @@ PHP 5.5 and later
 
 ### Composer
 
-To install the bindings via [Composer](http://getcomposer.org/), add the following to `composer.json`:
+To install the bindings via [Composer](http://getcomposer.org/) from [Packagist](https://packagist.org/), run in console:
+
+`composer require phrase/phrase-php`
+
+
+If you prefer to install the bindings via [Composer](http://getcomposer.org/) from Github repository, add the following to `composer.json`:
 
 ```json
 {
@@ -407,7 +412,7 @@ Then run `composer install`
 Download the files and include `autoload.php`:
 
 ```php
-    require_once('/path/to/phrase-php/vendor/autoload.php');
+require_once('/path/to/phrase-php/vendor/autoload.php');
 ```
 
 ## Tests
