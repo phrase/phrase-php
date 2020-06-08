@@ -78,7 +78,7 @@ void (empty response body)
 
 ## branchCreate
 
-> branchCreate($project_id, $branch_create_parameters, $x_phrase_app_otp)
+> \Phrase\Model\Branch branchCreate($project_id, $branch_create_parameters, $x_phrase_app_otp)
 
 Create a branch
 
@@ -104,7 +104,8 @@ $branch_create_parameters = new \Phrase\Model\BranchCreateParameters(); // \Phra
 $x_phrase_app_otp = 'x_phrase_app_otp_example'; // string | Two-Factor-Authentication token (optional)
 
 try {
-    $apiInstance->branchCreate($project_id, $branch_create_parameters, $x_phrase_app_otp);
+    $result = $apiInstance->branchCreate($project_id, $branch_create_parameters, $x_phrase_app_otp);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling BranchesApi->branchCreate: ', $e->getMessage(), PHP_EOL;
 }
@@ -122,7 +123,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**\Phrase\Model\Branch**](../Model/Branch.md)
 
 ### Authorization
 
@@ -131,7 +132,7 @@ void (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: application/json
-- **Accept**: Not defined
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../../README.md#documentation-for-models)

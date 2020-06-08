@@ -136,11 +136,12 @@ class UploadsApi
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return void
+     * @return \Phrase\Model\Upload
      */
     public function uploadCreate($project_id, $x_phrase_app_otp = null, $branch = null, $file = null, $file_format = null, $locale_id = null, $tags = null, $update_translations = null, $update_descriptions = null, $convert_emoji = null, $skip_upload_tags = null, $skip_unverification = null, $file_encoding = null, $autotranslate = null, $mark_reviewed = null)
     {
-        $this->uploadCreateWithHttpInfo($project_id, $x_phrase_app_otp, $branch, $file, $file_format, $locale_id, $tags, $update_translations, $update_descriptions, $convert_emoji, $skip_upload_tags, $skip_unverification, $file_encoding, $autotranslate, $mark_reviewed);
+        list($response) = $this->uploadCreateWithHttpInfo($project_id, $x_phrase_app_otp, $branch, $file, $file_format, $locale_id, $tags, $update_translations, $update_descriptions, $convert_emoji, $skip_upload_tags, $skip_unverification, $file_encoding, $autotranslate, $mark_reviewed);
+        return $response;
     }
 
     /**
@@ -166,7 +167,7 @@ class UploadsApi
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Phrase\Model\Upload, HTTP status code, HTTP response headers (array of strings)
      */
     public function uploadCreateWithHttpInfo($project_id, $x_phrase_app_otp = null, $branch = null, $file = null, $file_format = null, $locale_id = null, $tags = null, $update_translations = null, $update_descriptions = null, $convert_emoji = null, $skip_upload_tags = null, $skip_unverification = null, $file_encoding = null, $autotranslate = null, $mark_reviewed = null)
     {
@@ -200,10 +201,46 @@ class UploadsApi
                 );
             }
 
-            return [null, $statusCode, $response->getHeaders()];
+            $responseBody = $response->getBody();
+            switch($statusCode) {
+                case 201:
+                    if ('\Phrase\Model\Upload' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Phrase\Model\Upload', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\Phrase\Model\Upload';
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = (string) $responseBody;
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
 
         } catch (ApiException $e) {
             switch ($e->getCode()) {
+                case 201:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Phrase\Model\Upload',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
             }
             throw $e;
         }
@@ -269,14 +306,25 @@ class UploadsApi
      */
     public function uploadCreateAsyncWithHttpInfo($project_id, $x_phrase_app_otp = null, $branch = null, $file = null, $file_format = null, $locale_id = null, $tags = null, $update_translations = null, $update_descriptions = null, $convert_emoji = null, $skip_upload_tags = null, $skip_unverification = null, $file_encoding = null, $autotranslate = null, $mark_reviewed = null)
     {
-        $returnType = '';
+        $returnType = '\Phrase\Model\Upload';
         $request = $this->uploadCreateRequest($project_id, $x_phrase_app_otp, $branch, $file, $file_format, $locale_id, $tags, $update_translations, $update_descriptions, $convert_emoji, $skip_upload_tags, $skip_unverification, $file_encoding, $autotranslate, $mark_reviewed);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
                 },
                 function ($exception) {
                     $response = $exception->getResponse();
@@ -406,11 +454,11 @@ class UploadsApi
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
-                []
+                ['application/json']
             );
         } else {
             $headers = $this->headerSelector->selectHeaders(
-                [],
+                ['application/json'],
                 ['multipart/form-data']
             );
         }

@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 ## glossaryTermTranslationCreate
 
-> glossaryTermTranslationCreate($account_id, $glossary_id, $term_id, $glossary_term_translation_create_parameters, $x_phrase_app_otp)
+> \Phrase\Model\GlossaryTermTranslation glossaryTermTranslationCreate($account_id, $glossary_id, $term_id, $glossary_term_translation_create_parameters, $x_phrase_app_otp)
 
 Create a glossary term translation
 
@@ -40,7 +40,8 @@ $glossary_term_translation_create_parameters = new \Phrase\Model\GlossaryTermTra
 $x_phrase_app_otp = 'x_phrase_app_otp_example'; // string | Two-Factor-Authentication token (optional)
 
 try {
-    $apiInstance->glossaryTermTranslationCreate($account_id, $glossary_id, $term_id, $glossary_term_translation_create_parameters, $x_phrase_app_otp);
+    $result = $apiInstance->glossaryTermTranslationCreate($account_id, $glossary_id, $term_id, $glossary_term_translation_create_parameters, $x_phrase_app_otp);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling GlossaryTermTranslationsApi->glossaryTermTranslationCreate: ', $e->getMessage(), PHP_EOL;
 }
@@ -60,7 +61,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**\Phrase\Model\GlossaryTermTranslation**](../Model/GlossaryTermTranslation.md)
 
 ### Authorization
 
@@ -69,7 +70,7 @@ void (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: application/json
-- **Accept**: Not defined
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../../README.md#documentation-for-models)

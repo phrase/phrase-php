@@ -350,7 +350,7 @@ Name | Type | Description  | Notes
 
 ## jobLocalesCreate
 
-> jobLocalesCreate($project_id, $job_id, $job_locales_create_parameters, $x_phrase_app_otp)
+> \Phrase\Model\JobLocale jobLocalesCreate($project_id, $job_id, $job_locales_create_parameters, $x_phrase_app_otp)
 
 Create a job locale
 
@@ -377,7 +377,8 @@ $job_locales_create_parameters = new \Phrase\Model\JobLocalesCreateParameters();
 $x_phrase_app_otp = 'x_phrase_app_otp_example'; // string | Two-Factor-Authentication token (optional)
 
 try {
-    $apiInstance->jobLocalesCreate($project_id, $job_id, $job_locales_create_parameters, $x_phrase_app_otp);
+    $result = $apiInstance->jobLocalesCreate($project_id, $job_id, $job_locales_create_parameters, $x_phrase_app_otp);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling JobLocalesApi->jobLocalesCreate: ', $e->getMessage(), PHP_EOL;
 }
@@ -396,7 +397,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**\Phrase\Model\JobLocale**](../Model/JobLocale.md)
 
 ### Authorization
 
@@ -405,7 +406,7 @@ void (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: application/json
-- **Accept**: Not defined
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../../README.md#documentation-for-models)

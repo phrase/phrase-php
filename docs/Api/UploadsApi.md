@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 ## uploadCreate
 
-> uploadCreate($project_id, $x_phrase_app_otp, $branch, $file, $file_format, $locale_id, $tags, $update_translations, $update_descriptions, $convert_emoji, $skip_upload_tags, $skip_unverification, $file_encoding, $autotranslate, $mark_reviewed)
+> \Phrase\Model\Upload uploadCreate($project_id, $x_phrase_app_otp, $branch, $file, $file_format, $locale_id, $tags, $update_translations, $update_descriptions, $convert_emoji, $skip_upload_tags, $skip_unverification, $file_encoding, $autotranslate, $mark_reviewed)
 
 Upload a new file
 
@@ -50,7 +50,8 @@ $autotranslate = True; // bool | If set, translations for the uploaded language 
 $mark_reviewed = True; // bool | Indicated whether the imported translations should be marked as reviewed. This setting is available if the review workflow (currently beta) is enabled for the project.
 
 try {
-    $apiInstance->uploadCreate($project_id, $x_phrase_app_otp, $branch, $file, $file_format, $locale_id, $tags, $update_translations, $update_descriptions, $convert_emoji, $skip_upload_tags, $skip_unverification, $file_encoding, $autotranslate, $mark_reviewed);
+    $result = $apiInstance->uploadCreate($project_id, $x_phrase_app_otp, $branch, $file, $file_format, $locale_id, $tags, $update_translations, $update_descriptions, $convert_emoji, $skip_upload_tags, $skip_unverification, $file_encoding, $autotranslate, $mark_reviewed);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling UploadsApi->uploadCreate: ', $e->getMessage(), PHP_EOL;
 }
@@ -80,7 +81,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**\Phrase\Model\Upload**](../Model/Upload.md)
 
 ### Authorization
 
@@ -89,7 +90,7 @@ void (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: multipart/form-data
-- **Accept**: Not defined
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../../README.md#documentation-for-models)

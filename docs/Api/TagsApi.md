@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 ## tagCreate
 
-> tagCreate($project_id, $tag_create_parameters, $x_phrase_app_otp)
+> \Phrase\Model\TagWithStats tagCreate($project_id, $tag_create_parameters, $x_phrase_app_otp)
 
 Create a tag
 
@@ -39,7 +39,8 @@ $tag_create_parameters = new \Phrase\Model\TagCreateParameters(); // \Phrase\Mod
 $x_phrase_app_otp = 'x_phrase_app_otp_example'; // string | Two-Factor-Authentication token (optional)
 
 try {
-    $apiInstance->tagCreate($project_id, $tag_create_parameters, $x_phrase_app_otp);
+    $result = $apiInstance->tagCreate($project_id, $tag_create_parameters, $x_phrase_app_otp);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling TagsApi->tagCreate: ', $e->getMessage(), PHP_EOL;
 }
@@ -57,7 +58,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**\Phrase\Model\TagWithStats**](../Model/TagWithStats.md)
 
 ### Authorization
 
@@ -66,7 +67,7 @@ void (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: application/json
-- **Accept**: Not defined
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../../README.md#documentation-for-models)

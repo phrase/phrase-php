@@ -386,11 +386,12 @@ class BranchesApi
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return void
+     * @return \Phrase\Model\Branch
      */
     public function branchCreate($project_id, $branch_create_parameters, $x_phrase_app_otp = null)
     {
-        $this->branchCreateWithHttpInfo($project_id, $branch_create_parameters, $x_phrase_app_otp);
+        list($response) = $this->branchCreateWithHttpInfo($project_id, $branch_create_parameters, $x_phrase_app_otp);
+        return $response;
     }
 
     /**
@@ -404,7 +405,7 @@ class BranchesApi
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Phrase\Model\Branch, HTTP status code, HTTP response headers (array of strings)
      */
     public function branchCreateWithHttpInfo($project_id, $branch_create_parameters, $x_phrase_app_otp = null)
     {
@@ -438,10 +439,46 @@ class BranchesApi
                 );
             }
 
-            return [null, $statusCode, $response->getHeaders()];
+            $responseBody = $response->getBody();
+            switch($statusCode) {
+                case 201:
+                    if ('\Phrase\Model\Branch' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Phrase\Model\Branch', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\Phrase\Model\Branch';
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = (string) $responseBody;
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
 
         } catch (ApiException $e) {
             switch ($e->getCode()) {
+                case 201:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Phrase\Model\Branch',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
             }
             throw $e;
         }
@@ -483,14 +520,25 @@ class BranchesApi
      */
     public function branchCreateAsyncWithHttpInfo($project_id, $branch_create_parameters, $x_phrase_app_otp = null)
     {
-        $returnType = '';
+        $returnType = '\Phrase\Model\Branch';
         $request = $this->branchCreateRequest($project_id, $branch_create_parameters, $x_phrase_app_otp);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
                 },
                 function ($exception) {
                     $response = $exception->getResponse();
@@ -564,11 +612,11 @@ class BranchesApi
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
-                []
+                ['application/json']
             );
         } else {
             $headers = $this->headerSelector->selectHeaders(
-                [],
+                ['application/json'],
                 ['application/json']
             );
         }

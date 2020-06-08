@@ -84,7 +84,7 @@ Name | Type | Description  | Notes
 
 ## jobCreate
 
-> jobCreate($project_id, $job_create_parameters, $x_phrase_app_otp)
+> \Phrase\Model\JobDetails jobCreate($project_id, $job_create_parameters, $x_phrase_app_otp)
 
 Create a job
 
@@ -110,7 +110,8 @@ $job_create_parameters = new \Phrase\Model\JobCreateParameters(); // \Phrase\Mod
 $x_phrase_app_otp = 'x_phrase_app_otp_example'; // string | Two-Factor-Authentication token (optional)
 
 try {
-    $apiInstance->jobCreate($project_id, $job_create_parameters, $x_phrase_app_otp);
+    $result = $apiInstance->jobCreate($project_id, $job_create_parameters, $x_phrase_app_otp);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling JobsApi->jobCreate: ', $e->getMessage(), PHP_EOL;
 }
@@ -128,7 +129,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**\Phrase\Model\JobDetails**](../Model/JobDetails.md)
 
 ### Authorization
 
@@ -137,7 +138,7 @@ void (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: application/json
-- **Accept**: Not defined
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../../README.md#documentation-for-models)

@@ -126,11 +126,12 @@ class GlossaryTermTranslationsApi
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return void
+     * @return \Phrase\Model\GlossaryTermTranslation
      */
     public function glossaryTermTranslationCreate($account_id, $glossary_id, $term_id, $glossary_term_translation_create_parameters, $x_phrase_app_otp = null)
     {
-        $this->glossaryTermTranslationCreateWithHttpInfo($account_id, $glossary_id, $term_id, $glossary_term_translation_create_parameters, $x_phrase_app_otp);
+        list($response) = $this->glossaryTermTranslationCreateWithHttpInfo($account_id, $glossary_id, $term_id, $glossary_term_translation_create_parameters, $x_phrase_app_otp);
+        return $response;
     }
 
     /**
@@ -146,7 +147,7 @@ class GlossaryTermTranslationsApi
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Phrase\Model\GlossaryTermTranslation, HTTP status code, HTTP response headers (array of strings)
      */
     public function glossaryTermTranslationCreateWithHttpInfo($account_id, $glossary_id, $term_id, $glossary_term_translation_create_parameters, $x_phrase_app_otp = null)
     {
@@ -180,10 +181,46 @@ class GlossaryTermTranslationsApi
                 );
             }
 
-            return [null, $statusCode, $response->getHeaders()];
+            $responseBody = $response->getBody();
+            switch($statusCode) {
+                case 201:
+                    if ('\Phrase\Model\GlossaryTermTranslation' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Phrase\Model\GlossaryTermTranslation', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\Phrase\Model\GlossaryTermTranslation';
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = (string) $responseBody;
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
 
         } catch (ApiException $e) {
             switch ($e->getCode()) {
+                case 201:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Phrase\Model\GlossaryTermTranslation',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
             }
             throw $e;
         }
@@ -229,14 +266,25 @@ class GlossaryTermTranslationsApi
      */
     public function glossaryTermTranslationCreateAsyncWithHttpInfo($account_id, $glossary_id, $term_id, $glossary_term_translation_create_parameters, $x_phrase_app_otp = null)
     {
-        $returnType = '';
+        $returnType = '\Phrase\Model\GlossaryTermTranslation';
         $request = $this->glossaryTermTranslationCreateRequest($account_id, $glossary_id, $term_id, $glossary_term_translation_create_parameters, $x_phrase_app_otp);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
                 },
                 function ($exception) {
                     $response = $exception->getResponse();
@@ -340,11 +388,11 @@ class GlossaryTermTranslationsApi
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
-                []
+                ['application/json']
             );
         } else {
             $headers = $this->headerSelector->selectHeaders(
-                [],
+                ['application/json'],
                 ['application/json']
             );
         }

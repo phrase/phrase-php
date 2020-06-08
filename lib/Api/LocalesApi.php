@@ -124,11 +124,12 @@ class LocalesApi
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return void
+     * @return \Phrase\Model\LocaleDetails
      */
     public function localeCreate($project_id, $locale_create_parameters, $x_phrase_app_otp = null)
     {
-        $this->localeCreateWithHttpInfo($project_id, $locale_create_parameters, $x_phrase_app_otp);
+        list($response) = $this->localeCreateWithHttpInfo($project_id, $locale_create_parameters, $x_phrase_app_otp);
+        return $response;
     }
 
     /**
@@ -142,7 +143,7 @@ class LocalesApi
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Phrase\Model\LocaleDetails, HTTP status code, HTTP response headers (array of strings)
      */
     public function localeCreateWithHttpInfo($project_id, $locale_create_parameters, $x_phrase_app_otp = null)
     {
@@ -176,10 +177,46 @@ class LocalesApi
                 );
             }
 
-            return [null, $statusCode, $response->getHeaders()];
+            $responseBody = $response->getBody();
+            switch($statusCode) {
+                case 201:
+                    if ('\Phrase\Model\LocaleDetails' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Phrase\Model\LocaleDetails', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\Phrase\Model\LocaleDetails';
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = (string) $responseBody;
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
 
         } catch (ApiException $e) {
             switch ($e->getCode()) {
+                case 201:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Phrase\Model\LocaleDetails',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
             }
             throw $e;
         }
@@ -221,14 +258,25 @@ class LocalesApi
      */
     public function localeCreateAsyncWithHttpInfo($project_id, $locale_create_parameters, $x_phrase_app_otp = null)
     {
-        $returnType = '';
+        $returnType = '\Phrase\Model\LocaleDetails';
         $request = $this->localeCreateRequest($project_id, $locale_create_parameters, $x_phrase_app_otp);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
                 },
                 function ($exception) {
                     $response = $exception->getResponse();
@@ -302,11 +350,11 @@ class LocalesApi
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
-                []
+                ['application/json']
             );
         } else {
             $headers = $this->headerSelector->selectHeaders(
-                [],
+                ['application/json'],
                 ['application/json']
             );
         }

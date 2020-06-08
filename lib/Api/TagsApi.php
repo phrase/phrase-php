@@ -124,11 +124,12 @@ class TagsApi
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return void
+     * @return \Phrase\Model\TagWithStats
      */
     public function tagCreate($project_id, $tag_create_parameters, $x_phrase_app_otp = null)
     {
-        $this->tagCreateWithHttpInfo($project_id, $tag_create_parameters, $x_phrase_app_otp);
+        list($response) = $this->tagCreateWithHttpInfo($project_id, $tag_create_parameters, $x_phrase_app_otp);
+        return $response;
     }
 
     /**
@@ -142,7 +143,7 @@ class TagsApi
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Phrase\Model\TagWithStats, HTTP status code, HTTP response headers (array of strings)
      */
     public function tagCreateWithHttpInfo($project_id, $tag_create_parameters, $x_phrase_app_otp = null)
     {
@@ -176,10 +177,46 @@ class TagsApi
                 );
             }
 
-            return [null, $statusCode, $response->getHeaders()];
+            $responseBody = $response->getBody();
+            switch($statusCode) {
+                case 201:
+                    if ('\Phrase\Model\TagWithStats' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Phrase\Model\TagWithStats', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\Phrase\Model\TagWithStats';
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = (string) $responseBody;
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
 
         } catch (ApiException $e) {
             switch ($e->getCode()) {
+                case 201:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Phrase\Model\TagWithStats',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
             }
             throw $e;
         }
@@ -221,14 +258,25 @@ class TagsApi
      */
     public function tagCreateAsyncWithHttpInfo($project_id, $tag_create_parameters, $x_phrase_app_otp = null)
     {
-        $returnType = '';
+        $returnType = '\Phrase\Model\TagWithStats';
         $request = $this->tagCreateRequest($project_id, $tag_create_parameters, $x_phrase_app_otp);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
                 },
                 function ($exception) {
                     $response = $exception->getResponse();
@@ -302,11 +350,11 @@ class TagsApi
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
-                []
+                ['application/json']
             );
         } else {
             $headers = $this->headerSelector->selectHeaders(
-                [],
+                ['application/json'],
                 ['application/json']
             );
         }

@@ -125,11 +125,12 @@ class ScreenshotMarkersApi
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return void
+     * @return \Phrase\Model\ScreenshotMarker
      */
     public function screenshotMarkerCreate($project_id, $screenshot_id, $screenshot_marker_create_parameters, $x_phrase_app_otp = null)
     {
-        $this->screenshotMarkerCreateWithHttpInfo($project_id, $screenshot_id, $screenshot_marker_create_parameters, $x_phrase_app_otp);
+        list($response) = $this->screenshotMarkerCreateWithHttpInfo($project_id, $screenshot_id, $screenshot_marker_create_parameters, $x_phrase_app_otp);
+        return $response;
     }
 
     /**
@@ -144,7 +145,7 @@ class ScreenshotMarkersApi
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Phrase\Model\ScreenshotMarker, HTTP status code, HTTP response headers (array of strings)
      */
     public function screenshotMarkerCreateWithHttpInfo($project_id, $screenshot_id, $screenshot_marker_create_parameters, $x_phrase_app_otp = null)
     {
@@ -178,10 +179,46 @@ class ScreenshotMarkersApi
                 );
             }
 
-            return [null, $statusCode, $response->getHeaders()];
+            $responseBody = $response->getBody();
+            switch($statusCode) {
+                case 201:
+                    if ('\Phrase\Model\ScreenshotMarker' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Phrase\Model\ScreenshotMarker', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\Phrase\Model\ScreenshotMarker';
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = (string) $responseBody;
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
 
         } catch (ApiException $e) {
             switch ($e->getCode()) {
+                case 201:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Phrase\Model\ScreenshotMarker',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
             }
             throw $e;
         }
@@ -225,14 +262,25 @@ class ScreenshotMarkersApi
      */
     public function screenshotMarkerCreateAsyncWithHttpInfo($project_id, $screenshot_id, $screenshot_marker_create_parameters, $x_phrase_app_otp = null)
     {
-        $returnType = '';
+        $returnType = '\Phrase\Model\ScreenshotMarker';
         $request = $this->screenshotMarkerCreateRequest($project_id, $screenshot_id, $screenshot_marker_create_parameters, $x_phrase_app_otp);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
                 },
                 function ($exception) {
                     $response = $exception->getResponse();
@@ -321,11 +369,11 @@ class ScreenshotMarkersApi
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
-                []
+                ['application/json']
             );
         } else {
             $headers = $this->headerSelector->selectHeaders(
-                [],
+                ['application/json'],
                 ['application/json']
             );
         }
