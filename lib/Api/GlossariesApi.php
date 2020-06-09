@@ -1,6 +1,6 @@
 <?php
 /**
- * GlossaryApi
+ * GlossariesApi
  * PHP version 5
  *
  * @category Class
@@ -38,14 +38,14 @@ use Phrase\HeaderSelector;
 use Phrase\ObjectSerializer;
 
 /**
- * GlossaryApi Class Doc Comment
+ * GlossariesApi Class Doc Comment
  *
  * @category Class
  * @package  Phrase
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class GlossaryApi
+class GlossariesApi
 {
     /**
      * @var ClientInterface

@@ -1,6 +1,6 @@
 <?php
 /**
- * GlossaryApiTest
+ * GlossariesApiTest
  * PHP version 5
  *
  * @category Class
@@ -32,14 +32,14 @@ use \Phrase\ObjectSerializer;
 use PHPUnit\Framework\TestCase;
 
 /**
- * GlossaryApiTest Class Doc Comment
+ * GlossariesApiTest Class Doc Comment
  *
  * @category Class
  * @package  Phrase
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class GlossaryApiTest extends TestCase
+class GlossariesApiTest extends TestCase
 {
 
     /**
