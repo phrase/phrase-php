@@ -131,6 +131,8 @@ class UploadsApi
      * @param  bool $skip_upload_tags Indicates whether the upload should not create upload tags. (optional)
      * @param  bool $skip_unverification Indicates whether the upload should unverify updated translations. (optional)
      * @param  string $file_encoding Enforces a specific encoding on the file contents. Valid options are \\\&quot;UTF-8\\\&quot;, \\\&quot;UTF-16\\\&quot; and \\\&quot;ISO-8859-1\\\&quot;. (optional)
+     * @param  object $locale_mapping Optional, format specific mapping between locale names and the columns the translations to those locales are contained in. (optional)
+     * @param  object $format_options Additional options available for specific formats. See our format guide for complete list. (optional)
      * @param  bool $autotranslate If set, translations for the uploaded language will be fetched automatically. (optional)
      * @param  bool $mark_reviewed Indicated whether the imported translations should be marked as reviewed. This setting is available if the review workflow (currently beta) is enabled for the project. (optional)
      *
@@ -138,9 +140,9 @@ class UploadsApi
      * @throws \InvalidArgumentException
      * @return \Phrase\Model\Upload
      */
-    public function uploadCreate($project_id, $x_phrase_app_otp = null, $branch = null, $file = null, $file_format = null, $locale_id = null, $tags = null, $update_translations = null, $update_descriptions = null, $convert_emoji = null, $skip_upload_tags = null, $skip_unverification = null, $file_encoding = null, $autotranslate = null, $mark_reviewed = null)
+    public function uploadCreate($project_id, $x_phrase_app_otp = null, $branch = null, $file = null, $file_format = null, $locale_id = null, $tags = null, $update_translations = null, $update_descriptions = null, $convert_emoji = null, $skip_upload_tags = null, $skip_unverification = null, $file_encoding = null, $locale_mapping = null, $format_options = null, $autotranslate = null, $mark_reviewed = null)
     {
-        list($response) = $this->uploadCreateWithHttpInfo($project_id, $x_phrase_app_otp, $branch, $file, $file_format, $locale_id, $tags, $update_translations, $update_descriptions, $convert_emoji, $skip_upload_tags, $skip_unverification, $file_encoding, $autotranslate, $mark_reviewed);
+        list($response) = $this->uploadCreateWithHttpInfo($project_id, $x_phrase_app_otp, $branch, $file, $file_format, $locale_id, $tags, $update_translations, $update_descriptions, $convert_emoji, $skip_upload_tags, $skip_unverification, $file_encoding, $locale_mapping, $format_options, $autotranslate, $mark_reviewed);
         return $response;
     }
 
@@ -162,6 +164,8 @@ class UploadsApi
      * @param  bool $skip_upload_tags Indicates whether the upload should not create upload tags. (optional)
      * @param  bool $skip_unverification Indicates whether the upload should unverify updated translations. (optional)
      * @param  string $file_encoding Enforces a specific encoding on the file contents. Valid options are \\\&quot;UTF-8\\\&quot;, \\\&quot;UTF-16\\\&quot; and \\\&quot;ISO-8859-1\\\&quot;. (optional)
+     * @param  object $locale_mapping Optional, format specific mapping between locale names and the columns the translations to those locales are contained in. (optional)
+     * @param  object $format_options Additional options available for specific formats. See our format guide for complete list. (optional)
      * @param  bool $autotranslate If set, translations for the uploaded language will be fetched automatically. (optional)
      * @param  bool $mark_reviewed Indicated whether the imported translations should be marked as reviewed. This setting is available if the review workflow (currently beta) is enabled for the project. (optional)
      *
@@ -169,9 +173,9 @@ class UploadsApi
      * @throws \InvalidArgumentException
      * @return array of \Phrase\Model\Upload, HTTP status code, HTTP response headers (array of strings)
      */
-    public function uploadCreateWithHttpInfo($project_id, $x_phrase_app_otp = null, $branch = null, $file = null, $file_format = null, $locale_id = null, $tags = null, $update_translations = null, $update_descriptions = null, $convert_emoji = null, $skip_upload_tags = null, $skip_unverification = null, $file_encoding = null, $autotranslate = null, $mark_reviewed = null)
+    public function uploadCreateWithHttpInfo($project_id, $x_phrase_app_otp = null, $branch = null, $file = null, $file_format = null, $locale_id = null, $tags = null, $update_translations = null, $update_descriptions = null, $convert_emoji = null, $skip_upload_tags = null, $skip_unverification = null, $file_encoding = null, $locale_mapping = null, $format_options = null, $autotranslate = null, $mark_reviewed = null)
     {
-        $request = $this->uploadCreateRequest($project_id, $x_phrase_app_otp, $branch, $file, $file_format, $locale_id, $tags, $update_translations, $update_descriptions, $convert_emoji, $skip_upload_tags, $skip_unverification, $file_encoding, $autotranslate, $mark_reviewed);
+        $request = $this->uploadCreateRequest($project_id, $x_phrase_app_otp, $branch, $file, $file_format, $locale_id, $tags, $update_translations, $update_descriptions, $convert_emoji, $skip_upload_tags, $skip_unverification, $file_encoding, $locale_mapping, $format_options, $autotranslate, $mark_reviewed);
 
         try {
             $options = $this->createHttpClientOption();
@@ -264,15 +268,17 @@ class UploadsApi
      * @param  bool $skip_upload_tags Indicates whether the upload should not create upload tags. (optional)
      * @param  bool $skip_unverification Indicates whether the upload should unverify updated translations. (optional)
      * @param  string $file_encoding Enforces a specific encoding on the file contents. Valid options are \\\&quot;UTF-8\\\&quot;, \\\&quot;UTF-16\\\&quot; and \\\&quot;ISO-8859-1\\\&quot;. (optional)
+     * @param  object $locale_mapping Optional, format specific mapping between locale names and the columns the translations to those locales are contained in. (optional)
+     * @param  object $format_options Additional options available for specific formats. See our format guide for complete list. (optional)
      * @param  bool $autotranslate If set, translations for the uploaded language will be fetched automatically. (optional)
      * @param  bool $mark_reviewed Indicated whether the imported translations should be marked as reviewed. This setting is available if the review workflow (currently beta) is enabled for the project. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function uploadCreateAsync($project_id, $x_phrase_app_otp = null, $branch = null, $file = null, $file_format = null, $locale_id = null, $tags = null, $update_translations = null, $update_descriptions = null, $convert_emoji = null, $skip_upload_tags = null, $skip_unverification = null, $file_encoding = null, $autotranslate = null, $mark_reviewed = null)
+    public function uploadCreateAsync($project_id, $x_phrase_app_otp = null, $branch = null, $file = null, $file_format = null, $locale_id = null, $tags = null, $update_translations = null, $update_descriptions = null, $convert_emoji = null, $skip_upload_tags = null, $skip_unverification = null, $file_encoding = null, $locale_mapping = null, $format_options = null, $autotranslate = null, $mark_reviewed = null)
     {
-        return $this->uploadCreateAsyncWithHttpInfo($project_id, $x_phrase_app_otp, $branch, $file, $file_format, $locale_id, $tags, $update_translations, $update_descriptions, $convert_emoji, $skip_upload_tags, $skip_unverification, $file_encoding, $autotranslate, $mark_reviewed)
+        return $this->uploadCreateAsyncWithHttpInfo($project_id, $x_phrase_app_otp, $branch, $file, $file_format, $locale_id, $tags, $update_translations, $update_descriptions, $convert_emoji, $skip_upload_tags, $skip_unverification, $file_encoding, $locale_mapping, $format_options, $autotranslate, $mark_reviewed)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -298,16 +304,18 @@ class UploadsApi
      * @param  bool $skip_upload_tags Indicates whether the upload should not create upload tags. (optional)
      * @param  bool $skip_unverification Indicates whether the upload should unverify updated translations. (optional)
      * @param  string $file_encoding Enforces a specific encoding on the file contents. Valid options are \\\&quot;UTF-8\\\&quot;, \\\&quot;UTF-16\\\&quot; and \\\&quot;ISO-8859-1\\\&quot;. (optional)
+     * @param  object $locale_mapping Optional, format specific mapping between locale names and the columns the translations to those locales are contained in. (optional)
+     * @param  object $format_options Additional options available for specific formats. See our format guide for complete list. (optional)
      * @param  bool $autotranslate If set, translations for the uploaded language will be fetched automatically. (optional)
      * @param  bool $mark_reviewed Indicated whether the imported translations should be marked as reviewed. This setting is available if the review workflow (currently beta) is enabled for the project. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function uploadCreateAsyncWithHttpInfo($project_id, $x_phrase_app_otp = null, $branch = null, $file = null, $file_format = null, $locale_id = null, $tags = null, $update_translations = null, $update_descriptions = null, $convert_emoji = null, $skip_upload_tags = null, $skip_unverification = null, $file_encoding = null, $autotranslate = null, $mark_reviewed = null)
+    public function uploadCreateAsyncWithHttpInfo($project_id, $x_phrase_app_otp = null, $branch = null, $file = null, $file_format = null, $locale_id = null, $tags = null, $update_translations = null, $update_descriptions = null, $convert_emoji = null, $skip_upload_tags = null, $skip_unverification = null, $file_encoding = null, $locale_mapping = null, $format_options = null, $autotranslate = null, $mark_reviewed = null)
     {
         $returnType = '\Phrase\Model\Upload';
-        $request = $this->uploadCreateRequest($project_id, $x_phrase_app_otp, $branch, $file, $file_format, $locale_id, $tags, $update_translations, $update_descriptions, $convert_emoji, $skip_upload_tags, $skip_unverification, $file_encoding, $autotranslate, $mark_reviewed);
+        $request = $this->uploadCreateRequest($project_id, $x_phrase_app_otp, $branch, $file, $file_format, $locale_id, $tags, $update_translations, $update_descriptions, $convert_emoji, $skip_upload_tags, $skip_unverification, $file_encoding, $locale_mapping, $format_options, $autotranslate, $mark_reviewed);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -359,13 +367,15 @@ class UploadsApi
      * @param  bool $skip_upload_tags Indicates whether the upload should not create upload tags. (optional)
      * @param  bool $skip_unverification Indicates whether the upload should unverify updated translations. (optional)
      * @param  string $file_encoding Enforces a specific encoding on the file contents. Valid options are \\\&quot;UTF-8\\\&quot;, \\\&quot;UTF-16\\\&quot; and \\\&quot;ISO-8859-1\\\&quot;. (optional)
+     * @param  object $locale_mapping Optional, format specific mapping between locale names and the columns the translations to those locales are contained in. (optional)
+     * @param  object $format_options Additional options available for specific formats. See our format guide for complete list. (optional)
      * @param  bool $autotranslate If set, translations for the uploaded language will be fetched automatically. (optional)
      * @param  bool $mark_reviewed Indicated whether the imported translations should be marked as reviewed. This setting is available if the review workflow (currently beta) is enabled for the project. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function uploadCreateRequest($project_id, $x_phrase_app_otp = null, $branch = null, $file = null, $file_format = null, $locale_id = null, $tags = null, $update_translations = null, $update_descriptions = null, $convert_emoji = null, $skip_upload_tags = null, $skip_unverification = null, $file_encoding = null, $autotranslate = null, $mark_reviewed = null)
+    protected function uploadCreateRequest($project_id, $x_phrase_app_otp = null, $branch = null, $file = null, $file_format = null, $locale_id = null, $tags = null, $update_translations = null, $update_descriptions = null, $convert_emoji = null, $skip_upload_tags = null, $skip_unverification = null, $file_encoding = null, $locale_mapping = null, $format_options = null, $autotranslate = null, $mark_reviewed = null)
     {
         // verify the required parameter 'project_id' is set
         if ($project_id === null || (is_array($project_id) && count($project_id) === 0)) {
@@ -440,6 +450,14 @@ class UploadsApi
         // form params
         if ($file_encoding !== null) {
             $formParams['file_encoding'] = ObjectSerializer::toFormValue($file_encoding);
+        }
+        // form params
+        if ($locale_mapping !== null) {
+            $formParams['locale_mapping'] = ObjectSerializer::toFormValue($locale_mapping);
+        }
+        // form params
+        if ($format_options !== null) {
+            $formParams['format_options'] = ObjectSerializer::toFormValue($format_options);
         }
         // form params
         if ($autotranslate !== null) {
