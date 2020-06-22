@@ -347,7 +347,7 @@ class UploadCreateParameters implements ModelInterface, ArrayAccess
     /**
      * Sets file_format
      *
-     * @param string|null $file_format File format. Auto-detected when possible and not specified.
+     * @param string|null $file_format File format. Auto-detected when possible and not specified. See the [format guide](https://help.phrase.com/help/supported-platforms-and-formats) for all supported file formats.
      *
      * @return $this
      */
