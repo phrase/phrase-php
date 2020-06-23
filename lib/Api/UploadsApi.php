@@ -119,30 +119,16 @@ class UploadsApi
      * Upload a new file
      *
      * @param  string $project_id Project ID (required)
+     * @param  \Phrase\Model\UploadCreateParameters $upload_create_parameters upload_create_parameters (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
-     * @param  string $branch specify the branch to use (optional)
-     * @param  \SplFileObject $file File to be imported (optional)
-     * @param  string $file_format File format. Auto-detected when possible and not specified. See the [format guide](https://help.phrase.com/help/supported-platforms-and-formats) for all supported file formats. (optional)
-     * @param  string $locale_id Locale of the file&#39;s content. Can be the name or public id of the locale. Preferred is the public id. (optional)
-     * @param  string $tags List of tags separated by comma to be associated with the new keys contained in the upload. (optional)
-     * @param  bool $update_translations Indicates whether existing translations should be updated with the file content. (optional)
-     * @param  bool $update_descriptions Existing key descriptions will be updated with the file content. Empty descriptions overwrite existing descriptions. (optional)
-     * @param  bool $convert_emoji This option is obsolete. Providing the option will cause a bad request error. (optional)
-     * @param  bool $skip_upload_tags Indicates whether the upload should not create upload tags. (optional)
-     * @param  bool $skip_unverification Indicates whether the upload should unverify updated translations. (optional)
-     * @param  string $file_encoding Enforces a specific encoding on the file contents. Valid options are \\\&quot;UTF-8\\\&quot;, \\\&quot;UTF-16\\\&quot; and \\\&quot;ISO-8859-1\\\&quot;. (optional)
-     * @param  object $locale_mapping Optional, format specific mapping between locale names and the columns the translations to those locales are contained in. (optional)
-     * @param  object $format_options Additional options available for specific formats. See our format guide for complete list. (optional)
-     * @param  bool $autotranslate If set, translations for the uploaded language will be fetched automatically. (optional)
-     * @param  bool $mark_reviewed Indicated whether the imported translations should be marked as reviewed. This setting is available if the review workflow (currently beta) is enabled for the project. (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Phrase\Model\Upload
      */
-    public function uploadCreate($project_id, $x_phrase_app_otp = null, $branch = null, $file = null, $file_format = null, $locale_id = null, $tags = null, $update_translations = null, $update_descriptions = null, $convert_emoji = null, $skip_upload_tags = null, $skip_unverification = null, $file_encoding = null, $locale_mapping = null, $format_options = null, $autotranslate = null, $mark_reviewed = null)
+    public function uploadCreate($project_id, $upload_create_parameters, $x_phrase_app_otp = null)
     {
-        list($response) = $this->uploadCreateWithHttpInfo($project_id, $x_phrase_app_otp, $branch, $file, $file_format, $locale_id, $tags, $update_translations, $update_descriptions, $convert_emoji, $skip_upload_tags, $skip_unverification, $file_encoding, $locale_mapping, $format_options, $autotranslate, $mark_reviewed);
+        list($response) = $this->uploadCreateWithHttpInfo($project_id, $upload_create_parameters, $x_phrase_app_otp);
         return $response;
     }
 
@@ -152,30 +138,16 @@ class UploadsApi
      * Upload a new file
      *
      * @param  string $project_id Project ID (required)
+     * @param  \Phrase\Model\UploadCreateParameters $upload_create_parameters (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
-     * @param  string $branch specify the branch to use (optional)
-     * @param  \SplFileObject $file File to be imported (optional)
-     * @param  string $file_format File format. Auto-detected when possible and not specified. See the [format guide](https://help.phrase.com/help/supported-platforms-and-formats) for all supported file formats. (optional)
-     * @param  string $locale_id Locale of the file&#39;s content. Can be the name or public id of the locale. Preferred is the public id. (optional)
-     * @param  string $tags List of tags separated by comma to be associated with the new keys contained in the upload. (optional)
-     * @param  bool $update_translations Indicates whether existing translations should be updated with the file content. (optional)
-     * @param  bool $update_descriptions Existing key descriptions will be updated with the file content. Empty descriptions overwrite existing descriptions. (optional)
-     * @param  bool $convert_emoji This option is obsolete. Providing the option will cause a bad request error. (optional)
-     * @param  bool $skip_upload_tags Indicates whether the upload should not create upload tags. (optional)
-     * @param  bool $skip_unverification Indicates whether the upload should unverify updated translations. (optional)
-     * @param  string $file_encoding Enforces a specific encoding on the file contents. Valid options are \\\&quot;UTF-8\\\&quot;, \\\&quot;UTF-16\\\&quot; and \\\&quot;ISO-8859-1\\\&quot;. (optional)
-     * @param  object $locale_mapping Optional, format specific mapping between locale names and the columns the translations to those locales are contained in. (optional)
-     * @param  object $format_options Additional options available for specific formats. See our format guide for complete list. (optional)
-     * @param  bool $autotranslate If set, translations for the uploaded language will be fetched automatically. (optional)
-     * @param  bool $mark_reviewed Indicated whether the imported translations should be marked as reviewed. This setting is available if the review workflow (currently beta) is enabled for the project. (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Phrase\Model\Upload, HTTP status code, HTTP response headers (array of strings)
      */
-    public function uploadCreateWithHttpInfo($project_id, $x_phrase_app_otp = null, $branch = null, $file = null, $file_format = null, $locale_id = null, $tags = null, $update_translations = null, $update_descriptions = null, $convert_emoji = null, $skip_upload_tags = null, $skip_unverification = null, $file_encoding = null, $locale_mapping = null, $format_options = null, $autotranslate = null, $mark_reviewed = null)
+    public function uploadCreateWithHttpInfo($project_id, $upload_create_parameters, $x_phrase_app_otp = null)
     {
-        $request = $this->uploadCreateRequest($project_id, $x_phrase_app_otp, $branch, $file, $file_format, $locale_id, $tags, $update_translations, $update_descriptions, $convert_emoji, $skip_upload_tags, $skip_unverification, $file_encoding, $locale_mapping, $format_options, $autotranslate, $mark_reviewed);
+        $request = $this->uploadCreateRequest($project_id, $upload_create_parameters, $x_phrase_app_otp);
 
         try {
             $options = $this->createHttpClientOption();
@@ -256,29 +228,15 @@ class UploadsApi
      * Upload a new file
      *
      * @param  string $project_id Project ID (required)
+     * @param  \Phrase\Model\UploadCreateParameters $upload_create_parameters (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
-     * @param  string $branch specify the branch to use (optional)
-     * @param  \SplFileObject $file File to be imported (optional)
-     * @param  string $file_format File format. Auto-detected when possible and not specified. See the [format guide](https://help.phrase.com/help/supported-platforms-and-formats) for all supported file formats. (optional)
-     * @param  string $locale_id Locale of the file&#39;s content. Can be the name or public id of the locale. Preferred is the public id. (optional)
-     * @param  string $tags List of tags separated by comma to be associated with the new keys contained in the upload. (optional)
-     * @param  bool $update_translations Indicates whether existing translations should be updated with the file content. (optional)
-     * @param  bool $update_descriptions Existing key descriptions will be updated with the file content. Empty descriptions overwrite existing descriptions. (optional)
-     * @param  bool $convert_emoji This option is obsolete. Providing the option will cause a bad request error. (optional)
-     * @param  bool $skip_upload_tags Indicates whether the upload should not create upload tags. (optional)
-     * @param  bool $skip_unverification Indicates whether the upload should unverify updated translations. (optional)
-     * @param  string $file_encoding Enforces a specific encoding on the file contents. Valid options are \\\&quot;UTF-8\\\&quot;, \\\&quot;UTF-16\\\&quot; and \\\&quot;ISO-8859-1\\\&quot;. (optional)
-     * @param  object $locale_mapping Optional, format specific mapping between locale names and the columns the translations to those locales are contained in. (optional)
-     * @param  object $format_options Additional options available for specific formats. See our format guide for complete list. (optional)
-     * @param  bool $autotranslate If set, translations for the uploaded language will be fetched automatically. (optional)
-     * @param  bool $mark_reviewed Indicated whether the imported translations should be marked as reviewed. This setting is available if the review workflow (currently beta) is enabled for the project. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function uploadCreateAsync($project_id, $x_phrase_app_otp = null, $branch = null, $file = null, $file_format = null, $locale_id = null, $tags = null, $update_translations = null, $update_descriptions = null, $convert_emoji = null, $skip_upload_tags = null, $skip_unverification = null, $file_encoding = null, $locale_mapping = null, $format_options = null, $autotranslate = null, $mark_reviewed = null)
+    public function uploadCreateAsync($project_id, $upload_create_parameters, $x_phrase_app_otp = null)
     {
-        return $this->uploadCreateAsyncWithHttpInfo($project_id, $x_phrase_app_otp, $branch, $file, $file_format, $locale_id, $tags, $update_translations, $update_descriptions, $convert_emoji, $skip_upload_tags, $skip_unverification, $file_encoding, $locale_mapping, $format_options, $autotranslate, $mark_reviewed)
+        return $this->uploadCreateAsyncWithHttpInfo($project_id, $upload_create_parameters, $x_phrase_app_otp)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -292,30 +250,16 @@ class UploadsApi
      * Upload a new file
      *
      * @param  string $project_id Project ID (required)
+     * @param  \Phrase\Model\UploadCreateParameters $upload_create_parameters (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
-     * @param  string $branch specify the branch to use (optional)
-     * @param  \SplFileObject $file File to be imported (optional)
-     * @param  string $file_format File format. Auto-detected when possible and not specified. See the [format guide](https://help.phrase.com/help/supported-platforms-and-formats) for all supported file formats. (optional)
-     * @param  string $locale_id Locale of the file&#39;s content. Can be the name or public id of the locale. Preferred is the public id. (optional)
-     * @param  string $tags List of tags separated by comma to be associated with the new keys contained in the upload. (optional)
-     * @param  bool $update_translations Indicates whether existing translations should be updated with the file content. (optional)
-     * @param  bool $update_descriptions Existing key descriptions will be updated with the file content. Empty descriptions overwrite existing descriptions. (optional)
-     * @param  bool $convert_emoji This option is obsolete. Providing the option will cause a bad request error. (optional)
-     * @param  bool $skip_upload_tags Indicates whether the upload should not create upload tags. (optional)
-     * @param  bool $skip_unverification Indicates whether the upload should unverify updated translations. (optional)
-     * @param  string $file_encoding Enforces a specific encoding on the file contents. Valid options are \\\&quot;UTF-8\\\&quot;, \\\&quot;UTF-16\\\&quot; and \\\&quot;ISO-8859-1\\\&quot;. (optional)
-     * @param  object $locale_mapping Optional, format specific mapping between locale names and the columns the translations to those locales are contained in. (optional)
-     * @param  object $format_options Additional options available for specific formats. See our format guide for complete list. (optional)
-     * @param  bool $autotranslate If set, translations for the uploaded language will be fetched automatically. (optional)
-     * @param  bool $mark_reviewed Indicated whether the imported translations should be marked as reviewed. This setting is available if the review workflow (currently beta) is enabled for the project. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function uploadCreateAsyncWithHttpInfo($project_id, $x_phrase_app_otp = null, $branch = null, $file = null, $file_format = null, $locale_id = null, $tags = null, $update_translations = null, $update_descriptions = null, $convert_emoji = null, $skip_upload_tags = null, $skip_unverification = null, $file_encoding = null, $locale_mapping = null, $format_options = null, $autotranslate = null, $mark_reviewed = null)
+    public function uploadCreateAsyncWithHttpInfo($project_id, $upload_create_parameters, $x_phrase_app_otp = null)
     {
         $returnType = '\Phrase\Model\Upload';
-        $request = $this->uploadCreateRequest($project_id, $x_phrase_app_otp, $branch, $file, $file_format, $locale_id, $tags, $update_translations, $update_descriptions, $convert_emoji, $skip_upload_tags, $skip_unverification, $file_encoding, $locale_mapping, $format_options, $autotranslate, $mark_reviewed);
+        $request = $this->uploadCreateRequest($project_id, $upload_create_parameters, $x_phrase_app_otp);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -355,32 +299,24 @@ class UploadsApi
      * Create request for operation 'uploadCreate'
      *
      * @param  string $project_id Project ID (required)
+     * @param  \Phrase\Model\UploadCreateParameters $upload_create_parameters (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
-     * @param  string $branch specify the branch to use (optional)
-     * @param  \SplFileObject $file File to be imported (optional)
-     * @param  string $file_format File format. Auto-detected when possible and not specified. See the [format guide](https://help.phrase.com/help/supported-platforms-and-formats) for all supported file formats. (optional)
-     * @param  string $locale_id Locale of the file&#39;s content. Can be the name or public id of the locale. Preferred is the public id. (optional)
-     * @param  string $tags List of tags separated by comma to be associated with the new keys contained in the upload. (optional)
-     * @param  bool $update_translations Indicates whether existing translations should be updated with the file content. (optional)
-     * @param  bool $update_descriptions Existing key descriptions will be updated with the file content. Empty descriptions overwrite existing descriptions. (optional)
-     * @param  bool $convert_emoji This option is obsolete. Providing the option will cause a bad request error. (optional)
-     * @param  bool $skip_upload_tags Indicates whether the upload should not create upload tags. (optional)
-     * @param  bool $skip_unverification Indicates whether the upload should unverify updated translations. (optional)
-     * @param  string $file_encoding Enforces a specific encoding on the file contents. Valid options are \\\&quot;UTF-8\\\&quot;, \\\&quot;UTF-16\\\&quot; and \\\&quot;ISO-8859-1\\\&quot;. (optional)
-     * @param  object $locale_mapping Optional, format specific mapping between locale names and the columns the translations to those locales are contained in. (optional)
-     * @param  object $format_options Additional options available for specific formats. See our format guide for complete list. (optional)
-     * @param  bool $autotranslate If set, translations for the uploaded language will be fetched automatically. (optional)
-     * @param  bool $mark_reviewed Indicated whether the imported translations should be marked as reviewed. This setting is available if the review workflow (currently beta) is enabled for the project. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function uploadCreateRequest($project_id, $x_phrase_app_otp = null, $branch = null, $file = null, $file_format = null, $locale_id = null, $tags = null, $update_translations = null, $update_descriptions = null, $convert_emoji = null, $skip_upload_tags = null, $skip_unverification = null, $file_encoding = null, $locale_mapping = null, $format_options = null, $autotranslate = null, $mark_reviewed = null)
+    protected function uploadCreateRequest($project_id, $upload_create_parameters, $x_phrase_app_otp = null)
     {
         // verify the required parameter 'project_id' is set
         if ($project_id === null || (is_array($project_id) && count($project_id) === 0)) {
             throw new \InvalidArgumentException(
                 'Missing the required parameter $project_id when calling uploadCreate'
+            );
+        }
+        // verify the required parameter 'upload_create_parameters' is set
+        if ($upload_create_parameters === null || (is_array($upload_create_parameters) && count($upload_create_parameters) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $upload_create_parameters when calling uploadCreate'
             );
         }
 
@@ -406,69 +342,11 @@ class UploadsApi
             );
         }
 
-        // form params
-        if ($branch !== null) {
-            $formParams['branch'] = ObjectSerializer::toFormValue($branch);
-        }
-        // form params
-        if ($file !== null) {
-            $multipart = true;
-            $formParams['file'] = \GuzzleHttp\Psr7\try_fopen(ObjectSerializer::toFormValue($file), 'rb');
-        }
-        // form params
-        if ($file_format !== null) {
-            $formParams['file_format'] = ObjectSerializer::toFormValue($file_format);
-        }
-        // form params
-        if ($locale_id !== null) {
-            $formParams['locale_id'] = ObjectSerializer::toFormValue($locale_id);
-        }
-        // form params
-        if ($tags !== null) {
-            $formParams['tags'] = ObjectSerializer::toFormValue($tags);
-        }
-        // form params
-        if ($update_translations !== null) {
-            $formParams['update_translations'] = ObjectSerializer::toFormValue($update_translations);
-        }
-        // form params
-        if ($update_descriptions !== null) {
-            $formParams['update_descriptions'] = ObjectSerializer::toFormValue($update_descriptions);
-        }
-        // form params
-        if ($convert_emoji !== null) {
-            $formParams['convert_emoji'] = ObjectSerializer::toFormValue($convert_emoji);
-        }
-        // form params
-        if ($skip_upload_tags !== null) {
-            $formParams['skip_upload_tags'] = ObjectSerializer::toFormValue($skip_upload_tags);
-        }
-        // form params
-        if ($skip_unverification !== null) {
-            $formParams['skip_unverification'] = ObjectSerializer::toFormValue($skip_unverification);
-        }
-        // form params
-        if ($file_encoding !== null) {
-            $formParams['file_encoding'] = ObjectSerializer::toFormValue($file_encoding);
-        }
-        // form params
-        if ($locale_mapping !== null) {
-            $formParams['locale_mapping'] = ObjectSerializer::toFormValue($locale_mapping);
-        }
-        // form params
-        if ($format_options !== null) {
-            $formParams['format_options'] = ObjectSerializer::toFormValue($format_options);
-        }
-        // form params
-        if ($autotranslate !== null) {
-            $formParams['autotranslate'] = ObjectSerializer::toFormValue($autotranslate);
-        }
-        // form params
-        if ($mark_reviewed !== null) {
-            $formParams['mark_reviewed'] = ObjectSerializer::toFormValue($mark_reviewed);
-        }
         // body params
         $_tempBody = null;
+        if (isset($upload_create_parameters)) {
+            $_tempBody = $upload_create_parameters;
+        }
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
@@ -477,7 +355,7 @@ class UploadsApi
         } else {
             $headers = $this->headerSelector->selectHeaders(
                 ['application/json'],
-                ['multipart/form-data']
+                ['application/json']
             );
         }
 
