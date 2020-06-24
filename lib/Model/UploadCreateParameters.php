@@ -66,8 +66,8 @@ class UploadCreateParameters implements ModelInterface, ArrayAccess
         'skip_upload_tags' => 'bool',
         'skip_unverification' => 'bool',
         'file_encoding' => 'string',
-        'locale_mapping' => 'map[string,string]',
-        'format_options' => 'map[string,string]',
+        'locale_mapping' => 'object',
+        'format_options' => 'object',
         'autotranslate' => 'bool',
         'mark_reviewed' => 'bool'
     ];
@@ -553,7 +553,7 @@ class UploadCreateParameters implements ModelInterface, ArrayAccess
     /**
      * Gets locale_mapping
      *
-     * @return map[string,string]|null
+     * @return object|null
      */
     public function getLocaleMapping()
     {
@@ -563,7 +563,7 @@ class UploadCreateParameters implements ModelInterface, ArrayAccess
     /**
      * Sets locale_mapping
      *
-     * @param map[string,string]|null $locale_mapping Optional, format specific mapping between locale names and the columns the translations to those locales are contained in.
+     * @param object|null $locale_mapping Optional, format specific mapping between locale names and the columns the translations to those locales are contained in.
      *
      * @return $this
      */
@@ -577,7 +577,7 @@ class UploadCreateParameters implements ModelInterface, ArrayAccess
     /**
      * Gets format_options
      *
-     * @return map[string,string]|null
+     * @return object|null
      */
     public function getFormatOptions()
     {
@@ -587,7 +587,7 @@ class UploadCreateParameters implements ModelInterface, ArrayAccess
     /**
      * Sets format_options
      *
-     * @param map[string,string]|null $format_options Additional options available for specific formats. See our format guide for complete list.
+     * @param object|null $format_options Additional options available for specific formats. See our format guide for complete list.
      *
      * @return $this
      */
