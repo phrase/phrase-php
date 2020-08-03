@@ -60,7 +60,8 @@ class ProjectCreateParameters implements ModelInterface, ArrayAccess
         'shares_translation_memory' => 'bool',
         'project_image' => '\SplFileObject',
         'remove_project_image' => 'bool',
-        'account_id' => 'string'
+        'account_id' => 'string',
+        'source_project_id' => 'string'
     ];
 
     /**
@@ -74,7 +75,8 @@ class ProjectCreateParameters implements ModelInterface, ArrayAccess
         'shares_translation_memory' => null,
         'project_image' => 'binary',
         'remove_project_image' => null,
-        'account_id' => null
+        'account_id' => null,
+        'source_project_id' => null
     ];
 
     /**
@@ -109,7 +111,8 @@ class ProjectCreateParameters implements ModelInterface, ArrayAccess
         'shares_translation_memory' => 'shares_translation_memory',
         'project_image' => 'project_image',
         'remove_project_image' => 'remove_project_image',
-        'account_id' => 'account_id'
+        'account_id' => 'account_id',
+        'source_project_id' => 'source_project_id'
     ];
 
     /**
@@ -123,7 +126,8 @@ class ProjectCreateParameters implements ModelInterface, ArrayAccess
         'shares_translation_memory' => 'setSharesTranslationMemory',
         'project_image' => 'setProjectImage',
         'remove_project_image' => 'setRemoveProjectImage',
-        'account_id' => 'setAccountId'
+        'account_id' => 'setAccountId',
+        'source_project_id' => 'setSourceProjectId'
     ];
 
     /**
@@ -137,7 +141,8 @@ class ProjectCreateParameters implements ModelInterface, ArrayAccess
         'shares_translation_memory' => 'getSharesTranslationMemory',
         'project_image' => 'getProjectImage',
         'remove_project_image' => 'getRemoveProjectImage',
-        'account_id' => 'getAccountId'
+        'account_id' => 'getAccountId',
+        'source_project_id' => 'getSourceProjectId'
     ];
 
     /**
@@ -206,6 +211,7 @@ class ProjectCreateParameters implements ModelInterface, ArrayAccess
         $this->container['project_image'] = isset($data['project_image']) ? $data['project_image'] : null;
         $this->container['remove_project_image'] = isset($data['remove_project_image']) ? $data['remove_project_image'] : null;
         $this->container['account_id'] = isset($data['account_id']) ? $data['account_id'] : null;
+        $this->container['source_project_id'] = isset($data['source_project_id']) ? $data['source_project_id'] : null;
     }
 
     /**
@@ -372,6 +378,30 @@ class ProjectCreateParameters implements ModelInterface, ArrayAccess
     public function setAccountId($account_id)
     {
         $this->container['account_id'] = $account_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets source_project_id
+     *
+     * @return string|null
+     */
+    public function getSourceProjectId()
+    {
+        return $this->container['source_project_id'];
+    }
+
+    /**
+     * Sets source_project_id
+     *
+     * @param string|null $source_project_id When a source project ID is given, a clone of that project will be created, including all locales, keys and translations as well as the main project settings if they are not defined otherwise through the params.
+     *
+     * @return $this
+     */
+    public function setSourceProjectId($source_project_id)
+    {
+        $this->container['source_project_id'] = $source_project_id;
 
         return $this;
     }

@@ -117,4 +117,11 @@ class ProjectCreateParametersTest extends TestCase
     public function testPropertyAccountId()
     {
     }
+
+    /**
+     * Test attribute "source_project_id"
+     */
+    public function testPropertySourceProjectId()
+    {
+    }
 }
