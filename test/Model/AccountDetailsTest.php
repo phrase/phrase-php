@@ -91,6 +91,13 @@ class AccountDetailsTest extends TestCase
     }
 
     /**
+     * Test attribute "slug"
+     */
+    public function testPropertySlug()
+    {
+    }
+
+    /**
      * Test attribute "company"
      */
     public function testPropertyCompany()
@@ -108,13 +115,6 @@ class AccountDetailsTest extends TestCase
      * Test attribute "updated_at"
      */
     public function testPropertyUpdatedAt()
-    {
-    }
-
-    /**
-     * Test attribute "slug"
-     */
-    public function testPropertySlug()
     {
     }
 }

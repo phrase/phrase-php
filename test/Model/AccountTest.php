@@ -91,6 +91,13 @@ class AccountTest extends TestCase
     }
 
     /**
+     * Test attribute "slug"
+     */
+    public function testPropertySlug()
+    {
+    }
+
+    /**
      * Test attribute "company"
      */
     public function testPropertyCompany()

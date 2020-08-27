@@ -57,6 +57,7 @@ class Account implements ModelInterface, ArrayAccess
     protected static $openAPITypes = [
         'id' => 'string',
         'name' => 'string',
+        'slug' => 'string',
         'company' => 'string',
         'created_at' => '\DateTime',
         'updated_at' => '\DateTime'
@@ -70,6 +71,7 @@ class Account implements ModelInterface, ArrayAccess
     protected static $openAPIFormats = [
         'id' => null,
         'name' => null,
+        'slug' => null,
         'company' => null,
         'created_at' => 'date-time',
         'updated_at' => 'date-time'
@@ -104,6 +106,7 @@ class Account implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'id' => 'id',
         'name' => 'name',
+        'slug' => 'slug',
         'company' => 'company',
         'created_at' => 'created_at',
         'updated_at' => 'updated_at'
@@ -117,6 +120,7 @@ class Account implements ModelInterface, ArrayAccess
     protected static $setters = [
         'id' => 'setId',
         'name' => 'setName',
+        'slug' => 'setSlug',
         'company' => 'setCompany',
         'created_at' => 'setCreatedAt',
         'updated_at' => 'setUpdatedAt'
@@ -130,6 +134,7 @@ class Account implements ModelInterface, ArrayAccess
     protected static $getters = [
         'id' => 'getId',
         'name' => 'getName',
+        'slug' => 'getSlug',
         'company' => 'getCompany',
         'created_at' => 'getCreatedAt',
         'updated_at' => 'getUpdatedAt'
@@ -197,6 +202,7 @@ class Account implements ModelInterface, ArrayAccess
     {
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['slug'] = isset($data['slug']) ? $data['slug'] : null;
         $this->container['company'] = isset($data['company']) ? $data['company'] : null;
         $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
         $this->container['updated_at'] = isset($data['updated_at']) ? $data['updated_at'] : null;
@@ -270,6 +276,30 @@ class Account implements ModelInterface, ArrayAccess
     public function setName($name)
     {
         $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets slug
+     *
+     * @return string|null
+     */
+    public function getSlug()
+    {
+        return $this->container['slug'];
+    }
+
+    /**
+     * Sets slug
+     *
+     * @param string|null $slug slug
+     *
+     * @return $this
+     */
+    public function setSlug($slug)
+    {
+        $this->container['slug'] = $slug;
 
         return $this;
     }

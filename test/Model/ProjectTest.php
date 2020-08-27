@@ -91,6 +91,13 @@ class ProjectTest extends TestCase
     }
 
     /**
+     * Test attribute "slug"
+     */
+    public function testPropertySlug()
+    {
+    }
+
+    /**
      * Test attribute "main_format"
      */
     public function testPropertyMainFormat()

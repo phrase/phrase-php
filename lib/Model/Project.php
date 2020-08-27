@@ -57,6 +57,7 @@ class Project implements ModelInterface, ArrayAccess
     protected static $openAPITypes = [
         'id' => 'string',
         'name' => 'string',
+        'slug' => 'string',
         'main_format' => 'string',
         'project_image_url' => 'string',
         'account' => '\Phrase\Model\Account',
@@ -72,6 +73,7 @@ class Project implements ModelInterface, ArrayAccess
     protected static $openAPIFormats = [
         'id' => null,
         'name' => null,
+        'slug' => null,
         'main_format' => null,
         'project_image_url' => null,
         'account' => null,
@@ -108,6 +110,7 @@ class Project implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'id' => 'id',
         'name' => 'name',
+        'slug' => 'slug',
         'main_format' => 'main_format',
         'project_image_url' => 'project_image_url',
         'account' => 'account',
@@ -123,6 +126,7 @@ class Project implements ModelInterface, ArrayAccess
     protected static $setters = [
         'id' => 'setId',
         'name' => 'setName',
+        'slug' => 'setSlug',
         'main_format' => 'setMainFormat',
         'project_image_url' => 'setProjectImageUrl',
         'account' => 'setAccount',
@@ -138,6 +142,7 @@ class Project implements ModelInterface, ArrayAccess
     protected static $getters = [
         'id' => 'getId',
         'name' => 'getName',
+        'slug' => 'getSlug',
         'main_format' => 'getMainFormat',
         'project_image_url' => 'getProjectImageUrl',
         'account' => 'getAccount',
@@ -207,6 +212,7 @@ class Project implements ModelInterface, ArrayAccess
     {
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['slug'] = isset($data['slug']) ? $data['slug'] : null;
         $this->container['main_format'] = isset($data['main_format']) ? $data['main_format'] : null;
         $this->container['project_image_url'] = isset($data['project_image_url']) ? $data['project_image_url'] : null;
         $this->container['account'] = isset($data['account']) ? $data['account'] : null;
@@ -282,6 +288,30 @@ class Project implements ModelInterface, ArrayAccess
     public function setName($name)
     {
         $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets slug
+     *
+     * @return string|null
+     */
+    public function getSlug()
+    {
+        return $this->container['slug'];
+    }
+
+    /**
+     * Sets slug
+     *
+     * @param string|null $slug slug
+     *
+     * @return $this
+     */
+    public function setSlug($slug)
+    {
+        $this->container['slug'] = $slug;
 
         return $this;
     }

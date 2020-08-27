@@ -57,12 +57,12 @@ class ProjectDetails implements ModelInterface, ArrayAccess
     protected static $openAPITypes = [
         'id' => 'string',
         'name' => 'string',
+        'slug' => 'string',
         'main_format' => 'string',
         'project_image_url' => 'string',
         'account' => '\Phrase\Model\Account',
         'created_at' => '\DateTime',
         'updated_at' => '\DateTime',
-        'slug' => 'string',
         'shares_translation_memory' => 'bool'
     ];
 
@@ -74,12 +74,12 @@ class ProjectDetails implements ModelInterface, ArrayAccess
     protected static $openAPIFormats = [
         'id' => null,
         'name' => null,
+        'slug' => null,
         'main_format' => null,
         'project_image_url' => null,
         'account' => null,
         'created_at' => 'date-time',
         'updated_at' => 'date-time',
-        'slug' => null,
         'shares_translation_memory' => null
     ];
 
@@ -112,12 +112,12 @@ class ProjectDetails implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'id' => 'id',
         'name' => 'name',
+        'slug' => 'slug',
         'main_format' => 'main_format',
         'project_image_url' => 'project_image_url',
         'account' => 'account',
         'created_at' => 'created_at',
         'updated_at' => 'updated_at',
-        'slug' => 'slug',
         'shares_translation_memory' => 'shares_translation_memory'
     ];
 
@@ -129,12 +129,12 @@ class ProjectDetails implements ModelInterface, ArrayAccess
     protected static $setters = [
         'id' => 'setId',
         'name' => 'setName',
+        'slug' => 'setSlug',
         'main_format' => 'setMainFormat',
         'project_image_url' => 'setProjectImageUrl',
         'account' => 'setAccount',
         'created_at' => 'setCreatedAt',
         'updated_at' => 'setUpdatedAt',
-        'slug' => 'setSlug',
         'shares_translation_memory' => 'setSharesTranslationMemory'
     ];
 
@@ -146,12 +146,12 @@ class ProjectDetails implements ModelInterface, ArrayAccess
     protected static $getters = [
         'id' => 'getId',
         'name' => 'getName',
+        'slug' => 'getSlug',
         'main_format' => 'getMainFormat',
         'project_image_url' => 'getProjectImageUrl',
         'account' => 'getAccount',
         'created_at' => 'getCreatedAt',
         'updated_at' => 'getUpdatedAt',
-        'slug' => 'getSlug',
         'shares_translation_memory' => 'getSharesTranslationMemory'
     ];
 
@@ -217,12 +217,12 @@ class ProjectDetails implements ModelInterface, ArrayAccess
     {
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['slug'] = isset($data['slug']) ? $data['slug'] : null;
         $this->container['main_format'] = isset($data['main_format']) ? $data['main_format'] : null;
         $this->container['project_image_url'] = isset($data['project_image_url']) ? $data['project_image_url'] : null;
         $this->container['account'] = isset($data['account']) ? $data['account'] : null;
         $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
         $this->container['updated_at'] = isset($data['updated_at']) ? $data['updated_at'] : null;
-        $this->container['slug'] = isset($data['slug']) ? $data['slug'] : null;
         $this->container['shares_translation_memory'] = isset($data['shares_translation_memory']) ? $data['shares_translation_memory'] : null;
     }
 
@@ -294,6 +294,30 @@ class ProjectDetails implements ModelInterface, ArrayAccess
     public function setName($name)
     {
         $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets slug
+     *
+     * @return string|null
+     */
+    public function getSlug()
+    {
+        return $this->container['slug'];
+    }
+
+    /**
+     * Sets slug
+     *
+     * @param string|null $slug slug
+     *
+     * @return $this
+     */
+    public function setSlug($slug)
+    {
+        $this->container['slug'] = $slug;
 
         return $this;
     }
@@ -414,30 +438,6 @@ class ProjectDetails implements ModelInterface, ArrayAccess
     public function setUpdatedAt($updated_at)
     {
         $this->container['updated_at'] = $updated_at;
-
-        return $this;
-    }
-
-    /**
-     * Gets slug
-     *
-     * @return string|null
-     */
-    public function getSlug()
-    {
-        return $this->container['slug'];
-    }
-
-    /**
-     * Sets slug
-     *
-     * @param string|null $slug slug
-     *
-     * @return $this
-     */
-    public function setSlug($slug)
-    {
-        $this->container['slug'] = $slug;
 
         return $this;
     }
