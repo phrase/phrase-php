@@ -267,7 +267,7 @@ Name | Type | Description  | Notes
 
 ## blacklistedKeysList
 
-> \Phrase\Model\BlacklistedKey[] blacklistedKeysList($project_id, $x_phrase_app_otp, $page, $per_page)
+> \Phrase\Model\BlacklistedKey[] blacklistedKeysList($project_id, $x_phrase_app_otp, $page, $per_page, $branch)
 
 List blacklisted keys
 
@@ -292,9 +292,10 @@ $project_id = 'project_id_example'; // string | Project ID
 $x_phrase_app_otp = 'x_phrase_app_otp_example'; // string | Two-Factor-Authentication token (optional)
 $page = 1; // int | Page number
 $per_page = 10; // int | allows you to specify a page size up to 100 items, 10 by default
+$branch = my-feature-branch; // string | specify the branch to use
 
 try {
-    $result = $apiInstance->blacklistedKeysList($project_id, $x_phrase_app_otp, $page, $per_page);
+    $result = $apiInstance->blacklistedKeysList($project_id, $x_phrase_app_otp, $page, $per_page, $branch);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling BlacklistedKeysApi->blacklistedKeysList: ', $e->getMessage(), PHP_EOL;
@@ -311,6 +312,7 @@ Name | Type | Description  | Notes
  **x_phrase_app_otp** | **string**| Two-Factor-Authentication token (optional) | [optional]
  **page** | **int**| Page number | [optional]
  **per_page** | **int**| allows you to specify a page size up to 100 items, 10 by default | [optional]
+ **branch** | **string**| specify the branch to use | [optional]
 
 ### Return type
 

@@ -1323,14 +1323,15 @@ class BlacklistedKeysApi
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  int $page Page number (optional)
      * @param  int $per_page allows you to specify a page size up to 100 items, 10 by default (optional)
+     * @param  string $branch specify the branch to use (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Phrase\Model\BlacklistedKey[]
      */
-    public function blacklistedKeysList($project_id, $x_phrase_app_otp = null, $page = null, $per_page = null)
+    public function blacklistedKeysList($project_id, $x_phrase_app_otp = null, $page = null, $per_page = null, $branch = null)
     {
-        list($response) = $this->blacklistedKeysListWithHttpInfo($project_id, $x_phrase_app_otp, $page, $per_page);
+        list($response) = $this->blacklistedKeysListWithHttpInfo($project_id, $x_phrase_app_otp, $page, $per_page, $branch);
         return $response;
     }
 
@@ -1343,14 +1344,15 @@ class BlacklistedKeysApi
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  int $page Page number (optional)
      * @param  int $per_page allows you to specify a page size up to 100 items, 10 by default (optional)
+     * @param  string $branch specify the branch to use (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Phrase\Model\BlacklistedKey[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function blacklistedKeysListWithHttpInfo($project_id, $x_phrase_app_otp = null, $page = null, $per_page = null)
+    public function blacklistedKeysListWithHttpInfo($project_id, $x_phrase_app_otp = null, $page = null, $per_page = null, $branch = null)
     {
-        $request = $this->blacklistedKeysListRequest($project_id, $x_phrase_app_otp, $page, $per_page);
+        $request = $this->blacklistedKeysListRequest($project_id, $x_phrase_app_otp, $page, $per_page, $branch);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1434,13 +1436,14 @@ class BlacklistedKeysApi
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  int $page Page number (optional)
      * @param  int $per_page allows you to specify a page size up to 100 items, 10 by default (optional)
+     * @param  string $branch specify the branch to use (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function blacklistedKeysListAsync($project_id, $x_phrase_app_otp = null, $page = null, $per_page = null)
+    public function blacklistedKeysListAsync($project_id, $x_phrase_app_otp = null, $page = null, $per_page = null, $branch = null)
     {
-        return $this->blacklistedKeysListAsyncWithHttpInfo($project_id, $x_phrase_app_otp, $page, $per_page)
+        return $this->blacklistedKeysListAsyncWithHttpInfo($project_id, $x_phrase_app_otp, $page, $per_page, $branch)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1457,14 +1460,15 @@ class BlacklistedKeysApi
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  int $page Page number (optional)
      * @param  int $per_page allows you to specify a page size up to 100 items, 10 by default (optional)
+     * @param  string $branch specify the branch to use (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function blacklistedKeysListAsyncWithHttpInfo($project_id, $x_phrase_app_otp = null, $page = null, $per_page = null)
+    public function blacklistedKeysListAsyncWithHttpInfo($project_id, $x_phrase_app_otp = null, $page = null, $per_page = null, $branch = null)
     {
         $returnType = '\Phrase\Model\BlacklistedKey[]';
-        $request = $this->blacklistedKeysListRequest($project_id, $x_phrase_app_otp, $page, $per_page);
+        $request = $this->blacklistedKeysListRequest($project_id, $x_phrase_app_otp, $page, $per_page, $branch);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1507,11 +1511,12 @@ class BlacklistedKeysApi
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  int $page Page number (optional)
      * @param  int $per_page allows you to specify a page size up to 100 items, 10 by default (optional)
+     * @param  string $branch specify the branch to use (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function blacklistedKeysListRequest($project_id, $x_phrase_app_otp = null, $page = null, $per_page = null)
+    protected function blacklistedKeysListRequest($project_id, $x_phrase_app_otp = null, $page = null, $per_page = null, $branch = null)
     {
         // verify the required parameter 'project_id' is set
         if ($project_id === null || (is_array($project_id) && count($project_id) === 0)) {
@@ -1547,6 +1552,17 @@ class BlacklistedKeysApi
             }
             else {
                 $queryParams['per_page'] = $per_page;
+            }
+        }
+        // query params
+        if ($branch !== null) {
+            if('form' === 'form' && is_array($branch)) {
+                foreach($branch as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['branch'] = $branch;
             }
         }
 
