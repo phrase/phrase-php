@@ -685,7 +685,7 @@ class GitLabSyncApi
      * @param  string $gitlab_sync_id Gitlab Sync ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  int $page Page number (optional)
-     * @param  int $per_page allows you to specify a page size up to 100 items, 10 by default (optional)
+     * @param  int $per_page allows you to specify a page size up to 100 items, 25 by default (optional)
      * @param  string $account_id Account ID to specify the actual account the GitLab Sync should be created in. Required if the requesting user is a member of multiple accounts. (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
@@ -706,7 +706,7 @@ class GitLabSyncApi
      * @param  string $gitlab_sync_id Gitlab Sync ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  int $page Page number (optional)
-     * @param  int $per_page allows you to specify a page size up to 100 items, 10 by default (optional)
+     * @param  int $per_page allows you to specify a page size up to 100 items, 25 by default (optional)
      * @param  string $account_id Account ID to specify the actual account the GitLab Sync should be created in. Required if the requesting user is a member of multiple accounts. (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
@@ -798,7 +798,7 @@ class GitLabSyncApi
      * @param  string $gitlab_sync_id Gitlab Sync ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  int $page Page number (optional)
-     * @param  int $per_page allows you to specify a page size up to 100 items, 10 by default (optional)
+     * @param  int $per_page allows you to specify a page size up to 100 items, 25 by default (optional)
      * @param  string $account_id Account ID to specify the actual account the GitLab Sync should be created in. Required if the requesting user is a member of multiple accounts. (optional)
      *
      * @throws \InvalidArgumentException
@@ -822,7 +822,7 @@ class GitLabSyncApi
      * @param  string $gitlab_sync_id Gitlab Sync ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  int $page Page number (optional)
-     * @param  int $per_page allows you to specify a page size up to 100 items, 10 by default (optional)
+     * @param  int $per_page allows you to specify a page size up to 100 items, 25 by default (optional)
      * @param  string $account_id Account ID to specify the actual account the GitLab Sync should be created in. Required if the requesting user is a member of multiple accounts. (optional)
      *
      * @throws \InvalidArgumentException
@@ -873,7 +873,7 @@ class GitLabSyncApi
      * @param  string $gitlab_sync_id Gitlab Sync ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  int $page Page number (optional)
-     * @param  int $per_page allows you to specify a page size up to 100 items, 10 by default (optional)
+     * @param  int $per_page allows you to specify a page size up to 100 items, 25 by default (optional)
      * @param  string $account_id Account ID to specify the actual account the GitLab Sync should be created in. Required if the requesting user is a member of multiple accounts. (optional)
      *
      * @throws \InvalidArgumentException

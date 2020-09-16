@@ -165,7 +165,7 @@ $apiInstance = new Phrase\Api\GitLabSyncApi(
 $gitlab_sync_id = 'gitlab_sync_id_example'; // string | Gitlab Sync ID
 $x_phrase_app_otp = 'x_phrase_app_otp_example'; // string | Two-Factor-Authentication token (optional)
 $page = 1; // int | Page number
-$per_page = 10; // int | allows you to specify a page size up to 100 items, 10 by default
+$per_page = 25; // int | allows you to specify a page size up to 100 items, 25 by default
 $account_id = abcd1234; // string | Account ID to specify the actual account the GitLab Sync should be created in. Required if the requesting user is a member of multiple accounts.
 
 try {
@@ -185,7 +185,7 @@ Name | Type | Description  | Notes
  **gitlab_sync_id** | **string**| Gitlab Sync ID |
  **x_phrase_app_otp** | **string**| Two-Factor-Authentication token (optional) | [optional]
  **page** | **int**| Page number | [optional]
- **per_page** | **int**| allows you to specify a page size up to 100 items, 10 by default | [optional]
+ **per_page** | **int**| allows you to specify a page size up to 100 items, 25 by default | [optional]
  **account_id** | **string**| Account ID to specify the actual account the GitLab Sync should be created in. Required if the requesting user is a member of multiple accounts. | [optional]
 
 ### Return type
