@@ -1728,7 +1728,7 @@ class ReleasesApi
      * @param  string $distribution_id Distribution ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  int $page Page number (optional)
-     * @param  int $per_page allows you to specify a page size up to 100 items, 10 by default (optional)
+     * @param  int $per_page allows you to specify a page size up to 100 items, 25 by default (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1749,7 +1749,7 @@ class ReleasesApi
      * @param  string $distribution_id Distribution ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  int $page Page number (optional)
-     * @param  int $per_page allows you to specify a page size up to 100 items, 10 by default (optional)
+     * @param  int $per_page allows you to specify a page size up to 100 items, 25 by default (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1841,7 +1841,7 @@ class ReleasesApi
      * @param  string $distribution_id Distribution ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  int $page Page number (optional)
-     * @param  int $per_page allows you to specify a page size up to 100 items, 10 by default (optional)
+     * @param  int $per_page allows you to specify a page size up to 100 items, 25 by default (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1865,7 +1865,7 @@ class ReleasesApi
      * @param  string $distribution_id Distribution ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  int $page Page number (optional)
-     * @param  int $per_page allows you to specify a page size up to 100 items, 10 by default (optional)
+     * @param  int $per_page allows you to specify a page size up to 100 items, 25 by default (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1916,7 +1916,7 @@ class ReleasesApi
      * @param  string $distribution_id Distribution ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  int $page Page number (optional)
-     * @param  int $per_page allows you to specify a page size up to 100 items, 10 by default (optional)
+     * @param  int $per_page allows you to specify a page size up to 100 items, 25 by default (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request

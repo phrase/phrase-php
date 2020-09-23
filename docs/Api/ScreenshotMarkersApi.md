@@ -296,7 +296,7 @@ $project_id = 'project_id_example'; // string | Project ID
 $id = 'id_example'; // string | ID
 $x_phrase_app_otp = 'x_phrase_app_otp_example'; // string | Two-Factor-Authentication token (optional)
 $page = 1; // int | Page number
-$per_page = 10; // int | allows you to specify a page size up to 100 items, 10 by default
+$per_page = 25; // int | allows you to specify a page size up to 100 items, 25 by default
 
 try {
     $result = $apiInstance->screenshotMarkersList($project_id, $id, $x_phrase_app_otp, $page, $per_page);
@@ -316,7 +316,7 @@ Name | Type | Description  | Notes
  **id** | **string**| ID |
  **x_phrase_app_otp** | **string**| Two-Factor-Authentication token (optional) | [optional]
  **page** | **int**| Page number | [optional]
- **per_page** | **int**| allows you to specify a page size up to 100 items, 10 by default | [optional]
+ **per_page** | **int**| allows you to specify a page size up to 100 items, 25 by default | [optional]
 
 ### Return type
 

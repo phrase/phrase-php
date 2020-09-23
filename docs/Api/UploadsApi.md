@@ -192,7 +192,7 @@ $apiInstance = new Phrase\Api\UploadsApi(
 $project_id = 'project_id_example'; // string | Project ID
 $x_phrase_app_otp = 'x_phrase_app_otp_example'; // string | Two-Factor-Authentication token (optional)
 $page = 1; // int | Page number
-$per_page = 10; // int | allows you to specify a page size up to 100 items, 10 by default
+$per_page = 25; // int | allows you to specify a page size up to 100 items, 25 by default
 $branch = my-feature-branch; // string | specify the branch to use
 
 try {
@@ -212,7 +212,7 @@ Name | Type | Description  | Notes
  **project_id** | **string**| Project ID |
  **x_phrase_app_otp** | **string**| Two-Factor-Authentication token (optional) | [optional]
  **page** | **int**| Page number | [optional]
- **per_page** | **int**| allows you to specify a page size up to 100 items, 10 by default | [optional]
+ **per_page** | **int**| allows you to specify a page size up to 100 items, 25 by default | [optional]
  **branch** | **string**| specify the branch to use | [optional]
 
 ### Return type

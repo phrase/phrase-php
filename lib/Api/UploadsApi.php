@@ -874,7 +874,7 @@ class UploadsApi
      * @param  string $project_id Project ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  int $page Page number (optional)
-     * @param  int $per_page allows you to specify a page size up to 100 items, 10 by default (optional)
+     * @param  int $per_page allows you to specify a page size up to 100 items, 25 by default (optional)
      * @param  string $branch specify the branch to use (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
@@ -895,7 +895,7 @@ class UploadsApi
      * @param  string $project_id Project ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  int $page Page number (optional)
-     * @param  int $per_page allows you to specify a page size up to 100 items, 10 by default (optional)
+     * @param  int $per_page allows you to specify a page size up to 100 items, 25 by default (optional)
      * @param  string $branch specify the branch to use (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
@@ -987,7 +987,7 @@ class UploadsApi
      * @param  string $project_id Project ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  int $page Page number (optional)
-     * @param  int $per_page allows you to specify a page size up to 100 items, 10 by default (optional)
+     * @param  int $per_page allows you to specify a page size up to 100 items, 25 by default (optional)
      * @param  string $branch specify the branch to use (optional)
      *
      * @throws \InvalidArgumentException
@@ -1011,7 +1011,7 @@ class UploadsApi
      * @param  string $project_id Project ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  int $page Page number (optional)
-     * @param  int $per_page allows you to specify a page size up to 100 items, 10 by default (optional)
+     * @param  int $per_page allows you to specify a page size up to 100 items, 25 by default (optional)
      * @param  string $branch specify the branch to use (optional)
      *
      * @throws \InvalidArgumentException
@@ -1062,7 +1062,7 @@ class UploadsApi
      * @param  string $project_id Project ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  int $page Page number (optional)
-     * @param  int $per_page allows you to specify a page size up to 100 items, 10 by default (optional)
+     * @param  int $per_page allows you to specify a page size up to 100 items, 25 by default (optional)
      * @param  string $branch specify the branch to use (optional)
      *
      * @throws \InvalidArgumentException
