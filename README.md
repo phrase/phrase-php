@@ -162,6 +162,7 @@ Class | Method | HTTP request | Description
 *DistributionsApi* | [**distributionsList**](docs/Api/DistributionsApi.md#distributionslist) | **GET** /accounts/{account_id}/distributions | List distributions
 *DocumentsApi* | [**documentsList**](docs/Api/DocumentsApi.md#documentslist) | **GET** /projects/{project_id}/documents | List documents
 *FormatsApi* | [**formatsList**](docs/Api/FormatsApi.md#formatslist) | **GET** /formats | List formats
+*GitHubSyncApi* | [**githubSyncExport**](docs/Api/GitHubSyncApi.md#githubsyncexport) | **POST** /github_syncs/export | Export from Phrase to GitHub
 *GitLabSyncApi* | [**gitlabSyncDelete**](docs/Api/GitLabSyncApi.md#gitlabsyncdelete) | **DELETE** /gitlab_syncs/{id} | Delete single Sync Setting
 *GitLabSyncApi* | [**gitlabSyncExport**](docs/Api/GitLabSyncApi.md#gitlabsyncexport) | **POST** /gitlab_syncs/{gitlab_sync_id}/export | Export from Phrase to GitLab
 *GitLabSyncApi* | [**gitlabSyncHistory**](docs/Api/GitLabSyncApi.md#gitlabsynchistory) | **GET** /gitlab_syncs/{gitlab_sync_id}/history | History of single Sync Setting
@@ -342,6 +343,7 @@ Class | Method | HTTP request | Description
  - [DistributionUpdateParameters](docs/Model/DistributionUpdateParameters.md)
  - [Document](docs/Model/Document.md)
  - [Format](docs/Model/Format.md)
+ - [GithubSyncExportParameters](docs/Model/GithubSyncExportParameters.md)
  - [GitlabSync](docs/Model/GitlabSync.md)
  - [GitlabSyncExport](docs/Model/GitlabSyncExport.md)
  - [GitlabSyncExportParameters](docs/Model/GitlabSyncExportParameters.md)
@@ -356,6 +358,8 @@ Class | Method | HTTP request | Description
  - [GlossaryTermTranslationUpdateParameters](docs/Model/GlossaryTermTranslationUpdateParameters.md)
  - [GlossaryTermUpdateParameters](docs/Model/GlossaryTermUpdateParameters.md)
  - [GlossaryUpdateParameters](docs/Model/GlossaryUpdateParameters.md)
+ - [InlineResponse422](docs/Model/InlineResponse422.md)
+ - [InlineResponse422Errors](docs/Model/InlineResponse422Errors.md)
  - [Invitation](docs/Model/Invitation.md)
  - [InvitationCreateParameters](docs/Model/InvitationCreateParameters.md)
  - [InvitationUpdateParameters](docs/Model/InvitationUpdateParameters.md)
