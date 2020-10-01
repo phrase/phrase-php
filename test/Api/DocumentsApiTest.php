@@ -71,6 +71,16 @@ class DocumentsApiTest extends TestCase
     }
 
     /**
+     * Test case for documentDelete
+     *
+     * Delete document.
+     *
+     */
+    public function testDocumentDelete()
+    {
+    }
+
+    /**
      * Test case for documentsList
      *
      * List documents.
