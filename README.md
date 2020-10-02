@@ -164,6 +164,7 @@ Class | Method | HTTP request | Description
 *DocumentsApi* | [**documentsList**](docs/Api/DocumentsApi.md#documentslist) | **GET** /projects/{project_id}/documents | List documents
 *FormatsApi* | [**formatsList**](docs/Api/FormatsApi.md#formatslist) | **GET** /formats | List formats
 *GitHubSyncApi* | [**githubSyncExport**](docs/Api/GitHubSyncApi.md#githubsyncexport) | **POST** /github_syncs/export | Export from Phrase to GitHub
+*GitHubSyncApi* | [**githubSyncImport**](docs/Api/GitHubSyncApi.md#githubsyncimport) | **POST** /github_syncs/import | Import to Phrase from GitHub
 *GitLabSyncApi* | [**gitlabSyncDelete**](docs/Api/GitLabSyncApi.md#gitlabsyncdelete) | **DELETE** /gitlab_syncs/{id} | Delete single Sync Setting
 *GitLabSyncApi* | [**gitlabSyncExport**](docs/Api/GitLabSyncApi.md#gitlabsyncexport) | **POST** /gitlab_syncs/{gitlab_sync_id}/export | Export from Phrase to GitLab
 *GitLabSyncApi* | [**gitlabSyncHistory**](docs/Api/GitLabSyncApi.md#gitlabsynchistory) | **GET** /gitlab_syncs/{gitlab_sync_id}/history | History of single Sync Setting
@@ -345,6 +346,7 @@ Class | Method | HTTP request | Description
  - [Document](docs/Model/Document.md)
  - [Format](docs/Model/Format.md)
  - [GithubSyncExportParameters](docs/Model/GithubSyncExportParameters.md)
+ - [GithubSyncImportParameters](docs/Model/GithubSyncImportParameters.md)
  - [GitlabSync](docs/Model/GitlabSync.md)
  - [GitlabSyncExport](docs/Model/GitlabSyncExport.md)
  - [GitlabSyncExportParameters](docs/Model/GitlabSyncExportParameters.md)
