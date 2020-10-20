@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **name** | **string** | Job name | [optional] 
 **briefing** | **string** | Briefing for the translators | [optional] 
 **due_date** | [**\DateTime**](\DateTime.md) | Date the job should be finished | [optional] 
+**ticket_url** | **string** | URL to a ticket for this job (e.g. Jira, Trello) | [optional] 
 **tags** | **string[]** | tags of keys that should be included within the job | [optional] 
 **translation_key_ids** | **string[]** | ids of keys that should be included within the job | [optional] 
 

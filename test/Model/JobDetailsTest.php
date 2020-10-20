@@ -112,6 +112,13 @@ class JobDetailsTest extends TestCase
     }
 
     /**
+     * Test attribute "ticket_url"
+     */
+    public function testPropertyTicketUrl()
+    {
+    }
+
+    /**
      * Test attribute "created_at"
      */
     public function testPropertyCreatedAt()

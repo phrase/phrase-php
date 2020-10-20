@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **briefing** | **string** |  | [optional] 
 **due_date** | [**\DateTime**](\DateTime.md) |  | [optional] 
 **state** | **string** |  | [optional] 
+**ticket_url** | **string** |  | [optional] 
 **created_at** | [**\DateTime**](\DateTime.md) |  | [optional] 
 **updated_at** | [**\DateTime**](\DateTime.md) |  | [optional] 
 **owner** | [**\Phrase\Model\UserPreview**](UserPreview.md) |  | [optional] 

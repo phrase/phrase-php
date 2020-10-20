@@ -60,6 +60,7 @@ class Job implements ModelInterface, ArrayAccess
         'briefing' => 'string',
         'due_date' => '\DateTime',
         'state' => 'string',
+        'ticket_url' => 'string',
         'created_at' => '\DateTime',
         'updated_at' => '\DateTime'
     ];
@@ -75,6 +76,7 @@ class Job implements ModelInterface, ArrayAccess
         'briefing' => null,
         'due_date' => 'date-time',
         'state' => null,
+        'ticket_url' => null,
         'created_at' => 'date-time',
         'updated_at' => 'date-time'
     ];
@@ -111,6 +113,7 @@ class Job implements ModelInterface, ArrayAccess
         'briefing' => 'briefing',
         'due_date' => 'due_date',
         'state' => 'state',
+        'ticket_url' => 'ticket_url',
         'created_at' => 'created_at',
         'updated_at' => 'updated_at'
     ];
@@ -126,6 +129,7 @@ class Job implements ModelInterface, ArrayAccess
         'briefing' => 'setBriefing',
         'due_date' => 'setDueDate',
         'state' => 'setState',
+        'ticket_url' => 'setTicketUrl',
         'created_at' => 'setCreatedAt',
         'updated_at' => 'setUpdatedAt'
     ];
@@ -141,6 +145,7 @@ class Job implements ModelInterface, ArrayAccess
         'briefing' => 'getBriefing',
         'due_date' => 'getDueDate',
         'state' => 'getState',
+        'ticket_url' => 'getTicketUrl',
         'created_at' => 'getCreatedAt',
         'updated_at' => 'getUpdatedAt'
     ];
@@ -210,6 +215,7 @@ class Job implements ModelInterface, ArrayAccess
         $this->container['briefing'] = isset($data['briefing']) ? $data['briefing'] : null;
         $this->container['due_date'] = isset($data['due_date']) ? $data['due_date'] : null;
         $this->container['state'] = isset($data['state']) ? $data['state'] : null;
+        $this->container['ticket_url'] = isset($data['ticket_url']) ? $data['ticket_url'] : null;
         $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
         $this->container['updated_at'] = isset($data['updated_at']) ? $data['updated_at'] : null;
     }
@@ -354,6 +360,30 @@ class Job implements ModelInterface, ArrayAccess
     public function setState($state)
     {
         $this->container['state'] = $state;
+
+        return $this;
+    }
+
+    /**
+     * Gets ticket_url
+     *
+     * @return string|null
+     */
+    public function getTicketUrl()
+    {
+        return $this->container['ticket_url'];
+    }
+
+    /**
+     * Sets ticket_url
+     *
+     * @param string|null $ticket_url ticket_url
+     *
+     * @return $this
+     */
+    public function setTicketUrl($ticket_url)
+    {
+        $this->container['ticket_url'] = $ticket_url;
 
         return $this;
     }

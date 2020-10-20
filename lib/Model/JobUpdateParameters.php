@@ -58,7 +58,8 @@ class JobUpdateParameters implements ModelInterface, ArrayAccess
         'branch' => 'string',
         'name' => 'string',
         'briefing' => 'string',
-        'due_date' => '\DateTime'
+        'due_date' => '\DateTime',
+        'ticket_url' => 'string'
     ];
 
     /**
@@ -70,7 +71,8 @@ class JobUpdateParameters implements ModelInterface, ArrayAccess
         'branch' => null,
         'name' => null,
         'briefing' => null,
-        'due_date' => 'date-time'
+        'due_date' => 'date-time',
+        'ticket_url' => null
     ];
 
     /**
@@ -103,7 +105,8 @@ class JobUpdateParameters implements ModelInterface, ArrayAccess
         'branch' => 'branch',
         'name' => 'name',
         'briefing' => 'briefing',
-        'due_date' => 'due_date'
+        'due_date' => 'due_date',
+        'ticket_url' => 'ticket_url'
     ];
 
     /**
@@ -115,7 +118,8 @@ class JobUpdateParameters implements ModelInterface, ArrayAccess
         'branch' => 'setBranch',
         'name' => 'setName',
         'briefing' => 'setBriefing',
-        'due_date' => 'setDueDate'
+        'due_date' => 'setDueDate',
+        'ticket_url' => 'setTicketUrl'
     ];
 
     /**
@@ -127,7 +131,8 @@ class JobUpdateParameters implements ModelInterface, ArrayAccess
         'branch' => 'getBranch',
         'name' => 'getName',
         'briefing' => 'getBriefing',
-        'due_date' => 'getDueDate'
+        'due_date' => 'getDueDate',
+        'ticket_url' => 'getTicketUrl'
     ];
 
     /**
@@ -194,6 +199,7 @@ class JobUpdateParameters implements ModelInterface, ArrayAccess
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['briefing'] = isset($data['briefing']) ? $data['briefing'] : null;
         $this->container['due_date'] = isset($data['due_date']) ? $data['due_date'] : null;
+        $this->container['ticket_url'] = isset($data['ticket_url']) ? $data['ticket_url'] : null;
     }
 
     /**
@@ -312,6 +318,30 @@ class JobUpdateParameters implements ModelInterface, ArrayAccess
     public function setDueDate($due_date)
     {
         $this->container['due_date'] = $due_date;
+
+        return $this;
+    }
+
+    /**
+     * Gets ticket_url
+     *
+     * @return string|null
+     */
+    public function getTicketUrl()
+    {
+        return $this->container['ticket_url'];
+    }
+
+    /**
+     * Sets ticket_url
+     *
+     * @param string|null $ticket_url URL to a ticket for this job (e.g. Jira, Trello)
+     *
+     * @return $this
+     */
+    public function setTicketUrl($ticket_url)
+    {
+        $this->container['ticket_url'] = $ticket_url;
 
         return $this;
     }

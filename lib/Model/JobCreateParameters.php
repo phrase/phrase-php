@@ -59,6 +59,7 @@ class JobCreateParameters implements ModelInterface, ArrayAccess
         'name' => 'string',
         'briefing' => 'string',
         'due_date' => '\DateTime',
+        'ticket_url' => 'string',
         'tags' => 'string[]',
         'translation_key_ids' => 'string[]'
     ];
@@ -73,6 +74,7 @@ class JobCreateParameters implements ModelInterface, ArrayAccess
         'name' => null,
         'briefing' => null,
         'due_date' => 'date-time',
+        'ticket_url' => null,
         'tags' => null,
         'translation_key_ids' => null
     ];
@@ -108,6 +110,7 @@ class JobCreateParameters implements ModelInterface, ArrayAccess
         'name' => 'name',
         'briefing' => 'briefing',
         'due_date' => 'due_date',
+        'ticket_url' => 'ticket_url',
         'tags' => 'tags',
         'translation_key_ids' => 'translation_key_ids'
     ];
@@ -122,6 +125,7 @@ class JobCreateParameters implements ModelInterface, ArrayAccess
         'name' => 'setName',
         'briefing' => 'setBriefing',
         'due_date' => 'setDueDate',
+        'ticket_url' => 'setTicketUrl',
         'tags' => 'setTags',
         'translation_key_ids' => 'setTranslationKeyIds'
     ];
@@ -136,6 +140,7 @@ class JobCreateParameters implements ModelInterface, ArrayAccess
         'name' => 'getName',
         'briefing' => 'getBriefing',
         'due_date' => 'getDueDate',
+        'ticket_url' => 'getTicketUrl',
         'tags' => 'getTags',
         'translation_key_ids' => 'getTranslationKeyIds'
     ];
@@ -204,6 +209,7 @@ class JobCreateParameters implements ModelInterface, ArrayAccess
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['briefing'] = isset($data['briefing']) ? $data['briefing'] : null;
         $this->container['due_date'] = isset($data['due_date']) ? $data['due_date'] : null;
+        $this->container['ticket_url'] = isset($data['ticket_url']) ? $data['ticket_url'] : null;
         $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
         $this->container['translation_key_ids'] = isset($data['translation_key_ids']) ? $data['translation_key_ids'] : null;
     }
@@ -324,6 +330,30 @@ class JobCreateParameters implements ModelInterface, ArrayAccess
     public function setDueDate($due_date)
     {
         $this->container['due_date'] = $due_date;
+
+        return $this;
+    }
+
+    /**
+     * Gets ticket_url
+     *
+     * @return string|null
+     */
+    public function getTicketUrl()
+    {
+        return $this->container['ticket_url'];
+    }
+
+    /**
+     * Sets ticket_url
+     *
+     * @param string|null $ticket_url URL to a ticket for this job (e.g. Jira, Trello)
+     *
+     * @return $this
+     */
+    public function setTicketUrl($ticket_url)
+    {
+        $this->container['ticket_url'] = $ticket_url;
 
         return $this;
     }

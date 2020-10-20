@@ -103,4 +103,11 @@ class JobUpdateParametersTest extends TestCase
     public function testPropertyDueDate()
     {
     }
+
+    /**
+     * Test attribute "ticket_url"
+     */
+    public function testPropertyTicketUrl()
+    {
+    }
 }

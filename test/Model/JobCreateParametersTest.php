@@ -105,6 +105,13 @@ class JobCreateParametersTest extends TestCase
     }
 
     /**
+     * Test attribute "ticket_url"
+     */
+    public function testPropertyTicketUrl()
+    {
+    }
+
+    /**
      * Test attribute "tags"
      */
     public function testPropertyTags()
