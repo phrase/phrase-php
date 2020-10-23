@@ -131,4 +131,11 @@ class JobTest extends TestCase
     public function testPropertyUpdatedAt()
     {
     }
+
+    /**
+     * Test attribute "project"
+     */
+    public function testPropertyProject()
+    {
+    }
 }

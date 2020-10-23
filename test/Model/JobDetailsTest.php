@@ -133,6 +133,13 @@ class JobDetailsTest extends TestCase
     }
 
     /**
+     * Test attribute "project"
+     */
+    public function testPropertyProject()
+    {
+    }
+
+    /**
      * Test attribute "owner"
      */
     public function testPropertyOwner()

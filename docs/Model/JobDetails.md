@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **ticket_url** | **string** |  | [optional] 
 **created_at** | [**\DateTime**](\DateTime.md) |  | [optional] 
 **updated_at** | [**\DateTime**](\DateTime.md) |  | [optional] 
+**project** | [**\Phrase\Model\ProjectShort**](ProjectShort.md) |  | [optional] 
 **owner** | [**\Phrase\Model\UserPreview**](UserPreview.md) |  | [optional] 
 **job_tag_name** | **string** |  | [optional] 
 **locales** | [**\Phrase\Model\LocalePreview[]**](LocalePreview.md) |  | [optional] 
