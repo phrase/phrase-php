@@ -161,6 +161,16 @@ class JobsApiTest extends TestCase
     }
 
     /**
+     * Test case for jobsByAccount
+     *
+     * List account jobs.
+     *
+     */
+    public function testJobsByAccount()
+    {
+    }
+
+    /**
      * Test case for jobsList
      *
      * List jobs.

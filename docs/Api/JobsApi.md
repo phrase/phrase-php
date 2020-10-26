@@ -13,6 +13,7 @@ Method | HTTP request | Description
 [**jobShow**](JobsApi.md#jobShow) | **GET** /projects/{project_id}/jobs/{id} | Get a single job
 [**jobStart**](JobsApi.md#jobStart) | **POST** /projects/{project_id}/jobs/{id}/start | Start a job
 [**jobUpdate**](JobsApi.md#jobUpdate) | **PATCH** /projects/{project_id}/jobs/{id} | Update a job
+[**jobsByAccount**](JobsApi.md#jobsByAccount) | **GET** /accounts/{account_id}/jobs | List account jobs
 [**jobsList**](JobsApi.md#jobsList) | **GET** /projects/{project_id}/jobs | List jobs
 
 
@@ -593,6 +594,77 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
+
+
+## jobsByAccount
+
+> \Phrase\Model\Job[] jobsByAccount($account_id, $x_phrase_app_otp, $page, $per_page, $owned_by, $assigned_to, $state)
+
+List account jobs
+
+List all jobs for the given account.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$config = Phrase\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = Phrase\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'token');
+
+$apiInstance = new Phrase\Api\JobsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$account_id = 'account_id_example'; // string | Account ID
+$x_phrase_app_otp = 'x_phrase_app_otp_example'; // string | Two-Factor-Authentication token (optional)
+$page = 1; // int | Page number
+$per_page = 25; // int | allows you to specify a page size up to 100 items, 25 by default
+$owned_by = abcd1234cdef1234abcd1234cdef1234; // string | filter by user owning job
+$assigned_to = abcd1234cdef1234abcd1234cdef1234; // string | filter by user assigned to job
+$state = completed; // string | filter by state of job Valid states are <code>draft</code>, <code>in_progress</code>, <code>completed</code>
+
+try {
+    $result = $apiInstance->jobsByAccount($account_id, $x_phrase_app_otp, $page, $per_page, $owned_by, $assigned_to, $state);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling JobsApi->jobsByAccount: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **account_id** | **string**| Account ID |
+ **x_phrase_app_otp** | **string**| Two-Factor-Authentication token (optional) | [optional]
+ **page** | **int**| Page number | [optional]
+ **per_page** | **int**| allows you to specify a page size up to 100 items, 25 by default | [optional]
+ **owned_by** | **string**| filter by user owning job | [optional]
+ **assigned_to** | **string**| filter by user assigned to job | [optional]
+ **state** | **string**| filter by state of job Valid states are &lt;code&gt;draft&lt;/code&gt;, &lt;code&gt;in_progress&lt;/code&gt;, &lt;code&gt;completed&lt;/code&gt; | [optional]
+
+### Return type
+
+[**\Phrase\Model\Job[]**](../Model/Job.md)
+
+### Authorization
+
+[Basic](../../README.md#Basic), [Token](../../README.md#Token)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)

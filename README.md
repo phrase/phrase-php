@@ -207,6 +207,7 @@ Class | Method | HTTP request | Description
 *JobsApi* | [**jobShow**](docs/Api/JobsApi.md#jobshow) | **GET** /projects/{project_id}/jobs/{id} | Get a single job
 *JobsApi* | [**jobStart**](docs/Api/JobsApi.md#jobstart) | **POST** /projects/{project_id}/jobs/{id}/start | Start a job
 *JobsApi* | [**jobUpdate**](docs/Api/JobsApi.md#jobupdate) | **PATCH** /projects/{project_id}/jobs/{id} | Update a job
+*JobsApi* | [**jobsByAccount**](docs/Api/JobsApi.md#jobsbyaccount) | **GET** /accounts/{account_id}/jobs | List account jobs
 *JobsApi* | [**jobsList**](docs/Api/JobsApi.md#jobslist) | **GET** /projects/{project_id}/jobs | List jobs
 *KeysApi* | [**keyCreate**](docs/Api/KeysApi.md#keycreate) | **POST** /projects/{project_id}/keys | Create a key
 *KeysApi* | [**keyDelete**](docs/Api/KeysApi.md#keydelete) | **DELETE** /projects/{project_id}/keys/{id} | Delete a key

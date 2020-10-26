@@ -2937,6 +2937,377 @@ class JobsApi
     }
 
     /**
+     * Operation jobsByAccount
+     *
+     * List account jobs
+     *
+     * @param  string $account_id Account ID (required)
+     * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
+     * @param  int $page Page number (optional)
+     * @param  int $per_page allows you to specify a page size up to 100 items, 25 by default (optional)
+     * @param  string $owned_by filter by user owning job (optional)
+     * @param  string $assigned_to filter by user assigned to job (optional)
+     * @param  string $state filter by state of job Valid states are &lt;code&gt;draft&lt;/code&gt;, &lt;code&gt;in_progress&lt;/code&gt;, &lt;code&gt;completed&lt;/code&gt; (optional)
+     *
+     * @throws \Phrase\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \Phrase\Model\Job[]
+     */
+    public function jobsByAccount($account_id, $x_phrase_app_otp = null, $page = null, $per_page = null, $owned_by = null, $assigned_to = null, $state = null)
+    {
+        list($response) = $this->jobsByAccountWithHttpInfo($account_id, $x_phrase_app_otp, $page, $per_page, $owned_by, $assigned_to, $state);
+        return $response;
+    }
+
+    /**
+     * Operation jobsByAccountWithHttpInfo
+     *
+     * List account jobs
+     *
+     * @param  string $account_id Account ID (required)
+     * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
+     * @param  int $page Page number (optional)
+     * @param  int $per_page allows you to specify a page size up to 100 items, 25 by default (optional)
+     * @param  string $owned_by filter by user owning job (optional)
+     * @param  string $assigned_to filter by user assigned to job (optional)
+     * @param  string $state filter by state of job Valid states are &lt;code&gt;draft&lt;/code&gt;, &lt;code&gt;in_progress&lt;/code&gt;, &lt;code&gt;completed&lt;/code&gt; (optional)
+     *
+     * @throws \Phrase\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \Phrase\Model\Job[], HTTP status code, HTTP response headers (array of strings)
+     */
+    public function jobsByAccountWithHttpInfo($account_id, $x_phrase_app_otp = null, $page = null, $per_page = null, $owned_by = null, $assigned_to = null, $state = null)
+    {
+        $request = $this->jobsByAccountRequest($account_id, $x_phrase_app_otp, $page, $per_page, $owned_by, $assigned_to, $state);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            switch($statusCode) {
+                case 200:
+                    if ('\Phrase\Model\Job[]' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Phrase\Model\Job[]', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\Phrase\Model\Job[]';
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = (string) $responseBody;
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Phrase\Model\Job[]',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation jobsByAccountAsync
+     *
+     * List account jobs
+     *
+     * @param  string $account_id Account ID (required)
+     * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
+     * @param  int $page Page number (optional)
+     * @param  int $per_page allows you to specify a page size up to 100 items, 25 by default (optional)
+     * @param  string $owned_by filter by user owning job (optional)
+     * @param  string $assigned_to filter by user assigned to job (optional)
+     * @param  string $state filter by state of job Valid states are &lt;code&gt;draft&lt;/code&gt;, &lt;code&gt;in_progress&lt;/code&gt;, &lt;code&gt;completed&lt;/code&gt; (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function jobsByAccountAsync($account_id, $x_phrase_app_otp = null, $page = null, $per_page = null, $owned_by = null, $assigned_to = null, $state = null)
+    {
+        return $this->jobsByAccountAsyncWithHttpInfo($account_id, $x_phrase_app_otp, $page, $per_page, $owned_by, $assigned_to, $state)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation jobsByAccountAsyncWithHttpInfo
+     *
+     * List account jobs
+     *
+     * @param  string $account_id Account ID (required)
+     * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
+     * @param  int $page Page number (optional)
+     * @param  int $per_page allows you to specify a page size up to 100 items, 25 by default (optional)
+     * @param  string $owned_by filter by user owning job (optional)
+     * @param  string $assigned_to filter by user assigned to job (optional)
+     * @param  string $state filter by state of job Valid states are &lt;code&gt;draft&lt;/code&gt;, &lt;code&gt;in_progress&lt;/code&gt;, &lt;code&gt;completed&lt;/code&gt; (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function jobsByAccountAsyncWithHttpInfo($account_id, $x_phrase_app_otp = null, $page = null, $per_page = null, $owned_by = null, $assigned_to = null, $state = null)
+    {
+        $returnType = '\Phrase\Model\Job[]';
+        $request = $this->jobsByAccountRequest($account_id, $x_phrase_app_otp, $page, $per_page, $owned_by, $assigned_to, $state);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'jobsByAccount'
+     *
+     * @param  string $account_id Account ID (required)
+     * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
+     * @param  int $page Page number (optional)
+     * @param  int $per_page allows you to specify a page size up to 100 items, 25 by default (optional)
+     * @param  string $owned_by filter by user owning job (optional)
+     * @param  string $assigned_to filter by user assigned to job (optional)
+     * @param  string $state filter by state of job Valid states are &lt;code&gt;draft&lt;/code&gt;, &lt;code&gt;in_progress&lt;/code&gt;, &lt;code&gt;completed&lt;/code&gt; (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function jobsByAccountRequest($account_id, $x_phrase_app_otp = null, $page = null, $per_page = null, $owned_by = null, $assigned_to = null, $state = null)
+    {
+        // verify the required parameter 'account_id' is set
+        if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $account_id when calling jobsByAccount'
+            );
+        }
+
+        $resourcePath = '/accounts/{account_id}/jobs';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        if ($page !== null) {
+            if('form' === 'form' && is_array($page)) {
+                foreach($page as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['page'] = $page;
+            }
+        }
+        // query params
+        if ($per_page !== null) {
+            if('form' === 'form' && is_array($per_page)) {
+                foreach($per_page as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['per_page'] = $per_page;
+            }
+        }
+        // query params
+        if ($owned_by !== null) {
+            if('form' === 'form' && is_array($owned_by)) {
+                foreach($owned_by as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['owned_by'] = $owned_by;
+            }
+        }
+        // query params
+        if ($assigned_to !== null) {
+            if('form' === 'form' && is_array($assigned_to)) {
+                foreach($assigned_to as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['assigned_to'] = $assigned_to;
+            }
+        }
+        // query params
+        if ($state !== null) {
+            if('form' === 'form' && is_array($state)) {
+                foreach($state as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['state'] = $state;
+            }
+        }
+
+        // header params
+        if ($x_phrase_app_otp !== null) {
+            $headerParams['X-PhraseApp-OTP'] = ObjectSerializer::toHeaderValue($x_phrase_app_otp);
+        }
+
+        // path params
+        if ($account_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'account_id' . '}',
+                ObjectSerializer::toPathValue($account_id),
+                $resourcePath
+            );
+        }
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation jobsList
      *
      * List jobs
