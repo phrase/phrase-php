@@ -1323,14 +1323,15 @@ class ScreenshotsApi
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  int $page Page number (optional)
      * @param  int $per_page allows you to specify a page size up to 100 items, 25 by default (optional)
+     * @param  string $key_id filter by key (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Phrase\Model\Screenshot[]
      */
-    public function screenshotsList($project_id, $x_phrase_app_otp = null, $page = null, $per_page = null)
+    public function screenshotsList($project_id, $x_phrase_app_otp = null, $page = null, $per_page = null, $key_id = null)
     {
-        list($response) = $this->screenshotsListWithHttpInfo($project_id, $x_phrase_app_otp, $page, $per_page);
+        list($response) = $this->screenshotsListWithHttpInfo($project_id, $x_phrase_app_otp, $page, $per_page, $key_id);
         return $response;
     }
 
@@ -1343,14 +1344,15 @@ class ScreenshotsApi
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  int $page Page number (optional)
      * @param  int $per_page allows you to specify a page size up to 100 items, 25 by default (optional)
+     * @param  string $key_id filter by key (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Phrase\Model\Screenshot[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function screenshotsListWithHttpInfo($project_id, $x_phrase_app_otp = null, $page = null, $per_page = null)
+    public function screenshotsListWithHttpInfo($project_id, $x_phrase_app_otp = null, $page = null, $per_page = null, $key_id = null)
     {
-        $request = $this->screenshotsListRequest($project_id, $x_phrase_app_otp, $page, $per_page);
+        $request = $this->screenshotsListRequest($project_id, $x_phrase_app_otp, $page, $per_page, $key_id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1434,13 +1436,14 @@ class ScreenshotsApi
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  int $page Page number (optional)
      * @param  int $per_page allows you to specify a page size up to 100 items, 25 by default (optional)
+     * @param  string $key_id filter by key (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function screenshotsListAsync($project_id, $x_phrase_app_otp = null, $page = null, $per_page = null)
+    public function screenshotsListAsync($project_id, $x_phrase_app_otp = null, $page = null, $per_page = null, $key_id = null)
     {
-        return $this->screenshotsListAsyncWithHttpInfo($project_id, $x_phrase_app_otp, $page, $per_page)
+        return $this->screenshotsListAsyncWithHttpInfo($project_id, $x_phrase_app_otp, $page, $per_page, $key_id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1457,14 +1460,15 @@ class ScreenshotsApi
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  int $page Page number (optional)
      * @param  int $per_page allows you to specify a page size up to 100 items, 25 by default (optional)
+     * @param  string $key_id filter by key (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function screenshotsListAsyncWithHttpInfo($project_id, $x_phrase_app_otp = null, $page = null, $per_page = null)
+    public function screenshotsListAsyncWithHttpInfo($project_id, $x_phrase_app_otp = null, $page = null, $per_page = null, $key_id = null)
     {
         $returnType = '\Phrase\Model\Screenshot[]';
-        $request = $this->screenshotsListRequest($project_id, $x_phrase_app_otp, $page, $per_page);
+        $request = $this->screenshotsListRequest($project_id, $x_phrase_app_otp, $page, $per_page, $key_id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1507,11 +1511,12 @@ class ScreenshotsApi
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  int $page Page number (optional)
      * @param  int $per_page allows you to specify a page size up to 100 items, 25 by default (optional)
+     * @param  string $key_id filter by key (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function screenshotsListRequest($project_id, $x_phrase_app_otp = null, $page = null, $per_page = null)
+    protected function screenshotsListRequest($project_id, $x_phrase_app_otp = null, $page = null, $per_page = null, $key_id = null)
     {
         // verify the required parameter 'project_id' is set
         if ($project_id === null || (is_array($project_id) && count($project_id) === 0)) {
@@ -1547,6 +1552,17 @@ class ScreenshotsApi
             }
             else {
                 $queryParams['per_page'] = $per_page;
+            }
+        }
+        // query params
+        if ($key_id !== null) {
+            if('form' === 'form' && is_array($key_id)) {
+                foreach($key_id as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['key_id'] = $key_id;
             }
         }
 

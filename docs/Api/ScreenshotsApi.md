@@ -267,7 +267,7 @@ Name | Type | Description  | Notes
 
 ## screenshotsList
 
-> \Phrase\Model\Screenshot[] screenshotsList($project_id, $x_phrase_app_otp, $page, $per_page)
+> \Phrase\Model\Screenshot[] screenshotsList($project_id, $x_phrase_app_otp, $page, $per_page, $key_id)
 
 List screenshots
 
@@ -292,9 +292,10 @@ $project_id = 'project_id_example'; // string | Project ID
 $x_phrase_app_otp = 'x_phrase_app_otp_example'; // string | Two-Factor-Authentication token (optional)
 $page = 1; // int | Page number
 $per_page = 25; // int | allows you to specify a page size up to 100 items, 25 by default
+$key_id = abcd1234cdef1234abcd1234cdef1234; // string | filter by key
 
 try {
-    $result = $apiInstance->screenshotsList($project_id, $x_phrase_app_otp, $page, $per_page);
+    $result = $apiInstance->screenshotsList($project_id, $x_phrase_app_otp, $page, $per_page, $key_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ScreenshotsApi->screenshotsList: ', $e->getMessage(), PHP_EOL;
@@ -311,6 +312,7 @@ Name | Type | Description  | Notes
  **x_phrase_app_otp** | **string**| Two-Factor-Authentication token (optional) | [optional]
  **page** | **int**| Page number | [optional]
  **per_page** | **int**| allows you to specify a page size up to 100 items, 25 by default | [optional]
+ **key_id** | **string**| filter by key | [optional]
 
 ### Return type
 
