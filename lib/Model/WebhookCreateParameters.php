@@ -56,6 +56,7 @@ class WebhookCreateParameters implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'callback_url' => 'string',
+        'secret' => 'string',
         'description' => 'string',
         'events' => 'string',
         'active' => 'bool'
@@ -68,6 +69,7 @@ class WebhookCreateParameters implements ModelInterface, ArrayAccess
       */
     protected static $openAPIFormats = [
         'callback_url' => null,
+        'secret' => null,
         'description' => null,
         'events' => null,
         'active' => null
@@ -101,6 +103,7 @@ class WebhookCreateParameters implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'callback_url' => 'callback_url',
+        'secret' => 'secret',
         'description' => 'description',
         'events' => 'events',
         'active' => 'active'
@@ -113,6 +116,7 @@ class WebhookCreateParameters implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'callback_url' => 'setCallbackUrl',
+        'secret' => 'setSecret',
         'description' => 'setDescription',
         'events' => 'setEvents',
         'active' => 'setActive'
@@ -125,6 +129,7 @@ class WebhookCreateParameters implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'callback_url' => 'getCallbackUrl',
+        'secret' => 'getSecret',
         'description' => 'getDescription',
         'events' => 'getEvents',
         'active' => 'getActive'
@@ -191,6 +196,7 @@ class WebhookCreateParameters implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['callback_url'] = isset($data['callback_url']) ? $data['callback_url'] : null;
+        $this->container['secret'] = isset($data['secret']) ? $data['secret'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['events'] = isset($data['events']) ? $data['events'] : null;
         $this->container['active'] = isset($data['active']) ? $data['active'] : null;
@@ -240,6 +246,30 @@ class WebhookCreateParameters implements ModelInterface, ArrayAccess
     public function setCallbackUrl($callback_url)
     {
         $this->container['callback_url'] = $callback_url;
+
+        return $this;
+    }
+
+    /**
+     * Gets secret
+     *
+     * @return string|null
+     */
+    public function getSecret()
+    {
+        return $this->container['secret'];
+    }
+
+    /**
+     * Sets secret
+     *
+     * @param string|null $secret Webhook secret used to calculate signature. If empty, the default project secret will be used.
+     *
+     * @return $this
+     */
+    public function setSecret($secret)
+    {
+        $this->container['secret'] = $secret;
 
         return $this;
     }

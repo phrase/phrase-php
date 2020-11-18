@@ -84,6 +84,13 @@ class WebhookUpdateParametersTest extends TestCase
     }
 
     /**
+     * Test attribute "secret"
+     */
+    public function testPropertySecret()
+    {
+    }
+
+    /**
      * Test attribute "description"
      */
     public function testPropertyDescription()

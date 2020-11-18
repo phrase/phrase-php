@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **callback_url** | **string** | Callback URL to send requests to | [optional] 
+**secret** | **string** | Webhook secret used to calculate signature. If empty, the default project secret will be used. | [optional] 
 **description** | **string** | Webhook description | [optional] 
 **events** | **string** | List of event names to trigger the webhook (separated by comma) | [optional] 
 **active** | **bool** | Whether webhook is active or inactive | [optional] 
