@@ -142,7 +142,7 @@ void (empty response body)
 
 ## localeDownload
 
-> localeDownload($project_id, $id, $x_phrase_app_otp, $branch, $file_format, $tags, $tag, $include_empty_translations, $include_translated_keys, $keep_notranslate_tags, $convert_emoji, $format_options, $encoding, $skip_unverified_translations, $include_unverified_translations, $use_last_reviewed_version, $fallback_locale_id)
+> localeDownload($project_id, $id, $x_phrase_app_otp, $branch, $file_format, $tags, $tag, $include_empty_translations, $exclude_empty_zero_forms, $include_translated_keys, $keep_notranslate_tags, $convert_emoji, $format_options, $encoding, $skip_unverified_translations, $include_unverified_translations, $use_last_reviewed_version, $fallback_locale_id)
 
 Download a locale
 
@@ -171,6 +171,7 @@ $file_format = yml; // string | File format name. See the format guide for all s
 $tags = feature1,feature2; // string | Limit results to keys tagged with a list of comma separated tag names.
 $tag = feature; // string | Limit download to tagged keys. This parameter is deprecated. Please use the \"tags\" parameter instead
 $include_empty_translations = True; // bool | Indicates whether keys without translations should be included in the output as well.
+$exclude_empty_zero_forms = True; // bool | Indicates whether zero forms should be included when empty in pluralized keys.
 $include_translated_keys = True; // bool | Include translated keys in the locale file. Use in combination with include_empty_translations to obtain only untranslated keys.
 $keep_notranslate_tags = True; // bool | Indicates whether [NOTRANSLATE] tags should be kept.
 $convert_emoji = True; // bool | This option is obsolete. Projects that were created on or after Nov 29th 2019 or that did not contain emoji by then will not require this flag any longer since emoji are now supported natively.
@@ -182,7 +183,7 @@ $use_last_reviewed_version = True; // bool | If set to true the last reviewed ve
 $fallback_locale_id = 'fallback_locale_id_example'; // string | If a key has no translation in the locale being downloaded the translation in the fallback locale will be used. Provide the public ID of the locale that should be used as the fallback. Requires include_empty_translations to be set to <code>true</code>.
 
 try {
-    $apiInstance->localeDownload($project_id, $id, $x_phrase_app_otp, $branch, $file_format, $tags, $tag, $include_empty_translations, $include_translated_keys, $keep_notranslate_tags, $convert_emoji, $format_options, $encoding, $skip_unverified_translations, $include_unverified_translations, $use_last_reviewed_version, $fallback_locale_id);
+    $apiInstance->localeDownload($project_id, $id, $x_phrase_app_otp, $branch, $file_format, $tags, $tag, $include_empty_translations, $exclude_empty_zero_forms, $include_translated_keys, $keep_notranslate_tags, $convert_emoji, $format_options, $encoding, $skip_unverified_translations, $include_unverified_translations, $use_last_reviewed_version, $fallback_locale_id);
 } catch (Exception $e) {
     echo 'Exception when calling LocalesApi->localeDownload: ', $e->getMessage(), PHP_EOL;
 }
@@ -202,6 +203,7 @@ Name | Type | Description  | Notes
  **tags** | **string**| Limit results to keys tagged with a list of comma separated tag names. | [optional]
  **tag** | **string**| Limit download to tagged keys. This parameter is deprecated. Please use the \&quot;tags\&quot; parameter instead | [optional]
  **include_empty_translations** | **bool**| Indicates whether keys without translations should be included in the output as well. | [optional]
+ **exclude_empty_zero_forms** | **bool**| Indicates whether zero forms should be included when empty in pluralized keys. | [optional]
  **include_translated_keys** | **bool**| Include translated keys in the locale file. Use in combination with include_empty_translations to obtain only untranslated keys. | [optional]
  **keep_notranslate_tags** | **bool**| Indicates whether [NOTRANSLATE] tags should be kept. | [optional]
  **convert_emoji** | **bool**| This option is obsolete. Projects that were created on or after Nov 29th 2019 or that did not contain emoji by then will not require this flag any longer since emoji are now supported natively. | [optional]

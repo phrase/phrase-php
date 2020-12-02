@@ -709,6 +709,7 @@ class LocalesApi
      * @param  string $tags Limit results to keys tagged with a list of comma separated tag names. (optional)
      * @param  string $tag Limit download to tagged keys. This parameter is deprecated. Please use the \&quot;tags\&quot; parameter instead (optional)
      * @param  bool $include_empty_translations Indicates whether keys without translations should be included in the output as well. (optional)
+     * @param  bool $exclude_empty_zero_forms Indicates whether zero forms should be included when empty in pluralized keys. (optional)
      * @param  bool $include_translated_keys Include translated keys in the locale file. Use in combination with include_empty_translations to obtain only untranslated keys. (optional)
      * @param  bool $keep_notranslate_tags Indicates whether [NOTRANSLATE] tags should be kept. (optional)
      * @param  bool $convert_emoji This option is obsolete. Projects that were created on or after Nov 29th 2019 or that did not contain emoji by then will not require this flag any longer since emoji are now supported natively. (optional)
@@ -723,9 +724,9 @@ class LocalesApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function localeDownload($project_id, $id, $x_phrase_app_otp = null, $branch = null, $file_format = null, $tags = null, $tag = null, $include_empty_translations = null, $include_translated_keys = null, $keep_notranslate_tags = null, $convert_emoji = null, $format_options = null, $encoding = null, $skip_unverified_translations = null, $include_unverified_translations = null, $use_last_reviewed_version = null, $fallback_locale_id = null)
+    public function localeDownload($project_id, $id, $x_phrase_app_otp = null, $branch = null, $file_format = null, $tags = null, $tag = null, $include_empty_translations = null, $exclude_empty_zero_forms = null, $include_translated_keys = null, $keep_notranslate_tags = null, $convert_emoji = null, $format_options = null, $encoding = null, $skip_unverified_translations = null, $include_unverified_translations = null, $use_last_reviewed_version = null, $fallback_locale_id = null)
     {
-        $this->localeDownloadWithHttpInfo($project_id, $id, $x_phrase_app_otp, $branch, $file_format, $tags, $tag, $include_empty_translations, $include_translated_keys, $keep_notranslate_tags, $convert_emoji, $format_options, $encoding, $skip_unverified_translations, $include_unverified_translations, $use_last_reviewed_version, $fallback_locale_id);
+        $this->localeDownloadWithHttpInfo($project_id, $id, $x_phrase_app_otp, $branch, $file_format, $tags, $tag, $include_empty_translations, $exclude_empty_zero_forms, $include_translated_keys, $keep_notranslate_tags, $convert_emoji, $format_options, $encoding, $skip_unverified_translations, $include_unverified_translations, $use_last_reviewed_version, $fallback_locale_id);
     }
 
     /**
@@ -741,6 +742,7 @@ class LocalesApi
      * @param  string $tags Limit results to keys tagged with a list of comma separated tag names. (optional)
      * @param  string $tag Limit download to tagged keys. This parameter is deprecated. Please use the \&quot;tags\&quot; parameter instead (optional)
      * @param  bool $include_empty_translations Indicates whether keys without translations should be included in the output as well. (optional)
+     * @param  bool $exclude_empty_zero_forms Indicates whether zero forms should be included when empty in pluralized keys. (optional)
      * @param  bool $include_translated_keys Include translated keys in the locale file. Use in combination with include_empty_translations to obtain only untranslated keys. (optional)
      * @param  bool $keep_notranslate_tags Indicates whether [NOTRANSLATE] tags should be kept. (optional)
      * @param  bool $convert_emoji This option is obsolete. Projects that were created on or after Nov 29th 2019 or that did not contain emoji by then will not require this flag any longer since emoji are now supported natively. (optional)
@@ -755,9 +757,9 @@ class LocalesApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function localeDownloadWithHttpInfo($project_id, $id, $x_phrase_app_otp = null, $branch = null, $file_format = null, $tags = null, $tag = null, $include_empty_translations = null, $include_translated_keys = null, $keep_notranslate_tags = null, $convert_emoji = null, $format_options = null, $encoding = null, $skip_unverified_translations = null, $include_unverified_translations = null, $use_last_reviewed_version = null, $fallback_locale_id = null)
+    public function localeDownloadWithHttpInfo($project_id, $id, $x_phrase_app_otp = null, $branch = null, $file_format = null, $tags = null, $tag = null, $include_empty_translations = null, $exclude_empty_zero_forms = null, $include_translated_keys = null, $keep_notranslate_tags = null, $convert_emoji = null, $format_options = null, $encoding = null, $skip_unverified_translations = null, $include_unverified_translations = null, $use_last_reviewed_version = null, $fallback_locale_id = null)
     {
-        $request = $this->localeDownloadRequest($project_id, $id, $x_phrase_app_otp, $branch, $file_format, $tags, $tag, $include_empty_translations, $include_translated_keys, $keep_notranslate_tags, $convert_emoji, $format_options, $encoding, $skip_unverified_translations, $include_unverified_translations, $use_last_reviewed_version, $fallback_locale_id);
+        $request = $this->localeDownloadRequest($project_id, $id, $x_phrase_app_otp, $branch, $file_format, $tags, $tag, $include_empty_translations, $exclude_empty_zero_forms, $include_translated_keys, $keep_notranslate_tags, $convert_emoji, $format_options, $encoding, $skip_unverified_translations, $include_unverified_translations, $use_last_reviewed_version, $fallback_locale_id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -809,6 +811,7 @@ class LocalesApi
      * @param  string $tags Limit results to keys tagged with a list of comma separated tag names. (optional)
      * @param  string $tag Limit download to tagged keys. This parameter is deprecated. Please use the \&quot;tags\&quot; parameter instead (optional)
      * @param  bool $include_empty_translations Indicates whether keys without translations should be included in the output as well. (optional)
+     * @param  bool $exclude_empty_zero_forms Indicates whether zero forms should be included when empty in pluralized keys. (optional)
      * @param  bool $include_translated_keys Include translated keys in the locale file. Use in combination with include_empty_translations to obtain only untranslated keys. (optional)
      * @param  bool $keep_notranslate_tags Indicates whether [NOTRANSLATE] tags should be kept. (optional)
      * @param  bool $convert_emoji This option is obsolete. Projects that were created on or after Nov 29th 2019 or that did not contain emoji by then will not require this flag any longer since emoji are now supported natively. (optional)
@@ -822,9 +825,9 @@ class LocalesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function localeDownloadAsync($project_id, $id, $x_phrase_app_otp = null, $branch = null, $file_format = null, $tags = null, $tag = null, $include_empty_translations = null, $include_translated_keys = null, $keep_notranslate_tags = null, $convert_emoji = null, $format_options = null, $encoding = null, $skip_unverified_translations = null, $include_unverified_translations = null, $use_last_reviewed_version = null, $fallback_locale_id = null)
+    public function localeDownloadAsync($project_id, $id, $x_phrase_app_otp = null, $branch = null, $file_format = null, $tags = null, $tag = null, $include_empty_translations = null, $exclude_empty_zero_forms = null, $include_translated_keys = null, $keep_notranslate_tags = null, $convert_emoji = null, $format_options = null, $encoding = null, $skip_unverified_translations = null, $include_unverified_translations = null, $use_last_reviewed_version = null, $fallback_locale_id = null)
     {
-        return $this->localeDownloadAsyncWithHttpInfo($project_id, $id, $x_phrase_app_otp, $branch, $file_format, $tags, $tag, $include_empty_translations, $include_translated_keys, $keep_notranslate_tags, $convert_emoji, $format_options, $encoding, $skip_unverified_translations, $include_unverified_translations, $use_last_reviewed_version, $fallback_locale_id)
+        return $this->localeDownloadAsyncWithHttpInfo($project_id, $id, $x_phrase_app_otp, $branch, $file_format, $tags, $tag, $include_empty_translations, $exclude_empty_zero_forms, $include_translated_keys, $keep_notranslate_tags, $convert_emoji, $format_options, $encoding, $skip_unverified_translations, $include_unverified_translations, $use_last_reviewed_version, $fallback_locale_id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -845,6 +848,7 @@ class LocalesApi
      * @param  string $tags Limit results to keys tagged with a list of comma separated tag names. (optional)
      * @param  string $tag Limit download to tagged keys. This parameter is deprecated. Please use the \&quot;tags\&quot; parameter instead (optional)
      * @param  bool $include_empty_translations Indicates whether keys without translations should be included in the output as well. (optional)
+     * @param  bool $exclude_empty_zero_forms Indicates whether zero forms should be included when empty in pluralized keys. (optional)
      * @param  bool $include_translated_keys Include translated keys in the locale file. Use in combination with include_empty_translations to obtain only untranslated keys. (optional)
      * @param  bool $keep_notranslate_tags Indicates whether [NOTRANSLATE] tags should be kept. (optional)
      * @param  bool $convert_emoji This option is obsolete. Projects that were created on or after Nov 29th 2019 or that did not contain emoji by then will not require this flag any longer since emoji are now supported natively. (optional)
@@ -858,10 +862,10 @@ class LocalesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function localeDownloadAsyncWithHttpInfo($project_id, $id, $x_phrase_app_otp = null, $branch = null, $file_format = null, $tags = null, $tag = null, $include_empty_translations = null, $include_translated_keys = null, $keep_notranslate_tags = null, $convert_emoji = null, $format_options = null, $encoding = null, $skip_unverified_translations = null, $include_unverified_translations = null, $use_last_reviewed_version = null, $fallback_locale_id = null)
+    public function localeDownloadAsyncWithHttpInfo($project_id, $id, $x_phrase_app_otp = null, $branch = null, $file_format = null, $tags = null, $tag = null, $include_empty_translations = null, $exclude_empty_zero_forms = null, $include_translated_keys = null, $keep_notranslate_tags = null, $convert_emoji = null, $format_options = null, $encoding = null, $skip_unverified_translations = null, $include_unverified_translations = null, $use_last_reviewed_version = null, $fallback_locale_id = null)
     {
         $returnType = '';
-        $request = $this->localeDownloadRequest($project_id, $id, $x_phrase_app_otp, $branch, $file_format, $tags, $tag, $include_empty_translations, $include_translated_keys, $keep_notranslate_tags, $convert_emoji, $format_options, $encoding, $skip_unverified_translations, $include_unverified_translations, $use_last_reviewed_version, $fallback_locale_id);
+        $request = $this->localeDownloadRequest($project_id, $id, $x_phrase_app_otp, $branch, $file_format, $tags, $tag, $include_empty_translations, $exclude_empty_zero_forms, $include_translated_keys, $keep_notranslate_tags, $convert_emoji, $format_options, $encoding, $skip_unverified_translations, $include_unverified_translations, $use_last_reviewed_version, $fallback_locale_id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -897,6 +901,7 @@ class LocalesApi
      * @param  string $tags Limit results to keys tagged with a list of comma separated tag names. (optional)
      * @param  string $tag Limit download to tagged keys. This parameter is deprecated. Please use the \&quot;tags\&quot; parameter instead (optional)
      * @param  bool $include_empty_translations Indicates whether keys without translations should be included in the output as well. (optional)
+     * @param  bool $exclude_empty_zero_forms Indicates whether zero forms should be included when empty in pluralized keys. (optional)
      * @param  bool $include_translated_keys Include translated keys in the locale file. Use in combination with include_empty_translations to obtain only untranslated keys. (optional)
      * @param  bool $keep_notranslate_tags Indicates whether [NOTRANSLATE] tags should be kept. (optional)
      * @param  bool $convert_emoji This option is obsolete. Projects that were created on or after Nov 29th 2019 or that did not contain emoji by then will not require this flag any longer since emoji are now supported natively. (optional)
@@ -910,7 +915,7 @@ class LocalesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function localeDownloadRequest($project_id, $id, $x_phrase_app_otp = null, $branch = null, $file_format = null, $tags = null, $tag = null, $include_empty_translations = null, $include_translated_keys = null, $keep_notranslate_tags = null, $convert_emoji = null, $format_options = null, $encoding = null, $skip_unverified_translations = null, $include_unverified_translations = null, $use_last_reviewed_version = null, $fallback_locale_id = null)
+    protected function localeDownloadRequest($project_id, $id, $x_phrase_app_otp = null, $branch = null, $file_format = null, $tags = null, $tag = null, $include_empty_translations = null, $exclude_empty_zero_forms = null, $include_translated_keys = null, $keep_notranslate_tags = null, $convert_emoji = null, $format_options = null, $encoding = null, $skip_unverified_translations = null, $include_unverified_translations = null, $use_last_reviewed_version = null, $fallback_locale_id = null)
     {
         // verify the required parameter 'project_id' is set
         if ($project_id === null || (is_array($project_id) && count($project_id) === 0)) {
@@ -985,6 +990,17 @@ class LocalesApi
             }
             else {
                 $queryParams['include_empty_translations'] = $include_empty_translations;
+            }
+        }
+        // query params
+        if ($exclude_empty_zero_forms !== null) {
+            if('form' === 'form' && is_array($exclude_empty_zero_forms)) {
+                foreach($exclude_empty_zero_forms as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['exclude_empty_zero_forms'] = $exclude_empty_zero_forms;
             }
         }
         // query params
