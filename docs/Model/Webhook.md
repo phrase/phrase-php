@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **description** | **string** |  | [optional] 
 **events** | **string[]** |  | [optional] 
 **active** | **bool** |  | [optional] 
+**include_branches** | **bool** |  | [optional] 
 **created_at** | [**\DateTime**](\DateTime.md) |  | [optional] 
 **updated_at** | [**\DateTime**](\DateTime.md) |  | [optional] 
 

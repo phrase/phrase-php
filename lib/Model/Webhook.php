@@ -60,6 +60,7 @@ class Webhook implements ModelInterface, ArrayAccess
         'description' => 'string',
         'events' => 'string[]',
         'active' => 'bool',
+        'include_branches' => 'bool',
         'created_at' => '\DateTime',
         'updated_at' => '\DateTime'
     ];
@@ -75,6 +76,7 @@ class Webhook implements ModelInterface, ArrayAccess
         'description' => null,
         'events' => null,
         'active' => null,
+        'include_branches' => null,
         'created_at' => 'date-time',
         'updated_at' => 'date-time'
     ];
@@ -111,6 +113,7 @@ class Webhook implements ModelInterface, ArrayAccess
         'description' => 'description',
         'events' => 'events',
         'active' => 'active',
+        'include_branches' => 'include_branches',
         'created_at' => 'created_at',
         'updated_at' => 'updated_at'
     ];
@@ -126,6 +129,7 @@ class Webhook implements ModelInterface, ArrayAccess
         'description' => 'setDescription',
         'events' => 'setEvents',
         'active' => 'setActive',
+        'include_branches' => 'setIncludeBranches',
         'created_at' => 'setCreatedAt',
         'updated_at' => 'setUpdatedAt'
     ];
@@ -141,6 +145,7 @@ class Webhook implements ModelInterface, ArrayAccess
         'description' => 'getDescription',
         'events' => 'getEvents',
         'active' => 'getActive',
+        'include_branches' => 'getIncludeBranches',
         'created_at' => 'getCreatedAt',
         'updated_at' => 'getUpdatedAt'
     ];
@@ -210,6 +215,7 @@ class Webhook implements ModelInterface, ArrayAccess
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['events'] = isset($data['events']) ? $data['events'] : null;
         $this->container['active'] = isset($data['active']) ? $data['active'] : null;
+        $this->container['include_branches'] = isset($data['include_branches']) ? $data['include_branches'] : null;
         $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
         $this->container['updated_at'] = isset($data['updated_at']) ? $data['updated_at'] : null;
     }
@@ -354,6 +360,30 @@ class Webhook implements ModelInterface, ArrayAccess
     public function setActive($active)
     {
         $this->container['active'] = $active;
+
+        return $this;
+    }
+
+    /**
+     * Gets include_branches
+     *
+     * @return bool|null
+     */
+    public function getIncludeBranches()
+    {
+        return $this->container['include_branches'];
+    }
+
+    /**
+     * Sets include_branches
+     *
+     * @param bool|null $include_branches include_branches
+     *
+     * @return $this
+     */
+    public function setIncludeBranches($include_branches)
+    {
+        $this->container['include_branches'] = $include_branches;
 
         return $this;
     }

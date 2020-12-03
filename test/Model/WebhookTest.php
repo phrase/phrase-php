@@ -112,6 +112,13 @@ class WebhookTest extends TestCase
     }
 
     /**
+     * Test attribute "include_branches"
+     */
+    public function testPropertyIncludeBranches()
+    {
+    }
+
+    /**
      * Test attribute "created_at"
      */
     public function testPropertyCreatedAt()

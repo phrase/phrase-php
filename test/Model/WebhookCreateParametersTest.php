@@ -110,4 +110,11 @@ class WebhookCreateParametersTest extends TestCase
     public function testPropertyActive()
     {
     }
+
+    /**
+     * Test attribute "include_branches"
+     */
+    public function testPropertyIncludeBranches()
+    {
+    }
 }

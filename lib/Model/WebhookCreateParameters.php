@@ -59,7 +59,8 @@ class WebhookCreateParameters implements ModelInterface, ArrayAccess
         'secret' => 'string',
         'description' => 'string',
         'events' => 'string',
-        'active' => 'bool'
+        'active' => 'bool',
+        'include_branches' => 'bool'
     ];
 
     /**
@@ -72,7 +73,8 @@ class WebhookCreateParameters implements ModelInterface, ArrayAccess
         'secret' => null,
         'description' => null,
         'events' => null,
-        'active' => null
+        'active' => null,
+        'include_branches' => null
     ];
 
     /**
@@ -106,7 +108,8 @@ class WebhookCreateParameters implements ModelInterface, ArrayAccess
         'secret' => 'secret',
         'description' => 'description',
         'events' => 'events',
-        'active' => 'active'
+        'active' => 'active',
+        'include_branches' => 'include_branches'
     ];
 
     /**
@@ -119,7 +122,8 @@ class WebhookCreateParameters implements ModelInterface, ArrayAccess
         'secret' => 'setSecret',
         'description' => 'setDescription',
         'events' => 'setEvents',
-        'active' => 'setActive'
+        'active' => 'setActive',
+        'include_branches' => 'setIncludeBranches'
     ];
 
     /**
@@ -132,7 +136,8 @@ class WebhookCreateParameters implements ModelInterface, ArrayAccess
         'secret' => 'getSecret',
         'description' => 'getDescription',
         'events' => 'getEvents',
-        'active' => 'getActive'
+        'active' => 'getActive',
+        'include_branches' => 'getIncludeBranches'
     ];
 
     /**
@@ -200,6 +205,7 @@ class WebhookCreateParameters implements ModelInterface, ArrayAccess
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['events'] = isset($data['events']) ? $data['events'] : null;
         $this->container['active'] = isset($data['active']) ? $data['active'] : null;
+        $this->container['include_branches'] = isset($data['include_branches']) ? $data['include_branches'] : null;
     }
 
     /**
@@ -342,6 +348,30 @@ class WebhookCreateParameters implements ModelInterface, ArrayAccess
     public function setActive($active)
     {
         $this->container['active'] = $active;
+
+        return $this;
+    }
+
+    /**
+     * Gets include_branches
+     *
+     * @return bool|null
+     */
+    public function getIncludeBranches()
+    {
+        return $this->container['include_branches'];
+    }
+
+    /**
+     * Sets include_branches
+     *
+     * @param bool|null $include_branches If enabled, webhook will also be triggered for events from branches of the project specified.
+     *
+     * @return $this
+     */
+    public function setIncludeBranches($include_branches)
+    {
+        $this->container['include_branches'] = $include_branches;
 
         return $this;
     }
