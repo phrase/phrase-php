@@ -119,6 +119,20 @@ class JobDetailsTest extends TestCase
     }
 
     /**
+     * Test attribute "project"
+     */
+    public function testPropertyProject()
+    {
+    }
+
+    /**
+     * Test attribute "branch"
+     */
+    public function testPropertyBranch()
+    {
+    }
+
+    /**
      * Test attribute "created_at"
      */
     public function testPropertyCreatedAt()
@@ -129,13 +143,6 @@ class JobDetailsTest extends TestCase
      * Test attribute "updated_at"
      */
     public function testPropertyUpdatedAt()
-    {
-    }
-
-    /**
-     * Test attribute "project"
-     */
-    public function testPropertyProject()
     {
     }
 

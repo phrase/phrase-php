@@ -61,9 +61,10 @@ class JobDetails implements ModelInterface, ArrayAccess
         'due_date' => '\DateTime',
         'state' => 'string',
         'ticket_url' => 'string',
+        'project' => '\Phrase\Model\ProjectShort',
+        'branch' => '\Phrase\Model\BranchName',
         'created_at' => '\DateTime',
         'updated_at' => '\DateTime',
-        'project' => '\Phrase\Model\ProjectShort',
         'owner' => '\Phrase\Model\UserPreview',
         'job_tag_name' => 'string',
         'locales' => '\Phrase\Model\LocalePreview[]',
@@ -82,9 +83,10 @@ class JobDetails implements ModelInterface, ArrayAccess
         'due_date' => 'date-time',
         'state' => null,
         'ticket_url' => null,
+        'project' => null,
+        'branch' => null,
         'created_at' => 'date-time',
         'updated_at' => 'date-time',
-        'project' => null,
         'owner' => null,
         'job_tag_name' => null,
         'locales' => null,
@@ -124,9 +126,10 @@ class JobDetails implements ModelInterface, ArrayAccess
         'due_date' => 'due_date',
         'state' => 'state',
         'ticket_url' => 'ticket_url',
+        'project' => 'project',
+        'branch' => 'branch',
         'created_at' => 'created_at',
         'updated_at' => 'updated_at',
-        'project' => 'project',
         'owner' => 'owner',
         'job_tag_name' => 'job_tag_name',
         'locales' => 'locales',
@@ -145,9 +148,10 @@ class JobDetails implements ModelInterface, ArrayAccess
         'due_date' => 'setDueDate',
         'state' => 'setState',
         'ticket_url' => 'setTicketUrl',
+        'project' => 'setProject',
+        'branch' => 'setBranch',
         'created_at' => 'setCreatedAt',
         'updated_at' => 'setUpdatedAt',
-        'project' => 'setProject',
         'owner' => 'setOwner',
         'job_tag_name' => 'setJobTagName',
         'locales' => 'setLocales',
@@ -166,9 +170,10 @@ class JobDetails implements ModelInterface, ArrayAccess
         'due_date' => 'getDueDate',
         'state' => 'getState',
         'ticket_url' => 'getTicketUrl',
+        'project' => 'getProject',
+        'branch' => 'getBranch',
         'created_at' => 'getCreatedAt',
         'updated_at' => 'getUpdatedAt',
-        'project' => 'getProject',
         'owner' => 'getOwner',
         'job_tag_name' => 'getJobTagName',
         'locales' => 'getLocales',
@@ -241,9 +246,10 @@ class JobDetails implements ModelInterface, ArrayAccess
         $this->container['due_date'] = isset($data['due_date']) ? $data['due_date'] : null;
         $this->container['state'] = isset($data['state']) ? $data['state'] : null;
         $this->container['ticket_url'] = isset($data['ticket_url']) ? $data['ticket_url'] : null;
+        $this->container['project'] = isset($data['project']) ? $data['project'] : null;
+        $this->container['branch'] = isset($data['branch']) ? $data['branch'] : null;
         $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
         $this->container['updated_at'] = isset($data['updated_at']) ? $data['updated_at'] : null;
-        $this->container['project'] = isset($data['project']) ? $data['project'] : null;
         $this->container['owner'] = isset($data['owner']) ? $data['owner'] : null;
         $this->container['job_tag_name'] = isset($data['job_tag_name']) ? $data['job_tag_name'] : null;
         $this->container['locales'] = isset($data['locales']) ? $data['locales'] : null;
@@ -419,6 +425,54 @@ class JobDetails implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets project
+     *
+     * @return \Phrase\Model\ProjectShort|null
+     */
+    public function getProject()
+    {
+        return $this->container['project'];
+    }
+
+    /**
+     * Sets project
+     *
+     * @param \Phrase\Model\ProjectShort|null $project project
+     *
+     * @return $this
+     */
+    public function setProject($project)
+    {
+        $this->container['project'] = $project;
+
+        return $this;
+    }
+
+    /**
+     * Gets branch
+     *
+     * @return \Phrase\Model\BranchName|null
+     */
+    public function getBranch()
+    {
+        return $this->container['branch'];
+    }
+
+    /**
+     * Sets branch
+     *
+     * @param \Phrase\Model\BranchName|null $branch branch
+     *
+     * @return $this
+     */
+    public function setBranch($branch)
+    {
+        $this->container['branch'] = $branch;
+
+        return $this;
+    }
+
+    /**
      * Gets created_at
      *
      * @return \DateTime|null
@@ -462,30 +516,6 @@ class JobDetails implements ModelInterface, ArrayAccess
     public function setUpdatedAt($updated_at)
     {
         $this->container['updated_at'] = $updated_at;
-
-        return $this;
-    }
-
-    /**
-     * Gets project
-     *
-     * @return \Phrase\Model\ProjectShort|null
-     */
-    public function getProject()
-    {
-        return $this->container['project'];
-    }
-
-    /**
-     * Sets project
-     *
-     * @param \Phrase\Model\ProjectShort|null $project project
-     *
-     * @return $this
-     */
-    public function setProject($project)
-    {
-        $this->container['project'] = $project;
 
         return $this;
     }

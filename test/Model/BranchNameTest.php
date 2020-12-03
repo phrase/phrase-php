@@ -1,6 +1,6 @@
 <?php
 /**
- * JobTest
+ * BranchNameTest
  *
  * PHP version 5
  *
@@ -30,15 +30,15 @@ namespace Phrase;
 use PHPUnit\Framework\TestCase;
 
 /**
- * JobTest Class Doc Comment
+ * BranchNameTest Class Doc Comment
  *
  * @category    Class
- * @description Job
+ * @description BranchName
  * @package     Phrase
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class JobTest extends TestCase
+class BranchNameTest extends TestCase
 {
 
     /**
@@ -70,16 +70,9 @@ class JobTest extends TestCase
     }
 
     /**
-     * Test "Job"
+     * Test "BranchName"
      */
-    public function testJob()
-    {
-    }
-
-    /**
-     * Test attribute "id"
-     */
-    public function testPropertyId()
+    public function testBranchName()
     {
     }
 
@@ -87,62 +80,6 @@ class JobTest extends TestCase
      * Test attribute "name"
      */
     public function testPropertyName()
-    {
-    }
-
-    /**
-     * Test attribute "briefing"
-     */
-    public function testPropertyBriefing()
-    {
-    }
-
-    /**
-     * Test attribute "due_date"
-     */
-    public function testPropertyDueDate()
-    {
-    }
-
-    /**
-     * Test attribute "state"
-     */
-    public function testPropertyState()
-    {
-    }
-
-    /**
-     * Test attribute "ticket_url"
-     */
-    public function testPropertyTicketUrl()
-    {
-    }
-
-    /**
-     * Test attribute "project"
-     */
-    public function testPropertyProject()
-    {
-    }
-
-    /**
-     * Test attribute "branch"
-     */
-    public function testPropertyBranch()
-    {
-    }
-
-    /**
-     * Test attribute "created_at"
-     */
-    public function testPropertyCreatedAt()
-    {
-    }
-
-    /**
-     * Test attribute "updated_at"
-     */
-    public function testPropertyUpdatedAt()
     {
     }
 }
