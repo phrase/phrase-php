@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **job** | [**\Phrase\Model\JobPreview**](JobPreview.md) |  | [optional] 
 **locale** | [**\Phrase\Model\LocalePreview**](LocalePreview.md) |  | [optional] 
 **users** | [**\Phrase\Model\UserPreview[]**](UserPreview.md) |  | [optional] 
+**completed** | **bool** |  | [optional] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

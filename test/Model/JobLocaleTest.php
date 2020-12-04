@@ -103,4 +103,11 @@ class JobLocaleTest extends TestCase
     public function testPropertyUsers()
     {
     }
+
+    /**
+     * Test attribute "completed"
+     */
+    public function testPropertyCompleted()
+    {
+    }
 }

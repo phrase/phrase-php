@@ -58,7 +58,8 @@ class JobLocale implements ModelInterface, ArrayAccess
         'id' => 'string',
         'job' => '\Phrase\Model\JobPreview',
         'locale' => '\Phrase\Model\LocalePreview',
-        'users' => '\Phrase\Model\UserPreview[]'
+        'users' => '\Phrase\Model\UserPreview[]',
+        'completed' => 'bool'
     ];
 
     /**
@@ -70,7 +71,8 @@ class JobLocale implements ModelInterface, ArrayAccess
         'id' => null,
         'job' => null,
         'locale' => null,
-        'users' => null
+        'users' => null,
+        'completed' => null
     ];
 
     /**
@@ -103,7 +105,8 @@ class JobLocale implements ModelInterface, ArrayAccess
         'id' => 'id',
         'job' => 'job',
         'locale' => 'locale',
-        'users' => 'users'
+        'users' => 'users',
+        'completed' => 'completed'
     ];
 
     /**
@@ -115,7 +118,8 @@ class JobLocale implements ModelInterface, ArrayAccess
         'id' => 'setId',
         'job' => 'setJob',
         'locale' => 'setLocale',
-        'users' => 'setUsers'
+        'users' => 'setUsers',
+        'completed' => 'setCompleted'
     ];
 
     /**
@@ -127,7 +131,8 @@ class JobLocale implements ModelInterface, ArrayAccess
         'id' => 'getId',
         'job' => 'getJob',
         'locale' => 'getLocale',
-        'users' => 'getUsers'
+        'users' => 'getUsers',
+        'completed' => 'getCompleted'
     ];
 
     /**
@@ -194,6 +199,7 @@ class JobLocale implements ModelInterface, ArrayAccess
         $this->container['job'] = isset($data['job']) ? $data['job'] : null;
         $this->container['locale'] = isset($data['locale']) ? $data['locale'] : null;
         $this->container['users'] = isset($data['users']) ? $data['users'] : null;
+        $this->container['completed'] = isset($data['completed']) ? $data['completed'] : null;
     }
 
     /**
@@ -312,6 +318,30 @@ class JobLocale implements ModelInterface, ArrayAccess
     public function setUsers($users)
     {
         $this->container['users'] = $users;
+
+        return $this;
+    }
+
+    /**
+     * Gets completed
+     *
+     * @return bool|null
+     */
+    public function getCompleted()
+    {
+        return $this->container['completed'];
+    }
+
+    /**
+     * Sets completed
+     *
+     * @param bool|null $completed completed
+     *
+     * @return $this
+     */
+    public function setCompleted($completed)
+    {
+        $this->container['completed'] = $completed;
 
         return $this;
     }
