@@ -59,6 +59,7 @@ class Member implements ModelInterface, ArrayAccess
         'email' => 'string',
         'username' => 'string',
         'role' => 'string',
+        'default_locale_codes' => 'string[]',
         'projects' => '\Phrase\Model\ProjectLocales[]'
     ];
 
@@ -72,6 +73,7 @@ class Member implements ModelInterface, ArrayAccess
         'email' => null,
         'username' => null,
         'role' => null,
+        'default_locale_codes' => null,
         'projects' => null
     ];
 
@@ -106,6 +108,7 @@ class Member implements ModelInterface, ArrayAccess
         'email' => 'email',
         'username' => 'username',
         'role' => 'role',
+        'default_locale_codes' => 'default_locale_codes',
         'projects' => 'projects'
     ];
 
@@ -119,6 +122,7 @@ class Member implements ModelInterface, ArrayAccess
         'email' => 'setEmail',
         'username' => 'setUsername',
         'role' => 'setRole',
+        'default_locale_codes' => 'setDefaultLocaleCodes',
         'projects' => 'setProjects'
     ];
 
@@ -132,6 +136,7 @@ class Member implements ModelInterface, ArrayAccess
         'email' => 'getEmail',
         'username' => 'getUsername',
         'role' => 'getRole',
+        'default_locale_codes' => 'getDefaultLocaleCodes',
         'projects' => 'getProjects'
     ];
 
@@ -199,6 +204,7 @@ class Member implements ModelInterface, ArrayAccess
         $this->container['email'] = isset($data['email']) ? $data['email'] : null;
         $this->container['username'] = isset($data['username']) ? $data['username'] : null;
         $this->container['role'] = isset($data['role']) ? $data['role'] : null;
+        $this->container['default_locale_codes'] = isset($data['default_locale_codes']) ? $data['default_locale_codes'] : null;
         $this->container['projects'] = isset($data['projects']) ? $data['projects'] : null;
     }
 
@@ -318,6 +324,30 @@ class Member implements ModelInterface, ArrayAccess
     public function setRole($role)
     {
         $this->container['role'] = $role;
+
+        return $this;
+    }
+
+    /**
+     * Gets default_locale_codes
+     *
+     * @return string[]|null
+     */
+    public function getDefaultLocaleCodes()
+    {
+        return $this->container['default_locale_codes'];
+    }
+
+    /**
+     * Sets default_locale_codes
+     *
+     * @param string[]|null $default_locale_codes default_locale_codes
+     *
+     * @return $this
+     */
+    public function setDefaultLocaleCodes($default_locale_codes)
+    {
+        $this->container['default_locale_codes'] = $default_locale_codes;
 
         return $this;
     }

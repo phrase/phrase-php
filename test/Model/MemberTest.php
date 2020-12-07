@@ -105,6 +105,13 @@ class MemberTest extends TestCase
     }
 
     /**
+     * Test attribute "default_locale_codes"
+     */
+    public function testPropertyDefaultLocaleCodes()
+    {
+    }
+
+    /**
      * Test attribute "projects"
      */
     public function testPropertyProjects()
