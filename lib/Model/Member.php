@@ -59,8 +59,10 @@ class Member implements ModelInterface, ArrayAccess
         'email' => 'string',
         'username' => 'string',
         'role' => 'string',
+        'projects' => '\Phrase\Model\ProjectLocales[]',
+        'permissions' => 'object',
         'default_locale_codes' => 'string[]',
-        'projects' => '\Phrase\Model\ProjectLocales[]'
+        'spaces' => '\Phrase\Model\MemberSpaces[]'
     ];
 
     /**
@@ -73,8 +75,10 @@ class Member implements ModelInterface, ArrayAccess
         'email' => null,
         'username' => null,
         'role' => null,
+        'projects' => null,
+        'permissions' => null,
         'default_locale_codes' => null,
-        'projects' => null
+        'spaces' => null
     ];
 
     /**
@@ -108,8 +112,10 @@ class Member implements ModelInterface, ArrayAccess
         'email' => 'email',
         'username' => 'username',
         'role' => 'role',
+        'projects' => 'projects',
+        'permissions' => 'permissions',
         'default_locale_codes' => 'default_locale_codes',
-        'projects' => 'projects'
+        'spaces' => 'spaces'
     ];
 
     /**
@@ -122,8 +128,10 @@ class Member implements ModelInterface, ArrayAccess
         'email' => 'setEmail',
         'username' => 'setUsername',
         'role' => 'setRole',
+        'projects' => 'setProjects',
+        'permissions' => 'setPermissions',
         'default_locale_codes' => 'setDefaultLocaleCodes',
-        'projects' => 'setProjects'
+        'spaces' => 'setSpaces'
     ];
 
     /**
@@ -136,8 +144,10 @@ class Member implements ModelInterface, ArrayAccess
         'email' => 'getEmail',
         'username' => 'getUsername',
         'role' => 'getRole',
+        'projects' => 'getProjects',
+        'permissions' => 'getPermissions',
         'default_locale_codes' => 'getDefaultLocaleCodes',
-        'projects' => 'getProjects'
+        'spaces' => 'getSpaces'
     ];
 
     /**
@@ -204,8 +214,10 @@ class Member implements ModelInterface, ArrayAccess
         $this->container['email'] = isset($data['email']) ? $data['email'] : null;
         $this->container['username'] = isset($data['username']) ? $data['username'] : null;
         $this->container['role'] = isset($data['role']) ? $data['role'] : null;
-        $this->container['default_locale_codes'] = isset($data['default_locale_codes']) ? $data['default_locale_codes'] : null;
         $this->container['projects'] = isset($data['projects']) ? $data['projects'] : null;
+        $this->container['permissions'] = isset($data['permissions']) ? $data['permissions'] : null;
+        $this->container['default_locale_codes'] = isset($data['default_locale_codes']) ? $data['default_locale_codes'] : null;
+        $this->container['spaces'] = isset($data['spaces']) ? $data['spaces'] : null;
     }
 
     /**
@@ -329,6 +341,54 @@ class Member implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets projects
+     *
+     * @return \Phrase\Model\ProjectLocales[]|null
+     */
+    public function getProjects()
+    {
+        return $this->container['projects'];
+    }
+
+    /**
+     * Sets projects
+     *
+     * @param \Phrase\Model\ProjectLocales[]|null $projects projects
+     *
+     * @return $this
+     */
+    public function setProjects($projects)
+    {
+        $this->container['projects'] = $projects;
+
+        return $this;
+    }
+
+    /**
+     * Gets permissions
+     *
+     * @return object|null
+     */
+    public function getPermissions()
+    {
+        return $this->container['permissions'];
+    }
+
+    /**
+     * Sets permissions
+     *
+     * @param object|null $permissions permissions
+     *
+     * @return $this
+     */
+    public function setPermissions($permissions)
+    {
+        $this->container['permissions'] = $permissions;
+
+        return $this;
+    }
+
+    /**
      * Gets default_locale_codes
      *
      * @return string[]|null
@@ -353,25 +413,25 @@ class Member implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets projects
+     * Gets spaces
      *
-     * @return \Phrase\Model\ProjectLocales[]|null
+     * @return \Phrase\Model\MemberSpaces[]|null
      */
-    public function getProjects()
+    public function getSpaces()
     {
-        return $this->container['projects'];
+        return $this->container['spaces'];
     }
 
     /**
-     * Sets projects
+     * Sets spaces
      *
-     * @param \Phrase\Model\ProjectLocales[]|null $projects projects
+     * @param \Phrase\Model\MemberSpaces[]|null $spaces spaces
      *
      * @return $this
      */
-    public function setProjects($projects)
+    public function setSpaces($spaces)
     {
-        $this->container['projects'] = $projects;
+        $this->container['spaces'] = $spaces;
 
         return $this;
     }

@@ -1,6 +1,6 @@
 <?php
 /**
- * MemberTest
+ * MemberSpacesTest
  *
  * PHP version 5
  *
@@ -30,15 +30,15 @@ namespace Phrase;
 use PHPUnit\Framework\TestCase;
 
 /**
- * MemberTest Class Doc Comment
+ * MemberSpacesTest Class Doc Comment
  *
  * @category    Class
- * @description Member
+ * @description MemberSpaces
  * @package     Phrase
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class MemberTest extends TestCase
+class MemberSpacesTest extends TestCase
 {
 
     /**
@@ -70,9 +70,9 @@ class MemberTest extends TestCase
     }
 
     /**
-     * Test "Member"
+     * Test "MemberSpaces"
      */
-    public function testMember()
+    public function testMemberSpaces()
     {
     }
 
@@ -84,51 +84,30 @@ class MemberTest extends TestCase
     }
 
     /**
-     * Test attribute "email"
+     * Test attribute "name"
      */
-    public function testPropertyEmail()
+    public function testPropertyName()
     {
     }
 
     /**
-     * Test attribute "username"
+     * Test attribute "created_at"
      */
-    public function testPropertyUsername()
+    public function testPropertyCreatedAt()
     {
     }
 
     /**
-     * Test attribute "role"
+     * Test attribute "updated_at"
      */
-    public function testPropertyRole()
+    public function testPropertyUpdatedAt()
     {
     }
 
     /**
-     * Test attribute "projects"
+     * Test attribute "projects_count"
      */
-    public function testPropertyProjects()
-    {
-    }
-
-    /**
-     * Test attribute "permissions"
-     */
-    public function testPropertyPermissions()
-    {
-    }
-
-    /**
-     * Test attribute "default_locale_codes"
-     */
-    public function testPropertyDefaultLocaleCodes()
-    {
-    }
-
-    /**
-     * Test attribute "spaces"
-     */
-    public function testPropertySpaces()
+    public function testPropertyProjectsCount()
     {
     }
 }

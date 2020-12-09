@@ -8,8 +8,10 @@ Name | Type | Description | Notes
 **email** | **string** |  | [optional] 
 **username** | **string** |  | [optional] 
 **role** | **string** |  | [optional] 
-**default_locale_codes** | **string[]** |  | [optional] 
 **projects** | [**\Phrase\Model\ProjectLocales[]**](ProjectLocales.md) |  | [optional] 
+**permissions** | [**object**](.md) |  | [optional] 
+**default_locale_codes** | **string[]** |  | [optional] 
+**spaces** | [**\Phrase\Model\MemberSpaces[]**](MemberSpaces.md) |  | [optional] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

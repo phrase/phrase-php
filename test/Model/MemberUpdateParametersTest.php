@@ -105,6 +105,13 @@ class MemberUpdateParametersTest extends TestCase
     }
 
     /**
+     * Test attribute "space_ids"
+     */
+    public function testPropertySpaceIds()
+    {
+    }
+
+    /**
      * Test attribute "permissions"
      */
     public function testPropertyPermissions()

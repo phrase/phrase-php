@@ -397,6 +397,7 @@ Class | Method | HTTP request | Description
  - [LocaleStatistics](docs/Model/LocaleStatistics.md)
  - [LocaleUpdateParameters](docs/Model/LocaleUpdateParameters.md)
  - [Member](docs/Model/Member.md)
+ - [MemberSpaces](docs/Model/MemberSpaces.md)
  - [MemberUpdateParameters](docs/Model/MemberUpdateParameters.md)
  - [OrderConfirmParameters](docs/Model/OrderConfirmParameters.md)
  - [OrderCreateParameters](docs/Model/OrderCreateParameters.md)

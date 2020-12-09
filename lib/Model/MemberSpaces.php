@@ -1,6 +1,6 @@
 <?php
 /**
- * MemberUpdateParameters
+ * MemberSpaces
  *
  * PHP version 5
  *
@@ -31,14 +31,14 @@ use \ArrayAccess;
 use \Phrase\ObjectSerializer;
 
 /**
- * MemberUpdateParameters Class Doc Comment
+ * MemberSpaces Class Doc Comment
  *
  * @category Class
  * @package  Phrase
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class MemberUpdateParameters implements ModelInterface, ArrayAccess
+class MemberSpaces implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -47,7 +47,7 @@ class MemberUpdateParameters implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'member_update_parameters';
+    protected static $openAPIModelName = 'member_spaces';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -55,12 +55,11 @@ class MemberUpdateParameters implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'role' => 'string',
-        'project_ids' => 'string',
-        'locale_ids' => 'string',
-        'default_locale_codes' => 'string[]',
-        'space_ids' => 'string[]',
-        'permissions' => 'map[string,string]'
+        'id' => 'string',
+        'name' => 'string',
+        'created_at' => 'AnyType',
+        'updated_at' => 'AnyType',
+        'projects_count' => 'int'
     ];
 
     /**
@@ -69,12 +68,11 @@ class MemberUpdateParameters implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'role' => null,
-        'project_ids' => null,
-        'locale_ids' => null,
-        'default_locale_codes' => null,
-        'space_ids' => null,
-        'permissions' => null
+        'id' => null,
+        'name' => null,
+        'created_at' => 'date-time',
+        'updated_at' => 'date-time',
+        'projects_count' => null
     ];
 
     /**
@@ -104,12 +102,11 @@ class MemberUpdateParameters implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'role' => 'role',
-        'project_ids' => 'project_ids',
-        'locale_ids' => 'locale_ids',
-        'default_locale_codes' => 'default_locale_codes',
-        'space_ids' => 'space_ids',
-        'permissions' => 'permissions'
+        'id' => 'id',
+        'name' => 'name',
+        'created_at' => 'created_at',
+        'updated_at' => 'updated_at',
+        'projects_count' => 'projects_count'
     ];
 
     /**
@@ -118,12 +115,11 @@ class MemberUpdateParameters implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'role' => 'setRole',
-        'project_ids' => 'setProjectIds',
-        'locale_ids' => 'setLocaleIds',
-        'default_locale_codes' => 'setDefaultLocaleCodes',
-        'space_ids' => 'setSpaceIds',
-        'permissions' => 'setPermissions'
+        'id' => 'setId',
+        'name' => 'setName',
+        'created_at' => 'setCreatedAt',
+        'updated_at' => 'setUpdatedAt',
+        'projects_count' => 'setProjectsCount'
     ];
 
     /**
@@ -132,12 +128,11 @@ class MemberUpdateParameters implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'role' => 'getRole',
-        'project_ids' => 'getProjectIds',
-        'locale_ids' => 'getLocaleIds',
-        'default_locale_codes' => 'getDefaultLocaleCodes',
-        'space_ids' => 'getSpaceIds',
-        'permissions' => 'getPermissions'
+        'id' => 'getId',
+        'name' => 'getName',
+        'created_at' => 'getCreatedAt',
+        'updated_at' => 'getUpdatedAt',
+        'projects_count' => 'getProjectsCount'
     ];
 
     /**
@@ -200,12 +195,11 @@ class MemberUpdateParameters implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['role'] = isset($data['role']) ? $data['role'] : null;
-        $this->container['project_ids'] = isset($data['project_ids']) ? $data['project_ids'] : null;
-        $this->container['locale_ids'] = isset($data['locale_ids']) ? $data['locale_ids'] : null;
-        $this->container['default_locale_codes'] = isset($data['default_locale_codes']) ? $data['default_locale_codes'] : null;
-        $this->container['space_ids'] = isset($data['space_ids']) ? $data['space_ids'] : null;
-        $this->container['permissions'] = isset($data['permissions']) ? $data['permissions'] : null;
+        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
+        $this->container['updated_at'] = isset($data['updated_at']) ? $data['updated_at'] : null;
+        $this->container['projects_count'] = isset($data['projects_count']) ? $data['projects_count'] : null;
     }
 
     /**
@@ -233,145 +227,121 @@ class MemberUpdateParameters implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets role
+     * Gets id
      *
      * @return string|null
      */
-    public function getRole()
+    public function getId()
     {
-        return $this->container['role'];
+        return $this->container['id'];
     }
 
     /**
-     * Sets role
+     * Sets id
      *
-     * @param string|null $role Member role, can be any of of Manager, Developer, Translator
+     * @param string|null $id id
      *
      * @return $this
      */
-    public function setRole($role)
+    public function setId($id)
     {
-        $this->container['role'] = $role;
+        $this->container['id'] = $id;
 
         return $this;
     }
 
     /**
-     * Gets project_ids
+     * Gets name
      *
      * @return string|null
      */
-    public function getProjectIds()
+    public function getName()
     {
-        return $this->container['project_ids'];
+        return $this->container['name'];
     }
 
     /**
-     * Sets project_ids
+     * Sets name
      *
-     * @param string|null $project_ids List of project ids the user has access to.
+     * @param string|null $name name
      *
      * @return $this
      */
-    public function setProjectIds($project_ids)
+    public function setName($name)
     {
-        $this->container['project_ids'] = $project_ids;
+        $this->container['name'] = $name;
 
         return $this;
     }
 
     /**
-     * Gets locale_ids
+     * Gets created_at
      *
-     * @return string|null
+     * @return AnyType|null
      */
-    public function getLocaleIds()
+    public function getCreatedAt()
     {
-        return $this->container['locale_ids'];
+        return $this->container['created_at'];
     }
 
     /**
-     * Sets locale_ids
+     * Sets created_at
      *
-     * @param string|null $locale_ids List of locale ids the user has access to.
+     * @param AnyType|null $created_at created_at
      *
      * @return $this
      */
-    public function setLocaleIds($locale_ids)
+    public function setCreatedAt($created_at)
     {
-        $this->container['locale_ids'] = $locale_ids;
+        $this->container['created_at'] = $created_at;
 
         return $this;
     }
 
     /**
-     * Gets default_locale_codes
+     * Gets updated_at
      *
-     * @return string[]|null
+     * @return AnyType|null
      */
-    public function getDefaultLocaleCodes()
+    public function getUpdatedAt()
     {
-        return $this->container['default_locale_codes'];
+        return $this->container['updated_at'];
     }
 
     /**
-     * Sets default_locale_codes
+     * Sets updated_at
      *
-     * @param string[]|null $default_locale_codes List of default locales for the user.
+     * @param AnyType|null $updated_at updated_at
      *
      * @return $this
      */
-    public function setDefaultLocaleCodes($default_locale_codes)
+    public function setUpdatedAt($updated_at)
     {
-        $this->container['default_locale_codes'] = $default_locale_codes;
+        $this->container['updated_at'] = $updated_at;
 
         return $this;
     }
 
     /**
-     * Gets space_ids
+     * Gets projects_count
      *
-     * @return string[]|null
+     * @return int|null
      */
-    public function getSpaceIds()
+    public function getProjectsCount()
     {
-        return $this->container['space_ids'];
+        return $this->container['projects_count'];
     }
 
     /**
-     * Sets space_ids
+     * Sets projects_count
      *
-     * @param string[]|null $space_ids List of spaces the user is assigned to.
+     * @param int|null $projects_count projects_count
      *
      * @return $this
      */
-    public function setSpaceIds($space_ids)
+    public function setProjectsCount($projects_count)
     {
-        $this->container['space_ids'] = $space_ids;
-
-        return $this;
-    }
-
-    /**
-     * Gets permissions
-     *
-     * @return map[string,string]|null
-     */
-    public function getPermissions()
-    {
-        return $this->container['permissions'];
-    }
-
-    /**
-     * Sets permissions
-     *
-     * @param map[string,string]|null $permissions Additional permissions depending on member role. Available permissions are <code>create_upload</code> and <code>review_translations</code>
-     *
-     * @return $this
-     */
-    public function setPermissions($permissions)
-    {
-        $this->container['permissions'] = $permissions;
+        $this->container['projects_count'] = $projects_count;
 
         return $this;
     }
