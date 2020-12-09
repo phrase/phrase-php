@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **state** | **string** |  | [optional] 
 **projects** | [**\Phrase\Model\ProjectShort[]**](ProjectShort.md) |  | [optional] 
 **locales** | [**\Phrase\Model\LocalePreview[]**](LocalePreview.md) |  | [optional] 
+**default_locale_codes** | **string[]** |  | [optional] 
 **permissions** | [**object**](.md) |  | [optional] 
 **created_at** | [**\DateTime**](\DateTime.md) |  | [optional] 
 **updated_at** | [**\DateTime**](\DateTime.md) |  | [optional] 

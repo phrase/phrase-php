@@ -119,6 +119,13 @@ class InvitationTest extends TestCase
     }
 
     /**
+     * Test attribute "default_locale_codes"
+     */
+    public function testPropertyDefaultLocaleCodes()
+    {
+    }
+
+    /**
      * Test attribute "permissions"
      */
     public function testPropertyPermissions()

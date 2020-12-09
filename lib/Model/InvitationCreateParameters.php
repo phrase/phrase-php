@@ -59,6 +59,7 @@ class InvitationCreateParameters implements ModelInterface, ArrayAccess
         'role' => 'string',
         'project_ids' => 'string',
         'locale_ids' => 'string',
+        'default_locale_codes' => 'string[]',
         'permissions' => 'map[string,string]'
     ];
 
@@ -72,6 +73,7 @@ class InvitationCreateParameters implements ModelInterface, ArrayAccess
         'role' => null,
         'project_ids' => null,
         'locale_ids' => null,
+        'default_locale_codes' => null,
         'permissions' => null
     ];
 
@@ -106,6 +108,7 @@ class InvitationCreateParameters implements ModelInterface, ArrayAccess
         'role' => 'role',
         'project_ids' => 'project_ids',
         'locale_ids' => 'locale_ids',
+        'default_locale_codes' => 'default_locale_codes',
         'permissions' => 'permissions'
     ];
 
@@ -119,6 +122,7 @@ class InvitationCreateParameters implements ModelInterface, ArrayAccess
         'role' => 'setRole',
         'project_ids' => 'setProjectIds',
         'locale_ids' => 'setLocaleIds',
+        'default_locale_codes' => 'setDefaultLocaleCodes',
         'permissions' => 'setPermissions'
     ];
 
@@ -132,6 +136,7 @@ class InvitationCreateParameters implements ModelInterface, ArrayAccess
         'role' => 'getRole',
         'project_ids' => 'getProjectIds',
         'locale_ids' => 'getLocaleIds',
+        'default_locale_codes' => 'getDefaultLocaleCodes',
         'permissions' => 'getPermissions'
     ];
 
@@ -199,6 +204,7 @@ class InvitationCreateParameters implements ModelInterface, ArrayAccess
         $this->container['role'] = isset($data['role']) ? $data['role'] : null;
         $this->container['project_ids'] = isset($data['project_ids']) ? $data['project_ids'] : null;
         $this->container['locale_ids'] = isset($data['locale_ids']) ? $data['locale_ids'] : null;
+        $this->container['default_locale_codes'] = isset($data['default_locale_codes']) ? $data['default_locale_codes'] : null;
         $this->container['permissions'] = isset($data['permissions']) ? $data['permissions'] : null;
     }
 
@@ -318,6 +324,30 @@ class InvitationCreateParameters implements ModelInterface, ArrayAccess
     public function setLocaleIds($locale_ids)
     {
         $this->container['locale_ids'] = $locale_ids;
+
+        return $this;
+    }
+
+    /**
+     * Gets default_locale_codes
+     *
+     * @return string[]|null
+     */
+    public function getDefaultLocaleCodes()
+    {
+        return $this->container['default_locale_codes'];
+    }
+
+    /**
+     * Sets default_locale_codes
+     *
+     * @param string[]|null $default_locale_codes List of default locales for the user.
+     *
+     * @return $this
+     */
+    public function setDefaultLocaleCodes($default_locale_codes)
+    {
+        $this->container['default_locale_codes'] = $default_locale_codes;
 
         return $this;
     }

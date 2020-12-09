@@ -61,6 +61,7 @@ class Invitation implements ModelInterface, ArrayAccess
         'state' => 'string',
         'projects' => '\Phrase\Model\ProjectShort[]',
         'locales' => '\Phrase\Model\LocalePreview[]',
+        'default_locale_codes' => 'string[]',
         'permissions' => 'object',
         'created_at' => '\DateTime',
         'updated_at' => '\DateTime',
@@ -79,6 +80,7 @@ class Invitation implements ModelInterface, ArrayAccess
         'state' => null,
         'projects' => null,
         'locales' => null,
+        'default_locale_codes' => null,
         'permissions' => null,
         'created_at' => 'date-time',
         'updated_at' => 'date-time',
@@ -118,6 +120,7 @@ class Invitation implements ModelInterface, ArrayAccess
         'state' => 'state',
         'projects' => 'projects',
         'locales' => 'locales',
+        'default_locale_codes' => 'default_locale_codes',
         'permissions' => 'permissions',
         'created_at' => 'created_at',
         'updated_at' => 'updated_at',
@@ -136,6 +139,7 @@ class Invitation implements ModelInterface, ArrayAccess
         'state' => 'setState',
         'projects' => 'setProjects',
         'locales' => 'setLocales',
+        'default_locale_codes' => 'setDefaultLocaleCodes',
         'permissions' => 'setPermissions',
         'created_at' => 'setCreatedAt',
         'updated_at' => 'setUpdatedAt',
@@ -154,6 +158,7 @@ class Invitation implements ModelInterface, ArrayAccess
         'state' => 'getState',
         'projects' => 'getProjects',
         'locales' => 'getLocales',
+        'default_locale_codes' => 'getDefaultLocaleCodes',
         'permissions' => 'getPermissions',
         'created_at' => 'getCreatedAt',
         'updated_at' => 'getUpdatedAt',
@@ -226,6 +231,7 @@ class Invitation implements ModelInterface, ArrayAccess
         $this->container['state'] = isset($data['state']) ? $data['state'] : null;
         $this->container['projects'] = isset($data['projects']) ? $data['projects'] : null;
         $this->container['locales'] = isset($data['locales']) ? $data['locales'] : null;
+        $this->container['default_locale_codes'] = isset($data['default_locale_codes']) ? $data['default_locale_codes'] : null;
         $this->container['permissions'] = isset($data['permissions']) ? $data['permissions'] : null;
         $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
         $this->container['updated_at'] = isset($data['updated_at']) ? $data['updated_at'] : null;
@@ -396,6 +402,30 @@ class Invitation implements ModelInterface, ArrayAccess
     public function setLocales($locales)
     {
         $this->container['locales'] = $locales;
+
+        return $this;
+    }
+
+    /**
+     * Gets default_locale_codes
+     *
+     * @return string[]|null
+     */
+    public function getDefaultLocaleCodes()
+    {
+        return $this->container['default_locale_codes'];
+    }
+
+    /**
+     * Sets default_locale_codes
+     *
+     * @param string[]|null $default_locale_codes default_locale_codes
+     *
+     * @return $this
+     */
+    public function setDefaultLocaleCodes($default_locale_codes)
+    {
+        $this->container['default_locale_codes'] = $default_locale_codes;
 
         return $this;
     }
