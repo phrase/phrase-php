@@ -124,7 +124,7 @@ class InvitationsApi
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Phrase\Model\Invitation
+     * @return \Phrase\Model\Invitation|\Phrase\Model\InlineResponse422
      */
     public function invitationCreate($account_id, $invitation_create_parameters, $x_phrase_app_otp = null)
     {
@@ -143,7 +143,7 @@ class InvitationsApi
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Phrase\Model\Invitation, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Phrase\Model\Invitation|\Phrase\Model\InlineResponse422, HTTP status code, HTTP response headers (array of strings)
      */
     public function invitationCreateWithHttpInfo($account_id, $invitation_create_parameters, $x_phrase_app_otp = null)
     {
@@ -191,6 +191,18 @@ class InvitationsApi
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
+                case 422:
+                    if ('\Phrase\Model\InlineResponse422' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Phrase\Model\InlineResponse422', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
             }
 
             $returnType = '\Phrase\Model\Invitation';
@@ -213,6 +225,14 @@ class InvitationsApi
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\Phrase\Model\Invitation',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 422:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Phrase\Model\InlineResponse422',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);

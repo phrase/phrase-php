@@ -105,6 +105,13 @@ class InvitationCreateParametersTest extends TestCase
     }
 
     /**
+     * Test attribute "space_ids"
+     */
+    public function testPropertySpaceIds()
+    {
+    }
+
+    /**
      * Test attribute "default_locale_codes"
      */
     public function testPropertyDefaultLocaleCodes()

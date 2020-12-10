@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **created_at** | [**\DateTime**](\DateTime.md) |  | [optional] 
 **updated_at** | [**\DateTime**](\DateTime.md) |  | [optional] 
 **accepted_at** | [**\DateTime**](\DateTime.md) |  | [optional] 
+**spaces** | [**\Phrase\Model\MemberSpaces[]**](MemberSpaces.md) |  | [optional] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

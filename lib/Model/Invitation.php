@@ -65,7 +65,8 @@ class Invitation implements ModelInterface, ArrayAccess
         'permissions' => 'object',
         'created_at' => '\DateTime',
         'updated_at' => '\DateTime',
-        'accepted_at' => '\DateTime'
+        'accepted_at' => '\DateTime',
+        'spaces' => '\Phrase\Model\MemberSpaces[]'
     ];
 
     /**
@@ -84,7 +85,8 @@ class Invitation implements ModelInterface, ArrayAccess
         'permissions' => null,
         'created_at' => 'date-time',
         'updated_at' => 'date-time',
-        'accepted_at' => 'date-time'
+        'accepted_at' => 'date-time',
+        'spaces' => null
     ];
 
     /**
@@ -124,7 +126,8 @@ class Invitation implements ModelInterface, ArrayAccess
         'permissions' => 'permissions',
         'created_at' => 'created_at',
         'updated_at' => 'updated_at',
-        'accepted_at' => 'accepted_at'
+        'accepted_at' => 'accepted_at',
+        'spaces' => 'spaces'
     ];
 
     /**
@@ -143,7 +146,8 @@ class Invitation implements ModelInterface, ArrayAccess
         'permissions' => 'setPermissions',
         'created_at' => 'setCreatedAt',
         'updated_at' => 'setUpdatedAt',
-        'accepted_at' => 'setAcceptedAt'
+        'accepted_at' => 'setAcceptedAt',
+        'spaces' => 'setSpaces'
     ];
 
     /**
@@ -162,7 +166,8 @@ class Invitation implements ModelInterface, ArrayAccess
         'permissions' => 'getPermissions',
         'created_at' => 'getCreatedAt',
         'updated_at' => 'getUpdatedAt',
-        'accepted_at' => 'getAcceptedAt'
+        'accepted_at' => 'getAcceptedAt',
+        'spaces' => 'getSpaces'
     ];
 
     /**
@@ -236,6 +241,7 @@ class Invitation implements ModelInterface, ArrayAccess
         $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
         $this->container['updated_at'] = isset($data['updated_at']) ? $data['updated_at'] : null;
         $this->container['accepted_at'] = isset($data['accepted_at']) ? $data['accepted_at'] : null;
+        $this->container['spaces'] = isset($data['spaces']) ? $data['spaces'] : null;
     }
 
     /**
@@ -522,6 +528,30 @@ class Invitation implements ModelInterface, ArrayAccess
     public function setAcceptedAt($accepted_at)
     {
         $this->container['accepted_at'] = $accepted_at;
+
+        return $this;
+    }
+
+    /**
+     * Gets spaces
+     *
+     * @return \Phrase\Model\MemberSpaces[]|null
+     */
+    public function getSpaces()
+    {
+        return $this->container['spaces'];
+    }
+
+    /**
+     * Sets spaces
+     *
+     * @param \Phrase\Model\MemberSpaces[]|null $spaces spaces
+     *
+     * @return $this
+     */
+    public function setSpaces($spaces)
+    {
+        $this->container['spaces'] = $spaces;
 
         return $this;
     }

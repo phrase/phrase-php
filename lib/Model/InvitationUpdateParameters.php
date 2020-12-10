@@ -58,6 +58,7 @@ class InvitationUpdateParameters implements ModelInterface, ArrayAccess
         'role' => 'string',
         'project_ids' => 'string',
         'locale_ids' => 'string',
+        'space_ids' => 'string[]',
         'default_locale_codes' => 'string[]',
         'permissions' => 'map[string,string]'
     ];
@@ -71,6 +72,7 @@ class InvitationUpdateParameters implements ModelInterface, ArrayAccess
         'role' => null,
         'project_ids' => null,
         'locale_ids' => null,
+        'space_ids' => null,
         'default_locale_codes' => null,
         'permissions' => null
     ];
@@ -105,6 +107,7 @@ class InvitationUpdateParameters implements ModelInterface, ArrayAccess
         'role' => 'role',
         'project_ids' => 'project_ids',
         'locale_ids' => 'locale_ids',
+        'space_ids' => 'space_ids',
         'default_locale_codes' => 'default_locale_codes',
         'permissions' => 'permissions'
     ];
@@ -118,6 +121,7 @@ class InvitationUpdateParameters implements ModelInterface, ArrayAccess
         'role' => 'setRole',
         'project_ids' => 'setProjectIds',
         'locale_ids' => 'setLocaleIds',
+        'space_ids' => 'setSpaceIds',
         'default_locale_codes' => 'setDefaultLocaleCodes',
         'permissions' => 'setPermissions'
     ];
@@ -131,6 +135,7 @@ class InvitationUpdateParameters implements ModelInterface, ArrayAccess
         'role' => 'getRole',
         'project_ids' => 'getProjectIds',
         'locale_ids' => 'getLocaleIds',
+        'space_ids' => 'getSpaceIds',
         'default_locale_codes' => 'getDefaultLocaleCodes',
         'permissions' => 'getPermissions'
     ];
@@ -198,6 +203,7 @@ class InvitationUpdateParameters implements ModelInterface, ArrayAccess
         $this->container['role'] = isset($data['role']) ? $data['role'] : null;
         $this->container['project_ids'] = isset($data['project_ids']) ? $data['project_ids'] : null;
         $this->container['locale_ids'] = isset($data['locale_ids']) ? $data['locale_ids'] : null;
+        $this->container['space_ids'] = isset($data['space_ids']) ? $data['space_ids'] : null;
         $this->container['default_locale_codes'] = isset($data['default_locale_codes']) ? $data['default_locale_codes'] : null;
         $this->container['permissions'] = isset($data['permissions']) ? $data['permissions'] : null;
     }
@@ -294,6 +300,30 @@ class InvitationUpdateParameters implements ModelInterface, ArrayAccess
     public function setLocaleIds($locale_ids)
     {
         $this->container['locale_ids'] = $locale_ids;
+
+        return $this;
+    }
+
+    /**
+     * Gets space_ids
+     *
+     * @return string[]|null
+     */
+    public function getSpaceIds()
+    {
+        return $this->container['space_ids'];
+    }
+
+    /**
+     * Sets space_ids
+     *
+     * @param string[]|null $space_ids List of spaces the user is assigned to.
+     *
+     * @return $this
+     */
+    public function setSpaceIds($space_ids)
+    {
+        $this->container['space_ids'] = $space_ids;
 
         return $this;
     }

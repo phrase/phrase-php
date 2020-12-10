@@ -152,4 +152,11 @@ class InvitationTest extends TestCase
     public function testPropertyAcceptedAt()
     {
     }
+
+    /**
+     * Test attribute "spaces"
+     */
+    public function testPropertySpaces()
+    {
+    }
 }
