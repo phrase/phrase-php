@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**memberDelete**](MembersApi.md#memberDelete) | **DELETE** /accounts/{account_id}/members/{id} | Remove a user from the account
 [**memberShow**](MembersApi.md#memberShow) | **GET** /accounts/{account_id}/members/{id} | Get single member
 [**memberUpdate**](MembersApi.md#memberUpdate) | **PATCH** /accounts/{account_id}/members/{id} | Update a member
+[**memberUpdateSettings**](MembersApi.md#memberUpdateSettings) | **PATCH** /projects/{project_id}/members/{id} | Update a member&#39;s project settings
 [**membersList**](MembersApi.md#membersList) | **GET** /accounts/{account_id}/members | List members
 
 
@@ -186,6 +187,71 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\Phrase\Model\Member**](../Model/Member.md)
+
+### Authorization
+
+[Basic](../../README.md#Basic), [Token](../../README.md#Token)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
+
+
+## memberUpdateSettings
+
+> \Phrase\Model\MemberProjectDetail memberUpdateSettings($project_id, $id, $member_update_settings_parameters, $x_phrase_app_otp)
+
+Update a member's project settings
+
+Update user settings in the project. Access token scope must include <code>team.manage</code>.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$config = Phrase\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = Phrase\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'token');
+
+$apiInstance = new Phrase\Api\MembersApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$project_id = 'project_id_example'; // string | Project ID
+$id = 'id_example'; // string | ID
+$member_update_settings_parameters = new \Phrase\Model\MemberUpdateSettingsParameters(); // \Phrase\Model\MemberUpdateSettingsParameters | 
+$x_phrase_app_otp = 'x_phrase_app_otp_example'; // string | Two-Factor-Authentication token (optional)
+
+try {
+    $result = $apiInstance->memberUpdateSettings($project_id, $id, $member_update_settings_parameters, $x_phrase_app_otp);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling MembersApi->memberUpdateSettings: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **project_id** | **string**| Project ID |
+ **id** | **string**| ID |
+ **member_update_settings_parameters** | [**\Phrase\Model\MemberUpdateSettingsParameters**](../Model/MemberUpdateSettingsParameters.md)|  |
+ **x_phrase_app_otp** | **string**| Two-Factor-Authentication token (optional) | [optional]
+
+### Return type
+
+[**\Phrase\Model\MemberProjectDetail**](../Model/MemberProjectDetail.md)
 
 ### Authorization
 

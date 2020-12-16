@@ -101,6 +101,16 @@ class MembersApiTest extends TestCase
     }
 
     /**
+     * Test case for memberUpdateSettings
+     *
+     * Update a member's project settings.
+     *
+     */
+    public function testMemberUpdateSettings()
+    {
+    }
+
+    /**
      * Test case for membersList
      *
      * List members.
