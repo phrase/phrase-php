@@ -63,10 +63,12 @@ class Invitation implements ModelInterface, ArrayAccess
         'locales' => '\Phrase\Model\LocalePreview[]',
         'default_locale_codes' => 'string[]',
         'permissions' => 'object',
+        'locale_ids' => 'string[]',
         'created_at' => '\DateTime',
         'updated_at' => '\DateTime',
         'accepted_at' => '\DateTime',
-        'spaces' => '\Phrase\Model\MemberSpaces[]'
+        'spaces' => '\Phrase\Model\MemberSpaces[]',
+        'project_role' => '\Phrase\Model\MemberProjectDetailProjectRoles[]'
     ];
 
     /**
@@ -83,10 +85,12 @@ class Invitation implements ModelInterface, ArrayAccess
         'locales' => null,
         'default_locale_codes' => null,
         'permissions' => null,
+        'locale_ids' => null,
         'created_at' => 'date-time',
         'updated_at' => 'date-time',
         'accepted_at' => 'date-time',
-        'spaces' => null
+        'spaces' => null,
+        'project_role' => null
     ];
 
     /**
@@ -124,10 +128,12 @@ class Invitation implements ModelInterface, ArrayAccess
         'locales' => 'locales',
         'default_locale_codes' => 'default_locale_codes',
         'permissions' => 'permissions',
+        'locale_ids' => 'locale_ids',
         'created_at' => 'created_at',
         'updated_at' => 'updated_at',
         'accepted_at' => 'accepted_at',
-        'spaces' => 'spaces'
+        'spaces' => 'spaces',
+        'project_role' => 'project_role'
     ];
 
     /**
@@ -144,10 +150,12 @@ class Invitation implements ModelInterface, ArrayAccess
         'locales' => 'setLocales',
         'default_locale_codes' => 'setDefaultLocaleCodes',
         'permissions' => 'setPermissions',
+        'locale_ids' => 'setLocaleIds',
         'created_at' => 'setCreatedAt',
         'updated_at' => 'setUpdatedAt',
         'accepted_at' => 'setAcceptedAt',
-        'spaces' => 'setSpaces'
+        'spaces' => 'setSpaces',
+        'project_role' => 'setProjectRole'
     ];
 
     /**
@@ -164,10 +172,12 @@ class Invitation implements ModelInterface, ArrayAccess
         'locales' => 'getLocales',
         'default_locale_codes' => 'getDefaultLocaleCodes',
         'permissions' => 'getPermissions',
+        'locale_ids' => 'getLocaleIds',
         'created_at' => 'getCreatedAt',
         'updated_at' => 'getUpdatedAt',
         'accepted_at' => 'getAcceptedAt',
-        'spaces' => 'getSpaces'
+        'spaces' => 'getSpaces',
+        'project_role' => 'getProjectRole'
     ];
 
     /**
@@ -238,10 +248,12 @@ class Invitation implements ModelInterface, ArrayAccess
         $this->container['locales'] = isset($data['locales']) ? $data['locales'] : null;
         $this->container['default_locale_codes'] = isset($data['default_locale_codes']) ? $data['default_locale_codes'] : null;
         $this->container['permissions'] = isset($data['permissions']) ? $data['permissions'] : null;
+        $this->container['locale_ids'] = isset($data['locale_ids']) ? $data['locale_ids'] : null;
         $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
         $this->container['updated_at'] = isset($data['updated_at']) ? $data['updated_at'] : null;
         $this->container['accepted_at'] = isset($data['accepted_at']) ? $data['accepted_at'] : null;
         $this->container['spaces'] = isset($data['spaces']) ? $data['spaces'] : null;
+        $this->container['project_role'] = isset($data['project_role']) ? $data['project_role'] : null;
     }
 
     /**
@@ -461,6 +473,30 @@ class Invitation implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets locale_ids
+     *
+     * @return string[]|null
+     */
+    public function getLocaleIds()
+    {
+        return $this->container['locale_ids'];
+    }
+
+    /**
+     * Sets locale_ids
+     *
+     * @param string[]|null $locale_ids locale_ids
+     *
+     * @return $this
+     */
+    public function setLocaleIds($locale_ids)
+    {
+        $this->container['locale_ids'] = $locale_ids;
+
+        return $this;
+    }
+
+    /**
      * Gets created_at
      *
      * @return \DateTime|null
@@ -552,6 +588,30 @@ class Invitation implements ModelInterface, ArrayAccess
     public function setSpaces($spaces)
     {
         $this->container['spaces'] = $spaces;
+
+        return $this;
+    }
+
+    /**
+     * Gets project_role
+     *
+     * @return \Phrase\Model\MemberProjectDetailProjectRoles[]|null
+     */
+    public function getProjectRole()
+    {
+        return $this->container['project_role'];
+    }
+
+    /**
+     * Sets project_role
+     *
+     * @param \Phrase\Model\MemberProjectDetailProjectRoles[]|null $project_role project_role
+     *
+     * @return $this
+     */
+    public function setProjectRole($project_role)
+    {
+        $this->container['project_role'] = $project_role;
 
         return $this;
     }

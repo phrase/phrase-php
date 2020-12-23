@@ -190,6 +190,7 @@ Class | Method | HTTP request | Description
 *InvitationsApi* | [**invitationResend**](docs/Api/InvitationsApi.md#invitationresend) | **POST** /accounts/{account_id}/invitations/{id}/resend | Resend an invitation
 *InvitationsApi* | [**invitationShow**](docs/Api/InvitationsApi.md#invitationshow) | **GET** /accounts/{account_id}/invitations/{id} | Get a single invitation
 *InvitationsApi* | [**invitationUpdate**](docs/Api/InvitationsApi.md#invitationupdate) | **PATCH** /accounts/{account_id}/invitations/{id} | Update an invitation
+*InvitationsApi* | [**invitationUpdateSettings**](docs/Api/InvitationsApi.md#invitationupdatesettings) | **PATCH** /projects/{project_id}/invitations/{id} | Update a member&#39;s invitation access
 *InvitationsApi* | [**invitationsList**](docs/Api/InvitationsApi.md#invitationslist) | **GET** /accounts/{account_id}/invitations | List invitations
 *JobLocalesApi* | [**jobLocaleComplete**](docs/Api/JobLocalesApi.md#joblocalecomplete) | **POST** /projects/{project_id}/jobs/{job_id}/locales/{id}/complete | Complete a job locale
 *JobLocalesApi* | [**jobLocaleDelete**](docs/Api/JobLocalesApi.md#joblocaledelete) | **DELETE** /projects/{project_id}/jobs/{job_id}/locales/{id} | Delete a job locale
@@ -369,6 +370,7 @@ Class | Method | HTTP request | Description
  - [Invitation](docs/Model/Invitation.md)
  - [InvitationCreateParameters](docs/Model/InvitationCreateParameters.md)
  - [InvitationUpdateParameters](docs/Model/InvitationUpdateParameters.md)
+ - [InvitationUpdateSettingsParameters](docs/Model/InvitationUpdateSettingsParameters.md)
  - [Job](docs/Model/Job.md)
  - [JobCompleteParameters](docs/Model/JobCompleteParameters.md)
  - [JobCreateParameters](docs/Model/JobCreateParameters.md)

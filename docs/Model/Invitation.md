@@ -12,10 +12,12 @@ Name | Type | Description | Notes
 **locales** | [**\Phrase\Model\LocalePreview[]**](LocalePreview.md) |  | [optional] 
 **default_locale_codes** | **string[]** |  | [optional] 
 **permissions** | [**object**](.md) |  | [optional] 
+**locale_ids** | **string[]** |  | [optional] 
 **created_at** | [**\DateTime**](\DateTime.md) |  | [optional] 
 **updated_at** | [**\DateTime**](\DateTime.md) |  | [optional] 
 **accepted_at** | [**\DateTime**](\DateTime.md) |  | [optional] 
 **spaces** | [**\Phrase\Model\MemberSpaces[]**](MemberSpaces.md) |  | [optional] 
+**project_role** | [**\Phrase\Model\MemberProjectDetailProjectRoles[]**](MemberProjectDetailProjectRoles.md) |  | [optional] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

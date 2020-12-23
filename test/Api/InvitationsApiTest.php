@@ -121,6 +121,16 @@ class InvitationsApiTest extends TestCase
     }
 
     /**
+     * Test case for invitationUpdateSettings
+     *
+     * Update a member's invitation access.
+     *
+     */
+    public function testInvitationUpdateSettings()
+    {
+    }
+
+    /**
      * Test case for invitationsList
      *
      * List invitations.

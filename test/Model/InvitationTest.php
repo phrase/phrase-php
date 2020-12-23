@@ -133,6 +133,13 @@ class InvitationTest extends TestCase
     }
 
     /**
+     * Test attribute "locale_ids"
+     */
+    public function testPropertyLocaleIds()
+    {
+    }
+
+    /**
      * Test attribute "created_at"
      */
     public function testPropertyCreatedAt()
@@ -157,6 +164,13 @@ class InvitationTest extends TestCase
      * Test attribute "spaces"
      */
     public function testPropertySpaces()
+    {
+    }
+
+    /**
+     * Test attribute "project_role"
+     */
+    public function testPropertyProjectRole()
     {
     }
 }

@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**invitationResend**](InvitationsApi.md#invitationResend) | **POST** /accounts/{account_id}/invitations/{id}/resend | Resend an invitation
 [**invitationShow**](InvitationsApi.md#invitationShow) | **GET** /accounts/{account_id}/invitations/{id} | Get a single invitation
 [**invitationUpdate**](InvitationsApi.md#invitationUpdate) | **PATCH** /accounts/{account_id}/invitations/{id} | Update an invitation
+[**invitationUpdateSettings**](InvitationsApi.md#invitationUpdateSettings) | **PATCH** /projects/{project_id}/invitations/{id} | Update a member&#39;s invitation access
 [**invitationsList**](InvitationsApi.md#invitationsList) | **GET** /accounts/{account_id}/invitations | List invitations
 
 
@@ -309,6 +310,71 @@ Name | Type | Description  | Notes
  **account_id** | **string**| Account ID |
  **id** | **string**| ID |
  **invitation_update_parameters** | [**\Phrase\Model\InvitationUpdateParameters**](../Model/InvitationUpdateParameters.md)|  |
+ **x_phrase_app_otp** | **string**| Two-Factor-Authentication token (optional) | [optional]
+
+### Return type
+
+[**\Phrase\Model\Invitation**](../Model/Invitation.md)
+
+### Authorization
+
+[Basic](../../README.md#Basic), [Token](../../README.md#Token)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
+
+
+## invitationUpdateSettings
+
+> \Phrase\Model\Invitation invitationUpdateSettings($project_id, $id, $invitation_update_settings_parameters, $x_phrase_app_otp)
+
+Update a member's invitation access
+
+Update member's settings in the invitations. Access token scope must include <code>team.manage</code>.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$config = Phrase\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = Phrase\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'token');
+
+$apiInstance = new Phrase\Api\InvitationsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$project_id = 'project_id_example'; // string | Project ID
+$id = 'id_example'; // string | ID
+$invitation_update_settings_parameters = new \Phrase\Model\InvitationUpdateSettingsParameters(); // \Phrase\Model\InvitationUpdateSettingsParameters | 
+$x_phrase_app_otp = 'x_phrase_app_otp_example'; // string | Two-Factor-Authentication token (optional)
+
+try {
+    $result = $apiInstance->invitationUpdateSettings($project_id, $id, $invitation_update_settings_parameters, $x_phrase_app_otp);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling InvitationsApi->invitationUpdateSettings: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **project_id** | **string**| Project ID |
+ **id** | **string**| ID |
+ **invitation_update_settings_parameters** | [**\Phrase\Model\InvitationUpdateSettingsParameters**](../Model/InvitationUpdateSettingsParameters.md)|  |
  **x_phrase_app_otp** | **string**| Two-Factor-Authentication token (optional) | [optional]
 
 ### Return type
