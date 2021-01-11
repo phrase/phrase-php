@@ -1,6 +1,6 @@
 <?php
 /**
- * BranchUpdateParametersTest
+ * VariableCreateParametersTest
  *
  * PHP version 5
  *
@@ -30,15 +30,15 @@ namespace Phrase;
 use PHPUnit\Framework\TestCase;
 
 /**
- * BranchUpdateParametersTest Class Doc Comment
+ * VariableCreateParametersTest Class Doc Comment
  *
  * @category    Class
- * @description BranchUpdateParameters
+ * @description VariableCreateParameters
  * @package     Phrase
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class BranchUpdateParametersTest extends TestCase
+class VariableCreateParametersTest extends TestCase
 {
 
     /**
@@ -70,9 +70,9 @@ class BranchUpdateParametersTest extends TestCase
     }
 
     /**
-     * Test "BranchUpdateParameters"
+     * Test "VariableCreateParameters"
      */
-    public function testBranchUpdateParameters()
+    public function testVariableCreateParameters()
     {
     }
 

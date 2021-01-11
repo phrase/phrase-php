@@ -1,11 +1,10 @@
-# # BranchUpdateParameters
+# # BranchUpdateParameters1
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**name** | **string** | Name of the variable | [optional] 
-**value** | **string** | Value of the variable | [optional] 
+**name** | **string** | Name of the branch | [optional] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

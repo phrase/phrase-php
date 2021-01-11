@@ -1,6 +1,6 @@
 <?php
 /**
- * BranchUpdateParameters
+ * BranchUpdateParameters1
  *
  * PHP version 5
  *
@@ -31,14 +31,14 @@ use \ArrayAccess;
 use \Phrase\ObjectSerializer;
 
 /**
- * BranchUpdateParameters Class Doc Comment
+ * BranchUpdateParameters1 Class Doc Comment
  *
  * @category Class
  * @package  Phrase
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class BranchUpdateParameters implements ModelInterface, ArrayAccess
+class BranchUpdateParameters1 implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -47,7 +47,7 @@ class BranchUpdateParameters implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'branch_update_parameters';
+    protected static $openAPIModelName = 'branch_update_parameters_1';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -55,8 +55,7 @@ class BranchUpdateParameters implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'name' => 'string',
-        'value' => 'string'
+        'name' => 'string'
     ];
 
     /**
@@ -65,8 +64,7 @@ class BranchUpdateParameters implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'name' => null,
-        'value' => null
+        'name' => null
     ];
 
     /**
@@ -96,8 +94,7 @@ class BranchUpdateParameters implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'name' => 'name',
-        'value' => 'value'
+        'name' => 'name'
     ];
 
     /**
@@ -106,8 +103,7 @@ class BranchUpdateParameters implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'name' => 'setName',
-        'value' => 'setValue'
+        'name' => 'setName'
     ];
 
     /**
@@ -116,8 +112,7 @@ class BranchUpdateParameters implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'name' => 'getName',
-        'value' => 'getValue'
+        'name' => 'getName'
     ];
 
     /**
@@ -181,7 +176,6 @@ class BranchUpdateParameters implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['value'] = isset($data['value']) ? $data['value'] : null;
     }
 
     /**
@@ -221,37 +215,13 @@ class BranchUpdateParameters implements ModelInterface, ArrayAccess
     /**
      * Sets name
      *
-     * @param string|null $name Name of the variable
+     * @param string|null $name Name of the branch
      *
      * @return $this
      */
     public function setName($name)
     {
         $this->container['name'] = $name;
-
-        return $this;
-    }
-
-    /**
-     * Gets value
-     *
-     * @return string|null
-     */
-    public function getValue()
-    {
-        return $this->container['value'];
-    }
-
-    /**
-     * Sets value
-     *
-     * @param string|null $value Value of the variable
-     *
-     * @return $this
-     */
-    public function setValue($value)
-    {
-        $this->container['value'] = $value;
 
         return $this;
     }

@@ -11,6 +11,7 @@ Method | HTTP request | Description
 [**branchShow**](BranchesApi.md#branchShow) | **GET** /projects/{project_id}/branches/{name} | Get a single branch
 [**branchUpdate**](BranchesApi.md#branchUpdate) | **PATCH** /projects/{project_id}/branches/{name} | Update a branch
 [**branchesList**](BranchesApi.md#branchesList) | **GET** /projects/{project_id}/branches | List branches
+[**variablesList**](BranchesApi.md#variablesList) | **GET** /projects/{project_id}/variables | List variables
 
 
 
@@ -330,7 +331,7 @@ Name | Type | Description  | Notes
 
 ## branchUpdate
 
-> \Phrase\Model\Branch branchUpdate($project_id, $name, $branch_update_parameters, $x_phrase_app_otp)
+> \Phrase\Model\Branch branchUpdate($project_id, $name, $branch_update_parameters1, $x_phrase_app_otp)
 
 Update a branch
 
@@ -353,11 +354,11 @@ $apiInstance = new Phrase\Api\BranchesApi(
 );
 $project_id = 'project_id_example'; // string | Project ID
 $name = 'name_example'; // string | name
-$branch_update_parameters = new \Phrase\Model\BranchUpdateParameters(); // \Phrase\Model\BranchUpdateParameters | 
+$branch_update_parameters1 = new \Phrase\Model\BranchUpdateParameters1(); // \Phrase\Model\BranchUpdateParameters1 | 
 $x_phrase_app_otp = 'x_phrase_app_otp_example'; // string | Two-Factor-Authentication token (optional)
 
 try {
-    $result = $apiInstance->branchUpdate($project_id, $name, $branch_update_parameters, $x_phrase_app_otp);
+    $result = $apiInstance->branchUpdate($project_id, $name, $branch_update_parameters1, $x_phrase_app_otp);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling BranchesApi->branchUpdate: ', $e->getMessage(), PHP_EOL;
@@ -372,7 +373,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **project_id** | **string**| Project ID |
  **name** | **string**| name |
- **branch_update_parameters** | [**\Phrase\Model\BranchUpdateParameters**](../Model/BranchUpdateParameters.md)|  |
+ **branch_update_parameters1** | [**\Phrase\Model\BranchUpdateParameters1**](../Model/BranchUpdateParameters1.md)|  |
  **x_phrase_app_otp** | **string**| Two-Factor-Authentication token (optional) | [optional]
 
 ### Return type
@@ -443,6 +444,71 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**\Phrase\Model\Branch[]**](../Model/Branch.md)
+
+### Authorization
+
+[Basic](../../README.md#Basic), [Token](../../README.md#Token)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
+
+
+## variablesList
+
+> object[] variablesList($project_id, $x_phrase_app_otp, $page, $per_page)
+
+List variables
+
+List all variables for the current project.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$config = Phrase\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = Phrase\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'token');
+
+$apiInstance = new Phrase\Api\BranchesApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$project_id = 'project_id_example'; // string | Project ID
+$x_phrase_app_otp = 'x_phrase_app_otp_example'; // string | Two-Factor-Authentication token (optional)
+$page = 1; // int | Page number
+$per_page = 25; // int | allows you to specify a page size up to 100 items, 25 by default
+
+try {
+    $result = $apiInstance->variablesList($project_id, $x_phrase_app_otp, $page, $per_page);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling BranchesApi->variablesList: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **project_id** | **string**| Project ID |
+ **x_phrase_app_otp** | **string**| Two-Factor-Authentication token (optional) | [optional]
+ **page** | **int**| Page number | [optional]
+ **per_page** | **int**| allows you to specify a page size up to 100 items, 25 by default | [optional]
+
+### Return type
+
+**object[]**
 
 ### Authorization
 

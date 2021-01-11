@@ -1,6 +1,6 @@
 <?php
 /**
- * BranchUpdateParametersTest
+ * BranchUpdateParameters1Test
  *
  * PHP version 5
  *
@@ -30,15 +30,15 @@ namespace Phrase;
 use PHPUnit\Framework\TestCase;
 
 /**
- * BranchUpdateParametersTest Class Doc Comment
+ * BranchUpdateParameters1Test Class Doc Comment
  *
  * @category    Class
- * @description BranchUpdateParameters
+ * @description BranchUpdateParameters1
  * @package     Phrase
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class BranchUpdateParametersTest extends TestCase
+class BranchUpdateParameters1Test extends TestCase
 {
 
     /**
@@ -70,9 +70,9 @@ class BranchUpdateParametersTest extends TestCase
     }
 
     /**
-     * Test "BranchUpdateParameters"
+     * Test "BranchUpdateParameters1"
      */
-    public function testBranchUpdateParameters()
+    public function testBranchUpdateParameters1()
     {
     }
 
@@ -80,13 +80,6 @@ class BranchUpdateParametersTest extends TestCase
      * Test attribute "name"
      */
     public function testPropertyName()
-    {
-    }
-
-    /**
-     * Test attribute "value"
-     */
-    public function testPropertyValue()
     {
     }
 }

@@ -1535,16 +1535,16 @@ class BranchesApi
      *
      * @param  string $project_id Project ID (required)
      * @param  string $name name (required)
-     * @param  \Phrase\Model\BranchUpdateParameters $branch_update_parameters branch_update_parameters (required)
+     * @param  \Phrase\Model\BranchUpdateParameters1 $branch_update_parameters1 branch_update_parameters1 (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Phrase\Model\Branch
      */
-    public function branchUpdate($project_id, $name, $branch_update_parameters, $x_phrase_app_otp = null)
+    public function branchUpdate($project_id, $name, $branch_update_parameters1, $x_phrase_app_otp = null)
     {
-        list($response) = $this->branchUpdateWithHttpInfo($project_id, $name, $branch_update_parameters, $x_phrase_app_otp);
+        list($response) = $this->branchUpdateWithHttpInfo($project_id, $name, $branch_update_parameters1, $x_phrase_app_otp);
         return $response;
     }
 
@@ -1555,16 +1555,16 @@ class BranchesApi
      *
      * @param  string $project_id Project ID (required)
      * @param  string $name name (required)
-     * @param  \Phrase\Model\BranchUpdateParameters $branch_update_parameters (required)
+     * @param  \Phrase\Model\BranchUpdateParameters1 $branch_update_parameters1 (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Phrase\Model\Branch, HTTP status code, HTTP response headers (array of strings)
      */
-    public function branchUpdateWithHttpInfo($project_id, $name, $branch_update_parameters, $x_phrase_app_otp = null)
+    public function branchUpdateWithHttpInfo($project_id, $name, $branch_update_parameters1, $x_phrase_app_otp = null)
     {
-        $request = $this->branchUpdateRequest($project_id, $name, $branch_update_parameters, $x_phrase_app_otp);
+        $request = $this->branchUpdateRequest($project_id, $name, $branch_update_parameters1, $x_phrase_app_otp);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1646,15 +1646,15 @@ class BranchesApi
      *
      * @param  string $project_id Project ID (required)
      * @param  string $name name (required)
-     * @param  \Phrase\Model\BranchUpdateParameters $branch_update_parameters (required)
+     * @param  \Phrase\Model\BranchUpdateParameters1 $branch_update_parameters1 (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function branchUpdateAsync($project_id, $name, $branch_update_parameters, $x_phrase_app_otp = null)
+    public function branchUpdateAsync($project_id, $name, $branch_update_parameters1, $x_phrase_app_otp = null)
     {
-        return $this->branchUpdateAsyncWithHttpInfo($project_id, $name, $branch_update_parameters, $x_phrase_app_otp)
+        return $this->branchUpdateAsyncWithHttpInfo($project_id, $name, $branch_update_parameters1, $x_phrase_app_otp)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1669,16 +1669,16 @@ class BranchesApi
      *
      * @param  string $project_id Project ID (required)
      * @param  string $name name (required)
-     * @param  \Phrase\Model\BranchUpdateParameters $branch_update_parameters (required)
+     * @param  \Phrase\Model\BranchUpdateParameters1 $branch_update_parameters1 (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function branchUpdateAsyncWithHttpInfo($project_id, $name, $branch_update_parameters, $x_phrase_app_otp = null)
+    public function branchUpdateAsyncWithHttpInfo($project_id, $name, $branch_update_parameters1, $x_phrase_app_otp = null)
     {
         $returnType = '\Phrase\Model\Branch';
-        $request = $this->branchUpdateRequest($project_id, $name, $branch_update_parameters, $x_phrase_app_otp);
+        $request = $this->branchUpdateRequest($project_id, $name, $branch_update_parameters1, $x_phrase_app_otp);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1719,13 +1719,13 @@ class BranchesApi
      *
      * @param  string $project_id Project ID (required)
      * @param  string $name name (required)
-     * @param  \Phrase\Model\BranchUpdateParameters $branch_update_parameters (required)
+     * @param  \Phrase\Model\BranchUpdateParameters1 $branch_update_parameters1 (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function branchUpdateRequest($project_id, $name, $branch_update_parameters, $x_phrase_app_otp = null)
+    protected function branchUpdateRequest($project_id, $name, $branch_update_parameters1, $x_phrase_app_otp = null)
     {
         // verify the required parameter 'project_id' is set
         if ($project_id === null || (is_array($project_id) && count($project_id) === 0)) {
@@ -1739,10 +1739,10 @@ class BranchesApi
                 'Missing the required parameter $name when calling branchUpdate'
             );
         }
-        // verify the required parameter 'branch_update_parameters' is set
-        if ($branch_update_parameters === null || (is_array($branch_update_parameters) && count($branch_update_parameters) === 0)) {
+        // verify the required parameter 'branch_update_parameters1' is set
+        if ($branch_update_parameters1 === null || (is_array($branch_update_parameters1) && count($branch_update_parameters1) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $branch_update_parameters when calling branchUpdate'
+                'Missing the required parameter $branch_update_parameters1 when calling branchUpdate'
             );
         }
 
@@ -1778,8 +1778,8 @@ class BranchesApi
 
         // body params
         $_tempBody = null;
-        if (isset($branch_update_parameters)) {
-            $_tempBody = $branch_update_parameters;
+        if (isset($branch_update_parameters1)) {
+            $_tempBody = $branch_update_parameters1;
         }
 
         if ($multipart) {
@@ -2059,6 +2059,329 @@ class BranchesApi
         }
 
         $resourcePath = '/projects/{project_id}/branches';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        if ($page !== null) {
+            if('form' === 'form' && is_array($page)) {
+                foreach($page as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['page'] = $page;
+            }
+        }
+        // query params
+        if ($per_page !== null) {
+            if('form' === 'form' && is_array($per_page)) {
+                foreach($per_page as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['per_page'] = $per_page;
+            }
+        }
+
+        // header params
+        if ($x_phrase_app_otp !== null) {
+            $headerParams['X-PhraseApp-OTP'] = ObjectSerializer::toHeaderValue($x_phrase_app_otp);
+        }
+
+        // path params
+        if ($project_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'project_id' . '}',
+                ObjectSerializer::toPathValue($project_id),
+                $resourcePath
+            );
+        }
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation variablesList
+     *
+     * List variables
+     *
+     * @param  string $project_id Project ID (required)
+     * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
+     * @param  int $page Page number (optional)
+     * @param  int $per_page allows you to specify a page size up to 100 items, 25 by default (optional)
+     *
+     * @throws \Phrase\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return object[]
+     */
+    public function variablesList($project_id, $x_phrase_app_otp = null, $page = null, $per_page = null)
+    {
+        list($response) = $this->variablesListWithHttpInfo($project_id, $x_phrase_app_otp, $page, $per_page);
+        return $response;
+    }
+
+    /**
+     * Operation variablesListWithHttpInfo
+     *
+     * List variables
+     *
+     * @param  string $project_id Project ID (required)
+     * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
+     * @param  int $page Page number (optional)
+     * @param  int $per_page allows you to specify a page size up to 100 items, 25 by default (optional)
+     *
+     * @throws \Phrase\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of object[], HTTP status code, HTTP response headers (array of strings)
+     */
+    public function variablesListWithHttpInfo($project_id, $x_phrase_app_otp = null, $page = null, $per_page = null)
+    {
+        $request = $this->variablesListRequest($project_id, $x_phrase_app_otp, $page, $per_page);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            switch($statusCode) {
+                case 200:
+                    if ('object[]' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, 'object[]', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = 'object[]';
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = (string) $responseBody;
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'object[]',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation variablesListAsync
+     *
+     * List variables
+     *
+     * @param  string $project_id Project ID (required)
+     * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
+     * @param  int $page Page number (optional)
+     * @param  int $per_page allows you to specify a page size up to 100 items, 25 by default (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function variablesListAsync($project_id, $x_phrase_app_otp = null, $page = null, $per_page = null)
+    {
+        return $this->variablesListAsyncWithHttpInfo($project_id, $x_phrase_app_otp, $page, $per_page)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation variablesListAsyncWithHttpInfo
+     *
+     * List variables
+     *
+     * @param  string $project_id Project ID (required)
+     * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
+     * @param  int $page Page number (optional)
+     * @param  int $per_page allows you to specify a page size up to 100 items, 25 by default (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function variablesListAsyncWithHttpInfo($project_id, $x_phrase_app_otp = null, $page = null, $per_page = null)
+    {
+        $returnType = 'object[]';
+        $request = $this->variablesListRequest($project_id, $x_phrase_app_otp, $page, $per_page);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'variablesList'
+     *
+     * @param  string $project_id Project ID (required)
+     * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
+     * @param  int $page Page number (optional)
+     * @param  int $per_page allows you to specify a page size up to 100 items, 25 by default (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function variablesListRequest($project_id, $x_phrase_app_otp = null, $page = null, $per_page = null)
+    {
+        // verify the required parameter 'project_id' is set
+        if ($project_id === null || (is_array($project_id) && count($project_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $project_id when calling variablesList'
+            );
+        }
+
+        $resourcePath = '/projects/{project_id}/variables';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];

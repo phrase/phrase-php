@@ -1,6 +1,6 @@
 <?php
 /**
- * BranchUpdateParameters
+ * VariableCreateParameters
  *
  * PHP version 5
  *
@@ -31,14 +31,14 @@ use \ArrayAccess;
 use \Phrase\ObjectSerializer;
 
 /**
- * BranchUpdateParameters Class Doc Comment
+ * VariableCreateParameters Class Doc Comment
  *
  * @category Class
  * @package  Phrase
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class BranchUpdateParameters implements ModelInterface, ArrayAccess
+class VariableCreateParameters implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -47,7 +47,7 @@ class BranchUpdateParameters implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'branch_update_parameters';
+    protected static $openAPIModelName = 'variable_create_parameters';
 
     /**
       * Array of property to type mappings. Used for (de)serialization

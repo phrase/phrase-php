@@ -1,6 +1,6 @@
 <?php
 /**
- * BranchUpdateParameters
+ * Variable
  *
  * PHP version 5
  *
@@ -31,14 +31,14 @@ use \ArrayAccess;
 use \Phrase\ObjectSerializer;
 
 /**
- * BranchUpdateParameters Class Doc Comment
+ * Variable Class Doc Comment
  *
  * @category Class
  * @package  Phrase
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class BranchUpdateParameters implements ModelInterface, ArrayAccess
+class Variable implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -47,7 +47,7 @@ class BranchUpdateParameters implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'branch_update_parameters';
+    protected static $openAPIModelName = 'variable';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -56,7 +56,9 @@ class BranchUpdateParameters implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'name' => 'string',
-        'value' => 'string'
+        'value' => 'string',
+        'created_at' => '\DateTime',
+        'updated_at' => '\DateTime'
     ];
 
     /**
@@ -66,7 +68,9 @@ class BranchUpdateParameters implements ModelInterface, ArrayAccess
       */
     protected static $openAPIFormats = [
         'name' => null,
-        'value' => null
+        'value' => null,
+        'created_at' => 'date-time',
+        'updated_at' => 'date-time'
     ];
 
     /**
@@ -97,7 +101,9 @@ class BranchUpdateParameters implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'name' => 'name',
-        'value' => 'value'
+        'value' => 'value',
+        'created_at' => 'created_at',
+        'updated_at' => 'updated_at'
     ];
 
     /**
@@ -107,7 +113,9 @@ class BranchUpdateParameters implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'name' => 'setName',
-        'value' => 'setValue'
+        'value' => 'setValue',
+        'created_at' => 'setCreatedAt',
+        'updated_at' => 'setUpdatedAt'
     ];
 
     /**
@@ -117,7 +125,9 @@ class BranchUpdateParameters implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'name' => 'getName',
-        'value' => 'getValue'
+        'value' => 'getValue',
+        'created_at' => 'getCreatedAt',
+        'updated_at' => 'getUpdatedAt'
     ];
 
     /**
@@ -182,6 +192,8 @@ class BranchUpdateParameters implements ModelInterface, ArrayAccess
     {
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['value'] = isset($data['value']) ? $data['value'] : null;
+        $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
+        $this->container['updated_at'] = isset($data['updated_at']) ? $data['updated_at'] : null;
     }
 
     /**
@@ -221,7 +233,7 @@ class BranchUpdateParameters implements ModelInterface, ArrayAccess
     /**
      * Sets name
      *
-     * @param string|null $name Name of the variable
+     * @param string|null $name name
      *
      * @return $this
      */
@@ -245,13 +257,61 @@ class BranchUpdateParameters implements ModelInterface, ArrayAccess
     /**
      * Sets value
      *
-     * @param string|null $value Value of the variable
+     * @param string|null $value value
      *
      * @return $this
      */
     public function setValue($value)
     {
         $this->container['value'] = $value;
+
+        return $this;
+    }
+
+    /**
+     * Gets created_at
+     *
+     * @return \DateTime|null
+     */
+    public function getCreatedAt()
+    {
+        return $this->container['created_at'];
+    }
+
+    /**
+     * Sets created_at
+     *
+     * @param \DateTime|null $created_at created_at
+     *
+     * @return $this
+     */
+    public function setCreatedAt($created_at)
+    {
+        $this->container['created_at'] = $created_at;
+
+        return $this;
+    }
+
+    /**
+     * Gets updated_at
+     *
+     * @return \DateTime|null
+     */
+    public function getUpdatedAt()
+    {
+        return $this->container['updated_at'];
+    }
+
+    /**
+     * Sets updated_at
+     *
+     * @param \DateTime|null $updated_at updated_at
+     *
+     * @return $this
+     */
+    public function setUpdatedAt($updated_at)
+    {
+        $this->container['updated_at'] = $updated_at;
 
         return $this;
     }
