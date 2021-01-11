@@ -147,7 +147,6 @@ Class | Method | HTTP request | Description
 *BranchesApi* | [**branchShow**](docs/Api/BranchesApi.md#branchshow) | **GET** /projects/{project_id}/branches/{name} | Get a single branch
 *BranchesApi* | [**branchUpdate**](docs/Api/BranchesApi.md#branchupdate) | **PATCH** /projects/{project_id}/branches/{name} | Update a branch
 *BranchesApi* | [**branchesList**](docs/Api/BranchesApi.md#brancheslist) | **GET** /projects/{project_id}/branches | List branches
-*BranchesApi* | [**variablesList**](docs/Api/BranchesApi.md#variableslist) | **GET** /projects/{project_id}/variables | List variables
 *CommentsApi* | [**commentCreate**](docs/Api/CommentsApi.md#commentcreate) | **POST** /projects/{project_id}/keys/{key_id}/comments | Create a comment
 *CommentsApi* | [**commentDelete**](docs/Api/CommentsApi.md#commentdelete) | **DELETE** /projects/{project_id}/keys/{key_id}/comments/{id} | Delete a comment
 *CommentsApi* | [**commentMarkCheck**](docs/Api/CommentsApi.md#commentmarkcheck) | **GET** /projects/{project_id}/keys/{key_id}/comments/{id}/read | Check if comment is read
@@ -310,6 +309,7 @@ Class | Method | HTTP request | Description
 *VariablesApi* | [**variableDelete**](docs/Api/VariablesApi.md#variabledelete) | **DELETE** /projects/{project_id}/variables/{name} | Delete a variable
 *VariablesApi* | [**variableShow**](docs/Api/VariablesApi.md#variableshow) | **GET** /projects/{project_id}/variables/{name} | Get a single variable
 *VariablesApi* | [**variableUpdate**](docs/Api/VariablesApi.md#variableupdate) | **PATCH** /projects/{project_id}/variables/{name} | Update a variable
+*VariablesApi* | [**variablesList**](docs/Api/VariablesApi.md#variableslist) | **GET** /projects/{project_id}/variables | List variables
 *VersionsHistoryApi* | [**versionShow**](docs/Api/VersionsHistoryApi.md#versionshow) | **GET** /projects/{project_id}/translations/{translation_id}/versions/{id} | Get a single version
 *VersionsHistoryApi* | [**versionsList**](docs/Api/VersionsHistoryApi.md#versionslist) | **GET** /projects/{project_id}/translations/{translation_id}/versions | List all versions
 *WebhooksApi* | [**webhookCreate**](docs/Api/WebhooksApi.md#webhookcreate) | **POST** /projects/{project_id}/webhooks | Create a webhook

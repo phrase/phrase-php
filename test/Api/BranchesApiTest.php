@@ -139,14 +139,4 @@ class BranchesApiTest extends TestCase
     public function testBranchesList()
     {
     }
-
-    /**
-     * Test case for variablesList
-     *
-     * List variables.
-     *
-     */
-    public function testVariablesList()
-    {
-    }
 }

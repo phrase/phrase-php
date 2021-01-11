@@ -109,4 +109,14 @@ class VariablesApiTest extends TestCase
     public function testVariableUpdate()
     {
     }
+
+    /**
+     * Test case for variablesList
+     *
+     * List variables.
+     *
+     */
+    public function testVariablesList()
+    {
+    }
 }
