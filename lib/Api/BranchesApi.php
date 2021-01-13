@@ -1535,16 +1535,16 @@ class BranchesApi
      *
      * @param  string $project_id Project ID (required)
      * @param  string $name name (required)
-     * @param  \Phrase\Model\BranchUpdateParameters1 $branch_update_parameters1 branch_update_parameters1 (required)
+     * @param  \Phrase\Model\BranchUpdateParameters $branch_update_parameters branch_update_parameters (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Phrase\Model\Branch
      */
-    public function branchUpdate($project_id, $name, $branch_update_parameters1, $x_phrase_app_otp = null)
+    public function branchUpdate($project_id, $name, $branch_update_parameters, $x_phrase_app_otp = null)
     {
-        list($response) = $this->branchUpdateWithHttpInfo($project_id, $name, $branch_update_parameters1, $x_phrase_app_otp);
+        list($response) = $this->branchUpdateWithHttpInfo($project_id, $name, $branch_update_parameters, $x_phrase_app_otp);
         return $response;
     }
 
@@ -1555,16 +1555,16 @@ class BranchesApi
      *
      * @param  string $project_id Project ID (required)
      * @param  string $name name (required)
-     * @param  \Phrase\Model\BranchUpdateParameters1 $branch_update_parameters1 (required)
+     * @param  \Phrase\Model\BranchUpdateParameters $branch_update_parameters (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Phrase\Model\Branch, HTTP status code, HTTP response headers (array of strings)
      */
-    public function branchUpdateWithHttpInfo($project_id, $name, $branch_update_parameters1, $x_phrase_app_otp = null)
+    public function branchUpdateWithHttpInfo($project_id, $name, $branch_update_parameters, $x_phrase_app_otp = null)
     {
-        $request = $this->branchUpdateRequest($project_id, $name, $branch_update_parameters1, $x_phrase_app_otp);
+        $request = $this->branchUpdateRequest($project_id, $name, $branch_update_parameters, $x_phrase_app_otp);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1646,15 +1646,15 @@ class BranchesApi
      *
      * @param  string $project_id Project ID (required)
      * @param  string $name name (required)
-     * @param  \Phrase\Model\BranchUpdateParameters1 $branch_update_parameters1 (required)
+     * @param  \Phrase\Model\BranchUpdateParameters $branch_update_parameters (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function branchUpdateAsync($project_id, $name, $branch_update_parameters1, $x_phrase_app_otp = null)
+    public function branchUpdateAsync($project_id, $name, $branch_update_parameters, $x_phrase_app_otp = null)
     {
-        return $this->branchUpdateAsyncWithHttpInfo($project_id, $name, $branch_update_parameters1, $x_phrase_app_otp)
+        return $this->branchUpdateAsyncWithHttpInfo($project_id, $name, $branch_update_parameters, $x_phrase_app_otp)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1669,16 +1669,16 @@ class BranchesApi
      *
      * @param  string $project_id Project ID (required)
      * @param  string $name name (required)
-     * @param  \Phrase\Model\BranchUpdateParameters1 $branch_update_parameters1 (required)
+     * @param  \Phrase\Model\BranchUpdateParameters $branch_update_parameters (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function branchUpdateAsyncWithHttpInfo($project_id, $name, $branch_update_parameters1, $x_phrase_app_otp = null)
+    public function branchUpdateAsyncWithHttpInfo($project_id, $name, $branch_update_parameters, $x_phrase_app_otp = null)
     {
         $returnType = '\Phrase\Model\Branch';
-        $request = $this->branchUpdateRequest($project_id, $name, $branch_update_parameters1, $x_phrase_app_otp);
+        $request = $this->branchUpdateRequest($project_id, $name, $branch_update_parameters, $x_phrase_app_otp);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1719,13 +1719,13 @@ class BranchesApi
      *
      * @param  string $project_id Project ID (required)
      * @param  string $name name (required)
-     * @param  \Phrase\Model\BranchUpdateParameters1 $branch_update_parameters1 (required)
+     * @param  \Phrase\Model\BranchUpdateParameters $branch_update_parameters (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function branchUpdateRequest($project_id, $name, $branch_update_parameters1, $x_phrase_app_otp = null)
+    protected function branchUpdateRequest($project_id, $name, $branch_update_parameters, $x_phrase_app_otp = null)
     {
         // verify the required parameter 'project_id' is set
         if ($project_id === null || (is_array($project_id) && count($project_id) === 0)) {
@@ -1739,10 +1739,10 @@ class BranchesApi
                 'Missing the required parameter $name when calling branchUpdate'
             );
         }
-        // verify the required parameter 'branch_update_parameters1' is set
-        if ($branch_update_parameters1 === null || (is_array($branch_update_parameters1) && count($branch_update_parameters1) === 0)) {
+        // verify the required parameter 'branch_update_parameters' is set
+        if ($branch_update_parameters === null || (is_array($branch_update_parameters) && count($branch_update_parameters) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $branch_update_parameters1 when calling branchUpdate'
+                'Missing the required parameter $branch_update_parameters when calling branchUpdate'
             );
         }
 
@@ -1778,8 +1778,8 @@ class BranchesApi
 
         // body params
         $_tempBody = null;
-        if (isset($branch_update_parameters1)) {
-            $_tempBody = $branch_update_parameters1;
+        if (isset($branch_update_parameters)) {
+            $_tempBody = $branch_update_parameters;
         }
 
         if ($multipart) {

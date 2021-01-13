@@ -691,7 +691,7 @@ class VariablesApi
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return object
+     * @return \Phrase\Model\Variable
      */
     public function variableShow($project_id, $name, $x_phrase_app_otp = null)
     {
@@ -710,7 +710,7 @@ class VariablesApi
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of object, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Phrase\Model\Variable, HTTP status code, HTTP response headers (array of strings)
      */
     public function variableShowWithHttpInfo($project_id, $name, $x_phrase_app_otp = null)
     {
@@ -747,20 +747,20 @@ class VariablesApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('object' === '\SplFileObject') {
+                    if ('\Phrase\Model\Variable' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, 'object', []),
+                        ObjectSerializer::deserialize($content, '\Phrase\Model\Variable', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = 'object';
+            $returnType = '\Phrase\Model\Variable';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -779,7 +779,7 @@ class VariablesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'object',
+                        '\Phrase\Model\Variable',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -825,7 +825,7 @@ class VariablesApi
      */
     public function variableShowAsyncWithHttpInfo($project_id, $name, $x_phrase_app_otp = null)
     {
-        $returnType = 'object';
+        $returnType = '\Phrase\Model\Variable';
         $request = $this->variableShowRequest($project_id, $name, $x_phrase_app_otp);
 
         return $this->client
@@ -997,16 +997,16 @@ class VariablesApi
      *
      * @param  string $project_id Project ID (required)
      * @param  string $name name (required)
-     * @param  \Phrase\Model\BranchUpdateParameters $branch_update_parameters branch_update_parameters (required)
+     * @param  \Phrase\Model\VariableUpdateParameters $variable_update_parameters variable_update_parameters (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return object
+     * @return \Phrase\Model\Variable
      */
-    public function variableUpdate($project_id, $name, $branch_update_parameters, $x_phrase_app_otp = null)
+    public function variableUpdate($project_id, $name, $variable_update_parameters, $x_phrase_app_otp = null)
     {
-        list($response) = $this->variableUpdateWithHttpInfo($project_id, $name, $branch_update_parameters, $x_phrase_app_otp);
+        list($response) = $this->variableUpdateWithHttpInfo($project_id, $name, $variable_update_parameters, $x_phrase_app_otp);
         return $response;
     }
 
@@ -1017,16 +1017,16 @@ class VariablesApi
      *
      * @param  string $project_id Project ID (required)
      * @param  string $name name (required)
-     * @param  \Phrase\Model\BranchUpdateParameters $branch_update_parameters (required)
+     * @param  \Phrase\Model\VariableUpdateParameters $variable_update_parameters (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of object, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Phrase\Model\Variable, HTTP status code, HTTP response headers (array of strings)
      */
-    public function variableUpdateWithHttpInfo($project_id, $name, $branch_update_parameters, $x_phrase_app_otp = null)
+    public function variableUpdateWithHttpInfo($project_id, $name, $variable_update_parameters, $x_phrase_app_otp = null)
     {
-        $request = $this->variableUpdateRequest($project_id, $name, $branch_update_parameters, $x_phrase_app_otp);
+        $request = $this->variableUpdateRequest($project_id, $name, $variable_update_parameters, $x_phrase_app_otp);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1059,20 +1059,20 @@ class VariablesApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('object' === '\SplFileObject') {
+                    if ('\Phrase\Model\Variable' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, 'object', []),
+                        ObjectSerializer::deserialize($content, '\Phrase\Model\Variable', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = 'object';
+            $returnType = '\Phrase\Model\Variable';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -1091,7 +1091,7 @@ class VariablesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'object',
+                        '\Phrase\Model\Variable',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1108,15 +1108,15 @@ class VariablesApi
      *
      * @param  string $project_id Project ID (required)
      * @param  string $name name (required)
-     * @param  \Phrase\Model\BranchUpdateParameters $branch_update_parameters (required)
+     * @param  \Phrase\Model\VariableUpdateParameters $variable_update_parameters (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function variableUpdateAsync($project_id, $name, $branch_update_parameters, $x_phrase_app_otp = null)
+    public function variableUpdateAsync($project_id, $name, $variable_update_parameters, $x_phrase_app_otp = null)
     {
-        return $this->variableUpdateAsyncWithHttpInfo($project_id, $name, $branch_update_parameters, $x_phrase_app_otp)
+        return $this->variableUpdateAsyncWithHttpInfo($project_id, $name, $variable_update_parameters, $x_phrase_app_otp)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1131,16 +1131,16 @@ class VariablesApi
      *
      * @param  string $project_id Project ID (required)
      * @param  string $name name (required)
-     * @param  \Phrase\Model\BranchUpdateParameters $branch_update_parameters (required)
+     * @param  \Phrase\Model\VariableUpdateParameters $variable_update_parameters (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function variableUpdateAsyncWithHttpInfo($project_id, $name, $branch_update_parameters, $x_phrase_app_otp = null)
+    public function variableUpdateAsyncWithHttpInfo($project_id, $name, $variable_update_parameters, $x_phrase_app_otp = null)
     {
-        $returnType = 'object';
-        $request = $this->variableUpdateRequest($project_id, $name, $branch_update_parameters, $x_phrase_app_otp);
+        $returnType = '\Phrase\Model\Variable';
+        $request = $this->variableUpdateRequest($project_id, $name, $variable_update_parameters, $x_phrase_app_otp);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1181,13 +1181,13 @@ class VariablesApi
      *
      * @param  string $project_id Project ID (required)
      * @param  string $name name (required)
-     * @param  \Phrase\Model\BranchUpdateParameters $branch_update_parameters (required)
+     * @param  \Phrase\Model\VariableUpdateParameters $variable_update_parameters (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function variableUpdateRequest($project_id, $name, $branch_update_parameters, $x_phrase_app_otp = null)
+    protected function variableUpdateRequest($project_id, $name, $variable_update_parameters, $x_phrase_app_otp = null)
     {
         // verify the required parameter 'project_id' is set
         if ($project_id === null || (is_array($project_id) && count($project_id) === 0)) {
@@ -1201,10 +1201,10 @@ class VariablesApi
                 'Missing the required parameter $name when calling variableUpdate'
             );
         }
-        // verify the required parameter 'branch_update_parameters' is set
-        if ($branch_update_parameters === null || (is_array($branch_update_parameters) && count($branch_update_parameters) === 0)) {
+        // verify the required parameter 'variable_update_parameters' is set
+        if ($variable_update_parameters === null || (is_array($variable_update_parameters) && count($variable_update_parameters) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $branch_update_parameters when calling variableUpdate'
+                'Missing the required parameter $variable_update_parameters when calling variableUpdate'
             );
         }
 
@@ -1240,8 +1240,8 @@ class VariablesApi
 
         // body params
         $_tempBody = null;
-        if (isset($branch_update_parameters)) {
-            $_tempBody = $branch_update_parameters;
+        if (isset($variable_update_parameters)) {
+            $_tempBody = $variable_update_parameters;
         }
 
         if ($multipart) {
@@ -1326,7 +1326,7 @@ class VariablesApi
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return object[]
+     * @return \Phrase\Model\Variable[]
      */
     public function variablesList($project_id, $x_phrase_app_otp = null, $page = null, $per_page = null)
     {
@@ -1346,7 +1346,7 @@ class VariablesApi
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of object[], HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Phrase\Model\Variable[], HTTP status code, HTTP response headers (array of strings)
      */
     public function variablesListWithHttpInfo($project_id, $x_phrase_app_otp = null, $page = null, $per_page = null)
     {
@@ -1383,20 +1383,20 @@ class VariablesApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('object[]' === '\SplFileObject') {
+                    if ('\Phrase\Model\Variable[]' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, 'object[]', []),
+                        ObjectSerializer::deserialize($content, '\Phrase\Model\Variable[]', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = 'object[]';
+            $returnType = '\Phrase\Model\Variable[]';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -1415,7 +1415,7 @@ class VariablesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'object[]',
+                        '\Phrase\Model\Variable[]',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1463,7 +1463,7 @@ class VariablesApi
      */
     public function variablesListAsyncWithHttpInfo($project_id, $x_phrase_app_otp = null, $page = null, $per_page = null)
     {
-        $returnType = 'object[]';
+        $returnType = '\Phrase\Model\Variable[]';
         $request = $this->variablesListRequest($project_id, $x_phrase_app_otp, $page, $per_page);
 
         return $this->client

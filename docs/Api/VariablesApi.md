@@ -139,7 +139,7 @@ void (empty response body)
 
 ## variableShow
 
-> object variableShow($project_id, $name, $x_phrase_app_otp)
+> \Phrase\Model\Variable variableShow($project_id, $name, $x_phrase_app_otp)
 
 Get a single variable
 
@@ -184,7 +184,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**object**
+[**\Phrase\Model\Variable**](../Model/Variable.md)
 
 ### Authorization
 
@@ -202,7 +202,7 @@ Name | Type | Description  | Notes
 
 ## variableUpdate
 
-> object variableUpdate($project_id, $name, $branch_update_parameters, $x_phrase_app_otp)
+> \Phrase\Model\Variable variableUpdate($project_id, $name, $variable_update_parameters, $x_phrase_app_otp)
 
 Update a variable
 
@@ -225,11 +225,11 @@ $apiInstance = new Phrase\Api\VariablesApi(
 );
 $project_id = 'project_id_example'; // string | Project ID
 $name = 'name_example'; // string | name
-$branch_update_parameters = new \Phrase\Model\BranchUpdateParameters(); // \Phrase\Model\BranchUpdateParameters | 
+$variable_update_parameters = new \Phrase\Model\VariableUpdateParameters(); // \Phrase\Model\VariableUpdateParameters | 
 $x_phrase_app_otp = 'x_phrase_app_otp_example'; // string | Two-Factor-Authentication token (optional)
 
 try {
-    $result = $apiInstance->variableUpdate($project_id, $name, $branch_update_parameters, $x_phrase_app_otp);
+    $result = $apiInstance->variableUpdate($project_id, $name, $variable_update_parameters, $x_phrase_app_otp);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling VariablesApi->variableUpdate: ', $e->getMessage(), PHP_EOL;
@@ -244,12 +244,12 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **project_id** | **string**| Project ID |
  **name** | **string**| name |
- **branch_update_parameters** | [**\Phrase\Model\BranchUpdateParameters**](../Model/BranchUpdateParameters.md)|  |
+ **variable_update_parameters** | [**\Phrase\Model\VariableUpdateParameters**](../Model/VariableUpdateParameters.md)|  |
  **x_phrase_app_otp** | **string**| Two-Factor-Authentication token (optional) | [optional]
 
 ### Return type
 
-**object**
+[**\Phrase\Model\Variable**](../Model/Variable.md)
 
 ### Authorization
 
@@ -267,7 +267,7 @@ Name | Type | Description  | Notes
 
 ## variablesList
 
-> object[] variablesList($project_id, $x_phrase_app_otp, $page, $per_page)
+> \Phrase\Model\Variable[] variablesList($project_id, $x_phrase_app_otp, $page, $per_page)
 
 List variables
 
@@ -314,7 +314,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**object[]**
+[**\Phrase\Model\Variable[]**](../Model/Variable.md)
 
 ### Authorization
 

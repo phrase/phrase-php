@@ -330,7 +330,7 @@ Name | Type | Description  | Notes
 
 ## branchUpdate
 
-> \Phrase\Model\Branch branchUpdate($project_id, $name, $branch_update_parameters1, $x_phrase_app_otp)
+> \Phrase\Model\Branch branchUpdate($project_id, $name, $branch_update_parameters, $x_phrase_app_otp)
 
 Update a branch
 
@@ -353,11 +353,11 @@ $apiInstance = new Phrase\Api\BranchesApi(
 );
 $project_id = 'project_id_example'; // string | Project ID
 $name = 'name_example'; // string | name
-$branch_update_parameters1 = new \Phrase\Model\BranchUpdateParameters1(); // \Phrase\Model\BranchUpdateParameters1 | 
+$branch_update_parameters = new \Phrase\Model\BranchUpdateParameters(); // \Phrase\Model\BranchUpdateParameters | 
 $x_phrase_app_otp = 'x_phrase_app_otp_example'; // string | Two-Factor-Authentication token (optional)
 
 try {
-    $result = $apiInstance->branchUpdate($project_id, $name, $branch_update_parameters1, $x_phrase_app_otp);
+    $result = $apiInstance->branchUpdate($project_id, $name, $branch_update_parameters, $x_phrase_app_otp);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling BranchesApi->branchUpdate: ', $e->getMessage(), PHP_EOL;
@@ -372,7 +372,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **project_id** | **string**| Project ID |
  **name** | **string**| name |
- **branch_update_parameters1** | [**\Phrase\Model\BranchUpdateParameters1**](../Model/BranchUpdateParameters1.md)|  |
+ **branch_update_parameters** | [**\Phrase\Model\BranchUpdateParameters**](../Model/BranchUpdateParameters.md)|  |
  **x_phrase_app_otp** | **string**| Two-Factor-Authentication token (optional) | [optional]
 
 ### Return type

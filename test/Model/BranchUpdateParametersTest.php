@@ -82,11 +82,4 @@ class BranchUpdateParametersTest extends TestCase
     public function testPropertyName()
     {
     }
-
-    /**
-     * Test attribute "value"
-     */
-    public function testPropertyValue()
-    {
-    }
 }
