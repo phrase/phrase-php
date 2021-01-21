@@ -79,7 +79,7 @@ Name | Type | Description  | Notes
 
 ## screenshotMarkerDelete
 
-> screenshotMarkerDelete($project_id, $screenshot_id, $x_phrase_app_otp)
+> screenshotMarkerDelete($project_id, $screenshot_id, $x_phrase_app_otp, $branch)
 
 Delete a screenshot marker
 
@@ -103,9 +103,10 @@ $apiInstance = new Phrase\Api\ScreenshotMarkersApi(
 $project_id = 'project_id_example'; // string | Project ID
 $screenshot_id = 'screenshot_id_example'; // string | Screenshot ID
 $x_phrase_app_otp = 'x_phrase_app_otp_example'; // string | Two-Factor-Authentication token (optional)
+$branch = my-feature-branch; // string | specify the branch to use
 
 try {
-    $apiInstance->screenshotMarkerDelete($project_id, $screenshot_id, $x_phrase_app_otp);
+    $apiInstance->screenshotMarkerDelete($project_id, $screenshot_id, $x_phrase_app_otp, $branch);
 } catch (Exception $e) {
     echo 'Exception when calling ScreenshotMarkersApi->screenshotMarkerDelete: ', $e->getMessage(), PHP_EOL;
 }
@@ -120,6 +121,7 @@ Name | Type | Description  | Notes
  **project_id** | **string**| Project ID |
  **screenshot_id** | **string**| Screenshot ID |
  **x_phrase_app_otp** | **string**| Two-Factor-Authentication token (optional) | [optional]
+ **branch** | **string**| specify the branch to use | [optional]
 
 ### Return type
 
@@ -141,7 +143,7 @@ void (empty response body)
 
 ## screenshotMarkerShow
 
-> \Phrase\Model\ScreenshotMarker screenshotMarkerShow($project_id, $screenshot_id, $id, $x_phrase_app_otp)
+> \Phrase\Model\ScreenshotMarker screenshotMarkerShow($project_id, $screenshot_id, $id, $x_phrase_app_otp, $branch)
 
 Get a single screenshot marker
 
@@ -166,9 +168,10 @@ $project_id = 'project_id_example'; // string | Project ID
 $screenshot_id = 'screenshot_id_example'; // string | Screenshot ID
 $id = 'id_example'; // string | ID
 $x_phrase_app_otp = 'x_phrase_app_otp_example'; // string | Two-Factor-Authentication token (optional)
+$branch = my-feature-branch; // string | specify the branch to use
 
 try {
-    $result = $apiInstance->screenshotMarkerShow($project_id, $screenshot_id, $id, $x_phrase_app_otp);
+    $result = $apiInstance->screenshotMarkerShow($project_id, $screenshot_id, $id, $x_phrase_app_otp, $branch);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ScreenshotMarkersApi->screenshotMarkerShow: ', $e->getMessage(), PHP_EOL;
@@ -185,6 +188,7 @@ Name | Type | Description  | Notes
  **screenshot_id** | **string**| Screenshot ID |
  **id** | **string**| ID |
  **x_phrase_app_otp** | **string**| Two-Factor-Authentication token (optional) | [optional]
+ **branch** | **string**| specify the branch to use | [optional]
 
 ### Return type
 
@@ -271,7 +275,7 @@ Name | Type | Description  | Notes
 
 ## screenshotMarkersList
 
-> \Phrase\Model\ScreenshotMarker[] screenshotMarkersList($project_id, $id, $x_phrase_app_otp, $page, $per_page)
+> \Phrase\Model\ScreenshotMarker[] screenshotMarkersList($project_id, $id, $x_phrase_app_otp, $page, $per_page, $branch)
 
 List screenshot markers
 
@@ -297,9 +301,10 @@ $id = 'id_example'; // string | ID
 $x_phrase_app_otp = 'x_phrase_app_otp_example'; // string | Two-Factor-Authentication token (optional)
 $page = 1; // int | Page number
 $per_page = 25; // int | allows you to specify a page size up to 100 items, 25 by default
+$branch = my-feature-branch; // string | specify the branch to use
 
 try {
-    $result = $apiInstance->screenshotMarkersList($project_id, $id, $x_phrase_app_otp, $page, $per_page);
+    $result = $apiInstance->screenshotMarkersList($project_id, $id, $x_phrase_app_otp, $page, $per_page, $branch);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ScreenshotMarkersApi->screenshotMarkersList: ', $e->getMessage(), PHP_EOL;
@@ -317,6 +322,7 @@ Name | Type | Description  | Notes
  **x_phrase_app_otp** | **string**| Two-Factor-Authentication token (optional) | [optional]
  **page** | **int**| Page number | [optional]
  **per_page** | **int**| allows you to specify a page size up to 100 items, 25 by default | [optional]
+ **branch** | **string**| specify the branch to use | [optional]
 
 ### Return type
 

@@ -55,6 +55,7 @@ class ScreenshotMarkerCreateParameters implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
+        'branch' => 'string',
         'key_id' => 'string',
         'presentation' => 'string'
     ];
@@ -65,6 +66,7 @@ class ScreenshotMarkerCreateParameters implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
+        'branch' => null,
         'key_id' => null,
         'presentation' => null
     ];
@@ -96,6 +98,7 @@ class ScreenshotMarkerCreateParameters implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'branch' => 'branch',
         'key_id' => 'key_id',
         'presentation' => 'presentation'
     ];
@@ -106,6 +109,7 @@ class ScreenshotMarkerCreateParameters implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'branch' => 'setBranch',
         'key_id' => 'setKeyId',
         'presentation' => 'setPresentation'
     ];
@@ -116,6 +120,7 @@ class ScreenshotMarkerCreateParameters implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'branch' => 'getBranch',
         'key_id' => 'getKeyId',
         'presentation' => 'getPresentation'
     ];
@@ -180,6 +185,7 @@ class ScreenshotMarkerCreateParameters implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['branch'] = isset($data['branch']) ? $data['branch'] : null;
         $this->container['key_id'] = isset($data['key_id']) ? $data['key_id'] : null;
         $this->container['presentation'] = isset($data['presentation']) ? $data['presentation'] : null;
     }
@@ -207,6 +213,30 @@ class ScreenshotMarkerCreateParameters implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets branch
+     *
+     * @return string|null
+     */
+    public function getBranch()
+    {
+        return $this->container['branch'];
+    }
+
+    /**
+     * Sets branch
+     *
+     * @param string|null $branch specify the branch to use
+     *
+     * @return $this
+     */
+    public function setBranch($branch)
+    {
+        $this->container['branch'] = $branch;
+
+        return $this;
+    }
 
     /**
      * Gets key_id

@@ -55,6 +55,7 @@ class ScreenshotUpdateParameters implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
+        'branch' => 'string',
         'name' => 'string',
         'description' => 'string',
         'filename' => '\SplFileObject'
@@ -66,6 +67,7 @@ class ScreenshotUpdateParameters implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
+        'branch' => null,
         'name' => null,
         'description' => null,
         'filename' => 'binary'
@@ -98,6 +100,7 @@ class ScreenshotUpdateParameters implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'branch' => 'branch',
         'name' => 'name',
         'description' => 'description',
         'filename' => 'filename'
@@ -109,6 +112,7 @@ class ScreenshotUpdateParameters implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'branch' => 'setBranch',
         'name' => 'setName',
         'description' => 'setDescription',
         'filename' => 'setFilename'
@@ -120,6 +124,7 @@ class ScreenshotUpdateParameters implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'branch' => 'getBranch',
         'name' => 'getName',
         'description' => 'getDescription',
         'filename' => 'getFilename'
@@ -185,6 +190,7 @@ class ScreenshotUpdateParameters implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['branch'] = isset($data['branch']) ? $data['branch'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['filename'] = isset($data['filename']) ? $data['filename'] : null;
@@ -213,6 +219,30 @@ class ScreenshotUpdateParameters implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets branch
+     *
+     * @return string|null
+     */
+    public function getBranch()
+    {
+        return $this->container['branch'];
+    }
+
+    /**
+     * Sets branch
+     *
+     * @param string|null $branch specify the branch to use
+     *
+     * @return $this
+     */
+    public function setBranch($branch)
+    {
+        $this->container['branch'] = $branch;
+
+        return $this;
+    }
 
     /**
      * Gets name

@@ -445,14 +445,15 @@ class ScreenshotMarkersApi
      * @param  string $project_id Project ID (required)
      * @param  string $screenshot_id Screenshot ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
+     * @param  string $branch specify the branch to use (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function screenshotMarkerDelete($project_id, $screenshot_id, $x_phrase_app_otp = null)
+    public function screenshotMarkerDelete($project_id, $screenshot_id, $x_phrase_app_otp = null, $branch = null)
     {
-        $this->screenshotMarkerDeleteWithHttpInfo($project_id, $screenshot_id, $x_phrase_app_otp);
+        $this->screenshotMarkerDeleteWithHttpInfo($project_id, $screenshot_id, $x_phrase_app_otp, $branch);
     }
 
     /**
@@ -463,14 +464,15 @@ class ScreenshotMarkersApi
      * @param  string $project_id Project ID (required)
      * @param  string $screenshot_id Screenshot ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
+     * @param  string $branch specify the branch to use (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function screenshotMarkerDeleteWithHttpInfo($project_id, $screenshot_id, $x_phrase_app_otp = null)
+    public function screenshotMarkerDeleteWithHttpInfo($project_id, $screenshot_id, $x_phrase_app_otp = null, $branch = null)
     {
-        $request = $this->screenshotMarkerDeleteRequest($project_id, $screenshot_id, $x_phrase_app_otp);
+        $request = $this->screenshotMarkerDeleteRequest($project_id, $screenshot_id, $x_phrase_app_otp, $branch);
 
         try {
             $options = $this->createHttpClientOption();
@@ -517,13 +519,14 @@ class ScreenshotMarkersApi
      * @param  string $project_id Project ID (required)
      * @param  string $screenshot_id Screenshot ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
+     * @param  string $branch specify the branch to use (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function screenshotMarkerDeleteAsync($project_id, $screenshot_id, $x_phrase_app_otp = null)
+    public function screenshotMarkerDeleteAsync($project_id, $screenshot_id, $x_phrase_app_otp = null, $branch = null)
     {
-        return $this->screenshotMarkerDeleteAsyncWithHttpInfo($project_id, $screenshot_id, $x_phrase_app_otp)
+        return $this->screenshotMarkerDeleteAsyncWithHttpInfo($project_id, $screenshot_id, $x_phrase_app_otp, $branch)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -539,14 +542,15 @@ class ScreenshotMarkersApi
      * @param  string $project_id Project ID (required)
      * @param  string $screenshot_id Screenshot ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
+     * @param  string $branch specify the branch to use (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function screenshotMarkerDeleteAsyncWithHttpInfo($project_id, $screenshot_id, $x_phrase_app_otp = null)
+    public function screenshotMarkerDeleteAsyncWithHttpInfo($project_id, $screenshot_id, $x_phrase_app_otp = null, $branch = null)
     {
         $returnType = '';
-        $request = $this->screenshotMarkerDeleteRequest($project_id, $screenshot_id, $x_phrase_app_otp);
+        $request = $this->screenshotMarkerDeleteRequest($project_id, $screenshot_id, $x_phrase_app_otp, $branch);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -577,11 +581,12 @@ class ScreenshotMarkersApi
      * @param  string $project_id Project ID (required)
      * @param  string $screenshot_id Screenshot ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
+     * @param  string $branch specify the branch to use (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function screenshotMarkerDeleteRequest($project_id, $screenshot_id, $x_phrase_app_otp = null)
+    protected function screenshotMarkerDeleteRequest($project_id, $screenshot_id, $x_phrase_app_otp = null, $branch = null)
     {
         // verify the required parameter 'project_id' is set
         if ($project_id === null || (is_array($project_id) && count($project_id) === 0)) {
@@ -603,6 +608,17 @@ class ScreenshotMarkersApi
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        if ($branch !== null) {
+            if('form' === 'form' && is_array($branch)) {
+                foreach($branch as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['branch'] = $branch;
+            }
+        }
 
         // header params
         if ($x_phrase_app_otp !== null) {
@@ -708,14 +724,15 @@ class ScreenshotMarkersApi
      * @param  string $screenshot_id Screenshot ID (required)
      * @param  string $id ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
+     * @param  string $branch specify the branch to use (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Phrase\Model\ScreenshotMarker
      */
-    public function screenshotMarkerShow($project_id, $screenshot_id, $id, $x_phrase_app_otp = null)
+    public function screenshotMarkerShow($project_id, $screenshot_id, $id, $x_phrase_app_otp = null, $branch = null)
     {
-        list($response) = $this->screenshotMarkerShowWithHttpInfo($project_id, $screenshot_id, $id, $x_phrase_app_otp);
+        list($response) = $this->screenshotMarkerShowWithHttpInfo($project_id, $screenshot_id, $id, $x_phrase_app_otp, $branch);
         return $response;
     }
 
@@ -728,14 +745,15 @@ class ScreenshotMarkersApi
      * @param  string $screenshot_id Screenshot ID (required)
      * @param  string $id ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
+     * @param  string $branch specify the branch to use (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Phrase\Model\ScreenshotMarker, HTTP status code, HTTP response headers (array of strings)
      */
-    public function screenshotMarkerShowWithHttpInfo($project_id, $screenshot_id, $id, $x_phrase_app_otp = null)
+    public function screenshotMarkerShowWithHttpInfo($project_id, $screenshot_id, $id, $x_phrase_app_otp = null, $branch = null)
     {
-        $request = $this->screenshotMarkerShowRequest($project_id, $screenshot_id, $id, $x_phrase_app_otp);
+        $request = $this->screenshotMarkerShowRequest($project_id, $screenshot_id, $id, $x_phrase_app_otp, $branch);
 
         try {
             $options = $this->createHttpClientOption();
@@ -819,13 +837,14 @@ class ScreenshotMarkersApi
      * @param  string $screenshot_id Screenshot ID (required)
      * @param  string $id ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
+     * @param  string $branch specify the branch to use (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function screenshotMarkerShowAsync($project_id, $screenshot_id, $id, $x_phrase_app_otp = null)
+    public function screenshotMarkerShowAsync($project_id, $screenshot_id, $id, $x_phrase_app_otp = null, $branch = null)
     {
-        return $this->screenshotMarkerShowAsyncWithHttpInfo($project_id, $screenshot_id, $id, $x_phrase_app_otp)
+        return $this->screenshotMarkerShowAsyncWithHttpInfo($project_id, $screenshot_id, $id, $x_phrase_app_otp, $branch)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -842,14 +861,15 @@ class ScreenshotMarkersApi
      * @param  string $screenshot_id Screenshot ID (required)
      * @param  string $id ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
+     * @param  string $branch specify the branch to use (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function screenshotMarkerShowAsyncWithHttpInfo($project_id, $screenshot_id, $id, $x_phrase_app_otp = null)
+    public function screenshotMarkerShowAsyncWithHttpInfo($project_id, $screenshot_id, $id, $x_phrase_app_otp = null, $branch = null)
     {
         $returnType = '\Phrase\Model\ScreenshotMarker';
-        $request = $this->screenshotMarkerShowRequest($project_id, $screenshot_id, $id, $x_phrase_app_otp);
+        $request = $this->screenshotMarkerShowRequest($project_id, $screenshot_id, $id, $x_phrase_app_otp, $branch);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -892,11 +912,12 @@ class ScreenshotMarkersApi
      * @param  string $screenshot_id Screenshot ID (required)
      * @param  string $id ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
+     * @param  string $branch specify the branch to use (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function screenshotMarkerShowRequest($project_id, $screenshot_id, $id, $x_phrase_app_otp = null)
+    protected function screenshotMarkerShowRequest($project_id, $screenshot_id, $id, $x_phrase_app_otp = null, $branch = null)
     {
         // verify the required parameter 'project_id' is set
         if ($project_id === null || (is_array($project_id) && count($project_id) === 0)) {
@@ -924,6 +945,17 @@ class ScreenshotMarkersApi
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        if ($branch !== null) {
+            if('form' === 'form' && is_array($branch)) {
+                foreach($branch as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['branch'] = $branch;
+            }
+        }
 
         // header params
         if ($x_phrase_app_otp !== null) {
@@ -1362,14 +1394,15 @@ class ScreenshotMarkersApi
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  int $page Page number (optional)
      * @param  int $per_page allows you to specify a page size up to 100 items, 25 by default (optional)
+     * @param  string $branch specify the branch to use (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Phrase\Model\ScreenshotMarker[]
      */
-    public function screenshotMarkersList($project_id, $id, $x_phrase_app_otp = null, $page = null, $per_page = null)
+    public function screenshotMarkersList($project_id, $id, $x_phrase_app_otp = null, $page = null, $per_page = null, $branch = null)
     {
-        list($response) = $this->screenshotMarkersListWithHttpInfo($project_id, $id, $x_phrase_app_otp, $page, $per_page);
+        list($response) = $this->screenshotMarkersListWithHttpInfo($project_id, $id, $x_phrase_app_otp, $page, $per_page, $branch);
         return $response;
     }
 
@@ -1383,14 +1416,15 @@ class ScreenshotMarkersApi
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  int $page Page number (optional)
      * @param  int $per_page allows you to specify a page size up to 100 items, 25 by default (optional)
+     * @param  string $branch specify the branch to use (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Phrase\Model\ScreenshotMarker[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function screenshotMarkersListWithHttpInfo($project_id, $id, $x_phrase_app_otp = null, $page = null, $per_page = null)
+    public function screenshotMarkersListWithHttpInfo($project_id, $id, $x_phrase_app_otp = null, $page = null, $per_page = null, $branch = null)
     {
-        $request = $this->screenshotMarkersListRequest($project_id, $id, $x_phrase_app_otp, $page, $per_page);
+        $request = $this->screenshotMarkersListRequest($project_id, $id, $x_phrase_app_otp, $page, $per_page, $branch);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1475,13 +1509,14 @@ class ScreenshotMarkersApi
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  int $page Page number (optional)
      * @param  int $per_page allows you to specify a page size up to 100 items, 25 by default (optional)
+     * @param  string $branch specify the branch to use (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function screenshotMarkersListAsync($project_id, $id, $x_phrase_app_otp = null, $page = null, $per_page = null)
+    public function screenshotMarkersListAsync($project_id, $id, $x_phrase_app_otp = null, $page = null, $per_page = null, $branch = null)
     {
-        return $this->screenshotMarkersListAsyncWithHttpInfo($project_id, $id, $x_phrase_app_otp, $page, $per_page)
+        return $this->screenshotMarkersListAsyncWithHttpInfo($project_id, $id, $x_phrase_app_otp, $page, $per_page, $branch)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1499,14 +1534,15 @@ class ScreenshotMarkersApi
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  int $page Page number (optional)
      * @param  int $per_page allows you to specify a page size up to 100 items, 25 by default (optional)
+     * @param  string $branch specify the branch to use (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function screenshotMarkersListAsyncWithHttpInfo($project_id, $id, $x_phrase_app_otp = null, $page = null, $per_page = null)
+    public function screenshotMarkersListAsyncWithHttpInfo($project_id, $id, $x_phrase_app_otp = null, $page = null, $per_page = null, $branch = null)
     {
         $returnType = '\Phrase\Model\ScreenshotMarker[]';
-        $request = $this->screenshotMarkersListRequest($project_id, $id, $x_phrase_app_otp, $page, $per_page);
+        $request = $this->screenshotMarkersListRequest($project_id, $id, $x_phrase_app_otp, $page, $per_page, $branch);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1550,11 +1586,12 @@ class ScreenshotMarkersApi
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  int $page Page number (optional)
      * @param  int $per_page allows you to specify a page size up to 100 items, 25 by default (optional)
+     * @param  string $branch specify the branch to use (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function screenshotMarkersListRequest($project_id, $id, $x_phrase_app_otp = null, $page = null, $per_page = null)
+    protected function screenshotMarkersListRequest($project_id, $id, $x_phrase_app_otp = null, $page = null, $per_page = null, $branch = null)
     {
         // verify the required parameter 'project_id' is set
         if ($project_id === null || (is_array($project_id) && count($project_id) === 0)) {
@@ -1596,6 +1633,17 @@ class ScreenshotMarkersApi
             }
             else {
                 $queryParams['per_page'] = $per_page;
+            }
+        }
+        // query params
+        if ($branch !== null) {
+            if('form' === 'form' && is_array($branch)) {
+                foreach($branch as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['branch'] = $branch;
             }
         }
 

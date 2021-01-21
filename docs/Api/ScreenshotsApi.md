@@ -77,7 +77,7 @@ Name | Type | Description  | Notes
 
 ## screenshotDelete
 
-> screenshotDelete($project_id, $id, $x_phrase_app_otp)
+> screenshotDelete($project_id, $id, $x_phrase_app_otp, $branch)
 
 Delete a screenshot
 
@@ -101,9 +101,10 @@ $apiInstance = new Phrase\Api\ScreenshotsApi(
 $project_id = 'project_id_example'; // string | Project ID
 $id = 'id_example'; // string | ID
 $x_phrase_app_otp = 'x_phrase_app_otp_example'; // string | Two-Factor-Authentication token (optional)
+$branch = my-feature-branch; // string | specify the branch to use
 
 try {
-    $apiInstance->screenshotDelete($project_id, $id, $x_phrase_app_otp);
+    $apiInstance->screenshotDelete($project_id, $id, $x_phrase_app_otp, $branch);
 } catch (Exception $e) {
     echo 'Exception when calling ScreenshotsApi->screenshotDelete: ', $e->getMessage(), PHP_EOL;
 }
@@ -118,6 +119,7 @@ Name | Type | Description  | Notes
  **project_id** | **string**| Project ID |
  **id** | **string**| ID |
  **x_phrase_app_otp** | **string**| Two-Factor-Authentication token (optional) | [optional]
+ **branch** | **string**| specify the branch to use | [optional]
 
 ### Return type
 
@@ -139,7 +141,7 @@ void (empty response body)
 
 ## screenshotShow
 
-> \Phrase\Model\Screenshot screenshotShow($project_id, $id, $x_phrase_app_otp)
+> \Phrase\Model\Screenshot screenshotShow($project_id, $id, $x_phrase_app_otp, $branch)
 
 Get a single screenshot
 
@@ -163,9 +165,10 @@ $apiInstance = new Phrase\Api\ScreenshotsApi(
 $project_id = 'project_id_example'; // string | Project ID
 $id = 'id_example'; // string | ID
 $x_phrase_app_otp = 'x_phrase_app_otp_example'; // string | Two-Factor-Authentication token (optional)
+$branch = my-feature-branch; // string | specify the branch to use
 
 try {
-    $result = $apiInstance->screenshotShow($project_id, $id, $x_phrase_app_otp);
+    $result = $apiInstance->screenshotShow($project_id, $id, $x_phrase_app_otp, $branch);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ScreenshotsApi->screenshotShow: ', $e->getMessage(), PHP_EOL;
@@ -181,6 +184,7 @@ Name | Type | Description  | Notes
  **project_id** | **string**| Project ID |
  **id** | **string**| ID |
  **x_phrase_app_otp** | **string**| Two-Factor-Authentication token (optional) | [optional]
+ **branch** | **string**| specify the branch to use | [optional]
 
 ### Return type
 
@@ -267,7 +271,7 @@ Name | Type | Description  | Notes
 
 ## screenshotsList
 
-> \Phrase\Model\Screenshot[] screenshotsList($project_id, $x_phrase_app_otp, $page, $per_page, $key_id)
+> \Phrase\Model\Screenshot[] screenshotsList($project_id, $x_phrase_app_otp, $page, $per_page, $branch, $key_id)
 
 List screenshots
 
@@ -292,10 +296,11 @@ $project_id = 'project_id_example'; // string | Project ID
 $x_phrase_app_otp = 'x_phrase_app_otp_example'; // string | Two-Factor-Authentication token (optional)
 $page = 1; // int | Page number
 $per_page = 25; // int | allows you to specify a page size up to 100 items, 25 by default
+$branch = my-feature-branch; // string | specify the branch to use
 $key_id = abcd1234cdef1234abcd1234cdef1234; // string | filter by key
 
 try {
-    $result = $apiInstance->screenshotsList($project_id, $x_phrase_app_otp, $page, $per_page, $key_id);
+    $result = $apiInstance->screenshotsList($project_id, $x_phrase_app_otp, $page, $per_page, $branch, $key_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ScreenshotsApi->screenshotsList: ', $e->getMessage(), PHP_EOL;
@@ -312,6 +317,7 @@ Name | Type | Description  | Notes
  **x_phrase_app_otp** | **string**| Two-Factor-Authentication token (optional) | [optional]
  **page** | **int**| Page number | [optional]
  **per_page** | **int**| allows you to specify a page size up to 100 items, 25 by default | [optional]
+ **branch** | **string**| specify the branch to use | [optional]
  **key_id** | **string**| filter by key | [optional]
 
 ### Return type

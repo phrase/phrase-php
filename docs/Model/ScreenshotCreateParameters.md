@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**branch** | **string** | specify the branch to use | [optional] 
 **name** | **string** | Name of the screenshot | [optional] 
 **description** | **string** | Description of the screenshot | [optional] 
 **filename** | [**\SplFileObject**](\SplFileObject.md) | Screenshot file | [optional] 

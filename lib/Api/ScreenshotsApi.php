@@ -426,14 +426,15 @@ class ScreenshotsApi
      * @param  string $project_id Project ID (required)
      * @param  string $id ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
+     * @param  string $branch specify the branch to use (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function screenshotDelete($project_id, $id, $x_phrase_app_otp = null)
+    public function screenshotDelete($project_id, $id, $x_phrase_app_otp = null, $branch = null)
     {
-        $this->screenshotDeleteWithHttpInfo($project_id, $id, $x_phrase_app_otp);
+        $this->screenshotDeleteWithHttpInfo($project_id, $id, $x_phrase_app_otp, $branch);
     }
 
     /**
@@ -444,14 +445,15 @@ class ScreenshotsApi
      * @param  string $project_id Project ID (required)
      * @param  string $id ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
+     * @param  string $branch specify the branch to use (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function screenshotDeleteWithHttpInfo($project_id, $id, $x_phrase_app_otp = null)
+    public function screenshotDeleteWithHttpInfo($project_id, $id, $x_phrase_app_otp = null, $branch = null)
     {
-        $request = $this->screenshotDeleteRequest($project_id, $id, $x_phrase_app_otp);
+        $request = $this->screenshotDeleteRequest($project_id, $id, $x_phrase_app_otp, $branch);
 
         try {
             $options = $this->createHttpClientOption();
@@ -498,13 +500,14 @@ class ScreenshotsApi
      * @param  string $project_id Project ID (required)
      * @param  string $id ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
+     * @param  string $branch specify the branch to use (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function screenshotDeleteAsync($project_id, $id, $x_phrase_app_otp = null)
+    public function screenshotDeleteAsync($project_id, $id, $x_phrase_app_otp = null, $branch = null)
     {
-        return $this->screenshotDeleteAsyncWithHttpInfo($project_id, $id, $x_phrase_app_otp)
+        return $this->screenshotDeleteAsyncWithHttpInfo($project_id, $id, $x_phrase_app_otp, $branch)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -520,14 +523,15 @@ class ScreenshotsApi
      * @param  string $project_id Project ID (required)
      * @param  string $id ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
+     * @param  string $branch specify the branch to use (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function screenshotDeleteAsyncWithHttpInfo($project_id, $id, $x_phrase_app_otp = null)
+    public function screenshotDeleteAsyncWithHttpInfo($project_id, $id, $x_phrase_app_otp = null, $branch = null)
     {
         $returnType = '';
-        $request = $this->screenshotDeleteRequest($project_id, $id, $x_phrase_app_otp);
+        $request = $this->screenshotDeleteRequest($project_id, $id, $x_phrase_app_otp, $branch);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -558,11 +562,12 @@ class ScreenshotsApi
      * @param  string $project_id Project ID (required)
      * @param  string $id ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
+     * @param  string $branch specify the branch to use (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function screenshotDeleteRequest($project_id, $id, $x_phrase_app_otp = null)
+    protected function screenshotDeleteRequest($project_id, $id, $x_phrase_app_otp = null, $branch = null)
     {
         // verify the required parameter 'project_id' is set
         if ($project_id === null || (is_array($project_id) && count($project_id) === 0)) {
@@ -584,6 +589,17 @@ class ScreenshotsApi
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        if ($branch !== null) {
+            if('form' === 'form' && is_array($branch)) {
+                foreach($branch as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['branch'] = $branch;
+            }
+        }
 
         // header params
         if ($x_phrase_app_otp !== null) {
@@ -688,14 +704,15 @@ class ScreenshotsApi
      * @param  string $project_id Project ID (required)
      * @param  string $id ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
+     * @param  string $branch specify the branch to use (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Phrase\Model\Screenshot
      */
-    public function screenshotShow($project_id, $id, $x_phrase_app_otp = null)
+    public function screenshotShow($project_id, $id, $x_phrase_app_otp = null, $branch = null)
     {
-        list($response) = $this->screenshotShowWithHttpInfo($project_id, $id, $x_phrase_app_otp);
+        list($response) = $this->screenshotShowWithHttpInfo($project_id, $id, $x_phrase_app_otp, $branch);
         return $response;
     }
 
@@ -707,14 +724,15 @@ class ScreenshotsApi
      * @param  string $project_id Project ID (required)
      * @param  string $id ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
+     * @param  string $branch specify the branch to use (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Phrase\Model\Screenshot, HTTP status code, HTTP response headers (array of strings)
      */
-    public function screenshotShowWithHttpInfo($project_id, $id, $x_phrase_app_otp = null)
+    public function screenshotShowWithHttpInfo($project_id, $id, $x_phrase_app_otp = null, $branch = null)
     {
-        $request = $this->screenshotShowRequest($project_id, $id, $x_phrase_app_otp);
+        $request = $this->screenshotShowRequest($project_id, $id, $x_phrase_app_otp, $branch);
 
         try {
             $options = $this->createHttpClientOption();
@@ -797,13 +815,14 @@ class ScreenshotsApi
      * @param  string $project_id Project ID (required)
      * @param  string $id ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
+     * @param  string $branch specify the branch to use (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function screenshotShowAsync($project_id, $id, $x_phrase_app_otp = null)
+    public function screenshotShowAsync($project_id, $id, $x_phrase_app_otp = null, $branch = null)
     {
-        return $this->screenshotShowAsyncWithHttpInfo($project_id, $id, $x_phrase_app_otp)
+        return $this->screenshotShowAsyncWithHttpInfo($project_id, $id, $x_phrase_app_otp, $branch)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -819,14 +838,15 @@ class ScreenshotsApi
      * @param  string $project_id Project ID (required)
      * @param  string $id ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
+     * @param  string $branch specify the branch to use (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function screenshotShowAsyncWithHttpInfo($project_id, $id, $x_phrase_app_otp = null)
+    public function screenshotShowAsyncWithHttpInfo($project_id, $id, $x_phrase_app_otp = null, $branch = null)
     {
         $returnType = '\Phrase\Model\Screenshot';
-        $request = $this->screenshotShowRequest($project_id, $id, $x_phrase_app_otp);
+        $request = $this->screenshotShowRequest($project_id, $id, $x_phrase_app_otp, $branch);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -868,11 +888,12 @@ class ScreenshotsApi
      * @param  string $project_id Project ID (required)
      * @param  string $id ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
+     * @param  string $branch specify the branch to use (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function screenshotShowRequest($project_id, $id, $x_phrase_app_otp = null)
+    protected function screenshotShowRequest($project_id, $id, $x_phrase_app_otp = null, $branch = null)
     {
         // verify the required parameter 'project_id' is set
         if ($project_id === null || (is_array($project_id) && count($project_id) === 0)) {
@@ -894,6 +915,17 @@ class ScreenshotsApi
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        if ($branch !== null) {
+            if('form' === 'form' && is_array($branch)) {
+                foreach($branch as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['branch'] = $branch;
+            }
+        }
 
         // header params
         if ($x_phrase_app_otp !== null) {
@@ -1323,15 +1355,16 @@ class ScreenshotsApi
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  int $page Page number (optional)
      * @param  int $per_page allows you to specify a page size up to 100 items, 25 by default (optional)
+     * @param  string $branch specify the branch to use (optional)
      * @param  string $key_id filter by key (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Phrase\Model\Screenshot[]
      */
-    public function screenshotsList($project_id, $x_phrase_app_otp = null, $page = null, $per_page = null, $key_id = null)
+    public function screenshotsList($project_id, $x_phrase_app_otp = null, $page = null, $per_page = null, $branch = null, $key_id = null)
     {
-        list($response) = $this->screenshotsListWithHttpInfo($project_id, $x_phrase_app_otp, $page, $per_page, $key_id);
+        list($response) = $this->screenshotsListWithHttpInfo($project_id, $x_phrase_app_otp, $page, $per_page, $branch, $key_id);
         return $response;
     }
 
@@ -1344,15 +1377,16 @@ class ScreenshotsApi
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  int $page Page number (optional)
      * @param  int $per_page allows you to specify a page size up to 100 items, 25 by default (optional)
+     * @param  string $branch specify the branch to use (optional)
      * @param  string $key_id filter by key (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Phrase\Model\Screenshot[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function screenshotsListWithHttpInfo($project_id, $x_phrase_app_otp = null, $page = null, $per_page = null, $key_id = null)
+    public function screenshotsListWithHttpInfo($project_id, $x_phrase_app_otp = null, $page = null, $per_page = null, $branch = null, $key_id = null)
     {
-        $request = $this->screenshotsListRequest($project_id, $x_phrase_app_otp, $page, $per_page, $key_id);
+        $request = $this->screenshotsListRequest($project_id, $x_phrase_app_otp, $page, $per_page, $branch, $key_id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1436,14 +1470,15 @@ class ScreenshotsApi
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  int $page Page number (optional)
      * @param  int $per_page allows you to specify a page size up to 100 items, 25 by default (optional)
+     * @param  string $branch specify the branch to use (optional)
      * @param  string $key_id filter by key (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function screenshotsListAsync($project_id, $x_phrase_app_otp = null, $page = null, $per_page = null, $key_id = null)
+    public function screenshotsListAsync($project_id, $x_phrase_app_otp = null, $page = null, $per_page = null, $branch = null, $key_id = null)
     {
-        return $this->screenshotsListAsyncWithHttpInfo($project_id, $x_phrase_app_otp, $page, $per_page, $key_id)
+        return $this->screenshotsListAsyncWithHttpInfo($project_id, $x_phrase_app_otp, $page, $per_page, $branch, $key_id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1460,15 +1495,16 @@ class ScreenshotsApi
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  int $page Page number (optional)
      * @param  int $per_page allows you to specify a page size up to 100 items, 25 by default (optional)
+     * @param  string $branch specify the branch to use (optional)
      * @param  string $key_id filter by key (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function screenshotsListAsyncWithHttpInfo($project_id, $x_phrase_app_otp = null, $page = null, $per_page = null, $key_id = null)
+    public function screenshotsListAsyncWithHttpInfo($project_id, $x_phrase_app_otp = null, $page = null, $per_page = null, $branch = null, $key_id = null)
     {
         $returnType = '\Phrase\Model\Screenshot[]';
-        $request = $this->screenshotsListRequest($project_id, $x_phrase_app_otp, $page, $per_page, $key_id);
+        $request = $this->screenshotsListRequest($project_id, $x_phrase_app_otp, $page, $per_page, $branch, $key_id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1511,12 +1547,13 @@ class ScreenshotsApi
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  int $page Page number (optional)
      * @param  int $per_page allows you to specify a page size up to 100 items, 25 by default (optional)
+     * @param  string $branch specify the branch to use (optional)
      * @param  string $key_id filter by key (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function screenshotsListRequest($project_id, $x_phrase_app_otp = null, $page = null, $per_page = null, $key_id = null)
+    protected function screenshotsListRequest($project_id, $x_phrase_app_otp = null, $page = null, $per_page = null, $branch = null, $key_id = null)
     {
         // verify the required parameter 'project_id' is set
         if ($project_id === null || (is_array($project_id) && count($project_id) === 0)) {
@@ -1552,6 +1589,17 @@ class ScreenshotsApi
             }
             else {
                 $queryParams['per_page'] = $per_page;
+            }
+        }
+        // query params
+        if ($branch !== null) {
+            if('form' === 'form' && is_array($branch)) {
+                foreach($branch as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['branch'] = $branch;
             }
         }
         // query params

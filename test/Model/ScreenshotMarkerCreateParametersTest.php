@@ -77,6 +77,13 @@ class ScreenshotMarkerCreateParametersTest extends TestCase
     }
 
     /**
+     * Test attribute "branch"
+     */
+    public function testPropertyBranch()
+    {
+    }
+
+    /**
      * Test attribute "key_id"
      */
     public function testPropertyKeyId()
