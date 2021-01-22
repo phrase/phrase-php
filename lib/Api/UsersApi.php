@@ -122,7 +122,7 @@ class UsersApi
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Phrase\Model\User
+     * @return \Phrase\Model\CurrentUser
      */
     public function showUser($x_phrase_app_otp = null)
     {
@@ -139,7 +139,7 @@ class UsersApi
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Phrase\Model\User, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Phrase\Model\CurrentUser, HTTP status code, HTTP response headers (array of strings)
      */
     public function showUserWithHttpInfo($x_phrase_app_otp = null)
     {
@@ -176,20 +176,20 @@ class UsersApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\Phrase\Model\User' === '\SplFileObject') {
+                    if ('\Phrase\Model\CurrentUser' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Phrase\Model\User', []),
+                        ObjectSerializer::deserialize($content, '\Phrase\Model\CurrentUser', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Phrase\Model\User';
+            $returnType = '\Phrase\Model\CurrentUser';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -208,7 +208,7 @@ class UsersApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Phrase\Model\User',
+                        '\Phrase\Model\CurrentUser',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -250,7 +250,7 @@ class UsersApi
      */
     public function showUserAsyncWithHttpInfo($x_phrase_app_otp = null)
     {
-        $returnType = '\Phrase\Model\User';
+        $returnType = '\Phrase\Model\CurrentUser';
         $request = $this->showUserRequest($x_phrase_app_otp);
 
         return $this->client

@@ -348,6 +348,7 @@ Class | Method | HTTP request | Description
  - [CommentCreateParameters](docs/Model/CommentCreateParameters.md)
  - [CommentMarkReadParameters](docs/Model/CommentMarkReadParameters.md)
  - [CommentUpdateParameters](docs/Model/CommentUpdateParameters.md)
+ - [CurrentUser](docs/Model/CurrentUser.md)
  - [Distribution](docs/Model/Distribution.md)
  - [DistributionCreateParameters](docs/Model/DistributionCreateParameters.md)
  - [DistributionPreview](docs/Model/DistributionPreview.md)

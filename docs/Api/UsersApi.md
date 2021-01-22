@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 ## showUser
 
-> \Phrase\Model\User showUser($x_phrase_app_otp)
+> \Phrase\Model\CurrentUser showUser($x_phrase_app_otp)
 
 Show current User
 
@@ -51,7 +51,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Phrase\Model\User**](../Model/User.md)
+[**\Phrase\Model\CurrentUser**](../Model/CurrentUser.md)
 
 ### Authorization
 
