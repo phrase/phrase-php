@@ -214,7 +214,7 @@ Class | Method | HTTP request | Description
 *KeysApi* | [**keyDelete**](docs/Api/KeysApi.md#keydelete) | **DELETE** /projects/{project_id}/keys/{id} | Delete a key
 *KeysApi* | [**keyShow**](docs/Api/KeysApi.md#keyshow) | **GET** /projects/{project_id}/keys/{id} | Get a single key
 *KeysApi* | [**keyUpdate**](docs/Api/KeysApi.md#keyupdate) | **PATCH** /projects/{project_id}/keys/{id} | Update a key
-*KeysApi* | [**keysDelete**](docs/Api/KeysApi.md#keysdelete) | **DELETE** /projects/{project_id}/keys | Delete collection of keys
+*KeysApi* | [**keysDeleteCollection**](docs/Api/KeysApi.md#keysdeletecollection) | **DELETE** /projects/{project_id}/keys | Delete collection of keys
 *KeysApi* | [**keysList**](docs/Api/KeysApi.md#keyslist) | **GET** /projects/{project_id}/keys | List keys
 *KeysApi* | [**keysSearch**](docs/Api/KeysApi.md#keyssearch) | **POST** /projects/{project_id}/keys/search | Search keys
 *KeysApi* | [**keysTag**](docs/Api/KeysApi.md#keystag) | **PATCH** /projects/{project_id}/keys/tag | Add tags to collection of keys
@@ -294,13 +294,13 @@ Class | Method | HTTP request | Description
 *TranslationsApi* | [**translationVerify**](docs/Api/TranslationsApi.md#translationverify) | **PATCH** /projects/{project_id}/translations/{id}/verify | Verify a translation
 *TranslationsApi* | [**translationsByKey**](docs/Api/TranslationsApi.md#translationsbykey) | **GET** /projects/{project_id}/keys/{key_id}/translations | List translations by key
 *TranslationsApi* | [**translationsByLocale**](docs/Api/TranslationsApi.md#translationsbylocale) | **GET** /projects/{project_id}/locales/{locale_id}/translations | List translations by locale
-*TranslationsApi* | [**translationsExclude**](docs/Api/TranslationsApi.md#translationsexclude) | **PATCH** /projects/{project_id}/translations/exclude | Set exclude from export flag on translations selected by query
-*TranslationsApi* | [**translationsInclude**](docs/Api/TranslationsApi.md#translationsinclude) | **PATCH** /projects/{project_id}/translations/include | Remove exlude from import flag from translations selected by query
+*TranslationsApi* | [**translationsExcludeCollection**](docs/Api/TranslationsApi.md#translationsexcludecollection) | **PATCH** /projects/{project_id}/translations/exclude | Set exclude from export flag on translations selected by query
+*TranslationsApi* | [**translationsIncludeCollection**](docs/Api/TranslationsApi.md#translationsincludecollection) | **PATCH** /projects/{project_id}/translations/include | Remove exlude from import flag from translations selected by query
 *TranslationsApi* | [**translationsList**](docs/Api/TranslationsApi.md#translationslist) | **GET** /projects/{project_id}/translations | List all translations
-*TranslationsApi* | [**translationsReview**](docs/Api/TranslationsApi.md#translationsreview) | **PATCH** /projects/{project_id}/translations/review | Review translations selected by query
+*TranslationsApi* | [**translationsReviewCollection**](docs/Api/TranslationsApi.md#translationsreviewcollection) | **PATCH** /projects/{project_id}/translations/review | Review translations selected by query
 *TranslationsApi* | [**translationsSearch**](docs/Api/TranslationsApi.md#translationssearch) | **POST** /projects/{project_id}/translations/search | Search translations
-*TranslationsApi* | [**translationsUnverify**](docs/Api/TranslationsApi.md#translationsunverify) | **PATCH** /projects/{project_id}/translations/unverify | Mark translations selected by query as unverified
-*TranslationsApi* | [**translationsVerify**](docs/Api/TranslationsApi.md#translationsverify) | **PATCH** /projects/{project_id}/translations/verify | Verify translations selected by query
+*TranslationsApi* | [**translationsUnverifyCollection**](docs/Api/TranslationsApi.md#translationsunverifycollection) | **PATCH** /projects/{project_id}/translations/unverify | Mark translations selected by query as unverified
+*TranslationsApi* | [**translationsVerifyCollection**](docs/Api/TranslationsApi.md#translationsverifycollection) | **PATCH** /projects/{project_id}/translations/verify | Verify translations selected by query
 *UploadsApi* | [**uploadCreate**](docs/Api/UploadsApi.md#uploadcreate) | **POST** /projects/{project_id}/uploads | Upload a new file
 *UploadsApi* | [**uploadShow**](docs/Api/UploadsApi.md#uploadshow) | **GET** /projects/{project_id}/uploads/{id} | View upload details
 *UploadsApi* | [**uploadsList**](docs/Api/UploadsApi.md#uploadslist) | **GET** /projects/{project_id}/uploads | List uploads

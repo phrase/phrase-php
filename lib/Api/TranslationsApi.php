@@ -3501,7 +3501,7 @@ class TranslationsApi
     }
 
     /**
-     * Operation translationsExclude
+     * Operation translationsExcludeCollection
      *
      * Set exclude from export flag on translations selected by query
      *
@@ -3513,14 +3513,14 @@ class TranslationsApi
      * @throws \InvalidArgumentException
      * @return \Phrase\Model\AffectedCount
      */
-    public function translationsExclude($project_id, $translations_exclude_parameters, $x_phrase_app_otp = null)
+    public function translationsExcludeCollection($project_id, $translations_exclude_parameters, $x_phrase_app_otp = null)
     {
-        list($response) = $this->translationsExcludeWithHttpInfo($project_id, $translations_exclude_parameters, $x_phrase_app_otp);
+        list($response) = $this->translationsExcludeCollectionWithHttpInfo($project_id, $translations_exclude_parameters, $x_phrase_app_otp);
         return $response;
     }
 
     /**
-     * Operation translationsExcludeWithHttpInfo
+     * Operation translationsExcludeCollectionWithHttpInfo
      *
      * Set exclude from export flag on translations selected by query
      *
@@ -3532,9 +3532,9 @@ class TranslationsApi
      * @throws \InvalidArgumentException
      * @return array of \Phrase\Model\AffectedCount, HTTP status code, HTTP response headers (array of strings)
      */
-    public function translationsExcludeWithHttpInfo($project_id, $translations_exclude_parameters, $x_phrase_app_otp = null)
+    public function translationsExcludeCollectionWithHttpInfo($project_id, $translations_exclude_parameters, $x_phrase_app_otp = null)
     {
-        $request = $this->translationsExcludeRequest($project_id, $translations_exclude_parameters, $x_phrase_app_otp);
+        $request = $this->translationsExcludeCollectionRequest($project_id, $translations_exclude_parameters, $x_phrase_app_otp);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3610,7 +3610,7 @@ class TranslationsApi
     }
 
     /**
-     * Operation translationsExcludeAsync
+     * Operation translationsExcludeCollectionAsync
      *
      * Set exclude from export flag on translations selected by query
      *
@@ -3621,9 +3621,9 @@ class TranslationsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function translationsExcludeAsync($project_id, $translations_exclude_parameters, $x_phrase_app_otp = null)
+    public function translationsExcludeCollectionAsync($project_id, $translations_exclude_parameters, $x_phrase_app_otp = null)
     {
-        return $this->translationsExcludeAsyncWithHttpInfo($project_id, $translations_exclude_parameters, $x_phrase_app_otp)
+        return $this->translationsExcludeCollectionAsyncWithHttpInfo($project_id, $translations_exclude_parameters, $x_phrase_app_otp)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3632,7 +3632,7 @@ class TranslationsApi
     }
 
     /**
-     * Operation translationsExcludeAsyncWithHttpInfo
+     * Operation translationsExcludeCollectionAsyncWithHttpInfo
      *
      * Set exclude from export flag on translations selected by query
      *
@@ -3643,10 +3643,10 @@ class TranslationsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function translationsExcludeAsyncWithHttpInfo($project_id, $translations_exclude_parameters, $x_phrase_app_otp = null)
+    public function translationsExcludeCollectionAsyncWithHttpInfo($project_id, $translations_exclude_parameters, $x_phrase_app_otp = null)
     {
         $returnType = '\Phrase\Model\AffectedCount';
-        $request = $this->translationsExcludeRequest($project_id, $translations_exclude_parameters, $x_phrase_app_otp);
+        $request = $this->translationsExcludeCollectionRequest($project_id, $translations_exclude_parameters, $x_phrase_app_otp);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3683,7 +3683,7 @@ class TranslationsApi
     }
 
     /**
-     * Create request for operation 'translationsExclude'
+     * Create request for operation 'translationsExcludeCollection'
      *
      * @param  string $project_id Project ID (required)
      * @param  \Phrase\Model\TranslationsExcludeParameters $translations_exclude_parameters (required)
@@ -3692,18 +3692,18 @@ class TranslationsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function translationsExcludeRequest($project_id, $translations_exclude_parameters, $x_phrase_app_otp = null)
+    protected function translationsExcludeCollectionRequest($project_id, $translations_exclude_parameters, $x_phrase_app_otp = null)
     {
         // verify the required parameter 'project_id' is set
         if ($project_id === null || (is_array($project_id) && count($project_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $project_id when calling translationsExclude'
+                'Missing the required parameter $project_id when calling translationsExcludeCollection'
             );
         }
         // verify the required parameter 'translations_exclude_parameters' is set
         if ($translations_exclude_parameters === null || (is_array($translations_exclude_parameters) && count($translations_exclude_parameters) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $translations_exclude_parameters when calling translationsExclude'
+                'Missing the required parameter $translations_exclude_parameters when calling translationsExcludeCollection'
             );
         }
 
@@ -3806,7 +3806,7 @@ class TranslationsApi
     }
 
     /**
-     * Operation translationsInclude
+     * Operation translationsIncludeCollection
      *
      * Remove exlude from import flag from translations selected by query
      *
@@ -3818,14 +3818,14 @@ class TranslationsApi
      * @throws \InvalidArgumentException
      * @return \Phrase\Model\AffectedCount
      */
-    public function translationsInclude($project_id, $translations_include_parameters, $x_phrase_app_otp = null)
+    public function translationsIncludeCollection($project_id, $translations_include_parameters, $x_phrase_app_otp = null)
     {
-        list($response) = $this->translationsIncludeWithHttpInfo($project_id, $translations_include_parameters, $x_phrase_app_otp);
+        list($response) = $this->translationsIncludeCollectionWithHttpInfo($project_id, $translations_include_parameters, $x_phrase_app_otp);
         return $response;
     }
 
     /**
-     * Operation translationsIncludeWithHttpInfo
+     * Operation translationsIncludeCollectionWithHttpInfo
      *
      * Remove exlude from import flag from translations selected by query
      *
@@ -3837,9 +3837,9 @@ class TranslationsApi
      * @throws \InvalidArgumentException
      * @return array of \Phrase\Model\AffectedCount, HTTP status code, HTTP response headers (array of strings)
      */
-    public function translationsIncludeWithHttpInfo($project_id, $translations_include_parameters, $x_phrase_app_otp = null)
+    public function translationsIncludeCollectionWithHttpInfo($project_id, $translations_include_parameters, $x_phrase_app_otp = null)
     {
-        $request = $this->translationsIncludeRequest($project_id, $translations_include_parameters, $x_phrase_app_otp);
+        $request = $this->translationsIncludeCollectionRequest($project_id, $translations_include_parameters, $x_phrase_app_otp);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3915,7 +3915,7 @@ class TranslationsApi
     }
 
     /**
-     * Operation translationsIncludeAsync
+     * Operation translationsIncludeCollectionAsync
      *
      * Remove exlude from import flag from translations selected by query
      *
@@ -3926,9 +3926,9 @@ class TranslationsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function translationsIncludeAsync($project_id, $translations_include_parameters, $x_phrase_app_otp = null)
+    public function translationsIncludeCollectionAsync($project_id, $translations_include_parameters, $x_phrase_app_otp = null)
     {
-        return $this->translationsIncludeAsyncWithHttpInfo($project_id, $translations_include_parameters, $x_phrase_app_otp)
+        return $this->translationsIncludeCollectionAsyncWithHttpInfo($project_id, $translations_include_parameters, $x_phrase_app_otp)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3937,7 +3937,7 @@ class TranslationsApi
     }
 
     /**
-     * Operation translationsIncludeAsyncWithHttpInfo
+     * Operation translationsIncludeCollectionAsyncWithHttpInfo
      *
      * Remove exlude from import flag from translations selected by query
      *
@@ -3948,10 +3948,10 @@ class TranslationsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function translationsIncludeAsyncWithHttpInfo($project_id, $translations_include_parameters, $x_phrase_app_otp = null)
+    public function translationsIncludeCollectionAsyncWithHttpInfo($project_id, $translations_include_parameters, $x_phrase_app_otp = null)
     {
         $returnType = '\Phrase\Model\AffectedCount';
-        $request = $this->translationsIncludeRequest($project_id, $translations_include_parameters, $x_phrase_app_otp);
+        $request = $this->translationsIncludeCollectionRequest($project_id, $translations_include_parameters, $x_phrase_app_otp);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3988,7 +3988,7 @@ class TranslationsApi
     }
 
     /**
-     * Create request for operation 'translationsInclude'
+     * Create request for operation 'translationsIncludeCollection'
      *
      * @param  string $project_id Project ID (required)
      * @param  \Phrase\Model\TranslationsIncludeParameters $translations_include_parameters (required)
@@ -3997,18 +3997,18 @@ class TranslationsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function translationsIncludeRequest($project_id, $translations_include_parameters, $x_phrase_app_otp = null)
+    protected function translationsIncludeCollectionRequest($project_id, $translations_include_parameters, $x_phrase_app_otp = null)
     {
         // verify the required parameter 'project_id' is set
         if ($project_id === null || (is_array($project_id) && count($project_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $project_id when calling translationsInclude'
+                'Missing the required parameter $project_id when calling translationsIncludeCollection'
             );
         }
         // verify the required parameter 'translations_include_parameters' is set
         if ($translations_include_parameters === null || (is_array($translations_include_parameters) && count($translations_include_parameters) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $translations_include_parameters when calling translationsInclude'
+                'Missing the required parameter $translations_include_parameters when calling translationsIncludeCollection'
             );
         }
 
@@ -4498,7 +4498,7 @@ class TranslationsApi
     }
 
     /**
-     * Operation translationsReview
+     * Operation translationsReviewCollection
      *
      * Review translations selected by query
      *
@@ -4510,14 +4510,14 @@ class TranslationsApi
      * @throws \InvalidArgumentException
      * @return \Phrase\Model\AffectedCount
      */
-    public function translationsReview($project_id, $translations_review_parameters, $x_phrase_app_otp = null)
+    public function translationsReviewCollection($project_id, $translations_review_parameters, $x_phrase_app_otp = null)
     {
-        list($response) = $this->translationsReviewWithHttpInfo($project_id, $translations_review_parameters, $x_phrase_app_otp);
+        list($response) = $this->translationsReviewCollectionWithHttpInfo($project_id, $translations_review_parameters, $x_phrase_app_otp);
         return $response;
     }
 
     /**
-     * Operation translationsReviewWithHttpInfo
+     * Operation translationsReviewCollectionWithHttpInfo
      *
      * Review translations selected by query
      *
@@ -4529,9 +4529,9 @@ class TranslationsApi
      * @throws \InvalidArgumentException
      * @return array of \Phrase\Model\AffectedCount, HTTP status code, HTTP response headers (array of strings)
      */
-    public function translationsReviewWithHttpInfo($project_id, $translations_review_parameters, $x_phrase_app_otp = null)
+    public function translationsReviewCollectionWithHttpInfo($project_id, $translations_review_parameters, $x_phrase_app_otp = null)
     {
-        $request = $this->translationsReviewRequest($project_id, $translations_review_parameters, $x_phrase_app_otp);
+        $request = $this->translationsReviewCollectionRequest($project_id, $translations_review_parameters, $x_phrase_app_otp);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4607,7 +4607,7 @@ class TranslationsApi
     }
 
     /**
-     * Operation translationsReviewAsync
+     * Operation translationsReviewCollectionAsync
      *
      * Review translations selected by query
      *
@@ -4618,9 +4618,9 @@ class TranslationsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function translationsReviewAsync($project_id, $translations_review_parameters, $x_phrase_app_otp = null)
+    public function translationsReviewCollectionAsync($project_id, $translations_review_parameters, $x_phrase_app_otp = null)
     {
-        return $this->translationsReviewAsyncWithHttpInfo($project_id, $translations_review_parameters, $x_phrase_app_otp)
+        return $this->translationsReviewCollectionAsyncWithHttpInfo($project_id, $translations_review_parameters, $x_phrase_app_otp)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4629,7 +4629,7 @@ class TranslationsApi
     }
 
     /**
-     * Operation translationsReviewAsyncWithHttpInfo
+     * Operation translationsReviewCollectionAsyncWithHttpInfo
      *
      * Review translations selected by query
      *
@@ -4640,10 +4640,10 @@ class TranslationsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function translationsReviewAsyncWithHttpInfo($project_id, $translations_review_parameters, $x_phrase_app_otp = null)
+    public function translationsReviewCollectionAsyncWithHttpInfo($project_id, $translations_review_parameters, $x_phrase_app_otp = null)
     {
         $returnType = '\Phrase\Model\AffectedCount';
-        $request = $this->translationsReviewRequest($project_id, $translations_review_parameters, $x_phrase_app_otp);
+        $request = $this->translationsReviewCollectionRequest($project_id, $translations_review_parameters, $x_phrase_app_otp);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4680,7 +4680,7 @@ class TranslationsApi
     }
 
     /**
-     * Create request for operation 'translationsReview'
+     * Create request for operation 'translationsReviewCollection'
      *
      * @param  string $project_id Project ID (required)
      * @param  \Phrase\Model\TranslationsReviewParameters $translations_review_parameters (required)
@@ -4689,18 +4689,18 @@ class TranslationsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function translationsReviewRequest($project_id, $translations_review_parameters, $x_phrase_app_otp = null)
+    protected function translationsReviewCollectionRequest($project_id, $translations_review_parameters, $x_phrase_app_otp = null)
     {
         // verify the required parameter 'project_id' is set
         if ($project_id === null || (is_array($project_id) && count($project_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $project_id when calling translationsReview'
+                'Missing the required parameter $project_id when calling translationsReviewCollection'
             );
         }
         // verify the required parameter 'translations_review_parameters' is set
         if ($translations_review_parameters === null || (is_array($translations_review_parameters) && count($translations_review_parameters) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $translations_review_parameters when calling translationsReview'
+                'Missing the required parameter $translations_review_parameters when calling translationsReviewCollection'
             );
         }
 
@@ -5140,7 +5140,7 @@ class TranslationsApi
     }
 
     /**
-     * Operation translationsUnverify
+     * Operation translationsUnverifyCollection
      *
      * Mark translations selected by query as unverified
      *
@@ -5152,14 +5152,14 @@ class TranslationsApi
      * @throws \InvalidArgumentException
      * @return \Phrase\Model\AffectedCount
      */
-    public function translationsUnverify($project_id, $translations_unverify_parameters, $x_phrase_app_otp = null)
+    public function translationsUnverifyCollection($project_id, $translations_unverify_parameters, $x_phrase_app_otp = null)
     {
-        list($response) = $this->translationsUnverifyWithHttpInfo($project_id, $translations_unverify_parameters, $x_phrase_app_otp);
+        list($response) = $this->translationsUnverifyCollectionWithHttpInfo($project_id, $translations_unverify_parameters, $x_phrase_app_otp);
         return $response;
     }
 
     /**
-     * Operation translationsUnverifyWithHttpInfo
+     * Operation translationsUnverifyCollectionWithHttpInfo
      *
      * Mark translations selected by query as unverified
      *
@@ -5171,9 +5171,9 @@ class TranslationsApi
      * @throws \InvalidArgumentException
      * @return array of \Phrase\Model\AffectedCount, HTTP status code, HTTP response headers (array of strings)
      */
-    public function translationsUnverifyWithHttpInfo($project_id, $translations_unverify_parameters, $x_phrase_app_otp = null)
+    public function translationsUnverifyCollectionWithHttpInfo($project_id, $translations_unverify_parameters, $x_phrase_app_otp = null)
     {
-        $request = $this->translationsUnverifyRequest($project_id, $translations_unverify_parameters, $x_phrase_app_otp);
+        $request = $this->translationsUnverifyCollectionRequest($project_id, $translations_unverify_parameters, $x_phrase_app_otp);
 
         try {
             $options = $this->createHttpClientOption();
@@ -5249,7 +5249,7 @@ class TranslationsApi
     }
 
     /**
-     * Operation translationsUnverifyAsync
+     * Operation translationsUnverifyCollectionAsync
      *
      * Mark translations selected by query as unverified
      *
@@ -5260,9 +5260,9 @@ class TranslationsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function translationsUnverifyAsync($project_id, $translations_unverify_parameters, $x_phrase_app_otp = null)
+    public function translationsUnverifyCollectionAsync($project_id, $translations_unverify_parameters, $x_phrase_app_otp = null)
     {
-        return $this->translationsUnverifyAsyncWithHttpInfo($project_id, $translations_unverify_parameters, $x_phrase_app_otp)
+        return $this->translationsUnverifyCollectionAsyncWithHttpInfo($project_id, $translations_unverify_parameters, $x_phrase_app_otp)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -5271,7 +5271,7 @@ class TranslationsApi
     }
 
     /**
-     * Operation translationsUnverifyAsyncWithHttpInfo
+     * Operation translationsUnverifyCollectionAsyncWithHttpInfo
      *
      * Mark translations selected by query as unverified
      *
@@ -5282,10 +5282,10 @@ class TranslationsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function translationsUnverifyAsyncWithHttpInfo($project_id, $translations_unverify_parameters, $x_phrase_app_otp = null)
+    public function translationsUnverifyCollectionAsyncWithHttpInfo($project_id, $translations_unverify_parameters, $x_phrase_app_otp = null)
     {
         $returnType = '\Phrase\Model\AffectedCount';
-        $request = $this->translationsUnverifyRequest($project_id, $translations_unverify_parameters, $x_phrase_app_otp);
+        $request = $this->translationsUnverifyCollectionRequest($project_id, $translations_unverify_parameters, $x_phrase_app_otp);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -5322,7 +5322,7 @@ class TranslationsApi
     }
 
     /**
-     * Create request for operation 'translationsUnverify'
+     * Create request for operation 'translationsUnverifyCollection'
      *
      * @param  string $project_id Project ID (required)
      * @param  \Phrase\Model\TranslationsUnverifyParameters $translations_unverify_parameters (required)
@@ -5331,18 +5331,18 @@ class TranslationsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function translationsUnverifyRequest($project_id, $translations_unverify_parameters, $x_phrase_app_otp = null)
+    protected function translationsUnverifyCollectionRequest($project_id, $translations_unverify_parameters, $x_phrase_app_otp = null)
     {
         // verify the required parameter 'project_id' is set
         if ($project_id === null || (is_array($project_id) && count($project_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $project_id when calling translationsUnverify'
+                'Missing the required parameter $project_id when calling translationsUnverifyCollection'
             );
         }
         // verify the required parameter 'translations_unverify_parameters' is set
         if ($translations_unverify_parameters === null || (is_array($translations_unverify_parameters) && count($translations_unverify_parameters) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $translations_unverify_parameters when calling translationsUnverify'
+                'Missing the required parameter $translations_unverify_parameters when calling translationsUnverifyCollection'
             );
         }
 
@@ -5445,7 +5445,7 @@ class TranslationsApi
     }
 
     /**
-     * Operation translationsVerify
+     * Operation translationsVerifyCollection
      *
      * Verify translations selected by query
      *
@@ -5457,14 +5457,14 @@ class TranslationsApi
      * @throws \InvalidArgumentException
      * @return \Phrase\Model\AffectedCount
      */
-    public function translationsVerify($project_id, $translations_verify_parameters, $x_phrase_app_otp = null)
+    public function translationsVerifyCollection($project_id, $translations_verify_parameters, $x_phrase_app_otp = null)
     {
-        list($response) = $this->translationsVerifyWithHttpInfo($project_id, $translations_verify_parameters, $x_phrase_app_otp);
+        list($response) = $this->translationsVerifyCollectionWithHttpInfo($project_id, $translations_verify_parameters, $x_phrase_app_otp);
         return $response;
     }
 
     /**
-     * Operation translationsVerifyWithHttpInfo
+     * Operation translationsVerifyCollectionWithHttpInfo
      *
      * Verify translations selected by query
      *
@@ -5476,9 +5476,9 @@ class TranslationsApi
      * @throws \InvalidArgumentException
      * @return array of \Phrase\Model\AffectedCount, HTTP status code, HTTP response headers (array of strings)
      */
-    public function translationsVerifyWithHttpInfo($project_id, $translations_verify_parameters, $x_phrase_app_otp = null)
+    public function translationsVerifyCollectionWithHttpInfo($project_id, $translations_verify_parameters, $x_phrase_app_otp = null)
     {
-        $request = $this->translationsVerifyRequest($project_id, $translations_verify_parameters, $x_phrase_app_otp);
+        $request = $this->translationsVerifyCollectionRequest($project_id, $translations_verify_parameters, $x_phrase_app_otp);
 
         try {
             $options = $this->createHttpClientOption();
@@ -5554,7 +5554,7 @@ class TranslationsApi
     }
 
     /**
-     * Operation translationsVerifyAsync
+     * Operation translationsVerifyCollectionAsync
      *
      * Verify translations selected by query
      *
@@ -5565,9 +5565,9 @@ class TranslationsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function translationsVerifyAsync($project_id, $translations_verify_parameters, $x_phrase_app_otp = null)
+    public function translationsVerifyCollectionAsync($project_id, $translations_verify_parameters, $x_phrase_app_otp = null)
     {
-        return $this->translationsVerifyAsyncWithHttpInfo($project_id, $translations_verify_parameters, $x_phrase_app_otp)
+        return $this->translationsVerifyCollectionAsyncWithHttpInfo($project_id, $translations_verify_parameters, $x_phrase_app_otp)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -5576,7 +5576,7 @@ class TranslationsApi
     }
 
     /**
-     * Operation translationsVerifyAsyncWithHttpInfo
+     * Operation translationsVerifyCollectionAsyncWithHttpInfo
      *
      * Verify translations selected by query
      *
@@ -5587,10 +5587,10 @@ class TranslationsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function translationsVerifyAsyncWithHttpInfo($project_id, $translations_verify_parameters, $x_phrase_app_otp = null)
+    public function translationsVerifyCollectionAsyncWithHttpInfo($project_id, $translations_verify_parameters, $x_phrase_app_otp = null)
     {
         $returnType = '\Phrase\Model\AffectedCount';
-        $request = $this->translationsVerifyRequest($project_id, $translations_verify_parameters, $x_phrase_app_otp);
+        $request = $this->translationsVerifyCollectionRequest($project_id, $translations_verify_parameters, $x_phrase_app_otp);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -5627,7 +5627,7 @@ class TranslationsApi
     }
 
     /**
-     * Create request for operation 'translationsVerify'
+     * Create request for operation 'translationsVerifyCollection'
      *
      * @param  string $project_id Project ID (required)
      * @param  \Phrase\Model\TranslationsVerifyParameters $translations_verify_parameters (required)
@@ -5636,18 +5636,18 @@ class TranslationsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function translationsVerifyRequest($project_id, $translations_verify_parameters, $x_phrase_app_otp = null)
+    protected function translationsVerifyCollectionRequest($project_id, $translations_verify_parameters, $x_phrase_app_otp = null)
     {
         // verify the required parameter 'project_id' is set
         if ($project_id === null || (is_array($project_id) && count($project_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $project_id when calling translationsVerify'
+                'Missing the required parameter $project_id when calling translationsVerifyCollection'
             );
         }
         // verify the required parameter 'translations_verify_parameters' is set
         if ($translations_verify_parameters === null || (is_array($translations_verify_parameters) && count($translations_verify_parameters) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $translations_verify_parameters when calling translationsVerify'
+                'Missing the required parameter $translations_verify_parameters when calling translationsVerifyCollection'
             );
         }
 

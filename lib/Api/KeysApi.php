@@ -1347,7 +1347,7 @@ class KeysApi
     }
 
     /**
-     * Operation keysDelete
+     * Operation keysDeleteCollection
      *
      * Delete collection of keys
      *
@@ -1361,14 +1361,14 @@ class KeysApi
      * @throws \InvalidArgumentException
      * @return \Phrase\Model\AffectedResources
      */
-    public function keysDelete($project_id, $x_phrase_app_otp = null, $branch = null, $q = null, $locale_id = null)
+    public function keysDeleteCollection($project_id, $x_phrase_app_otp = null, $branch = null, $q = null, $locale_id = null)
     {
-        list($response) = $this->keysDeleteWithHttpInfo($project_id, $x_phrase_app_otp, $branch, $q, $locale_id);
+        list($response) = $this->keysDeleteCollectionWithHttpInfo($project_id, $x_phrase_app_otp, $branch, $q, $locale_id);
         return $response;
     }
 
     /**
-     * Operation keysDeleteWithHttpInfo
+     * Operation keysDeleteCollectionWithHttpInfo
      *
      * Delete collection of keys
      *
@@ -1382,9 +1382,9 @@ class KeysApi
      * @throws \InvalidArgumentException
      * @return array of \Phrase\Model\AffectedResources, HTTP status code, HTTP response headers (array of strings)
      */
-    public function keysDeleteWithHttpInfo($project_id, $x_phrase_app_otp = null, $branch = null, $q = null, $locale_id = null)
+    public function keysDeleteCollectionWithHttpInfo($project_id, $x_phrase_app_otp = null, $branch = null, $q = null, $locale_id = null)
     {
-        $request = $this->keysDeleteRequest($project_id, $x_phrase_app_otp, $branch, $q, $locale_id);
+        $request = $this->keysDeleteCollectionRequest($project_id, $x_phrase_app_otp, $branch, $q, $locale_id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1460,7 +1460,7 @@ class KeysApi
     }
 
     /**
-     * Operation keysDeleteAsync
+     * Operation keysDeleteCollectionAsync
      *
      * Delete collection of keys
      *
@@ -1473,9 +1473,9 @@ class KeysApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function keysDeleteAsync($project_id, $x_phrase_app_otp = null, $branch = null, $q = null, $locale_id = null)
+    public function keysDeleteCollectionAsync($project_id, $x_phrase_app_otp = null, $branch = null, $q = null, $locale_id = null)
     {
-        return $this->keysDeleteAsyncWithHttpInfo($project_id, $x_phrase_app_otp, $branch, $q, $locale_id)
+        return $this->keysDeleteCollectionAsyncWithHttpInfo($project_id, $x_phrase_app_otp, $branch, $q, $locale_id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1484,7 +1484,7 @@ class KeysApi
     }
 
     /**
-     * Operation keysDeleteAsyncWithHttpInfo
+     * Operation keysDeleteCollectionAsyncWithHttpInfo
      *
      * Delete collection of keys
      *
@@ -1497,10 +1497,10 @@ class KeysApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function keysDeleteAsyncWithHttpInfo($project_id, $x_phrase_app_otp = null, $branch = null, $q = null, $locale_id = null)
+    public function keysDeleteCollectionAsyncWithHttpInfo($project_id, $x_phrase_app_otp = null, $branch = null, $q = null, $locale_id = null)
     {
         $returnType = '\Phrase\Model\AffectedResources';
-        $request = $this->keysDeleteRequest($project_id, $x_phrase_app_otp, $branch, $q, $locale_id);
+        $request = $this->keysDeleteCollectionRequest($project_id, $x_phrase_app_otp, $branch, $q, $locale_id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1537,7 +1537,7 @@ class KeysApi
     }
 
     /**
-     * Create request for operation 'keysDelete'
+     * Create request for operation 'keysDeleteCollection'
      *
      * @param  string $project_id Project ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
@@ -1548,12 +1548,12 @@ class KeysApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function keysDeleteRequest($project_id, $x_phrase_app_otp = null, $branch = null, $q = null, $locale_id = null)
+    protected function keysDeleteCollectionRequest($project_id, $x_phrase_app_otp = null, $branch = null, $q = null, $locale_id = null)
     {
         // verify the required parameter 'project_id' is set
         if ($project_id === null || (is_array($project_id) && count($project_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $project_id when calling keysDelete'
+                'Missing the required parameter $project_id when calling keysDeleteCollection'
             );
         }
 

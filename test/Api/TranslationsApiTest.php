@@ -171,22 +171,22 @@ class TranslationsApiTest extends TestCase
     }
 
     /**
-     * Test case for translationsExclude
+     * Test case for translationsExcludeCollection
      *
      * Set exclude from export flag on translations selected by query.
      *
      */
-    public function testTranslationsExclude()
+    public function testTranslationsExcludeCollection()
     {
     }
 
     /**
-     * Test case for translationsInclude
+     * Test case for translationsIncludeCollection
      *
      * Remove exlude from import flag from translations selected by query.
      *
      */
-    public function testTranslationsInclude()
+    public function testTranslationsIncludeCollection()
     {
     }
 
@@ -201,12 +201,12 @@ class TranslationsApiTest extends TestCase
     }
 
     /**
-     * Test case for translationsReview
+     * Test case for translationsReviewCollection
      *
      * Review translations selected by query.
      *
      */
-    public function testTranslationsReview()
+    public function testTranslationsReviewCollection()
     {
     }
 
@@ -221,22 +221,22 @@ class TranslationsApiTest extends TestCase
     }
 
     /**
-     * Test case for translationsUnverify
+     * Test case for translationsUnverifyCollection
      *
      * Mark translations selected by query as unverified.
      *
      */
-    public function testTranslationsUnverify()
+    public function testTranslationsUnverifyCollection()
     {
     }
 
     /**
-     * Test case for translationsVerify
+     * Test case for translationsVerifyCollection
      *
      * Verify translations selected by query.
      *
      */
-    public function testTranslationsVerify()
+    public function testTranslationsVerifyCollection()
     {
     }
 }

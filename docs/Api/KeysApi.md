@@ -8,7 +8,7 @@ Method | HTTP request | Description
 [**keyDelete**](KeysApi.md#keyDelete) | **DELETE** /projects/{project_id}/keys/{id} | Delete a key
 [**keyShow**](KeysApi.md#keyShow) | **GET** /projects/{project_id}/keys/{id} | Get a single key
 [**keyUpdate**](KeysApi.md#keyUpdate) | **PATCH** /projects/{project_id}/keys/{id} | Update a key
-[**keysDelete**](KeysApi.md#keysDelete) | **DELETE** /projects/{project_id}/keys | Delete collection of keys
+[**keysDeleteCollection**](KeysApi.md#keysDeleteCollection) | **DELETE** /projects/{project_id}/keys | Delete collection of keys
 [**keysList**](KeysApi.md#keysList) | **GET** /projects/{project_id}/keys | List keys
 [**keysSearch**](KeysApi.md#keysSearch) | **POST** /projects/{project_id}/keys/search | Search keys
 [**keysTag**](KeysApi.md#keysTag) | **PATCH** /projects/{project_id}/keys/tag | Add tags to collection of keys
@@ -273,9 +273,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../../README.md)
 
 
-## keysDelete
+## keysDeleteCollection
 
-> \Phrase\Model\AffectedResources keysDelete($project_id, $x_phrase_app_otp, $branch, $q, $locale_id)
+> \Phrase\Model\AffectedResources keysDeleteCollection($project_id, $x_phrase_app_otp, $branch, $q, $locale_id)
 
 Delete collection of keys
 
@@ -303,10 +303,10 @@ $q = mykey* translated:true; // string | Specify a query to do broad search for 
 $locale_id = abcd1234abcd1234abcd1234abcd1234; // string | Locale used to determine the translation state of a key when filtering for untranslated or translated keys.
 
 try {
-    $result = $apiInstance->keysDelete($project_id, $x_phrase_app_otp, $branch, $q, $locale_id);
+    $result = $apiInstance->keysDeleteCollection($project_id, $x_phrase_app_otp, $branch, $q, $locale_id);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling KeysApi->keysDelete: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling KeysApi->keysDeleteCollection: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```

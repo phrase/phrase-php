@@ -14,13 +14,13 @@ Method | HTTP request | Description
 [**translationVerify**](TranslationsApi.md#translationVerify) | **PATCH** /projects/{project_id}/translations/{id}/verify | Verify a translation
 [**translationsByKey**](TranslationsApi.md#translationsByKey) | **GET** /projects/{project_id}/keys/{key_id}/translations | List translations by key
 [**translationsByLocale**](TranslationsApi.md#translationsByLocale) | **GET** /projects/{project_id}/locales/{locale_id}/translations | List translations by locale
-[**translationsExclude**](TranslationsApi.md#translationsExclude) | **PATCH** /projects/{project_id}/translations/exclude | Set exclude from export flag on translations selected by query
-[**translationsInclude**](TranslationsApi.md#translationsInclude) | **PATCH** /projects/{project_id}/translations/include | Remove exlude from import flag from translations selected by query
+[**translationsExcludeCollection**](TranslationsApi.md#translationsExcludeCollection) | **PATCH** /projects/{project_id}/translations/exclude | Set exclude from export flag on translations selected by query
+[**translationsIncludeCollection**](TranslationsApi.md#translationsIncludeCollection) | **PATCH** /projects/{project_id}/translations/include | Remove exlude from import flag from translations selected by query
 [**translationsList**](TranslationsApi.md#translationsList) | **GET** /projects/{project_id}/translations | List all translations
-[**translationsReview**](TranslationsApi.md#translationsReview) | **PATCH** /projects/{project_id}/translations/review | Review translations selected by query
+[**translationsReviewCollection**](TranslationsApi.md#translationsReviewCollection) | **PATCH** /projects/{project_id}/translations/review | Review translations selected by query
 [**translationsSearch**](TranslationsApi.md#translationsSearch) | **POST** /projects/{project_id}/translations/search | Search translations
-[**translationsUnverify**](TranslationsApi.md#translationsUnverify) | **PATCH** /projects/{project_id}/translations/unverify | Mark translations selected by query as unverified
-[**translationsVerify**](TranslationsApi.md#translationsVerify) | **PATCH** /projects/{project_id}/translations/verify | Verify translations selected by query
+[**translationsUnverifyCollection**](TranslationsApi.md#translationsUnverifyCollection) | **PATCH** /projects/{project_id}/translations/unverify | Mark translations selected by query as unverified
+[**translationsVerifyCollection**](TranslationsApi.md#translationsVerifyCollection) | **PATCH** /projects/{project_id}/translations/verify | Verify translations selected by query
 
 
 
@@ -692,9 +692,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../../README.md)
 
 
-## translationsExclude
+## translationsExcludeCollection
 
-> \Phrase\Model\AffectedCount translationsExclude($project_id, $translations_exclude_parameters, $x_phrase_app_otp)
+> \Phrase\Model\AffectedCount translationsExcludeCollection($project_id, $translations_exclude_parameters, $x_phrase_app_otp)
 
 Set exclude from export flag on translations selected by query
 
@@ -720,10 +720,10 @@ $translations_exclude_parameters = new \Phrase\Model\TranslationsExcludeParamete
 $x_phrase_app_otp = 'x_phrase_app_otp_example'; // string | Two-Factor-Authentication token (optional)
 
 try {
-    $result = $apiInstance->translationsExclude($project_id, $translations_exclude_parameters, $x_phrase_app_otp);
+    $result = $apiInstance->translationsExcludeCollection($project_id, $translations_exclude_parameters, $x_phrase_app_otp);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling TranslationsApi->translationsExclude: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling TranslationsApi->translationsExcludeCollection: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -755,9 +755,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../../README.md)
 
 
-## translationsInclude
+## translationsIncludeCollection
 
-> \Phrase\Model\AffectedCount translationsInclude($project_id, $translations_include_parameters, $x_phrase_app_otp)
+> \Phrase\Model\AffectedCount translationsIncludeCollection($project_id, $translations_include_parameters, $x_phrase_app_otp)
 
 Remove exlude from import flag from translations selected by query
 
@@ -783,10 +783,10 @@ $translations_include_parameters = new \Phrase\Model\TranslationsIncludeParamete
 $x_phrase_app_otp = 'x_phrase_app_otp_example'; // string | Two-Factor-Authentication token (optional)
 
 try {
-    $result = $apiInstance->translationsInclude($project_id, $translations_include_parameters, $x_phrase_app_otp);
+    $result = $apiInstance->translationsIncludeCollection($project_id, $translations_include_parameters, $x_phrase_app_otp);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling TranslationsApi->translationsInclude: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling TranslationsApi->translationsIncludeCollection: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -891,9 +891,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../../README.md)
 
 
-## translationsReview
+## translationsReviewCollection
 
-> \Phrase\Model\AffectedCount translationsReview($project_id, $translations_review_parameters, $x_phrase_app_otp)
+> \Phrase\Model\AffectedCount translationsReviewCollection($project_id, $translations_review_parameters, $x_phrase_app_otp)
 
 Review translations selected by query
 
@@ -919,10 +919,10 @@ $translations_review_parameters = new \Phrase\Model\TranslationsReviewParameters
 $x_phrase_app_otp = 'x_phrase_app_otp_example'; // string | Two-Factor-Authentication token (optional)
 
 try {
-    $result = $apiInstance->translationsReview($project_id, $translations_review_parameters, $x_phrase_app_otp);
+    $result = $apiInstance->translationsReviewCollection($project_id, $translations_review_parameters, $x_phrase_app_otp);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling TranslationsApi->translationsReview: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling TranslationsApi->translationsReviewCollection: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -1021,9 +1021,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../../README.md)
 
 
-## translationsUnverify
+## translationsUnverifyCollection
 
-> \Phrase\Model\AffectedCount translationsUnverify($project_id, $translations_unverify_parameters, $x_phrase_app_otp)
+> \Phrase\Model\AffectedCount translationsUnverifyCollection($project_id, $translations_unverify_parameters, $x_phrase_app_otp)
 
 Mark translations selected by query as unverified
 
@@ -1049,10 +1049,10 @@ $translations_unverify_parameters = new \Phrase\Model\TranslationsUnverifyParame
 $x_phrase_app_otp = 'x_phrase_app_otp_example'; // string | Two-Factor-Authentication token (optional)
 
 try {
-    $result = $apiInstance->translationsUnverify($project_id, $translations_unverify_parameters, $x_phrase_app_otp);
+    $result = $apiInstance->translationsUnverifyCollection($project_id, $translations_unverify_parameters, $x_phrase_app_otp);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling TranslationsApi->translationsUnverify: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling TranslationsApi->translationsUnverifyCollection: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -1084,9 +1084,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../../README.md)
 
 
-## translationsVerify
+## translationsVerifyCollection
 
-> \Phrase\Model\AffectedCount translationsVerify($project_id, $translations_verify_parameters, $x_phrase_app_otp)
+> \Phrase\Model\AffectedCount translationsVerifyCollection($project_id, $translations_verify_parameters, $x_phrase_app_otp)
 
 Verify translations selected by query
 
@@ -1112,10 +1112,10 @@ $translations_verify_parameters = new \Phrase\Model\TranslationsVerifyParameters
 $x_phrase_app_otp = 'x_phrase_app_otp_example'; // string | Two-Factor-Authentication token (optional)
 
 try {
-    $result = $apiInstance->translationsVerify($project_id, $translations_verify_parameters, $x_phrase_app_otp);
+    $result = $apiInstance->translationsVerifyCollection($project_id, $translations_verify_parameters, $x_phrase_app_otp);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling TranslationsApi->translationsVerify: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling TranslationsApi->translationsVerifyCollection: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```

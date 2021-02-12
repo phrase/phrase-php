@@ -111,12 +111,12 @@ class KeysApiTest extends TestCase
     }
 
     /**
-     * Test case for keysDelete
+     * Test case for keysDeleteCollection
      *
      * Delete collection of keys.
      *
      */
-    public function testKeysDelete()
+    public function testKeysDeleteCollection()
     {
     }
 
