@@ -110,4 +110,18 @@ class JobLocaleTest extends TestCase
     public function testPropertyCompleted()
     {
     }
+
+    /**
+     * Test attribute "translation_completed_at"
+     */
+    public function testPropertyTranslationCompletedAt()
+    {
+    }
+
+    /**
+     * Test attribute "review_completed_at"
+     */
+    public function testPropertyReviewCompletedAt()
+    {
+    }
 }
