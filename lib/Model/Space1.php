@@ -1,6 +1,6 @@
 <?php
 /**
- * ProjectDetails
+ * Space1
  *
  * PHP version 5
  *
@@ -31,14 +31,14 @@ use \ArrayAccess;
 use \Phrase\ObjectSerializer;
 
 /**
- * ProjectDetails Class Doc Comment
+ * Space1 Class Doc Comment
  *
  * @category Class
  * @package  Phrase
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class ProjectDetails implements ModelInterface, ArrayAccess
+class Space1 implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -47,7 +47,7 @@ class ProjectDetails implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'project_details';
+    protected static $openAPIModelName = 'space_1';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,14 +57,9 @@ class ProjectDetails implements ModelInterface, ArrayAccess
     protected static $openAPITypes = [
         'id' => 'string',
         'name' => 'string',
-        'slug' => 'string',
-        'main_format' => 'string',
-        'project_image_url' => 'string',
-        'account' => '\Phrase\Model\Account',
-        'space' => '\Phrase\Model\Space1',
         'created_at' => '\DateTime',
         'updated_at' => '\DateTime',
-        'shares_translation_memory' => 'bool'
+        'projects_count' => 'int'
     ];
 
     /**
@@ -75,14 +70,9 @@ class ProjectDetails implements ModelInterface, ArrayAccess
     protected static $openAPIFormats = [
         'id' => null,
         'name' => null,
-        'slug' => null,
-        'main_format' => null,
-        'project_image_url' => null,
-        'account' => null,
-        'space' => null,
         'created_at' => 'date-time',
         'updated_at' => 'date-time',
-        'shares_translation_memory' => null
+        'projects_count' => null
     ];
 
     /**
@@ -114,14 +104,9 @@ class ProjectDetails implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'id' => 'id',
         'name' => 'name',
-        'slug' => 'slug',
-        'main_format' => 'main_format',
-        'project_image_url' => 'project_image_url',
-        'account' => 'account',
-        'space' => 'space',
         'created_at' => 'created_at',
         'updated_at' => 'updated_at',
-        'shares_translation_memory' => 'shares_translation_memory'
+        'projects_count' => 'projects_count'
     ];
 
     /**
@@ -132,14 +117,9 @@ class ProjectDetails implements ModelInterface, ArrayAccess
     protected static $setters = [
         'id' => 'setId',
         'name' => 'setName',
-        'slug' => 'setSlug',
-        'main_format' => 'setMainFormat',
-        'project_image_url' => 'setProjectImageUrl',
-        'account' => 'setAccount',
-        'space' => 'setSpace',
         'created_at' => 'setCreatedAt',
         'updated_at' => 'setUpdatedAt',
-        'shares_translation_memory' => 'setSharesTranslationMemory'
+        'projects_count' => 'setProjectsCount'
     ];
 
     /**
@@ -150,14 +130,9 @@ class ProjectDetails implements ModelInterface, ArrayAccess
     protected static $getters = [
         'id' => 'getId',
         'name' => 'getName',
-        'slug' => 'getSlug',
-        'main_format' => 'getMainFormat',
-        'project_image_url' => 'getProjectImageUrl',
-        'account' => 'getAccount',
-        'space' => 'getSpace',
         'created_at' => 'getCreatedAt',
         'updated_at' => 'getUpdatedAt',
-        'shares_translation_memory' => 'getSharesTranslationMemory'
+        'projects_count' => 'getProjectsCount'
     ];
 
     /**
@@ -222,14 +197,9 @@ class ProjectDetails implements ModelInterface, ArrayAccess
     {
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['slug'] = isset($data['slug']) ? $data['slug'] : null;
-        $this->container['main_format'] = isset($data['main_format']) ? $data['main_format'] : null;
-        $this->container['project_image_url'] = isset($data['project_image_url']) ? $data['project_image_url'] : null;
-        $this->container['account'] = isset($data['account']) ? $data['account'] : null;
-        $this->container['space'] = isset($data['space']) ? $data['space'] : null;
         $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
         $this->container['updated_at'] = isset($data['updated_at']) ? $data['updated_at'] : null;
-        $this->container['shares_translation_memory'] = isset($data['shares_translation_memory']) ? $data['shares_translation_memory'] : null;
+        $this->container['projects_count'] = isset($data['projects_count']) ? $data['projects_count'] : null;
     }
 
     /**
@@ -305,126 +275,6 @@ class ProjectDetails implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets slug
-     *
-     * @return string|null
-     */
-    public function getSlug()
-    {
-        return $this->container['slug'];
-    }
-
-    /**
-     * Sets slug
-     *
-     * @param string|null $slug slug
-     *
-     * @return $this
-     */
-    public function setSlug($slug)
-    {
-        $this->container['slug'] = $slug;
-
-        return $this;
-    }
-
-    /**
-     * Gets main_format
-     *
-     * @return string|null
-     */
-    public function getMainFormat()
-    {
-        return $this->container['main_format'];
-    }
-
-    /**
-     * Sets main_format
-     *
-     * @param string|null $main_format main_format
-     *
-     * @return $this
-     */
-    public function setMainFormat($main_format)
-    {
-        $this->container['main_format'] = $main_format;
-
-        return $this;
-    }
-
-    /**
-     * Gets project_image_url
-     *
-     * @return string|null
-     */
-    public function getProjectImageUrl()
-    {
-        return $this->container['project_image_url'];
-    }
-
-    /**
-     * Sets project_image_url
-     *
-     * @param string|null $project_image_url project_image_url
-     *
-     * @return $this
-     */
-    public function setProjectImageUrl($project_image_url)
-    {
-        $this->container['project_image_url'] = $project_image_url;
-
-        return $this;
-    }
-
-    /**
-     * Gets account
-     *
-     * @return \Phrase\Model\Account|null
-     */
-    public function getAccount()
-    {
-        return $this->container['account'];
-    }
-
-    /**
-     * Sets account
-     *
-     * @param \Phrase\Model\Account|null $account account
-     *
-     * @return $this
-     */
-    public function setAccount($account)
-    {
-        $this->container['account'] = $account;
-
-        return $this;
-    }
-
-    /**
-     * Gets space
-     *
-     * @return \Phrase\Model\Space1|null
-     */
-    public function getSpace()
-    {
-        return $this->container['space'];
-    }
-
-    /**
-     * Sets space
-     *
-     * @param \Phrase\Model\Space1|null $space space
-     *
-     * @return $this
-     */
-    public function setSpace($space)
-    {
-        $this->container['space'] = $space;
-
-        return $this;
-    }
-
-    /**
      * Gets created_at
      *
      * @return \DateTime|null
@@ -473,25 +323,25 @@ class ProjectDetails implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets shares_translation_memory
+     * Gets projects_count
      *
-     * @return bool|null
+     * @return int|null
      */
-    public function getSharesTranslationMemory()
+    public function getProjectsCount()
     {
-        return $this->container['shares_translation_memory'];
+        return $this->container['projects_count'];
     }
 
     /**
-     * Sets shares_translation_memory
+     * Sets projects_count
      *
-     * @param bool|null $shares_translation_memory shares_translation_memory
+     * @param int|null $projects_count projects_count
      *
      * @return $this
      */
-    public function setSharesTranslationMemory($shares_translation_memory)
+    public function setProjectsCount($projects_count)
     {
-        $this->container['shares_translation_memory'] = $shares_translation_memory;
+        $this->container['projects_count'] = $projects_count;
 
         return $this;
     }

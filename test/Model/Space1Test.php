@@ -1,6 +1,6 @@
 <?php
 /**
- * ProjectDetailsTest
+ * Space1Test
  *
  * PHP version 5
  *
@@ -30,15 +30,15 @@ namespace Phrase;
 use PHPUnit\Framework\TestCase;
 
 /**
- * ProjectDetailsTest Class Doc Comment
+ * Space1Test Class Doc Comment
  *
  * @category    Class
- * @description ProjectDetails
+ * @description Space1
  * @package     Phrase
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class ProjectDetailsTest extends TestCase
+class Space1Test extends TestCase
 {
 
     /**
@@ -70,9 +70,9 @@ class ProjectDetailsTest extends TestCase
     }
 
     /**
-     * Test "ProjectDetails"
+     * Test "Space1"
      */
-    public function testProjectDetails()
+    public function testSpace1()
     {
     }
 
@@ -91,41 +91,6 @@ class ProjectDetailsTest extends TestCase
     }
 
     /**
-     * Test attribute "slug"
-     */
-    public function testPropertySlug()
-    {
-    }
-
-    /**
-     * Test attribute "main_format"
-     */
-    public function testPropertyMainFormat()
-    {
-    }
-
-    /**
-     * Test attribute "project_image_url"
-     */
-    public function testPropertyProjectImageUrl()
-    {
-    }
-
-    /**
-     * Test attribute "account"
-     */
-    public function testPropertyAccount()
-    {
-    }
-
-    /**
-     * Test attribute "space"
-     */
-    public function testPropertySpace()
-    {
-    }
-
-    /**
      * Test attribute "created_at"
      */
     public function testPropertyCreatedAt()
@@ -140,9 +105,9 @@ class ProjectDetailsTest extends TestCase
     }
 
     /**
-     * Test attribute "shares_translation_memory"
+     * Test attribute "projects_count"
      */
-    public function testPropertySharesTranslationMemory()
+    public function testPropertyProjectsCount()
     {
     }
 }

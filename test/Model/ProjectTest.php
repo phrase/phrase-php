@@ -119,6 +119,13 @@ class ProjectTest extends TestCase
     }
 
     /**
+     * Test attribute "space"
+     */
+    public function testPropertySpace()
+    {
+    }
+
+    /**
      * Test attribute "created_at"
      */
     public function testPropertyCreatedAt()

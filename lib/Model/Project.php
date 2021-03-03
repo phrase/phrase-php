@@ -61,6 +61,7 @@ class Project implements ModelInterface, ArrayAccess
         'main_format' => 'string',
         'project_image_url' => 'string',
         'account' => '\Phrase\Model\Account',
+        'space' => '\Phrase\Model\Space1',
         'created_at' => '\DateTime',
         'updated_at' => '\DateTime'
     ];
@@ -77,6 +78,7 @@ class Project implements ModelInterface, ArrayAccess
         'main_format' => null,
         'project_image_url' => null,
         'account' => null,
+        'space' => null,
         'created_at' => 'date-time',
         'updated_at' => 'date-time'
     ];
@@ -114,6 +116,7 @@ class Project implements ModelInterface, ArrayAccess
         'main_format' => 'main_format',
         'project_image_url' => 'project_image_url',
         'account' => 'account',
+        'space' => 'space',
         'created_at' => 'created_at',
         'updated_at' => 'updated_at'
     ];
@@ -130,6 +133,7 @@ class Project implements ModelInterface, ArrayAccess
         'main_format' => 'setMainFormat',
         'project_image_url' => 'setProjectImageUrl',
         'account' => 'setAccount',
+        'space' => 'setSpace',
         'created_at' => 'setCreatedAt',
         'updated_at' => 'setUpdatedAt'
     ];
@@ -146,6 +150,7 @@ class Project implements ModelInterface, ArrayAccess
         'main_format' => 'getMainFormat',
         'project_image_url' => 'getProjectImageUrl',
         'account' => 'getAccount',
+        'space' => 'getSpace',
         'created_at' => 'getCreatedAt',
         'updated_at' => 'getUpdatedAt'
     ];
@@ -216,6 +221,7 @@ class Project implements ModelInterface, ArrayAccess
         $this->container['main_format'] = isset($data['main_format']) ? $data['main_format'] : null;
         $this->container['project_image_url'] = isset($data['project_image_url']) ? $data['project_image_url'] : null;
         $this->container['account'] = isset($data['account']) ? $data['account'] : null;
+        $this->container['space'] = isset($data['space']) ? $data['space'] : null;
         $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
         $this->container['updated_at'] = isset($data['updated_at']) ? $data['updated_at'] : null;
     }
@@ -384,6 +390,30 @@ class Project implements ModelInterface, ArrayAccess
     public function setAccount($account)
     {
         $this->container['account'] = $account;
+
+        return $this;
+    }
+
+    /**
+     * Gets space
+     *
+     * @return \Phrase\Model\Space1|null
+     */
+    public function getSpace()
+    {
+        return $this->container['space'];
+    }
+
+    /**
+     * Sets space
+     *
+     * @param \Phrase\Model\Space1|null $space space
+     *
+     * @return $this
+     */
+    public function setSpace($space)
+    {
+        $this->container['space'] = $space;
 
         return $this;
     }

@@ -432,6 +432,7 @@ Class | Method | HTTP request | Description
  - [ScreenshotMarkerUpdateParameters](docs/Model/ScreenshotMarkerUpdateParameters.md)
  - [ScreenshotUpdateParameters](docs/Model/ScreenshotUpdateParameters.md)
  - [Space](docs/Model/Space.md)
+ - [Space1](docs/Model/Space1.md)
  - [SpaceCreateParameters](docs/Model/SpaceCreateParameters.md)
  - [SpaceUpdateParameters](docs/Model/SpaceUpdateParameters.md)
  - [SpacesProjectsCreateParameters](docs/Model/SpacesProjectsCreateParameters.md)
