@@ -259,7 +259,7 @@ Name | Type | Description  | Notes
 
 ## projectsList
 
-> \Phrase\Model\Project[] projectsList($x_phrase_app_otp, $page, $per_page, $sort_by)
+> \Phrase\Model\Project[] projectsList($x_phrase_app_otp, $page, $per_page, $account_id, $sort_by)
 
 List projects
 
@@ -283,10 +283,11 @@ $apiInstance = new Phrase\Api\ProjectsApi(
 $x_phrase_app_otp = 'x_phrase_app_otp_example'; // string | Two-Factor-Authentication token (optional)
 $page = 1; // int | Page number
 $per_page = 25; // int | allows you to specify a page size up to 100 items, 25 by default
+$account_id = 'account_id_example'; // string | Filter by Account ID
 $sort_by = 'sort_by_example'; // string | Sort projects. Valid options are \"name_asc\", \"name_desc\", \"updated_at_asc\", \"updated_at_desc\", \"space_asc\" and \"space_desc\".
 
 try {
-    $result = $apiInstance->projectsList($x_phrase_app_otp, $page, $per_page, $sort_by);
+    $result = $apiInstance->projectsList($x_phrase_app_otp, $page, $per_page, $account_id, $sort_by);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ProjectsApi->projectsList: ', $e->getMessage(), PHP_EOL;
@@ -302,6 +303,7 @@ Name | Type | Description  | Notes
  **x_phrase_app_otp** | **string**| Two-Factor-Authentication token (optional) | [optional]
  **page** | **int**| Page number | [optional]
  **per_page** | **int**| allows you to specify a page size up to 100 items, 25 by default | [optional]
+ **account_id** | **string**| Filter by Account ID | [optional]
  **sort_by** | **string**| Sort projects. Valid options are \&quot;name_asc\&quot;, \&quot;name_desc\&quot;, \&quot;updated_at_asc\&quot;, \&quot;updated_at_desc\&quot;, \&quot;space_asc\&quot; and \&quot;space_desc\&quot;. | [optional]
 
 ### Return type
