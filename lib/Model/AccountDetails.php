@@ -60,7 +60,8 @@ class AccountDetails implements ModelInterface, ArrayAccess
         'slug' => 'string',
         'company' => 'string',
         'created_at' => '\DateTime',
-        'updated_at' => '\DateTime'
+        'updated_at' => '\DateTime',
+        'company_logo_url' => 'string'
     ];
 
     /**
@@ -74,7 +75,8 @@ class AccountDetails implements ModelInterface, ArrayAccess
         'slug' => null,
         'company' => null,
         'created_at' => 'date-time',
-        'updated_at' => 'date-time'
+        'updated_at' => 'date-time',
+        'company_logo_url' => null
     ];
 
     /**
@@ -109,7 +111,8 @@ class AccountDetails implements ModelInterface, ArrayAccess
         'slug' => 'slug',
         'company' => 'company',
         'created_at' => 'created_at',
-        'updated_at' => 'updated_at'
+        'updated_at' => 'updated_at',
+        'company_logo_url' => 'company_logo_url'
     ];
 
     /**
@@ -123,7 +126,8 @@ class AccountDetails implements ModelInterface, ArrayAccess
         'slug' => 'setSlug',
         'company' => 'setCompany',
         'created_at' => 'setCreatedAt',
-        'updated_at' => 'setUpdatedAt'
+        'updated_at' => 'setUpdatedAt',
+        'company_logo_url' => 'setCompanyLogoUrl'
     ];
 
     /**
@@ -137,7 +141,8 @@ class AccountDetails implements ModelInterface, ArrayAccess
         'slug' => 'getSlug',
         'company' => 'getCompany',
         'created_at' => 'getCreatedAt',
-        'updated_at' => 'getUpdatedAt'
+        'updated_at' => 'getUpdatedAt',
+        'company_logo_url' => 'getCompanyLogoUrl'
     ];
 
     /**
@@ -206,6 +211,7 @@ class AccountDetails implements ModelInterface, ArrayAccess
         $this->container['company'] = isset($data['company']) ? $data['company'] : null;
         $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
         $this->container['updated_at'] = isset($data['updated_at']) ? $data['updated_at'] : null;
+        $this->container['company_logo_url'] = isset($data['company_logo_url']) ? $data['company_logo_url'] : null;
     }
 
     /**
@@ -372,6 +378,30 @@ class AccountDetails implements ModelInterface, ArrayAccess
     public function setUpdatedAt($updated_at)
     {
         $this->container['updated_at'] = $updated_at;
+
+        return $this;
+    }
+
+    /**
+     * Gets company_logo_url
+     *
+     * @return string|null
+     */
+    public function getCompanyLogoUrl()
+    {
+        return $this->container['company_logo_url'];
+    }
+
+    /**
+     * Sets company_logo_url
+     *
+     * @param string|null $company_logo_url company_logo_url
+     *
+     * @return $this
+     */
+    public function setCompanyLogoUrl($company_logo_url)
+    {
+        $this->container['company_logo_url'] = $company_logo_url;
 
         return $this;
     }

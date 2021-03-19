@@ -117,4 +117,11 @@ class AccountDetailsTest extends TestCase
     public function testPropertyUpdatedAt()
     {
     }
+
+    /**
+     * Test attribute "company_logo_url"
+     */
+    public function testPropertyCompanyLogoUrl()
+    {
+    }
 }
