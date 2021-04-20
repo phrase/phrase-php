@@ -365,7 +365,7 @@ Name | Type | Description  | Notes
 
 ## localesList
 
-> \Phrase\Model\Locale[] localesList($project_id, $x_phrase_app_otp, $page, $per_page, $branch)
+> \Phrase\Model\Locale[] localesList($project_id, $x_phrase_app_otp, $page, $per_page, $sort_by, $branch)
 
 List locales
 
@@ -390,10 +390,11 @@ $project_id = 'project_id_example'; // string | Project ID
 $x_phrase_app_otp = 'x_phrase_app_otp_example'; // string | Two-Factor-Authentication token (optional)
 $page = 1; // int | Page number
 $per_page = 25; // int | allows you to specify a page size up to 100 items, 25 by default
+$sort_by = 'sort_by_example'; // string | Sort locales. Valid options are \"name_asc\", \"name_desc\", \"default_asc\", \"default_desc\".
 $branch = my-feature-branch; // string | specify the branch to use
 
 try {
-    $result = $apiInstance->localesList($project_id, $x_phrase_app_otp, $page, $per_page, $branch);
+    $result = $apiInstance->localesList($project_id, $x_phrase_app_otp, $page, $per_page, $sort_by, $branch);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling LocalesApi->localesList: ', $e->getMessage(), PHP_EOL;
@@ -410,6 +411,7 @@ Name | Type | Description  | Notes
  **x_phrase_app_otp** | **string**| Two-Factor-Authentication token (optional) | [optional]
  **page** | **int**| Page number | [optional]
  **per_page** | **int**| allows you to specify a page size up to 100 items, 25 by default | [optional]
+ **sort_by** | **string**| Sort locales. Valid options are \&quot;name_asc\&quot;, \&quot;name_desc\&quot;, \&quot;default_asc\&quot;, \&quot;default_desc\&quot;. | [optional]
  **branch** | **string**| specify the branch to use | [optional]
 
 ### Return type
