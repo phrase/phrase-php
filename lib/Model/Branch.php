@@ -55,6 +55,8 @@ class Branch implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
+        'base_project_id' => 'string',
+        'branch_project_id' => 'string',
         'name' => 'string',
         'created_at' => '\DateTime',
         'updated_at' => '\DateTime',
@@ -70,6 +72,8 @@ class Branch implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
+        'base_project_id' => null,
+        'branch_project_id' => null,
         'name' => null,
         'created_at' => 'date-time',
         'updated_at' => 'date-time',
@@ -106,6 +110,8 @@ class Branch implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'base_project_id' => 'base_project_id',
+        'branch_project_id' => 'branch_project_id',
         'name' => 'name',
         'created_at' => 'created_at',
         'updated_at' => 'updated_at',
@@ -121,6 +127,8 @@ class Branch implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'base_project_id' => 'setBaseProjectId',
+        'branch_project_id' => 'setBranchProjectId',
         'name' => 'setName',
         'created_at' => 'setCreatedAt',
         'updated_at' => 'setUpdatedAt',
@@ -136,6 +144,8 @@ class Branch implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'base_project_id' => 'getBaseProjectId',
+        'branch_project_id' => 'getBranchProjectId',
         'name' => 'getName',
         'created_at' => 'getCreatedAt',
         'updated_at' => 'getUpdatedAt',
@@ -205,6 +215,8 @@ class Branch implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['base_project_id'] = isset($data['base_project_id']) ? $data['base_project_id'] : null;
+        $this->container['branch_project_id'] = isset($data['branch_project_id']) ? $data['branch_project_id'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
         $this->container['updated_at'] = isset($data['updated_at']) ? $data['updated_at'] : null;
@@ -237,6 +249,54 @@ class Branch implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets base_project_id
+     *
+     * @return string|null
+     */
+    public function getBaseProjectId()
+    {
+        return $this->container['base_project_id'];
+    }
+
+    /**
+     * Sets base_project_id
+     *
+     * @param string|null $base_project_id base_project_id
+     *
+     * @return $this
+     */
+    public function setBaseProjectId($base_project_id)
+    {
+        $this->container['base_project_id'] = $base_project_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets branch_project_id
+     *
+     * @return string|null
+     */
+    public function getBranchProjectId()
+    {
+        return $this->container['branch_project_id'];
+    }
+
+    /**
+     * Sets branch_project_id
+     *
+     * @param string|null $branch_project_id branch_project_id
+     *
+     * @return $this
+     */
+    public function setBranchProjectId($branch_project_id)
+    {
+        $this->container['branch_project_id'] = $branch_project_id;
+
+        return $this;
+    }
 
     /**
      * Gets name

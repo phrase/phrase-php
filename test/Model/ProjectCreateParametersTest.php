@@ -124,4 +124,116 @@ class ProjectCreateParametersTest extends TestCase
     public function testPropertySourceProjectId()
     {
     }
+
+    /**
+     * Test attribute "machine_translation_enabled"
+     */
+    public function testPropertyMachineTranslationEnabled()
+    {
+    }
+
+    /**
+     * Test attribute "enable_branching"
+     */
+    public function testPropertyEnableBranching()
+    {
+    }
+
+    /**
+     * Test attribute "protect_master_branch"
+     */
+    public function testPropertyProtectMasterBranch()
+    {
+    }
+
+    /**
+     * Test attribute "enable_all_data_type_translation_keys_for_translators"
+     */
+    public function testPropertyEnableAllDataTypeTranslationKeysForTranslators()
+    {
+    }
+
+    /**
+     * Test attribute "enable_icu_message_format"
+     */
+    public function testPropertyEnableIcuMessageFormat()
+    {
+    }
+
+    /**
+     * Test attribute "zero_plural_form_enabled"
+     */
+    public function testPropertyZeroPluralFormEnabled()
+    {
+    }
+
+    /**
+     * Test attribute "autotranslate_enabled"
+     */
+    public function testPropertyAutotranslateEnabled()
+    {
+    }
+
+    /**
+     * Test attribute "autotranslate_check_new_translation_keys"
+     */
+    public function testPropertyAutotranslateCheckNewTranslationKeys()
+    {
+    }
+
+    /**
+     * Test attribute "autotranslate_check_new_uploads"
+     */
+    public function testPropertyAutotranslateCheckNewUploads()
+    {
+    }
+
+    /**
+     * Test attribute "autotranslate_check_new_locales"
+     */
+    public function testPropertyAutotranslateCheckNewLocales()
+    {
+    }
+
+    /**
+     * Test attribute "autotranslate_mark_as_unverified"
+     */
+    public function testPropertyAutotranslateMarkAsUnverified()
+    {
+    }
+
+    /**
+     * Test attribute "autotranslate_use_machine_translation"
+     */
+    public function testPropertyAutotranslateUseMachineTranslation()
+    {
+    }
+
+    /**
+     * Test attribute "autotranslate_use_translation_memory"
+     */
+    public function testPropertyAutotranslateUseTranslationMemory()
+    {
+    }
+
+    /**
+     * Test attribute "smart_suggest_enabled"
+     */
+    public function testPropertySmartSuggestEnabled()
+    {
+    }
+
+    /**
+     * Test attribute "smart_suggest_use_glossary"
+     */
+    public function testPropertySmartSuggestUseGlossary()
+    {
+    }
+
+    /**
+     * Test attribute "smart_suggest_use_machine_translation"
+     */
+    public function testPropertySmartSuggestUseMachineTranslation()
+    {
+    }
 }

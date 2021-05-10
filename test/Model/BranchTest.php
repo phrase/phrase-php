@@ -77,6 +77,20 @@ class BranchTest extends TestCase
     }
 
     /**
+     * Test attribute "base_project_id"
+     */
+    public function testPropertyBaseProjectId()
+    {
+    }
+
+    /**
+     * Test attribute "branch_project_id"
+     */
+    public function testPropertyBranchProjectId()
+    {
+    }
+
+    /**
      * Test attribute "name"
      */
     public function testPropertyName()
