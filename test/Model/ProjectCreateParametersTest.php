@@ -126,6 +126,13 @@ class ProjectCreateParametersTest extends TestCase
     }
 
     /**
+     * Test attribute "workflow"
+     */
+    public function testPropertyWorkflow()
+    {
+    }
+
+    /**
      * Test attribute "machine_translation_enabled"
      */
     public function testPropertyMachineTranslationEnabled()

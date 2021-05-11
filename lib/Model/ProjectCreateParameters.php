@@ -62,6 +62,7 @@ class ProjectCreateParameters implements ModelInterface, ArrayAccess
         'remove_project_image' => 'bool',
         'account_id' => 'string',
         'source_project_id' => 'string',
+        'workflow' => 'string',
         'machine_translation_enabled' => 'bool',
         'enable_branching' => 'bool',
         'protect_master_branch' => 'bool',
@@ -93,6 +94,7 @@ class ProjectCreateParameters implements ModelInterface, ArrayAccess
         'remove_project_image' => null,
         'account_id' => null,
         'source_project_id' => null,
+        'workflow' => null,
         'machine_translation_enabled' => null,
         'enable_branching' => null,
         'protect_master_branch' => null,
@@ -145,6 +147,7 @@ class ProjectCreateParameters implements ModelInterface, ArrayAccess
         'remove_project_image' => 'remove_project_image',
         'account_id' => 'account_id',
         'source_project_id' => 'source_project_id',
+        'workflow' => 'workflow',
         'machine_translation_enabled' => 'machine_translation_enabled',
         'enable_branching' => 'enable_branching',
         'protect_master_branch' => 'protect_master_branch',
@@ -176,6 +179,7 @@ class ProjectCreateParameters implements ModelInterface, ArrayAccess
         'remove_project_image' => 'setRemoveProjectImage',
         'account_id' => 'setAccountId',
         'source_project_id' => 'setSourceProjectId',
+        'workflow' => 'setWorkflow',
         'machine_translation_enabled' => 'setMachineTranslationEnabled',
         'enable_branching' => 'setEnableBranching',
         'protect_master_branch' => 'setProtectMasterBranch',
@@ -207,6 +211,7 @@ class ProjectCreateParameters implements ModelInterface, ArrayAccess
         'remove_project_image' => 'getRemoveProjectImage',
         'account_id' => 'getAccountId',
         'source_project_id' => 'getSourceProjectId',
+        'workflow' => 'getWorkflow',
         'machine_translation_enabled' => 'getMachineTranslationEnabled',
         'enable_branching' => 'getEnableBranching',
         'protect_master_branch' => 'getProtectMasterBranch',
@@ -292,6 +297,7 @@ class ProjectCreateParameters implements ModelInterface, ArrayAccess
         $this->container['remove_project_image'] = isset($data['remove_project_image']) ? $data['remove_project_image'] : null;
         $this->container['account_id'] = isset($data['account_id']) ? $data['account_id'] : null;
         $this->container['source_project_id'] = isset($data['source_project_id']) ? $data['source_project_id'] : null;
+        $this->container['workflow'] = isset($data['workflow']) ? $data['workflow'] : null;
         $this->container['machine_translation_enabled'] = isset($data['machine_translation_enabled']) ? $data['machine_translation_enabled'] : null;
         $this->container['enable_branching'] = isset($data['enable_branching']) ? $data['enable_branching'] : null;
         $this->container['protect_master_branch'] = isset($data['protect_master_branch']) ? $data['protect_master_branch'] : null;
@@ -498,6 +504,30 @@ class ProjectCreateParameters implements ModelInterface, ArrayAccess
     public function setSourceProjectId($source_project_id)
     {
         $this->container['source_project_id'] = $source_project_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets workflow
+     *
+     * @return string|null
+     */
+    public function getWorkflow()
+    {
+        return $this->container['workflow'];
+    }
+
+    /**
+     * Sets workflow
+     *
+     * @param string|null $workflow (Optional) Review Workflow. \"simple\" / \"review\". <a href=\"https://help.phrase.com/help/advanced-review-workflow\">Read more</a>
+     *
+     * @return $this
+     */
+    public function setWorkflow($workflow)
+    {
+        $this->container['workflow'] = $workflow;
 
         return $this;
     }
