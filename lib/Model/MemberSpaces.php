@@ -57,8 +57,8 @@ class MemberSpaces implements ModelInterface, ArrayAccess
     protected static $openAPITypes = [
         'id' => 'string',
         'name' => 'string',
-        'created_at' => 'AnyType',
-        'updated_at' => 'AnyType',
+        'created_at' => '\DateTime',
+        'updated_at' => '\DateTime',
         'projects_count' => 'int'
     ];
 
@@ -277,7 +277,7 @@ class MemberSpaces implements ModelInterface, ArrayAccess
     /**
      * Gets created_at
      *
-     * @return AnyType|null
+     * @return \DateTime|null
      */
     public function getCreatedAt()
     {
@@ -287,7 +287,7 @@ class MemberSpaces implements ModelInterface, ArrayAccess
     /**
      * Sets created_at
      *
-     * @param AnyType|null $created_at created_at
+     * @param \DateTime|null $created_at created_at
      *
      * @return $this
      */
@@ -301,7 +301,7 @@ class MemberSpaces implements ModelInterface, ArrayAccess
     /**
      * Gets updated_at
      *
-     * @return AnyType|null
+     * @return \DateTime|null
      */
     public function getUpdatedAt()
     {
@@ -311,7 +311,7 @@ class MemberSpaces implements ModelInterface, ArrayAccess
     /**
      * Sets updated_at
      *
-     * @param AnyType|null $updated_at updated_at
+     * @param \DateTime|null $updated_at updated_at
      *
      * @return $this
      */
