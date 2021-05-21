@@ -1,6 +1,6 @@
 <?php
 /**
- * AccountDetails
+ * Subscription
  *
  * PHP version 5
  *
@@ -31,14 +31,14 @@ use \ArrayAccess;
 use \Phrase\ObjectSerializer;
 
 /**
- * AccountDetails Class Doc Comment
+ * Subscription Class Doc Comment
  *
  * @category Class
  * @package  Phrase
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class AccountDetails implements ModelInterface, ArrayAccess
+class Subscription implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -47,7 +47,7 @@ class AccountDetails implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'account_details';
+    protected static $openAPIModelName = 'subscription';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -55,14 +55,8 @@ class AccountDetails implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'id' => 'string',
-        'name' => 'string',
-        'slug' => 'string',
-        'company' => 'string',
-        'created_at' => '\DateTime',
-        'updated_at' => '\DateTime',
-        'company_logo_url' => 'string',
-        'subscription' => '\Phrase\Model\Subscription'
+        'is_current' => 'bool',
+        'trial_expired' => 'bool'
     ];
 
     /**
@@ -71,14 +65,8 @@ class AccountDetails implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'id' => null,
-        'name' => null,
-        'slug' => null,
-        'company' => null,
-        'created_at' => 'date-time',
-        'updated_at' => 'date-time',
-        'company_logo_url' => null,
-        'subscription' => null
+        'is_current' => null,
+        'trial_expired' => null
     ];
 
     /**
@@ -108,14 +96,8 @@ class AccountDetails implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'id',
-        'name' => 'name',
-        'slug' => 'slug',
-        'company' => 'company',
-        'created_at' => 'created_at',
-        'updated_at' => 'updated_at',
-        'company_logo_url' => 'company_logo_url',
-        'subscription' => 'subscription'
+        'is_current' => 'is_current',
+        'trial_expired' => 'trial_expired'
     ];
 
     /**
@@ -124,14 +106,8 @@ class AccountDetails implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId',
-        'name' => 'setName',
-        'slug' => 'setSlug',
-        'company' => 'setCompany',
-        'created_at' => 'setCreatedAt',
-        'updated_at' => 'setUpdatedAt',
-        'company_logo_url' => 'setCompanyLogoUrl',
-        'subscription' => 'setSubscription'
+        'is_current' => 'setIsCurrent',
+        'trial_expired' => 'setTrialExpired'
     ];
 
     /**
@@ -140,14 +116,8 @@ class AccountDetails implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId',
-        'name' => 'getName',
-        'slug' => 'getSlug',
-        'company' => 'getCompany',
-        'created_at' => 'getCreatedAt',
-        'updated_at' => 'getUpdatedAt',
-        'company_logo_url' => 'getCompanyLogoUrl',
-        'subscription' => 'getSubscription'
+        'is_current' => 'getIsCurrent',
+        'trial_expired' => 'getTrialExpired'
     ];
 
     /**
@@ -210,14 +180,8 @@ class AccountDetails implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
-        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['slug'] = isset($data['slug']) ? $data['slug'] : null;
-        $this->container['company'] = isset($data['company']) ? $data['company'] : null;
-        $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
-        $this->container['updated_at'] = isset($data['updated_at']) ? $data['updated_at'] : null;
-        $this->container['company_logo_url'] = isset($data['company_logo_url']) ? $data['company_logo_url'] : null;
-        $this->container['subscription'] = isset($data['subscription']) ? $data['subscription'] : null;
+        $this->container['is_current'] = isset($data['is_current']) ? $data['is_current'] : null;
+        $this->container['trial_expired'] = isset($data['trial_expired']) ? $data['trial_expired'] : null;
     }
 
     /**
@@ -245,193 +209,49 @@ class AccountDetails implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets id
+     * Gets is_current
      *
-     * @return string|null
+     * @return bool|null
      */
-    public function getId()
+    public function getIsCurrent()
     {
-        return $this->container['id'];
+        return $this->container['is_current'];
     }
 
     /**
-     * Sets id
+     * Sets is_current
      *
-     * @param string|null $id id
+     * @param bool|null $is_current is_current
      *
      * @return $this
      */
-    public function setId($id)
+    public function setIsCurrent($is_current)
     {
-        $this->container['id'] = $id;
+        $this->container['is_current'] = $is_current;
 
         return $this;
     }
 
     /**
-     * Gets name
+     * Gets trial_expired
      *
-     * @return string|null
+     * @return bool|null
      */
-    public function getName()
+    public function getTrialExpired()
     {
-        return $this->container['name'];
+        return $this->container['trial_expired'];
     }
 
     /**
-     * Sets name
+     * Sets trial_expired
      *
-     * @param string|null $name name
+     * @param bool|null $trial_expired trial_expired
      *
      * @return $this
      */
-    public function setName($name)
+    public function setTrialExpired($trial_expired)
     {
-        $this->container['name'] = $name;
-
-        return $this;
-    }
-
-    /**
-     * Gets slug
-     *
-     * @return string|null
-     */
-    public function getSlug()
-    {
-        return $this->container['slug'];
-    }
-
-    /**
-     * Sets slug
-     *
-     * @param string|null $slug slug
-     *
-     * @return $this
-     */
-    public function setSlug($slug)
-    {
-        $this->container['slug'] = $slug;
-
-        return $this;
-    }
-
-    /**
-     * Gets company
-     *
-     * @return string|null
-     */
-    public function getCompany()
-    {
-        return $this->container['company'];
-    }
-
-    /**
-     * Sets company
-     *
-     * @param string|null $company company
-     *
-     * @return $this
-     */
-    public function setCompany($company)
-    {
-        $this->container['company'] = $company;
-
-        return $this;
-    }
-
-    /**
-     * Gets created_at
-     *
-     * @return \DateTime|null
-     */
-    public function getCreatedAt()
-    {
-        return $this->container['created_at'];
-    }
-
-    /**
-     * Sets created_at
-     *
-     * @param \DateTime|null $created_at created_at
-     *
-     * @return $this
-     */
-    public function setCreatedAt($created_at)
-    {
-        $this->container['created_at'] = $created_at;
-
-        return $this;
-    }
-
-    /**
-     * Gets updated_at
-     *
-     * @return \DateTime|null
-     */
-    public function getUpdatedAt()
-    {
-        return $this->container['updated_at'];
-    }
-
-    /**
-     * Sets updated_at
-     *
-     * @param \DateTime|null $updated_at updated_at
-     *
-     * @return $this
-     */
-    public function setUpdatedAt($updated_at)
-    {
-        $this->container['updated_at'] = $updated_at;
-
-        return $this;
-    }
-
-    /**
-     * Gets company_logo_url
-     *
-     * @return string|null
-     */
-    public function getCompanyLogoUrl()
-    {
-        return $this->container['company_logo_url'];
-    }
-
-    /**
-     * Sets company_logo_url
-     *
-     * @param string|null $company_logo_url company_logo_url
-     *
-     * @return $this
-     */
-    public function setCompanyLogoUrl($company_logo_url)
-    {
-        $this->container['company_logo_url'] = $company_logo_url;
-
-        return $this;
-    }
-
-    /**
-     * Gets subscription
-     *
-     * @return \Phrase\Model\Subscription|null
-     */
-    public function getSubscription()
-    {
-        return $this->container['subscription'];
-    }
-
-    /**
-     * Sets subscription
-     *
-     * @param \Phrase\Model\Subscription|null $subscription subscription
-     *
-     * @return $this
-     */
-    public function setSubscription($subscription)
-    {
-        $this->container['subscription'] = $subscription;
+        $this->container['trial_expired'] = $trial_expired;
 
         return $this;
     }

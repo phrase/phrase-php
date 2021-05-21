@@ -61,7 +61,8 @@ class Account implements ModelInterface, ArrayAccess
         'company' => 'string',
         'created_at' => '\DateTime',
         'updated_at' => '\DateTime',
-        'company_logo_url' => 'string'
+        'company_logo_url' => 'string',
+        'subscription' => '\Phrase\Model\Subscription'
     ];
 
     /**
@@ -76,7 +77,8 @@ class Account implements ModelInterface, ArrayAccess
         'company' => null,
         'created_at' => 'date-time',
         'updated_at' => 'date-time',
-        'company_logo_url' => null
+        'company_logo_url' => null,
+        'subscription' => null
     ];
 
     /**
@@ -112,7 +114,8 @@ class Account implements ModelInterface, ArrayAccess
         'company' => 'company',
         'created_at' => 'created_at',
         'updated_at' => 'updated_at',
-        'company_logo_url' => 'company_logo_url'
+        'company_logo_url' => 'company_logo_url',
+        'subscription' => 'subscription'
     ];
 
     /**
@@ -127,7 +130,8 @@ class Account implements ModelInterface, ArrayAccess
         'company' => 'setCompany',
         'created_at' => 'setCreatedAt',
         'updated_at' => 'setUpdatedAt',
-        'company_logo_url' => 'setCompanyLogoUrl'
+        'company_logo_url' => 'setCompanyLogoUrl',
+        'subscription' => 'setSubscription'
     ];
 
     /**
@@ -142,7 +146,8 @@ class Account implements ModelInterface, ArrayAccess
         'company' => 'getCompany',
         'created_at' => 'getCreatedAt',
         'updated_at' => 'getUpdatedAt',
-        'company_logo_url' => 'getCompanyLogoUrl'
+        'company_logo_url' => 'getCompanyLogoUrl',
+        'subscription' => 'getSubscription'
     ];
 
     /**
@@ -212,6 +217,7 @@ class Account implements ModelInterface, ArrayAccess
         $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
         $this->container['updated_at'] = isset($data['updated_at']) ? $data['updated_at'] : null;
         $this->container['company_logo_url'] = isset($data['company_logo_url']) ? $data['company_logo_url'] : null;
+        $this->container['subscription'] = isset($data['subscription']) ? $data['subscription'] : null;
     }
 
     /**
@@ -402,6 +408,30 @@ class Account implements ModelInterface, ArrayAccess
     public function setCompanyLogoUrl($company_logo_url)
     {
         $this->container['company_logo_url'] = $company_logo_url;
+
+        return $this;
+    }
+
+    /**
+     * Gets subscription
+     *
+     * @return \Phrase\Model\Subscription|null
+     */
+    public function getSubscription()
+    {
+        return $this->container['subscription'];
+    }
+
+    /**
+     * Sets subscription
+     *
+     * @param \Phrase\Model\Subscription|null $subscription subscription
+     *
+     * @return $this
+     */
+    public function setSubscription($subscription)
+    {
+        $this->container['subscription'] = $subscription;
 
         return $this;
     }

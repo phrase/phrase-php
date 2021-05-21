@@ -1,6 +1,6 @@
 <?php
 /**
- * AccountDetailsTest
+ * SubscriptionTest
  *
  * PHP version 5
  *
@@ -30,15 +30,15 @@ namespace Phrase;
 use PHPUnit\Framework\TestCase;
 
 /**
- * AccountDetailsTest Class Doc Comment
+ * SubscriptionTest Class Doc Comment
  *
  * @category    Class
- * @description AccountDetails
+ * @description Subscription
  * @package     Phrase
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class AccountDetailsTest extends TestCase
+class SubscriptionTest extends TestCase
 {
 
     /**
@@ -70,65 +70,23 @@ class AccountDetailsTest extends TestCase
     }
 
     /**
-     * Test "AccountDetails"
+     * Test "Subscription"
      */
-    public function testAccountDetails()
+    public function testSubscription()
     {
     }
 
     /**
-     * Test attribute "id"
+     * Test attribute "is_current"
      */
-    public function testPropertyId()
+    public function testPropertyIsCurrent()
     {
     }
 
     /**
-     * Test attribute "name"
+     * Test attribute "trial_expired"
      */
-    public function testPropertyName()
-    {
-    }
-
-    /**
-     * Test attribute "slug"
-     */
-    public function testPropertySlug()
-    {
-    }
-
-    /**
-     * Test attribute "company"
-     */
-    public function testPropertyCompany()
-    {
-    }
-
-    /**
-     * Test attribute "created_at"
-     */
-    public function testPropertyCreatedAt()
-    {
-    }
-
-    /**
-     * Test attribute "updated_at"
-     */
-    public function testPropertyUpdatedAt()
-    {
-    }
-
-    /**
-     * Test attribute "company_logo_url"
-     */
-    public function testPropertyCompanyLogoUrl()
-    {
-    }
-
-    /**
-     * Test attribute "subscription"
-     */
-    public function testPropertySubscription()
+    public function testPropertyTrialExpired()
     {
     }
 }

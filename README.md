@@ -442,6 +442,7 @@ Class | Method | HTTP request | Description
  - [StyleguideDetails1](docs/Model/StyleguideDetails1.md)
  - [StyleguidePreview](docs/Model/StyleguidePreview.md)
  - [StyleguideUpdateParameters](docs/Model/StyleguideUpdateParameters.md)
+ - [Subscription](docs/Model/Subscription.md)
  - [Tag](docs/Model/Tag.md)
  - [TagCreateParameters](docs/Model/TagCreateParameters.md)
  - [TagWithStats](docs/Model/TagWithStats.md)
