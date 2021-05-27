@@ -79,4 +79,24 @@ class NotificationGroupsApiTest extends TestCase
     public function testNotificationGroupsList()
     {
     }
+
+    /**
+     * Test case for notificationGroupsMarkAllAsRead
+     *
+     * Mark all notification groups as read.
+     *
+     */
+    public function testNotificationGroupsMarkAllAsRead()
+    {
+    }
+
+    /**
+     * Test case for notificationGroupsMarkAsRead
+     *
+     * Mark a notification group as read.
+     *
+     */
+    public function testNotificationGroupsMarkAsRead()
+    {
+    }
 }

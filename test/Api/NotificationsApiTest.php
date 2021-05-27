@@ -79,4 +79,24 @@ class NotificationsApiTest extends TestCase
     public function testNotificationsList()
     {
     }
+
+    /**
+     * Test case for notificationsMarkAllAsRead
+     *
+     * Mark all notifications as read.
+     *
+     */
+    public function testNotificationsMarkAllAsRead()
+    {
+    }
+
+    /**
+     * Test case for notificationsShow
+     *
+     * Get a single notification.
+     *
+     */
+    public function testNotificationsShow()
+    {
+    }
 }
