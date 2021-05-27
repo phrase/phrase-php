@@ -1,6 +1,6 @@
 <?php
 /**
- * UserTest
+ * NotificationTest
  *
  * PHP version 5
  *
@@ -30,15 +30,15 @@ namespace Phrase;
 use PHPUnit\Framework\TestCase;
 
 /**
- * UserTest Class Doc Comment
+ * NotificationTest Class Doc Comment
  *
  * @category    Class
- * @description User
+ * @description Notification
  * @package     Phrase
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class UserTest extends TestCase
+class NotificationTest extends TestCase
 {
 
     /**
@@ -70,9 +70,9 @@ class UserTest extends TestCase
     }
 
     /**
-     * Test "User"
+     * Test "Notification"
      */
-    public function testUser()
+    public function testNotification()
     {
     }
 
@@ -84,23 +84,9 @@ class UserTest extends TestCase
     }
 
     /**
-     * Test attribute "username"
+     * Test attribute "event_name"
      */
-    public function testPropertyUsername()
-    {
-    }
-
-    /**
-     * Test attribute "name"
-     */
-    public function testPropertyName()
-    {
-    }
-
-    /**
-     * Test attribute "position"
-     */
-    public function testPropertyPosition()
+    public function testPropertyEventName()
     {
     }
 
@@ -115,6 +101,69 @@ class UserTest extends TestCase
      * Test attribute "updated_at"
      */
     public function testPropertyUpdatedAt()
+    {
+    }
+
+    /**
+     * Test attribute "delivered_at"
+     */
+    public function testPropertyDeliveredAt()
+    {
+    }
+
+    /**
+     * Test attribute "seen_at"
+     */
+    public function testPropertySeenAt()
+    {
+    }
+
+    /**
+     * Test attribute "data"
+     */
+    public function testPropertyData()
+    {
+    }
+
+    /**
+     * Test attribute "resource"
+     */
+    public function testPropertyResource()
+    {
+    }
+
+    /**
+     * Test attribute "locale"
+     */
+    public function testPropertyLocale()
+    {
+    }
+
+    /**
+     * Test attribute "user"
+     */
+    public function testPropertyUser()
+    {
+    }
+
+    /**
+     * Test attribute "project"
+     */
+    public function testPropertyProject()
+    {
+    }
+
+    /**
+     * Test attribute "account"
+     */
+    public function testPropertyAccount()
+    {
+    }
+
+    /**
+     * Test attribute "group"
+     */
+    public function testPropertyGroup()
     {
     }
 }

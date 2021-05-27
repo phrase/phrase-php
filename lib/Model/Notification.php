@@ -1,6 +1,6 @@
 <?php
 /**
- * Account
+ * Notification
  *
  * PHP version 5
  *
@@ -31,14 +31,14 @@ use \ArrayAccess;
 use \Phrase\ObjectSerializer;
 
 /**
- * Account Class Doc Comment
+ * Notification Class Doc Comment
  *
  * @category Class
  * @package  Phrase
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class Account implements ModelInterface, ArrayAccess
+class Notification implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -47,7 +47,7 @@ class Account implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'account';
+    protected static $openAPIModelName = 'notification';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -56,12 +56,18 @@ class Account implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'id' => 'string',
-        'name' => 'string',
-        'slug' => 'string',
-        'company' => 'string',
+        'event_name' => 'string',
         'created_at' => '\DateTime',
         'updated_at' => '\DateTime',
-        'company_logo_url' => 'string'
+        'delivered_at' => '\DateTime',
+        'seen_at' => '\DateTime',
+        'data' => 'object',
+        'resource' => 'object',
+        'locale' => '\Phrase\Model\Locale',
+        'user' => '\Phrase\Model\UserPreview',
+        'project' => '\Phrase\Model\Project',
+        'account' => '\Phrase\Model\Account',
+        'group' => '\Phrase\Model\NotificationGroup'
     ];
 
     /**
@@ -71,12 +77,18 @@ class Account implements ModelInterface, ArrayAccess
       */
     protected static $openAPIFormats = [
         'id' => null,
-        'name' => null,
-        'slug' => null,
-        'company' => null,
+        'event_name' => null,
         'created_at' => 'date-time',
         'updated_at' => 'date-time',
-        'company_logo_url' => null
+        'delivered_at' => 'date-time',
+        'seen_at' => 'date-time',
+        'data' => null,
+        'resource' => null,
+        'locale' => null,
+        'user' => null,
+        'project' => null,
+        'account' => null,
+        'group' => null
     ];
 
     /**
@@ -107,12 +119,18 @@ class Account implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'id' => 'id',
-        'name' => 'name',
-        'slug' => 'slug',
-        'company' => 'company',
+        'event_name' => 'event_name',
         'created_at' => 'created_at',
         'updated_at' => 'updated_at',
-        'company_logo_url' => 'company_logo_url'
+        'delivered_at' => 'delivered_at',
+        'seen_at' => 'seen_at',
+        'data' => 'data',
+        'resource' => 'resource',
+        'locale' => 'locale',
+        'user' => 'user',
+        'project' => 'project',
+        'account' => 'account',
+        'group' => 'group'
     ];
 
     /**
@@ -122,12 +140,18 @@ class Account implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'id' => 'setId',
-        'name' => 'setName',
-        'slug' => 'setSlug',
-        'company' => 'setCompany',
+        'event_name' => 'setEventName',
         'created_at' => 'setCreatedAt',
         'updated_at' => 'setUpdatedAt',
-        'company_logo_url' => 'setCompanyLogoUrl'
+        'delivered_at' => 'setDeliveredAt',
+        'seen_at' => 'setSeenAt',
+        'data' => 'setData',
+        'resource' => 'setResource',
+        'locale' => 'setLocale',
+        'user' => 'setUser',
+        'project' => 'setProject',
+        'account' => 'setAccount',
+        'group' => 'setGroup'
     ];
 
     /**
@@ -137,12 +161,18 @@ class Account implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'id' => 'getId',
-        'name' => 'getName',
-        'slug' => 'getSlug',
-        'company' => 'getCompany',
+        'event_name' => 'getEventName',
         'created_at' => 'getCreatedAt',
         'updated_at' => 'getUpdatedAt',
-        'company_logo_url' => 'getCompanyLogoUrl'
+        'delivered_at' => 'getDeliveredAt',
+        'seen_at' => 'getSeenAt',
+        'data' => 'getData',
+        'resource' => 'getResource',
+        'locale' => 'getLocale',
+        'user' => 'getUser',
+        'project' => 'getProject',
+        'account' => 'getAccount',
+        'group' => 'getGroup'
     ];
 
     /**
@@ -206,12 +236,18 @@ class Account implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
-        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['slug'] = isset($data['slug']) ? $data['slug'] : null;
-        $this->container['company'] = isset($data['company']) ? $data['company'] : null;
+        $this->container['event_name'] = isset($data['event_name']) ? $data['event_name'] : null;
         $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
         $this->container['updated_at'] = isset($data['updated_at']) ? $data['updated_at'] : null;
-        $this->container['company_logo_url'] = isset($data['company_logo_url']) ? $data['company_logo_url'] : null;
+        $this->container['delivered_at'] = isset($data['delivered_at']) ? $data['delivered_at'] : null;
+        $this->container['seen_at'] = isset($data['seen_at']) ? $data['seen_at'] : null;
+        $this->container['data'] = isset($data['data']) ? $data['data'] : null;
+        $this->container['resource'] = isset($data['resource']) ? $data['resource'] : null;
+        $this->container['locale'] = isset($data['locale']) ? $data['locale'] : null;
+        $this->container['user'] = isset($data['user']) ? $data['user'] : null;
+        $this->container['project'] = isset($data['project']) ? $data['project'] : null;
+        $this->container['account'] = isset($data['account']) ? $data['account'] : null;
+        $this->container['group'] = isset($data['group']) ? $data['group'] : null;
     }
 
     /**
@@ -263,73 +299,25 @@ class Account implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets name
+     * Gets event_name
      *
      * @return string|null
      */
-    public function getName()
+    public function getEventName()
     {
-        return $this->container['name'];
+        return $this->container['event_name'];
     }
 
     /**
-     * Sets name
+     * Sets event_name
      *
-     * @param string|null $name name
+     * @param string|null $event_name event_name
      *
      * @return $this
      */
-    public function setName($name)
+    public function setEventName($event_name)
     {
-        $this->container['name'] = $name;
-
-        return $this;
-    }
-
-    /**
-     * Gets slug
-     *
-     * @return string|null
-     */
-    public function getSlug()
-    {
-        return $this->container['slug'];
-    }
-
-    /**
-     * Sets slug
-     *
-     * @param string|null $slug slug
-     *
-     * @return $this
-     */
-    public function setSlug($slug)
-    {
-        $this->container['slug'] = $slug;
-
-        return $this;
-    }
-
-    /**
-     * Gets company
-     *
-     * @return string|null
-     */
-    public function getCompany()
-    {
-        return $this->container['company'];
-    }
-
-    /**
-     * Sets company
-     *
-     * @param string|null $company company
-     *
-     * @return $this
-     */
-    public function setCompany($company)
-    {
-        $this->container['company'] = $company;
+        $this->container['event_name'] = $event_name;
 
         return $this;
     }
@@ -383,25 +371,217 @@ class Account implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets company_logo_url
+     * Gets delivered_at
      *
-     * @return string|null
+     * @return \DateTime|null
      */
-    public function getCompanyLogoUrl()
+    public function getDeliveredAt()
     {
-        return $this->container['company_logo_url'];
+        return $this->container['delivered_at'];
     }
 
     /**
-     * Sets company_logo_url
+     * Sets delivered_at
      *
-     * @param string|null $company_logo_url company_logo_url
+     * @param \DateTime|null $delivered_at delivered_at
      *
      * @return $this
      */
-    public function setCompanyLogoUrl($company_logo_url)
+    public function setDeliveredAt($delivered_at)
     {
-        $this->container['company_logo_url'] = $company_logo_url;
+        $this->container['delivered_at'] = $delivered_at;
+
+        return $this;
+    }
+
+    /**
+     * Gets seen_at
+     *
+     * @return \DateTime|null
+     */
+    public function getSeenAt()
+    {
+        return $this->container['seen_at'];
+    }
+
+    /**
+     * Sets seen_at
+     *
+     * @param \DateTime|null $seen_at seen_at
+     *
+     * @return $this
+     */
+    public function setSeenAt($seen_at)
+    {
+        $this->container['seen_at'] = $seen_at;
+
+        return $this;
+    }
+
+    /**
+     * Gets data
+     *
+     * @return object|null
+     */
+    public function getData()
+    {
+        return $this->container['data'];
+    }
+
+    /**
+     * Sets data
+     *
+     * @param object|null $data data
+     *
+     * @return $this
+     */
+    public function setData($data)
+    {
+        $this->container['data'] = $data;
+
+        return $this;
+    }
+
+    /**
+     * Gets resource
+     *
+     * @return object|null
+     */
+    public function getResource()
+    {
+        return $this->container['resource'];
+    }
+
+    /**
+     * Sets resource
+     *
+     * @param object|null $resource resource
+     *
+     * @return $this
+     */
+    public function setResource($resource)
+    {
+        $this->container['resource'] = $resource;
+
+        return $this;
+    }
+
+    /**
+     * Gets locale
+     *
+     * @return \Phrase\Model\Locale|null
+     */
+    public function getLocale()
+    {
+        return $this->container['locale'];
+    }
+
+    /**
+     * Sets locale
+     *
+     * @param \Phrase\Model\Locale|null $locale locale
+     *
+     * @return $this
+     */
+    public function setLocale($locale)
+    {
+        $this->container['locale'] = $locale;
+
+        return $this;
+    }
+
+    /**
+     * Gets user
+     *
+     * @return \Phrase\Model\UserPreview|null
+     */
+    public function getUser()
+    {
+        return $this->container['user'];
+    }
+
+    /**
+     * Sets user
+     *
+     * @param \Phrase\Model\UserPreview|null $user user
+     *
+     * @return $this
+     */
+    public function setUser($user)
+    {
+        $this->container['user'] = $user;
+
+        return $this;
+    }
+
+    /**
+     * Gets project
+     *
+     * @return \Phrase\Model\Project|null
+     */
+    public function getProject()
+    {
+        return $this->container['project'];
+    }
+
+    /**
+     * Sets project
+     *
+     * @param \Phrase\Model\Project|null $project project
+     *
+     * @return $this
+     */
+    public function setProject($project)
+    {
+        $this->container['project'] = $project;
+
+        return $this;
+    }
+
+    /**
+     * Gets account
+     *
+     * @return \Phrase\Model\Account|null
+     */
+    public function getAccount()
+    {
+        return $this->container['account'];
+    }
+
+    /**
+     * Sets account
+     *
+     * @param \Phrase\Model\Account|null $account account
+     *
+     * @return $this
+     */
+    public function setAccount($account)
+    {
+        $this->container['account'] = $account;
+
+        return $this;
+    }
+
+    /**
+     * Gets group
+     *
+     * @return \Phrase\Model\NotificationGroup|null
+     */
+    public function getGroup()
+    {
+        return $this->container['group'];
+    }
+
+    /**
+     * Sets group
+     *
+     * @param \Phrase\Model\NotificationGroup|null $group group
+     *
+     * @return $this
+     */
+    public function setGroup($group)
+    {
+        $this->container['group'] = $group;
 
         return $this;
     }

@@ -58,7 +58,6 @@ class User implements ModelInterface, ArrayAccess
         'id' => 'string',
         'username' => 'string',
         'name' => 'string',
-        'email' => 'string',
         'position' => 'string',
         'created_at' => '\DateTime',
         'updated_at' => '\DateTime'
@@ -73,7 +72,6 @@ class User implements ModelInterface, ArrayAccess
         'id' => null,
         'username' => null,
         'name' => null,
-        'email' => null,
         'position' => null,
         'created_at' => 'date-time',
         'updated_at' => 'date-time'
@@ -109,7 +107,6 @@ class User implements ModelInterface, ArrayAccess
         'id' => 'id',
         'username' => 'username',
         'name' => 'name',
-        'email' => 'email',
         'position' => 'position',
         'created_at' => 'created_at',
         'updated_at' => 'updated_at'
@@ -124,7 +121,6 @@ class User implements ModelInterface, ArrayAccess
         'id' => 'setId',
         'username' => 'setUsername',
         'name' => 'setName',
-        'email' => 'setEmail',
         'position' => 'setPosition',
         'created_at' => 'setCreatedAt',
         'updated_at' => 'setUpdatedAt'
@@ -139,7 +135,6 @@ class User implements ModelInterface, ArrayAccess
         'id' => 'getId',
         'username' => 'getUsername',
         'name' => 'getName',
-        'email' => 'getEmail',
         'position' => 'getPosition',
         'created_at' => 'getCreatedAt',
         'updated_at' => 'getUpdatedAt'
@@ -208,7 +203,6 @@ class User implements ModelInterface, ArrayAccess
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['username'] = isset($data['username']) ? $data['username'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['email'] = isset($data['email']) ? $data['email'] : null;
         $this->container['position'] = isset($data['position']) ? $data['position'] : null;
         $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
         $this->container['updated_at'] = isset($data['updated_at']) ? $data['updated_at'] : null;
@@ -306,30 +300,6 @@ class User implements ModelInterface, ArrayAccess
     public function setName($name)
     {
         $this->container['name'] = $name;
-
-        return $this;
-    }
-
-    /**
-     * Gets email
-     *
-     * @return string|null
-     */
-    public function getEmail()
-    {
-        return $this->container['email'];
-    }
-
-    /**
-     * Sets email
-     *
-     * @param string|null $email email
-     *
-     * @return $this
-     */
-    public function setEmail($email)
-    {
-        $this->container['email'] = $email;
 
         return $this;
     }

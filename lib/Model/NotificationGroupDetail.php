@@ -1,6 +1,6 @@
 <?php
 /**
- * Account
+ * NotificationGroupDetail
  *
  * PHP version 5
  *
@@ -31,14 +31,14 @@ use \ArrayAccess;
 use \Phrase\ObjectSerializer;
 
 /**
- * Account Class Doc Comment
+ * NotificationGroupDetail Class Doc Comment
  *
  * @category Class
  * @package  Phrase
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class Account implements ModelInterface, ArrayAccess
+class NotificationGroupDetail implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -47,7 +47,7 @@ class Account implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'account';
+    protected static $openAPIModelName = 'notification_group_detail';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -56,12 +56,10 @@ class Account implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'id' => 'string',
-        'name' => 'string',
-        'slug' => 'string',
-        'company' => 'string',
+        'event_name' => 'string',
         'created_at' => '\DateTime',
         'updated_at' => '\DateTime',
-        'company_logo_url' => 'string'
+        'latest_notification' => 'object'
     ];
 
     /**
@@ -71,12 +69,10 @@ class Account implements ModelInterface, ArrayAccess
       */
     protected static $openAPIFormats = [
         'id' => null,
-        'name' => null,
-        'slug' => null,
-        'company' => null,
+        'event_name' => null,
         'created_at' => 'date-time',
         'updated_at' => 'date-time',
-        'company_logo_url' => null
+        'latest_notification' => null
     ];
 
     /**
@@ -107,12 +103,10 @@ class Account implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'id' => 'id',
-        'name' => 'name',
-        'slug' => 'slug',
-        'company' => 'company',
+        'event_name' => 'event_name',
         'created_at' => 'created_at',
         'updated_at' => 'updated_at',
-        'company_logo_url' => 'company_logo_url'
+        'latest_notification' => 'latest_notification'
     ];
 
     /**
@@ -122,12 +116,10 @@ class Account implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'id' => 'setId',
-        'name' => 'setName',
-        'slug' => 'setSlug',
-        'company' => 'setCompany',
+        'event_name' => 'setEventName',
         'created_at' => 'setCreatedAt',
         'updated_at' => 'setUpdatedAt',
-        'company_logo_url' => 'setCompanyLogoUrl'
+        'latest_notification' => 'setLatestNotification'
     ];
 
     /**
@@ -137,12 +129,10 @@ class Account implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'id' => 'getId',
-        'name' => 'getName',
-        'slug' => 'getSlug',
-        'company' => 'getCompany',
+        'event_name' => 'getEventName',
         'created_at' => 'getCreatedAt',
         'updated_at' => 'getUpdatedAt',
-        'company_logo_url' => 'getCompanyLogoUrl'
+        'latest_notification' => 'getLatestNotification'
     ];
 
     /**
@@ -206,12 +196,10 @@ class Account implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
-        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['slug'] = isset($data['slug']) ? $data['slug'] : null;
-        $this->container['company'] = isset($data['company']) ? $data['company'] : null;
+        $this->container['event_name'] = isset($data['event_name']) ? $data['event_name'] : null;
         $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
         $this->container['updated_at'] = isset($data['updated_at']) ? $data['updated_at'] : null;
-        $this->container['company_logo_url'] = isset($data['company_logo_url']) ? $data['company_logo_url'] : null;
+        $this->container['latest_notification'] = isset($data['latest_notification']) ? $data['latest_notification'] : null;
     }
 
     /**
@@ -263,73 +251,25 @@ class Account implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets name
+     * Gets event_name
      *
      * @return string|null
      */
-    public function getName()
+    public function getEventName()
     {
-        return $this->container['name'];
+        return $this->container['event_name'];
     }
 
     /**
-     * Sets name
+     * Sets event_name
      *
-     * @param string|null $name name
+     * @param string|null $event_name event_name
      *
      * @return $this
      */
-    public function setName($name)
+    public function setEventName($event_name)
     {
-        $this->container['name'] = $name;
-
-        return $this;
-    }
-
-    /**
-     * Gets slug
-     *
-     * @return string|null
-     */
-    public function getSlug()
-    {
-        return $this->container['slug'];
-    }
-
-    /**
-     * Sets slug
-     *
-     * @param string|null $slug slug
-     *
-     * @return $this
-     */
-    public function setSlug($slug)
-    {
-        $this->container['slug'] = $slug;
-
-        return $this;
-    }
-
-    /**
-     * Gets company
-     *
-     * @return string|null
-     */
-    public function getCompany()
-    {
-        return $this->container['company'];
-    }
-
-    /**
-     * Sets company
-     *
-     * @param string|null $company company
-     *
-     * @return $this
-     */
-    public function setCompany($company)
-    {
-        $this->container['company'] = $company;
+        $this->container['event_name'] = $event_name;
 
         return $this;
     }
@@ -383,25 +323,25 @@ class Account implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets company_logo_url
+     * Gets latest_notification
      *
-     * @return string|null
+     * @return object|null
      */
-    public function getCompanyLogoUrl()
+    public function getLatestNotification()
     {
-        return $this->container['company_logo_url'];
+        return $this->container['latest_notification'];
     }
 
     /**
-     * Sets company_logo_url
+     * Sets latest_notification
      *
-     * @param string|null $company_logo_url company_logo_url
+     * @param object|null $latest_notification latest_notification
      *
      * @return $this
      */
-    public function setCompanyLogoUrl($company_logo_url)
+    public function setLatestNotification($latest_notification)
     {
-        $this->container['company_logo_url'] = $company_logo_url;
+        $this->container['latest_notification'] = $latest_notification;
 
         return $this;
     }

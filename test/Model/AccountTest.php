@@ -124,11 +124,4 @@ class AccountTest extends TestCase
     public function testPropertyCompanyLogoUrl()
     {
     }
-
-    /**
-     * Test attribute "subscription"
-     */
-    public function testPropertySubscription()
-    {
-    }
 }

@@ -230,6 +230,8 @@ Class | Method | HTTP request | Description
 *MembersApi* | [**memberUpdate**](docs/Api/MembersApi.md#memberupdate) | **PATCH** /accounts/{account_id}/members/{id} | Update a member
 *MembersApi* | [**memberUpdateSettings**](docs/Api/MembersApi.md#memberupdatesettings) | **PATCH** /projects/{project_id}/members/{id} | Update a member&#39;s project settings
 *MembersApi* | [**membersList**](docs/Api/MembersApi.md#memberslist) | **GET** /accounts/{account_id}/members | List members
+*NotificationGroupsApi* | [**notificationGroupsList**](docs/Api/NotificationGroupsApi.md#notificationgroupslist) | **GET** /notification_groups | List notification groups
+*NotificationsApi* | [**notificationsList**](docs/Api/NotificationsApi.md#notificationslist) | **GET** /notifications | List notifications
 *OrdersApi* | [**orderConfirm**](docs/Api/OrdersApi.md#orderconfirm) | **PATCH** /projects/{project_id}/orders/{id}/confirm | Confirm an order
 *OrdersApi* | [**orderCreate**](docs/Api/OrdersApi.md#ordercreate) | **POST** /projects/{project_id}/orders | Create a new order
 *OrdersApi* | [**orderDelete**](docs/Api/OrdersApi.md#orderdelete) | **DELETE** /projects/{project_id}/orders/{id} | Cancel an order
@@ -411,6 +413,9 @@ Class | Method | HTTP request | Description
  - [MemberSpaces](docs/Model/MemberSpaces.md)
  - [MemberUpdateParameters](docs/Model/MemberUpdateParameters.md)
  - [MemberUpdateSettingsParameters](docs/Model/MemberUpdateSettingsParameters.md)
+ - [Notification](docs/Model/Notification.md)
+ - [NotificationGroup](docs/Model/NotificationGroup.md)
+ - [NotificationGroupDetail](docs/Model/NotificationGroupDetail.md)
  - [OrderConfirmParameters](docs/Model/OrderConfirmParameters.md)
  - [OrderCreateParameters](docs/Model/OrderCreateParameters.md)
  - [Project](docs/Model/Project.md)

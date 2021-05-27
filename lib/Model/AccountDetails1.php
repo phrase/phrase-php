@@ -55,6 +55,7 @@ class AccountDetails1 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
+        'subscription' => '\Phrase\Model\Subscription',
         'slug' => 'string'
     ];
 
@@ -64,6 +65,7 @@ class AccountDetails1 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
+        'subscription' => null,
         'slug' => null
     ];
 
@@ -94,6 +96,7 @@ class AccountDetails1 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'subscription' => 'subscription',
         'slug' => 'slug'
     ];
 
@@ -103,6 +106,7 @@ class AccountDetails1 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'subscription' => 'setSubscription',
         'slug' => 'setSlug'
     ];
 
@@ -112,6 +116,7 @@ class AccountDetails1 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'subscription' => 'getSubscription',
         'slug' => 'getSlug'
     ];
 
@@ -175,6 +180,7 @@ class AccountDetails1 implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['subscription'] = isset($data['subscription']) ? $data['subscription'] : null;
         $this->container['slug'] = isset($data['slug']) ? $data['slug'] : null;
     }
 
@@ -201,6 +207,30 @@ class AccountDetails1 implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets subscription
+     *
+     * @return \Phrase\Model\Subscription|null
+     */
+    public function getSubscription()
+    {
+        return $this->container['subscription'];
+    }
+
+    /**
+     * Sets subscription
+     *
+     * @param \Phrase\Model\Subscription|null $subscription subscription
+     *
+     * @return $this
+     */
+    public function setSubscription($subscription)
+    {
+        $this->container['subscription'] = $subscription;
+
+        return $this;
+    }
 
     /**
      * Gets slug

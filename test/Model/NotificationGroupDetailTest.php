@@ -1,6 +1,6 @@
 <?php
 /**
- * UserTest
+ * NotificationGroupDetailTest
  *
  * PHP version 5
  *
@@ -30,15 +30,15 @@ namespace Phrase;
 use PHPUnit\Framework\TestCase;
 
 /**
- * UserTest Class Doc Comment
+ * NotificationGroupDetailTest Class Doc Comment
  *
  * @category    Class
- * @description User
+ * @description NotificationGroupDetail
  * @package     Phrase
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class UserTest extends TestCase
+class NotificationGroupDetailTest extends TestCase
 {
 
     /**
@@ -70,9 +70,9 @@ class UserTest extends TestCase
     }
 
     /**
-     * Test "User"
+     * Test "NotificationGroupDetail"
      */
-    public function testUser()
+    public function testNotificationGroupDetail()
     {
     }
 
@@ -84,23 +84,9 @@ class UserTest extends TestCase
     }
 
     /**
-     * Test attribute "username"
+     * Test attribute "event_name"
      */
-    public function testPropertyUsername()
-    {
-    }
-
-    /**
-     * Test attribute "name"
-     */
-    public function testPropertyName()
-    {
-    }
-
-    /**
-     * Test attribute "position"
-     */
-    public function testPropertyPosition()
+    public function testPropertyEventName()
     {
     }
 
@@ -115,6 +101,13 @@ class UserTest extends TestCase
      * Test attribute "updated_at"
      */
     public function testPropertyUpdatedAt()
+    {
+    }
+
+    /**
+     * Test attribute "latest_notification"
+     */
+    public function testPropertyLatestNotification()
     {
     }
 }
