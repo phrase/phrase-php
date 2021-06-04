@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **string** |  | [optional] 
+**name** | **string** |  | [optional] 
 **lsp** | **string** |  | [optional] 
 **amount_in_cents** | **int** |  | [optional] 
 **currency** | **string** |  | [optional] 

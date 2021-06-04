@@ -56,6 +56,7 @@ class TranslationOrder implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'id' => 'string',
+        'name' => 'string',
         'lsp' => 'string',
         'amount_in_cents' => 'int',
         'currency' => 'string',
@@ -81,6 +82,7 @@ class TranslationOrder implements ModelInterface, ArrayAccess
       */
     protected static $openAPIFormats = [
         'id' => null,
+        'name' => null,
         'lsp' => null,
         'amount_in_cents' => null,
         'currency' => null,
@@ -127,6 +129,7 @@ class TranslationOrder implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'id' => 'id',
+        'name' => 'name',
         'lsp' => 'lsp',
         'amount_in_cents' => 'amount_in_cents',
         'currency' => 'currency',
@@ -152,6 +155,7 @@ class TranslationOrder implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'id' => 'setId',
+        'name' => 'setName',
         'lsp' => 'setLsp',
         'amount_in_cents' => 'setAmountInCents',
         'currency' => 'setCurrency',
@@ -177,6 +181,7 @@ class TranslationOrder implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'id' => 'getId',
+        'name' => 'getName',
         'lsp' => 'getLsp',
         'amount_in_cents' => 'getAmountInCents',
         'currency' => 'getCurrency',
@@ -256,6 +261,7 @@ class TranslationOrder implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['lsp'] = isset($data['lsp']) ? $data['lsp'] : null;
         $this->container['amount_in_cents'] = isset($data['amount_in_cents']) ? $data['amount_in_cents'] : null;
         $this->container['currency'] = isset($data['currency']) ? $data['currency'] : null;
@@ -318,6 +324,30 @@ class TranslationOrder implements ModelInterface, ArrayAccess
     public function setId($id)
     {
         $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
+     * Gets name
+     *
+     * @return string|null
+     */
+    public function getName()
+    {
+        return $this->container['name'];
+    }
+
+    /**
+     * Sets name
+     *
+     * @param string|null $name name
+     *
+     * @return $this
+     */
+    public function setName($name)
+    {
+        $this->container['name'] = $name;
 
         return $this;
     }

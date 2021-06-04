@@ -84,6 +84,13 @@ class OrderCreateParametersTest extends TestCase
     }
 
     /**
+     * Test attribute "name"
+     */
+    public function testPropertyName()
+    {
+    }
+
+    /**
      * Test attribute "lsp"
      */
     public function testPropertyLsp()

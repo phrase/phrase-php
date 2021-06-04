@@ -56,6 +56,7 @@ class OrderCreateParameters implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'branch' => 'string',
+        'name' => 'string',
         'lsp' => 'string',
         'source_locale_id' => 'string',
         'target_locale_ids' => 'string[]',
@@ -78,6 +79,7 @@ class OrderCreateParameters implements ModelInterface, ArrayAccess
       */
     protected static $openAPIFormats = [
         'branch' => null,
+        'name' => null,
         'lsp' => null,
         'source_locale_id' => null,
         'target_locale_ids' => null,
@@ -121,6 +123,7 @@ class OrderCreateParameters implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'branch' => 'branch',
+        'name' => 'name',
         'lsp' => 'lsp',
         'source_locale_id' => 'source_locale_id',
         'target_locale_ids' => 'target_locale_ids',
@@ -143,6 +146,7 @@ class OrderCreateParameters implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'branch' => 'setBranch',
+        'name' => 'setName',
         'lsp' => 'setLsp',
         'source_locale_id' => 'setSourceLocaleId',
         'target_locale_ids' => 'setTargetLocaleIds',
@@ -165,6 +169,7 @@ class OrderCreateParameters implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'branch' => 'getBranch',
+        'name' => 'getName',
         'lsp' => 'getLsp',
         'source_locale_id' => 'getSourceLocaleId',
         'target_locale_ids' => 'getTargetLocaleIds',
@@ -241,6 +246,7 @@ class OrderCreateParameters implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['branch'] = isset($data['branch']) ? $data['branch'] : null;
+        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['lsp'] = isset($data['lsp']) ? $data['lsp'] : null;
         $this->container['source_locale_id'] = isset($data['source_locale_id']) ? $data['source_locale_id'] : null;
         $this->container['target_locale_ids'] = isset($data['target_locale_ids']) ? $data['target_locale_ids'] : null;
@@ -300,6 +306,30 @@ class OrderCreateParameters implements ModelInterface, ArrayAccess
     public function setBranch($branch)
     {
         $this->container['branch'] = $branch;
+
+        return $this;
+    }
+
+    /**
+     * Gets name
+     *
+     * @return string|null
+     */
+    public function getName()
+    {
+        return $this->container['name'];
+    }
+
+    /**
+     * Sets name
+     *
+     * @param string|null $name the name of the order, default name is: Translation order from 'current datetime'
+     *
+     * @return $this
+     */
+    public function setName($name)
+    {
+        $this->container['name'] = $name;
 
         return $this;
     }
