@@ -59,7 +59,8 @@ class Comment implements ModelInterface, ArrayAccess
         'message' => 'string',
         'user' => '\Phrase\Model\UserPreview',
         'created_at' => '\DateTime',
-        'updated_at' => '\DateTime'
+        'updated_at' => '\DateTime',
+        'mentioned_users' => '\Phrase\Model\UserPreview[]'
     ];
 
     /**
@@ -72,7 +73,8 @@ class Comment implements ModelInterface, ArrayAccess
         'message' => null,
         'user' => null,
         'created_at' => 'date-time',
-        'updated_at' => 'date-time'
+        'updated_at' => 'date-time',
+        'mentioned_users' => null
     ];
 
     /**
@@ -106,7 +108,8 @@ class Comment implements ModelInterface, ArrayAccess
         'message' => 'message',
         'user' => 'user',
         'created_at' => 'created_at',
-        'updated_at' => 'updated_at'
+        'updated_at' => 'updated_at',
+        'mentioned_users' => 'mentioned_users'
     ];
 
     /**
@@ -119,7 +122,8 @@ class Comment implements ModelInterface, ArrayAccess
         'message' => 'setMessage',
         'user' => 'setUser',
         'created_at' => 'setCreatedAt',
-        'updated_at' => 'setUpdatedAt'
+        'updated_at' => 'setUpdatedAt',
+        'mentioned_users' => 'setMentionedUsers'
     ];
 
     /**
@@ -132,7 +136,8 @@ class Comment implements ModelInterface, ArrayAccess
         'message' => 'getMessage',
         'user' => 'getUser',
         'created_at' => 'getCreatedAt',
-        'updated_at' => 'getUpdatedAt'
+        'updated_at' => 'getUpdatedAt',
+        'mentioned_users' => 'getMentionedUsers'
     ];
 
     /**
@@ -200,6 +205,7 @@ class Comment implements ModelInterface, ArrayAccess
         $this->container['user'] = isset($data['user']) ? $data['user'] : null;
         $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
         $this->container['updated_at'] = isset($data['updated_at']) ? $data['updated_at'] : null;
+        $this->container['mentioned_users'] = isset($data['mentioned_users']) ? $data['mentioned_users'] : null;
     }
 
     /**
@@ -342,6 +348,30 @@ class Comment implements ModelInterface, ArrayAccess
     public function setUpdatedAt($updated_at)
     {
         $this->container['updated_at'] = $updated_at;
+
+        return $this;
+    }
+
+    /**
+     * Gets mentioned_users
+     *
+     * @return \Phrase\Model\UserPreview[]|null
+     */
+    public function getMentionedUsers()
+    {
+        return $this->container['mentioned_users'];
+    }
+
+    /**
+     * Sets mentioned_users
+     *
+     * @param \Phrase\Model\UserPreview[]|null $mentioned_users mentioned_users
+     *
+     * @return $this
+     */
+    public function setMentionedUsers($mentioned_users)
+    {
+        $this->container['mentioned_users'] = $mentioned_users;
 
         return $this;
     }

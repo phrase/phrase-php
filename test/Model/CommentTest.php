@@ -110,4 +110,11 @@ class CommentTest extends TestCase
     public function testPropertyUpdatedAt()
     {
     }
+
+    /**
+     * Test attribute "mentioned_users"
+     */
+    public function testPropertyMentionedUsers()
+    {
+    }
 }
