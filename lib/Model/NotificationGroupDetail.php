@@ -59,6 +59,7 @@ class NotificationGroupDetail implements ModelInterface, ArrayAccess
         'event_name' => 'string',
         'created_at' => '\DateTime',
         'updated_at' => '\DateTime',
+        'notifications_count' => 'int',
         'latest_notification' => 'object'
     ];
 
@@ -72,6 +73,7 @@ class NotificationGroupDetail implements ModelInterface, ArrayAccess
         'event_name' => null,
         'created_at' => 'date-time',
         'updated_at' => 'date-time',
+        'notifications_count' => null,
         'latest_notification' => null
     ];
 
@@ -106,6 +108,7 @@ class NotificationGroupDetail implements ModelInterface, ArrayAccess
         'event_name' => 'event_name',
         'created_at' => 'created_at',
         'updated_at' => 'updated_at',
+        'notifications_count' => 'notifications_count',
         'latest_notification' => 'latest_notification'
     ];
 
@@ -119,6 +122,7 @@ class NotificationGroupDetail implements ModelInterface, ArrayAccess
         'event_name' => 'setEventName',
         'created_at' => 'setCreatedAt',
         'updated_at' => 'setUpdatedAt',
+        'notifications_count' => 'setNotificationsCount',
         'latest_notification' => 'setLatestNotification'
     ];
 
@@ -132,6 +136,7 @@ class NotificationGroupDetail implements ModelInterface, ArrayAccess
         'event_name' => 'getEventName',
         'created_at' => 'getCreatedAt',
         'updated_at' => 'getUpdatedAt',
+        'notifications_count' => 'getNotificationsCount',
         'latest_notification' => 'getLatestNotification'
     ];
 
@@ -199,6 +204,7 @@ class NotificationGroupDetail implements ModelInterface, ArrayAccess
         $this->container['event_name'] = isset($data['event_name']) ? $data['event_name'] : null;
         $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
         $this->container['updated_at'] = isset($data['updated_at']) ? $data['updated_at'] : null;
+        $this->container['notifications_count'] = isset($data['notifications_count']) ? $data['notifications_count'] : null;
         $this->container['latest_notification'] = isset($data['latest_notification']) ? $data['latest_notification'] : null;
     }
 
@@ -318,6 +324,30 @@ class NotificationGroupDetail implements ModelInterface, ArrayAccess
     public function setUpdatedAt($updated_at)
     {
         $this->container['updated_at'] = $updated_at;
+
+        return $this;
+    }
+
+    /**
+     * Gets notifications_count
+     *
+     * @return int|null
+     */
+    public function getNotificationsCount()
+    {
+        return $this->container['notifications_count'];
+    }
+
+    /**
+     * Sets notifications_count
+     *
+     * @param int|null $notifications_count notifications_count
+     *
+     * @return $this
+     */
+    public function setNotificationsCount($notifications_count)
+    {
+        $this->container['notifications_count'] = $notifications_count;
 
         return $this;
     }

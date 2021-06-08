@@ -105,6 +105,13 @@ class NotificationGroupDetailTest extends TestCase
     }
 
     /**
+     * Test attribute "notifications_count"
+     */
+    public function testPropertyNotificationsCount()
+    {
+    }
+
+    /**
      * Test attribute "latest_notification"
      */
     public function testPropertyLatestNotification()
