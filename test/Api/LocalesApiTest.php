@@ -71,6 +71,16 @@ class LocalesApiTest extends TestCase
     }
 
     /**
+     * Test case for accountLocales
+     *
+     * List locales used in account.
+     *
+     */
+    public function testAccountLocales()
+    {
+    }
+
+    /**
      * Test case for localeCreate
      *
      * Create a locale.
