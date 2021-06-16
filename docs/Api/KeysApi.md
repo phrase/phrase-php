@@ -9,6 +9,8 @@ Method | HTTP request | Description
 [**keyShow**](KeysApi.md#keyShow) | **GET** /projects/{project_id}/keys/{id} | Get a single key
 [**keyUpdate**](KeysApi.md#keyUpdate) | **PATCH** /projects/{project_id}/keys/{id} | Update a key
 [**keysDeleteCollection**](KeysApi.md#keysDeleteCollection) | **DELETE** /projects/{project_id}/keys | Delete collection of keys
+[**keysExclude**](KeysApi.md#keysExclude) | **PATCH** /projects/{project_id}/keys/exclude | Exclude a locale on a collection of keys
+[**keysInclude**](KeysApi.md#keysInclude) | **PATCH** /projects/{project_id}/keys/include | Include a locale on a collection of keys
 [**keysList**](KeysApi.md#keysList) | **GET** /projects/{project_id}/keys | List keys
 [**keysSearch**](KeysApi.md#keysSearch) | **POST** /projects/{project_id}/keys/search | Search keys
 [**keysTag**](KeysApi.md#keysTag) | **PATCH** /projects/{project_id}/keys/tag | Add tags to collection of keys
@@ -333,6 +335,132 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
+
+
+## keysExclude
+
+> \Phrase\Model\AffectedResources keysExclude($project_id, $keys_exclude_parameters, $x_phrase_app_otp)
+
+Exclude a locale on a collection of keys
+
+Exclude a locale on keys matching query. Same constraints as list.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$config = Phrase\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = Phrase\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'token');
+
+$apiInstance = new Phrase\Api\KeysApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$project_id = 'project_id_example'; // string | Project ID
+$keys_exclude_parameters = new \Phrase\Model\KeysExcludeParameters(); // \Phrase\Model\KeysExcludeParameters | 
+$x_phrase_app_otp = 'x_phrase_app_otp_example'; // string | Two-Factor-Authentication token (optional)
+
+try {
+    $result = $apiInstance->keysExclude($project_id, $keys_exclude_parameters, $x_phrase_app_otp);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling KeysApi->keysExclude: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **project_id** | **string**| Project ID |
+ **keys_exclude_parameters** | [**\Phrase\Model\KeysExcludeParameters**](../Model/KeysExcludeParameters.md)|  |
+ **x_phrase_app_otp** | **string**| Two-Factor-Authentication token (optional) | [optional]
+
+### Return type
+
+[**\Phrase\Model\AffectedResources**](../Model/AffectedResources.md)
+
+### Authorization
+
+[Basic](../../README.md#Basic), [Token](../../README.md#Token)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
+
+
+## keysInclude
+
+> \Phrase\Model\AffectedResources keysInclude($project_id, $keys_include_parameters, $x_phrase_app_otp)
+
+Include a locale on a collection of keys
+
+Include a locale on keys matching query. Same constraints as list.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$config = Phrase\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = Phrase\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'token');
+
+$apiInstance = new Phrase\Api\KeysApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$project_id = 'project_id_example'; // string | Project ID
+$keys_include_parameters = new \Phrase\Model\KeysIncludeParameters(); // \Phrase\Model\KeysIncludeParameters | 
+$x_phrase_app_otp = 'x_phrase_app_otp_example'; // string | Two-Factor-Authentication token (optional)
+
+try {
+    $result = $apiInstance->keysInclude($project_id, $keys_include_parameters, $x_phrase_app_otp);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling KeysApi->keysInclude: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **project_id** | **string**| Project ID |
+ **keys_include_parameters** | [**\Phrase\Model\KeysIncludeParameters**](../Model/KeysIncludeParameters.md)|  |
+ **x_phrase_app_otp** | **string**| Two-Factor-Authentication token (optional) | [optional]
+
+### Return type
+
+[**\Phrase\Model\AffectedResources**](../Model/AffectedResources.md)
+
+### Authorization
+
+[Basic](../../README.md#Basic), [Token](../../README.md#Token)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)

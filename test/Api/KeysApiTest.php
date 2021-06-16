@@ -121,6 +121,26 @@ class KeysApiTest extends TestCase
     }
 
     /**
+     * Test case for keysExclude
+     *
+     * Exclude a locale on a collection of keys.
+     *
+     */
+    public function testKeysExclude()
+    {
+    }
+
+    /**
+     * Test case for keysInclude
+     *
+     * Include a locale on a collection of keys.
+     *
+     */
+    public function testKeysInclude()
+    {
+    }
+
+    /**
      * Test case for keysList
      *
      * List keys.
