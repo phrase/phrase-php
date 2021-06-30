@@ -55,6 +55,7 @@ class MemberUpdateParameters implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
+        'strategy' => 'string',
         'role' => 'string',
         'project_ids' => 'string',
         'locale_ids' => 'string',
@@ -69,6 +70,7 @@ class MemberUpdateParameters implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
+        'strategy' => null,
         'role' => null,
         'project_ids' => null,
         'locale_ids' => null,
@@ -104,6 +106,7 @@ class MemberUpdateParameters implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'strategy' => 'strategy',
         'role' => 'role',
         'project_ids' => 'project_ids',
         'locale_ids' => 'locale_ids',
@@ -118,6 +121,7 @@ class MemberUpdateParameters implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'strategy' => 'setStrategy',
         'role' => 'setRole',
         'project_ids' => 'setProjectIds',
         'locale_ids' => 'setLocaleIds',
@@ -132,6 +136,7 @@ class MemberUpdateParameters implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'strategy' => 'getStrategy',
         'role' => 'getRole',
         'project_ids' => 'getProjectIds',
         'locale_ids' => 'getLocaleIds',
@@ -200,6 +205,7 @@ class MemberUpdateParameters implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['strategy'] = isset($data['strategy']) ? $data['strategy'] : null;
         $this->container['role'] = isset($data['role']) ? $data['role'] : null;
         $this->container['project_ids'] = isset($data['project_ids']) ? $data['project_ids'] : null;
         $this->container['locale_ids'] = isset($data['locale_ids']) ? $data['locale_ids'] : null;
@@ -233,6 +239,30 @@ class MemberUpdateParameters implements ModelInterface, ArrayAccess
 
 
     /**
+     * Gets strategy
+     *
+     * @return string|null
+     */
+    public function getStrategy()
+    {
+        return $this->container['strategy'];
+    }
+
+    /**
+     * Sets strategy
+     *
+     * @param string|null $strategy Update strategy, can be any of set, add, remove. If provided, it will set, add or remove given spaces, projects and locale ids from users access list.
+     *
+     * @return $this
+     */
+    public function setStrategy($strategy)
+    {
+        $this->container['strategy'] = $strategy;
+
+        return $this;
+    }
+
+    /**
      * Gets role
      *
      * @return string|null
@@ -245,7 +275,7 @@ class MemberUpdateParameters implements ModelInterface, ArrayAccess
     /**
      * Sets role
      *
-     * @param string|null $role Member role, can be any of of Manager, Developer, Translator
+     * @param string|null $role Member role, can be any of of Admin, ProjectManager, Developer, Designer, Translator
      *
      * @return $this
      */

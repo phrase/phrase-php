@@ -77,6 +77,13 @@ class MemberUpdateParametersTest extends TestCase
     }
 
     /**
+     * Test attribute "strategy"
+     */
+    public function testPropertyStrategy()
+    {
+    }
+
+    /**
      * Test attribute "role"
      */
     public function testPropertyRole()
