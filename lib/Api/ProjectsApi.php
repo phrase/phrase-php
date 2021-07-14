@@ -1248,14 +1248,15 @@ class ProjectsApi
      * @param  int $per_page allows you to specify a page size up to 100 items, 25 by default (optional)
      * @param  string $account_id Filter by Account ID (optional)
      * @param  string $sort_by Sort projects. Valid options are \&quot;name_asc\&quot;, \&quot;name_desc\&quot;, \&quot;updated_at_asc\&quot;, \&quot;updated_at_desc\&quot;, \&quot;space_asc\&quot; and \&quot;space_desc\&quot;. (optional)
+     * @param  string[] $filters Filter projects. Valid options are [\&quot;favorites\&quot;]. (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Phrase\Model\Project[]
      */
-    public function projectsList($x_phrase_app_otp = null, $page = null, $per_page = null, $account_id = null, $sort_by = null)
+    public function projectsList($x_phrase_app_otp = null, $page = null, $per_page = null, $account_id = null, $sort_by = null, $filters = null)
     {
-        list($response) = $this->projectsListWithHttpInfo($x_phrase_app_otp, $page, $per_page, $account_id, $sort_by);
+        list($response) = $this->projectsListWithHttpInfo($x_phrase_app_otp, $page, $per_page, $account_id, $sort_by, $filters);
         return $response;
     }
 
@@ -1269,14 +1270,15 @@ class ProjectsApi
      * @param  int $per_page allows you to specify a page size up to 100 items, 25 by default (optional)
      * @param  string $account_id Filter by Account ID (optional)
      * @param  string $sort_by Sort projects. Valid options are \&quot;name_asc\&quot;, \&quot;name_desc\&quot;, \&quot;updated_at_asc\&quot;, \&quot;updated_at_desc\&quot;, \&quot;space_asc\&quot; and \&quot;space_desc\&quot;. (optional)
+     * @param  string[] $filters Filter projects. Valid options are [\&quot;favorites\&quot;]. (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Phrase\Model\Project[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function projectsListWithHttpInfo($x_phrase_app_otp = null, $page = null, $per_page = null, $account_id = null, $sort_by = null)
+    public function projectsListWithHttpInfo($x_phrase_app_otp = null, $page = null, $per_page = null, $account_id = null, $sort_by = null, $filters = null)
     {
-        $request = $this->projectsListRequest($x_phrase_app_otp, $page, $per_page, $account_id, $sort_by);
+        $request = $this->projectsListRequest($x_phrase_app_otp, $page, $per_page, $account_id, $sort_by, $filters);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1361,13 +1363,14 @@ class ProjectsApi
      * @param  int $per_page allows you to specify a page size up to 100 items, 25 by default (optional)
      * @param  string $account_id Filter by Account ID (optional)
      * @param  string $sort_by Sort projects. Valid options are \&quot;name_asc\&quot;, \&quot;name_desc\&quot;, \&quot;updated_at_asc\&quot;, \&quot;updated_at_desc\&quot;, \&quot;space_asc\&quot; and \&quot;space_desc\&quot;. (optional)
+     * @param  string[] $filters Filter projects. Valid options are [\&quot;favorites\&quot;]. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function projectsListAsync($x_phrase_app_otp = null, $page = null, $per_page = null, $account_id = null, $sort_by = null)
+    public function projectsListAsync($x_phrase_app_otp = null, $page = null, $per_page = null, $account_id = null, $sort_by = null, $filters = null)
     {
-        return $this->projectsListAsyncWithHttpInfo($x_phrase_app_otp, $page, $per_page, $account_id, $sort_by)
+        return $this->projectsListAsyncWithHttpInfo($x_phrase_app_otp, $page, $per_page, $account_id, $sort_by, $filters)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1385,14 +1388,15 @@ class ProjectsApi
      * @param  int $per_page allows you to specify a page size up to 100 items, 25 by default (optional)
      * @param  string $account_id Filter by Account ID (optional)
      * @param  string $sort_by Sort projects. Valid options are \&quot;name_asc\&quot;, \&quot;name_desc\&quot;, \&quot;updated_at_asc\&quot;, \&quot;updated_at_desc\&quot;, \&quot;space_asc\&quot; and \&quot;space_desc\&quot;. (optional)
+     * @param  string[] $filters Filter projects. Valid options are [\&quot;favorites\&quot;]. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function projectsListAsyncWithHttpInfo($x_phrase_app_otp = null, $page = null, $per_page = null, $account_id = null, $sort_by = null)
+    public function projectsListAsyncWithHttpInfo($x_phrase_app_otp = null, $page = null, $per_page = null, $account_id = null, $sort_by = null, $filters = null)
     {
         $returnType = '\Phrase\Model\Project[]';
-        $request = $this->projectsListRequest($x_phrase_app_otp, $page, $per_page, $account_id, $sort_by);
+        $request = $this->projectsListRequest($x_phrase_app_otp, $page, $per_page, $account_id, $sort_by, $filters);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1436,11 +1440,12 @@ class ProjectsApi
      * @param  int $per_page allows you to specify a page size up to 100 items, 25 by default (optional)
      * @param  string $account_id Filter by Account ID (optional)
      * @param  string $sort_by Sort projects. Valid options are \&quot;name_asc\&quot;, \&quot;name_desc\&quot;, \&quot;updated_at_asc\&quot;, \&quot;updated_at_desc\&quot;, \&quot;space_asc\&quot; and \&quot;space_desc\&quot;. (optional)
+     * @param  string[] $filters Filter projects. Valid options are [\&quot;favorites\&quot;]. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function projectsListRequest($x_phrase_app_otp = null, $page = null, $per_page = null, $account_id = null, $sort_by = null)
+    protected function projectsListRequest($x_phrase_app_otp = null, $page = null, $per_page = null, $account_id = null, $sort_by = null, $filters = null)
     {
 
         $resourcePath = '/projects';
@@ -1492,6 +1497,17 @@ class ProjectsApi
             }
             else {
                 $queryParams['sort_by'] = $sort_by;
+            }
+        }
+        // query params
+        if ($filters !== null) {
+            if('form' === 'form' && is_array($filters)) {
+                foreach($filters as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['filters'] = $filters;
             }
         }
 
