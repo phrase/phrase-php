@@ -91,6 +91,13 @@ class JobCreateParametersTest extends TestCase
     }
 
     /**
+     * Test attribute "source_locale_id"
+     */
+    public function testPropertySourceLocaleId()
+    {
+    }
+
+    /**
      * Test attribute "briefing"
      */
     public function testPropertyBriefing()

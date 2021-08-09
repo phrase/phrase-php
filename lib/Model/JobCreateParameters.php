@@ -57,6 +57,7 @@ class JobCreateParameters implements ModelInterface, ArrayAccess
     protected static $openAPITypes = [
         'branch' => 'string',
         'name' => 'string',
+        'source_locale_id' => 'string',
         'briefing' => 'string',
         'due_date' => '\DateTime',
         'ticket_url' => 'string',
@@ -72,6 +73,7 @@ class JobCreateParameters implements ModelInterface, ArrayAccess
     protected static $openAPIFormats = [
         'branch' => null,
         'name' => null,
+        'source_locale_id' => null,
         'briefing' => null,
         'due_date' => 'date-time',
         'ticket_url' => null,
@@ -108,6 +110,7 @@ class JobCreateParameters implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'branch' => 'branch',
         'name' => 'name',
+        'source_locale_id' => 'source_locale_id',
         'briefing' => 'briefing',
         'due_date' => 'due_date',
         'ticket_url' => 'ticket_url',
@@ -123,6 +126,7 @@ class JobCreateParameters implements ModelInterface, ArrayAccess
     protected static $setters = [
         'branch' => 'setBranch',
         'name' => 'setName',
+        'source_locale_id' => 'setSourceLocaleId',
         'briefing' => 'setBriefing',
         'due_date' => 'setDueDate',
         'ticket_url' => 'setTicketUrl',
@@ -138,6 +142,7 @@ class JobCreateParameters implements ModelInterface, ArrayAccess
     protected static $getters = [
         'branch' => 'getBranch',
         'name' => 'getName',
+        'source_locale_id' => 'getSourceLocaleId',
         'briefing' => 'getBriefing',
         'due_date' => 'getDueDate',
         'ticket_url' => 'getTicketUrl',
@@ -207,6 +212,7 @@ class JobCreateParameters implements ModelInterface, ArrayAccess
     {
         $this->container['branch'] = isset($data['branch']) ? $data['branch'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['source_locale_id'] = isset($data['source_locale_id']) ? $data['source_locale_id'] : null;
         $this->container['briefing'] = isset($data['briefing']) ? $data['briefing'] : null;
         $this->container['due_date'] = isset($data['due_date']) ? $data['due_date'] : null;
         $this->container['ticket_url'] = isset($data['ticket_url']) ? $data['ticket_url'] : null;
@@ -282,6 +288,30 @@ class JobCreateParameters implements ModelInterface, ArrayAccess
     public function setName($name)
     {
         $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets source_locale_id
+     *
+     * @return string|null
+     */
+    public function getSourceLocaleId()
+    {
+        return $this->container['source_locale_id'];
+    }
+
+    /**
+     * Sets source_locale_id
+     *
+     * @param string|null $source_locale_id The API id of the source language
+     *
+     * @return $this
+     */
+    public function setSourceLocaleId($source_locale_id)
+    {
+        $this->container['source_locale_id'] = $source_locale_id;
 
         return $this;
     }

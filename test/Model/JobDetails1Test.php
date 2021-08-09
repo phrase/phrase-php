@@ -91,6 +91,13 @@ class JobDetails1Test extends TestCase
     }
 
     /**
+     * Test attribute "source_locale"
+     */
+    public function testPropertySourceLocale()
+    {
+    }
+
+    /**
      * Test attribute "locales"
      */
     public function testPropertyLocales()

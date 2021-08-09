@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **owner** | [**\Phrase\Model\UserPreview**](UserPreview.md) |  | [optional] 
 **job_tag_name** | **string** |  | [optional] 
+**source_locale** | [**\Phrase\Model\LocalePreview**](LocalePreview.md) |  | [optional] 
 **locales** | [**\Phrase\Model\LocalePreview[]**](LocalePreview.md) |  | [optional] 
 **keys** | [**\Phrase\Model\KeyPreview[]**](KeyPreview.md) |  | [optional] 
 

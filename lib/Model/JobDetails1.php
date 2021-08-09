@@ -57,6 +57,7 @@ class JobDetails1 implements ModelInterface, ArrayAccess
     protected static $openAPITypes = [
         'owner' => '\Phrase\Model\UserPreview',
         'job_tag_name' => 'string',
+        'source_locale' => '\Phrase\Model\LocalePreview',
         'locales' => '\Phrase\Model\LocalePreview[]',
         'keys' => '\Phrase\Model\KeyPreview[]'
     ];
@@ -69,6 +70,7 @@ class JobDetails1 implements ModelInterface, ArrayAccess
     protected static $openAPIFormats = [
         'owner' => null,
         'job_tag_name' => null,
+        'source_locale' => null,
         'locales' => null,
         'keys' => null
     ];
@@ -102,6 +104,7 @@ class JobDetails1 implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'owner' => 'owner',
         'job_tag_name' => 'job_tag_name',
+        'source_locale' => 'source_locale',
         'locales' => 'locales',
         'keys' => 'keys'
     ];
@@ -114,6 +117,7 @@ class JobDetails1 implements ModelInterface, ArrayAccess
     protected static $setters = [
         'owner' => 'setOwner',
         'job_tag_name' => 'setJobTagName',
+        'source_locale' => 'setSourceLocale',
         'locales' => 'setLocales',
         'keys' => 'setKeys'
     ];
@@ -126,6 +130,7 @@ class JobDetails1 implements ModelInterface, ArrayAccess
     protected static $getters = [
         'owner' => 'getOwner',
         'job_tag_name' => 'getJobTagName',
+        'source_locale' => 'getSourceLocale',
         'locales' => 'getLocales',
         'keys' => 'getKeys'
     ];
@@ -192,6 +197,7 @@ class JobDetails1 implements ModelInterface, ArrayAccess
     {
         $this->container['owner'] = isset($data['owner']) ? $data['owner'] : null;
         $this->container['job_tag_name'] = isset($data['job_tag_name']) ? $data['job_tag_name'] : null;
+        $this->container['source_locale'] = isset($data['source_locale']) ? $data['source_locale'] : null;
         $this->container['locales'] = isset($data['locales']) ? $data['locales'] : null;
         $this->container['keys'] = isset($data['keys']) ? $data['keys'] : null;
     }
@@ -264,6 +270,30 @@ class JobDetails1 implements ModelInterface, ArrayAccess
     public function setJobTagName($job_tag_name)
     {
         $this->container['job_tag_name'] = $job_tag_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets source_locale
+     *
+     * @return \Phrase\Model\LocalePreview|null
+     */
+    public function getSourceLocale()
+    {
+        return $this->container['source_locale'];
+    }
+
+    /**
+     * Sets source_locale
+     *
+     * @param \Phrase\Model\LocalePreview|null $source_locale source_locale
+     *
+     * @return $this
+     */
+    public function setSourceLocale($source_locale)
+    {
+        $this->container['source_locale'] = $source_locale;
 
         return $this;
     }
