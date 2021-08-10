@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 ## accountLocales
 
-> \Phrase\Model\LocalePreview1[] accountLocales($x_phrase_app_otp, $page, $per_page)
+> \Phrase\Model\LocalePreview1[] accountLocales($id, $x_phrase_app_otp, $page, $per_page)
 
 List locales used in account
 
@@ -37,12 +37,13 @@ $apiInstance = new Phrase\Api\LocalesApi(
     new GuzzleHttp\Client(),
     $config
 );
+$id = 'id_example'; // string | ID
 $x_phrase_app_otp = 'x_phrase_app_otp_example'; // string | Two-Factor-Authentication token (optional)
 $page = 1; // int | Page number
 $per_page = 25; // int | allows you to specify a page size up to 100 items, 25 by default
 
 try {
-    $result = $apiInstance->accountLocales($x_phrase_app_otp, $page, $per_page);
+    $result = $apiInstance->accountLocales($id, $x_phrase_app_otp, $page, $per_page);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling LocalesApi->accountLocales: ', $e->getMessage(), PHP_EOL;
@@ -55,6 +56,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **id** | **string**| ID |
  **x_phrase_app_otp** | **string**| Two-Factor-Authentication token (optional) | [optional]
  **page** | **int**| Page number | [optional]
  **per_page** | **int**| allows you to specify a page size up to 100 items, 25 by default | [optional]

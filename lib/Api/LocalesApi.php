@@ -118,6 +118,7 @@ class LocalesApi
      *
      * List locales used in account
      *
+     * @param  string $id ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  int $page Page number (optional)
      * @param  int $per_page allows you to specify a page size up to 100 items, 25 by default (optional)
@@ -126,9 +127,9 @@ class LocalesApi
      * @throws \InvalidArgumentException
      * @return \Phrase\Model\LocalePreview1[]
      */
-    public function accountLocales($x_phrase_app_otp = null, $page = null, $per_page = null)
+    public function accountLocales($id, $x_phrase_app_otp = null, $page = null, $per_page = null)
     {
-        list($response) = $this->accountLocalesWithHttpInfo($x_phrase_app_otp, $page, $per_page);
+        list($response) = $this->accountLocalesWithHttpInfo($id, $x_phrase_app_otp, $page, $per_page);
         return $response;
     }
 
@@ -137,6 +138,7 @@ class LocalesApi
      *
      * List locales used in account
      *
+     * @param  string $id ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  int $page Page number (optional)
      * @param  int $per_page allows you to specify a page size up to 100 items, 25 by default (optional)
@@ -145,9 +147,9 @@ class LocalesApi
      * @throws \InvalidArgumentException
      * @return array of \Phrase\Model\LocalePreview1[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function accountLocalesWithHttpInfo($x_phrase_app_otp = null, $page = null, $per_page = null)
+    public function accountLocalesWithHttpInfo($id, $x_phrase_app_otp = null, $page = null, $per_page = null)
     {
-        $request = $this->accountLocalesRequest($x_phrase_app_otp, $page, $per_page);
+        $request = $this->accountLocalesRequest($id, $x_phrase_app_otp, $page, $per_page);
 
         try {
             $options = $this->createHttpClientOption();
@@ -227,6 +229,7 @@ class LocalesApi
      *
      * List locales used in account
      *
+     * @param  string $id ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  int $page Page number (optional)
      * @param  int $per_page allows you to specify a page size up to 100 items, 25 by default (optional)
@@ -234,9 +237,9 @@ class LocalesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function accountLocalesAsync($x_phrase_app_otp = null, $page = null, $per_page = null)
+    public function accountLocalesAsync($id, $x_phrase_app_otp = null, $page = null, $per_page = null)
     {
-        return $this->accountLocalesAsyncWithHttpInfo($x_phrase_app_otp, $page, $per_page)
+        return $this->accountLocalesAsyncWithHttpInfo($id, $x_phrase_app_otp, $page, $per_page)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -249,6 +252,7 @@ class LocalesApi
      *
      * List locales used in account
      *
+     * @param  string $id ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  int $page Page number (optional)
      * @param  int $per_page allows you to specify a page size up to 100 items, 25 by default (optional)
@@ -256,10 +260,10 @@ class LocalesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function accountLocalesAsyncWithHttpInfo($x_phrase_app_otp = null, $page = null, $per_page = null)
+    public function accountLocalesAsyncWithHttpInfo($id, $x_phrase_app_otp = null, $page = null, $per_page = null)
     {
         $returnType = '\Phrase\Model\LocalePreview1[]';
-        $request = $this->accountLocalesRequest($x_phrase_app_otp, $page, $per_page);
+        $request = $this->accountLocalesRequest($id, $x_phrase_app_otp, $page, $per_page);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -298,6 +302,7 @@ class LocalesApi
     /**
      * Create request for operation 'accountLocales'
      *
+     * @param  string $id ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  int $page Page number (optional)
      * @param  int $per_page allows you to specify a page size up to 100 items, 25 by default (optional)
@@ -305,8 +310,14 @@ class LocalesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function accountLocalesRequest($x_phrase_app_otp = null, $page = null, $per_page = null)
+    protected function accountLocalesRequest($id, $x_phrase_app_otp = null, $page = null, $per_page = null)
     {
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id when calling accountLocales'
+            );
+        }
 
         $resourcePath = '/accounts/{account_id}/locales';
         $formParams = [];
@@ -343,6 +354,14 @@ class LocalesApi
             $headerParams['X-PhraseApp-OTP'] = ObjectSerializer::toHeaderValue($x_phrase_app_otp);
         }
 
+        // path params
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'id' . '}',
+                ObjectSerializer::toPathValue($id),
+                $resourcePath
+            );
+        }
 
         // body params
         $_tempBody = null;
