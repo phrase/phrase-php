@@ -56,9 +56,8 @@ class TranslationsVerifyParameters implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'branch' => 'string',
-        'q' => 'string',
-        'sort' => 'string',
-        'order' => 'string'
+        'locale_id' => 'string',
+        'q' => 'string'
     ];
 
     /**
@@ -68,9 +67,8 @@ class TranslationsVerifyParameters implements ModelInterface, ArrayAccess
       */
     protected static $openAPIFormats = [
         'branch' => null,
-        'q' => null,
-        'sort' => null,
-        'order' => null
+        'locale_id' => null,
+        'q' => null
     ];
 
     /**
@@ -101,9 +99,8 @@ class TranslationsVerifyParameters implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'branch' => 'branch',
-        'q' => 'q',
-        'sort' => 'sort',
-        'order' => 'order'
+        'locale_id' => 'locale_id',
+        'q' => 'q'
     ];
 
     /**
@@ -113,9 +110,8 @@ class TranslationsVerifyParameters implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'branch' => 'setBranch',
-        'q' => 'setQ',
-        'sort' => 'setSort',
-        'order' => 'setOrder'
+        'locale_id' => 'setLocaleId',
+        'q' => 'setQ'
     ];
 
     /**
@@ -125,9 +121,8 @@ class TranslationsVerifyParameters implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'branch' => 'getBranch',
-        'q' => 'getQ',
-        'sort' => 'getSort',
-        'order' => 'getOrder'
+        'locale_id' => 'getLocaleId',
+        'q' => 'getQ'
     ];
 
     /**
@@ -191,9 +186,8 @@ class TranslationsVerifyParameters implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['branch'] = isset($data['branch']) ? $data['branch'] : null;
+        $this->container['locale_id'] = isset($data['locale_id']) ? $data['locale_id'] : null;
         $this->container['q'] = isset($data['q']) ? $data['q'] : null;
-        $this->container['sort'] = isset($data['sort']) ? $data['sort'] : null;
-        $this->container['order'] = isset($data['order']) ? $data['order'] : null;
     }
 
     /**
@@ -245,6 +239,30 @@ class TranslationsVerifyParameters implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets locale_id
+     *
+     * @return string|null
+     */
+    public function getLocaleId()
+    {
+        return $this->container['locale_id'];
+    }
+
+    /**
+     * Sets locale_id
+     *
+     * @param string|null $locale_id specify the locale of the translations to be verified
+     *
+     * @return $this
+     */
+    public function setLocaleId($locale_id)
+    {
+        $this->container['locale_id'] = $locale_id;
+
+        return $this;
+    }
+
+    /**
      * Gets q
      *
      * @return string|null
@@ -264,54 +282,6 @@ class TranslationsVerifyParameters implements ModelInterface, ArrayAccess
     public function setQ($q)
     {
         $this->container['q'] = $q;
-
-        return $this;
-    }
-
-    /**
-     * Gets sort
-     *
-     * @return string|null
-     */
-    public function getSort()
-    {
-        return $this->container['sort'];
-    }
-
-    /**
-     * Sets sort
-     *
-     * @param string|null $sort Sort criteria. Can be one of: key_name, created_at, updated_at.
-     *
-     * @return $this
-     */
-    public function setSort($sort)
-    {
-        $this->container['sort'] = $sort;
-
-        return $this;
-    }
-
-    /**
-     * Gets order
-     *
-     * @return string|null
-     */
-    public function getOrder()
-    {
-        return $this->container['order'];
-    }
-
-    /**
-     * Sets order
-     *
-     * @param string|null $order Order direction. Can be one of: asc, desc.
-     *
-     * @return $this
-     */
-    public function setOrder($order)
-    {
-        $this->container['order'] = $order;
 
         return $this;
     }

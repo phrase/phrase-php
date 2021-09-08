@@ -84,23 +84,16 @@ class TranslationsVerifyParametersTest extends TestCase
     }
 
     /**
+     * Test attribute "locale_id"
+     */
+    public function testPropertyLocaleId()
+    {
+    }
+
+    /**
      * Test attribute "q"
      */
     public function testPropertyQ()
-    {
-    }
-
-    /**
-     * Test attribute "sort"
-     */
-    public function testPropertySort()
-    {
-    }
-
-    /**
-     * Test attribute "order"
-     */
-    public function testPropertyOrder()
     {
     }
 }
