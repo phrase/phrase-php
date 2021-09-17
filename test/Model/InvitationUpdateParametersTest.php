@@ -105,6 +105,13 @@ class InvitationUpdateParametersTest extends TestCase
     }
 
     /**
+     * Test attribute "team_ids"
+     */
+    public function testPropertyTeamIds()
+    {
+    }
+
+    /**
      * Test attribute "default_locale_codes"
      */
     public function testPropertyDefaultLocaleCodes()
