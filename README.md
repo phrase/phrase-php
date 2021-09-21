@@ -532,3 +532,6 @@ Class | Method | HTTP request | Description
 
 support@phrase.com
 
+## Get help / support
+
+Please contact [support@phrase.com](mailto:support@phrase.com?subject=[GitHub]%20phrase-php) and we can take more direct action toward finding a solution.
