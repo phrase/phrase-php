@@ -408,7 +408,7 @@ class UploadsApi
 
         // form params
         if ($branch !== null) {
-            $formParams['branch'] = ObjectSerializer::toFormValue($branch);
+            $this->formParamsAppend($formParams, 'branch', $branch);
         }
         // form params
         if ($file !== null) {
@@ -417,55 +417,55 @@ class UploadsApi
         }
         // form params
         if ($file_format !== null) {
-            $formParams['file_format'] = ObjectSerializer::toFormValue($file_format);
+            $this->formParamsAppend($formParams, 'file_format', $file_format);
         }
         // form params
         if ($locale_id !== null) {
-            $formParams['locale_id'] = ObjectSerializer::toFormValue($locale_id);
+            $this->formParamsAppend($formParams, 'locale_id', $locale_id);
         }
         // form params
         if ($tags !== null) {
-            $formParams['tags'] = ObjectSerializer::toFormValue($tags);
+            $this->formParamsAppend($formParams, 'tags', $tags);
         }
         // form params
         if ($update_translations !== null) {
-            $formParams['update_translations'] = ObjectSerializer::toFormValue($update_translations);
+            $this->formParamsAppend($formParams, 'update_translations', $update_translations);
         }
         // form params
         if ($update_descriptions !== null) {
-            $formParams['update_descriptions'] = ObjectSerializer::toFormValue($update_descriptions);
+            $this->formParamsAppend($formParams, 'update_descriptions', $update_descriptions);
         }
         // form params
         if ($convert_emoji !== null) {
-            $formParams['convert_emoji'] = ObjectSerializer::toFormValue($convert_emoji);
+            $this->formParamsAppend($formParams, 'convert_emoji', $convert_emoji);
         }
         // form params
         if ($skip_upload_tags !== null) {
-            $formParams['skip_upload_tags'] = ObjectSerializer::toFormValue($skip_upload_tags);
+            $this->formParamsAppend($formParams, 'skip_upload_tags', $skip_upload_tags);
         }
         // form params
         if ($skip_unverification !== null) {
-            $formParams['skip_unverification'] = ObjectSerializer::toFormValue($skip_unverification);
+            $this->formParamsAppend($formParams, 'skip_unverification', $skip_unverification);
         }
         // form params
         if ($file_encoding !== null) {
-            $formParams['file_encoding'] = ObjectSerializer::toFormValue($file_encoding);
+            $this->formParamsAppend($formParams, 'file_encoding', $file_encoding);
         }
         // form params
         if ($locale_mapping !== null) {
-            $formParams['locale_mapping'] = ObjectSerializer::toFormValue($locale_mapping);
+            $this->formParamsAppend($formParams, 'locale_mapping', $locale_mapping);
         }
         // form params
         if ($format_options !== null) {
-            $formParams['format_options'] = ObjectSerializer::toFormValue($format_options);
+            $this->formParamsAppend($formParams, 'format_options', $format_options);
         }
         // form params
         if ($autotranslate !== null) {
-            $formParams['autotranslate'] = ObjectSerializer::toFormValue($autotranslate);
+            $this->formParamsAppend($formParams, 'autotranslate', $autotranslate);
         }
         // form params
         if ($mark_reviewed !== null) {
-            $formParams['mark_reviewed'] = ObjectSerializer::toFormValue($mark_reviewed);
+            $this->formParamsAppend($formParams, 'mark_reviewed', $mark_reviewed);
         }
         // body params
         $_tempBody = null;
@@ -1222,5 +1222,20 @@ class UploadsApi
         }
 
         return $options;
+    }
+    /**
+     * Append to form params, handle object params
+     */
+    protected function formParamsAppend(&$formParams, $name, $value)
+    {
+        if (is_object($value)) {
+            foreach ((array) $value as $k => $v) {
+                $formParams[$name.'['.$k.']'] = ObjectSerializer::toFormValue($v);
+            }
+
+            return;
+        }
+
+        $formParams[$name] = ObjectSerializer::toFormValue($value);
     }
 }

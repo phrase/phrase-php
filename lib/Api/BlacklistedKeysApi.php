@@ -1671,4 +1671,19 @@ class BlacklistedKeysApi
 
         return $options;
     }
+    /**
+     * Append to form params, handle object params
+     */
+    protected function formParamsAppend(&$formParams, $name, $value)
+    {
+        if (is_object($value)) {
+            foreach ((array) $value as $k => $v) {
+                $formParams[$name.'['.$k.']'] = ObjectSerializer::toFormValue($v);
+            }
+
+            return;
+        }
+
+        $formParams[$name] = ObjectSerializer::toFormValue($value);
+    }
 }
