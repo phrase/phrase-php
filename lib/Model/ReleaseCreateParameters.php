@@ -57,6 +57,7 @@ class ReleaseCreateParameters implements ModelInterface, ArrayAccess
     protected static $openAPITypes = [
         'description' => 'string',
         'platforms' => 'string[]',
+        'locale_ids' => 'string[]',
         'branch' => 'string'
     ];
 
@@ -68,6 +69,7 @@ class ReleaseCreateParameters implements ModelInterface, ArrayAccess
     protected static $openAPIFormats = [
         'description' => null,
         'platforms' => null,
+        'locale_ids' => null,
         'branch' => null
     ];
 
@@ -100,6 +102,7 @@ class ReleaseCreateParameters implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'description' => 'description',
         'platforms' => 'platforms',
+        'locale_ids' => 'locale_ids',
         'branch' => 'branch'
     ];
 
@@ -111,6 +114,7 @@ class ReleaseCreateParameters implements ModelInterface, ArrayAccess
     protected static $setters = [
         'description' => 'setDescription',
         'platforms' => 'setPlatforms',
+        'locale_ids' => 'setLocaleIds',
         'branch' => 'setBranch'
     ];
 
@@ -122,6 +126,7 @@ class ReleaseCreateParameters implements ModelInterface, ArrayAccess
     protected static $getters = [
         'description' => 'getDescription',
         'platforms' => 'getPlatforms',
+        'locale_ids' => 'getLocaleIds',
         'branch' => 'getBranch'
     ];
 
@@ -187,6 +192,7 @@ class ReleaseCreateParameters implements ModelInterface, ArrayAccess
     {
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['platforms'] = isset($data['platforms']) ? $data['platforms'] : null;
+        $this->container['locale_ids'] = isset($data['locale_ids']) ? $data['locale_ids'] : null;
         $this->container['branch'] = isset($data['branch']) ? $data['branch'] : null;
     }
 
@@ -258,6 +264,30 @@ class ReleaseCreateParameters implements ModelInterface, ArrayAccess
     public function setPlatforms($platforms)
     {
         $this->container['platforms'] = $platforms;
+
+        return $this;
+    }
+
+    /**
+     * Gets locale_ids
+     *
+     * @return string[]|null
+     */
+    public function getLocaleIds()
+    {
+        return $this->container['locale_ids'];
+    }
+
+    /**
+     * Sets locale_ids
+     *
+     * @param string[]|null $locale_ids List of locale ids that will be included in the release. If empty, distribution locales will be used
+     *
+     * @return $this
+     */
+    public function setLocaleIds($locale_ids)
+    {
+        $this->container['locale_ids'] = $locale_ids;
 
         return $this;
     }

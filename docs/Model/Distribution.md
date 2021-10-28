@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **name** | **string** |  | [optional] 
 **project** | [**\Phrase\Model\ProjectShort**](ProjectShort.md) |  | [optional] 
 **platforms** | **string[]** |  | [optional] 
+**locales** | [**\Phrase\Model\LocalePreview[]**](LocalePreview.md) |  | [optional] 
 **releases** | [**\Phrase\Model\ReleasePreview[]**](ReleasePreview.md) |  | [optional] 
 **created_at** | [**\DateTime**](\DateTime.md) |  | [optional] 
 **deleted_at** | [**\DateTime**](\DateTime.md) |  | [optional] 

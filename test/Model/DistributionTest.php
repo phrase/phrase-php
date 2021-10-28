@@ -105,6 +105,13 @@ class DistributionTest extends TestCase
     }
 
     /**
+     * Test attribute "locales"
+     */
+    public function testPropertyLocales()
+    {
+    }
+
+    /**
      * Test attribute "releases"
      */
     public function testPropertyReleases()

@@ -91,6 +91,13 @@ class ReleaseCreateParametersTest extends TestCase
     }
 
     /**
+     * Test attribute "locale_ids"
+     */
+    public function testPropertyLocaleIds()
+    {
+    }
+
+    /**
      * Test attribute "branch"
      */
     public function testPropertyBranch()

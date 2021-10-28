@@ -58,6 +58,7 @@ class DistributionUpdateParameters implements ModelInterface, ArrayAccess
         'name' => 'string',
         'project_id' => 'string',
         'platforms' => 'string[]',
+        'locale_ids' => 'string[]',
         'format_options' => 'map[string,string]',
         'fallback_to_non_regional_locale' => 'bool',
         'fallback_to_default_locale' => 'bool',
@@ -73,6 +74,7 @@ class DistributionUpdateParameters implements ModelInterface, ArrayAccess
         'name' => null,
         'project_id' => null,
         'platforms' => null,
+        'locale_ids' => null,
         'format_options' => null,
         'fallback_to_non_regional_locale' => null,
         'fallback_to_default_locale' => null,
@@ -109,6 +111,7 @@ class DistributionUpdateParameters implements ModelInterface, ArrayAccess
         'name' => 'name',
         'project_id' => 'project_id',
         'platforms' => 'platforms',
+        'locale_ids' => 'locale_ids',
         'format_options' => 'format_options',
         'fallback_to_non_regional_locale' => 'fallback_to_non_regional_locale',
         'fallback_to_default_locale' => 'fallback_to_default_locale',
@@ -124,6 +127,7 @@ class DistributionUpdateParameters implements ModelInterface, ArrayAccess
         'name' => 'setName',
         'project_id' => 'setProjectId',
         'platforms' => 'setPlatforms',
+        'locale_ids' => 'setLocaleIds',
         'format_options' => 'setFormatOptions',
         'fallback_to_non_regional_locale' => 'setFallbackToNonRegionalLocale',
         'fallback_to_default_locale' => 'setFallbackToDefaultLocale',
@@ -139,6 +143,7 @@ class DistributionUpdateParameters implements ModelInterface, ArrayAccess
         'name' => 'getName',
         'project_id' => 'getProjectId',
         'platforms' => 'getPlatforms',
+        'locale_ids' => 'getLocaleIds',
         'format_options' => 'getFormatOptions',
         'fallback_to_non_regional_locale' => 'getFallbackToNonRegionalLocale',
         'fallback_to_default_locale' => 'getFallbackToDefaultLocale',
@@ -208,6 +213,7 @@ class DistributionUpdateParameters implements ModelInterface, ArrayAccess
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['project_id'] = isset($data['project_id']) ? $data['project_id'] : null;
         $this->container['platforms'] = isset($data['platforms']) ? $data['platforms'] : null;
+        $this->container['locale_ids'] = isset($data['locale_ids']) ? $data['locale_ids'] : null;
         $this->container['format_options'] = isset($data['format_options']) ? $data['format_options'] : null;
         $this->container['fallback_to_non_regional_locale'] = isset($data['fallback_to_non_regional_locale']) ? $data['fallback_to_non_regional_locale'] : null;
         $this->container['fallback_to_default_locale'] = isset($data['fallback_to_default_locale']) ? $data['fallback_to_default_locale'] : null;
@@ -306,6 +312,30 @@ class DistributionUpdateParameters implements ModelInterface, ArrayAccess
     public function setPlatforms($platforms)
     {
         $this->container['platforms'] = $platforms;
+
+        return $this;
+    }
+
+    /**
+     * Gets locale_ids
+     *
+     * @return string[]|null
+     */
+    public function getLocaleIds()
+    {
+        return $this->container['locale_ids'];
+    }
+
+    /**
+     * Sets locale_ids
+     *
+     * @param string[]|null $locale_ids List of locale ids that will be part of distribution releases
+     *
+     * @return $this
+     */
+    public function setLocaleIds($locale_ids)
+    {
+        $this->container['locale_ids'] = $locale_ids;
 
         return $this;
     }

@@ -98,6 +98,13 @@ class DistributionUpdateParametersTest extends TestCase
     }
 
     /**
+     * Test attribute "locale_ids"
+     */
+    public function testPropertyLocaleIds()
+    {
+    }
+
+    /**
      * Test attribute "format_options"
      */
     public function testPropertyFormatOptions()

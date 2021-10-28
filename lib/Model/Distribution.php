@@ -59,6 +59,7 @@ class Distribution implements ModelInterface, ArrayAccess
         'name' => 'string',
         'project' => '\Phrase\Model\ProjectShort',
         'platforms' => 'string[]',
+        'locales' => '\Phrase\Model\LocalePreview[]',
         'releases' => '\Phrase\Model\ReleasePreview[]',
         'created_at' => '\DateTime',
         'deleted_at' => '\DateTime'
@@ -74,6 +75,7 @@ class Distribution implements ModelInterface, ArrayAccess
         'name' => null,
         'project' => null,
         'platforms' => null,
+        'locales' => null,
         'releases' => null,
         'created_at' => 'date-time',
         'deleted_at' => 'date-time'
@@ -110,6 +112,7 @@ class Distribution implements ModelInterface, ArrayAccess
         'name' => 'name',
         'project' => 'project',
         'platforms' => 'platforms',
+        'locales' => 'locales',
         'releases' => 'releases',
         'created_at' => 'created_at',
         'deleted_at' => 'deleted_at'
@@ -125,6 +128,7 @@ class Distribution implements ModelInterface, ArrayAccess
         'name' => 'setName',
         'project' => 'setProject',
         'platforms' => 'setPlatforms',
+        'locales' => 'setLocales',
         'releases' => 'setReleases',
         'created_at' => 'setCreatedAt',
         'deleted_at' => 'setDeletedAt'
@@ -140,6 +144,7 @@ class Distribution implements ModelInterface, ArrayAccess
         'name' => 'getName',
         'project' => 'getProject',
         'platforms' => 'getPlatforms',
+        'locales' => 'getLocales',
         'releases' => 'getReleases',
         'created_at' => 'getCreatedAt',
         'deleted_at' => 'getDeletedAt'
@@ -209,6 +214,7 @@ class Distribution implements ModelInterface, ArrayAccess
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['project'] = isset($data['project']) ? $data['project'] : null;
         $this->container['platforms'] = isset($data['platforms']) ? $data['platforms'] : null;
+        $this->container['locales'] = isset($data['locales']) ? $data['locales'] : null;
         $this->container['releases'] = isset($data['releases']) ? $data['releases'] : null;
         $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
         $this->container['deleted_at'] = isset($data['deleted_at']) ? $data['deleted_at'] : null;
@@ -330,6 +336,30 @@ class Distribution implements ModelInterface, ArrayAccess
     public function setPlatforms($platforms)
     {
         $this->container['platforms'] = $platforms;
+
+        return $this;
+    }
+
+    /**
+     * Gets locales
+     *
+     * @return \Phrase\Model\LocalePreview[]|null
+     */
+    public function getLocales()
+    {
+        return $this->container['locales'];
+    }
+
+    /**
+     * Sets locales
+     *
+     * @param \Phrase\Model\LocalePreview[]|null $locales locales
+     *
+     * @return $this
+     */
+    public function setLocales($locales)
+    {
+        $this->container['locales'] = $locales;
 
         return $this;
     }
