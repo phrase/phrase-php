@@ -1,6 +1,6 @@
 <?php
 /**
- * JobLocalesCreateParametersTest
+ * JobLocaleCompleteReviewParametersTest
  *
  * PHP version 5
  *
@@ -30,15 +30,15 @@ namespace Phrase;
 use PHPUnit\Framework\TestCase;
 
 /**
- * JobLocalesCreateParametersTest Class Doc Comment
+ * JobLocaleCompleteReviewParametersTest Class Doc Comment
  *
  * @category    Class
- * @description JobLocalesCreateParameters
+ * @description JobLocaleCompleteReviewParameters
  * @package     Phrase
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class JobLocalesCreateParametersTest extends TestCase
+class JobLocaleCompleteReviewParametersTest extends TestCase
 {
 
     /**
@@ -70,9 +70,9 @@ class JobLocalesCreateParametersTest extends TestCase
     }
 
     /**
-     * Test "JobLocalesCreateParameters"
+     * Test "JobLocaleCompleteReviewParameters"
      */
-    public function testJobLocalesCreateParameters()
+    public function testJobLocaleCompleteReviewParameters()
     {
     }
 
@@ -80,27 +80,6 @@ class JobLocalesCreateParametersTest extends TestCase
      * Test attribute "branch"
      */
     public function testPropertyBranch()
-    {
-    }
-
-    /**
-     * Test attribute "locale_id"
-     */
-    public function testPropertyLocaleId()
-    {
-    }
-
-    /**
-     * Test attribute "user_ids"
-     */
-    public function testPropertyUserIds()
-    {
-    }
-
-    /**
-     * Test attribute "reviewer_ids"
-     */
-    public function testPropertyReviewerIds()
     {
     }
 }

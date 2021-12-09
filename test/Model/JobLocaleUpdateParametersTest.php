@@ -96,4 +96,11 @@ class JobLocaleUpdateParametersTest extends TestCase
     public function testPropertyUserIds()
     {
     }
+
+    /**
+     * Test attribute "reviewer_ids"
+     */
+    public function testPropertyReviewerIds()
+    {
+    }
 }

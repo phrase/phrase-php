@@ -57,7 +57,8 @@ class JobLocalesCreateParameters implements ModelInterface, ArrayAccess
     protected static $openAPITypes = [
         'branch' => 'string',
         'locale_id' => 'string',
-        'user_ids' => 'string[]'
+        'user_ids' => 'string[]',
+        'reviewer_ids' => 'string[]'
     ];
 
     /**
@@ -68,7 +69,8 @@ class JobLocalesCreateParameters implements ModelInterface, ArrayAccess
     protected static $openAPIFormats = [
         'branch' => null,
         'locale_id' => null,
-        'user_ids' => null
+        'user_ids' => null,
+        'reviewer_ids' => null
     ];
 
     /**
@@ -100,7 +102,8 @@ class JobLocalesCreateParameters implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'branch' => 'branch',
         'locale_id' => 'locale_id',
-        'user_ids' => 'user_ids'
+        'user_ids' => 'user_ids',
+        'reviewer_ids' => 'reviewer_ids'
     ];
 
     /**
@@ -111,7 +114,8 @@ class JobLocalesCreateParameters implements ModelInterface, ArrayAccess
     protected static $setters = [
         'branch' => 'setBranch',
         'locale_id' => 'setLocaleId',
-        'user_ids' => 'setUserIds'
+        'user_ids' => 'setUserIds',
+        'reviewer_ids' => 'setReviewerIds'
     ];
 
     /**
@@ -122,7 +126,8 @@ class JobLocalesCreateParameters implements ModelInterface, ArrayAccess
     protected static $getters = [
         'branch' => 'getBranch',
         'locale_id' => 'getLocaleId',
-        'user_ids' => 'getUserIds'
+        'user_ids' => 'getUserIds',
+        'reviewer_ids' => 'getReviewerIds'
     ];
 
     /**
@@ -188,6 +193,7 @@ class JobLocalesCreateParameters implements ModelInterface, ArrayAccess
         $this->container['branch'] = isset($data['branch']) ? $data['branch'] : null;
         $this->container['locale_id'] = isset($data['locale_id']) ? $data['locale_id'] : null;
         $this->container['user_ids'] = isset($data['user_ids']) ? $data['user_ids'] : null;
+        $this->container['reviewer_ids'] = isset($data['reviewer_ids']) ? $data['reviewer_ids'] : null;
     }
 
     /**
@@ -275,13 +281,37 @@ class JobLocalesCreateParameters implements ModelInterface, ArrayAccess
     /**
      * Sets user_ids
      *
-     * @param string[]|null $user_ids Array of user ids to be assigned to the job locale
+     * @param string[]|null $user_ids Array of user ids to be assigned to the job locale as translators
      *
      * @return $this
      */
     public function setUserIds($user_ids)
     {
         $this->container['user_ids'] = $user_ids;
+
+        return $this;
+    }
+
+    /**
+     * Gets reviewer_ids
+     *
+     * @return string[]|null
+     */
+    public function getReviewerIds()
+    {
+        return $this->container['reviewer_ids'];
+    }
+
+    /**
+     * Sets reviewer_ids
+     *
+     * @param string[]|null $reviewer_ids Array of reviewer ids to be assigned to the job locale as reviewers
+     *
+     * @return $this
+     */
+    public function setReviewerIds($reviewer_ids)
+    {
+        $this->container['reviewer_ids'] = $reviewer_ids;
 
         return $this;
     }

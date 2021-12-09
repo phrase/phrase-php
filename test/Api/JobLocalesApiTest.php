@@ -81,6 +81,16 @@ class JobLocalesApiTest extends TestCase
     }
 
     /**
+     * Test case for jobLocaleCompleteReview
+     *
+     * Review a job locale.
+     *
+     */
+    public function testJobLocaleCompleteReview()
+    {
+    }
+
+    /**
      * Test case for jobLocaleDelete
      *
      * Delete a job locale.

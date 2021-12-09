@@ -5,6 +5,7 @@ All URIs are relative to *https://api.phrase.com/v2*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**jobLocaleComplete**](JobLocalesApi.md#jobLocaleComplete) | **POST** /projects/{project_id}/jobs/{job_id}/locales/{id}/complete | Complete a job locale
+[**jobLocaleCompleteReview**](JobLocalesApi.md#jobLocaleCompleteReview) | **POST** /projects/{project_id}/jobs/{job_id}/locales/{id}/complete_review | Review a job locale
 [**jobLocaleDelete**](JobLocalesApi.md#jobLocaleDelete) | **DELETE** /projects/{project_id}/jobs/{job_id}/locales/{id} | Delete a job locale
 [**jobLocaleReopen**](JobLocalesApi.md#jobLocaleReopen) | **POST** /projects/{project_id}/jobs/{job_id}/locales/{id}/reopen | Reopen a job locale
 [**jobLocaleShow**](JobLocalesApi.md#jobLocaleShow) | **GET** /projects/{project_id}/jobs/{job_id}/locale/{id} | Get a single job locale
@@ -61,6 +62,73 @@ Name | Type | Description  | Notes
  **job_id** | **string**| Job ID |
  **id** | **string**| ID |
  **job_locale_complete_parameters** | [**\Phrase\Model\JobLocaleCompleteParameters**](../Model/JobLocaleCompleteParameters.md)|  |
+ **x_phrase_app_otp** | **string**| Two-Factor-Authentication token (optional) | [optional]
+
+### Return type
+
+[**\Phrase\Model\JobLocale**](../Model/JobLocale.md)
+
+### Authorization
+
+[Basic](../../README.md#Basic), [Token](../../README.md#Token)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
+
+
+## jobLocaleCompleteReview
+
+> \Phrase\Model\JobLocale jobLocaleCompleteReview($project_id, $job_id, $id, $job_locale_complete_review_parameters, $x_phrase_app_otp)
+
+Review a job locale
+
+Mark job locale as reviewed.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$config = Phrase\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = Phrase\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'token');
+
+$apiInstance = new Phrase\Api\JobLocalesApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$project_id = 'project_id_example'; // string | Project ID
+$job_id = 'job_id_example'; // string | Job ID
+$id = 'id_example'; // string | ID
+$job_locale_complete_review_parameters = new \Phrase\Model\JobLocaleCompleteReviewParameters(); // \Phrase\Model\JobLocaleCompleteReviewParameters | 
+$x_phrase_app_otp = 'x_phrase_app_otp_example'; // string | Two-Factor-Authentication token (optional)
+
+try {
+    $result = $apiInstance->jobLocaleCompleteReview($project_id, $job_id, $id, $job_locale_complete_review_parameters, $x_phrase_app_otp);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling JobLocalesApi->jobLocaleCompleteReview: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **project_id** | **string**| Project ID |
+ **job_id** | **string**| Job ID |
+ **id** | **string**| ID |
+ **job_locale_complete_review_parameters** | [**\Phrase\Model\JobLocaleCompleteReviewParameters**](../Model/JobLocaleCompleteReviewParameters.md)|  |
  **x_phrase_app_otp** | **string**| Two-Factor-Authentication token (optional) | [optional]
 
 ### Return type

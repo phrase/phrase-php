@@ -96,4 +96,11 @@ class UserPreviewTest extends TestCase
     public function testPropertyName()
     {
     }
+
+    /**
+     * Test attribute "role"
+     */
+    public function testPropertyRole()
+    {
+    }
 }

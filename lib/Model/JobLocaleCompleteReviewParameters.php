@@ -1,6 +1,6 @@
 <?php
 /**
- * UserPreview
+ * JobLocaleCompleteReviewParameters
  *
  * PHP version 5
  *
@@ -31,14 +31,14 @@ use \ArrayAccess;
 use \Phrase\ObjectSerializer;
 
 /**
- * UserPreview Class Doc Comment
+ * JobLocaleCompleteReviewParameters Class Doc Comment
  *
  * @category Class
  * @package  Phrase
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class UserPreview implements ModelInterface, ArrayAccess
+class JobLocaleCompleteReviewParameters implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -47,7 +47,7 @@ class UserPreview implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'user_preview';
+    protected static $openAPIModelName = 'job_locale_complete_review_parameters';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -55,10 +55,7 @@ class UserPreview implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'id' => 'string',
-        'username' => 'string',
-        'name' => 'string',
-        'role' => 'string'
+        'branch' => 'string'
     ];
 
     /**
@@ -67,10 +64,7 @@ class UserPreview implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'id' => null,
-        'username' => null,
-        'name' => null,
-        'role' => null
+        'branch' => null
     ];
 
     /**
@@ -100,10 +94,7 @@ class UserPreview implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'id',
-        'username' => 'username',
-        'name' => 'name',
-        'role' => 'role'
+        'branch' => 'branch'
     ];
 
     /**
@@ -112,10 +103,7 @@ class UserPreview implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId',
-        'username' => 'setUsername',
-        'name' => 'setName',
-        'role' => 'setRole'
+        'branch' => 'setBranch'
     ];
 
     /**
@@ -124,10 +112,7 @@ class UserPreview implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId',
-        'username' => 'getUsername',
-        'name' => 'getName',
-        'role' => 'getRole'
+        'branch' => 'getBranch'
     ];
 
     /**
@@ -190,10 +175,7 @@ class UserPreview implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
-        $this->container['username'] = isset($data['username']) ? $data['username'] : null;
-        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['role'] = isset($data['role']) ? $data['role'] : null;
+        $this->container['branch'] = isset($data['branch']) ? $data['branch'] : null;
     }
 
     /**
@@ -221,97 +203,25 @@ class UserPreview implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets id
+     * Gets branch
      *
      * @return string|null
      */
-    public function getId()
+    public function getBranch()
     {
-        return $this->container['id'];
+        return $this->container['branch'];
     }
 
     /**
-     * Sets id
+     * Sets branch
      *
-     * @param string|null $id id
+     * @param string|null $branch specify the branch to use
      *
      * @return $this
      */
-    public function setId($id)
+    public function setBranch($branch)
     {
-        $this->container['id'] = $id;
-
-        return $this;
-    }
-
-    /**
-     * Gets username
-     *
-     * @return string|null
-     */
-    public function getUsername()
-    {
-        return $this->container['username'];
-    }
-
-    /**
-     * Sets username
-     *
-     * @param string|null $username username
-     *
-     * @return $this
-     */
-    public function setUsername($username)
-    {
-        $this->container['username'] = $username;
-
-        return $this;
-    }
-
-    /**
-     * Gets name
-     *
-     * @return string|null
-     */
-    public function getName()
-    {
-        return $this->container['name'];
-    }
-
-    /**
-     * Sets name
-     *
-     * @param string|null $name name
-     *
-     * @return $this
-     */
-    public function setName($name)
-    {
-        $this->container['name'] = $name;
-
-        return $this;
-    }
-
-    /**
-     * Gets role
-     *
-     * @return string|null
-     */
-    public function getRole()
-    {
-        return $this->container['role'];
-    }
-
-    /**
-     * Sets role
-     *
-     * @param string|null $role role
-     *
-     * @return $this
-     */
-    public function setRole($role)
-    {
-        $this->container['role'] = $role;
+        $this->container['branch'] = $branch;
 
         return $this;
     }
