@@ -55,7 +55,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[Basic](../../README.md#Basic), [Token](../../README.md#Token)
+[Basic](../../README.md#Basic), [Token](../../README.md#Token), [bearerAuth](../../README.md#bearerAuth)
 
 ### HTTP request headers
 

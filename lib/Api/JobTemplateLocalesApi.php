@@ -389,6 +389,10 @@ class JobTemplateLocalesApi
         if ($apiKey !== null) {
             $headers['Authorization'] = $apiKey;
         }
+        // this endpoint requires Bearer (JWT) authentication (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -734,6 +738,10 @@ class JobTemplateLocalesApi
         if ($apiKey !== null) {
             $headers['Authorization'] = $apiKey;
         }
+        // this endpoint requires Bearer (JWT) authentication (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -1077,6 +1085,10 @@ class JobTemplateLocalesApi
         if ($apiKey !== null) {
             $headers['Authorization'] = $apiKey;
         }
+        // this endpoint requires Bearer (JWT) authentication (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -1400,6 +1412,10 @@ class JobTemplateLocalesApi
         $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
         if ($apiKey !== null) {
             $headers['Authorization'] = $apiKey;
+        }
+        // this endpoint requires Bearer (JWT) authentication (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
         }
 
         $defaultHeaders = [];
@@ -1758,6 +1774,10 @@ class JobTemplateLocalesApi
         $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
         if ($apiKey !== null) {
             $headers['Authorization'] = $apiKey;
+        }
+        // this endpoint requires Bearer (JWT) authentication (access token)
+        if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
         }
 
         $defaultHeaders = [];
