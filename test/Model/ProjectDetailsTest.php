@@ -126,6 +126,13 @@ class ProjectDetailsTest extends TestCase
     }
 
     /**
+     * Test attribute "point_of_contact"
+     */
+    public function testPropertyPointOfContact()
+    {
+    }
+
+    /**
      * Test attribute "created_at"
      */
     public function testPropertyCreatedAt()

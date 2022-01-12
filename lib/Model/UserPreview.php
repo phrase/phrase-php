@@ -58,7 +58,7 @@ class UserPreview implements ModelInterface, ArrayAccess
         'id' => 'string',
         'username' => 'string',
         'name' => 'string',
-        'role' => 'string'
+        'gravatar_uid' => 'string'
     ];
 
     /**
@@ -70,7 +70,7 @@ class UserPreview implements ModelInterface, ArrayAccess
         'id' => null,
         'username' => null,
         'name' => null,
-        'role' => null
+        'gravatar_uid' => null
     ];
 
     /**
@@ -103,7 +103,7 @@ class UserPreview implements ModelInterface, ArrayAccess
         'id' => 'id',
         'username' => 'username',
         'name' => 'name',
-        'role' => 'role'
+        'gravatar_uid' => 'gravatar_uid'
     ];
 
     /**
@@ -115,7 +115,7 @@ class UserPreview implements ModelInterface, ArrayAccess
         'id' => 'setId',
         'username' => 'setUsername',
         'name' => 'setName',
-        'role' => 'setRole'
+        'gravatar_uid' => 'setGravatarUid'
     ];
 
     /**
@@ -127,7 +127,7 @@ class UserPreview implements ModelInterface, ArrayAccess
         'id' => 'getId',
         'username' => 'getUsername',
         'name' => 'getName',
-        'role' => 'getRole'
+        'gravatar_uid' => 'getGravatarUid'
     ];
 
     /**
@@ -193,7 +193,7 @@ class UserPreview implements ModelInterface, ArrayAccess
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['username'] = isset($data['username']) ? $data['username'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['role'] = isset($data['role']) ? $data['role'] : null;
+        $this->container['gravatar_uid'] = isset($data['gravatar_uid']) ? $data['gravatar_uid'] : null;
     }
 
     /**
@@ -293,25 +293,25 @@ class UserPreview implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets role
+     * Gets gravatar_uid
      *
      * @return string|null
      */
-    public function getRole()
+    public function getGravatarUid()
     {
-        return $this->container['role'];
+        return $this->container['gravatar_uid'];
     }
 
     /**
-     * Sets role
+     * Sets gravatar_uid
      *
-     * @param string|null $role role
+     * @param string|null $gravatar_uid gravatar_uid
      *
      * @return $this
      */
-    public function setRole($role)
+    public function setGravatarUid($gravatar_uid)
     {
-        $this->container['role'] = $role;
+        $this->container['gravatar_uid'] = $gravatar_uid;
 
         return $this;
     }

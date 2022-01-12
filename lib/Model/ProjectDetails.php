@@ -62,6 +62,7 @@ class ProjectDetails implements ModelInterface, ArrayAccess
         'project_image_url' => 'string',
         'account' => '\Phrase\Model\Account',
         'space' => '\Phrase\Model\Space1',
+        'point_of_contact' => '\Phrase\Model\UserPreview',
         'created_at' => '\DateTime',
         'updated_at' => '\DateTime',
         'shares_translation_memory' => 'bool'
@@ -80,6 +81,7 @@ class ProjectDetails implements ModelInterface, ArrayAccess
         'project_image_url' => null,
         'account' => null,
         'space' => null,
+        'point_of_contact' => null,
         'created_at' => 'date-time',
         'updated_at' => 'date-time',
         'shares_translation_memory' => null
@@ -119,6 +121,7 @@ class ProjectDetails implements ModelInterface, ArrayAccess
         'project_image_url' => 'project_image_url',
         'account' => 'account',
         'space' => 'space',
+        'point_of_contact' => 'point_of_contact',
         'created_at' => 'created_at',
         'updated_at' => 'updated_at',
         'shares_translation_memory' => 'shares_translation_memory'
@@ -137,6 +140,7 @@ class ProjectDetails implements ModelInterface, ArrayAccess
         'project_image_url' => 'setProjectImageUrl',
         'account' => 'setAccount',
         'space' => 'setSpace',
+        'point_of_contact' => 'setPointOfContact',
         'created_at' => 'setCreatedAt',
         'updated_at' => 'setUpdatedAt',
         'shares_translation_memory' => 'setSharesTranslationMemory'
@@ -155,6 +159,7 @@ class ProjectDetails implements ModelInterface, ArrayAccess
         'project_image_url' => 'getProjectImageUrl',
         'account' => 'getAccount',
         'space' => 'getSpace',
+        'point_of_contact' => 'getPointOfContact',
         'created_at' => 'getCreatedAt',
         'updated_at' => 'getUpdatedAt',
         'shares_translation_memory' => 'getSharesTranslationMemory'
@@ -227,6 +232,7 @@ class ProjectDetails implements ModelInterface, ArrayAccess
         $this->container['project_image_url'] = isset($data['project_image_url']) ? $data['project_image_url'] : null;
         $this->container['account'] = isset($data['account']) ? $data['account'] : null;
         $this->container['space'] = isset($data['space']) ? $data['space'] : null;
+        $this->container['point_of_contact'] = isset($data['point_of_contact']) ? $data['point_of_contact'] : null;
         $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
         $this->container['updated_at'] = isset($data['updated_at']) ? $data['updated_at'] : null;
         $this->container['shares_translation_memory'] = isset($data['shares_translation_memory']) ? $data['shares_translation_memory'] : null;
@@ -420,6 +426,30 @@ class ProjectDetails implements ModelInterface, ArrayAccess
     public function setSpace($space)
     {
         $this->container['space'] = $space;
+
+        return $this;
+    }
+
+    /**
+     * Gets point_of_contact
+     *
+     * @return \Phrase\Model\UserPreview|null
+     */
+    public function getPointOfContact()
+    {
+        return $this->container['point_of_contact'];
+    }
+
+    /**
+     * Sets point_of_contact
+     *
+     * @param \Phrase\Model\UserPreview|null $point_of_contact point_of_contact
+     *
+     * @return $this
+     */
+    public function setPointOfContact($point_of_contact)
+    {
+        $this->container['point_of_contact'] = $point_of_contact;
 
         return $this;
     }

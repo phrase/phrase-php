@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **project_image_url** | **string** |  | [optional] 
 **account** | [**\Phrase\Model\Account**](Account.md) |  | [optional] 
 **space** | [**\Phrase\Model\Space1**](Space1.md) |  | [optional] 
+**point_of_contact** | [**\Phrase\Model\UserPreview**](UserPreview.md) |  | [optional] 
 **created_at** | [**\DateTime**](\DateTime.md) |  | [optional] 
 **updated_at** | [**\DateTime**](\DateTime.md) |  | [optional] 
 

@@ -98,9 +98,9 @@ class UserPreviewTest extends TestCase
     }
 
     /**
-     * Test attribute "role"
+     * Test attribute "gravatar_uid"
      */
-    public function testPropertyRole()
+    public function testPropertyGravatarUid()
     {
     }
 }
