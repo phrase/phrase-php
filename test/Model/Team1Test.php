@@ -1,6 +1,6 @@
 <?php
 /**
- * MemberTest
+ * Team1Test
  *
  * PHP version 5
  *
@@ -30,15 +30,15 @@ namespace Phrase;
 use PHPUnit\Framework\TestCase;
 
 /**
- * MemberTest Class Doc Comment
+ * Team1Test Class Doc Comment
  *
  * @category    Class
- * @description Member
+ * @description Team1
  * @package     Phrase
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class MemberTest extends TestCase
+class Team1Test extends TestCase
 {
 
     /**
@@ -70,9 +70,9 @@ class MemberTest extends TestCase
     }
 
     /**
-     * Test "Member"
+     * Test "Team1"
      */
-    public function testMember()
+    public function testTeam1()
     {
     }
 
@@ -84,16 +84,9 @@ class MemberTest extends TestCase
     }
 
     /**
-     * Test attribute "email"
+     * Test attribute "name"
      */
-    public function testPropertyEmail()
-    {
-    }
-
-    /**
-     * Test attribute "username"
-     */
-    public function testPropertyUsername()
+    public function testPropertyName()
     {
     }
 
@@ -105,51 +98,9 @@ class MemberTest extends TestCase
     }
 
     /**
-     * Test attribute "last_activity_at"
+     * Test attribute "updated_at"
      */
-    public function testPropertyLastActivityAt()
-    {
-    }
-
-    /**
-     * Test attribute "role"
-     */
-    public function testPropertyRole()
-    {
-    }
-
-    /**
-     * Test attribute "projects"
-     */
-    public function testPropertyProjects()
-    {
-    }
-
-    /**
-     * Test attribute "permissions"
-     */
-    public function testPropertyPermissions()
-    {
-    }
-
-    /**
-     * Test attribute "default_locale_codes"
-     */
-    public function testPropertyDefaultLocaleCodes()
-    {
-    }
-
-    /**
-     * Test attribute "teams"
-     */
-    public function testPropertyTeams()
-    {
-    }
-
-    /**
-     * Test attribute "spaces"
-     */
-    public function testPropertySpaces()
+    public function testPropertyUpdatedAt()
     {
     }
 }

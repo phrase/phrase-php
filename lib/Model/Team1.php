@@ -1,6 +1,6 @@
 <?php
 /**
- * Member
+ * Team1
  *
  * PHP version 5
  *
@@ -31,14 +31,14 @@ use \ArrayAccess;
 use \Phrase\ObjectSerializer;
 
 /**
- * Member Class Doc Comment
+ * Team1 Class Doc Comment
  *
  * @category Class
  * @package  Phrase
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class Member implements ModelInterface, ArrayAccess
+class Team1 implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -47,7 +47,7 @@ class Member implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'member';
+    protected static $openAPIModelName = 'team_1';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -56,16 +56,9 @@ class Member implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'id' => 'string',
-        'email' => 'string',
-        'username' => 'string',
+        'name' => 'string',
         'created_at' => '\DateTime',
-        'last_activity_at' => '\DateTime',
-        'role' => 'string',
-        'projects' => '\Phrase\Model\ProjectLocales[]',
-        'permissions' => 'object',
-        'default_locale_codes' => 'string[]',
-        'teams' => '\Phrase\Model\Team1[]',
-        'spaces' => '\Phrase\Model\MemberSpaces[]'
+        'updated_at' => '\DateTime'
     ];
 
     /**
@@ -75,16 +68,9 @@ class Member implements ModelInterface, ArrayAccess
       */
     protected static $openAPIFormats = [
         'id' => null,
-        'email' => null,
-        'username' => null,
+        'name' => null,
         'created_at' => 'date-time',
-        'last_activity_at' => 'date-time',
-        'role' => null,
-        'projects' => null,
-        'permissions' => null,
-        'default_locale_codes' => null,
-        'teams' => null,
-        'spaces' => null
+        'updated_at' => 'date-time'
     ];
 
     /**
@@ -115,16 +101,9 @@ class Member implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'id' => 'id',
-        'email' => 'email',
-        'username' => 'username',
+        'name' => 'name',
         'created_at' => 'created_at',
-        'last_activity_at' => 'last_activity_at',
-        'role' => 'role',
-        'projects' => 'projects',
-        'permissions' => 'permissions',
-        'default_locale_codes' => 'default_locale_codes',
-        'teams' => 'teams',
-        'spaces' => 'spaces'
+        'updated_at' => 'updated_at'
     ];
 
     /**
@@ -134,16 +113,9 @@ class Member implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'id' => 'setId',
-        'email' => 'setEmail',
-        'username' => 'setUsername',
+        'name' => 'setName',
         'created_at' => 'setCreatedAt',
-        'last_activity_at' => 'setLastActivityAt',
-        'role' => 'setRole',
-        'projects' => 'setProjects',
-        'permissions' => 'setPermissions',
-        'default_locale_codes' => 'setDefaultLocaleCodes',
-        'teams' => 'setTeams',
-        'spaces' => 'setSpaces'
+        'updated_at' => 'setUpdatedAt'
     ];
 
     /**
@@ -153,16 +125,9 @@ class Member implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'id' => 'getId',
-        'email' => 'getEmail',
-        'username' => 'getUsername',
+        'name' => 'getName',
         'created_at' => 'getCreatedAt',
-        'last_activity_at' => 'getLastActivityAt',
-        'role' => 'getRole',
-        'projects' => 'getProjects',
-        'permissions' => 'getPermissions',
-        'default_locale_codes' => 'getDefaultLocaleCodes',
-        'teams' => 'getTeams',
-        'spaces' => 'getSpaces'
+        'updated_at' => 'getUpdatedAt'
     ];
 
     /**
@@ -226,16 +191,9 @@ class Member implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
-        $this->container['email'] = isset($data['email']) ? $data['email'] : null;
-        $this->container['username'] = isset($data['username']) ? $data['username'] : null;
+        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
-        $this->container['last_activity_at'] = isset($data['last_activity_at']) ? $data['last_activity_at'] : null;
-        $this->container['role'] = isset($data['role']) ? $data['role'] : null;
-        $this->container['projects'] = isset($data['projects']) ? $data['projects'] : null;
-        $this->container['permissions'] = isset($data['permissions']) ? $data['permissions'] : null;
-        $this->container['default_locale_codes'] = isset($data['default_locale_codes']) ? $data['default_locale_codes'] : null;
-        $this->container['teams'] = isset($data['teams']) ? $data['teams'] : null;
-        $this->container['spaces'] = isset($data['spaces']) ? $data['spaces'] : null;
+        $this->container['updated_at'] = isset($data['updated_at']) ? $data['updated_at'] : null;
     }
 
     /**
@@ -287,49 +245,25 @@ class Member implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets email
+     * Gets name
      *
      * @return string|null
      */
-    public function getEmail()
+    public function getName()
     {
-        return $this->container['email'];
+        return $this->container['name'];
     }
 
     /**
-     * Sets email
+     * Sets name
      *
-     * @param string|null $email email
+     * @param string|null $name name
      *
      * @return $this
      */
-    public function setEmail($email)
+    public function setName($name)
     {
-        $this->container['email'] = $email;
-
-        return $this;
-    }
-
-    /**
-     * Gets username
-     *
-     * @return string|null
-     */
-    public function getUsername()
-    {
-        return $this->container['username'];
-    }
-
-    /**
-     * Sets username
-     *
-     * @param string|null $username username
-     *
-     * @return $this
-     */
-    public function setUsername($username)
-    {
-        $this->container['username'] = $username;
+        $this->container['name'] = $name;
 
         return $this;
     }
@@ -359,169 +293,25 @@ class Member implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets last_activity_at
+     * Gets updated_at
      *
      * @return \DateTime|null
      */
-    public function getLastActivityAt()
+    public function getUpdatedAt()
     {
-        return $this->container['last_activity_at'];
+        return $this->container['updated_at'];
     }
 
     /**
-     * Sets last_activity_at
+     * Sets updated_at
      *
-     * @param \DateTime|null $last_activity_at last_activity_at
+     * @param \DateTime|null $updated_at updated_at
      *
      * @return $this
      */
-    public function setLastActivityAt($last_activity_at)
+    public function setUpdatedAt($updated_at)
     {
-        $this->container['last_activity_at'] = $last_activity_at;
-
-        return $this;
-    }
-
-    /**
-     * Gets role
-     *
-     * @return string|null
-     */
-    public function getRole()
-    {
-        return $this->container['role'];
-    }
-
-    /**
-     * Sets role
-     *
-     * @param string|null $role role
-     *
-     * @return $this
-     */
-    public function setRole($role)
-    {
-        $this->container['role'] = $role;
-
-        return $this;
-    }
-
-    /**
-     * Gets projects
-     *
-     * @return \Phrase\Model\ProjectLocales[]|null
-     */
-    public function getProjects()
-    {
-        return $this->container['projects'];
-    }
-
-    /**
-     * Sets projects
-     *
-     * @param \Phrase\Model\ProjectLocales[]|null $projects projects
-     *
-     * @return $this
-     */
-    public function setProjects($projects)
-    {
-        $this->container['projects'] = $projects;
-
-        return $this;
-    }
-
-    /**
-     * Gets permissions
-     *
-     * @return object|null
-     */
-    public function getPermissions()
-    {
-        return $this->container['permissions'];
-    }
-
-    /**
-     * Sets permissions
-     *
-     * @param object|null $permissions permissions
-     *
-     * @return $this
-     */
-    public function setPermissions($permissions)
-    {
-        $this->container['permissions'] = $permissions;
-
-        return $this;
-    }
-
-    /**
-     * Gets default_locale_codes
-     *
-     * @return string[]|null
-     */
-    public function getDefaultLocaleCodes()
-    {
-        return $this->container['default_locale_codes'];
-    }
-
-    /**
-     * Sets default_locale_codes
-     *
-     * @param string[]|null $default_locale_codes default_locale_codes
-     *
-     * @return $this
-     */
-    public function setDefaultLocaleCodes($default_locale_codes)
-    {
-        $this->container['default_locale_codes'] = $default_locale_codes;
-
-        return $this;
-    }
-
-    /**
-     * Gets teams
-     *
-     * @return \Phrase\Model\Team1[]|null
-     */
-    public function getTeams()
-    {
-        return $this->container['teams'];
-    }
-
-    /**
-     * Sets teams
-     *
-     * @param \Phrase\Model\Team1[]|null $teams teams
-     *
-     * @return $this
-     */
-    public function setTeams($teams)
-    {
-        $this->container['teams'] = $teams;
-
-        return $this;
-    }
-
-    /**
-     * Gets spaces
-     *
-     * @return \Phrase\Model\MemberSpaces[]|null
-     */
-    public function getSpaces()
-    {
-        return $this->container['spaces'];
-    }
-
-    /**
-     * Sets spaces
-     *
-     * @param \Phrase\Model\MemberSpaces[]|null $spaces spaces
-     *
-     * @return $this
-     */
-    public function setSpaces($spaces)
-    {
-        $this->container['spaces'] = $spaces;
+        $this->container['updated_at'] = $updated_at;
 
         return $this;
     }

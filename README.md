@@ -503,6 +503,7 @@ Class | Method | HTTP request | Description
  - [TagWithStats1Statistics](docs/Model/TagWithStats1Statistics.md)
  - [TagWithStats1Statistics1](docs/Model/TagWithStats1Statistics1.md)
  - [Team](docs/Model/Team.md)
+ - [Team1](docs/Model/Team1.md)
  - [TeamCreateParameters](docs/Model/TeamCreateParameters.md)
  - [TeamDetail](docs/Model/TeamDetail.md)
  - [TeamUpdateParameters](docs/Model/TeamUpdateParameters.md)
