@@ -17,6 +17,7 @@ Name | Type | Description | Notes
 **updated_at** | [**\DateTime**](\DateTime.md) |  | [optional] 
 **accepted_at** | [**\DateTime**](\DateTime.md) |  | [optional] 
 **spaces** | [**\Phrase\Model\MemberSpaces[]**](MemberSpaces.md) |  | [optional] 
+**teams** | [**\Phrase\Model\Items[]**](Items.md) |  | [optional] 
 **project_role** | [**\Phrase\Model\MemberProjectDetailProjectRoles[]**](MemberProjectDetailProjectRoles.md) |  | [optional] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)

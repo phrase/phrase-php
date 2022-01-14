@@ -68,6 +68,7 @@ class Invitation implements ModelInterface, ArrayAccess
         'updated_at' => '\DateTime',
         'accepted_at' => '\DateTime',
         'spaces' => '\Phrase\Model\MemberSpaces[]',
+        'teams' => '\Phrase\Model\Items[]',
         'project_role' => '\Phrase\Model\MemberProjectDetailProjectRoles[]'
     ];
 
@@ -90,6 +91,7 @@ class Invitation implements ModelInterface, ArrayAccess
         'updated_at' => 'date-time',
         'accepted_at' => 'date-time',
         'spaces' => null,
+        'teams' => null,
         'project_role' => null
     ];
 
@@ -133,6 +135,7 @@ class Invitation implements ModelInterface, ArrayAccess
         'updated_at' => 'updated_at',
         'accepted_at' => 'accepted_at',
         'spaces' => 'spaces',
+        'teams' => 'teams',
         'project_role' => 'project_role'
     ];
 
@@ -155,6 +158,7 @@ class Invitation implements ModelInterface, ArrayAccess
         'updated_at' => 'setUpdatedAt',
         'accepted_at' => 'setAcceptedAt',
         'spaces' => 'setSpaces',
+        'teams' => 'setTeams',
         'project_role' => 'setProjectRole'
     ];
 
@@ -177,6 +181,7 @@ class Invitation implements ModelInterface, ArrayAccess
         'updated_at' => 'getUpdatedAt',
         'accepted_at' => 'getAcceptedAt',
         'spaces' => 'getSpaces',
+        'teams' => 'getTeams',
         'project_role' => 'getProjectRole'
     ];
 
@@ -253,6 +258,7 @@ class Invitation implements ModelInterface, ArrayAccess
         $this->container['updated_at'] = isset($data['updated_at']) ? $data['updated_at'] : null;
         $this->container['accepted_at'] = isset($data['accepted_at']) ? $data['accepted_at'] : null;
         $this->container['spaces'] = isset($data['spaces']) ? $data['spaces'] : null;
+        $this->container['teams'] = isset($data['teams']) ? $data['teams'] : null;
         $this->container['project_role'] = isset($data['project_role']) ? $data['project_role'] : null;
     }
 
@@ -588,6 +594,30 @@ class Invitation implements ModelInterface, ArrayAccess
     public function setSpaces($spaces)
     {
         $this->container['spaces'] = $spaces;
+
+        return $this;
+    }
+
+    /**
+     * Gets teams
+     *
+     * @return \Phrase\Model\Items[]|null
+     */
+    public function getTeams()
+    {
+        return $this->container['teams'];
+    }
+
+    /**
+     * Sets teams
+     *
+     * @param \Phrase\Model\Items[]|null $teams teams
+     *
+     * @return $this
+     */
+    public function setTeams($teams)
+    {
+        $this->container['teams'] = $teams;
 
         return $this;
     }
