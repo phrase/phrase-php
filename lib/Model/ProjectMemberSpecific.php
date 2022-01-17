@@ -1,6 +1,6 @@
 <?php
 /**
- * ProjectLocales
+ * ProjectMemberSpecific
  *
  * PHP version 5
  *
@@ -31,14 +31,14 @@ use \ArrayAccess;
 use \Phrase\ObjectSerializer;
 
 /**
- * ProjectLocales Class Doc Comment
+ * ProjectMemberSpecific Class Doc Comment
  *
  * @category Class
  * @package  Phrase
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class ProjectLocales implements ModelInterface, ArrayAccess
+class ProjectMemberSpecific implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -47,7 +47,7 @@ class ProjectLocales implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'project_locales';
+    protected static $openAPIModelName = 'project_member_specific';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -60,8 +60,7 @@ class ProjectLocales implements ModelInterface, ArrayAccess
         'project_role' => 'string',
         'main_format' => 'string',
         'created_at' => '\DateTime',
-        'updated_at' => '\DateTime',
-        'locales' => '\Phrase\Model\LocalePreview[]'
+        'updated_at' => '\DateTime'
     ];
 
     /**
@@ -75,8 +74,7 @@ class ProjectLocales implements ModelInterface, ArrayAccess
         'project_role' => null,
         'main_format' => null,
         'created_at' => 'date-time',
-        'updated_at' => 'date-time',
-        'locales' => null
+        'updated_at' => 'date-time'
     ];
 
     /**
@@ -111,8 +109,7 @@ class ProjectLocales implements ModelInterface, ArrayAccess
         'project_role' => 'project_role',
         'main_format' => 'main_format',
         'created_at' => 'created_at',
-        'updated_at' => 'updated_at',
-        'locales' => 'locales'
+        'updated_at' => 'updated_at'
     ];
 
     /**
@@ -126,8 +123,7 @@ class ProjectLocales implements ModelInterface, ArrayAccess
         'project_role' => 'setProjectRole',
         'main_format' => 'setMainFormat',
         'created_at' => 'setCreatedAt',
-        'updated_at' => 'setUpdatedAt',
-        'locales' => 'setLocales'
+        'updated_at' => 'setUpdatedAt'
     ];
 
     /**
@@ -141,8 +137,7 @@ class ProjectLocales implements ModelInterface, ArrayAccess
         'project_role' => 'getProjectRole',
         'main_format' => 'getMainFormat',
         'created_at' => 'getCreatedAt',
-        'updated_at' => 'getUpdatedAt',
-        'locales' => 'getLocales'
+        'updated_at' => 'getUpdatedAt'
     ];
 
     /**
@@ -211,7 +206,6 @@ class ProjectLocales implements ModelInterface, ArrayAccess
         $this->container['main_format'] = isset($data['main_format']) ? $data['main_format'] : null;
         $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
         $this->container['updated_at'] = isset($data['updated_at']) ? $data['updated_at'] : null;
-        $this->container['locales'] = isset($data['locales']) ? $data['locales'] : null;
     }
 
     /**
@@ -378,30 +372,6 @@ class ProjectLocales implements ModelInterface, ArrayAccess
     public function setUpdatedAt($updated_at)
     {
         $this->container['updated_at'] = $updated_at;
-
-        return $this;
-    }
-
-    /**
-     * Gets locales
-     *
-     * @return \Phrase\Model\LocalePreview[]|null
-     */
-    public function getLocales()
-    {
-        return $this->container['locales'];
-    }
-
-    /**
-     * Sets locales
-     *
-     * @param \Phrase\Model\LocalePreview[]|null $locales locales
-     *
-     * @return $this
-     */
-    public function setLocales($locales)
-    {
-        $this->container['locales'] = $locales;
 
         return $this;
     }

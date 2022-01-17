@@ -1,6 +1,6 @@
 <?php
 /**
- * ProjectLocalesTest
+ * ProjectMemberSpecificTest
  *
  * PHP version 5
  *
@@ -30,15 +30,15 @@ namespace Phrase;
 use PHPUnit\Framework\TestCase;
 
 /**
- * ProjectLocalesTest Class Doc Comment
+ * ProjectMemberSpecificTest Class Doc Comment
  *
  * @category    Class
- * @description ProjectLocales
+ * @description ProjectMemberSpecific
  * @package     Phrase
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class ProjectLocalesTest extends TestCase
+class ProjectMemberSpecificTest extends TestCase
 {
 
     /**
@@ -70,9 +70,9 @@ class ProjectLocalesTest extends TestCase
     }
 
     /**
-     * Test "ProjectLocales"
+     * Test "ProjectMemberSpecific"
      */
-    public function testProjectLocales()
+    public function testProjectMemberSpecific()
     {
     }
 
@@ -115,13 +115,6 @@ class ProjectLocalesTest extends TestCase
      * Test attribute "updated_at"
      */
     public function testPropertyUpdatedAt()
-    {
-    }
-
-    /**
-     * Test attribute "locales"
-     */
-    public function testPropertyLocales()
     {
     }
 }
