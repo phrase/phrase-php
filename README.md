@@ -119,18 +119,6 @@ $config = Phrase\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Auth
 
 
 
-
-## bearerAuth
-
-
-- **Type**: Bearer authentication (JWT)
-
-```php
-// Configure Bearer (JWT) authorization: bearerAuth
-$config = Phrase\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-```
-
-
 ## Documentation for API Endpoints
 
 All URIs are relative to *https://api.phrase.com/v2*

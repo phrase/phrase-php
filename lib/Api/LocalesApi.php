@@ -415,10 +415,6 @@ class LocalesApi
         if ($apiKey !== null) {
             $headers['Authorization'] = $apiKey;
         }
-        // this endpoint requires Bearer (JWT) authentication (access token)
-        if ($this->config->getAccessToken() !== null) {
-            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
-        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -724,10 +720,6 @@ class LocalesApi
         if ($apiKey !== null) {
             $headers['Authorization'] = $apiKey;
         }
-        // this endpoint requires Bearer (JWT) authentication (access token)
-        if ($this->config->getAccessToken() !== null) {
-            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
-        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -1005,10 +997,6 @@ class LocalesApi
         $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
         if ($apiKey !== null) {
             $headers['Authorization'] = $apiKey;
-        }
-        // this endpoint requires Bearer (JWT) authentication (access token)
-        if ($this->config->getAccessToken() !== null) {
-            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
         }
 
         $defaultHeaders = [];
@@ -1576,10 +1564,6 @@ class LocalesApi
         if ($apiKey !== null) {
             $headers['Authorization'] = $apiKey;
         }
-        // this endpoint requires Bearer (JWT) authentication (access token)
-        if ($this->config->getAccessToken() !== null) {
-            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
-        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -1906,10 +1890,6 @@ class LocalesApi
         if ($apiKey !== null) {
             $headers['Authorization'] = $apiKey;
         }
-        // this endpoint requires Bearer (JWT) authentication (access token)
-        if ($this->config->getAccessToken() !== null) {
-            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
-        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -2233,10 +2213,6 @@ class LocalesApi
         $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
         if ($apiKey !== null) {
             $headers['Authorization'] = $apiKey;
-        }
-        // this endpoint requires Bearer (JWT) authentication (access token)
-        if ($this->config->getAccessToken() !== null) {
-            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
         }
 
         $defaultHeaders = [];
@@ -2592,10 +2568,6 @@ class LocalesApi
         $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
         if ($apiKey !== null) {
             $headers['Authorization'] = $apiKey;
-        }
-        // this endpoint requires Bearer (JWT) authentication (access token)
-        if ($this->config->getAccessToken() !== null) {
-            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
         }
 
         $defaultHeaders = [];
