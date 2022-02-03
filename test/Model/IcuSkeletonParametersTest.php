@@ -91,6 +91,13 @@ class IcuSkeletonParametersTest extends TestCase
     }
 
     /**
+     * Test attribute "keep_content"
+     */
+    public function testPropertyKeepContent()
+    {
+    }
+
+    /**
      * Test attribute "zero_form_enabled"
      */
     public function testPropertyZeroFormEnabled()

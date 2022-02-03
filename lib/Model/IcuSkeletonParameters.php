@@ -57,6 +57,7 @@ class IcuSkeletonParameters implements ModelInterface, ArrayAccess
     protected static $openAPITypes = [
         'content' => 'string',
         'locale_codes' => 'string[]',
+        'keep_content' => 'bool',
         'zero_form_enabled' => 'bool'
     ];
 
@@ -68,6 +69,7 @@ class IcuSkeletonParameters implements ModelInterface, ArrayAccess
     protected static $openAPIFormats = [
         'content' => null,
         'locale_codes' => null,
+        'keep_content' => null,
         'zero_form_enabled' => null
     ];
 
@@ -100,6 +102,7 @@ class IcuSkeletonParameters implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'content' => 'content',
         'locale_codes' => 'locale_codes',
+        'keep_content' => 'keep_content',
         'zero_form_enabled' => 'zero_form_enabled'
     ];
 
@@ -111,6 +114,7 @@ class IcuSkeletonParameters implements ModelInterface, ArrayAccess
     protected static $setters = [
         'content' => 'setContent',
         'locale_codes' => 'setLocaleCodes',
+        'keep_content' => 'setKeepContent',
         'zero_form_enabled' => 'setZeroFormEnabled'
     ];
 
@@ -122,6 +126,7 @@ class IcuSkeletonParameters implements ModelInterface, ArrayAccess
     protected static $getters = [
         'content' => 'getContent',
         'locale_codes' => 'getLocaleCodes',
+        'keep_content' => 'getKeepContent',
         'zero_form_enabled' => 'getZeroFormEnabled'
     ];
 
@@ -187,6 +192,7 @@ class IcuSkeletonParameters implements ModelInterface, ArrayAccess
     {
         $this->container['content'] = isset($data['content']) ? $data['content'] : null;
         $this->container['locale_codes'] = isset($data['locale_codes']) ? $data['locale_codes'] : null;
+        $this->container['keep_content'] = isset($data['keep_content']) ? $data['keep_content'] : null;
         $this->container['zero_form_enabled'] = isset($data['zero_form_enabled']) ? $data['zero_form_enabled'] : null;
     }
 
@@ -258,6 +264,30 @@ class IcuSkeletonParameters implements ModelInterface, ArrayAccess
     public function setLocaleCodes($locale_codes)
     {
         $this->container['locale_codes'] = $locale_codes;
+
+        return $this;
+    }
+
+    /**
+     * Gets keep_content
+     *
+     * @return bool|null
+     */
+    public function getKeepContent()
+    {
+        return $this->container['keep_content'];
+    }
+
+    /**
+     * Sets keep_content
+     *
+     * @param bool|null $keep_content Keep the content and add missing plural forms for each locale
+     *
+     * @return $this
+     */
+    public function setKeepContent($keep_content)
+    {
+        $this->container['keep_content'] = $keep_content;
 
         return $this;
     }
