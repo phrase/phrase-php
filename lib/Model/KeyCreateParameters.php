@@ -66,6 +66,7 @@ class KeyCreateParameters implements ModelInterface, ArrayAccess
         'screenshot' => '\SplFileObject',
         'remove_screenshot' => 'bool',
         'unformatted' => 'bool',
+        'default_translation_content' => 'string',
         'xml_space_preserve' => 'bool',
         'original_file' => 'string',
         'localized_format_string' => 'string',
@@ -89,6 +90,7 @@ class KeyCreateParameters implements ModelInterface, ArrayAccess
         'screenshot' => 'binary',
         'remove_screenshot' => null,
         'unformatted' => null,
+        'default_translation_content' => null,
         'xml_space_preserve' => null,
         'original_file' => null,
         'localized_format_string' => null,
@@ -133,6 +135,7 @@ class KeyCreateParameters implements ModelInterface, ArrayAccess
         'screenshot' => 'screenshot',
         'remove_screenshot' => 'remove_screenshot',
         'unformatted' => 'unformatted',
+        'default_translation_content' => 'default_translation_content',
         'xml_space_preserve' => 'xml_space_preserve',
         'original_file' => 'original_file',
         'localized_format_string' => 'localized_format_string',
@@ -156,6 +159,7 @@ class KeyCreateParameters implements ModelInterface, ArrayAccess
         'screenshot' => 'setScreenshot',
         'remove_screenshot' => 'setRemoveScreenshot',
         'unformatted' => 'setUnformatted',
+        'default_translation_content' => 'setDefaultTranslationContent',
         'xml_space_preserve' => 'setXmlSpacePreserve',
         'original_file' => 'setOriginalFile',
         'localized_format_string' => 'setLocalizedFormatString',
@@ -179,6 +183,7 @@ class KeyCreateParameters implements ModelInterface, ArrayAccess
         'screenshot' => 'getScreenshot',
         'remove_screenshot' => 'getRemoveScreenshot',
         'unformatted' => 'getUnformatted',
+        'default_translation_content' => 'getDefaultTranslationContent',
         'xml_space_preserve' => 'getXmlSpacePreserve',
         'original_file' => 'getOriginalFile',
         'localized_format_string' => 'getLocalizedFormatString',
@@ -256,6 +261,7 @@ class KeyCreateParameters implements ModelInterface, ArrayAccess
         $this->container['screenshot'] = isset($data['screenshot']) ? $data['screenshot'] : null;
         $this->container['remove_screenshot'] = isset($data['remove_screenshot']) ? $data['remove_screenshot'] : null;
         $this->container['unformatted'] = isset($data['unformatted']) ? $data['unformatted'] : null;
+        $this->container['default_translation_content'] = isset($data['default_translation_content']) ? $data['default_translation_content'] : null;
         $this->container['xml_space_preserve'] = isset($data['xml_space_preserve']) ? $data['xml_space_preserve'] : null;
         $this->container['original_file'] = isset($data['original_file']) ? $data['original_file'] : null;
         $this->container['localized_format_string'] = isset($data['localized_format_string']) ? $data['localized_format_string'] : null;
@@ -546,6 +552,30 @@ class KeyCreateParameters implements ModelInterface, ArrayAccess
     public function setUnformatted($unformatted)
     {
         $this->container['unformatted'] = $unformatted;
+
+        return $this;
+    }
+
+    /**
+     * Gets default_translation_content
+     *
+     * @return string|null
+     */
+    public function getDefaultTranslationContent()
+    {
+        return $this->container['default_translation_content'];
+    }
+
+    /**
+     * Sets default_translation_content
+     *
+     * @param string|null $default_translation_content Creates a translation in the default locale with the specified content
+     *
+     * @return $this
+     */
+    public function setDefaultTranslationContent($default_translation_content)
+    {
+        $this->container['default_translation_content'] = $default_translation_content;
 
         return $this;
     }

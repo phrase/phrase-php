@@ -154,6 +154,13 @@ class KeyCreateParametersTest extends TestCase
     }
 
     /**
+     * Test attribute "default_translation_content"
+     */
+    public function testPropertyDefaultTranslationContent()
+    {
+    }
+
+    /**
      * Test attribute "xml_space_preserve"
      */
     public function testPropertyXmlSpacePreserve()
