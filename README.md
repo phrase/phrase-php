@@ -216,9 +216,11 @@ Class | Method | HTTP request | Description
 *JobsApi* | [**jobDelete**](docs/Api/JobsApi.md#jobdelete) | **DELETE** /projects/{project_id}/jobs/{id} | Delete a job
 *JobsApi* | [**jobKeysCreate**](docs/Api/JobsApi.md#jobkeyscreate) | **POST** /projects/{project_id}/jobs/{id}/keys | Add keys to job
 *JobsApi* | [**jobKeysDelete**](docs/Api/JobsApi.md#jobkeysdelete) | **DELETE** /projects/{project_id}/jobs/{id}/keys | Remove keys from job
+*JobsApi* | [**jobLock**](docs/Api/JobsApi.md#joblock) | **POST** /projects/{project_id}/jobs/{id}/lock | Lock a job
 *JobsApi* | [**jobReopen**](docs/Api/JobsApi.md#jobreopen) | **POST** /projects/{project_id}/jobs/{id}/reopen | Reopen a job
 *JobsApi* | [**jobShow**](docs/Api/JobsApi.md#jobshow) | **GET** /projects/{project_id}/jobs/{id} | Get a single job
 *JobsApi* | [**jobStart**](docs/Api/JobsApi.md#jobstart) | **POST** /projects/{project_id}/jobs/{id}/start | Start a job
+*JobsApi* | [**jobUnlock**](docs/Api/JobsApi.md#jobunlock) | **POST** /projects/{project_id}/jobs/{id}/unlock | Unlock a job
 *JobsApi* | [**jobUpdate**](docs/Api/JobsApi.md#jobupdate) | **PATCH** /projects/{project_id}/jobs/{id} | Update a job
 *JobsApi* | [**jobsByAccount**](docs/Api/JobsApi.md#jobsbyaccount) | **GET** /accounts/{account_id}/jobs | List account jobs
 *JobsApi* | [**jobsList**](docs/Api/JobsApi.md#jobslist) | **GET** /projects/{project_id}/jobs | List jobs

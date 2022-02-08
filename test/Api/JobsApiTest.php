@@ -121,6 +121,16 @@ class JobsApiTest extends TestCase
     }
 
     /**
+     * Test case for jobLock
+     *
+     * Lock a job.
+     *
+     */
+    public function testJobLock()
+    {
+    }
+
+    /**
      * Test case for jobReopen
      *
      * Reopen a job.
@@ -147,6 +157,16 @@ class JobsApiTest extends TestCase
      *
      */
     public function testJobStart()
+    {
+    }
+
+    /**
+     * Test case for jobUnlock
+     *
+     * Unlock a job.
+     *
+     */
+    public function testJobUnlock()
     {
     }
 

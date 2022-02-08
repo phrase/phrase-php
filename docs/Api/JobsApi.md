@@ -9,9 +9,11 @@ Method | HTTP request | Description
 [**jobDelete**](JobsApi.md#jobDelete) | **DELETE** /projects/{project_id}/jobs/{id} | Delete a job
 [**jobKeysCreate**](JobsApi.md#jobKeysCreate) | **POST** /projects/{project_id}/jobs/{id}/keys | Add keys to job
 [**jobKeysDelete**](JobsApi.md#jobKeysDelete) | **DELETE** /projects/{project_id}/jobs/{id}/keys | Remove keys from job
+[**jobLock**](JobsApi.md#jobLock) | **POST** /projects/{project_id}/jobs/{id}/lock | Lock a job
 [**jobReopen**](JobsApi.md#jobReopen) | **POST** /projects/{project_id}/jobs/{id}/reopen | Reopen a job
 [**jobShow**](JobsApi.md#jobShow) | **GET** /projects/{project_id}/jobs/{id} | Get a single job
 [**jobStart**](JobsApi.md#jobStart) | **POST** /projects/{project_id}/jobs/{id}/start | Start a job
+[**jobUnlock**](JobsApi.md#jobUnlock) | **POST** /projects/{project_id}/jobs/{id}/unlock | Unlock a job
 [**jobUpdate**](JobsApi.md#jobUpdate) | **PATCH** /projects/{project_id}/jobs/{id} | Update a job
 [**jobsByAccount**](JobsApi.md#jobsByAccount) | **GET** /accounts/{account_id}/jobs | List account jobs
 [**jobsList**](JobsApi.md#jobsList) | **GET** /projects/{project_id}/jobs | List jobs
@@ -341,6 +343,70 @@ void (empty response body)
 [[Back to README]](../../README.md)
 
 
+## jobLock
+
+> jobLock($project_id, $id, $x_phrase_app_otp, $branch)
+
+Lock a job
+
+If you are the job owner, you may lock a job using this API request.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$config = Phrase\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = Phrase\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'token');
+
+$apiInstance = new Phrase\Api\JobsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$project_id = 'project_id_example'; // string | Project ID
+$id = 'id_example'; // string | ID
+$x_phrase_app_otp = 'x_phrase_app_otp_example'; // string | Two-Factor-Authentication token (optional)
+$branch = my-feature-branch; // string | specify the branch to use
+
+try {
+    $apiInstance->jobLock($project_id, $id, $x_phrase_app_otp, $branch);
+} catch (Exception $e) {
+    echo 'Exception when calling JobsApi->jobLock: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **project_id** | **string**| Project ID |
+ **id** | **string**| ID |
+ **x_phrase_app_otp** | **string**| Two-Factor-Authentication token (optional) | [optional]
+ **branch** | **string**| specify the branch to use | [optional]
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[Basic](../../README.md#Basic), [Token](../../README.md#Token)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
+
+
 ## jobReopen
 
 > \Phrase\Model\JobDetails jobReopen($project_id, $id, $job_reopen_parameters, $x_phrase_app_otp)
@@ -530,6 +596,70 @@ Name | Type | Description  | Notes
 
 - **Content-Type**: application/json
 - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
+
+
+## jobUnlock
+
+> jobUnlock($project_id, $id, $x_phrase_app_otp, $branch)
+
+Unlock a job
+
+If you are the job owner, you may unlock a locked job using this API request.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$config = Phrase\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = Phrase\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'token');
+
+$apiInstance = new Phrase\Api\JobsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$project_id = 'project_id_example'; // string | Project ID
+$id = 'id_example'; // string | ID
+$x_phrase_app_otp = 'x_phrase_app_otp_example'; // string | Two-Factor-Authentication token (optional)
+$branch = my-feature-branch; // string | specify the branch to use
+
+try {
+    $apiInstance->jobUnlock($project_id, $id, $x_phrase_app_otp, $branch);
+} catch (Exception $e) {
+    echo 'Exception when calling JobsApi->jobUnlock: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **project_id** | **string**| Project ID |
+ **id** | **string**| ID |
+ **x_phrase_app_otp** | **string**| Two-Factor-Authentication token (optional) | [optional]
+ **branch** | **string**| specify the branch to use | [optional]
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[Basic](../../README.md#Basic), [Token](../../README.md#Token)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../../README.md#documentation-for-models)
