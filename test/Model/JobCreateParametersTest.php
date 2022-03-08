@@ -131,4 +131,11 @@ class JobCreateParametersTest extends TestCase
     public function testPropertyTranslationKeyIds()
     {
     }
+
+    /**
+     * Test attribute "job_template_id"
+     */
+    public function testPropertyJobTemplateId()
+    {
+    }
 }

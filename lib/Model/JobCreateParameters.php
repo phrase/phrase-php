@@ -62,7 +62,8 @@ class JobCreateParameters implements ModelInterface, ArrayAccess
         'due_date' => '\DateTime',
         'ticket_url' => 'string',
         'tags' => 'string[]',
-        'translation_key_ids' => 'string[]'
+        'translation_key_ids' => 'string[]',
+        'job_template_id' => 'string'
     ];
 
     /**
@@ -78,7 +79,8 @@ class JobCreateParameters implements ModelInterface, ArrayAccess
         'due_date' => 'date-time',
         'ticket_url' => null,
         'tags' => null,
-        'translation_key_ids' => null
+        'translation_key_ids' => null,
+        'job_template_id' => null
     ];
 
     /**
@@ -115,7 +117,8 @@ class JobCreateParameters implements ModelInterface, ArrayAccess
         'due_date' => 'due_date',
         'ticket_url' => 'ticket_url',
         'tags' => 'tags',
-        'translation_key_ids' => 'translation_key_ids'
+        'translation_key_ids' => 'translation_key_ids',
+        'job_template_id' => 'job_template_id'
     ];
 
     /**
@@ -131,7 +134,8 @@ class JobCreateParameters implements ModelInterface, ArrayAccess
         'due_date' => 'setDueDate',
         'ticket_url' => 'setTicketUrl',
         'tags' => 'setTags',
-        'translation_key_ids' => 'setTranslationKeyIds'
+        'translation_key_ids' => 'setTranslationKeyIds',
+        'job_template_id' => 'setJobTemplateId'
     ];
 
     /**
@@ -147,7 +151,8 @@ class JobCreateParameters implements ModelInterface, ArrayAccess
         'due_date' => 'getDueDate',
         'ticket_url' => 'getTicketUrl',
         'tags' => 'getTags',
-        'translation_key_ids' => 'getTranslationKeyIds'
+        'translation_key_ids' => 'getTranslationKeyIds',
+        'job_template_id' => 'getJobTemplateId'
     ];
 
     /**
@@ -218,6 +223,7 @@ class JobCreateParameters implements ModelInterface, ArrayAccess
         $this->container['ticket_url'] = isset($data['ticket_url']) ? $data['ticket_url'] : null;
         $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
         $this->container['translation_key_ids'] = isset($data['translation_key_ids']) ? $data['translation_key_ids'] : null;
+        $this->container['job_template_id'] = isset($data['job_template_id']) ? $data['job_template_id'] : null;
     }
 
     /**
@@ -432,6 +438,30 @@ class JobCreateParameters implements ModelInterface, ArrayAccess
     public function setTranslationKeyIds($translation_key_ids)
     {
         $this->container['translation_key_ids'] = $translation_key_ids;
+
+        return $this;
+    }
+
+    /**
+     * Gets job_template_id
+     *
+     * @return string|null
+     */
+    public function getJobTemplateId()
+    {
+        return $this->container['job_template_id'];
+    }
+
+    /**
+     * Sets job_template_id
+     *
+     * @param string|null $job_template_id id of a job template you would like to model the created job after. Any manually added parameters will take preference over template attributes.
+     *
+     * @return $this
+     */
+    public function setJobTemplateId($job_template_id)
+    {
+        $this->container['job_template_id'] = $job_template_id;
 
         return $this;
     }
