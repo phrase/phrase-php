@@ -119,6 +119,13 @@ class InvitationTest extends TestCase
     }
 
     /**
+     * Test attribute "teams"
+     */
+    public function testPropertyTeams()
+    {
+    }
+
+    /**
      * Test attribute "default_locale_codes"
      */
     public function testPropertyDefaultLocaleCodes()
@@ -164,13 +171,6 @@ class InvitationTest extends TestCase
      * Test attribute "spaces"
      */
     public function testPropertySpaces()
-    {
-    }
-
-    /**
-     * Test attribute "teams"
-     */
-    public function testPropertyTeams()
     {
     }
 

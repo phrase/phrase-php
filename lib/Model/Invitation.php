@@ -61,14 +61,14 @@ class Invitation implements ModelInterface, ArrayAccess
         'state' => 'string',
         'projects' => '\Phrase\Model\ProjectShort[]',
         'locales' => '\Phrase\Model\LocalePreview[]',
+        'teams' => '\Phrase\Model\TeamShort[]',
         'default_locale_codes' => 'string[]',
         'permissions' => 'object',
         'locale_ids' => 'string[]',
         'created_at' => '\DateTime',
         'updated_at' => '\DateTime',
         'accepted_at' => '\DateTime',
-        'spaces' => '\Phrase\Model\MemberSpaces[]',
-        'teams' => '\Phrase\Model\Items[]',
+        'spaces' => '\Phrase\Model\Space[]',
         'project_role' => '\Phrase\Model\MemberProjectDetailProjectRoles[]'
     ];
 
@@ -84,6 +84,7 @@ class Invitation implements ModelInterface, ArrayAccess
         'state' => null,
         'projects' => null,
         'locales' => null,
+        'teams' => null,
         'default_locale_codes' => null,
         'permissions' => null,
         'locale_ids' => null,
@@ -91,7 +92,6 @@ class Invitation implements ModelInterface, ArrayAccess
         'updated_at' => 'date-time',
         'accepted_at' => 'date-time',
         'spaces' => null,
-        'teams' => null,
         'project_role' => null
     ];
 
@@ -128,6 +128,7 @@ class Invitation implements ModelInterface, ArrayAccess
         'state' => 'state',
         'projects' => 'projects',
         'locales' => 'locales',
+        'teams' => 'teams',
         'default_locale_codes' => 'default_locale_codes',
         'permissions' => 'permissions',
         'locale_ids' => 'locale_ids',
@@ -135,7 +136,6 @@ class Invitation implements ModelInterface, ArrayAccess
         'updated_at' => 'updated_at',
         'accepted_at' => 'accepted_at',
         'spaces' => 'spaces',
-        'teams' => 'teams',
         'project_role' => 'project_role'
     ];
 
@@ -151,6 +151,7 @@ class Invitation implements ModelInterface, ArrayAccess
         'state' => 'setState',
         'projects' => 'setProjects',
         'locales' => 'setLocales',
+        'teams' => 'setTeams',
         'default_locale_codes' => 'setDefaultLocaleCodes',
         'permissions' => 'setPermissions',
         'locale_ids' => 'setLocaleIds',
@@ -158,7 +159,6 @@ class Invitation implements ModelInterface, ArrayAccess
         'updated_at' => 'setUpdatedAt',
         'accepted_at' => 'setAcceptedAt',
         'spaces' => 'setSpaces',
-        'teams' => 'setTeams',
         'project_role' => 'setProjectRole'
     ];
 
@@ -174,6 +174,7 @@ class Invitation implements ModelInterface, ArrayAccess
         'state' => 'getState',
         'projects' => 'getProjects',
         'locales' => 'getLocales',
+        'teams' => 'getTeams',
         'default_locale_codes' => 'getDefaultLocaleCodes',
         'permissions' => 'getPermissions',
         'locale_ids' => 'getLocaleIds',
@@ -181,7 +182,6 @@ class Invitation implements ModelInterface, ArrayAccess
         'updated_at' => 'getUpdatedAt',
         'accepted_at' => 'getAcceptedAt',
         'spaces' => 'getSpaces',
-        'teams' => 'getTeams',
         'project_role' => 'getProjectRole'
     ];
 
@@ -251,6 +251,7 @@ class Invitation implements ModelInterface, ArrayAccess
         $this->container['state'] = isset($data['state']) ? $data['state'] : null;
         $this->container['projects'] = isset($data['projects']) ? $data['projects'] : null;
         $this->container['locales'] = isset($data['locales']) ? $data['locales'] : null;
+        $this->container['teams'] = isset($data['teams']) ? $data['teams'] : null;
         $this->container['default_locale_codes'] = isset($data['default_locale_codes']) ? $data['default_locale_codes'] : null;
         $this->container['permissions'] = isset($data['permissions']) ? $data['permissions'] : null;
         $this->container['locale_ids'] = isset($data['locale_ids']) ? $data['locale_ids'] : null;
@@ -258,7 +259,6 @@ class Invitation implements ModelInterface, ArrayAccess
         $this->container['updated_at'] = isset($data['updated_at']) ? $data['updated_at'] : null;
         $this->container['accepted_at'] = isset($data['accepted_at']) ? $data['accepted_at'] : null;
         $this->container['spaces'] = isset($data['spaces']) ? $data['spaces'] : null;
-        $this->container['teams'] = isset($data['teams']) ? $data['teams'] : null;
         $this->container['project_role'] = isset($data['project_role']) ? $data['project_role'] : null;
     }
 
@@ -431,6 +431,30 @@ class Invitation implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets teams
+     *
+     * @return \Phrase\Model\TeamShort[]|null
+     */
+    public function getTeams()
+    {
+        return $this->container['teams'];
+    }
+
+    /**
+     * Sets teams
+     *
+     * @param \Phrase\Model\TeamShort[]|null $teams teams
+     *
+     * @return $this
+     */
+    public function setTeams($teams)
+    {
+        $this->container['teams'] = $teams;
+
+        return $this;
+    }
+
+    /**
      * Gets default_locale_codes
      *
      * @return string[]|null
@@ -577,7 +601,7 @@ class Invitation implements ModelInterface, ArrayAccess
     /**
      * Gets spaces
      *
-     * @return \Phrase\Model\MemberSpaces[]|null
+     * @return \Phrase\Model\Space[]|null
      */
     public function getSpaces()
     {
@@ -587,37 +611,13 @@ class Invitation implements ModelInterface, ArrayAccess
     /**
      * Sets spaces
      *
-     * @param \Phrase\Model\MemberSpaces[]|null $spaces spaces
+     * @param \Phrase\Model\Space[]|null $spaces spaces
      *
      * @return $this
      */
     public function setSpaces($spaces)
     {
         $this->container['spaces'] = $spaces;
-
-        return $this;
-    }
-
-    /**
-     * Gets teams
-     *
-     * @return \Phrase\Model\Items[]|null
-     */
-    public function getTeams()
-    {
-        return $this->container['teams'];
-    }
-
-    /**
-     * Sets teams
-     *
-     * @param \Phrase\Model\Items[]|null $teams teams
-     *
-     * @return $this
-     */
-    public function setTeams($teams)
-    {
-        $this->container['teams'] = $teams;
 
         return $this;
     }

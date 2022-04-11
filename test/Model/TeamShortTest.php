@@ -1,6 +1,6 @@
 <?php
 /**
- * Team1Test
+ * TeamShortTest
  *
  * PHP version 5
  *
@@ -30,15 +30,15 @@ namespace Phrase;
 use PHPUnit\Framework\TestCase;
 
 /**
- * Team1Test Class Doc Comment
+ * TeamShortTest Class Doc Comment
  *
  * @category    Class
- * @description Team1
+ * @description TeamShort
  * @package     Phrase
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class Team1Test extends TestCase
+class TeamShortTest extends TestCase
 {
 
     /**
@@ -70,9 +70,9 @@ class Team1Test extends TestCase
     }
 
     /**
-     * Test "Team1"
+     * Test "TeamShort"
      */
-    public function testTeam1()
+    public function testTeamShort()
     {
     }
 

@@ -64,7 +64,7 @@ class Member implements ModelInterface, ArrayAccess
         'projects' => '\Phrase\Model\ProjectLocales[]',
         'permissions' => 'object',
         'default_locale_codes' => 'string[]',
-        'teams' => '\Phrase\Model\Team1[]',
+        'teams' => '\Phrase\Model\TeamShort[]',
         'spaces' => '\Phrase\Model\MemberSpaces[]'
     ];
 
@@ -481,7 +481,7 @@ class Member implements ModelInterface, ArrayAccess
     /**
      * Gets teams
      *
-     * @return \Phrase\Model\Team1[]|null
+     * @return \Phrase\Model\TeamShort[]|null
      */
     public function getTeams()
     {
@@ -491,7 +491,7 @@ class Member implements ModelInterface, ArrayAccess
     /**
      * Sets teams
      *
-     * @param \Phrase\Model\Team1[]|null $teams teams
+     * @param \Phrase\Model\TeamShort[]|null $teams teams
      *
      * @return $this
      */

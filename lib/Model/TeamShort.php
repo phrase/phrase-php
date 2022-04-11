@@ -1,6 +1,6 @@
 <?php
 /**
- * Team1
+ * TeamShort
  *
  * PHP version 5
  *
@@ -31,14 +31,14 @@ use \ArrayAccess;
 use \Phrase\ObjectSerializer;
 
 /**
- * Team1 Class Doc Comment
+ * TeamShort Class Doc Comment
  *
  * @category Class
  * @package  Phrase
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class Team1 implements ModelInterface, ArrayAccess
+class TeamShort implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -47,7 +47,7 @@ class Team1 implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'team_1';
+    protected static $openAPIModelName = 'team_short';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
