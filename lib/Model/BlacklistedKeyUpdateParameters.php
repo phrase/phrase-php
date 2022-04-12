@@ -215,7 +215,7 @@ class BlacklistedKeyUpdateParameters implements ModelInterface, ArrayAccess
     /**
      * Sets name
      *
-     * @param string|null $name Blacklisted key name
+     * @param string|null $name Blocked key name
      *
      * @return $this
      */

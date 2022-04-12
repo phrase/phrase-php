@@ -1,14 +1,14 @@
-# Phrase\BlacklistedKeysApi
+# Phrase\BlockedKeysApi
 
 All URIs are relative to *https://api.phrase.com/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**blacklistedKeyCreate**](BlacklistedKeysApi.md#blacklistedKeyCreate) | **POST** /projects/{project_id}/blacklisted_keys | Create a blacklisted key
-[**blacklistedKeyDelete**](BlacklistedKeysApi.md#blacklistedKeyDelete) | **DELETE** /projects/{project_id}/blacklisted_keys/{id} | Delete a blacklisted key
-[**blacklistedKeyShow**](BlacklistedKeysApi.md#blacklistedKeyShow) | **GET** /projects/{project_id}/blacklisted_keys/{id} | Get a single blacklisted key
-[**blacklistedKeyUpdate**](BlacklistedKeysApi.md#blacklistedKeyUpdate) | **PATCH** /projects/{project_id}/blacklisted_keys/{id} | Update a blacklisted key
-[**blacklistedKeysList**](BlacklistedKeysApi.md#blacklistedKeysList) | **GET** /projects/{project_id}/blacklisted_keys | List blacklisted keys
+[**blacklistedKeyCreate**](BlockedKeysApi.md#blacklistedKeyCreate) | **POST** /projects/{project_id}/blacklisted_keys | Create a blacklisted key
+[**blacklistedKeyDelete**](BlockedKeysApi.md#blacklistedKeyDelete) | **DELETE** /projects/{project_id}/blacklisted_keys/{id} | Delete a blacklisted key
+[**blacklistedKeyShow**](BlockedKeysApi.md#blacklistedKeyShow) | **GET** /projects/{project_id}/blacklisted_keys/{id} | Get a single blacklisted key
+[**blacklistedKeyUpdate**](BlockedKeysApi.md#blacklistedKeyUpdate) | **PATCH** /projects/{project_id}/blacklisted_keys/{id} | Update a blacklisted key
+[**blacklistedKeysList**](BlockedKeysApi.md#blacklistedKeysList) | **GET** /projects/{project_id}/blacklisted_keys | List blacklisted keys
 
 
 
@@ -18,7 +18,7 @@ Method | HTTP request | Description
 
 Create a blacklisted key
 
-Create a new rule for blacklisting keys.
+Create a new rule for blocking keys.
 
 ### Example
 
@@ -29,7 +29,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 $config = Phrase\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 $config = Phrase\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'token');
 
-$apiInstance = new Phrase\Api\BlacklistedKeysApi(
+$apiInstance = new Phrase\Api\BlockedKeysApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -43,7 +43,7 @@ try {
     $result = $apiInstance->blacklistedKeyCreate($project_id, $blacklisted_key_create_parameters, $x_phrase_app_otp);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling BlacklistedKeysApi->blacklistedKeyCreate: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling BlockedKeysApi->blacklistedKeyCreate: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -81,7 +81,7 @@ Name | Type | Description  | Notes
 
 Delete a blacklisted key
 
-Delete an existing rule for blacklisting keys.
+Delete an existing rule for blocking keys.
 
 ### Example
 
@@ -92,7 +92,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 $config = Phrase\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 $config = Phrase\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'token');
 
-$apiInstance = new Phrase\Api\BlacklistedKeysApi(
+$apiInstance = new Phrase\Api\BlockedKeysApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -105,7 +105,7 @@ $x_phrase_app_otp = 'x_phrase_app_otp_example'; // string | Two-Factor-Authentic
 try {
     $apiInstance->blacklistedKeyDelete($project_id, $id, $x_phrase_app_otp);
 } catch (Exception $e) {
-    echo 'Exception when calling BlacklistedKeysApi->blacklistedKeyDelete: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling BlockedKeysApi->blacklistedKeyDelete: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -143,7 +143,7 @@ void (empty response body)
 
 Get a single blacklisted key
 
-Get details on a single rule for blacklisting keys for a given project.
+Get details on a single rule for blocking keys for a given project.
 
 ### Example
 
@@ -154,7 +154,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 $config = Phrase\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 $config = Phrase\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'token');
 
-$apiInstance = new Phrase\Api\BlacklistedKeysApi(
+$apiInstance = new Phrase\Api\BlockedKeysApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -168,7 +168,7 @@ try {
     $result = $apiInstance->blacklistedKeyShow($project_id, $id, $x_phrase_app_otp);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling BlacklistedKeysApi->blacklistedKeyShow: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling BlockedKeysApi->blacklistedKeyShow: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -206,7 +206,7 @@ Name | Type | Description  | Notes
 
 Update a blacklisted key
 
-Update an existing rule for blacklisting keys.
+Update an existing rule for blocking keys.
 
 ### Example
 
@@ -217,7 +217,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 $config = Phrase\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 $config = Phrase\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'token');
 
-$apiInstance = new Phrase\Api\BlacklistedKeysApi(
+$apiInstance = new Phrase\Api\BlockedKeysApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -232,7 +232,7 @@ try {
     $result = $apiInstance->blacklistedKeyUpdate($project_id, $id, $blacklisted_key_update_parameters, $x_phrase_app_otp);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling BlacklistedKeysApi->blacklistedKeyUpdate: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling BlockedKeysApi->blacklistedKeyUpdate: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -271,7 +271,7 @@ Name | Type | Description  | Notes
 
 List blacklisted keys
 
-List all rules for blacklisting keys for the given project.
+List all rules for blocking keys for the given project.
 
 ### Example
 
@@ -282,7 +282,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 $config = Phrase\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 $config = Phrase\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'token');
 
-$apiInstance = new Phrase\Api\BlacklistedKeysApi(
+$apiInstance = new Phrase\Api\BlockedKeysApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -298,7 +298,7 @@ try {
     $result = $apiInstance->blacklistedKeysList($project_id, $x_phrase_app_otp, $page, $per_page, $branch);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling BlacklistedKeysApi->blacklistedKeysList: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling BlockedKeysApi->blacklistedKeysList: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```

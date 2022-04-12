@@ -1,6 +1,6 @@
 <?php
 /**
- * GlossaryTermsApi
+ * TermsInTermBaseApi
  * PHP version 5
  *
  * @category Class
@@ -38,14 +38,14 @@ use Phrase\HeaderSelector;
 use Phrase\ObjectSerializer;
 
 /**
- * GlossaryTermsApi Class Doc Comment
+ * TermsInTermBaseApi Class Doc Comment
  *
  * @category Class
  * @package  Phrase
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class GlossaryTermsApi
+class TermsInTermBaseApi
 {
     /**
      * @var ClientInterface
@@ -116,7 +116,7 @@ class GlossaryTermsApi
     /**
      * Operation glossaryTermCreate
      *
-     * Create a glossary term
+     * Create a term
      *
      * @param  string $account_id Account ID (required)
      * @param  string $glossary_id Glossary ID (required)
@@ -136,7 +136,7 @@ class GlossaryTermsApi
     /**
      * Operation glossaryTermCreateWithHttpInfo
      *
-     * Create a glossary term
+     * Create a term
      *
      * @param  string $account_id Account ID (required)
      * @param  string $glossary_id Glossary ID (required)
@@ -227,7 +227,7 @@ class GlossaryTermsApi
     /**
      * Operation glossaryTermCreateAsync
      *
-     * Create a glossary term
+     * Create a term
      *
      * @param  string $account_id Account ID (required)
      * @param  string $glossary_id Glossary ID (required)
@@ -250,7 +250,7 @@ class GlossaryTermsApi
     /**
      * Operation glossaryTermCreateAsyncWithHttpInfo
      *
-     * Create a glossary term
+     * Create a term
      *
      * @param  string $account_id Account ID (required)
      * @param  string $glossary_id Glossary ID (required)
@@ -440,7 +440,7 @@ class GlossaryTermsApi
     /**
      * Operation glossaryTermDelete
      *
-     * Delete a glossary term
+     * Delete a term
      *
      * @param  string $account_id Account ID (required)
      * @param  string $glossary_id Glossary ID (required)
@@ -459,7 +459,7 @@ class GlossaryTermsApi
     /**
      * Operation glossaryTermDeleteWithHttpInfo
      *
-     * Delete a glossary term
+     * Delete a term
      *
      * @param  string $account_id Account ID (required)
      * @param  string $glossary_id Glossary ID (required)
@@ -514,7 +514,7 @@ class GlossaryTermsApi
     /**
      * Operation glossaryTermDeleteAsync
      *
-     * Delete a glossary term
+     * Delete a term
      *
      * @param  string $account_id Account ID (required)
      * @param  string $glossary_id Glossary ID (required)
@@ -537,7 +537,7 @@ class GlossaryTermsApi
     /**
      * Operation glossaryTermDeleteAsyncWithHttpInfo
      *
-     * Delete a glossary term
+     * Delete a term
      *
      * @param  string $account_id Account ID (required)
      * @param  string $glossary_id Glossary ID (required)
@@ -721,7 +721,7 @@ class GlossaryTermsApi
     /**
      * Operation glossaryTermShow
      *
-     * Get a single glossary term
+     * Get a single term
      *
      * @param  string $account_id Account ID (required)
      * @param  string $glossary_id Glossary ID (required)
@@ -741,7 +741,7 @@ class GlossaryTermsApi
     /**
      * Operation glossaryTermShowWithHttpInfo
      *
-     * Get a single glossary term
+     * Get a single term
      *
      * @param  string $account_id Account ID (required)
      * @param  string $glossary_id Glossary ID (required)
@@ -832,7 +832,7 @@ class GlossaryTermsApi
     /**
      * Operation glossaryTermShowAsync
      *
-     * Get a single glossary term
+     * Get a single term
      *
      * @param  string $account_id Account ID (required)
      * @param  string $glossary_id Glossary ID (required)
@@ -855,7 +855,7 @@ class GlossaryTermsApi
     /**
      * Operation glossaryTermShowAsyncWithHttpInfo
      *
-     * Get a single glossary term
+     * Get a single term
      *
      * @param  string $account_id Account ID (required)
      * @param  string $glossary_id Glossary ID (required)
@@ -1050,7 +1050,7 @@ class GlossaryTermsApi
     /**
      * Operation glossaryTermUpdate
      *
-     * Update a glossary term
+     * Update a term
      *
      * @param  string $account_id Account ID (required)
      * @param  string $glossary_id Glossary ID (required)
@@ -1071,7 +1071,7 @@ class GlossaryTermsApi
     /**
      * Operation glossaryTermUpdateWithHttpInfo
      *
-     * Update a glossary term
+     * Update a term
      *
      * @param  string $account_id Account ID (required)
      * @param  string $glossary_id Glossary ID (required)
@@ -1163,7 +1163,7 @@ class GlossaryTermsApi
     /**
      * Operation glossaryTermUpdateAsync
      *
-     * Update a glossary term
+     * Update a term
      *
      * @param  string $account_id Account ID (required)
      * @param  string $glossary_id Glossary ID (required)
@@ -1187,7 +1187,7 @@ class GlossaryTermsApi
     /**
      * Operation glossaryTermUpdateAsyncWithHttpInfo
      *
-     * Update a glossary term
+     * Update a term
      *
      * @param  string $account_id Account ID (required)
      * @param  string $glossary_id Glossary ID (required)
@@ -1393,7 +1393,7 @@ class GlossaryTermsApi
     /**
      * Operation glossaryTermsList
      *
-     * List glossary terms
+     * List terms
      *
      * @param  string $account_id Account ID (required)
      * @param  string $glossary_id Glossary ID (required)
@@ -1414,7 +1414,7 @@ class GlossaryTermsApi
     /**
      * Operation glossaryTermsListWithHttpInfo
      *
-     * List glossary terms
+     * List terms
      *
      * @param  string $account_id Account ID (required)
      * @param  string $glossary_id Glossary ID (required)
@@ -1506,7 +1506,7 @@ class GlossaryTermsApi
     /**
      * Operation glossaryTermsListAsync
      *
-     * List glossary terms
+     * List terms
      *
      * @param  string $account_id Account ID (required)
      * @param  string $glossary_id Glossary ID (required)
@@ -1530,7 +1530,7 @@ class GlossaryTermsApi
     /**
      * Operation glossaryTermsListAsyncWithHttpInfo
      *
-     * List glossary terms
+     * List terms
      *
      * @param  string $account_id Account ID (required)
      * @param  string $glossary_id Glossary ID (required)

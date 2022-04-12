@@ -135,11 +135,11 @@ Class | Method | HTTP request | Description
 *BitbucketSyncApi* | [**bitbucketSyncExport**](docs/Api/BitbucketSyncApi.md#bitbucketsyncexport) | **POST** /bitbucket_syncs/{id}/export | Export from Phrase to Bitbucket
 *BitbucketSyncApi* | [**bitbucketSyncImport**](docs/Api/BitbucketSyncApi.md#bitbucketsyncimport) | **POST** /bitbucket_syncs/{id}/import | Import to Phrase from Bitbucket
 *BitbucketSyncApi* | [**bitbucketSyncsList**](docs/Api/BitbucketSyncApi.md#bitbucketsyncslist) | **GET** /bitbucket_syncs | List Bitbucket syncs
-*BlacklistedKeysApi* | [**blacklistedKeyCreate**](docs/Api/BlacklistedKeysApi.md#blacklistedkeycreate) | **POST** /projects/{project_id}/blacklisted_keys | Create a blacklisted key
-*BlacklistedKeysApi* | [**blacklistedKeyDelete**](docs/Api/BlacklistedKeysApi.md#blacklistedkeydelete) | **DELETE** /projects/{project_id}/blacklisted_keys/{id} | Delete a blacklisted key
-*BlacklistedKeysApi* | [**blacklistedKeyShow**](docs/Api/BlacklistedKeysApi.md#blacklistedkeyshow) | **GET** /projects/{project_id}/blacklisted_keys/{id} | Get a single blacklisted key
-*BlacklistedKeysApi* | [**blacklistedKeyUpdate**](docs/Api/BlacklistedKeysApi.md#blacklistedkeyupdate) | **PATCH** /projects/{project_id}/blacklisted_keys/{id} | Update a blacklisted key
-*BlacklistedKeysApi* | [**blacklistedKeysList**](docs/Api/BlacklistedKeysApi.md#blacklistedkeyslist) | **GET** /projects/{project_id}/blacklisted_keys | List blacklisted keys
+*BlockedKeysApi* | [**blacklistedKeyCreate**](docs/Api/BlockedKeysApi.md#blacklistedkeycreate) | **POST** /projects/{project_id}/blacklisted_keys | Create a blacklisted key
+*BlockedKeysApi* | [**blacklistedKeyDelete**](docs/Api/BlockedKeysApi.md#blacklistedkeydelete) | **DELETE** /projects/{project_id}/blacklisted_keys/{id} | Delete a blacklisted key
+*BlockedKeysApi* | [**blacklistedKeyShow**](docs/Api/BlockedKeysApi.md#blacklistedkeyshow) | **GET** /projects/{project_id}/blacklisted_keys/{id} | Get a single blacklisted key
+*BlockedKeysApi* | [**blacklistedKeyUpdate**](docs/Api/BlockedKeysApi.md#blacklistedkeyupdate) | **PATCH** /projects/{project_id}/blacklisted_keys/{id} | Update a blacklisted key
+*BlockedKeysApi* | [**blacklistedKeysList**](docs/Api/BlockedKeysApi.md#blacklistedkeyslist) | **GET** /projects/{project_id}/blacklisted_keys | List blacklisted keys
 *BranchesApi* | [**branchCompare**](docs/Api/BranchesApi.md#branchcompare) | **GET** /projects/{project_id}/branches/{name}/compare | Compare branches
 *BranchesApi* | [**branchCreate**](docs/Api/BranchesApi.md#branchcreate) | **POST** /projects/{project_id}/branches | Create a branch
 *BranchesApi* | [**branchDelete**](docs/Api/BranchesApi.md#branchdelete) | **DELETE** /projects/{project_id}/branches/{name} | Delete a branch
@@ -172,19 +172,6 @@ Class | Method | HTTP request | Description
 *GitLabSyncApi* | [**gitlabSyncList**](docs/Api/GitLabSyncApi.md#gitlabsynclist) | **GET** /gitlab_syncs | List GitLab syncs
 *GitLabSyncApi* | [**gitlabSyncShow**](docs/Api/GitLabSyncApi.md#gitlabsyncshow) | **GET** /gitlab_syncs/{id} | Get single Sync Setting
 *GitLabSyncApi* | [**gitlabSyncUpdate**](docs/Api/GitLabSyncApi.md#gitlabsyncupdate) | **PUT** /gitlab_syncs/{id} | Update single Sync Setting
-*GlossariesApi* | [**glossariesList**](docs/Api/GlossariesApi.md#glossarieslist) | **GET** /accounts/{account_id}/glossaries | List glossaries
-*GlossariesApi* | [**glossaryCreate**](docs/Api/GlossariesApi.md#glossarycreate) | **POST** /accounts/{account_id}/glossaries | Create a glossary
-*GlossariesApi* | [**glossaryDelete**](docs/Api/GlossariesApi.md#glossarydelete) | **DELETE** /accounts/{account_id}/glossaries/{id} | Delete a glossary
-*GlossariesApi* | [**glossaryShow**](docs/Api/GlossariesApi.md#glossaryshow) | **GET** /accounts/{account_id}/glossaries/{id} | Get a single glossary
-*GlossariesApi* | [**glossaryUpdate**](docs/Api/GlossariesApi.md#glossaryupdate) | **PATCH** /accounts/{account_id}/glossaries/{id} | Update a glossary
-*GlossaryTermTranslationsApi* | [**glossaryTermTranslationCreate**](docs/Api/GlossaryTermTranslationsApi.md#glossarytermtranslationcreate) | **POST** /accounts/{account_id}/glossaries/{glossary_id}/terms/{term_id}/translations | Create a glossary term translation
-*GlossaryTermTranslationsApi* | [**glossaryTermTranslationDelete**](docs/Api/GlossaryTermTranslationsApi.md#glossarytermtranslationdelete) | **DELETE** /accounts/{account_id}/glossaries/{glossary_id}/terms/{term_id}/translations/{id} | Delete a glossary term translation
-*GlossaryTermTranslationsApi* | [**glossaryTermTranslationUpdate**](docs/Api/GlossaryTermTranslationsApi.md#glossarytermtranslationupdate) | **PATCH** /accounts/{account_id}/glossaries/{glossary_id}/terms/{term_id}/translations/{id} | Update a glossary term translation
-*GlossaryTermsApi* | [**glossaryTermCreate**](docs/Api/GlossaryTermsApi.md#glossarytermcreate) | **POST** /accounts/{account_id}/glossaries/{glossary_id}/terms | Create a glossary term
-*GlossaryTermsApi* | [**glossaryTermDelete**](docs/Api/GlossaryTermsApi.md#glossarytermdelete) | **DELETE** /accounts/{account_id}/glossaries/{glossary_id}/terms/{id} | Delete a glossary term
-*GlossaryTermsApi* | [**glossaryTermShow**](docs/Api/GlossaryTermsApi.md#glossarytermshow) | **GET** /accounts/{account_id}/glossaries/{glossary_id}/terms/{id} | Get a single glossary term
-*GlossaryTermsApi* | [**glossaryTermUpdate**](docs/Api/GlossaryTermsApi.md#glossarytermupdate) | **PATCH** /accounts/{account_id}/glossaries/{glossary_id}/terms/{id} | Update a glossary term
-*GlossaryTermsApi* | [**glossaryTermsList**](docs/Api/GlossaryTermsApi.md#glossarytermslist) | **GET** /accounts/{account_id}/glossaries/{glossary_id}/terms | List glossary terms
 *ICUApi* | [**icuSkeleton**](docs/Api/ICUApi.md#icuskeleton) | **POST** /icu/skeleton | Build icu skeletons
 *InvitationsApi* | [**invitationCreate**](docs/Api/InvitationsApi.md#invitationcreate) | **POST** /accounts/{account_id}/invitations | Create a new invitation
 *InvitationsApi* | [**invitationDelete**](docs/Api/InvitationsApi.md#invitationdelete) | **DELETE** /accounts/{account_id}/invitations/{id} | Delete an invitation
@@ -308,6 +295,19 @@ Class | Method | HTTP request | Description
 *TeamsApi* | [**teamsSpacesDelete**](docs/Api/TeamsApi.md#teamsspacesdelete) | **DELETE** /accounts/{account_id}/teams/{team_id}/spaces/{id} | Remove Space
 *TeamsApi* | [**teamsUsersCreate**](docs/Api/TeamsApi.md#teamsuserscreate) | **POST** /accounts/{account_id}/teams/{team_id}/users | Add User
 *TeamsApi* | [**teamsUsersDelete**](docs/Api/TeamsApi.md#teamsusersdelete) | **DELETE** /accounts/{account_id}/teams/{team_id}/users/{id} | Remove User
+*TermBaseApi* | [**glossariesList**](docs/Api/TermBaseApi.md#glossarieslist) | **GET** /accounts/{account_id}/glossaries | List term bases
+*TermBaseApi* | [**glossaryCreate**](docs/Api/TermBaseApi.md#glossarycreate) | **POST** /accounts/{account_id}/glossaries | Create a term base
+*TermBaseApi* | [**glossaryDelete**](docs/Api/TermBaseApi.md#glossarydelete) | **DELETE** /accounts/{account_id}/glossaries/{id} | Delete a term base
+*TermBaseApi* | [**glossaryShow**](docs/Api/TermBaseApi.md#glossaryshow) | **GET** /accounts/{account_id}/glossaries/{id} | Get a single term base
+*TermBaseApi* | [**glossaryUpdate**](docs/Api/TermBaseApi.md#glossaryupdate) | **PATCH** /accounts/{account_id}/glossaries/{id} | Update a term base
+*TermBaseTranslationApi* | [**glossaryTermTranslationDelete**](docs/Api/TermBaseTranslationApi.md#glossarytermtranslationdelete) | **DELETE** /accounts/{account_id}/glossaries/{glossary_id}/terms/{term_id}/translations/{id} | Delete a translation for a term
+*TermBaseTranslationsApi* | [**glossaryTermTranslationCreate**](docs/Api/TermBaseTranslationsApi.md#glossarytermtranslationcreate) | **POST** /accounts/{account_id}/glossaries/{glossary_id}/terms/{term_id}/translations | Create a translation for a term
+*TermBaseTranslationsApi* | [**glossaryTermTranslationUpdate**](docs/Api/TermBaseTranslationsApi.md#glossarytermtranslationupdate) | **PATCH** /accounts/{account_id}/glossaries/{glossary_id}/terms/{term_id}/translations/{id} | Update a translation for a term
+*TermsInTermBaseApi* | [**glossaryTermCreate**](docs/Api/TermsInTermBaseApi.md#glossarytermcreate) | **POST** /accounts/{account_id}/glossaries/{glossary_id}/terms | Create a term
+*TermsInTermBaseApi* | [**glossaryTermDelete**](docs/Api/TermsInTermBaseApi.md#glossarytermdelete) | **DELETE** /accounts/{account_id}/glossaries/{glossary_id}/terms/{id} | Delete a term
+*TermsInTermBaseApi* | [**glossaryTermShow**](docs/Api/TermsInTermBaseApi.md#glossarytermshow) | **GET** /accounts/{account_id}/glossaries/{glossary_id}/terms/{id} | Get a single term
+*TermsInTermBaseApi* | [**glossaryTermUpdate**](docs/Api/TermsInTermBaseApi.md#glossarytermupdate) | **PATCH** /accounts/{account_id}/glossaries/{glossary_id}/terms/{id} | Update a term
+*TermsInTermBaseApi* | [**glossaryTermsList**](docs/Api/TermsInTermBaseApi.md#glossarytermslist) | **GET** /accounts/{account_id}/glossaries/{glossary_id}/terms | List terms
 *TranslationsApi* | [**translationCreate**](docs/Api/TranslationsApi.md#translationcreate) | **POST** /projects/{project_id}/translations | Create a translation
 *TranslationsApi* | [**translationExclude**](docs/Api/TranslationsApi.md#translationexclude) | **PATCH** /projects/{project_id}/translations/{id}/exclude | Exclude a translation from export
 *TranslationsApi* | [**translationInclude**](docs/Api/TranslationsApi.md#translationinclude) | **PATCH** /projects/{project_id}/translations/{id}/include | Revoke exclusion of a translation in export
