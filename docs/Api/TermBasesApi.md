@@ -1,14 +1,14 @@
-# Phrase\TermBaseApi
+# Phrase\TermBasesApi
 
 All URIs are relative to *https://api.phrase.com/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**glossariesList**](TermBaseApi.md#glossariesList) | **GET** /accounts/{account_id}/glossaries | List term bases
-[**glossaryCreate**](TermBaseApi.md#glossaryCreate) | **POST** /accounts/{account_id}/glossaries | Create a term base
-[**glossaryDelete**](TermBaseApi.md#glossaryDelete) | **DELETE** /accounts/{account_id}/glossaries/{id} | Delete a term base
-[**glossaryShow**](TermBaseApi.md#glossaryShow) | **GET** /accounts/{account_id}/glossaries/{id} | Get a single term base
-[**glossaryUpdate**](TermBaseApi.md#glossaryUpdate) | **PATCH** /accounts/{account_id}/glossaries/{id} | Update a term base
+[**glossariesList**](TermBasesApi.md#glossariesList) | **GET** /accounts/{account_id}/glossaries | List term bases
+[**glossaryCreate**](TermBasesApi.md#glossaryCreate) | **POST** /accounts/{account_id}/glossaries | Create a term base
+[**glossaryDelete**](TermBasesApi.md#glossaryDelete) | **DELETE** /accounts/{account_id}/glossaries/{id} | Delete a term base
+[**glossaryShow**](TermBasesApi.md#glossaryShow) | **GET** /accounts/{account_id}/glossaries/{id} | Get a single term base
+[**glossaryUpdate**](TermBasesApi.md#glossaryUpdate) | **PATCH** /accounts/{account_id}/glossaries/{id} | Update a term base
 
 
 
@@ -29,7 +29,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 $config = Phrase\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 $config = Phrase\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'token');
 
-$apiInstance = new Phrase\Api\TermBaseApi(
+$apiInstance = new Phrase\Api\TermBasesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -44,7 +44,7 @@ try {
     $result = $apiInstance->glossariesList($account_id, $x_phrase_app_otp, $page, $per_page);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling TermBaseApi->glossariesList: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling TermBasesApi->glossariesList: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -94,7 +94,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 $config = Phrase\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 $config = Phrase\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'token');
 
-$apiInstance = new Phrase\Api\TermBaseApi(
+$apiInstance = new Phrase\Api\TermBasesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -108,7 +108,7 @@ try {
     $result = $apiInstance->glossaryCreate($account_id, $glossary_create_parameters, $x_phrase_app_otp);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling TermBaseApi->glossaryCreate: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling TermBasesApi->glossaryCreate: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -157,7 +157,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 $config = Phrase\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 $config = Phrase\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'token');
 
-$apiInstance = new Phrase\Api\TermBaseApi(
+$apiInstance = new Phrase\Api\TermBasesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -170,7 +170,7 @@ $x_phrase_app_otp = 'x_phrase_app_otp_example'; // string | Two-Factor-Authentic
 try {
     $apiInstance->glossaryDelete($account_id, $id, $x_phrase_app_otp);
 } catch (Exception $e) {
-    echo 'Exception when calling TermBaseApi->glossaryDelete: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling TermBasesApi->glossaryDelete: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -219,7 +219,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 $config = Phrase\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 $config = Phrase\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'token');
 
-$apiInstance = new Phrase\Api\TermBaseApi(
+$apiInstance = new Phrase\Api\TermBasesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -233,7 +233,7 @@ try {
     $result = $apiInstance->glossaryShow($account_id, $id, $x_phrase_app_otp);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling TermBaseApi->glossaryShow: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling TermBasesApi->glossaryShow: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -282,7 +282,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 $config = Phrase\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 $config = Phrase\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'token');
 
-$apiInstance = new Phrase\Api\TermBaseApi(
+$apiInstance = new Phrase\Api\TermBasesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -297,7 +297,7 @@ try {
     $result = $apiInstance->glossaryUpdate($account_id, $id, $glossary_update_parameters, $x_phrase_app_otp);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling TermBaseApi->glossaryUpdate: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling TermBasesApi->glossaryUpdate: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```

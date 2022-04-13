@@ -1,6 +1,6 @@
 <?php
 /**
- * TermBaseApiTest
+ * ChangesVersionsApiTest
  * PHP version 5
  *
  * @category Class
@@ -32,14 +32,14 @@ use \Phrase\ObjectSerializer;
 use PHPUnit\Framework\TestCase;
 
 /**
- * TermBaseApiTest Class Doc Comment
+ * ChangesVersionsApiTest Class Doc Comment
  *
  * @category Class
  * @package  Phrase
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class TermBaseApiTest extends TestCase
+class ChangesVersionsApiTest extends TestCase
 {
 
     /**
@@ -71,52 +71,22 @@ class TermBaseApiTest extends TestCase
     }
 
     /**
-     * Test case for glossariesList
+     * Test case for versionShow
      *
-     * List term bases.
+     * Get a single version.
      *
      */
-    public function testGlossariesList()
+    public function testVersionShow()
     {
     }
 
     /**
-     * Test case for glossaryCreate
+     * Test case for versionsList
      *
-     * Create a term base.
-     *
-     */
-    public function testGlossaryCreate()
-    {
-    }
-
-    /**
-     * Test case for glossaryDelete
-     *
-     * Delete a term base.
+     * List all versions.
      *
      */
-    public function testGlossaryDelete()
-    {
-    }
-
-    /**
-     * Test case for glossaryShow
-     *
-     * Get a single term base.
-     *
-     */
-    public function testGlossaryShow()
-    {
-    }
-
-    /**
-     * Test case for glossaryUpdate
-     *
-     * Update a term base.
-     *
-     */
-    public function testGlossaryUpdate()
+    public function testVersionsList()
     {
     }
 }

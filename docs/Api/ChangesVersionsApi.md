@@ -1,11 +1,11 @@
-# Phrase\VersionsHistoryApi
+# Phrase\ChangesVersionsApi
 
 All URIs are relative to *https://api.phrase.com/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**versionShow**](VersionsHistoryApi.md#versionShow) | **GET** /projects/{project_id}/translations/{translation_id}/versions/{id} | Get a single version
-[**versionsList**](VersionsHistoryApi.md#versionsList) | **GET** /projects/{project_id}/translations/{translation_id}/versions | List all versions
+[**versionShow**](ChangesVersionsApi.md#versionShow) | **GET** /projects/{project_id}/translations/{translation_id}/versions/{id} | Get a single version
+[**versionsList**](ChangesVersionsApi.md#versionsList) | **GET** /projects/{project_id}/translations/{translation_id}/versions | List all versions
 
 
 
@@ -26,7 +26,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 $config = Phrase\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 $config = Phrase\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'token');
 
-$apiInstance = new Phrase\Api\VersionsHistoryApi(
+$apiInstance = new Phrase\Api\ChangesVersionsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -42,7 +42,7 @@ try {
     $result = $apiInstance->versionShow($project_id, $translation_id, $id, $x_phrase_app_otp, $branch);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling VersionsHistoryApi->versionShow: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling ChangesVersionsApi->versionShow: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -93,7 +93,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 $config = Phrase\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 $config = Phrase\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'token');
 
-$apiInstance = new Phrase\Api\VersionsHistoryApi(
+$apiInstance = new Phrase\Api\ChangesVersionsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -110,7 +110,7 @@ try {
     $result = $apiInstance->versionsList($project_id, $translation_id, $x_phrase_app_otp, $page, $per_page, $branch);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling VersionsHistoryApi->versionsList: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling ChangesVersionsApi->versionsList: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```

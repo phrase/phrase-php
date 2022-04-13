@@ -81,6 +81,16 @@ class TermBaseTranslationsApiTest extends TestCase
     }
 
     /**
+     * Test case for glossaryTermTranslationDelete
+     *
+     * Delete a translation for a term.
+     *
+     */
+    public function testGlossaryTermTranslationDelete()
+    {
+    }
+
+    /**
      * Test case for glossaryTermTranslationUpdate
      *
      * Update a translation for a term.
