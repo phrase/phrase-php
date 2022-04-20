@@ -1,6 +1,6 @@
 <?php
 /**
- * TermBasesApiTest
+ * GlossaryTermsApiTest
  * PHP version 5
  *
  * @category Class
@@ -32,14 +32,14 @@ use \Phrase\ObjectSerializer;
 use PHPUnit\Framework\TestCase;
 
 /**
- * TermBasesApiTest Class Doc Comment
+ * GlossaryTermsApiTest Class Doc Comment
  *
  * @category Class
  * @package  Phrase
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class TermBasesApiTest extends TestCase
+class GlossaryTermsApiTest extends TestCase
 {
 
     /**
@@ -71,52 +71,52 @@ class TermBasesApiTest extends TestCase
     }
 
     /**
-     * Test case for glossariesList
+     * Test case for glossaryTermCreate
      *
-     * List term bases.
+     * Create a glossary term.
      *
      */
-    public function testGlossariesList()
+    public function testGlossaryTermCreate()
     {
     }
 
     /**
-     * Test case for glossaryCreate
+     * Test case for glossaryTermDelete
      *
-     * Create a term base.
+     * Delete a glossary term.
      *
      */
-    public function testGlossaryCreate()
+    public function testGlossaryTermDelete()
     {
     }
 
     /**
-     * Test case for glossaryDelete
+     * Test case for glossaryTermShow
      *
-     * Delete a term base.
+     * Get a single glossary term.
      *
      */
-    public function testGlossaryDelete()
+    public function testGlossaryTermShow()
     {
     }
 
     /**
-     * Test case for glossaryShow
+     * Test case for glossaryTermUpdate
      *
-     * Get a single term base.
+     * Update a glossary term.
      *
      */
-    public function testGlossaryShow()
+    public function testGlossaryTermUpdate()
     {
     }
 
     /**
-     * Test case for glossaryUpdate
+     * Test case for glossaryTermsList
      *
-     * Update a term base.
+     * List glossary terms.
      *
      */
-    public function testGlossaryUpdate()
+    public function testGlossaryTermsList()
     {
     }
 }

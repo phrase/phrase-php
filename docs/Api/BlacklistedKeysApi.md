@@ -1,24 +1,24 @@
-# Phrase\TermsInTermBaseApi
+# Phrase\BlacklistedKeysApi
 
 All URIs are relative to *https://api.phrase.com/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**glossaryTermCreate**](TermsInTermBaseApi.md#glossaryTermCreate) | **POST** /accounts/{account_id}/glossaries/{glossary_id}/terms | Create a term
-[**glossaryTermDelete**](TermsInTermBaseApi.md#glossaryTermDelete) | **DELETE** /accounts/{account_id}/glossaries/{glossary_id}/terms/{id} | Delete a term
-[**glossaryTermShow**](TermsInTermBaseApi.md#glossaryTermShow) | **GET** /accounts/{account_id}/glossaries/{glossary_id}/terms/{id} | Get a single term
-[**glossaryTermUpdate**](TermsInTermBaseApi.md#glossaryTermUpdate) | **PATCH** /accounts/{account_id}/glossaries/{glossary_id}/terms/{id} | Update a term
-[**glossaryTermsList**](TermsInTermBaseApi.md#glossaryTermsList) | **GET** /accounts/{account_id}/glossaries/{glossary_id}/terms | List terms
+[**blacklistedKeyCreate**](BlacklistedKeysApi.md#blacklistedKeyCreate) | **POST** /projects/{project_id}/blacklisted_keys | Create a blacklisted key
+[**blacklistedKeyDelete**](BlacklistedKeysApi.md#blacklistedKeyDelete) | **DELETE** /projects/{project_id}/blacklisted_keys/{id} | Delete a blacklisted key
+[**blacklistedKeyShow**](BlacklistedKeysApi.md#blacklistedKeyShow) | **GET** /projects/{project_id}/blacklisted_keys/{id} | Get a single blacklisted key
+[**blacklistedKeyUpdate**](BlacklistedKeysApi.md#blacklistedKeyUpdate) | **PATCH** /projects/{project_id}/blacklisted_keys/{id} | Update a blacklisted key
+[**blacklistedKeysList**](BlacklistedKeysApi.md#blacklistedKeysList) | **GET** /projects/{project_id}/blacklisted_keys | List blacklisted keys
 
 
 
-## glossaryTermCreate
+## blacklistedKeyCreate
 
-> \Phrase\Model\GlossaryTerm glossaryTermCreate($account_id, $glossary_id, $glossary_term_create_parameters, $x_phrase_app_otp)
+> \Phrase\Model\BlacklistedKey blacklistedKeyCreate($project_id, $blacklisted_key_create_parameters, $x_phrase_app_otp)
 
-Create a term
+Create a blacklisted key
 
-Create a new term in a term base (previously: glossary).
+Create a new rule for blacklisting keys.
 
 ### Example
 
@@ -29,22 +29,21 @@ require_once(__DIR__ . '/vendor/autoload.php');
 $config = Phrase\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 $config = Phrase\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'token');
 
-$apiInstance = new Phrase\Api\TermsInTermBaseApi(
+$apiInstance = new Phrase\Api\BlacklistedKeysApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$account_id = 'account_id_example'; // string | Account ID
-$glossary_id = 'glossary_id_example'; // string | Glossary ID
-$glossary_term_create_parameters = new \Phrase\Model\GlossaryTermCreateParameters(); // \Phrase\Model\GlossaryTermCreateParameters | 
+$project_id = 'project_id_example'; // string | Project ID
+$blacklisted_key_create_parameters = new \Phrase\Model\BlacklistedKeyCreateParameters(); // \Phrase\Model\BlacklistedKeyCreateParameters | 
 $x_phrase_app_otp = 'x_phrase_app_otp_example'; // string | Two-Factor-Authentication token (optional)
 
 try {
-    $result = $apiInstance->glossaryTermCreate($account_id, $glossary_id, $glossary_term_create_parameters, $x_phrase_app_otp);
+    $result = $apiInstance->blacklistedKeyCreate($project_id, $blacklisted_key_create_parameters, $x_phrase_app_otp);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling TermsInTermBaseApi->glossaryTermCreate: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling BlacklistedKeysApi->blacklistedKeyCreate: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -54,14 +53,13 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **account_id** | **string**| Account ID |
- **glossary_id** | **string**| Glossary ID |
- **glossary_term_create_parameters** | [**\Phrase\Model\GlossaryTermCreateParameters**](../Model/GlossaryTermCreateParameters.md)|  |
+ **project_id** | **string**| Project ID |
+ **blacklisted_key_create_parameters** | [**\Phrase\Model\BlacklistedKeyCreateParameters**](../Model/BlacklistedKeyCreateParameters.md)|  |
  **x_phrase_app_otp** | **string**| Two-Factor-Authentication token (optional) | [optional]
 
 ### Return type
 
-[**\Phrase\Model\GlossaryTerm**](../Model/GlossaryTerm.md)
+[**\Phrase\Model\BlacklistedKey**](../Model/BlacklistedKey.md)
 
 ### Authorization
 
@@ -77,13 +75,13 @@ Name | Type | Description  | Notes
 [[Back to README]](../../README.md)
 
 
-## glossaryTermDelete
+## blacklistedKeyDelete
 
-> glossaryTermDelete($account_id, $glossary_id, $id, $x_phrase_app_otp)
+> blacklistedKeyDelete($project_id, $id, $x_phrase_app_otp)
 
-Delete a term
+Delete a blacklisted key
 
-Delete an existing term in a term base (previously: glossary).
+Delete an existing rule for blacklisting keys.
 
 ### Example
 
@@ -94,21 +92,20 @@ require_once(__DIR__ . '/vendor/autoload.php');
 $config = Phrase\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 $config = Phrase\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'token');
 
-$apiInstance = new Phrase\Api\TermsInTermBaseApi(
+$apiInstance = new Phrase\Api\BlacklistedKeysApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$account_id = 'account_id_example'; // string | Account ID
-$glossary_id = 'glossary_id_example'; // string | Glossary ID
+$project_id = 'project_id_example'; // string | Project ID
 $id = 'id_example'; // string | ID
 $x_phrase_app_otp = 'x_phrase_app_otp_example'; // string | Two-Factor-Authentication token (optional)
 
 try {
-    $apiInstance->glossaryTermDelete($account_id, $glossary_id, $id, $x_phrase_app_otp);
+    $apiInstance->blacklistedKeyDelete($project_id, $id, $x_phrase_app_otp);
 } catch (Exception $e) {
-    echo 'Exception when calling TermsInTermBaseApi->glossaryTermDelete: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling BlacklistedKeysApi->blacklistedKeyDelete: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -118,8 +115,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **account_id** | **string**| Account ID |
- **glossary_id** | **string**| Glossary ID |
+ **project_id** | **string**| Project ID |
  **id** | **string**| ID |
  **x_phrase_app_otp** | **string**| Two-Factor-Authentication token (optional) | [optional]
 
@@ -141,13 +137,13 @@ void (empty response body)
 [[Back to README]](../../README.md)
 
 
-## glossaryTermShow
+## blacklistedKeyShow
 
-> \Phrase\Model\GlossaryTerm glossaryTermShow($account_id, $glossary_id, $id, $x_phrase_app_otp)
+> \Phrase\Model\BlacklistedKey blacklistedKeyShow($project_id, $id, $x_phrase_app_otp)
 
-Get a single term
+Get a single blacklisted key
 
-Get details for a single term in the term base (previously: glossary).
+Get details on a single rule for blacklisting keys for a given project.
 
 ### Example
 
@@ -158,22 +154,21 @@ require_once(__DIR__ . '/vendor/autoload.php');
 $config = Phrase\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 $config = Phrase\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'token');
 
-$apiInstance = new Phrase\Api\TermsInTermBaseApi(
+$apiInstance = new Phrase\Api\BlacklistedKeysApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$account_id = 'account_id_example'; // string | Account ID
-$glossary_id = 'glossary_id_example'; // string | Glossary ID
+$project_id = 'project_id_example'; // string | Project ID
 $id = 'id_example'; // string | ID
 $x_phrase_app_otp = 'x_phrase_app_otp_example'; // string | Two-Factor-Authentication token (optional)
 
 try {
-    $result = $apiInstance->glossaryTermShow($account_id, $glossary_id, $id, $x_phrase_app_otp);
+    $result = $apiInstance->blacklistedKeyShow($project_id, $id, $x_phrase_app_otp);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling TermsInTermBaseApi->glossaryTermShow: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling BlacklistedKeysApi->blacklistedKeyShow: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -183,14 +178,13 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **account_id** | **string**| Account ID |
- **glossary_id** | **string**| Glossary ID |
+ **project_id** | **string**| Project ID |
  **id** | **string**| ID |
  **x_phrase_app_otp** | **string**| Two-Factor-Authentication token (optional) | [optional]
 
 ### Return type
 
-[**\Phrase\Model\GlossaryTerm**](../Model/GlossaryTerm.md)
+[**\Phrase\Model\BlacklistedKey**](../Model/BlacklistedKey.md)
 
 ### Authorization
 
@@ -206,13 +200,13 @@ Name | Type | Description  | Notes
 [[Back to README]](../../README.md)
 
 
-## glossaryTermUpdate
+## blacklistedKeyUpdate
 
-> \Phrase\Model\GlossaryTerm glossaryTermUpdate($account_id, $glossary_id, $id, $glossary_term_update_parameters, $x_phrase_app_otp)
+> \Phrase\Model\BlacklistedKey blacklistedKeyUpdate($project_id, $id, $blacklisted_key_update_parameters, $x_phrase_app_otp)
 
-Update a term
+Update a blacklisted key
 
-Update an existing term in a term base (previously: glossary).
+Update an existing rule for blacklisting keys.
 
 ### Example
 
@@ -223,23 +217,22 @@ require_once(__DIR__ . '/vendor/autoload.php');
 $config = Phrase\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 $config = Phrase\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'token');
 
-$apiInstance = new Phrase\Api\TermsInTermBaseApi(
+$apiInstance = new Phrase\Api\BlacklistedKeysApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$account_id = 'account_id_example'; // string | Account ID
-$glossary_id = 'glossary_id_example'; // string | Glossary ID
+$project_id = 'project_id_example'; // string | Project ID
 $id = 'id_example'; // string | ID
-$glossary_term_update_parameters = new \Phrase\Model\GlossaryTermUpdateParameters(); // \Phrase\Model\GlossaryTermUpdateParameters | 
+$blacklisted_key_update_parameters = new \Phrase\Model\BlacklistedKeyUpdateParameters(); // \Phrase\Model\BlacklistedKeyUpdateParameters | 
 $x_phrase_app_otp = 'x_phrase_app_otp_example'; // string | Two-Factor-Authentication token (optional)
 
 try {
-    $result = $apiInstance->glossaryTermUpdate($account_id, $glossary_id, $id, $glossary_term_update_parameters, $x_phrase_app_otp);
+    $result = $apiInstance->blacklistedKeyUpdate($project_id, $id, $blacklisted_key_update_parameters, $x_phrase_app_otp);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling TermsInTermBaseApi->glossaryTermUpdate: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling BlacklistedKeysApi->blacklistedKeyUpdate: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -249,15 +242,14 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **account_id** | **string**| Account ID |
- **glossary_id** | **string**| Glossary ID |
+ **project_id** | **string**| Project ID |
  **id** | **string**| ID |
- **glossary_term_update_parameters** | [**\Phrase\Model\GlossaryTermUpdateParameters**](../Model/GlossaryTermUpdateParameters.md)|  |
+ **blacklisted_key_update_parameters** | [**\Phrase\Model\BlacklistedKeyUpdateParameters**](../Model/BlacklistedKeyUpdateParameters.md)|  |
  **x_phrase_app_otp** | **string**| Two-Factor-Authentication token (optional) | [optional]
 
 ### Return type
 
-[**\Phrase\Model\GlossaryTerm**](../Model/GlossaryTerm.md)
+[**\Phrase\Model\BlacklistedKey**](../Model/BlacklistedKey.md)
 
 ### Authorization
 
@@ -273,13 +265,13 @@ Name | Type | Description  | Notes
 [[Back to README]](../../README.md)
 
 
-## glossaryTermsList
+## blacklistedKeysList
 
-> \Phrase\Model\GlossaryTerm[] glossaryTermsList($account_id, $glossary_id, $x_phrase_app_otp, $page, $per_page)
+> \Phrase\Model\BlacklistedKey[] blacklistedKeysList($project_id, $x_phrase_app_otp, $page, $per_page, $branch)
 
-List terms
+List blacklisted keys
 
-List all terms in term bases (previously: glossary) that the current user has access to.
+List all rules for blacklisting keys for the given project.
 
 ### Example
 
@@ -290,23 +282,23 @@ require_once(__DIR__ . '/vendor/autoload.php');
 $config = Phrase\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 $config = Phrase\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'token');
 
-$apiInstance = new Phrase\Api\TermsInTermBaseApi(
+$apiInstance = new Phrase\Api\BlacklistedKeysApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$account_id = 'account_id_example'; // string | Account ID
-$glossary_id = 'glossary_id_example'; // string | Glossary ID
+$project_id = 'project_id_example'; // string | Project ID
 $x_phrase_app_otp = 'x_phrase_app_otp_example'; // string | Two-Factor-Authentication token (optional)
 $page = 1; // int | Page number
 $per_page = 25; // int | allows you to specify a page size up to 100 items, 25 by default
+$branch = my-feature-branch; // string | specify the branch to use
 
 try {
-    $result = $apiInstance->glossaryTermsList($account_id, $glossary_id, $x_phrase_app_otp, $page, $per_page);
+    $result = $apiInstance->blacklistedKeysList($project_id, $x_phrase_app_otp, $page, $per_page, $branch);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling TermsInTermBaseApi->glossaryTermsList: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling BlacklistedKeysApi->blacklistedKeysList: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -316,15 +308,15 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **account_id** | **string**| Account ID |
- **glossary_id** | **string**| Glossary ID |
+ **project_id** | **string**| Project ID |
  **x_phrase_app_otp** | **string**| Two-Factor-Authentication token (optional) | [optional]
  **page** | **int**| Page number | [optional]
  **per_page** | **int**| allows you to specify a page size up to 100 items, 25 by default | [optional]
+ **branch** | **string**| specify the branch to use | [optional]
 
 ### Return type
 
-[**\Phrase\Model\GlossaryTerm[]**](../Model/GlossaryTerm.md)
+[**\Phrase\Model\BlacklistedKey[]**](../Model/BlacklistedKey.md)
 
 ### Authorization
 

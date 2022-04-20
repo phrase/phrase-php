@@ -1,6 +1,6 @@
 <?php
 /**
- * TermBaseTranslationsApi
+ * GlossaryTermTranslationsApi
  * PHP version 5
  *
  * @category Class
@@ -38,14 +38,14 @@ use Phrase\HeaderSelector;
 use Phrase\ObjectSerializer;
 
 /**
- * TermBaseTranslationsApi Class Doc Comment
+ * GlossaryTermTranslationsApi Class Doc Comment
  *
  * @category Class
  * @package  Phrase
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class TermBaseTranslationsApi
+class GlossaryTermTranslationsApi
 {
     /**
      * @var ClientInterface
@@ -116,7 +116,7 @@ class TermBaseTranslationsApi
     /**
      * Operation glossaryTermTranslationCreate
      *
-     * Create a translation for a term
+     * Create a glossary term translation
      *
      * @param  string $account_id Account ID (required)
      * @param  string $glossary_id Glossary ID (required)
@@ -137,7 +137,7 @@ class TermBaseTranslationsApi
     /**
      * Operation glossaryTermTranslationCreateWithHttpInfo
      *
-     * Create a translation for a term
+     * Create a glossary term translation
      *
      * @param  string $account_id Account ID (required)
      * @param  string $glossary_id Glossary ID (required)
@@ -229,7 +229,7 @@ class TermBaseTranslationsApi
     /**
      * Operation glossaryTermTranslationCreateAsync
      *
-     * Create a translation for a term
+     * Create a glossary term translation
      *
      * @param  string $account_id Account ID (required)
      * @param  string $glossary_id Glossary ID (required)
@@ -253,7 +253,7 @@ class TermBaseTranslationsApi
     /**
      * Operation glossaryTermTranslationCreateAsyncWithHttpInfo
      *
-     * Create a translation for a term
+     * Create a glossary term translation
      *
      * @param  string $account_id Account ID (required)
      * @param  string $glossary_id Glossary ID (required)
@@ -459,7 +459,7 @@ class TermBaseTranslationsApi
     /**
      * Operation glossaryTermTranslationDelete
      *
-     * Delete a translation for a term
+     * Delete a glossary term translation
      *
      * @param  string $account_id Account ID (required)
      * @param  string $glossary_id Glossary ID (required)
@@ -479,7 +479,7 @@ class TermBaseTranslationsApi
     /**
      * Operation glossaryTermTranslationDeleteWithHttpInfo
      *
-     * Delete a translation for a term
+     * Delete a glossary term translation
      *
      * @param  string $account_id Account ID (required)
      * @param  string $glossary_id Glossary ID (required)
@@ -535,7 +535,7 @@ class TermBaseTranslationsApi
     /**
      * Operation glossaryTermTranslationDeleteAsync
      *
-     * Delete a translation for a term
+     * Delete a glossary term translation
      *
      * @param  string $account_id Account ID (required)
      * @param  string $glossary_id Glossary ID (required)
@@ -559,7 +559,7 @@ class TermBaseTranslationsApi
     /**
      * Operation glossaryTermTranslationDeleteAsyncWithHttpInfo
      *
-     * Delete a translation for a term
+     * Delete a glossary term translation
      *
      * @param  string $account_id Account ID (required)
      * @param  string $glossary_id Glossary ID (required)
@@ -759,7 +759,7 @@ class TermBaseTranslationsApi
     /**
      * Operation glossaryTermTranslationUpdate
      *
-     * Update a translation for a term
+     * Update a glossary term translation
      *
      * @param  string $account_id Account ID (required)
      * @param  string $glossary_id Glossary ID (required)
@@ -781,7 +781,7 @@ class TermBaseTranslationsApi
     /**
      * Operation glossaryTermTranslationUpdateWithHttpInfo
      *
-     * Update a translation for a term
+     * Update a glossary term translation
      *
      * @param  string $account_id Account ID (required)
      * @param  string $glossary_id Glossary ID (required)
@@ -874,7 +874,7 @@ class TermBaseTranslationsApi
     /**
      * Operation glossaryTermTranslationUpdateAsync
      *
-     * Update a translation for a term
+     * Update a glossary term translation
      *
      * @param  string $account_id Account ID (required)
      * @param  string $glossary_id Glossary ID (required)
@@ -899,7 +899,7 @@ class TermBaseTranslationsApi
     /**
      * Operation glossaryTermTranslationUpdateAsyncWithHttpInfo
      *
-     * Update a translation for a term
+     * Update a glossary term translation
      *
      * @param  string $account_id Account ID (required)
      * @param  string $glossary_id Glossary ID (required)

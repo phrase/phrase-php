@@ -1,6 +1,6 @@
 <?php
 /**
- * TermsInTermBaseApi
+ * BlacklistedKeysApi
  * PHP version 5
  *
  * @category Class
@@ -38,14 +38,14 @@ use Phrase\HeaderSelector;
 use Phrase\ObjectSerializer;
 
 /**
- * TermsInTermBaseApi Class Doc Comment
+ * BlacklistedKeysApi Class Doc Comment
  *
  * @category Class
  * @package  Phrase
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class TermsInTermBaseApi
+class BlacklistedKeysApi
 {
     /**
      * @var ClientInterface
@@ -114,42 +114,40 @@ class TermsInTermBaseApi
     }
 
     /**
-     * Operation glossaryTermCreate
+     * Operation blacklistedKeyCreate
      *
-     * Create a term
+     * Create a blacklisted key
      *
-     * @param  string $account_id Account ID (required)
-     * @param  string $glossary_id Glossary ID (required)
-     * @param  \Phrase\Model\GlossaryTermCreateParameters $glossary_term_create_parameters glossary_term_create_parameters (required)
+     * @param  string $project_id Project ID (required)
+     * @param  \Phrase\Model\BlacklistedKeyCreateParameters $blacklisted_key_create_parameters blacklisted_key_create_parameters (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Phrase\Model\GlossaryTerm
+     * @return \Phrase\Model\BlacklistedKey
      */
-    public function glossaryTermCreate($account_id, $glossary_id, $glossary_term_create_parameters, $x_phrase_app_otp = null)
+    public function blacklistedKeyCreate($project_id, $blacklisted_key_create_parameters, $x_phrase_app_otp = null)
     {
-        list($response) = $this->glossaryTermCreateWithHttpInfo($account_id, $glossary_id, $glossary_term_create_parameters, $x_phrase_app_otp);
+        list($response) = $this->blacklistedKeyCreateWithHttpInfo($project_id, $blacklisted_key_create_parameters, $x_phrase_app_otp);
         return $response;
     }
 
     /**
-     * Operation glossaryTermCreateWithHttpInfo
+     * Operation blacklistedKeyCreateWithHttpInfo
      *
-     * Create a term
+     * Create a blacklisted key
      *
-     * @param  string $account_id Account ID (required)
-     * @param  string $glossary_id Glossary ID (required)
-     * @param  \Phrase\Model\GlossaryTermCreateParameters $glossary_term_create_parameters (required)
+     * @param  string $project_id Project ID (required)
+     * @param  \Phrase\Model\BlacklistedKeyCreateParameters $blacklisted_key_create_parameters (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Phrase\Model\GlossaryTerm, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Phrase\Model\BlacklistedKey, HTTP status code, HTTP response headers (array of strings)
      */
-    public function glossaryTermCreateWithHttpInfo($account_id, $glossary_id, $glossary_term_create_parameters, $x_phrase_app_otp = null)
+    public function blacklistedKeyCreateWithHttpInfo($project_id, $blacklisted_key_create_parameters, $x_phrase_app_otp = null)
     {
-        $request = $this->glossaryTermCreateRequest($account_id, $glossary_id, $glossary_term_create_parameters, $x_phrase_app_otp);
+        $request = $this->blacklistedKeyCreateRequest($project_id, $blacklisted_key_create_parameters, $x_phrase_app_otp);
 
         try {
             $options = $this->createHttpClientOption();
@@ -182,20 +180,20 @@ class TermsInTermBaseApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 201:
-                    if ('\Phrase\Model\GlossaryTerm' === '\SplFileObject') {
+                    if ('\Phrase\Model\BlacklistedKey' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Phrase\Model\GlossaryTerm', []),
+                        ObjectSerializer::deserialize($content, '\Phrase\Model\BlacklistedKey', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Phrase\Model\GlossaryTerm';
+            $returnType = '\Phrase\Model\BlacklistedKey';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -214,7 +212,7 @@ class TermsInTermBaseApi
                 case 201:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Phrase\Model\GlossaryTerm',
+                        '\Phrase\Model\BlacklistedKey',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -225,21 +223,20 @@ class TermsInTermBaseApi
     }
 
     /**
-     * Operation glossaryTermCreateAsync
+     * Operation blacklistedKeyCreateAsync
      *
-     * Create a term
+     * Create a blacklisted key
      *
-     * @param  string $account_id Account ID (required)
-     * @param  string $glossary_id Glossary ID (required)
-     * @param  \Phrase\Model\GlossaryTermCreateParameters $glossary_term_create_parameters (required)
+     * @param  string $project_id Project ID (required)
+     * @param  \Phrase\Model\BlacklistedKeyCreateParameters $blacklisted_key_create_parameters (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function glossaryTermCreateAsync($account_id, $glossary_id, $glossary_term_create_parameters, $x_phrase_app_otp = null)
+    public function blacklistedKeyCreateAsync($project_id, $blacklisted_key_create_parameters, $x_phrase_app_otp = null)
     {
-        return $this->glossaryTermCreateAsyncWithHttpInfo($account_id, $glossary_id, $glossary_term_create_parameters, $x_phrase_app_otp)
+        return $this->blacklistedKeyCreateAsyncWithHttpInfo($project_id, $blacklisted_key_create_parameters, $x_phrase_app_otp)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -248,22 +245,21 @@ class TermsInTermBaseApi
     }
 
     /**
-     * Operation glossaryTermCreateAsyncWithHttpInfo
+     * Operation blacklistedKeyCreateAsyncWithHttpInfo
      *
-     * Create a term
+     * Create a blacklisted key
      *
-     * @param  string $account_id Account ID (required)
-     * @param  string $glossary_id Glossary ID (required)
-     * @param  \Phrase\Model\GlossaryTermCreateParameters $glossary_term_create_parameters (required)
+     * @param  string $project_id Project ID (required)
+     * @param  \Phrase\Model\BlacklistedKeyCreateParameters $blacklisted_key_create_parameters (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function glossaryTermCreateAsyncWithHttpInfo($account_id, $glossary_id, $glossary_term_create_parameters, $x_phrase_app_otp = null)
+    public function blacklistedKeyCreateAsyncWithHttpInfo($project_id, $blacklisted_key_create_parameters, $x_phrase_app_otp = null)
     {
-        $returnType = '\Phrase\Model\GlossaryTerm';
-        $request = $this->glossaryTermCreateRequest($account_id, $glossary_id, $glossary_term_create_parameters, $x_phrase_app_otp);
+        $returnType = '\Phrase\Model\BlacklistedKey';
+        $request = $this->blacklistedKeyCreateRequest($project_id, $blacklisted_key_create_parameters, $x_phrase_app_otp);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -300,38 +296,31 @@ class TermsInTermBaseApi
     }
 
     /**
-     * Create request for operation 'glossaryTermCreate'
+     * Create request for operation 'blacklistedKeyCreate'
      *
-     * @param  string $account_id Account ID (required)
-     * @param  string $glossary_id Glossary ID (required)
-     * @param  \Phrase\Model\GlossaryTermCreateParameters $glossary_term_create_parameters (required)
+     * @param  string $project_id Project ID (required)
+     * @param  \Phrase\Model\BlacklistedKeyCreateParameters $blacklisted_key_create_parameters (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function glossaryTermCreateRequest($account_id, $glossary_id, $glossary_term_create_parameters, $x_phrase_app_otp = null)
+    protected function blacklistedKeyCreateRequest($project_id, $blacklisted_key_create_parameters, $x_phrase_app_otp = null)
     {
-        // verify the required parameter 'account_id' is set
-        if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
+        // verify the required parameter 'project_id' is set
+        if ($project_id === null || (is_array($project_id) && count($project_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $account_id when calling glossaryTermCreate'
+                'Missing the required parameter $project_id when calling blacklistedKeyCreate'
             );
         }
-        // verify the required parameter 'glossary_id' is set
-        if ($glossary_id === null || (is_array($glossary_id) && count($glossary_id) === 0)) {
+        // verify the required parameter 'blacklisted_key_create_parameters' is set
+        if ($blacklisted_key_create_parameters === null || (is_array($blacklisted_key_create_parameters) && count($blacklisted_key_create_parameters) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $glossary_id when calling glossaryTermCreate'
-            );
-        }
-        // verify the required parameter 'glossary_term_create_parameters' is set
-        if ($glossary_term_create_parameters === null || (is_array($glossary_term_create_parameters) && count($glossary_term_create_parameters) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $glossary_term_create_parameters when calling glossaryTermCreate'
+                'Missing the required parameter $blacklisted_key_create_parameters when calling blacklistedKeyCreate'
             );
         }
 
-        $resourcePath = '/accounts/{account_id}/glossaries/{glossary_id}/terms';
+        $resourcePath = '/projects/{project_id}/blacklisted_keys';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -345,26 +334,18 @@ class TermsInTermBaseApi
         }
 
         // path params
-        if ($account_id !== null) {
+        if ($project_id !== null) {
             $resourcePath = str_replace(
-                '{' . 'account_id' . '}',
-                ObjectSerializer::toPathValue($account_id),
-                $resourcePath
-            );
-        }
-        // path params
-        if ($glossary_id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'glossary_id' . '}',
-                ObjectSerializer::toPathValue($glossary_id),
+                '{' . 'project_id' . '}',
+                ObjectSerializer::toPathValue($project_id),
                 $resourcePath
             );
         }
 
         // body params
         $_tempBody = null;
-        if (isset($glossary_term_create_parameters)) {
-            $_tempBody = $glossary_term_create_parameters;
+        if (isset($blacklisted_key_create_parameters)) {
+            $_tempBody = $blacklisted_key_create_parameters;
         }
 
         if ($multipart) {
@@ -438,12 +419,11 @@ class TermsInTermBaseApi
     }
 
     /**
-     * Operation glossaryTermDelete
+     * Operation blacklistedKeyDelete
      *
-     * Delete a term
+     * Delete a blacklisted key
      *
-     * @param  string $account_id Account ID (required)
-     * @param  string $glossary_id Glossary ID (required)
+     * @param  string $project_id Project ID (required)
      * @param  string $id ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      *
@@ -451,18 +431,17 @@ class TermsInTermBaseApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function glossaryTermDelete($account_id, $glossary_id, $id, $x_phrase_app_otp = null)
+    public function blacklistedKeyDelete($project_id, $id, $x_phrase_app_otp = null)
     {
-        $this->glossaryTermDeleteWithHttpInfo($account_id, $glossary_id, $id, $x_phrase_app_otp);
+        $this->blacklistedKeyDeleteWithHttpInfo($project_id, $id, $x_phrase_app_otp);
     }
 
     /**
-     * Operation glossaryTermDeleteWithHttpInfo
+     * Operation blacklistedKeyDeleteWithHttpInfo
      *
-     * Delete a term
+     * Delete a blacklisted key
      *
-     * @param  string $account_id Account ID (required)
-     * @param  string $glossary_id Glossary ID (required)
+     * @param  string $project_id Project ID (required)
      * @param  string $id ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      *
@@ -470,9 +449,9 @@ class TermsInTermBaseApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function glossaryTermDeleteWithHttpInfo($account_id, $glossary_id, $id, $x_phrase_app_otp = null)
+    public function blacklistedKeyDeleteWithHttpInfo($project_id, $id, $x_phrase_app_otp = null)
     {
-        $request = $this->glossaryTermDeleteRequest($account_id, $glossary_id, $id, $x_phrase_app_otp);
+        $request = $this->blacklistedKeyDeleteRequest($project_id, $id, $x_phrase_app_otp);
 
         try {
             $options = $this->createHttpClientOption();
@@ -512,21 +491,20 @@ class TermsInTermBaseApi
     }
 
     /**
-     * Operation glossaryTermDeleteAsync
+     * Operation blacklistedKeyDeleteAsync
      *
-     * Delete a term
+     * Delete a blacklisted key
      *
-     * @param  string $account_id Account ID (required)
-     * @param  string $glossary_id Glossary ID (required)
+     * @param  string $project_id Project ID (required)
      * @param  string $id ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function glossaryTermDeleteAsync($account_id, $glossary_id, $id, $x_phrase_app_otp = null)
+    public function blacklistedKeyDeleteAsync($project_id, $id, $x_phrase_app_otp = null)
     {
-        return $this->glossaryTermDeleteAsyncWithHttpInfo($account_id, $glossary_id, $id, $x_phrase_app_otp)
+        return $this->blacklistedKeyDeleteAsyncWithHttpInfo($project_id, $id, $x_phrase_app_otp)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -535,22 +513,21 @@ class TermsInTermBaseApi
     }
 
     /**
-     * Operation glossaryTermDeleteAsyncWithHttpInfo
+     * Operation blacklistedKeyDeleteAsyncWithHttpInfo
      *
-     * Delete a term
+     * Delete a blacklisted key
      *
-     * @param  string $account_id Account ID (required)
-     * @param  string $glossary_id Glossary ID (required)
+     * @param  string $project_id Project ID (required)
      * @param  string $id ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function glossaryTermDeleteAsyncWithHttpInfo($account_id, $glossary_id, $id, $x_phrase_app_otp = null)
+    public function blacklistedKeyDeleteAsyncWithHttpInfo($project_id, $id, $x_phrase_app_otp = null)
     {
         $returnType = '';
-        $request = $this->glossaryTermDeleteRequest($account_id, $glossary_id, $id, $x_phrase_app_otp);
+        $request = $this->blacklistedKeyDeleteRequest($project_id, $id, $x_phrase_app_otp);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -576,38 +553,31 @@ class TermsInTermBaseApi
     }
 
     /**
-     * Create request for operation 'glossaryTermDelete'
+     * Create request for operation 'blacklistedKeyDelete'
      *
-     * @param  string $account_id Account ID (required)
-     * @param  string $glossary_id Glossary ID (required)
+     * @param  string $project_id Project ID (required)
      * @param  string $id ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function glossaryTermDeleteRequest($account_id, $glossary_id, $id, $x_phrase_app_otp = null)
+    protected function blacklistedKeyDeleteRequest($project_id, $id, $x_phrase_app_otp = null)
     {
-        // verify the required parameter 'account_id' is set
-        if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
+        // verify the required parameter 'project_id' is set
+        if ($project_id === null || (is_array($project_id) && count($project_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $account_id when calling glossaryTermDelete'
-            );
-        }
-        // verify the required parameter 'glossary_id' is set
-        if ($glossary_id === null || (is_array($glossary_id) && count($glossary_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $glossary_id when calling glossaryTermDelete'
+                'Missing the required parameter $project_id when calling blacklistedKeyDelete'
             );
         }
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $id when calling glossaryTermDelete'
+                'Missing the required parameter $id when calling blacklistedKeyDelete'
             );
         }
 
-        $resourcePath = '/accounts/{account_id}/glossaries/{glossary_id}/terms/{id}';
+        $resourcePath = '/projects/{project_id}/blacklisted_keys/{id}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -621,18 +591,10 @@ class TermsInTermBaseApi
         }
 
         // path params
-        if ($account_id !== null) {
+        if ($project_id !== null) {
             $resourcePath = str_replace(
-                '{' . 'account_id' . '}',
-                ObjectSerializer::toPathValue($account_id),
-                $resourcePath
-            );
-        }
-        // path params
-        if ($glossary_id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'glossary_id' . '}',
-                ObjectSerializer::toPathValue($glossary_id),
+                '{' . 'project_id' . '}',
+                ObjectSerializer::toPathValue($project_id),
                 $resourcePath
             );
         }
@@ -719,42 +681,40 @@ class TermsInTermBaseApi
     }
 
     /**
-     * Operation glossaryTermShow
+     * Operation blacklistedKeyShow
      *
-     * Get a single term
+     * Get a single blacklisted key
      *
-     * @param  string $account_id Account ID (required)
-     * @param  string $glossary_id Glossary ID (required)
+     * @param  string $project_id Project ID (required)
      * @param  string $id ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Phrase\Model\GlossaryTerm
+     * @return \Phrase\Model\BlacklistedKey
      */
-    public function glossaryTermShow($account_id, $glossary_id, $id, $x_phrase_app_otp = null)
+    public function blacklistedKeyShow($project_id, $id, $x_phrase_app_otp = null)
     {
-        list($response) = $this->glossaryTermShowWithHttpInfo($account_id, $glossary_id, $id, $x_phrase_app_otp);
+        list($response) = $this->blacklistedKeyShowWithHttpInfo($project_id, $id, $x_phrase_app_otp);
         return $response;
     }
 
     /**
-     * Operation glossaryTermShowWithHttpInfo
+     * Operation blacklistedKeyShowWithHttpInfo
      *
-     * Get a single term
+     * Get a single blacklisted key
      *
-     * @param  string $account_id Account ID (required)
-     * @param  string $glossary_id Glossary ID (required)
+     * @param  string $project_id Project ID (required)
      * @param  string $id ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Phrase\Model\GlossaryTerm, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Phrase\Model\BlacklistedKey, HTTP status code, HTTP response headers (array of strings)
      */
-    public function glossaryTermShowWithHttpInfo($account_id, $glossary_id, $id, $x_phrase_app_otp = null)
+    public function blacklistedKeyShowWithHttpInfo($project_id, $id, $x_phrase_app_otp = null)
     {
-        $request = $this->glossaryTermShowRequest($account_id, $glossary_id, $id, $x_phrase_app_otp);
+        $request = $this->blacklistedKeyShowRequest($project_id, $id, $x_phrase_app_otp);
 
         try {
             $options = $this->createHttpClientOption();
@@ -787,20 +747,20 @@ class TermsInTermBaseApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\Phrase\Model\GlossaryTerm' === '\SplFileObject') {
+                    if ('\Phrase\Model\BlacklistedKey' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Phrase\Model\GlossaryTerm', []),
+                        ObjectSerializer::deserialize($content, '\Phrase\Model\BlacklistedKey', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Phrase\Model\GlossaryTerm';
+            $returnType = '\Phrase\Model\BlacklistedKey';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -819,7 +779,7 @@ class TermsInTermBaseApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Phrase\Model\GlossaryTerm',
+                        '\Phrase\Model\BlacklistedKey',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -830,21 +790,20 @@ class TermsInTermBaseApi
     }
 
     /**
-     * Operation glossaryTermShowAsync
+     * Operation blacklistedKeyShowAsync
      *
-     * Get a single term
+     * Get a single blacklisted key
      *
-     * @param  string $account_id Account ID (required)
-     * @param  string $glossary_id Glossary ID (required)
+     * @param  string $project_id Project ID (required)
      * @param  string $id ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function glossaryTermShowAsync($account_id, $glossary_id, $id, $x_phrase_app_otp = null)
+    public function blacklistedKeyShowAsync($project_id, $id, $x_phrase_app_otp = null)
     {
-        return $this->glossaryTermShowAsyncWithHttpInfo($account_id, $glossary_id, $id, $x_phrase_app_otp)
+        return $this->blacklistedKeyShowAsyncWithHttpInfo($project_id, $id, $x_phrase_app_otp)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -853,22 +812,21 @@ class TermsInTermBaseApi
     }
 
     /**
-     * Operation glossaryTermShowAsyncWithHttpInfo
+     * Operation blacklistedKeyShowAsyncWithHttpInfo
      *
-     * Get a single term
+     * Get a single blacklisted key
      *
-     * @param  string $account_id Account ID (required)
-     * @param  string $glossary_id Glossary ID (required)
+     * @param  string $project_id Project ID (required)
      * @param  string $id ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function glossaryTermShowAsyncWithHttpInfo($account_id, $glossary_id, $id, $x_phrase_app_otp = null)
+    public function blacklistedKeyShowAsyncWithHttpInfo($project_id, $id, $x_phrase_app_otp = null)
     {
-        $returnType = '\Phrase\Model\GlossaryTerm';
-        $request = $this->glossaryTermShowRequest($account_id, $glossary_id, $id, $x_phrase_app_otp);
+        $returnType = '\Phrase\Model\BlacklistedKey';
+        $request = $this->blacklistedKeyShowRequest($project_id, $id, $x_phrase_app_otp);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -905,38 +863,31 @@ class TermsInTermBaseApi
     }
 
     /**
-     * Create request for operation 'glossaryTermShow'
+     * Create request for operation 'blacklistedKeyShow'
      *
-     * @param  string $account_id Account ID (required)
-     * @param  string $glossary_id Glossary ID (required)
+     * @param  string $project_id Project ID (required)
      * @param  string $id ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function glossaryTermShowRequest($account_id, $glossary_id, $id, $x_phrase_app_otp = null)
+    protected function blacklistedKeyShowRequest($project_id, $id, $x_phrase_app_otp = null)
     {
-        // verify the required parameter 'account_id' is set
-        if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
+        // verify the required parameter 'project_id' is set
+        if ($project_id === null || (is_array($project_id) && count($project_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $account_id when calling glossaryTermShow'
-            );
-        }
-        // verify the required parameter 'glossary_id' is set
-        if ($glossary_id === null || (is_array($glossary_id) && count($glossary_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $glossary_id when calling glossaryTermShow'
+                'Missing the required parameter $project_id when calling blacklistedKeyShow'
             );
         }
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $id when calling glossaryTermShow'
+                'Missing the required parameter $id when calling blacklistedKeyShow'
             );
         }
 
-        $resourcePath = '/accounts/{account_id}/glossaries/{glossary_id}/terms/{id}';
+        $resourcePath = '/projects/{project_id}/blacklisted_keys/{id}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -950,18 +901,10 @@ class TermsInTermBaseApi
         }
 
         // path params
-        if ($account_id !== null) {
+        if ($project_id !== null) {
             $resourcePath = str_replace(
-                '{' . 'account_id' . '}',
-                ObjectSerializer::toPathValue($account_id),
-                $resourcePath
-            );
-        }
-        // path params
-        if ($glossary_id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'glossary_id' . '}',
-                ObjectSerializer::toPathValue($glossary_id),
+                '{' . 'project_id' . '}',
+                ObjectSerializer::toPathValue($project_id),
                 $resourcePath
             );
         }
@@ -1048,44 +991,42 @@ class TermsInTermBaseApi
     }
 
     /**
-     * Operation glossaryTermUpdate
+     * Operation blacklistedKeyUpdate
      *
-     * Update a term
+     * Update a blacklisted key
      *
-     * @param  string $account_id Account ID (required)
-     * @param  string $glossary_id Glossary ID (required)
+     * @param  string $project_id Project ID (required)
      * @param  string $id ID (required)
-     * @param  \Phrase\Model\GlossaryTermUpdateParameters $glossary_term_update_parameters glossary_term_update_parameters (required)
+     * @param  \Phrase\Model\BlacklistedKeyUpdateParameters $blacklisted_key_update_parameters blacklisted_key_update_parameters (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Phrase\Model\GlossaryTerm
+     * @return \Phrase\Model\BlacklistedKey
      */
-    public function glossaryTermUpdate($account_id, $glossary_id, $id, $glossary_term_update_parameters, $x_phrase_app_otp = null)
+    public function blacklistedKeyUpdate($project_id, $id, $blacklisted_key_update_parameters, $x_phrase_app_otp = null)
     {
-        list($response) = $this->glossaryTermUpdateWithHttpInfo($account_id, $glossary_id, $id, $glossary_term_update_parameters, $x_phrase_app_otp);
+        list($response) = $this->blacklistedKeyUpdateWithHttpInfo($project_id, $id, $blacklisted_key_update_parameters, $x_phrase_app_otp);
         return $response;
     }
 
     /**
-     * Operation glossaryTermUpdateWithHttpInfo
+     * Operation blacklistedKeyUpdateWithHttpInfo
      *
-     * Update a term
+     * Update a blacklisted key
      *
-     * @param  string $account_id Account ID (required)
-     * @param  string $glossary_id Glossary ID (required)
+     * @param  string $project_id Project ID (required)
      * @param  string $id ID (required)
-     * @param  \Phrase\Model\GlossaryTermUpdateParameters $glossary_term_update_parameters (required)
+     * @param  \Phrase\Model\BlacklistedKeyUpdateParameters $blacklisted_key_update_parameters (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Phrase\Model\GlossaryTerm, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Phrase\Model\BlacklistedKey, HTTP status code, HTTP response headers (array of strings)
      */
-    public function glossaryTermUpdateWithHttpInfo($account_id, $glossary_id, $id, $glossary_term_update_parameters, $x_phrase_app_otp = null)
+    public function blacklistedKeyUpdateWithHttpInfo($project_id, $id, $blacklisted_key_update_parameters, $x_phrase_app_otp = null)
     {
-        $request = $this->glossaryTermUpdateRequest($account_id, $glossary_id, $id, $glossary_term_update_parameters, $x_phrase_app_otp);
+        $request = $this->blacklistedKeyUpdateRequest($project_id, $id, $blacklisted_key_update_parameters, $x_phrase_app_otp);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1118,20 +1059,20 @@ class TermsInTermBaseApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\Phrase\Model\GlossaryTerm' === '\SplFileObject') {
+                    if ('\Phrase\Model\BlacklistedKey' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Phrase\Model\GlossaryTerm', []),
+                        ObjectSerializer::deserialize($content, '\Phrase\Model\BlacklistedKey', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Phrase\Model\GlossaryTerm';
+            $returnType = '\Phrase\Model\BlacklistedKey';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -1150,7 +1091,7 @@ class TermsInTermBaseApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Phrase\Model\GlossaryTerm',
+                        '\Phrase\Model\BlacklistedKey',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1161,22 +1102,21 @@ class TermsInTermBaseApi
     }
 
     /**
-     * Operation glossaryTermUpdateAsync
+     * Operation blacklistedKeyUpdateAsync
      *
-     * Update a term
+     * Update a blacklisted key
      *
-     * @param  string $account_id Account ID (required)
-     * @param  string $glossary_id Glossary ID (required)
+     * @param  string $project_id Project ID (required)
      * @param  string $id ID (required)
-     * @param  \Phrase\Model\GlossaryTermUpdateParameters $glossary_term_update_parameters (required)
+     * @param  \Phrase\Model\BlacklistedKeyUpdateParameters $blacklisted_key_update_parameters (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function glossaryTermUpdateAsync($account_id, $glossary_id, $id, $glossary_term_update_parameters, $x_phrase_app_otp = null)
+    public function blacklistedKeyUpdateAsync($project_id, $id, $blacklisted_key_update_parameters, $x_phrase_app_otp = null)
     {
-        return $this->glossaryTermUpdateAsyncWithHttpInfo($account_id, $glossary_id, $id, $glossary_term_update_parameters, $x_phrase_app_otp)
+        return $this->blacklistedKeyUpdateAsyncWithHttpInfo($project_id, $id, $blacklisted_key_update_parameters, $x_phrase_app_otp)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1185,23 +1125,22 @@ class TermsInTermBaseApi
     }
 
     /**
-     * Operation glossaryTermUpdateAsyncWithHttpInfo
+     * Operation blacklistedKeyUpdateAsyncWithHttpInfo
      *
-     * Update a term
+     * Update a blacklisted key
      *
-     * @param  string $account_id Account ID (required)
-     * @param  string $glossary_id Glossary ID (required)
+     * @param  string $project_id Project ID (required)
      * @param  string $id ID (required)
-     * @param  \Phrase\Model\GlossaryTermUpdateParameters $glossary_term_update_parameters (required)
+     * @param  \Phrase\Model\BlacklistedKeyUpdateParameters $blacklisted_key_update_parameters (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function glossaryTermUpdateAsyncWithHttpInfo($account_id, $glossary_id, $id, $glossary_term_update_parameters, $x_phrase_app_otp = null)
+    public function blacklistedKeyUpdateAsyncWithHttpInfo($project_id, $id, $blacklisted_key_update_parameters, $x_phrase_app_otp = null)
     {
-        $returnType = '\Phrase\Model\GlossaryTerm';
-        $request = $this->glossaryTermUpdateRequest($account_id, $glossary_id, $id, $glossary_term_update_parameters, $x_phrase_app_otp);
+        $returnType = '\Phrase\Model\BlacklistedKey';
+        $request = $this->blacklistedKeyUpdateRequest($project_id, $id, $blacklisted_key_update_parameters, $x_phrase_app_otp);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1238,45 +1177,38 @@ class TermsInTermBaseApi
     }
 
     /**
-     * Create request for operation 'glossaryTermUpdate'
+     * Create request for operation 'blacklistedKeyUpdate'
      *
-     * @param  string $account_id Account ID (required)
-     * @param  string $glossary_id Glossary ID (required)
+     * @param  string $project_id Project ID (required)
      * @param  string $id ID (required)
-     * @param  \Phrase\Model\GlossaryTermUpdateParameters $glossary_term_update_parameters (required)
+     * @param  \Phrase\Model\BlacklistedKeyUpdateParameters $blacklisted_key_update_parameters (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function glossaryTermUpdateRequest($account_id, $glossary_id, $id, $glossary_term_update_parameters, $x_phrase_app_otp = null)
+    protected function blacklistedKeyUpdateRequest($project_id, $id, $blacklisted_key_update_parameters, $x_phrase_app_otp = null)
     {
-        // verify the required parameter 'account_id' is set
-        if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
+        // verify the required parameter 'project_id' is set
+        if ($project_id === null || (is_array($project_id) && count($project_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $account_id when calling glossaryTermUpdate'
-            );
-        }
-        // verify the required parameter 'glossary_id' is set
-        if ($glossary_id === null || (is_array($glossary_id) && count($glossary_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $glossary_id when calling glossaryTermUpdate'
+                'Missing the required parameter $project_id when calling blacklistedKeyUpdate'
             );
         }
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $id when calling glossaryTermUpdate'
+                'Missing the required parameter $id when calling blacklistedKeyUpdate'
             );
         }
-        // verify the required parameter 'glossary_term_update_parameters' is set
-        if ($glossary_term_update_parameters === null || (is_array($glossary_term_update_parameters) && count($glossary_term_update_parameters) === 0)) {
+        // verify the required parameter 'blacklisted_key_update_parameters' is set
+        if ($blacklisted_key_update_parameters === null || (is_array($blacklisted_key_update_parameters) && count($blacklisted_key_update_parameters) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $glossary_term_update_parameters when calling glossaryTermUpdate'
+                'Missing the required parameter $blacklisted_key_update_parameters when calling blacklistedKeyUpdate'
             );
         }
 
-        $resourcePath = '/accounts/{account_id}/glossaries/{glossary_id}/terms/{id}';
+        $resourcePath = '/projects/{project_id}/blacklisted_keys/{id}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1290,18 +1222,10 @@ class TermsInTermBaseApi
         }
 
         // path params
-        if ($account_id !== null) {
+        if ($project_id !== null) {
             $resourcePath = str_replace(
-                '{' . 'account_id' . '}',
-                ObjectSerializer::toPathValue($account_id),
-                $resourcePath
-            );
-        }
-        // path params
-        if ($glossary_id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'glossary_id' . '}',
-                ObjectSerializer::toPathValue($glossary_id),
+                '{' . 'project_id' . '}',
+                ObjectSerializer::toPathValue($project_id),
                 $resourcePath
             );
         }
@@ -1316,8 +1240,8 @@ class TermsInTermBaseApi
 
         // body params
         $_tempBody = null;
-        if (isset($glossary_term_update_parameters)) {
-            $_tempBody = $glossary_term_update_parameters;
+        if (isset($blacklisted_key_update_parameters)) {
+            $_tempBody = $blacklisted_key_update_parameters;
         }
 
         if ($multipart) {
@@ -1391,44 +1315,44 @@ class TermsInTermBaseApi
     }
 
     /**
-     * Operation glossaryTermsList
+     * Operation blacklistedKeysList
      *
-     * List terms
+     * List blacklisted keys
      *
-     * @param  string $account_id Account ID (required)
-     * @param  string $glossary_id Glossary ID (required)
+     * @param  string $project_id Project ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  int $page Page number (optional)
      * @param  int $per_page allows you to specify a page size up to 100 items, 25 by default (optional)
+     * @param  string $branch specify the branch to use (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Phrase\Model\GlossaryTerm[]
+     * @return \Phrase\Model\BlacklistedKey[]
      */
-    public function glossaryTermsList($account_id, $glossary_id, $x_phrase_app_otp = null, $page = null, $per_page = null)
+    public function blacklistedKeysList($project_id, $x_phrase_app_otp = null, $page = null, $per_page = null, $branch = null)
     {
-        list($response) = $this->glossaryTermsListWithHttpInfo($account_id, $glossary_id, $x_phrase_app_otp, $page, $per_page);
+        list($response) = $this->blacklistedKeysListWithHttpInfo($project_id, $x_phrase_app_otp, $page, $per_page, $branch);
         return $response;
     }
 
     /**
-     * Operation glossaryTermsListWithHttpInfo
+     * Operation blacklistedKeysListWithHttpInfo
      *
-     * List terms
+     * List blacklisted keys
      *
-     * @param  string $account_id Account ID (required)
-     * @param  string $glossary_id Glossary ID (required)
+     * @param  string $project_id Project ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  int $page Page number (optional)
      * @param  int $per_page allows you to specify a page size up to 100 items, 25 by default (optional)
+     * @param  string $branch specify the branch to use (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Phrase\Model\GlossaryTerm[], HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Phrase\Model\BlacklistedKey[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function glossaryTermsListWithHttpInfo($account_id, $glossary_id, $x_phrase_app_otp = null, $page = null, $per_page = null)
+    public function blacklistedKeysListWithHttpInfo($project_id, $x_phrase_app_otp = null, $page = null, $per_page = null, $branch = null)
     {
-        $request = $this->glossaryTermsListRequest($account_id, $glossary_id, $x_phrase_app_otp, $page, $per_page);
+        $request = $this->blacklistedKeysListRequest($project_id, $x_phrase_app_otp, $page, $per_page, $branch);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1461,20 +1385,20 @@ class TermsInTermBaseApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\Phrase\Model\GlossaryTerm[]' === '\SplFileObject') {
+                    if ('\Phrase\Model\BlacklistedKey[]' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Phrase\Model\GlossaryTerm[]', []),
+                        ObjectSerializer::deserialize($content, '\Phrase\Model\BlacklistedKey[]', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Phrase\Model\GlossaryTerm[]';
+            $returnType = '\Phrase\Model\BlacklistedKey[]';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -1493,7 +1417,7 @@ class TermsInTermBaseApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Phrase\Model\GlossaryTerm[]',
+                        '\Phrase\Model\BlacklistedKey[]',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1504,22 +1428,22 @@ class TermsInTermBaseApi
     }
 
     /**
-     * Operation glossaryTermsListAsync
+     * Operation blacklistedKeysListAsync
      *
-     * List terms
+     * List blacklisted keys
      *
-     * @param  string $account_id Account ID (required)
-     * @param  string $glossary_id Glossary ID (required)
+     * @param  string $project_id Project ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  int $page Page number (optional)
      * @param  int $per_page allows you to specify a page size up to 100 items, 25 by default (optional)
+     * @param  string $branch specify the branch to use (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function glossaryTermsListAsync($account_id, $glossary_id, $x_phrase_app_otp = null, $page = null, $per_page = null)
+    public function blacklistedKeysListAsync($project_id, $x_phrase_app_otp = null, $page = null, $per_page = null, $branch = null)
     {
-        return $this->glossaryTermsListAsyncWithHttpInfo($account_id, $glossary_id, $x_phrase_app_otp, $page, $per_page)
+        return $this->blacklistedKeysListAsyncWithHttpInfo($project_id, $x_phrase_app_otp, $page, $per_page, $branch)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1528,23 +1452,23 @@ class TermsInTermBaseApi
     }
 
     /**
-     * Operation glossaryTermsListAsyncWithHttpInfo
+     * Operation blacklistedKeysListAsyncWithHttpInfo
      *
-     * List terms
+     * List blacklisted keys
      *
-     * @param  string $account_id Account ID (required)
-     * @param  string $glossary_id Glossary ID (required)
+     * @param  string $project_id Project ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  int $page Page number (optional)
      * @param  int $per_page allows you to specify a page size up to 100 items, 25 by default (optional)
+     * @param  string $branch specify the branch to use (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function glossaryTermsListAsyncWithHttpInfo($account_id, $glossary_id, $x_phrase_app_otp = null, $page = null, $per_page = null)
+    public function blacklistedKeysListAsyncWithHttpInfo($project_id, $x_phrase_app_otp = null, $page = null, $per_page = null, $branch = null)
     {
-        $returnType = '\Phrase\Model\GlossaryTerm[]';
-        $request = $this->glossaryTermsListRequest($account_id, $glossary_id, $x_phrase_app_otp, $page, $per_page);
+        $returnType = '\Phrase\Model\BlacklistedKey[]';
+        $request = $this->blacklistedKeysListRequest($project_id, $x_phrase_app_otp, $page, $per_page, $branch);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1581,33 +1505,27 @@ class TermsInTermBaseApi
     }
 
     /**
-     * Create request for operation 'glossaryTermsList'
+     * Create request for operation 'blacklistedKeysList'
      *
-     * @param  string $account_id Account ID (required)
-     * @param  string $glossary_id Glossary ID (required)
+     * @param  string $project_id Project ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  int $page Page number (optional)
      * @param  int $per_page allows you to specify a page size up to 100 items, 25 by default (optional)
+     * @param  string $branch specify the branch to use (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function glossaryTermsListRequest($account_id, $glossary_id, $x_phrase_app_otp = null, $page = null, $per_page = null)
+    protected function blacklistedKeysListRequest($project_id, $x_phrase_app_otp = null, $page = null, $per_page = null, $branch = null)
     {
-        // verify the required parameter 'account_id' is set
-        if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
+        // verify the required parameter 'project_id' is set
+        if ($project_id === null || (is_array($project_id) && count($project_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $account_id when calling glossaryTermsList'
-            );
-        }
-        // verify the required parameter 'glossary_id' is set
-        if ($glossary_id === null || (is_array($glossary_id) && count($glossary_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $glossary_id when calling glossaryTermsList'
+                'Missing the required parameter $project_id when calling blacklistedKeysList'
             );
         }
 
-        $resourcePath = '/accounts/{account_id}/glossaries/{glossary_id}/terms';
+        $resourcePath = '/projects/{project_id}/blacklisted_keys';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1636,6 +1554,17 @@ class TermsInTermBaseApi
                 $queryParams['per_page'] = $per_page;
             }
         }
+        // query params
+        if ($branch !== null) {
+            if('form' === 'form' && is_array($branch)) {
+                foreach($branch as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['branch'] = $branch;
+            }
+        }
 
         // header params
         if ($x_phrase_app_otp !== null) {
@@ -1643,18 +1572,10 @@ class TermsInTermBaseApi
         }
 
         // path params
-        if ($account_id !== null) {
+        if ($project_id !== null) {
             $resourcePath = str_replace(
-                '{' . 'account_id' . '}',
-                ObjectSerializer::toPathValue($account_id),
-                $resourcePath
-            );
-        }
-        // path params
-        if ($glossary_id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'glossary_id' . '}',
-                ObjectSerializer::toPathValue($glossary_id),
+                '{' . 'project_id' . '}',
+                ObjectSerializer::toPathValue($project_id),
                 $resourcePath
             );
         }

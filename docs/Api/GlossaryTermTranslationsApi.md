@@ -1,12 +1,12 @@
-# Phrase\TermBaseTranslationsApi
+# Phrase\GlossaryTermTranslationsApi
 
 All URIs are relative to *https://api.phrase.com/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**glossaryTermTranslationCreate**](TermBaseTranslationsApi.md#glossaryTermTranslationCreate) | **POST** /accounts/{account_id}/glossaries/{glossary_id}/terms/{term_id}/translations | Create a translation for a term
-[**glossaryTermTranslationDelete**](TermBaseTranslationsApi.md#glossaryTermTranslationDelete) | **DELETE** /accounts/{account_id}/glossaries/{glossary_id}/terms/{term_id}/translations/{id} | Delete a translation for a term
-[**glossaryTermTranslationUpdate**](TermBaseTranslationsApi.md#glossaryTermTranslationUpdate) | **PATCH** /accounts/{account_id}/glossaries/{glossary_id}/terms/{term_id}/translations/{id} | Update a translation for a term
+[**glossaryTermTranslationCreate**](GlossaryTermTranslationsApi.md#glossaryTermTranslationCreate) | **POST** /accounts/{account_id}/glossaries/{glossary_id}/terms/{term_id}/translations | Create a glossary term translation
+[**glossaryTermTranslationDelete**](GlossaryTermTranslationsApi.md#glossaryTermTranslationDelete) | **DELETE** /accounts/{account_id}/glossaries/{glossary_id}/terms/{term_id}/translations/{id} | Delete a glossary term translation
+[**glossaryTermTranslationUpdate**](GlossaryTermTranslationsApi.md#glossaryTermTranslationUpdate) | **PATCH** /accounts/{account_id}/glossaries/{glossary_id}/terms/{term_id}/translations/{id} | Update a glossary term translation
 
 
 
@@ -14,9 +14,9 @@ Method | HTTP request | Description
 
 > \Phrase\Model\GlossaryTermTranslation glossaryTermTranslationCreate($account_id, $glossary_id, $term_id, $glossary_term_translation_create_parameters, $x_phrase_app_otp)
 
-Create a translation for a term
+Create a glossary term translation
 
-Create a new translation for a term in a term base (previously: glossary).
+Create a new glossary term translation.
 
 ### Example
 
@@ -27,7 +27,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 $config = Phrase\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 $config = Phrase\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'token');
 
-$apiInstance = new Phrase\Api\TermBaseTranslationsApi(
+$apiInstance = new Phrase\Api\GlossaryTermTranslationsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -43,7 +43,7 @@ try {
     $result = $apiInstance->glossaryTermTranslationCreate($account_id, $glossary_id, $term_id, $glossary_term_translation_create_parameters, $x_phrase_app_otp);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling TermBaseTranslationsApi->glossaryTermTranslationCreate: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling GlossaryTermTranslationsApi->glossaryTermTranslationCreate: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -81,9 +81,9 @@ Name | Type | Description  | Notes
 
 > glossaryTermTranslationDelete($account_id, $glossary_id, $term_id, $id, $x_phrase_app_otp)
 
-Delete a translation for a term
+Delete a glossary term translation
 
-Delete an existing translation of a term in a term base (previously: glossary).
+Delete an existing glossary term translation.
 
 ### Example
 
@@ -94,7 +94,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 $config = Phrase\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 $config = Phrase\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'token');
 
-$apiInstance = new Phrase\Api\TermBaseTranslationsApi(
+$apiInstance = new Phrase\Api\GlossaryTermTranslationsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -109,7 +109,7 @@ $x_phrase_app_otp = 'x_phrase_app_otp_example'; // string | Two-Factor-Authentic
 try {
     $apiInstance->glossaryTermTranslationDelete($account_id, $glossary_id, $term_id, $id, $x_phrase_app_otp);
 } catch (Exception $e) {
-    echo 'Exception when calling TermBaseTranslationsApi->glossaryTermTranslationDelete: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling GlossaryTermTranslationsApi->glossaryTermTranslationDelete: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -147,9 +147,9 @@ void (empty response body)
 
 > \Phrase\Model\GlossaryTermTranslation glossaryTermTranslationUpdate($account_id, $glossary_id, $term_id, $id, $glossary_term_translation_update_parameters, $x_phrase_app_otp)
 
-Update a translation for a term
+Update a glossary term translation
 
-Update an existing translation for a term in a term base (previously: glossary).
+Update an existing glossary term translation.
 
 ### Example
 
@@ -160,7 +160,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 $config = Phrase\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 $config = Phrase\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'token');
 
-$apiInstance = new Phrase\Api\TermBaseTranslationsApi(
+$apiInstance = new Phrase\Api\GlossaryTermTranslationsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -177,7 +177,7 @@ try {
     $result = $apiInstance->glossaryTermTranslationUpdate($account_id, $glossary_id, $term_id, $id, $glossary_term_translation_update_parameters, $x_phrase_app_otp);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling TermBaseTranslationsApi->glossaryTermTranslationUpdate: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling GlossaryTermTranslationsApi->glossaryTermTranslationUpdate: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```

@@ -135,11 +135,11 @@ Class | Method | HTTP request | Description
 *BitbucketSyncApi* | [**bitbucketSyncExport**](docs/Api/BitbucketSyncApi.md#bitbucketsyncexport) | **POST** /bitbucket_syncs/{id}/export | Export from Phrase to Bitbucket
 *BitbucketSyncApi* | [**bitbucketSyncImport**](docs/Api/BitbucketSyncApi.md#bitbucketsyncimport) | **POST** /bitbucket_syncs/{id}/import | Import to Phrase from Bitbucket
 *BitbucketSyncApi* | [**bitbucketSyncsList**](docs/Api/BitbucketSyncApi.md#bitbucketsyncslist) | **GET** /bitbucket_syncs | List Bitbucket syncs
-*BlockedKeysApi* | [**blacklistedKeyCreate**](docs/Api/BlockedKeysApi.md#blacklistedkeycreate) | **POST** /projects/{project_id}/blacklisted_keys | Create a blocked key
-*BlockedKeysApi* | [**blacklistedKeyDelete**](docs/Api/BlockedKeysApi.md#blacklistedkeydelete) | **DELETE** /projects/{project_id}/blacklisted_keys/{id} | Delete a blocked key
-*BlockedKeysApi* | [**blacklistedKeyShow**](docs/Api/BlockedKeysApi.md#blacklistedkeyshow) | **GET** /projects/{project_id}/blacklisted_keys/{id} | Get a single blocked key
-*BlockedKeysApi* | [**blacklistedKeyUpdate**](docs/Api/BlockedKeysApi.md#blacklistedkeyupdate) | **PATCH** /projects/{project_id}/blacklisted_keys/{id} | Update a blocked key
-*BlockedKeysApi* | [**blacklistedKeysList**](docs/Api/BlockedKeysApi.md#blacklistedkeyslist) | **GET** /projects/{project_id}/blacklisted_keys | List blocked keys
+*BlacklistedKeysApi* | [**blacklistedKeyCreate**](docs/Api/BlacklistedKeysApi.md#blacklistedkeycreate) | **POST** /projects/{project_id}/blacklisted_keys | Create a blacklisted key
+*BlacklistedKeysApi* | [**blacklistedKeyDelete**](docs/Api/BlacklistedKeysApi.md#blacklistedkeydelete) | **DELETE** /projects/{project_id}/blacklisted_keys/{id} | Delete a blacklisted key
+*BlacklistedKeysApi* | [**blacklistedKeyShow**](docs/Api/BlacklistedKeysApi.md#blacklistedkeyshow) | **GET** /projects/{project_id}/blacklisted_keys/{id} | Get a single blacklisted key
+*BlacklistedKeysApi* | [**blacklistedKeyUpdate**](docs/Api/BlacklistedKeysApi.md#blacklistedkeyupdate) | **PATCH** /projects/{project_id}/blacklisted_keys/{id} | Update a blacklisted key
+*BlacklistedKeysApi* | [**blacklistedKeysList**](docs/Api/BlacklistedKeysApi.md#blacklistedkeyslist) | **GET** /projects/{project_id}/blacklisted_keys | List blacklisted keys
 *BranchesApi* | [**branchCompare**](docs/Api/BranchesApi.md#branchcompare) | **GET** /projects/{project_id}/branches/{name}/compare | Compare branches
 *BranchesApi* | [**branchCreate**](docs/Api/BranchesApi.md#branchcreate) | **POST** /projects/{project_id}/branches | Create a branch
 *BranchesApi* | [**branchDelete**](docs/Api/BranchesApi.md#branchdelete) | **DELETE** /projects/{project_id}/branches/{name} | Delete a branch
@@ -147,8 +147,6 @@ Class | Method | HTTP request | Description
 *BranchesApi* | [**branchShow**](docs/Api/BranchesApi.md#branchshow) | **GET** /projects/{project_id}/branches/{name} | Get a single branch
 *BranchesApi* | [**branchUpdate**](docs/Api/BranchesApi.md#branchupdate) | **PATCH** /projects/{project_id}/branches/{name} | Update a branch
 *BranchesApi* | [**branchesList**](docs/Api/BranchesApi.md#brancheslist) | **GET** /projects/{project_id}/branches | List branches
-*ChangesVersionsApi* | [**versionShow**](docs/Api/ChangesVersionsApi.md#versionshow) | **GET** /projects/{project_id}/translations/{translation_id}/versions/{id} | Get a single version
-*ChangesVersionsApi* | [**versionsList**](docs/Api/ChangesVersionsApi.md#versionslist) | **GET** /projects/{project_id}/translations/{translation_id}/versions | List all versions
 *CommentsApi* | [**commentCreate**](docs/Api/CommentsApi.md#commentcreate) | **POST** /projects/{project_id}/keys/{key_id}/comments | Create a comment
 *CommentsApi* | [**commentDelete**](docs/Api/CommentsApi.md#commentdelete) | **DELETE** /projects/{project_id}/keys/{key_id}/comments/{id} | Delete a comment
 *CommentsApi* | [**commentMarkCheck**](docs/Api/CommentsApi.md#commentmarkcheck) | **GET** /projects/{project_id}/keys/{key_id}/comments/{id}/read | Check if comment is read
@@ -174,6 +172,19 @@ Class | Method | HTTP request | Description
 *GitLabSyncApi* | [**gitlabSyncList**](docs/Api/GitLabSyncApi.md#gitlabsynclist) | **GET** /gitlab_syncs | List GitLab syncs
 *GitLabSyncApi* | [**gitlabSyncShow**](docs/Api/GitLabSyncApi.md#gitlabsyncshow) | **GET** /gitlab_syncs/{id} | Get single Sync Setting
 *GitLabSyncApi* | [**gitlabSyncUpdate**](docs/Api/GitLabSyncApi.md#gitlabsyncupdate) | **PUT** /gitlab_syncs/{id} | Update single Sync Setting
+*GlossariesApi* | [**glossariesList**](docs/Api/GlossariesApi.md#glossarieslist) | **GET** /accounts/{account_id}/glossaries | List glossaries
+*GlossariesApi* | [**glossaryCreate**](docs/Api/GlossariesApi.md#glossarycreate) | **POST** /accounts/{account_id}/glossaries | Create a glossary
+*GlossariesApi* | [**glossaryDelete**](docs/Api/GlossariesApi.md#glossarydelete) | **DELETE** /accounts/{account_id}/glossaries/{id} | Delete a glossary
+*GlossariesApi* | [**glossaryShow**](docs/Api/GlossariesApi.md#glossaryshow) | **GET** /accounts/{account_id}/glossaries/{id} | Get a single glossary
+*GlossariesApi* | [**glossaryUpdate**](docs/Api/GlossariesApi.md#glossaryupdate) | **PATCH** /accounts/{account_id}/glossaries/{id} | Update a glossary
+*GlossaryTermTranslationsApi* | [**glossaryTermTranslationCreate**](docs/Api/GlossaryTermTranslationsApi.md#glossarytermtranslationcreate) | **POST** /accounts/{account_id}/glossaries/{glossary_id}/terms/{term_id}/translations | Create a glossary term translation
+*GlossaryTermTranslationsApi* | [**glossaryTermTranslationDelete**](docs/Api/GlossaryTermTranslationsApi.md#glossarytermtranslationdelete) | **DELETE** /accounts/{account_id}/glossaries/{glossary_id}/terms/{term_id}/translations/{id} | Delete a glossary term translation
+*GlossaryTermTranslationsApi* | [**glossaryTermTranslationUpdate**](docs/Api/GlossaryTermTranslationsApi.md#glossarytermtranslationupdate) | **PATCH** /accounts/{account_id}/glossaries/{glossary_id}/terms/{term_id}/translations/{id} | Update a glossary term translation
+*GlossaryTermsApi* | [**glossaryTermCreate**](docs/Api/GlossaryTermsApi.md#glossarytermcreate) | **POST** /accounts/{account_id}/glossaries/{glossary_id}/terms | Create a glossary term
+*GlossaryTermsApi* | [**glossaryTermDelete**](docs/Api/GlossaryTermsApi.md#glossarytermdelete) | **DELETE** /accounts/{account_id}/glossaries/{glossary_id}/terms/{id} | Delete a glossary term
+*GlossaryTermsApi* | [**glossaryTermShow**](docs/Api/GlossaryTermsApi.md#glossarytermshow) | **GET** /accounts/{account_id}/glossaries/{glossary_id}/terms/{id} | Get a single glossary term
+*GlossaryTermsApi* | [**glossaryTermUpdate**](docs/Api/GlossaryTermsApi.md#glossarytermupdate) | **PATCH** /accounts/{account_id}/glossaries/{glossary_id}/terms/{id} | Update a glossary term
+*GlossaryTermsApi* | [**glossaryTermsList**](docs/Api/GlossaryTermsApi.md#glossarytermslist) | **GET** /accounts/{account_id}/glossaries/{glossary_id}/terms | List glossary terms
 *ICUApi* | [**icuSkeleton**](docs/Api/ICUApi.md#icuskeleton) | **POST** /icu/skeleton | Build icu skeletons
 *InvitationsApi* | [**invitationCreate**](docs/Api/InvitationsApi.md#invitationcreate) | **POST** /accounts/{account_id}/invitations | Create a new invitation
 *InvitationsApi* | [**invitationDelete**](docs/Api/InvitationsApi.md#invitationdelete) | **DELETE** /accounts/{account_id}/invitations/{id} | Delete an invitation
@@ -297,19 +308,6 @@ Class | Method | HTTP request | Description
 *TeamsApi* | [**teamsSpacesDelete**](docs/Api/TeamsApi.md#teamsspacesdelete) | **DELETE** /accounts/{account_id}/teams/{team_id}/spaces/{id} | Remove Space
 *TeamsApi* | [**teamsUsersCreate**](docs/Api/TeamsApi.md#teamsuserscreate) | **POST** /accounts/{account_id}/teams/{team_id}/users | Add User
 *TeamsApi* | [**teamsUsersDelete**](docs/Api/TeamsApi.md#teamsusersdelete) | **DELETE** /accounts/{account_id}/teams/{team_id}/users/{id} | Remove User
-*TermBaseTranslationsApi* | [**glossaryTermTranslationCreate**](docs/Api/TermBaseTranslationsApi.md#glossarytermtranslationcreate) | **POST** /accounts/{account_id}/glossaries/{glossary_id}/terms/{term_id}/translations | Create a translation for a term
-*TermBaseTranslationsApi* | [**glossaryTermTranslationDelete**](docs/Api/TermBaseTranslationsApi.md#glossarytermtranslationdelete) | **DELETE** /accounts/{account_id}/glossaries/{glossary_id}/terms/{term_id}/translations/{id} | Delete a translation for a term
-*TermBaseTranslationsApi* | [**glossaryTermTranslationUpdate**](docs/Api/TermBaseTranslationsApi.md#glossarytermtranslationupdate) | **PATCH** /accounts/{account_id}/glossaries/{glossary_id}/terms/{term_id}/translations/{id} | Update a translation for a term
-*TermBasesApi* | [**glossariesList**](docs/Api/TermBasesApi.md#glossarieslist) | **GET** /accounts/{account_id}/glossaries | List term bases
-*TermBasesApi* | [**glossaryCreate**](docs/Api/TermBasesApi.md#glossarycreate) | **POST** /accounts/{account_id}/glossaries | Create a term base
-*TermBasesApi* | [**glossaryDelete**](docs/Api/TermBasesApi.md#glossarydelete) | **DELETE** /accounts/{account_id}/glossaries/{id} | Delete a term base
-*TermBasesApi* | [**glossaryShow**](docs/Api/TermBasesApi.md#glossaryshow) | **GET** /accounts/{account_id}/glossaries/{id} | Get a single term base
-*TermBasesApi* | [**glossaryUpdate**](docs/Api/TermBasesApi.md#glossaryupdate) | **PATCH** /accounts/{account_id}/glossaries/{id} | Update a term base
-*TermsInTermBaseApi* | [**glossaryTermCreate**](docs/Api/TermsInTermBaseApi.md#glossarytermcreate) | **POST** /accounts/{account_id}/glossaries/{glossary_id}/terms | Create a term
-*TermsInTermBaseApi* | [**glossaryTermDelete**](docs/Api/TermsInTermBaseApi.md#glossarytermdelete) | **DELETE** /accounts/{account_id}/glossaries/{glossary_id}/terms/{id} | Delete a term
-*TermsInTermBaseApi* | [**glossaryTermShow**](docs/Api/TermsInTermBaseApi.md#glossarytermshow) | **GET** /accounts/{account_id}/glossaries/{glossary_id}/terms/{id} | Get a single term
-*TermsInTermBaseApi* | [**glossaryTermUpdate**](docs/Api/TermsInTermBaseApi.md#glossarytermupdate) | **PATCH** /accounts/{account_id}/glossaries/{glossary_id}/terms/{id} | Update a term
-*TermsInTermBaseApi* | [**glossaryTermsList**](docs/Api/TermsInTermBaseApi.md#glossarytermslist) | **GET** /accounts/{account_id}/glossaries/{glossary_id}/terms | List terms
 *TranslationsApi* | [**translationCreate**](docs/Api/TranslationsApi.md#translationcreate) | **POST** /projects/{project_id}/translations | Create a translation
 *TranslationsApi* | [**translationExclude**](docs/Api/TranslationsApi.md#translationexclude) | **PATCH** /projects/{project_id}/translations/{id}/exclude | Exclude a translation from export
 *TranslationsApi* | [**translationInclude**](docs/Api/TranslationsApi.md#translationinclude) | **PATCH** /projects/{project_id}/translations/{id}/include | Revoke exclusion of a translation in export
@@ -336,6 +334,8 @@ Class | Method | HTTP request | Description
 *VariablesApi* | [**variableShow**](docs/Api/VariablesApi.md#variableshow) | **GET** /projects/{project_id}/variables/{name} | Get a single variable
 *VariablesApi* | [**variableUpdate**](docs/Api/VariablesApi.md#variableupdate) | **PATCH** /projects/{project_id}/variables/{name} | Update a variable
 *VariablesApi* | [**variablesList**](docs/Api/VariablesApi.md#variableslist) | **GET** /projects/{project_id}/variables | List variables
+*VersionsHistoryApi* | [**versionShow**](docs/Api/VersionsHistoryApi.md#versionshow) | **GET** /projects/{project_id}/translations/{translation_id}/versions/{id} | Get a single version
+*VersionsHistoryApi* | [**versionsList**](docs/Api/VersionsHistoryApi.md#versionslist) | **GET** /projects/{project_id}/translations/{translation_id}/versions | List all versions
 *WebhooksApi* | [**webhookCreate**](docs/Api/WebhooksApi.md#webhookcreate) | **POST** /projects/{project_id}/webhooks | Create a webhook
 *WebhooksApi* | [**webhookDelete**](docs/Api/WebhooksApi.md#webhookdelete) | **DELETE** /projects/{project_id}/webhooks/{id} | Delete a webhook
 *WebhooksApi* | [**webhookShow**](docs/Api/WebhooksApi.md#webhookshow) | **GET** /projects/{project_id}/webhooks/{id} | Get a single webhook

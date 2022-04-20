@@ -1,6 +1,6 @@
 <?php
 /**
- * BlockedKeysApiTest
+ * GlossaryTermTranslationsApiTest
  * PHP version 5
  *
  * @category Class
@@ -32,14 +32,14 @@ use \Phrase\ObjectSerializer;
 use PHPUnit\Framework\TestCase;
 
 /**
- * BlockedKeysApiTest Class Doc Comment
+ * GlossaryTermTranslationsApiTest Class Doc Comment
  *
  * @category Class
  * @package  Phrase
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class BlockedKeysApiTest extends TestCase
+class GlossaryTermTranslationsApiTest extends TestCase
 {
 
     /**
@@ -71,52 +71,32 @@ class BlockedKeysApiTest extends TestCase
     }
 
     /**
-     * Test case for blacklistedKeyCreate
+     * Test case for glossaryTermTranslationCreate
      *
-     * Create a blocked key.
+     * Create a glossary term translation.
      *
      */
-    public function testBlacklistedKeyCreate()
+    public function testGlossaryTermTranslationCreate()
     {
     }
 
     /**
-     * Test case for blacklistedKeyDelete
+     * Test case for glossaryTermTranslationDelete
      *
-     * Delete a blocked key.
+     * Delete a glossary term translation.
      *
      */
-    public function testBlacklistedKeyDelete()
+    public function testGlossaryTermTranslationDelete()
     {
     }
 
     /**
-     * Test case for blacklistedKeyShow
+     * Test case for glossaryTermTranslationUpdate
      *
-     * Get a single blocked key.
-     *
-     */
-    public function testBlacklistedKeyShow()
-    {
-    }
-
-    /**
-     * Test case for blacklistedKeyUpdate
-     *
-     * Update a blocked key.
+     * Update a glossary term translation.
      *
      */
-    public function testBlacklistedKeyUpdate()
-    {
-    }
-
-    /**
-     * Test case for blacklistedKeysList
-     *
-     * List blocked keys.
-     *
-     */
-    public function testBlacklistedKeysList()
+    public function testGlossaryTermTranslationUpdate()
     {
     }
 }

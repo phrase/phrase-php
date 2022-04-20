@@ -1,14 +1,14 @@
-# Phrase\TermBasesApi
+# Phrase\GlossariesApi
 
 All URIs are relative to *https://api.phrase.com/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**glossariesList**](TermBasesApi.md#glossariesList) | **GET** /accounts/{account_id}/glossaries | List term bases
-[**glossaryCreate**](TermBasesApi.md#glossaryCreate) | **POST** /accounts/{account_id}/glossaries | Create a term base
-[**glossaryDelete**](TermBasesApi.md#glossaryDelete) | **DELETE** /accounts/{account_id}/glossaries/{id} | Delete a term base
-[**glossaryShow**](TermBasesApi.md#glossaryShow) | **GET** /accounts/{account_id}/glossaries/{id} | Get a single term base
-[**glossaryUpdate**](TermBasesApi.md#glossaryUpdate) | **PATCH** /accounts/{account_id}/glossaries/{id} | Update a term base
+[**glossariesList**](GlossariesApi.md#glossariesList) | **GET** /accounts/{account_id}/glossaries | List glossaries
+[**glossaryCreate**](GlossariesApi.md#glossaryCreate) | **POST** /accounts/{account_id}/glossaries | Create a glossary
+[**glossaryDelete**](GlossariesApi.md#glossaryDelete) | **DELETE** /accounts/{account_id}/glossaries/{id} | Delete a glossary
+[**glossaryShow**](GlossariesApi.md#glossaryShow) | **GET** /accounts/{account_id}/glossaries/{id} | Get a single glossary
+[**glossaryUpdate**](GlossariesApi.md#glossaryUpdate) | **PATCH** /accounts/{account_id}/glossaries/{id} | Update a glossary
 
 
 
@@ -16,9 +16,9 @@ Method | HTTP request | Description
 
 > \Phrase\Model\Glossary[] glossariesList($account_id, $x_phrase_app_otp, $page, $per_page)
 
-List term bases
+List glossaries
 
-List all term bases (previously: glossaries) the current user has access to.
+List all glossaries the current user has access to.
 
 ### Example
 
@@ -29,7 +29,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 $config = Phrase\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 $config = Phrase\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'token');
 
-$apiInstance = new Phrase\Api\TermBasesApi(
+$apiInstance = new Phrase\Api\GlossariesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -44,7 +44,7 @@ try {
     $result = $apiInstance->glossariesList($account_id, $x_phrase_app_otp, $page, $per_page);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling TermBasesApi->glossariesList: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling GlossariesApi->glossariesList: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -81,9 +81,9 @@ Name | Type | Description  | Notes
 
 > \Phrase\Model\Glossary glossaryCreate($account_id, $glossary_create_parameters, $x_phrase_app_otp)
 
-Create a term base
+Create a glossary
 
-Create a new term base (previously: glossary).
+Create a new glossary.
 
 ### Example
 
@@ -94,7 +94,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 $config = Phrase\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 $config = Phrase\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'token');
 
-$apiInstance = new Phrase\Api\TermBasesApi(
+$apiInstance = new Phrase\Api\GlossariesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -108,7 +108,7 @@ try {
     $result = $apiInstance->glossaryCreate($account_id, $glossary_create_parameters, $x_phrase_app_otp);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling TermBasesApi->glossaryCreate: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling GlossariesApi->glossaryCreate: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -144,9 +144,9 @@ Name | Type | Description  | Notes
 
 > glossaryDelete($account_id, $id, $x_phrase_app_otp)
 
-Delete a term base
+Delete a glossary
 
-Delete an existing term base (previously: glossary).
+Delete an existing glossary.
 
 ### Example
 
@@ -157,7 +157,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 $config = Phrase\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 $config = Phrase\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'token');
 
-$apiInstance = new Phrase\Api\TermBasesApi(
+$apiInstance = new Phrase\Api\GlossariesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -170,7 +170,7 @@ $x_phrase_app_otp = 'x_phrase_app_otp_example'; // string | Two-Factor-Authentic
 try {
     $apiInstance->glossaryDelete($account_id, $id, $x_phrase_app_otp);
 } catch (Exception $e) {
-    echo 'Exception when calling TermBasesApi->glossaryDelete: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling GlossariesApi->glossaryDelete: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -206,9 +206,9 @@ void (empty response body)
 
 > \Phrase\Model\Glossary glossaryShow($account_id, $id, $x_phrase_app_otp)
 
-Get a single term base
+Get a single glossary
 
-Get details on a single term base (previously: glossary).
+Get details on a single glossary.
 
 ### Example
 
@@ -219,7 +219,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 $config = Phrase\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 $config = Phrase\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'token');
 
-$apiInstance = new Phrase\Api\TermBasesApi(
+$apiInstance = new Phrase\Api\GlossariesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -233,7 +233,7 @@ try {
     $result = $apiInstance->glossaryShow($account_id, $id, $x_phrase_app_otp);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling TermBasesApi->glossaryShow: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling GlossariesApi->glossaryShow: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -269,9 +269,9 @@ Name | Type | Description  | Notes
 
 > \Phrase\Model\Glossary glossaryUpdate($account_id, $id, $glossary_update_parameters, $x_phrase_app_otp)
 
-Update a term base
+Update a glossary
 
-Update an existing term base (previously: glossary).
+Update an existing glossary.
 
 ### Example
 
@@ -282,7 +282,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 $config = Phrase\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 $config = Phrase\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'token');
 
-$apiInstance = new Phrase\Api\TermBasesApi(
+$apiInstance = new Phrase\Api\GlossariesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -297,7 +297,7 @@ try {
     $result = $apiInstance->glossaryUpdate($account_id, $id, $glossary_update_parameters, $x_phrase_app_otp);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling TermBasesApi->glossaryUpdate: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling GlossariesApi->glossaryUpdate: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```

@@ -1,6 +1,6 @@
 <?php
 /**
- * TermBasesApi
+ * GlossaryTermsApi
  * PHP version 5
  *
  * @category Class
@@ -38,14 +38,14 @@ use Phrase\HeaderSelector;
 use Phrase\ObjectSerializer;
 
 /**
- * TermBasesApi Class Doc Comment
+ * GlossaryTermsApi Class Doc Comment
  *
  * @category Class
  * @package  Phrase
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class TermBasesApi
+class GlossaryTermsApi
 {
     /**
      * @var ClientInterface
@@ -114,42 +114,42 @@ class TermBasesApi
     }
 
     /**
-     * Operation glossariesList
+     * Operation glossaryTermCreate
      *
-     * List term bases
+     * Create a glossary term
      *
      * @param  string $account_id Account ID (required)
+     * @param  string $glossary_id Glossary ID (required)
+     * @param  \Phrase\Model\GlossaryTermCreateParameters $glossary_term_create_parameters glossary_term_create_parameters (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
-     * @param  int $page Page number (optional)
-     * @param  int $per_page allows you to specify a page size up to 100 items, 25 by default (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Phrase\Model\Glossary[]
+     * @return \Phrase\Model\GlossaryTerm
      */
-    public function glossariesList($account_id, $x_phrase_app_otp = null, $page = null, $per_page = null)
+    public function glossaryTermCreate($account_id, $glossary_id, $glossary_term_create_parameters, $x_phrase_app_otp = null)
     {
-        list($response) = $this->glossariesListWithHttpInfo($account_id, $x_phrase_app_otp, $page, $per_page);
+        list($response) = $this->glossaryTermCreateWithHttpInfo($account_id, $glossary_id, $glossary_term_create_parameters, $x_phrase_app_otp);
         return $response;
     }
 
     /**
-     * Operation glossariesListWithHttpInfo
+     * Operation glossaryTermCreateWithHttpInfo
      *
-     * List term bases
+     * Create a glossary term
      *
      * @param  string $account_id Account ID (required)
+     * @param  string $glossary_id Glossary ID (required)
+     * @param  \Phrase\Model\GlossaryTermCreateParameters $glossary_term_create_parameters (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
-     * @param  int $page Page number (optional)
-     * @param  int $per_page allows you to specify a page size up to 100 items, 25 by default (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Phrase\Model\Glossary[], HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Phrase\Model\GlossaryTerm, HTTP status code, HTTP response headers (array of strings)
      */
-    public function glossariesListWithHttpInfo($account_id, $x_phrase_app_otp = null, $page = null, $per_page = null)
+    public function glossaryTermCreateWithHttpInfo($account_id, $glossary_id, $glossary_term_create_parameters, $x_phrase_app_otp = null)
     {
-        $request = $this->glossariesListRequest($account_id, $x_phrase_app_otp, $page, $per_page);
+        $request = $this->glossaryTermCreateRequest($account_id, $glossary_id, $glossary_term_create_parameters, $x_phrase_app_otp);
 
         try {
             $options = $this->createHttpClientOption();
@@ -181,21 +181,21 @@ class TermBasesApi
 
             $responseBody = $response->getBody();
             switch($statusCode) {
-                case 200:
-                    if ('\Phrase\Model\Glossary[]' === '\SplFileObject') {
+                case 201:
+                    if ('\Phrase\Model\GlossaryTerm' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Phrase\Model\Glossary[]', []),
+                        ObjectSerializer::deserialize($content, '\Phrase\Model\GlossaryTerm', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Phrase\Model\Glossary[]';
+            $returnType = '\Phrase\Model\GlossaryTerm';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -211,10 +211,10 @@ class TermBasesApi
 
         } catch (ApiException $e) {
             switch ($e->getCode()) {
-                case 200:
+                case 201:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Phrase\Model\Glossary[]',
+                        '\Phrase\Model\GlossaryTerm',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -225,21 +225,21 @@ class TermBasesApi
     }
 
     /**
-     * Operation glossariesListAsync
+     * Operation glossaryTermCreateAsync
      *
-     * List term bases
+     * Create a glossary term
      *
      * @param  string $account_id Account ID (required)
+     * @param  string $glossary_id Glossary ID (required)
+     * @param  \Phrase\Model\GlossaryTermCreateParameters $glossary_term_create_parameters (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
-     * @param  int $page Page number (optional)
-     * @param  int $per_page allows you to specify a page size up to 100 items, 25 by default (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function glossariesListAsync($account_id, $x_phrase_app_otp = null, $page = null, $per_page = null)
+    public function glossaryTermCreateAsync($account_id, $glossary_id, $glossary_term_create_parameters, $x_phrase_app_otp = null)
     {
-        return $this->glossariesListAsyncWithHttpInfo($account_id, $x_phrase_app_otp, $page, $per_page)
+        return $this->glossaryTermCreateAsyncWithHttpInfo($account_id, $glossary_id, $glossary_term_create_parameters, $x_phrase_app_otp)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -248,22 +248,22 @@ class TermBasesApi
     }
 
     /**
-     * Operation glossariesListAsyncWithHttpInfo
+     * Operation glossaryTermCreateAsyncWithHttpInfo
      *
-     * List term bases
+     * Create a glossary term
      *
      * @param  string $account_id Account ID (required)
+     * @param  string $glossary_id Glossary ID (required)
+     * @param  \Phrase\Model\GlossaryTermCreateParameters $glossary_term_create_parameters (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
-     * @param  int $page Page number (optional)
-     * @param  int $per_page allows you to specify a page size up to 100 items, 25 by default (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function glossariesListAsyncWithHttpInfo($account_id, $x_phrase_app_otp = null, $page = null, $per_page = null)
+    public function glossaryTermCreateAsyncWithHttpInfo($account_id, $glossary_id, $glossary_term_create_parameters, $x_phrase_app_otp = null)
     {
-        $returnType = '\Phrase\Model\Glossary[]';
-        $request = $this->glossariesListRequest($account_id, $x_phrase_app_otp, $page, $per_page);
+        $returnType = '\Phrase\Model\GlossaryTerm';
+        $request = $this->glossaryTermCreateRequest($account_id, $glossary_id, $glossary_term_create_parameters, $x_phrase_app_otp);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -300,350 +300,38 @@ class TermBasesApi
     }
 
     /**
-     * Create request for operation 'glossariesList'
+     * Create request for operation 'glossaryTermCreate'
      *
      * @param  string $account_id Account ID (required)
-     * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
-     * @param  int $page Page number (optional)
-     * @param  int $per_page allows you to specify a page size up to 100 items, 25 by default (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    protected function glossariesListRequest($account_id, $x_phrase_app_otp = null, $page = null, $per_page = null)
-    {
-        // verify the required parameter 'account_id' is set
-        if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $account_id when calling glossariesList'
-            );
-        }
-
-        $resourcePath = '/accounts/{account_id}/glossaries';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-        // query params
-        if ($page !== null) {
-            if('form' === 'form' && is_array($page)) {
-                foreach($page as $key => $value) {
-                    $queryParams[$key] = $value;
-                }
-            }
-            else {
-                $queryParams['page'] = $page;
-            }
-        }
-        // query params
-        if ($per_page !== null) {
-            if('form' === 'form' && is_array($per_page)) {
-                foreach($per_page as $key => $value) {
-                    $queryParams[$key] = $value;
-                }
-            }
-            else {
-                $queryParams['per_page'] = $per_page;
-            }
-        }
-
-        // header params
-        if ($x_phrase_app_otp !== null) {
-            $headerParams['X-PhraseApp-OTP'] = ObjectSerializer::toHeaderValue($x_phrase_app_otp);
-        }
-
-        // path params
-        if ($account_id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'account_id' . '}',
-                ObjectSerializer::toPathValue($account_id),
-                $resourcePath
-            );
-        }
-
-        // body params
-        $_tempBody = null;
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                []
-            );
-        }
-
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
-            } else {
-                $httpBody = $_tempBody;
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
-            }
-        }
-
-        // this endpoint requires HTTP basic authentication
-        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
-            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
-        }
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
-        if ($apiKey !== null) {
-            $headers['Authorization'] = $apiKey;
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
-        return new Request(
-            'GET',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation glossaryCreate
-     *
-     * Create a term base
-     *
-     * @param  string $account_id Account ID (required)
-     * @param  \Phrase\Model\GlossaryCreateParameters $glossary_create_parameters glossary_create_parameters (required)
-     * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
-     *
-     * @throws \Phrase\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \Phrase\Model\Glossary
-     */
-    public function glossaryCreate($account_id, $glossary_create_parameters, $x_phrase_app_otp = null)
-    {
-        list($response) = $this->glossaryCreateWithHttpInfo($account_id, $glossary_create_parameters, $x_phrase_app_otp);
-        return $response;
-    }
-
-    /**
-     * Operation glossaryCreateWithHttpInfo
-     *
-     * Create a term base
-     *
-     * @param  string $account_id Account ID (required)
-     * @param  \Phrase\Model\GlossaryCreateParameters $glossary_create_parameters (required)
-     * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
-     *
-     * @throws \Phrase\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of \Phrase\Model\Glossary, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function glossaryCreateWithHttpInfo($account_id, $glossary_create_parameters, $x_phrase_app_otp = null)
-    {
-        $request = $this->glossaryCreateRequest($account_id, $glossary_create_parameters, $x_phrase_app_otp);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
-                );
-            }
-
-            $responseBody = $response->getBody();
-            switch($statusCode) {
-                case 201:
-                    if ('\Phrase\Model\Glossary' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = (string) $responseBody;
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\Phrase\Model\Glossary', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-            }
-
-            $returnType = '\Phrase\Model\Glossary';
-            $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = (string) $responseBody;
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 201:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Phrase\Model\Glossary',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation glossaryCreateAsync
-     *
-     * Create a term base
-     *
-     * @param  string $account_id Account ID (required)
-     * @param  \Phrase\Model\GlossaryCreateParameters $glossary_create_parameters (required)
-     * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function glossaryCreateAsync($account_id, $glossary_create_parameters, $x_phrase_app_otp = null)
-    {
-        return $this->glossaryCreateAsyncWithHttpInfo($account_id, $glossary_create_parameters, $x_phrase_app_otp)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation glossaryCreateAsyncWithHttpInfo
-     *
-     * Create a term base
-     *
-     * @param  string $account_id Account ID (required)
-     * @param  \Phrase\Model\GlossaryCreateParameters $glossary_create_parameters (required)
-     * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function glossaryCreateAsyncWithHttpInfo($account_id, $glossary_create_parameters, $x_phrase_app_otp = null)
-    {
-        $returnType = '\Phrase\Model\Glossary';
-        $request = $this->glossaryCreateRequest($account_id, $glossary_create_parameters, $x_phrase_app_otp);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = (string) $responseBody;
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'glossaryCreate'
-     *
-     * @param  string $account_id Account ID (required)
-     * @param  \Phrase\Model\GlossaryCreateParameters $glossary_create_parameters (required)
+     * @param  string $glossary_id Glossary ID (required)
+     * @param  \Phrase\Model\GlossaryTermCreateParameters $glossary_term_create_parameters (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function glossaryCreateRequest($account_id, $glossary_create_parameters, $x_phrase_app_otp = null)
+    protected function glossaryTermCreateRequest($account_id, $glossary_id, $glossary_term_create_parameters, $x_phrase_app_otp = null)
     {
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $account_id when calling glossaryCreate'
+                'Missing the required parameter $account_id when calling glossaryTermCreate'
             );
         }
-        // verify the required parameter 'glossary_create_parameters' is set
-        if ($glossary_create_parameters === null || (is_array($glossary_create_parameters) && count($glossary_create_parameters) === 0)) {
+        // verify the required parameter 'glossary_id' is set
+        if ($glossary_id === null || (is_array($glossary_id) && count($glossary_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $glossary_create_parameters when calling glossaryCreate'
+                'Missing the required parameter $glossary_id when calling glossaryTermCreate'
+            );
+        }
+        // verify the required parameter 'glossary_term_create_parameters' is set
+        if ($glossary_term_create_parameters === null || (is_array($glossary_term_create_parameters) && count($glossary_term_create_parameters) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $glossary_term_create_parameters when calling glossaryTermCreate'
             );
         }
 
-        $resourcePath = '/accounts/{account_id}/glossaries';
+        $resourcePath = '/accounts/{account_id}/glossaries/{glossary_id}/terms';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -664,11 +352,19 @@ class TermBasesApi
                 $resourcePath
             );
         }
+        // path params
+        if ($glossary_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'glossary_id' . '}',
+                ObjectSerializer::toPathValue($glossary_id),
+                $resourcePath
+            );
+        }
 
         // body params
         $_tempBody = null;
-        if (isset($glossary_create_parameters)) {
-            $_tempBody = $glossary_create_parameters;
+        if (isset($glossary_term_create_parameters)) {
+            $_tempBody = $glossary_term_create_parameters;
         }
 
         if ($multipart) {
@@ -742,11 +438,12 @@ class TermBasesApi
     }
 
     /**
-     * Operation glossaryDelete
+     * Operation glossaryTermDelete
      *
-     * Delete a term base
+     * Delete a glossary term
      *
      * @param  string $account_id Account ID (required)
+     * @param  string $glossary_id Glossary ID (required)
      * @param  string $id ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      *
@@ -754,17 +451,18 @@ class TermBasesApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function glossaryDelete($account_id, $id, $x_phrase_app_otp = null)
+    public function glossaryTermDelete($account_id, $glossary_id, $id, $x_phrase_app_otp = null)
     {
-        $this->glossaryDeleteWithHttpInfo($account_id, $id, $x_phrase_app_otp);
+        $this->glossaryTermDeleteWithHttpInfo($account_id, $glossary_id, $id, $x_phrase_app_otp);
     }
 
     /**
-     * Operation glossaryDeleteWithHttpInfo
+     * Operation glossaryTermDeleteWithHttpInfo
      *
-     * Delete a term base
+     * Delete a glossary term
      *
      * @param  string $account_id Account ID (required)
+     * @param  string $glossary_id Glossary ID (required)
      * @param  string $id ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      *
@@ -772,9 +470,9 @@ class TermBasesApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function glossaryDeleteWithHttpInfo($account_id, $id, $x_phrase_app_otp = null)
+    public function glossaryTermDeleteWithHttpInfo($account_id, $glossary_id, $id, $x_phrase_app_otp = null)
     {
-        $request = $this->glossaryDeleteRequest($account_id, $id, $x_phrase_app_otp);
+        $request = $this->glossaryTermDeleteRequest($account_id, $glossary_id, $id, $x_phrase_app_otp);
 
         try {
             $options = $this->createHttpClientOption();
@@ -814,20 +512,21 @@ class TermBasesApi
     }
 
     /**
-     * Operation glossaryDeleteAsync
+     * Operation glossaryTermDeleteAsync
      *
-     * Delete a term base
+     * Delete a glossary term
      *
      * @param  string $account_id Account ID (required)
+     * @param  string $glossary_id Glossary ID (required)
      * @param  string $id ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function glossaryDeleteAsync($account_id, $id, $x_phrase_app_otp = null)
+    public function glossaryTermDeleteAsync($account_id, $glossary_id, $id, $x_phrase_app_otp = null)
     {
-        return $this->glossaryDeleteAsyncWithHttpInfo($account_id, $id, $x_phrase_app_otp)
+        return $this->glossaryTermDeleteAsyncWithHttpInfo($account_id, $glossary_id, $id, $x_phrase_app_otp)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -836,21 +535,22 @@ class TermBasesApi
     }
 
     /**
-     * Operation glossaryDeleteAsyncWithHttpInfo
+     * Operation glossaryTermDeleteAsyncWithHttpInfo
      *
-     * Delete a term base
+     * Delete a glossary term
      *
      * @param  string $account_id Account ID (required)
+     * @param  string $glossary_id Glossary ID (required)
      * @param  string $id ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function glossaryDeleteAsyncWithHttpInfo($account_id, $id, $x_phrase_app_otp = null)
+    public function glossaryTermDeleteAsyncWithHttpInfo($account_id, $glossary_id, $id, $x_phrase_app_otp = null)
     {
         $returnType = '';
-        $request = $this->glossaryDeleteRequest($account_id, $id, $x_phrase_app_otp);
+        $request = $this->glossaryTermDeleteRequest($account_id, $glossary_id, $id, $x_phrase_app_otp);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -876,31 +576,38 @@ class TermBasesApi
     }
 
     /**
-     * Create request for operation 'glossaryDelete'
+     * Create request for operation 'glossaryTermDelete'
      *
      * @param  string $account_id Account ID (required)
+     * @param  string $glossary_id Glossary ID (required)
      * @param  string $id ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function glossaryDeleteRequest($account_id, $id, $x_phrase_app_otp = null)
+    protected function glossaryTermDeleteRequest($account_id, $glossary_id, $id, $x_phrase_app_otp = null)
     {
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $account_id when calling glossaryDelete'
+                'Missing the required parameter $account_id when calling glossaryTermDelete'
+            );
+        }
+        // verify the required parameter 'glossary_id' is set
+        if ($glossary_id === null || (is_array($glossary_id) && count($glossary_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $glossary_id when calling glossaryTermDelete'
             );
         }
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $id when calling glossaryDelete'
+                'Missing the required parameter $id when calling glossaryTermDelete'
             );
         }
 
-        $resourcePath = '/accounts/{account_id}/glossaries/{id}';
+        $resourcePath = '/accounts/{account_id}/glossaries/{glossary_id}/terms/{id}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -918,6 +625,14 @@ class TermBasesApi
             $resourcePath = str_replace(
                 '{' . 'account_id' . '}',
                 ObjectSerializer::toPathValue($account_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($glossary_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'glossary_id' . '}',
+                ObjectSerializer::toPathValue($glossary_id),
                 $resourcePath
             );
         }
@@ -1004,40 +719,42 @@ class TermBasesApi
     }
 
     /**
-     * Operation glossaryShow
+     * Operation glossaryTermShow
      *
-     * Get a single term base
+     * Get a single glossary term
      *
      * @param  string $account_id Account ID (required)
+     * @param  string $glossary_id Glossary ID (required)
      * @param  string $id ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Phrase\Model\Glossary
+     * @return \Phrase\Model\GlossaryTerm
      */
-    public function glossaryShow($account_id, $id, $x_phrase_app_otp = null)
+    public function glossaryTermShow($account_id, $glossary_id, $id, $x_phrase_app_otp = null)
     {
-        list($response) = $this->glossaryShowWithHttpInfo($account_id, $id, $x_phrase_app_otp);
+        list($response) = $this->glossaryTermShowWithHttpInfo($account_id, $glossary_id, $id, $x_phrase_app_otp);
         return $response;
     }
 
     /**
-     * Operation glossaryShowWithHttpInfo
+     * Operation glossaryTermShowWithHttpInfo
      *
-     * Get a single term base
+     * Get a single glossary term
      *
      * @param  string $account_id Account ID (required)
+     * @param  string $glossary_id Glossary ID (required)
      * @param  string $id ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Phrase\Model\Glossary, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Phrase\Model\GlossaryTerm, HTTP status code, HTTP response headers (array of strings)
      */
-    public function glossaryShowWithHttpInfo($account_id, $id, $x_phrase_app_otp = null)
+    public function glossaryTermShowWithHttpInfo($account_id, $glossary_id, $id, $x_phrase_app_otp = null)
     {
-        $request = $this->glossaryShowRequest($account_id, $id, $x_phrase_app_otp);
+        $request = $this->glossaryTermShowRequest($account_id, $glossary_id, $id, $x_phrase_app_otp);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1070,20 +787,20 @@ class TermBasesApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\Phrase\Model\Glossary' === '\SplFileObject') {
+                    if ('\Phrase\Model\GlossaryTerm' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Phrase\Model\Glossary', []),
+                        ObjectSerializer::deserialize($content, '\Phrase\Model\GlossaryTerm', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Phrase\Model\Glossary';
+            $returnType = '\Phrase\Model\GlossaryTerm';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -1102,7 +819,7 @@ class TermBasesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Phrase\Model\Glossary',
+                        '\Phrase\Model\GlossaryTerm',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1113,20 +830,21 @@ class TermBasesApi
     }
 
     /**
-     * Operation glossaryShowAsync
+     * Operation glossaryTermShowAsync
      *
-     * Get a single term base
+     * Get a single glossary term
      *
      * @param  string $account_id Account ID (required)
+     * @param  string $glossary_id Glossary ID (required)
      * @param  string $id ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function glossaryShowAsync($account_id, $id, $x_phrase_app_otp = null)
+    public function glossaryTermShowAsync($account_id, $glossary_id, $id, $x_phrase_app_otp = null)
     {
-        return $this->glossaryShowAsyncWithHttpInfo($account_id, $id, $x_phrase_app_otp)
+        return $this->glossaryTermShowAsyncWithHttpInfo($account_id, $glossary_id, $id, $x_phrase_app_otp)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1135,21 +853,22 @@ class TermBasesApi
     }
 
     /**
-     * Operation glossaryShowAsyncWithHttpInfo
+     * Operation glossaryTermShowAsyncWithHttpInfo
      *
-     * Get a single term base
+     * Get a single glossary term
      *
      * @param  string $account_id Account ID (required)
+     * @param  string $glossary_id Glossary ID (required)
      * @param  string $id ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function glossaryShowAsyncWithHttpInfo($account_id, $id, $x_phrase_app_otp = null)
+    public function glossaryTermShowAsyncWithHttpInfo($account_id, $glossary_id, $id, $x_phrase_app_otp = null)
     {
-        $returnType = '\Phrase\Model\Glossary';
-        $request = $this->glossaryShowRequest($account_id, $id, $x_phrase_app_otp);
+        $returnType = '\Phrase\Model\GlossaryTerm';
+        $request = $this->glossaryTermShowRequest($account_id, $glossary_id, $id, $x_phrase_app_otp);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1186,31 +905,38 @@ class TermBasesApi
     }
 
     /**
-     * Create request for operation 'glossaryShow'
+     * Create request for operation 'glossaryTermShow'
      *
      * @param  string $account_id Account ID (required)
+     * @param  string $glossary_id Glossary ID (required)
      * @param  string $id ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function glossaryShowRequest($account_id, $id, $x_phrase_app_otp = null)
+    protected function glossaryTermShowRequest($account_id, $glossary_id, $id, $x_phrase_app_otp = null)
     {
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $account_id when calling glossaryShow'
+                'Missing the required parameter $account_id when calling glossaryTermShow'
+            );
+        }
+        // verify the required parameter 'glossary_id' is set
+        if ($glossary_id === null || (is_array($glossary_id) && count($glossary_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $glossary_id when calling glossaryTermShow'
             );
         }
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $id when calling glossaryShow'
+                'Missing the required parameter $id when calling glossaryTermShow'
             );
         }
 
-        $resourcePath = '/accounts/{account_id}/glossaries/{id}';
+        $resourcePath = '/accounts/{account_id}/glossaries/{glossary_id}/terms/{id}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1228,6 +954,14 @@ class TermBasesApi
             $resourcePath = str_replace(
                 '{' . 'account_id' . '}',
                 ObjectSerializer::toPathValue($account_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($glossary_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'glossary_id' . '}',
+                ObjectSerializer::toPathValue($glossary_id),
                 $resourcePath
             );
         }
@@ -1314,42 +1048,44 @@ class TermBasesApi
     }
 
     /**
-     * Operation glossaryUpdate
+     * Operation glossaryTermUpdate
      *
-     * Update a term base
+     * Update a glossary term
      *
      * @param  string $account_id Account ID (required)
+     * @param  string $glossary_id Glossary ID (required)
      * @param  string $id ID (required)
-     * @param  \Phrase\Model\GlossaryUpdateParameters $glossary_update_parameters glossary_update_parameters (required)
+     * @param  \Phrase\Model\GlossaryTermUpdateParameters $glossary_term_update_parameters glossary_term_update_parameters (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Phrase\Model\Glossary
+     * @return \Phrase\Model\GlossaryTerm
      */
-    public function glossaryUpdate($account_id, $id, $glossary_update_parameters, $x_phrase_app_otp = null)
+    public function glossaryTermUpdate($account_id, $glossary_id, $id, $glossary_term_update_parameters, $x_phrase_app_otp = null)
     {
-        list($response) = $this->glossaryUpdateWithHttpInfo($account_id, $id, $glossary_update_parameters, $x_phrase_app_otp);
+        list($response) = $this->glossaryTermUpdateWithHttpInfo($account_id, $glossary_id, $id, $glossary_term_update_parameters, $x_phrase_app_otp);
         return $response;
     }
 
     /**
-     * Operation glossaryUpdateWithHttpInfo
+     * Operation glossaryTermUpdateWithHttpInfo
      *
-     * Update a term base
+     * Update a glossary term
      *
      * @param  string $account_id Account ID (required)
+     * @param  string $glossary_id Glossary ID (required)
      * @param  string $id ID (required)
-     * @param  \Phrase\Model\GlossaryUpdateParameters $glossary_update_parameters (required)
+     * @param  \Phrase\Model\GlossaryTermUpdateParameters $glossary_term_update_parameters (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Phrase\Model\Glossary, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Phrase\Model\GlossaryTerm, HTTP status code, HTTP response headers (array of strings)
      */
-    public function glossaryUpdateWithHttpInfo($account_id, $id, $glossary_update_parameters, $x_phrase_app_otp = null)
+    public function glossaryTermUpdateWithHttpInfo($account_id, $glossary_id, $id, $glossary_term_update_parameters, $x_phrase_app_otp = null)
     {
-        $request = $this->glossaryUpdateRequest($account_id, $id, $glossary_update_parameters, $x_phrase_app_otp);
+        $request = $this->glossaryTermUpdateRequest($account_id, $glossary_id, $id, $glossary_term_update_parameters, $x_phrase_app_otp);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1382,20 +1118,20 @@ class TermBasesApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\Phrase\Model\Glossary' === '\SplFileObject') {
+                    if ('\Phrase\Model\GlossaryTerm' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Phrase\Model\Glossary', []),
+                        ObjectSerializer::deserialize($content, '\Phrase\Model\GlossaryTerm', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Phrase\Model\Glossary';
+            $returnType = '\Phrase\Model\GlossaryTerm';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -1414,7 +1150,7 @@ class TermBasesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Phrase\Model\Glossary',
+                        '\Phrase\Model\GlossaryTerm',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1425,21 +1161,22 @@ class TermBasesApi
     }
 
     /**
-     * Operation glossaryUpdateAsync
+     * Operation glossaryTermUpdateAsync
      *
-     * Update a term base
+     * Update a glossary term
      *
      * @param  string $account_id Account ID (required)
+     * @param  string $glossary_id Glossary ID (required)
      * @param  string $id ID (required)
-     * @param  \Phrase\Model\GlossaryUpdateParameters $glossary_update_parameters (required)
+     * @param  \Phrase\Model\GlossaryTermUpdateParameters $glossary_term_update_parameters (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function glossaryUpdateAsync($account_id, $id, $glossary_update_parameters, $x_phrase_app_otp = null)
+    public function glossaryTermUpdateAsync($account_id, $glossary_id, $id, $glossary_term_update_parameters, $x_phrase_app_otp = null)
     {
-        return $this->glossaryUpdateAsyncWithHttpInfo($account_id, $id, $glossary_update_parameters, $x_phrase_app_otp)
+        return $this->glossaryTermUpdateAsyncWithHttpInfo($account_id, $glossary_id, $id, $glossary_term_update_parameters, $x_phrase_app_otp)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1448,22 +1185,23 @@ class TermBasesApi
     }
 
     /**
-     * Operation glossaryUpdateAsyncWithHttpInfo
+     * Operation glossaryTermUpdateAsyncWithHttpInfo
      *
-     * Update a term base
+     * Update a glossary term
      *
      * @param  string $account_id Account ID (required)
+     * @param  string $glossary_id Glossary ID (required)
      * @param  string $id ID (required)
-     * @param  \Phrase\Model\GlossaryUpdateParameters $glossary_update_parameters (required)
+     * @param  \Phrase\Model\GlossaryTermUpdateParameters $glossary_term_update_parameters (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function glossaryUpdateAsyncWithHttpInfo($account_id, $id, $glossary_update_parameters, $x_phrase_app_otp = null)
+    public function glossaryTermUpdateAsyncWithHttpInfo($account_id, $glossary_id, $id, $glossary_term_update_parameters, $x_phrase_app_otp = null)
     {
-        $returnType = '\Phrase\Model\Glossary';
-        $request = $this->glossaryUpdateRequest($account_id, $id, $glossary_update_parameters, $x_phrase_app_otp);
+        $returnType = '\Phrase\Model\GlossaryTerm';
+        $request = $this->glossaryTermUpdateRequest($account_id, $glossary_id, $id, $glossary_term_update_parameters, $x_phrase_app_otp);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1500,38 +1238,45 @@ class TermBasesApi
     }
 
     /**
-     * Create request for operation 'glossaryUpdate'
+     * Create request for operation 'glossaryTermUpdate'
      *
      * @param  string $account_id Account ID (required)
+     * @param  string $glossary_id Glossary ID (required)
      * @param  string $id ID (required)
-     * @param  \Phrase\Model\GlossaryUpdateParameters $glossary_update_parameters (required)
+     * @param  \Phrase\Model\GlossaryTermUpdateParameters $glossary_term_update_parameters (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function glossaryUpdateRequest($account_id, $id, $glossary_update_parameters, $x_phrase_app_otp = null)
+    protected function glossaryTermUpdateRequest($account_id, $glossary_id, $id, $glossary_term_update_parameters, $x_phrase_app_otp = null)
     {
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $account_id when calling glossaryUpdate'
+                'Missing the required parameter $account_id when calling glossaryTermUpdate'
+            );
+        }
+        // verify the required parameter 'glossary_id' is set
+        if ($glossary_id === null || (is_array($glossary_id) && count($glossary_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $glossary_id when calling glossaryTermUpdate'
             );
         }
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $id when calling glossaryUpdate'
+                'Missing the required parameter $id when calling glossaryTermUpdate'
             );
         }
-        // verify the required parameter 'glossary_update_parameters' is set
-        if ($glossary_update_parameters === null || (is_array($glossary_update_parameters) && count($glossary_update_parameters) === 0)) {
+        // verify the required parameter 'glossary_term_update_parameters' is set
+        if ($glossary_term_update_parameters === null || (is_array($glossary_term_update_parameters) && count($glossary_term_update_parameters) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $glossary_update_parameters when calling glossaryUpdate'
+                'Missing the required parameter $glossary_term_update_parameters when calling glossaryTermUpdate'
             );
         }
 
-        $resourcePath = '/accounts/{account_id}/glossaries/{id}';
+        $resourcePath = '/accounts/{account_id}/glossaries/{glossary_id}/terms/{id}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1553,6 +1298,14 @@ class TermBasesApi
             );
         }
         // path params
+        if ($glossary_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'glossary_id' . '}',
+                ObjectSerializer::toPathValue($glossary_id),
+                $resourcePath
+            );
+        }
+        // path params
         if ($id !== null) {
             $resourcePath = str_replace(
                 '{' . 'id' . '}',
@@ -1563,8 +1316,8 @@ class TermBasesApi
 
         // body params
         $_tempBody = null;
-        if (isset($glossary_update_parameters)) {
-            $_tempBody = $glossary_update_parameters;
+        if (isset($glossary_term_update_parameters)) {
+            $_tempBody = $glossary_term_update_parameters;
         }
 
         if ($multipart) {
@@ -1631,6 +1384,348 @@ class TermBasesApi
         $query = \GuzzleHttp\Psr7\Query::build($queryParams);
         return new Request(
             'PATCH',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation glossaryTermsList
+     *
+     * List glossary terms
+     *
+     * @param  string $account_id Account ID (required)
+     * @param  string $glossary_id Glossary ID (required)
+     * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
+     * @param  int $page Page number (optional)
+     * @param  int $per_page allows you to specify a page size up to 100 items, 25 by default (optional)
+     *
+     * @throws \Phrase\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \Phrase\Model\GlossaryTerm[]
+     */
+    public function glossaryTermsList($account_id, $glossary_id, $x_phrase_app_otp = null, $page = null, $per_page = null)
+    {
+        list($response) = $this->glossaryTermsListWithHttpInfo($account_id, $glossary_id, $x_phrase_app_otp, $page, $per_page);
+        return $response;
+    }
+
+    /**
+     * Operation glossaryTermsListWithHttpInfo
+     *
+     * List glossary terms
+     *
+     * @param  string $account_id Account ID (required)
+     * @param  string $glossary_id Glossary ID (required)
+     * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
+     * @param  int $page Page number (optional)
+     * @param  int $per_page allows you to specify a page size up to 100 items, 25 by default (optional)
+     *
+     * @throws \Phrase\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \Phrase\Model\GlossaryTerm[], HTTP status code, HTTP response headers (array of strings)
+     */
+    public function glossaryTermsListWithHttpInfo($account_id, $glossary_id, $x_phrase_app_otp = null, $page = null, $per_page = null)
+    {
+        $request = $this->glossaryTermsListRequest($account_id, $glossary_id, $x_phrase_app_otp, $page, $per_page);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            switch($statusCode) {
+                case 200:
+                    if ('\Phrase\Model\GlossaryTerm[]' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Phrase\Model\GlossaryTerm[]', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\Phrase\Model\GlossaryTerm[]';
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = (string) $responseBody;
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Phrase\Model\GlossaryTerm[]',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation glossaryTermsListAsync
+     *
+     * List glossary terms
+     *
+     * @param  string $account_id Account ID (required)
+     * @param  string $glossary_id Glossary ID (required)
+     * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
+     * @param  int $page Page number (optional)
+     * @param  int $per_page allows you to specify a page size up to 100 items, 25 by default (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function glossaryTermsListAsync($account_id, $glossary_id, $x_phrase_app_otp = null, $page = null, $per_page = null)
+    {
+        return $this->glossaryTermsListAsyncWithHttpInfo($account_id, $glossary_id, $x_phrase_app_otp, $page, $per_page)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation glossaryTermsListAsyncWithHttpInfo
+     *
+     * List glossary terms
+     *
+     * @param  string $account_id Account ID (required)
+     * @param  string $glossary_id Glossary ID (required)
+     * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
+     * @param  int $page Page number (optional)
+     * @param  int $per_page allows you to specify a page size up to 100 items, 25 by default (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function glossaryTermsListAsyncWithHttpInfo($account_id, $glossary_id, $x_phrase_app_otp = null, $page = null, $per_page = null)
+    {
+        $returnType = '\Phrase\Model\GlossaryTerm[]';
+        $request = $this->glossaryTermsListRequest($account_id, $glossary_id, $x_phrase_app_otp, $page, $per_page);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'glossaryTermsList'
+     *
+     * @param  string $account_id Account ID (required)
+     * @param  string $glossary_id Glossary ID (required)
+     * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
+     * @param  int $page Page number (optional)
+     * @param  int $per_page allows you to specify a page size up to 100 items, 25 by default (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function glossaryTermsListRequest($account_id, $glossary_id, $x_phrase_app_otp = null, $page = null, $per_page = null)
+    {
+        // verify the required parameter 'account_id' is set
+        if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $account_id when calling glossaryTermsList'
+            );
+        }
+        // verify the required parameter 'glossary_id' is set
+        if ($glossary_id === null || (is_array($glossary_id) && count($glossary_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $glossary_id when calling glossaryTermsList'
+            );
+        }
+
+        $resourcePath = '/accounts/{account_id}/glossaries/{glossary_id}/terms';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        if ($page !== null) {
+            if('form' === 'form' && is_array($page)) {
+                foreach($page as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['page'] = $page;
+            }
+        }
+        // query params
+        if ($per_page !== null) {
+            if('form' === 'form' && is_array($per_page)) {
+                foreach($per_page as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['per_page'] = $per_page;
+            }
+        }
+
+        // header params
+        if ($x_phrase_app_otp !== null) {
+            $headerParams['X-PhraseApp-OTP'] = ObjectSerializer::toHeaderValue($x_phrase_app_otp);
+        }
+
+        // path params
+        if ($account_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'account_id' . '}',
+                ObjectSerializer::toPathValue($account_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($glossary_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'glossary_id' . '}',
+                ObjectSerializer::toPathValue($glossary_id),
+                $resourcePath
+            );
+        }
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
+            }
+        }
+
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
+        return new Request(
+            'GET',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody

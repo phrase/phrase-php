@@ -1,6 +1,6 @@
 <?php
 /**
- * ChangesVersionsApi
+ * VersionsHistoryApi
  * PHP version 5
  *
  * @category Class
@@ -38,14 +38,14 @@ use Phrase\HeaderSelector;
 use Phrase\ObjectSerializer;
 
 /**
- * ChangesVersionsApi Class Doc Comment
+ * VersionsHistoryApi Class Doc Comment
  *
  * @category Class
  * @package  Phrase
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class ChangesVersionsApi
+class VersionsHistoryApi
 {
     /**
      * @var ClientInterface

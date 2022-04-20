@@ -1,6 +1,6 @@
 <?php
 /**
- * ChangesVersionsApiTest
+ * BlacklistedKeysApiTest
  * PHP version 5
  *
  * @category Class
@@ -32,14 +32,14 @@ use \Phrase\ObjectSerializer;
 use PHPUnit\Framework\TestCase;
 
 /**
- * ChangesVersionsApiTest Class Doc Comment
+ * BlacklistedKeysApiTest Class Doc Comment
  *
  * @category Class
  * @package  Phrase
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class ChangesVersionsApiTest extends TestCase
+class BlacklistedKeysApiTest extends TestCase
 {
 
     /**
@@ -71,22 +71,52 @@ class ChangesVersionsApiTest extends TestCase
     }
 
     /**
-     * Test case for versionShow
+     * Test case for blacklistedKeyCreate
      *
-     * Get a single version.
+     * Create a blacklisted key.
      *
      */
-    public function testVersionShow()
+    public function testBlacklistedKeyCreate()
     {
     }
 
     /**
-     * Test case for versionsList
+     * Test case for blacklistedKeyDelete
      *
-     * List all versions.
+     * Delete a blacklisted key.
      *
      */
-    public function testVersionsList()
+    public function testBlacklistedKeyDelete()
+    {
+    }
+
+    /**
+     * Test case for blacklistedKeyShow
+     *
+     * Get a single blacklisted key.
+     *
+     */
+    public function testBlacklistedKeyShow()
+    {
+    }
+
+    /**
+     * Test case for blacklistedKeyUpdate
+     *
+     * Update a blacklisted key.
+     *
+     */
+    public function testBlacklistedKeyUpdate()
+    {
+    }
+
+    /**
+     * Test case for blacklistedKeysList
+     *
+     * List blacklisted keys.
+     *
+     */
+    public function testBlacklistedKeysList()
     {
     }
 }
