@@ -119,16 +119,19 @@ class ScreenshotsApi
      * Create a screenshot
      *
      * @param  string $project_id Project ID (required)
-     * @param  \Phrase\Model\ScreenshotCreateParameters $screenshot_create_parameters screenshot_create_parameters (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
+     * @param  string $branch specify the branch to use (optional)
+     * @param  string $name Name of the screenshot (optional)
+     * @param  string $description Description of the screenshot (optional)
+     * @param  \SplFileObject $filename Screenshot file (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Phrase\Model\Screenshot
      */
-    public function screenshotCreate($project_id, $screenshot_create_parameters, $x_phrase_app_otp = null)
+    public function screenshotCreate($project_id, $x_phrase_app_otp = null, $branch = null, $name = null, $description = null, $filename = null)
     {
-        list($response) = $this->screenshotCreateWithHttpInfo($project_id, $screenshot_create_parameters, $x_phrase_app_otp);
+        list($response) = $this->screenshotCreateWithHttpInfo($project_id, $x_phrase_app_otp, $branch, $name, $description, $filename);
         return $response;
     }
 
@@ -138,16 +141,19 @@ class ScreenshotsApi
      * Create a screenshot
      *
      * @param  string $project_id Project ID (required)
-     * @param  \Phrase\Model\ScreenshotCreateParameters $screenshot_create_parameters (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
+     * @param  string $branch specify the branch to use (optional)
+     * @param  string $name Name of the screenshot (optional)
+     * @param  string $description Description of the screenshot (optional)
+     * @param  \SplFileObject $filename Screenshot file (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Phrase\Model\Screenshot, HTTP status code, HTTP response headers (array of strings)
      */
-    public function screenshotCreateWithHttpInfo($project_id, $screenshot_create_parameters, $x_phrase_app_otp = null)
+    public function screenshotCreateWithHttpInfo($project_id, $x_phrase_app_otp = null, $branch = null, $name = null, $description = null, $filename = null)
     {
-        $request = $this->screenshotCreateRequest($project_id, $screenshot_create_parameters, $x_phrase_app_otp);
+        $request = $this->screenshotCreateRequest($project_id, $x_phrase_app_otp, $branch, $name, $description, $filename);
 
         try {
             $options = $this->createHttpClientOption();
@@ -228,15 +234,18 @@ class ScreenshotsApi
      * Create a screenshot
      *
      * @param  string $project_id Project ID (required)
-     * @param  \Phrase\Model\ScreenshotCreateParameters $screenshot_create_parameters (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
+     * @param  string $branch specify the branch to use (optional)
+     * @param  string $name Name of the screenshot (optional)
+     * @param  string $description Description of the screenshot (optional)
+     * @param  \SplFileObject $filename Screenshot file (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function screenshotCreateAsync($project_id, $screenshot_create_parameters, $x_phrase_app_otp = null)
+    public function screenshotCreateAsync($project_id, $x_phrase_app_otp = null, $branch = null, $name = null, $description = null, $filename = null)
     {
-        return $this->screenshotCreateAsyncWithHttpInfo($project_id, $screenshot_create_parameters, $x_phrase_app_otp)
+        return $this->screenshotCreateAsyncWithHttpInfo($project_id, $x_phrase_app_otp, $branch, $name, $description, $filename)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -250,16 +259,19 @@ class ScreenshotsApi
      * Create a screenshot
      *
      * @param  string $project_id Project ID (required)
-     * @param  \Phrase\Model\ScreenshotCreateParameters $screenshot_create_parameters (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
+     * @param  string $branch specify the branch to use (optional)
+     * @param  string $name Name of the screenshot (optional)
+     * @param  string $description Description of the screenshot (optional)
+     * @param  \SplFileObject $filename Screenshot file (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function screenshotCreateAsyncWithHttpInfo($project_id, $screenshot_create_parameters, $x_phrase_app_otp = null)
+    public function screenshotCreateAsyncWithHttpInfo($project_id, $x_phrase_app_otp = null, $branch = null, $name = null, $description = null, $filename = null)
     {
         $returnType = '\Phrase\Model\Screenshot';
-        $request = $this->screenshotCreateRequest($project_id, $screenshot_create_parameters, $x_phrase_app_otp);
+        $request = $this->screenshotCreateRequest($project_id, $x_phrase_app_otp, $branch, $name, $description, $filename);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -299,24 +311,21 @@ class ScreenshotsApi
      * Create request for operation 'screenshotCreate'
      *
      * @param  string $project_id Project ID (required)
-     * @param  \Phrase\Model\ScreenshotCreateParameters $screenshot_create_parameters (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
+     * @param  string $branch specify the branch to use (optional)
+     * @param  string $name Name of the screenshot (optional)
+     * @param  string $description Description of the screenshot (optional)
+     * @param  \SplFileObject $filename Screenshot file (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function screenshotCreateRequest($project_id, $screenshot_create_parameters, $x_phrase_app_otp = null)
+    protected function screenshotCreateRequest($project_id, $x_phrase_app_otp = null, $branch = null, $name = null, $description = null, $filename = null)
     {
         // verify the required parameter 'project_id' is set
         if ($project_id === null || (is_array($project_id) && count($project_id) === 0)) {
             throw new \InvalidArgumentException(
                 'Missing the required parameter $project_id when calling screenshotCreate'
-            );
-        }
-        // verify the required parameter 'screenshot_create_parameters' is set
-        if ($screenshot_create_parameters === null || (is_array($screenshot_create_parameters) && count($screenshot_create_parameters) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $screenshot_create_parameters when calling screenshotCreate'
             );
         }
 
@@ -342,11 +351,25 @@ class ScreenshotsApi
             );
         }
 
+        // form params
+        if ($branch !== null) {
+            $this->formParamsAppend($formParams, 'branch', $branch);
+        }
+        // form params
+        if ($name !== null) {
+            $this->formParamsAppend($formParams, 'name', $name);
+        }
+        // form params
+        if ($description !== null) {
+            $this->formParamsAppend($formParams, 'description', $description);
+        }
+        // form params
+        if ($filename !== null) {
+            $multipart = true;
+            $formParams['filename'] = \GuzzleHttp\Psr7\Utils::tryFopen(ObjectSerializer::toFormValue($filename), 'rb');
+        }
         // body params
         $_tempBody = null;
-        if (isset($screenshot_create_parameters)) {
-            $_tempBody = $screenshot_create_parameters;
-        }
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
@@ -355,7 +378,7 @@ class ScreenshotsApi
         } else {
             $headers = $this->headerSelector->selectHeaders(
                 ['application/json'],
-                ['application/json']
+                ['multipart/form-data']
             );
         }
 

@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 ## screenshotCreate
 
-> \Phrase\Model\Screenshot screenshotCreate($project_id, $screenshot_create_parameters, $x_phrase_app_otp)
+> \Phrase\Model\Screenshot screenshotCreate($project_id, $x_phrase_app_otp, $branch, $name, $description, $filename)
 
 Create a screenshot
 
@@ -36,11 +36,14 @@ $apiInstance = new Phrase\Api\ScreenshotsApi(
     $config
 );
 $project_id = 'project_id_example'; // string | Project ID
-$screenshot_create_parameters = new \Phrase\Model\ScreenshotCreateParameters(); // \Phrase\Model\ScreenshotCreateParameters | 
 $x_phrase_app_otp = 'x_phrase_app_otp_example'; // string | Two-Factor-Authentication token (optional)
+$branch = 'branch_example'; // string | specify the branch to use
+$name = 'name_example'; // string | Name of the screenshot
+$description = 'description_example'; // string | Description of the screenshot
+$filename = "/path/to/file.txt"; // \SplFileObject | Screenshot file
 
 try {
-    $result = $apiInstance->screenshotCreate($project_id, $screenshot_create_parameters, $x_phrase_app_otp);
+    $result = $apiInstance->screenshotCreate($project_id, $x_phrase_app_otp, $branch, $name, $description, $filename);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ScreenshotsApi->screenshotCreate: ', $e->getMessage(), PHP_EOL;
@@ -54,8 +57,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **project_id** | **string**| Project ID |
- **screenshot_create_parameters** | [**\Phrase\Model\ScreenshotCreateParameters**](../Model/ScreenshotCreateParameters.md)|  |
  **x_phrase_app_otp** | **string**| Two-Factor-Authentication token (optional) | [optional]
+ **branch** | **string**| specify the branch to use | [optional]
+ **name** | **string**| Name of the screenshot | [optional]
+ **description** | **string**| Description of the screenshot | [optional]
+ **filename** | **\SplFileObject****\SplFileObject**| Screenshot file | [optional]
 
 ### Return type
 
@@ -67,7 +73,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
+- **Content-Type**: multipart/form-data
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
