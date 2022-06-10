@@ -193,6 +193,11 @@ Class | Method | HTTP request | Description
 *InvitationsApi* | [**invitationUpdate**](docs/Api/InvitationsApi.md#invitationupdate) | **PATCH** /accounts/{account_id}/invitations/{id} | Update an invitation
 *InvitationsApi* | [**invitationUpdateSettings**](docs/Api/InvitationsApi.md#invitationupdatesettings) | **PATCH** /projects/{project_id}/invitations/{id} | Update a member&#39;s invitation access
 *InvitationsApi* | [**invitationsList**](docs/Api/InvitationsApi.md#invitationslist) | **GET** /accounts/{account_id}/invitations | List invitations
+*JobCommentsApi* | [**jobCommentCreate**](docs/Api/JobCommentsApi.md#jobcommentcreate) | **POST** /projects/{project_id}/jobs/{job_id}/comments | Create a job comment
+*JobCommentsApi* | [**jobCommentDelete**](docs/Api/JobCommentsApi.md#jobcommentdelete) | **DELETE** /projects/{project_id}/jobs/{job_id}/comments/{id} | Delete a job comment
+*JobCommentsApi* | [**jobCommentShow**](docs/Api/JobCommentsApi.md#jobcommentshow) | **GET** /projects/{project_id}/jobs/{job_id}/comments/{id} | Get a single job comment
+*JobCommentsApi* | [**jobCommentUpdate**](docs/Api/JobCommentsApi.md#jobcommentupdate) | **PATCH** /projects/{project_id}/jobs/{job_id}/comments/{id} | Update a job comment
+*JobCommentsApi* | [**jobCommentsList**](docs/Api/JobCommentsApi.md#jobcommentslist) | **GET** /projects/{project_id}/jobs/{job_id}/comments | List job comments
 *JobLocalesApi* | [**jobLocaleComplete**](docs/Api/JobLocalesApi.md#joblocalecomplete) | **POST** /projects/{project_id}/jobs/{job_id}/locales/{id}/complete | Complete a job locale
 *JobLocalesApi* | [**jobLocaleCompleteReview**](docs/Api/JobLocalesApi.md#joblocalecompletereview) | **POST** /projects/{project_id}/jobs/{job_id}/locales/{id}/complete_review | Review a job locale
 *JobLocalesApi* | [**jobLocaleDelete**](docs/Api/JobLocalesApi.md#joblocaledelete) | **DELETE** /projects/{project_id}/jobs/{job_id}/locales/{id} | Delete a job locale
@@ -405,6 +410,9 @@ Class | Method | HTTP request | Description
  - [InvitationUpdateParameters](docs/Model/InvitationUpdateParameters.md)
  - [InvitationUpdateSettingsParameters](docs/Model/InvitationUpdateSettingsParameters.md)
  - [Job](docs/Model/Job.md)
+ - [JobComment](docs/Model/JobComment.md)
+ - [JobCommentCreateParameters](docs/Model/JobCommentCreateParameters.md)
+ - [JobCommentUpdateParameters](docs/Model/JobCommentUpdateParameters.md)
  - [JobCompleteParameters](docs/Model/JobCompleteParameters.md)
  - [JobCreateParameters](docs/Model/JobCreateParameters.md)
  - [JobDetails](docs/Model/JobDetails.md)
