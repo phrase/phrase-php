@@ -73,7 +73,7 @@ class GlossaryTermTranslationsApiTest extends TestCase
     /**
      * Test case for glossaryTermTranslationCreate
      *
-     * Create a glossary term translation.
+     * Create a translation for a term.
      *
      */
     public function testGlossaryTermTranslationCreate()
@@ -83,7 +83,7 @@ class GlossaryTermTranslationsApiTest extends TestCase
     /**
      * Test case for glossaryTermTranslationDelete
      *
-     * Delete a glossary term translation.
+     * Delete a translation for a term.
      *
      */
     public function testGlossaryTermTranslationDelete()
@@ -93,7 +93,7 @@ class GlossaryTermTranslationsApiTest extends TestCase
     /**
      * Test case for glossaryTermTranslationUpdate
      *
-     * Update a glossary term translation.
+     * Update a translation for a term.
      *
      */
     public function testGlossaryTermTranslationUpdate()

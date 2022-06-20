@@ -4,9 +4,9 @@ All URIs are relative to *https://api.phrase.com/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**glossaryTermTranslationCreate**](GlossaryTermTranslationsApi.md#glossaryTermTranslationCreate) | **POST** /accounts/{account_id}/glossaries/{glossary_id}/terms/{term_id}/translations | Create a glossary term translation
-[**glossaryTermTranslationDelete**](GlossaryTermTranslationsApi.md#glossaryTermTranslationDelete) | **DELETE** /accounts/{account_id}/glossaries/{glossary_id}/terms/{term_id}/translations/{id} | Delete a glossary term translation
-[**glossaryTermTranslationUpdate**](GlossaryTermTranslationsApi.md#glossaryTermTranslationUpdate) | **PATCH** /accounts/{account_id}/glossaries/{glossary_id}/terms/{term_id}/translations/{id} | Update a glossary term translation
+[**glossaryTermTranslationCreate**](GlossaryTermTranslationsApi.md#glossaryTermTranslationCreate) | **POST** /accounts/{account_id}/glossaries/{glossary_id}/terms/{term_id}/translations | Create a translation for a term
+[**glossaryTermTranslationDelete**](GlossaryTermTranslationsApi.md#glossaryTermTranslationDelete) | **DELETE** /accounts/{account_id}/glossaries/{glossary_id}/terms/{term_id}/translations/{id} | Delete a translation for a term
+[**glossaryTermTranslationUpdate**](GlossaryTermTranslationsApi.md#glossaryTermTranslationUpdate) | **PATCH** /accounts/{account_id}/glossaries/{glossary_id}/terms/{term_id}/translations/{id} | Update a translation for a term
 
 
 
@@ -14,9 +14,9 @@ Method | HTTP request | Description
 
 > \Phrase\Model\GlossaryTermTranslation glossaryTermTranslationCreate($account_id, $glossary_id, $term_id, $glossary_term_translation_create_parameters, $x_phrase_app_otp)
 
-Create a glossary term translation
+Create a translation for a term
 
-Create a new glossary term translation.
+Create a new translation for a term in a term base (previously: glossary).
 
 ### Example
 
@@ -81,9 +81,9 @@ Name | Type | Description  | Notes
 
 > glossaryTermTranslationDelete($account_id, $glossary_id, $term_id, $id, $x_phrase_app_otp)
 
-Delete a glossary term translation
+Delete a translation for a term
 
-Delete an existing glossary term translation.
+Delete an existing translation of a term in a term base (previously: glossary).
 
 ### Example
 
@@ -147,9 +147,9 @@ void (empty response body)
 
 > \Phrase\Model\GlossaryTermTranslation glossaryTermTranslationUpdate($account_id, $glossary_id, $term_id, $id, $glossary_term_translation_update_parameters, $x_phrase_app_otp)
 
-Update a glossary term translation
+Update a translation for a term
 
-Update an existing glossary term translation.
+Update an existing translation for a term in a term base (previously: glossary).
 
 ### Example
 

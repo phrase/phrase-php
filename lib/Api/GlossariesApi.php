@@ -116,7 +116,7 @@ class GlossariesApi
     /**
      * Operation glossariesList
      *
-     * List glossaries
+     * List term bases
      *
      * @param  string $account_id Account ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
@@ -136,7 +136,7 @@ class GlossariesApi
     /**
      * Operation glossariesListWithHttpInfo
      *
-     * List glossaries
+     * List term bases
      *
      * @param  string $account_id Account ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
@@ -227,7 +227,7 @@ class GlossariesApi
     /**
      * Operation glossariesListAsync
      *
-     * List glossaries
+     * List term bases
      *
      * @param  string $account_id Account ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
@@ -250,7 +250,7 @@ class GlossariesApi
     /**
      * Operation glossariesListAsyncWithHttpInfo
      *
-     * List glossaries
+     * List term bases
      *
      * @param  string $account_id Account ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
@@ -439,7 +439,7 @@ class GlossariesApi
     /**
      * Operation glossaryCreate
      *
-     * Create a glossary
+     * Create a term base
      *
      * @param  string $account_id Account ID (required)
      * @param  \Phrase\Model\GlossaryCreateParameters $glossary_create_parameters glossary_create_parameters (required)
@@ -458,7 +458,7 @@ class GlossariesApi
     /**
      * Operation glossaryCreateWithHttpInfo
      *
-     * Create a glossary
+     * Create a term base
      *
      * @param  string $account_id Account ID (required)
      * @param  \Phrase\Model\GlossaryCreateParameters $glossary_create_parameters (required)
@@ -548,7 +548,7 @@ class GlossariesApi
     /**
      * Operation glossaryCreateAsync
      *
-     * Create a glossary
+     * Create a term base
      *
      * @param  string $account_id Account ID (required)
      * @param  \Phrase\Model\GlossaryCreateParameters $glossary_create_parameters (required)
@@ -570,7 +570,7 @@ class GlossariesApi
     /**
      * Operation glossaryCreateAsyncWithHttpInfo
      *
-     * Create a glossary
+     * Create a term base
      *
      * @param  string $account_id Account ID (required)
      * @param  \Phrase\Model\GlossaryCreateParameters $glossary_create_parameters (required)
@@ -744,7 +744,7 @@ class GlossariesApi
     /**
      * Operation glossaryDelete
      *
-     * Delete a glossary
+     * Delete a term base
      *
      * @param  string $account_id Account ID (required)
      * @param  string $id ID (required)
@@ -762,7 +762,7 @@ class GlossariesApi
     /**
      * Operation glossaryDeleteWithHttpInfo
      *
-     * Delete a glossary
+     * Delete a term base
      *
      * @param  string $account_id Account ID (required)
      * @param  string $id ID (required)
@@ -816,7 +816,7 @@ class GlossariesApi
     /**
      * Operation glossaryDeleteAsync
      *
-     * Delete a glossary
+     * Delete a term base
      *
      * @param  string $account_id Account ID (required)
      * @param  string $id ID (required)
@@ -838,7 +838,7 @@ class GlossariesApi
     /**
      * Operation glossaryDeleteAsyncWithHttpInfo
      *
-     * Delete a glossary
+     * Delete a term base
      *
      * @param  string $account_id Account ID (required)
      * @param  string $id ID (required)
@@ -1006,7 +1006,7 @@ class GlossariesApi
     /**
      * Operation glossaryShow
      *
-     * Get a single glossary
+     * Get a single term base
      *
      * @param  string $account_id Account ID (required)
      * @param  string $id ID (required)
@@ -1025,7 +1025,7 @@ class GlossariesApi
     /**
      * Operation glossaryShowWithHttpInfo
      *
-     * Get a single glossary
+     * Get a single term base
      *
      * @param  string $account_id Account ID (required)
      * @param  string $id ID (required)
@@ -1115,7 +1115,7 @@ class GlossariesApi
     /**
      * Operation glossaryShowAsync
      *
-     * Get a single glossary
+     * Get a single term base
      *
      * @param  string $account_id Account ID (required)
      * @param  string $id ID (required)
@@ -1137,7 +1137,7 @@ class GlossariesApi
     /**
      * Operation glossaryShowAsyncWithHttpInfo
      *
-     * Get a single glossary
+     * Get a single term base
      *
      * @param  string $account_id Account ID (required)
      * @param  string $id ID (required)
@@ -1316,7 +1316,7 @@ class GlossariesApi
     /**
      * Operation glossaryUpdate
      *
-     * Update a glossary
+     * Update a term base
      *
      * @param  string $account_id Account ID (required)
      * @param  string $id ID (required)
@@ -1336,7 +1336,7 @@ class GlossariesApi
     /**
      * Operation glossaryUpdateWithHttpInfo
      *
-     * Update a glossary
+     * Update a term base
      *
      * @param  string $account_id Account ID (required)
      * @param  string $id ID (required)
@@ -1427,7 +1427,7 @@ class GlossariesApi
     /**
      * Operation glossaryUpdateAsync
      *
-     * Update a glossary
+     * Update a term base
      *
      * @param  string $account_id Account ID (required)
      * @param  string $id ID (required)
@@ -1450,7 +1450,7 @@ class GlossariesApi
     /**
      * Operation glossaryUpdateAsyncWithHttpInfo
      *
-     * Update a glossary
+     * Update a term base
      *
      * @param  string $account_id Account ID (required)
      * @param  string $id ID (required)

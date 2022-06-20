@@ -116,7 +116,7 @@ class BlacklistedKeysApi
     /**
      * Operation blacklistedKeyCreate
      *
-     * Create a blacklisted key
+     * Create a blocked key
      *
      * @param  string $project_id Project ID (required)
      * @param  \Phrase\Model\BlacklistedKeyCreateParameters $blacklisted_key_create_parameters blacklisted_key_create_parameters (required)
@@ -135,7 +135,7 @@ class BlacklistedKeysApi
     /**
      * Operation blacklistedKeyCreateWithHttpInfo
      *
-     * Create a blacklisted key
+     * Create a blocked key
      *
      * @param  string $project_id Project ID (required)
      * @param  \Phrase\Model\BlacklistedKeyCreateParameters $blacklisted_key_create_parameters (required)
@@ -225,7 +225,7 @@ class BlacklistedKeysApi
     /**
      * Operation blacklistedKeyCreateAsync
      *
-     * Create a blacklisted key
+     * Create a blocked key
      *
      * @param  string $project_id Project ID (required)
      * @param  \Phrase\Model\BlacklistedKeyCreateParameters $blacklisted_key_create_parameters (required)
@@ -247,7 +247,7 @@ class BlacklistedKeysApi
     /**
      * Operation blacklistedKeyCreateAsyncWithHttpInfo
      *
-     * Create a blacklisted key
+     * Create a blocked key
      *
      * @param  string $project_id Project ID (required)
      * @param  \Phrase\Model\BlacklistedKeyCreateParameters $blacklisted_key_create_parameters (required)
@@ -421,7 +421,7 @@ class BlacklistedKeysApi
     /**
      * Operation blacklistedKeyDelete
      *
-     * Delete a blacklisted key
+     * Delete a blocked key
      *
      * @param  string $project_id Project ID (required)
      * @param  string $id ID (required)
@@ -439,7 +439,7 @@ class BlacklistedKeysApi
     /**
      * Operation blacklistedKeyDeleteWithHttpInfo
      *
-     * Delete a blacklisted key
+     * Delete a blocked key
      *
      * @param  string $project_id Project ID (required)
      * @param  string $id ID (required)
@@ -493,7 +493,7 @@ class BlacklistedKeysApi
     /**
      * Operation blacklistedKeyDeleteAsync
      *
-     * Delete a blacklisted key
+     * Delete a blocked key
      *
      * @param  string $project_id Project ID (required)
      * @param  string $id ID (required)
@@ -515,7 +515,7 @@ class BlacklistedKeysApi
     /**
      * Operation blacklistedKeyDeleteAsyncWithHttpInfo
      *
-     * Delete a blacklisted key
+     * Delete a blocked key
      *
      * @param  string $project_id Project ID (required)
      * @param  string $id ID (required)
@@ -683,7 +683,7 @@ class BlacklistedKeysApi
     /**
      * Operation blacklistedKeyShow
      *
-     * Get a single blacklisted key
+     * Get a single blocked key
      *
      * @param  string $project_id Project ID (required)
      * @param  string $id ID (required)
@@ -702,7 +702,7 @@ class BlacklistedKeysApi
     /**
      * Operation blacklistedKeyShowWithHttpInfo
      *
-     * Get a single blacklisted key
+     * Get a single blocked key
      *
      * @param  string $project_id Project ID (required)
      * @param  string $id ID (required)
@@ -792,7 +792,7 @@ class BlacklistedKeysApi
     /**
      * Operation blacklistedKeyShowAsync
      *
-     * Get a single blacklisted key
+     * Get a single blocked key
      *
      * @param  string $project_id Project ID (required)
      * @param  string $id ID (required)
@@ -814,7 +814,7 @@ class BlacklistedKeysApi
     /**
      * Operation blacklistedKeyShowAsyncWithHttpInfo
      *
-     * Get a single blacklisted key
+     * Get a single blocked key
      *
      * @param  string $project_id Project ID (required)
      * @param  string $id ID (required)
@@ -993,7 +993,7 @@ class BlacklistedKeysApi
     /**
      * Operation blacklistedKeyUpdate
      *
-     * Update a blacklisted key
+     * Update a blocked key
      *
      * @param  string $project_id Project ID (required)
      * @param  string $id ID (required)
@@ -1013,7 +1013,7 @@ class BlacklistedKeysApi
     /**
      * Operation blacklistedKeyUpdateWithHttpInfo
      *
-     * Update a blacklisted key
+     * Update a blocked key
      *
      * @param  string $project_id Project ID (required)
      * @param  string $id ID (required)
@@ -1104,7 +1104,7 @@ class BlacklistedKeysApi
     /**
      * Operation blacklistedKeyUpdateAsync
      *
-     * Update a blacklisted key
+     * Update a blocked key
      *
      * @param  string $project_id Project ID (required)
      * @param  string $id ID (required)
@@ -1127,7 +1127,7 @@ class BlacklistedKeysApi
     /**
      * Operation blacklistedKeyUpdateAsyncWithHttpInfo
      *
-     * Update a blacklisted key
+     * Update a blocked key
      *
      * @param  string $project_id Project ID (required)
      * @param  string $id ID (required)
@@ -1317,7 +1317,7 @@ class BlacklistedKeysApi
     /**
      * Operation blacklistedKeysList
      *
-     * List blacklisted keys
+     * List blocked keys
      *
      * @param  string $project_id Project ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
@@ -1338,7 +1338,7 @@ class BlacklistedKeysApi
     /**
      * Operation blacklistedKeysListWithHttpInfo
      *
-     * List blacklisted keys
+     * List blocked keys
      *
      * @param  string $project_id Project ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
@@ -1430,7 +1430,7 @@ class BlacklistedKeysApi
     /**
      * Operation blacklistedKeysListAsync
      *
-     * List blacklisted keys
+     * List blocked keys
      *
      * @param  string $project_id Project ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
@@ -1454,7 +1454,7 @@ class BlacklistedKeysApi
     /**
      * Operation blacklistedKeysListAsyncWithHttpInfo
      *
-     * List blacklisted keys
+     * List blocked keys
      *
      * @param  string $project_id Project ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)

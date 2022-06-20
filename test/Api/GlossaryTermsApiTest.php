@@ -73,7 +73,7 @@ class GlossaryTermsApiTest extends TestCase
     /**
      * Test case for glossaryTermCreate
      *
-     * Create a glossary term.
+     * Create a term.
      *
      */
     public function testGlossaryTermCreate()
@@ -83,7 +83,7 @@ class GlossaryTermsApiTest extends TestCase
     /**
      * Test case for glossaryTermDelete
      *
-     * Delete a glossary term.
+     * Delete a term.
      *
      */
     public function testGlossaryTermDelete()
@@ -93,7 +93,7 @@ class GlossaryTermsApiTest extends TestCase
     /**
      * Test case for glossaryTermShow
      *
-     * Get a single glossary term.
+     * Get a single term.
      *
      */
     public function testGlossaryTermShow()
@@ -103,7 +103,7 @@ class GlossaryTermsApiTest extends TestCase
     /**
      * Test case for glossaryTermUpdate
      *
-     * Update a glossary term.
+     * Update a term.
      *
      */
     public function testGlossaryTermUpdate()
@@ -113,7 +113,7 @@ class GlossaryTermsApiTest extends TestCase
     /**
      * Test case for glossaryTermsList
      *
-     * List glossary terms.
+     * List terms.
      *
      */
     public function testGlossaryTermsList()

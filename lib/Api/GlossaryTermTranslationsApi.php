@@ -116,7 +116,7 @@ class GlossaryTermTranslationsApi
     /**
      * Operation glossaryTermTranslationCreate
      *
-     * Create a glossary term translation
+     * Create a translation for a term
      *
      * @param  string $account_id Account ID (required)
      * @param  string $glossary_id Glossary ID (required)
@@ -137,7 +137,7 @@ class GlossaryTermTranslationsApi
     /**
      * Operation glossaryTermTranslationCreateWithHttpInfo
      *
-     * Create a glossary term translation
+     * Create a translation for a term
      *
      * @param  string $account_id Account ID (required)
      * @param  string $glossary_id Glossary ID (required)
@@ -229,7 +229,7 @@ class GlossaryTermTranslationsApi
     /**
      * Operation glossaryTermTranslationCreateAsync
      *
-     * Create a glossary term translation
+     * Create a translation for a term
      *
      * @param  string $account_id Account ID (required)
      * @param  string $glossary_id Glossary ID (required)
@@ -253,7 +253,7 @@ class GlossaryTermTranslationsApi
     /**
      * Operation glossaryTermTranslationCreateAsyncWithHttpInfo
      *
-     * Create a glossary term translation
+     * Create a translation for a term
      *
      * @param  string $account_id Account ID (required)
      * @param  string $glossary_id Glossary ID (required)
@@ -459,7 +459,7 @@ class GlossaryTermTranslationsApi
     /**
      * Operation glossaryTermTranslationDelete
      *
-     * Delete a glossary term translation
+     * Delete a translation for a term
      *
      * @param  string $account_id Account ID (required)
      * @param  string $glossary_id Glossary ID (required)
@@ -479,7 +479,7 @@ class GlossaryTermTranslationsApi
     /**
      * Operation glossaryTermTranslationDeleteWithHttpInfo
      *
-     * Delete a glossary term translation
+     * Delete a translation for a term
      *
      * @param  string $account_id Account ID (required)
      * @param  string $glossary_id Glossary ID (required)
@@ -535,7 +535,7 @@ class GlossaryTermTranslationsApi
     /**
      * Operation glossaryTermTranslationDeleteAsync
      *
-     * Delete a glossary term translation
+     * Delete a translation for a term
      *
      * @param  string $account_id Account ID (required)
      * @param  string $glossary_id Glossary ID (required)
@@ -559,7 +559,7 @@ class GlossaryTermTranslationsApi
     /**
      * Operation glossaryTermTranslationDeleteAsyncWithHttpInfo
      *
-     * Delete a glossary term translation
+     * Delete a translation for a term
      *
      * @param  string $account_id Account ID (required)
      * @param  string $glossary_id Glossary ID (required)
@@ -759,7 +759,7 @@ class GlossaryTermTranslationsApi
     /**
      * Operation glossaryTermTranslationUpdate
      *
-     * Update a glossary term translation
+     * Update a translation for a term
      *
      * @param  string $account_id Account ID (required)
      * @param  string $glossary_id Glossary ID (required)
@@ -781,7 +781,7 @@ class GlossaryTermTranslationsApi
     /**
      * Operation glossaryTermTranslationUpdateWithHttpInfo
      *
-     * Update a glossary term translation
+     * Update a translation for a term
      *
      * @param  string $account_id Account ID (required)
      * @param  string $glossary_id Glossary ID (required)
@@ -874,7 +874,7 @@ class GlossaryTermTranslationsApi
     /**
      * Operation glossaryTermTranslationUpdateAsync
      *
-     * Update a glossary term translation
+     * Update a translation for a term
      *
      * @param  string $account_id Account ID (required)
      * @param  string $glossary_id Glossary ID (required)
@@ -899,7 +899,7 @@ class GlossaryTermTranslationsApi
     /**
      * Operation glossaryTermTranslationUpdateAsyncWithHttpInfo
      *
-     * Update a glossary term translation
+     * Update a translation for a term
      *
      * @param  string $account_id Account ID (required)
      * @param  string $glossary_id Glossary ID (required)

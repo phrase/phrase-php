@@ -4,11 +4,11 @@ All URIs are relative to *https://api.phrase.com/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**glossaryTermCreate**](GlossaryTermsApi.md#glossaryTermCreate) | **POST** /accounts/{account_id}/glossaries/{glossary_id}/terms | Create a glossary term
-[**glossaryTermDelete**](GlossaryTermsApi.md#glossaryTermDelete) | **DELETE** /accounts/{account_id}/glossaries/{glossary_id}/terms/{id} | Delete a glossary term
-[**glossaryTermShow**](GlossaryTermsApi.md#glossaryTermShow) | **GET** /accounts/{account_id}/glossaries/{glossary_id}/terms/{id} | Get a single glossary term
-[**glossaryTermUpdate**](GlossaryTermsApi.md#glossaryTermUpdate) | **PATCH** /accounts/{account_id}/glossaries/{glossary_id}/terms/{id} | Update a glossary term
-[**glossaryTermsList**](GlossaryTermsApi.md#glossaryTermsList) | **GET** /accounts/{account_id}/glossaries/{glossary_id}/terms | List glossary terms
+[**glossaryTermCreate**](GlossaryTermsApi.md#glossaryTermCreate) | **POST** /accounts/{account_id}/glossaries/{glossary_id}/terms | Create a term
+[**glossaryTermDelete**](GlossaryTermsApi.md#glossaryTermDelete) | **DELETE** /accounts/{account_id}/glossaries/{glossary_id}/terms/{id} | Delete a term
+[**glossaryTermShow**](GlossaryTermsApi.md#glossaryTermShow) | **GET** /accounts/{account_id}/glossaries/{glossary_id}/terms/{id} | Get a single term
+[**glossaryTermUpdate**](GlossaryTermsApi.md#glossaryTermUpdate) | **PATCH** /accounts/{account_id}/glossaries/{glossary_id}/terms/{id} | Update a term
+[**glossaryTermsList**](GlossaryTermsApi.md#glossaryTermsList) | **GET** /accounts/{account_id}/glossaries/{glossary_id}/terms | List terms
 
 
 
@@ -16,9 +16,9 @@ Method | HTTP request | Description
 
 > \Phrase\Model\GlossaryTerm glossaryTermCreate($account_id, $glossary_id, $glossary_term_create_parameters, $x_phrase_app_otp)
 
-Create a glossary term
+Create a term
 
-Create a new glossary term.
+Create a new term in a term base (previously: glossary).
 
 ### Example
 
@@ -81,9 +81,9 @@ Name | Type | Description  | Notes
 
 > glossaryTermDelete($account_id, $glossary_id, $id, $x_phrase_app_otp)
 
-Delete a glossary term
+Delete a term
 
-Delete an existing glossary term.
+Delete an existing term in a term base (previously: glossary).
 
 ### Example
 
@@ -145,9 +145,9 @@ void (empty response body)
 
 > \Phrase\Model\GlossaryTerm glossaryTermShow($account_id, $glossary_id, $id, $x_phrase_app_otp)
 
-Get a single glossary term
+Get a single term
 
-Get details on a single glossary term.
+Get details for a single term in the term base (previously: glossary).
 
 ### Example
 
@@ -210,9 +210,9 @@ Name | Type | Description  | Notes
 
 > \Phrase\Model\GlossaryTerm glossaryTermUpdate($account_id, $glossary_id, $id, $glossary_term_update_parameters, $x_phrase_app_otp)
 
-Update a glossary term
+Update a term
 
-Update an existing glossary term.
+Update an existing term in a term base (previously: glossary).
 
 ### Example
 
@@ -277,9 +277,9 @@ Name | Type | Description  | Notes
 
 > \Phrase\Model\GlossaryTerm[] glossaryTermsList($account_id, $glossary_id, $x_phrase_app_otp, $page, $per_page)
 
-List glossary terms
+List terms
 
-List all glossary terms the current user has access to.
+List all terms in term bases (previously: glossary) that the current user has access to.
 
 ### Example
 

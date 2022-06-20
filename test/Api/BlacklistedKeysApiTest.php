@@ -73,7 +73,7 @@ class BlacklistedKeysApiTest extends TestCase
     /**
      * Test case for blacklistedKeyCreate
      *
-     * Create a blacklisted key.
+     * Create a blocked key.
      *
      */
     public function testBlacklistedKeyCreate()
@@ -83,7 +83,7 @@ class BlacklistedKeysApiTest extends TestCase
     /**
      * Test case for blacklistedKeyDelete
      *
-     * Delete a blacklisted key.
+     * Delete a blocked key.
      *
      */
     public function testBlacklistedKeyDelete()
@@ -93,7 +93,7 @@ class BlacklistedKeysApiTest extends TestCase
     /**
      * Test case for blacklistedKeyShow
      *
-     * Get a single blacklisted key.
+     * Get a single blocked key.
      *
      */
     public function testBlacklistedKeyShow()
@@ -103,7 +103,7 @@ class BlacklistedKeysApiTest extends TestCase
     /**
      * Test case for blacklistedKeyUpdate
      *
-     * Update a blacklisted key.
+     * Update a blocked key.
      *
      */
     public function testBlacklistedKeyUpdate()
@@ -113,7 +113,7 @@ class BlacklistedKeysApiTest extends TestCase
     /**
      * Test case for blacklistedKeysList
      *
-     * List blacklisted keys.
+     * List blocked keys.
      *
      */
     public function testBlacklistedKeysList()
