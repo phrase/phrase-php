@@ -62,6 +62,7 @@ class LocaleCreateParameters implements ModelInterface, ArrayAccess
         'main' => 'bool',
         'rtl' => 'bool',
         'source_locale_id' => 'string',
+        'fallback_locale_id' => 'string',
         'unverify_new_translations' => 'bool',
         'unverify_updated_translations' => 'bool',
         'autotranslate' => 'bool'
@@ -80,6 +81,7 @@ class LocaleCreateParameters implements ModelInterface, ArrayAccess
         'main' => null,
         'rtl' => null,
         'source_locale_id' => null,
+        'fallback_locale_id' => null,
         'unverify_new_translations' => null,
         'unverify_updated_translations' => null,
         'autotranslate' => null
@@ -119,6 +121,7 @@ class LocaleCreateParameters implements ModelInterface, ArrayAccess
         'main' => 'main',
         'rtl' => 'rtl',
         'source_locale_id' => 'source_locale_id',
+        'fallback_locale_id' => 'fallback_locale_id',
         'unverify_new_translations' => 'unverify_new_translations',
         'unverify_updated_translations' => 'unverify_updated_translations',
         'autotranslate' => 'autotranslate'
@@ -137,6 +140,7 @@ class LocaleCreateParameters implements ModelInterface, ArrayAccess
         'main' => 'setMain',
         'rtl' => 'setRtl',
         'source_locale_id' => 'setSourceLocaleId',
+        'fallback_locale_id' => 'setFallbackLocaleId',
         'unverify_new_translations' => 'setUnverifyNewTranslations',
         'unverify_updated_translations' => 'setUnverifyUpdatedTranslations',
         'autotranslate' => 'setAutotranslate'
@@ -155,6 +159,7 @@ class LocaleCreateParameters implements ModelInterface, ArrayAccess
         'main' => 'getMain',
         'rtl' => 'getRtl',
         'source_locale_id' => 'getSourceLocaleId',
+        'fallback_locale_id' => 'getFallbackLocaleId',
         'unverify_new_translations' => 'getUnverifyNewTranslations',
         'unverify_updated_translations' => 'getUnverifyUpdatedTranslations',
         'autotranslate' => 'getAutotranslate'
@@ -227,6 +232,7 @@ class LocaleCreateParameters implements ModelInterface, ArrayAccess
         $this->container['main'] = isset($data['main']) ? $data['main'] : null;
         $this->container['rtl'] = isset($data['rtl']) ? $data['rtl'] : null;
         $this->container['source_locale_id'] = isset($data['source_locale_id']) ? $data['source_locale_id'] : null;
+        $this->container['fallback_locale_id'] = isset($data['fallback_locale_id']) ? $data['fallback_locale_id'] : null;
         $this->container['unverify_new_translations'] = isset($data['unverify_new_translations']) ? $data['unverify_new_translations'] : null;
         $this->container['unverify_updated_translations'] = isset($data['unverify_updated_translations']) ? $data['unverify_updated_translations'] : null;
         $this->container['autotranslate'] = isset($data['autotranslate']) ? $data['autotranslate'] : null;
@@ -420,6 +426,30 @@ class LocaleCreateParameters implements ModelInterface, ArrayAccess
     public function setSourceLocaleId($source_locale_id)
     {
         $this->container['source_locale_id'] = $source_locale_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets fallback_locale_id
+     *
+     * @return string|null
+     */
+    public function getFallbackLocaleId()
+    {
+        return $this->container['fallback_locale_id'];
+    }
+
+    /**
+     * Sets fallback_locale_id
+     *
+     * @param string|null $fallback_locale_id Fallback locale for empty translations. Can be a locale name or id.
+     *
+     * @return $this
+     */
+    public function setFallbackLocaleId($fallback_locale_id)
+    {
+        $this->container['fallback_locale_id'] = $fallback_locale_id;
 
         return $this;
     }

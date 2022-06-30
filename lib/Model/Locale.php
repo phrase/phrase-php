@@ -63,6 +63,7 @@ class Locale implements ModelInterface, ArrayAccess
         'rtl' => 'bool',
         'plural_forms' => 'string[]',
         'source_locale' => '\Phrase\Model\LocalePreview',
+        'fallback_locale' => '\Phrase\Model\LocalePreview',
         'created_at' => '\DateTime',
         'updated_at' => '\DateTime'
     ];
@@ -81,6 +82,7 @@ class Locale implements ModelInterface, ArrayAccess
         'rtl' => null,
         'plural_forms' => null,
         'source_locale' => null,
+        'fallback_locale' => null,
         'created_at' => 'date-time',
         'updated_at' => 'date-time'
     ];
@@ -120,6 +122,7 @@ class Locale implements ModelInterface, ArrayAccess
         'rtl' => 'rtl',
         'plural_forms' => 'plural_forms',
         'source_locale' => 'source_locale',
+        'fallback_locale' => 'fallback_locale',
         'created_at' => 'created_at',
         'updated_at' => 'updated_at'
     ];
@@ -138,6 +141,7 @@ class Locale implements ModelInterface, ArrayAccess
         'rtl' => 'setRtl',
         'plural_forms' => 'setPluralForms',
         'source_locale' => 'setSourceLocale',
+        'fallback_locale' => 'setFallbackLocale',
         'created_at' => 'setCreatedAt',
         'updated_at' => 'setUpdatedAt'
     ];
@@ -156,6 +160,7 @@ class Locale implements ModelInterface, ArrayAccess
         'rtl' => 'getRtl',
         'plural_forms' => 'getPluralForms',
         'source_locale' => 'getSourceLocale',
+        'fallback_locale' => 'getFallbackLocale',
         'created_at' => 'getCreatedAt',
         'updated_at' => 'getUpdatedAt'
     ];
@@ -228,6 +233,7 @@ class Locale implements ModelInterface, ArrayAccess
         $this->container['rtl'] = isset($data['rtl']) ? $data['rtl'] : null;
         $this->container['plural_forms'] = isset($data['plural_forms']) ? $data['plural_forms'] : null;
         $this->container['source_locale'] = isset($data['source_locale']) ? $data['source_locale'] : null;
+        $this->container['fallback_locale'] = isset($data['fallback_locale']) ? $data['fallback_locale'] : null;
         $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
         $this->container['updated_at'] = isset($data['updated_at']) ? $data['updated_at'] : null;
     }
@@ -444,6 +450,30 @@ class Locale implements ModelInterface, ArrayAccess
     public function setSourceLocale($source_locale)
     {
         $this->container['source_locale'] = $source_locale;
+
+        return $this;
+    }
+
+    /**
+     * Gets fallback_locale
+     *
+     * @return \Phrase\Model\LocalePreview|null
+     */
+    public function getFallbackLocale()
+    {
+        return $this->container['fallback_locale'];
+    }
+
+    /**
+     * Sets fallback_locale
+     *
+     * @param \Phrase\Model\LocalePreview|null $fallback_locale fallback_locale
+     *
+     * @return $this
+     */
+    public function setFallbackLocale($fallback_locale)
+    {
+        $this->container['fallback_locale'] = $fallback_locale;
 
         return $this;
     }

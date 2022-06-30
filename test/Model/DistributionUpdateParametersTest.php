@@ -112,6 +112,13 @@ class DistributionUpdateParametersTest extends TestCase
     }
 
     /**
+     * Test attribute "fallback_locales_enabled"
+     */
+    public function testPropertyFallbackLocalesEnabled()
+    {
+    }
+
+    /**
      * Test attribute "fallback_to_non_regional_locale"
      */
     public function testPropertyFallbackToNonRegionalLocale()

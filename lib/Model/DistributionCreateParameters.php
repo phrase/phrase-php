@@ -60,6 +60,7 @@ class DistributionCreateParameters implements ModelInterface, ArrayAccess
         'platforms' => 'string[]',
         'locale_ids' => 'string[]',
         'format_options' => 'map[string,string]',
+        'fallback_locales_enabled' => 'bool',
         'fallback_to_non_regional_locale' => 'bool',
         'fallback_to_default_locale' => 'bool',
         'use_last_reviewed_version' => 'bool'
@@ -76,6 +77,7 @@ class DistributionCreateParameters implements ModelInterface, ArrayAccess
         'platforms' => null,
         'locale_ids' => null,
         'format_options' => null,
+        'fallback_locales_enabled' => null,
         'fallback_to_non_regional_locale' => null,
         'fallback_to_default_locale' => null,
         'use_last_reviewed_version' => null
@@ -113,6 +115,7 @@ class DistributionCreateParameters implements ModelInterface, ArrayAccess
         'platforms' => 'platforms',
         'locale_ids' => 'locale_ids',
         'format_options' => 'format_options',
+        'fallback_locales_enabled' => 'fallback_locales_enabled',
         'fallback_to_non_regional_locale' => 'fallback_to_non_regional_locale',
         'fallback_to_default_locale' => 'fallback_to_default_locale',
         'use_last_reviewed_version' => 'use_last_reviewed_version'
@@ -129,6 +132,7 @@ class DistributionCreateParameters implements ModelInterface, ArrayAccess
         'platforms' => 'setPlatforms',
         'locale_ids' => 'setLocaleIds',
         'format_options' => 'setFormatOptions',
+        'fallback_locales_enabled' => 'setFallbackLocalesEnabled',
         'fallback_to_non_regional_locale' => 'setFallbackToNonRegionalLocale',
         'fallback_to_default_locale' => 'setFallbackToDefaultLocale',
         'use_last_reviewed_version' => 'setUseLastReviewedVersion'
@@ -145,6 +149,7 @@ class DistributionCreateParameters implements ModelInterface, ArrayAccess
         'platforms' => 'getPlatforms',
         'locale_ids' => 'getLocaleIds',
         'format_options' => 'getFormatOptions',
+        'fallback_locales_enabled' => 'getFallbackLocalesEnabled',
         'fallback_to_non_regional_locale' => 'getFallbackToNonRegionalLocale',
         'fallback_to_default_locale' => 'getFallbackToDefaultLocale',
         'use_last_reviewed_version' => 'getUseLastReviewedVersion'
@@ -215,6 +220,7 @@ class DistributionCreateParameters implements ModelInterface, ArrayAccess
         $this->container['platforms'] = isset($data['platforms']) ? $data['platforms'] : null;
         $this->container['locale_ids'] = isset($data['locale_ids']) ? $data['locale_ids'] : null;
         $this->container['format_options'] = isset($data['format_options']) ? $data['format_options'] : null;
+        $this->container['fallback_locales_enabled'] = isset($data['fallback_locales_enabled']) ? $data['fallback_locales_enabled'] : null;
         $this->container['fallback_to_non_regional_locale'] = isset($data['fallback_to_non_regional_locale']) ? $data['fallback_to_non_regional_locale'] : null;
         $this->container['fallback_to_default_locale'] = isset($data['fallback_to_default_locale']) ? $data['fallback_to_default_locale'] : null;
         $this->container['use_last_reviewed_version'] = isset($data['use_last_reviewed_version']) ? $data['use_last_reviewed_version'] : null;
@@ -360,6 +366,30 @@ class DistributionCreateParameters implements ModelInterface, ArrayAccess
     public function setFormatOptions($format_options)
     {
         $this->container['format_options'] = $format_options;
+
+        return $this;
+    }
+
+    /**
+     * Gets fallback_locales_enabled
+     *
+     * @return bool|null
+     */
+    public function getFallbackLocalesEnabled()
+    {
+        return $this->container['fallback_locales_enabled'];
+    }
+
+    /**
+     * Sets fallback_locales_enabled
+     *
+     * @param bool|null $fallback_locales_enabled Use fallback locale if there is no translation in the current locale.
+     *
+     * @return $this
+     */
+    public function setFallbackLocalesEnabled($fallback_locales_enabled)
+    {
+        $this->container['fallback_locales_enabled'] = $fallback_locales_enabled;
 
         return $this;
     }

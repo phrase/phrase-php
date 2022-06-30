@@ -133,6 +133,13 @@ class LocaleDetailsTest extends TestCase
     }
 
     /**
+     * Test attribute "fallback_locale"
+     */
+    public function testPropertyFallbackLocale()
+    {
+    }
+
+    /**
      * Test attribute "created_at"
      */
     public function testPropertyCreatedAt()

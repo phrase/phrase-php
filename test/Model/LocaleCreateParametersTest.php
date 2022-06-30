@@ -126,6 +126,13 @@ class LocaleCreateParametersTest extends TestCase
     }
 
     /**
+     * Test attribute "fallback_locale_id"
+     */
+    public function testPropertyFallbackLocaleId()
+    {
+    }
+
+    /**
      * Test attribute "unverify_new_translations"
      */
     public function testPropertyUnverifyNewTranslations()
