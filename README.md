@@ -341,6 +341,9 @@ Class | Method | HTTP request | Description
 *VariablesApi* | [**variablesList**](docs/Api/VariablesApi.md#variableslist) | **GET** /projects/{project_id}/variables | List variables
 *VersionsHistoryApi* | [**versionShow**](docs/Api/VersionsHistoryApi.md#versionshow) | **GET** /projects/{project_id}/translations/{translation_id}/versions/{id} | Get a single version
 *VersionsHistoryApi* | [**versionsList**](docs/Api/VersionsHistoryApi.md#versionslist) | **GET** /projects/{project_id}/translations/{translation_id}/versions | List all versions
+*WebhookDeliveriesApi* | [**webhookDeliveriesList**](docs/Api/WebhookDeliveriesApi.md#webhookdeliverieslist) | **GET** /projects/{project_id}/webhooks/{webhook_id}/deliveries | List webhook deliveries
+*WebhookDeliveriesApi* | [**webhookDeliveriesRedeliver**](docs/Api/WebhookDeliveriesApi.md#webhookdeliveriesredeliver) | **POST** /projects/{project_id}/webhooks/{webhook_id}/deliveries/{id}/redeliver | Redeliver a single webhook delivery
+*WebhookDeliveriesApi* | [**webhookDeliveriesShow**](docs/Api/WebhookDeliveriesApi.md#webhookdeliveriesshow) | **GET** /projects/{project_id}/webhooks/{webhook_id}/deliveries/{id} | Get a single webhook delivery
 *WebhooksApi* | [**webhookCreate**](docs/Api/WebhooksApi.md#webhookcreate) | **POST** /projects/{project_id}/webhooks | Create a webhook
 *WebhooksApi* | [**webhookDelete**](docs/Api/WebhooksApi.md#webhookdelete) | **DELETE** /projects/{project_id}/webhooks/{id} | Delete a webhook
 *WebhooksApi* | [**webhookShow**](docs/Api/WebhooksApi.md#webhookshow) | **GET** /projects/{project_id}/webhooks/{id} | Get a single webhook
@@ -542,6 +545,7 @@ Class | Method | HTTP request | Description
  - [VariableUpdateParameters](docs/Model/VariableUpdateParameters.md)
  - [Webhook](docs/Model/Webhook.md)
  - [WebhookCreateParameters](docs/Model/WebhookCreateParameters.md)
+ - [WebhookDelivery](docs/Model/WebhookDelivery.md)
  - [WebhookUpdateParameters](docs/Model/WebhookUpdateParameters.md)
 
 
