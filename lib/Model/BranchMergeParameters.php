@@ -215,7 +215,7 @@ class BranchMergeParameters implements ModelInterface, ArrayAccess
     /**
      * Sets strategy
      *
-     * @param string|null $strategy strategy used for merge blocking, use_master or use_branch
+     * @param string|null $strategy strategy used for merge blocking, use_main or use_branch
      *
      * @return $this
      */
