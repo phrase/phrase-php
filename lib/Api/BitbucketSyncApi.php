@@ -10,7 +10,7 @@
  */
 
 /**
- * Phrase API Reference
+ * Phrase Strings API Reference
  *
  * The version of the OpenAPI document: 2.0.0
  * Contact: support@phrase.com
@@ -116,7 +116,7 @@ class BitbucketSyncApi
     /**
      * Operation bitbucketSyncExport
      *
-     * Export from Phrase to Bitbucket
+     * Export from Phrase Strings to Bitbucket
      *
      * @param  string $id ID (required)
      * @param  \Phrase\Model\BitbucketSyncExportParameters $bitbucket_sync_export_parameters bitbucket_sync_export_parameters (required)
@@ -135,7 +135,7 @@ class BitbucketSyncApi
     /**
      * Operation bitbucketSyncExportWithHttpInfo
      *
-     * Export from Phrase to Bitbucket
+     * Export from Phrase Strings to Bitbucket
      *
      * @param  string $id ID (required)
      * @param  \Phrase\Model\BitbucketSyncExportParameters $bitbucket_sync_export_parameters (required)
@@ -225,7 +225,7 @@ class BitbucketSyncApi
     /**
      * Operation bitbucketSyncExportAsync
      *
-     * Export from Phrase to Bitbucket
+     * Export from Phrase Strings to Bitbucket
      *
      * @param  string $id ID (required)
      * @param  \Phrase\Model\BitbucketSyncExportParameters $bitbucket_sync_export_parameters (required)
@@ -247,7 +247,7 @@ class BitbucketSyncApi
     /**
      * Operation bitbucketSyncExportAsyncWithHttpInfo
      *
-     * Export from Phrase to Bitbucket
+     * Export from Phrase Strings to Bitbucket
      *
      * @param  string $id ID (required)
      * @param  \Phrase\Model\BitbucketSyncExportParameters $bitbucket_sync_export_parameters (required)
@@ -421,7 +421,7 @@ class BitbucketSyncApi
     /**
      * Operation bitbucketSyncImport
      *
-     * Import to Phrase from Bitbucket
+     * Import to Phrase Strings from Bitbucket
      *
      * @param  string $id ID (required)
      * @param  \Phrase\Model\BitbucketSyncImportParameters $bitbucket_sync_import_parameters bitbucket_sync_import_parameters (required)
@@ -439,7 +439,7 @@ class BitbucketSyncApi
     /**
      * Operation bitbucketSyncImportWithHttpInfo
      *
-     * Import to Phrase from Bitbucket
+     * Import to Phrase Strings from Bitbucket
      *
      * @param  string $id ID (required)
      * @param  \Phrase\Model\BitbucketSyncImportParameters $bitbucket_sync_import_parameters (required)
@@ -493,7 +493,7 @@ class BitbucketSyncApi
     /**
      * Operation bitbucketSyncImportAsync
      *
-     * Import to Phrase from Bitbucket
+     * Import to Phrase Strings from Bitbucket
      *
      * @param  string $id ID (required)
      * @param  \Phrase\Model\BitbucketSyncImportParameters $bitbucket_sync_import_parameters (required)
@@ -515,7 +515,7 @@ class BitbucketSyncApi
     /**
      * Operation bitbucketSyncImportAsyncWithHttpInfo
      *
-     * Import to Phrase from Bitbucket
+     * Import to Phrase Strings from Bitbucket
      *
      * @param  string $id ID (required)
      * @param  \Phrase\Model\BitbucketSyncImportParameters $bitbucket_sync_import_parameters (required)

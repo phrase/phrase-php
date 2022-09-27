@@ -10,7 +10,7 @@
  */
 
 /**
- * Phrase API Reference
+ * Phrase Strings API Reference
  *
  * The version of the OpenAPI document: 2.0.0
  * Contact: support@phrase.com
@@ -116,7 +116,7 @@ class GitHubSyncApi
     /**
      * Operation githubSyncExport
      *
-     * Export from Phrase to GitHub
+     * Export from Phrase Strings to GitHub
      *
      * @param  \Phrase\Model\GithubSyncExportParameters $github_sync_export_parameters github_sync_export_parameters (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
@@ -133,7 +133,7 @@ class GitHubSyncApi
     /**
      * Operation githubSyncExportWithHttpInfo
      *
-     * Export from Phrase to GitHub
+     * Export from Phrase Strings to GitHub
      *
      * @param  \Phrase\Model\GithubSyncExportParameters $github_sync_export_parameters (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
@@ -194,7 +194,7 @@ class GitHubSyncApi
     /**
      * Operation githubSyncExportAsync
      *
-     * Export from Phrase to GitHub
+     * Export from Phrase Strings to GitHub
      *
      * @param  \Phrase\Model\GithubSyncExportParameters $github_sync_export_parameters (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
@@ -215,7 +215,7 @@ class GitHubSyncApi
     /**
      * Operation githubSyncExportAsyncWithHttpInfo
      *
-     * Export from Phrase to GitHub
+     * Export from Phrase Strings to GitHub
      *
      * @param  \Phrase\Model\GithubSyncExportParameters $github_sync_export_parameters (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
@@ -362,7 +362,7 @@ class GitHubSyncApi
     /**
      * Operation githubSyncImport
      *
-     * Import to Phrase from GitHub
+     * Import to Phrase Strings from GitHub
      *
      * @param  \Phrase\Model\GithubSyncImportParameters $github_sync_import_parameters github_sync_import_parameters (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
@@ -379,7 +379,7 @@ class GitHubSyncApi
     /**
      * Operation githubSyncImportWithHttpInfo
      *
-     * Import to Phrase from GitHub
+     * Import to Phrase Strings from GitHub
      *
      * @param  \Phrase\Model\GithubSyncImportParameters $github_sync_import_parameters (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
@@ -440,7 +440,7 @@ class GitHubSyncApi
     /**
      * Operation githubSyncImportAsync
      *
-     * Import to Phrase from GitHub
+     * Import to Phrase Strings from GitHub
      *
      * @param  \Phrase\Model\GithubSyncImportParameters $github_sync_import_parameters (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
@@ -461,7 +461,7 @@ class GitHubSyncApi
     /**
      * Operation githubSyncImportAsyncWithHttpInfo
      *
-     * Import to Phrase from GitHub
+     * Import to Phrase Strings from GitHub
      *
      * @param  \Phrase\Model\GithubSyncImportParameters $github_sync_import_parameters (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)

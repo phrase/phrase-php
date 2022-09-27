@@ -10,7 +10,7 @@
  */
 
 /**
- * Phrase API Reference
+ * Phrase Strings API Reference
  *
  * The version of the OpenAPI document: 2.0.0
  * Contact: support@phrase.com
@@ -73,7 +73,7 @@ class GitHubSyncApiTest extends TestCase
     /**
      * Test case for githubSyncExport
      *
-     * Export from Phrase to GitHub.
+     * Export from Phrase Strings to GitHub.
      *
      */
     public function testGithubSyncExport()
@@ -83,7 +83,7 @@ class GitHubSyncApiTest extends TestCase
     /**
      * Test case for githubSyncImport
      *
-     * Import to Phrase from GitHub.
+     * Import to Phrase Strings from GitHub.
      *
      */
     public function testGithubSyncImport()

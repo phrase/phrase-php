@@ -10,7 +10,7 @@
  */
 
 /**
- * Phrase API Reference
+ * Phrase Strings API Reference
  *
  * The version of the OpenAPI document: 2.0.0
  * Contact: support@phrase.com
@@ -73,7 +73,7 @@ class BitbucketSyncApiTest extends TestCase
     /**
      * Test case for bitbucketSyncExport
      *
-     * Export from Phrase to Bitbucket.
+     * Export from Phrase Strings to Bitbucket.
      *
      */
     public function testBitbucketSyncExport()
@@ -83,7 +83,7 @@ class BitbucketSyncApiTest extends TestCase
     /**
      * Test case for bitbucketSyncImport
      *
-     * Import to Phrase from Bitbucket.
+     * Import to Phrase Strings from Bitbucket.
      *
      */
     public function testBitbucketSyncImport()

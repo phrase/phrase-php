@@ -10,7 +10,7 @@
  */
 
 /**
- * Phrase API Reference
+ * Phrase Strings API Reference
  *
  * The version of the OpenAPI document: 2.0.0
  * Contact: support@phrase.com
@@ -375,7 +375,7 @@ class GitLabSyncApi
     /**
      * Operation gitlabSyncExport
      *
-     * Export from Phrase to GitLab
+     * Export from Phrase Strings to GitLab
      *
      * @param  string $gitlab_sync_id Gitlab Sync ID (required)
      * @param  \Phrase\Model\GitlabSyncExportParameters $gitlab_sync_export_parameters gitlab_sync_export_parameters (required)
@@ -394,7 +394,7 @@ class GitLabSyncApi
     /**
      * Operation gitlabSyncExportWithHttpInfo
      *
-     * Export from Phrase to GitLab
+     * Export from Phrase Strings to GitLab
      *
      * @param  string $gitlab_sync_id Gitlab Sync ID (required)
      * @param  \Phrase\Model\GitlabSyncExportParameters $gitlab_sync_export_parameters (required)
@@ -484,7 +484,7 @@ class GitLabSyncApi
     /**
      * Operation gitlabSyncExportAsync
      *
-     * Export from Phrase to GitLab
+     * Export from Phrase Strings to GitLab
      *
      * @param  string $gitlab_sync_id Gitlab Sync ID (required)
      * @param  \Phrase\Model\GitlabSyncExportParameters $gitlab_sync_export_parameters (required)
@@ -506,7 +506,7 @@ class GitLabSyncApi
     /**
      * Operation gitlabSyncExportAsyncWithHttpInfo
      *
-     * Export from Phrase to GitLab
+     * Export from Phrase Strings to GitLab
      *
      * @param  string $gitlab_sync_id Gitlab Sync ID (required)
      * @param  \Phrase\Model\GitlabSyncExportParameters $gitlab_sync_export_parameters (required)
@@ -1924,7 +1924,7 @@ class GitLabSyncApi
      * @param  string $id ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  string $account_id Account ID to specify the actual account the GitLab Sync should be created in. Required if the requesting user is a member of multiple accounts. (optional)
-     * @param  string $phrase_project_code Code of the related Phrase Project. (optional)
+     * @param  string $phrase_project_code Code of the related Phrase Strings Project. (optional)
      * @param  int $gitlab_project_id ID of the related GitLab Project. (optional)
      * @param  string $gitlab_branch_name Name of the GitLab Branch. (optional)
      *
@@ -1946,7 +1946,7 @@ class GitLabSyncApi
      * @param  string $id ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  string $account_id Account ID to specify the actual account the GitLab Sync should be created in. Required if the requesting user is a member of multiple accounts. (optional)
-     * @param  string $phrase_project_code Code of the related Phrase Project. (optional)
+     * @param  string $phrase_project_code Code of the related Phrase Strings Project. (optional)
      * @param  int $gitlab_project_id ID of the related GitLab Project. (optional)
      * @param  string $gitlab_branch_name Name of the GitLab Branch. (optional)
      *
@@ -2039,7 +2039,7 @@ class GitLabSyncApi
      * @param  string $id ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  string $account_id Account ID to specify the actual account the GitLab Sync should be created in. Required if the requesting user is a member of multiple accounts. (optional)
-     * @param  string $phrase_project_code Code of the related Phrase Project. (optional)
+     * @param  string $phrase_project_code Code of the related Phrase Strings Project. (optional)
      * @param  int $gitlab_project_id ID of the related GitLab Project. (optional)
      * @param  string $gitlab_branch_name Name of the GitLab Branch. (optional)
      *
@@ -2064,7 +2064,7 @@ class GitLabSyncApi
      * @param  string $id ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  string $account_id Account ID to specify the actual account the GitLab Sync should be created in. Required if the requesting user is a member of multiple accounts. (optional)
-     * @param  string $phrase_project_code Code of the related Phrase Project. (optional)
+     * @param  string $phrase_project_code Code of the related Phrase Strings Project. (optional)
      * @param  int $gitlab_project_id ID of the related GitLab Project. (optional)
      * @param  string $gitlab_branch_name Name of the GitLab Branch. (optional)
      *
@@ -2116,7 +2116,7 @@ class GitLabSyncApi
      * @param  string $id ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  string $account_id Account ID to specify the actual account the GitLab Sync should be created in. Required if the requesting user is a member of multiple accounts. (optional)
-     * @param  string $phrase_project_code Code of the related Phrase Project. (optional)
+     * @param  string $phrase_project_code Code of the related Phrase Strings Project. (optional)
      * @param  int $gitlab_project_id ID of the related GitLab Project. (optional)
      * @param  string $gitlab_branch_name Name of the GitLab Branch. (optional)
      *

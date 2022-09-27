@@ -233,7 +233,7 @@ $project_id = 'project_id_example'; // string | Project ID
 $id = 'id_example'; // string | ID
 $x_phrase_app_otp = 'x_phrase_app_otp_example'; // string | Two-Factor-Authentication token (optional)
 $branch = my-feature-branch; // string | specify the branch to use
-$file_format = yml; // string | File format name. See the <a href=\"https://help.phrase.com/help/supported-platforms-and-formats\">format guide</a> for all supported file formats.
+$file_format = yml; // string | File format name. See the <a href=\"https://support.phrase.com/hc/en-us/articles/5784070560412\">format guide</a> for all supported file formats.
 $tags = feature1,feature2; // string | Limit results to keys tagged with a list of comma separated tag names.
 $tag = feature; // string | Limit download to tagged keys. This parameter is deprecated. Please use the \"tags\" parameter instead
 $include_empty_translations = True; // bool | Indicates whether keys without translations should be included in the output as well.
@@ -241,7 +241,7 @@ $exclude_empty_zero_forms = True; // bool | Indicates whether zero forms should 
 $include_translated_keys = True; // bool | Include translated keys in the locale file. Use in combination with include_empty_translations to obtain only untranslated keys.
 $keep_notranslate_tags = True; // bool | Indicates whether [NOTRANSLATE] tags should be kept.
 $convert_emoji = True; // bool | This option is obsolete. Projects that were created on or after Nov 29th 2019 or that did not contain emoji by then will not require this flag any longer since emoji are now supported natively.
-$format_options = new \stdClass; // object | Additional formatting and render options. See the <a href=\"https://help.phrase.com/help/supported-platforms-and-formats\">format guide</a> for a list of options available for each format. Specify format options like this: <code>...&format_options[foo]=bar</code>
+$format_options = new \stdClass; // object | Additional formatting and render options. See the <a href=\"https://support.phrase.com/hc/en-us/articles/5784070560412\">format guide</a> for a list of options available for each format. Specify format options like this: <code>...&format_options[foo]=bar</code>
 $encoding = 'encoding_example'; // string | Enforces a specific encoding on the file contents. Valid options are \"UTF-8\", \"UTF-16\" and \"ISO-8859-1\".
 $skip_unverified_translations = True; // bool | Indicates whether the locale file should skip all unverified translations. This parameter is deprecated and should be replaced with <code>include_unverified_translations</code>.
 $include_unverified_translations = True; // bool | if set to false unverified translations are excluded
@@ -267,7 +267,7 @@ Name | Type | Description  | Notes
  **id** | **string**| ID |
  **x_phrase_app_otp** | **string**| Two-Factor-Authentication token (optional) | [optional]
  **branch** | **string**| specify the branch to use | [optional]
- **file_format** | **string**| File format name. See the &lt;a href&#x3D;\&quot;https://help.phrase.com/help/supported-platforms-and-formats\&quot;&gt;format guide&lt;/a&gt; for all supported file formats. | [optional]
+ **file_format** | **string**| File format name. See the &lt;a href&#x3D;\&quot;https://support.phrase.com/hc/en-us/articles/5784070560412\&quot;&gt;format guide&lt;/a&gt; for all supported file formats. | [optional]
  **tags** | **string**| Limit results to keys tagged with a list of comma separated tag names. | [optional]
  **tag** | **string**| Limit download to tagged keys. This parameter is deprecated. Please use the \&quot;tags\&quot; parameter instead | [optional]
  **include_empty_translations** | **bool**| Indicates whether keys without translations should be included in the output as well. | [optional]
@@ -275,7 +275,7 @@ Name | Type | Description  | Notes
  **include_translated_keys** | **bool**| Include translated keys in the locale file. Use in combination with include_empty_translations to obtain only untranslated keys. | [optional]
  **keep_notranslate_tags** | **bool**| Indicates whether [NOTRANSLATE] tags should be kept. | [optional]
  **convert_emoji** | **bool**| This option is obsolete. Projects that were created on or after Nov 29th 2019 or that did not contain emoji by then will not require this flag any longer since emoji are now supported natively. | [optional]
- **format_options** | [**object**](../Model/.md)| Additional formatting and render options. See the &lt;a href&#x3D;\&quot;https://help.phrase.com/help/supported-platforms-and-formats\&quot;&gt;format guide&lt;/a&gt; for a list of options available for each format. Specify format options like this: &lt;code&gt;...&amp;format_options[foo]&#x3D;bar&lt;/code&gt; | [optional]
+ **format_options** | [**object**](../Model/.md)| Additional formatting and render options. See the &lt;a href&#x3D;\&quot;https://support.phrase.com/hc/en-us/articles/5784070560412\&quot;&gt;format guide&lt;/a&gt; for a list of options available for each format. Specify format options like this: &lt;code&gt;...&amp;format_options[foo]&#x3D;bar&lt;/code&gt; | [optional]
  **encoding** | **string**| Enforces a specific encoding on the file contents. Valid options are \&quot;UTF-8\&quot;, \&quot;UTF-16\&quot; and \&quot;ISO-8859-1\&quot;. | [optional]
  **skip_unverified_translations** | **bool**| Indicates whether the locale file should skip all unverified translations. This parameter is deprecated and should be replaced with &lt;code&gt;include_unverified_translations&lt;/code&gt;. | [optional]
  **include_unverified_translations** | **bool**| if set to false unverified translations are excluded | [optional]

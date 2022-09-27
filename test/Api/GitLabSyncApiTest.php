@@ -10,7 +10,7 @@
  */
 
 /**
- * Phrase API Reference
+ * Phrase Strings API Reference
  *
  * The version of the OpenAPI document: 2.0.0
  * Contact: support@phrase.com
@@ -83,7 +83,7 @@ class GitLabSyncApiTest extends TestCase
     /**
      * Test case for gitlabSyncExport
      *
-     * Export from Phrase to GitLab.
+     * Export from Phrase Strings to GitLab.
      *
      */
     public function testGitlabSyncExport()

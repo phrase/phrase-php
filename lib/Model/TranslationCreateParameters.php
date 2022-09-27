@@ -11,7 +11,7 @@
  */
 
 /**
- * Phrase API Reference
+ * Phrase Strings API Reference
  *
  * The version of the OpenAPI document: 2.0.0
  * Contact: support@phrase.com
@@ -377,7 +377,7 @@ class TranslationCreateParameters implements ModelInterface, ArrayAccess
     /**
      * Sets unverified
      *
-     * @param bool|null $unverified Indicates whether translation is unverified. Part of the <a href=\"https://help.phrase.com/help/verification-and-proofreading\" target=\"_blank\">Advanced Workflows</a> feature.
+     * @param bool|null $unverified Indicates whether translation is unverified. Part of the <a href=\"https://support.phrase.com/hc/en-us/articles/5784094755484\" target=\"_blank\">Advanced Workflows</a> feature.
      *
      * @return $this
      */
