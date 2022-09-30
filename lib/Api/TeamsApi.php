@@ -577,7 +577,7 @@ class TeamsApi
             );
         }
 
-        $resourcePath = '/accounts/{account_id}/teams/{team_id}';
+        $resourcePath = '/accounts/{account_id}/teams/{id}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -887,7 +887,7 @@ class TeamsApi
             );
         }
 
-        $resourcePath = '/accounts/{account_id}/teams/{team_id}';
+        $resourcePath = '/accounts/{account_id}/teams/{id}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1208,7 +1208,7 @@ class TeamsApi
             );
         }
 
-        $resourcePath = '/accounts/{account_id}/teams/{team_id}';
+        $resourcePath = '/accounts/{account_id}/teams/{id}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];

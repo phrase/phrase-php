@@ -325,9 +325,9 @@ Class | Method | HTTP request | Description
 *TagsApi* | [**tagShow**](docs/Api/TagsApi.md#tagshow) | **GET** /projects/{project_id}/tags/{name} | Get a single tag
 *TagsApi* | [**tagsList**](docs/Api/TagsApi.md#tagslist) | **GET** /projects/{project_id}/tags | List tags
 *TeamsApi* | [**teamCreate**](docs/Api/TeamsApi.md#teamcreate) | **POST** /accounts/{account_id}/teams | Create a Team
-*TeamsApi* | [**teamDelete**](docs/Api/TeamsApi.md#teamdelete) | **DELETE** /accounts/{account_id}/teams/{team_id} | Delete Team
-*TeamsApi* | [**teamShow**](docs/Api/TeamsApi.md#teamshow) | **GET** /accounts/{account_id}/teams/{team_id} | Get Team
-*TeamsApi* | [**teamUpdate**](docs/Api/TeamsApi.md#teamupdate) | **PATCH** /accounts/{account_id}/teams/{team_id} | Update Team
+*TeamsApi* | [**teamDelete**](docs/Api/TeamsApi.md#teamdelete) | **DELETE** /accounts/{account_id}/teams/{id} | Delete Team
+*TeamsApi* | [**teamShow**](docs/Api/TeamsApi.md#teamshow) | **GET** /accounts/{account_id}/teams/{id} | Get Team
+*TeamsApi* | [**teamUpdate**](docs/Api/TeamsApi.md#teamupdate) | **PATCH** /accounts/{account_id}/teams/{id} | Update Team
 *TeamsApi* | [**teamsList**](docs/Api/TeamsApi.md#teamslist) | **GET** /accounts/{account_id}/teams | List Teams
 *TeamsApi* | [**teamsProjectsCreate**](docs/Api/TeamsApi.md#teamsprojectscreate) | **POST** /accounts/{account_id}/teams/{team_id}/projects | Add Project
 *TeamsApi* | [**teamsProjectsDelete**](docs/Api/TeamsApi.md#teamsprojectsdelete) | **DELETE** /accounts/{account_id}/teams/{team_id}/projects/{id} | Remove Project
