@@ -4,7 +4,7 @@ All URIs are relative to *https://api.phrase.com/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**accountLocales**](LocalesApi.md#accountLocales) | **GET** /accounts/{account_id}/locales | List locales used in account
+[**accountLocales**](LocalesApi.md#accountLocales) | **GET** /accounts/{id}/locales | List locales used in account
 [**localeCreate**](LocalesApi.md#localeCreate) | **POST** /projects/{project_id}/locales | Create a locale
 [**localeDelete**](LocalesApi.md#localeDelete) | **DELETE** /projects/{project_id}/locales/{id} | Delete a locale
 [**localeDownload**](LocalesApi.md#localeDownload) | **GET** /projects/{project_id}/locales/{id}/download | Download a locale

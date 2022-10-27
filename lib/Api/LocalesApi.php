@@ -319,7 +319,7 @@ class LocalesApi
             );
         }
 
-        $resourcePath = '/accounts/{account_id}/locales';
+        $resourcePath = '/accounts/{id}/locales';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
