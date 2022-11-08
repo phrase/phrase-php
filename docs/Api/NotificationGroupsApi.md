@@ -35,7 +35,7 @@ $apiInstance = new Phrase\Api\NotificationGroupsApi(
 );
 $x_phrase_app_otp = 'x_phrase_app_otp_example'; // string | Two-Factor-Authentication token (optional)
 $page = 1; // int | Page number
-$per_page = 25; // int | allows you to specify a page size up to 100 items, 25 by default
+$per_page = 25; // int | Limit on the number of objects to be returned, between 1 and 100. 25 by default
 
 try {
     $result = $apiInstance->notificationGroupsList($x_phrase_app_otp, $page, $per_page);
@@ -53,7 +53,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **x_phrase_app_otp** | **string**| Two-Factor-Authentication token (optional) | [optional]
  **page** | **int**| Page number | [optional]
- **per_page** | **int**| allows you to specify a page size up to 100 items, 25 by default | [optional]
+ **per_page** | **int**| Limit on the number of objects to be returned, between 1 and 100. 25 by default | [optional]
 
 ### Return type
 

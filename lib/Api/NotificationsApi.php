@@ -120,15 +120,16 @@ class NotificationsApi
      *
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  int $page Page number (optional)
-     * @param  int $per_page allows you to specify a page size up to 100 items, 25 by default (optional)
+     * @param  int $per_page Limit on the number of objects to be returned, between 1 and 100. 25 by default (optional)
+     * @param  bool $unseen Include only unseen notifications (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return object[]
      */
-    public function notificationsList($x_phrase_app_otp = null, $page = null, $per_page = null)
+    public function notificationsList($x_phrase_app_otp = null, $page = null, $per_page = null, $unseen = null)
     {
-        list($response) = $this->notificationsListWithHttpInfo($x_phrase_app_otp, $page, $per_page);
+        list($response) = $this->notificationsListWithHttpInfo($x_phrase_app_otp, $page, $per_page, $unseen);
         return $response;
     }
 
@@ -139,15 +140,16 @@ class NotificationsApi
      *
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  int $page Page number (optional)
-     * @param  int $per_page allows you to specify a page size up to 100 items, 25 by default (optional)
+     * @param  int $per_page Limit on the number of objects to be returned, between 1 and 100. 25 by default (optional)
+     * @param  bool $unseen Include only unseen notifications (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of object[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function notificationsListWithHttpInfo($x_phrase_app_otp = null, $page = null, $per_page = null)
+    public function notificationsListWithHttpInfo($x_phrase_app_otp = null, $page = null, $per_page = null, $unseen = null)
     {
-        $request = $this->notificationsListRequest($x_phrase_app_otp, $page, $per_page);
+        $request = $this->notificationsListRequest($x_phrase_app_otp, $page, $per_page, $unseen);
 
         try {
             $options = $this->createHttpClientOption();
@@ -229,14 +231,15 @@ class NotificationsApi
      *
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  int $page Page number (optional)
-     * @param  int $per_page allows you to specify a page size up to 100 items, 25 by default (optional)
+     * @param  int $per_page Limit on the number of objects to be returned, between 1 and 100. 25 by default (optional)
+     * @param  bool $unseen Include only unseen notifications (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function notificationsListAsync($x_phrase_app_otp = null, $page = null, $per_page = null)
+    public function notificationsListAsync($x_phrase_app_otp = null, $page = null, $per_page = null, $unseen = null)
     {
-        return $this->notificationsListAsyncWithHttpInfo($x_phrase_app_otp, $page, $per_page)
+        return $this->notificationsListAsyncWithHttpInfo($x_phrase_app_otp, $page, $per_page, $unseen)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -251,15 +254,16 @@ class NotificationsApi
      *
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  int $page Page number (optional)
-     * @param  int $per_page allows you to specify a page size up to 100 items, 25 by default (optional)
+     * @param  int $per_page Limit on the number of objects to be returned, between 1 and 100. 25 by default (optional)
+     * @param  bool $unseen Include only unseen notifications (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function notificationsListAsyncWithHttpInfo($x_phrase_app_otp = null, $page = null, $per_page = null)
+    public function notificationsListAsyncWithHttpInfo($x_phrase_app_otp = null, $page = null, $per_page = null, $unseen = null)
     {
         $returnType = 'object[]';
-        $request = $this->notificationsListRequest($x_phrase_app_otp, $page, $per_page);
+        $request = $this->notificationsListRequest($x_phrase_app_otp, $page, $per_page, $unseen);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -300,12 +304,13 @@ class NotificationsApi
      *
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  int $page Page number (optional)
-     * @param  int $per_page allows you to specify a page size up to 100 items, 25 by default (optional)
+     * @param  int $per_page Limit on the number of objects to be returned, between 1 and 100. 25 by default (optional)
+     * @param  bool $unseen Include only unseen notifications (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function notificationsListRequest($x_phrase_app_otp = null, $page = null, $per_page = null)
+    protected function notificationsListRequest($x_phrase_app_otp = null, $page = null, $per_page = null, $unseen = null)
     {
 
         $resourcePath = '/notifications';
@@ -335,6 +340,17 @@ class NotificationsApi
             }
             else {
                 $queryParams['per_page'] = $per_page;
+            }
+        }
+        // query params
+        if ($unseen !== null) {
+            if('form' === 'form' && is_array($unseen)) {
+                foreach($unseen as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['unseen'] = $unseen;
             }
         }
 

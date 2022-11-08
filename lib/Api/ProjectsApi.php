@@ -1245,7 +1245,7 @@ class ProjectsApi
      *
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  int $page Page number (optional)
-     * @param  int $per_page allows you to specify a page size up to 100 items, 25 by default (optional)
+     * @param  int $per_page Limit on the number of objects to be returned, between 1 and 100. 25 by default (optional)
      * @param  string $account_id Filter by Account ID (optional)
      * @param  string $sort_by Sort projects. Valid options are \&quot;name_asc\&quot;, \&quot;name_desc\&quot;, \&quot;updated_at_asc\&quot;, \&quot;updated_at_desc\&quot;, \&quot;space_asc\&quot; and \&quot;space_desc\&quot;. (optional)
      * @param  string[] $filters Filter projects. Valid options are [\&quot;favorites\&quot;]. (optional)
@@ -1267,7 +1267,7 @@ class ProjectsApi
      *
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  int $page Page number (optional)
-     * @param  int $per_page allows you to specify a page size up to 100 items, 25 by default (optional)
+     * @param  int $per_page Limit on the number of objects to be returned, between 1 and 100. 25 by default (optional)
      * @param  string $account_id Filter by Account ID (optional)
      * @param  string $sort_by Sort projects. Valid options are \&quot;name_asc\&quot;, \&quot;name_desc\&quot;, \&quot;updated_at_asc\&quot;, \&quot;updated_at_desc\&quot;, \&quot;space_asc\&quot; and \&quot;space_desc\&quot;. (optional)
      * @param  string[] $filters Filter projects. Valid options are [\&quot;favorites\&quot;]. (optional)
@@ -1360,7 +1360,7 @@ class ProjectsApi
      *
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  int $page Page number (optional)
-     * @param  int $per_page allows you to specify a page size up to 100 items, 25 by default (optional)
+     * @param  int $per_page Limit on the number of objects to be returned, between 1 and 100. 25 by default (optional)
      * @param  string $account_id Filter by Account ID (optional)
      * @param  string $sort_by Sort projects. Valid options are \&quot;name_asc\&quot;, \&quot;name_desc\&quot;, \&quot;updated_at_asc\&quot;, \&quot;updated_at_desc\&quot;, \&quot;space_asc\&quot; and \&quot;space_desc\&quot;. (optional)
      * @param  string[] $filters Filter projects. Valid options are [\&quot;favorites\&quot;]. (optional)
@@ -1385,7 +1385,7 @@ class ProjectsApi
      *
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  int $page Page number (optional)
-     * @param  int $per_page allows you to specify a page size up to 100 items, 25 by default (optional)
+     * @param  int $per_page Limit on the number of objects to be returned, between 1 and 100. 25 by default (optional)
      * @param  string $account_id Filter by Account ID (optional)
      * @param  string $sort_by Sort projects. Valid options are \&quot;name_asc\&quot;, \&quot;name_desc\&quot;, \&quot;updated_at_asc\&quot;, \&quot;updated_at_desc\&quot;, \&quot;space_asc\&quot; and \&quot;space_desc\&quot;. (optional)
      * @param  string[] $filters Filter projects. Valid options are [\&quot;favorites\&quot;]. (optional)
@@ -1437,7 +1437,7 @@ class ProjectsApi
      *
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  int $page Page number (optional)
-     * @param  int $per_page allows you to specify a page size up to 100 items, 25 by default (optional)
+     * @param  int $per_page Limit on the number of objects to be returned, between 1 and 100. 25 by default (optional)
      * @param  string $account_id Filter by Account ID (optional)
      * @param  string $sort_by Sort projects. Valid options are \&quot;name_asc\&quot;, \&quot;name_desc\&quot;, \&quot;updated_at_asc\&quot;, \&quot;updated_at_desc\&quot;, \&quot;space_asc\&quot; and \&quot;space_desc\&quot;. (optional)
      * @param  string[] $filters Filter projects. Valid options are [\&quot;favorites\&quot;]. (optional)

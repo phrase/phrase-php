@@ -569,7 +569,7 @@ $project_id = 'project_id_example'; // string | Project ID
 $key_id = 'key_id_example'; // string | Translation Key ID
 $x_phrase_app_otp = 'x_phrase_app_otp_example'; // string | Two-Factor-Authentication token (optional)
 $page = 1; // int | Page number
-$per_page = 25; // int | allows you to specify a page size up to 100 items, 25 by default
+$per_page = 25; // int | Limit on the number of objects to be returned, between 1 and 100. 25 by default
 $branch = my-feature-branch; // string | specify the branch to use
 $sort = updated_at; // string | Sort criteria. Can be one of: key_name, created_at, updated_at.
 $order = desc; // string | Order direction. Can be one of: asc, desc.
@@ -593,7 +593,7 @@ Name | Type | Description  | Notes
  **key_id** | **string**| Translation Key ID |
  **x_phrase_app_otp** | **string**| Two-Factor-Authentication token (optional) | [optional]
  **page** | **int**| Page number | [optional]
- **per_page** | **int**| allows you to specify a page size up to 100 items, 25 by default | [optional]
+ **per_page** | **int**| Limit on the number of objects to be returned, between 1 and 100. 25 by default | [optional]
  **branch** | **string**| specify the branch to use | [optional]
  **sort** | **string**| Sort criteria. Can be one of: key_name, created_at, updated_at. | [optional]
  **order** | **string**| Order direction. Can be one of: asc, desc. | [optional]
@@ -644,7 +644,7 @@ $project_id = 'project_id_example'; // string | Project ID
 $locale_id = 'locale_id_example'; // string | Locale ID
 $x_phrase_app_otp = 'x_phrase_app_otp_example'; // string | Two-Factor-Authentication token (optional)
 $page = 1; // int | Page number
-$per_page = 25; // int | allows you to specify a page size up to 100 items, 25 by default
+$per_page = 25; // int | Limit on the number of objects to be returned, between 1 and 100. 25 by default
 $branch = my-feature-branch; // string | specify the branch to use
 $sort = updated_at; // string | Sort criteria. Can be one of: key_name, created_at, updated_at.
 $order = desc; // string | Order direction. Can be one of: asc, desc.
@@ -668,7 +668,7 @@ Name | Type | Description  | Notes
  **locale_id** | **string**| Locale ID |
  **x_phrase_app_otp** | **string**| Two-Factor-Authentication token (optional) | [optional]
  **page** | **int**| Page number | [optional]
- **per_page** | **int**| allows you to specify a page size up to 100 items, 25 by default | [optional]
+ **per_page** | **int**| Limit on the number of objects to be returned, between 1 and 100. 25 by default | [optional]
  **branch** | **string**| specify the branch to use | [optional]
  **sort** | **string**| Sort criteria. Can be one of: key_name, created_at, updated_at. | [optional]
  **order** | **string**| Order direction. Can be one of: asc, desc. | [optional]
@@ -844,7 +844,7 @@ $apiInstance = new Phrase\Api\TranslationsApi(
 $project_id = 'project_id_example'; // string | Project ID
 $x_phrase_app_otp = 'x_phrase_app_otp_example'; // string | Two-Factor-Authentication token (optional)
 $page = 1; // int | Page number
-$per_page = 25; // int | allows you to specify a page size up to 100 items, 25 by default
+$per_page = 25; // int | Limit on the number of objects to be returned, between 1 and 100. 25 by default
 $branch = my-feature-branch; // string | specify the branch to use
 $sort = updated_at; // string | Sort criteria. Can be one of: key_name, created_at, updated_at.
 $order = desc; // string | Order direction. Can be one of: asc, desc.
@@ -867,7 +867,7 @@ Name | Type | Description  | Notes
  **project_id** | **string**| Project ID |
  **x_phrase_app_otp** | **string**| Two-Factor-Authentication token (optional) | [optional]
  **page** | **int**| Page number | [optional]
- **per_page** | **int**| allows you to specify a page size up to 100 items, 25 by default | [optional]
+ **per_page** | **int**| Limit on the number of objects to be returned, between 1 and 100. 25 by default | [optional]
  **branch** | **string**| specify the branch to use | [optional]
  **sort** | **string**| Sort criteria. Can be one of: key_name, created_at, updated_at. | [optional]
  **order** | **string**| Order direction. Can be one of: asc, desc. | [optional]
@@ -981,7 +981,7 @@ $project_id = 'project_id_example'; // string | Project ID
 $translations_search_parameters = new \Phrase\Model\TranslationsSearchParameters(); // \Phrase\Model\TranslationsSearchParameters | 
 $x_phrase_app_otp = 'x_phrase_app_otp_example'; // string | Two-Factor-Authentication token (optional)
 $page = 1; // int | Page number
-$per_page = 25; // int | allows you to specify a page size up to 100 items, 25 by default
+$per_page = 25; // int | Limit on the number of objects to be returned, between 1 and 100. 25 by default
 
 try {
     $result = $apiInstance->translationsSearch($project_id, $translations_search_parameters, $x_phrase_app_otp, $page, $per_page);
@@ -1001,7 +1001,7 @@ Name | Type | Description  | Notes
  **translations_search_parameters** | [**\Phrase\Model\TranslationsSearchParameters**](../Model/TranslationsSearchParameters.md)|  |
  **x_phrase_app_otp** | **string**| Two-Factor-Authentication token (optional) | [optional]
  **page** | **int**| Page number | [optional]
- **per_page** | **int**| allows you to specify a page size up to 100 items, 25 by default | [optional]
+ **per_page** | **int**| Limit on the number of objects to be returned, between 1 and 100. 25 by default | [optional]
 
 ### Return type
 

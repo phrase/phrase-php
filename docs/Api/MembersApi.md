@@ -293,7 +293,7 @@ $apiInstance = new Phrase\Api\MembersApi(
 $account_id = 'account_id_example'; // string | Account ID
 $x_phrase_app_otp = 'x_phrase_app_otp_example'; // string | Two-Factor-Authentication token (optional)
 $page = 1; // int | Page number
-$per_page = 25; // int | allows you to specify a page size up to 100 items, 25 by default
+$per_page = 25; // int | Limit on the number of objects to be returned, between 1 and 100. 25 by default
 
 try {
     $result = $apiInstance->membersList($account_id, $x_phrase_app_otp, $page, $per_page);
@@ -312,7 +312,7 @@ Name | Type | Description  | Notes
  **account_id** | **string**| Account ID |
  **x_phrase_app_otp** | **string**| Two-Factor-Authentication token (optional) | [optional]
  **page** | **int**| Page number | [optional]
- **per_page** | **int**| allows you to specify a page size up to 100 items, 25 by default | [optional]
+ **per_page** | **int**| Limit on the number of objects to be returned, between 1 and 100. 25 by default | [optional]
 
 ### Return type
 

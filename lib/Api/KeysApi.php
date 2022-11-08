@@ -2303,7 +2303,7 @@ class KeysApi
      * @param  string $project_id Project ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  int $page Page number (optional)
-     * @param  int $per_page allows you to specify a page size up to 100 items, 25 by default (optional)
+     * @param  int $per_page Limit on the number of objects to be returned, between 1 and 100. 25 by default (optional)
      * @param  string $branch specify the branch to use (optional)
      * @param  string $sort Sort by field. Can be one of: name, created_at, updated_at. (optional)
      * @param  string $order Order direction. Can be one of: asc, desc. (optional)
@@ -2328,7 +2328,7 @@ class KeysApi
      * @param  string $project_id Project ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  int $page Page number (optional)
-     * @param  int $per_page allows you to specify a page size up to 100 items, 25 by default (optional)
+     * @param  int $per_page Limit on the number of objects to be returned, between 1 and 100. 25 by default (optional)
      * @param  string $branch specify the branch to use (optional)
      * @param  string $sort Sort by field. Can be one of: name, created_at, updated_at. (optional)
      * @param  string $order Order direction. Can be one of: asc, desc. (optional)
@@ -2424,7 +2424,7 @@ class KeysApi
      * @param  string $project_id Project ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  int $page Page number (optional)
-     * @param  int $per_page allows you to specify a page size up to 100 items, 25 by default (optional)
+     * @param  int $per_page Limit on the number of objects to be returned, between 1 and 100. 25 by default (optional)
      * @param  string $branch specify the branch to use (optional)
      * @param  string $sort Sort by field. Can be one of: name, created_at, updated_at. (optional)
      * @param  string $order Order direction. Can be one of: asc, desc. (optional)
@@ -2452,7 +2452,7 @@ class KeysApi
      * @param  string $project_id Project ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  int $page Page number (optional)
-     * @param  int $per_page allows you to specify a page size up to 100 items, 25 by default (optional)
+     * @param  int $per_page Limit on the number of objects to be returned, between 1 and 100. 25 by default (optional)
      * @param  string $branch specify the branch to use (optional)
      * @param  string $sort Sort by field. Can be one of: name, created_at, updated_at. (optional)
      * @param  string $order Order direction. Can be one of: asc, desc. (optional)
@@ -2507,7 +2507,7 @@ class KeysApi
      * @param  string $project_id Project ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  int $page Page number (optional)
-     * @param  int $per_page allows you to specify a page size up to 100 items, 25 by default (optional)
+     * @param  int $per_page Limit on the number of objects to be returned, between 1 and 100. 25 by default (optional)
      * @param  string $branch specify the branch to use (optional)
      * @param  string $sort Sort by field. Can be one of: name, created_at, updated_at. (optional)
      * @param  string $order Order direction. Can be one of: asc, desc. (optional)
@@ -2707,7 +2707,7 @@ class KeysApi
      * @param  \Phrase\Model\KeysSearchParameters $keys_search_parameters keys_search_parameters (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  int $page Page number (optional)
-     * @param  int $per_page allows you to specify a page size up to 100 items, 25 by default (optional)
+     * @param  int $per_page Limit on the number of objects to be returned, between 1 and 100. 25 by default (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -2728,7 +2728,7 @@ class KeysApi
      * @param  \Phrase\Model\KeysSearchParameters $keys_search_parameters (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  int $page Page number (optional)
-     * @param  int $per_page allows you to specify a page size up to 100 items, 25 by default (optional)
+     * @param  int $per_page Limit on the number of objects to be returned, between 1 and 100. 25 by default (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -2820,7 +2820,7 @@ class KeysApi
      * @param  \Phrase\Model\KeysSearchParameters $keys_search_parameters (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  int $page Page number (optional)
-     * @param  int $per_page allows you to specify a page size up to 100 items, 25 by default (optional)
+     * @param  int $per_page Limit on the number of objects to be returned, between 1 and 100. 25 by default (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2844,7 +2844,7 @@ class KeysApi
      * @param  \Phrase\Model\KeysSearchParameters $keys_search_parameters (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  int $page Page number (optional)
-     * @param  int $per_page allows you to specify a page size up to 100 items, 25 by default (optional)
+     * @param  int $per_page Limit on the number of objects to be returned, between 1 and 100. 25 by default (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2895,7 +2895,7 @@ class KeysApi
      * @param  \Phrase\Model\KeysSearchParameters $keys_search_parameters (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  int $page Page number (optional)
-     * @param  int $per_page allows you to specify a page size up to 100 items, 25 by default (optional)
+     * @param  int $per_page Limit on the number of objects to be returned, between 1 and 100. 25 by default (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request

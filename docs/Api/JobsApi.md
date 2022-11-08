@@ -757,7 +757,7 @@ $apiInstance = new Phrase\Api\JobsApi(
 $account_id = 'account_id_example'; // string | Account ID
 $x_phrase_app_otp = 'x_phrase_app_otp_example'; // string | Two-Factor-Authentication token (optional)
 $page = 1; // int | Page number
-$per_page = 25; // int | allows you to specify a page size up to 100 items, 25 by default
+$per_page = 25; // int | Limit on the number of objects to be returned, between 1 and 100. 25 by default
 $owned_by = abcd1234cdef1234abcd1234cdef1234; // string | filter by user owning job
 $assigned_to = abcd1234cdef1234abcd1234cdef1234; // string | filter by user assigned to job
 $state = completed; // string | filter by state of job Valid states are <code>draft</code>, <code>in_progress</code>, <code>completed</code>
@@ -779,7 +779,7 @@ Name | Type | Description  | Notes
  **account_id** | **string**| Account ID |
  **x_phrase_app_otp** | **string**| Two-Factor-Authentication token (optional) | [optional]
  **page** | **int**| Page number | [optional]
- **per_page** | **int**| allows you to specify a page size up to 100 items, 25 by default | [optional]
+ **per_page** | **int**| Limit on the number of objects to be returned, between 1 and 100. 25 by default | [optional]
  **owned_by** | **string**| filter by user owning job | [optional]
  **assigned_to** | **string**| filter by user assigned to job | [optional]
  **state** | **string**| filter by state of job Valid states are &lt;code&gt;draft&lt;/code&gt;, &lt;code&gt;in_progress&lt;/code&gt;, &lt;code&gt;completed&lt;/code&gt; | [optional]
@@ -828,7 +828,7 @@ $apiInstance = new Phrase\Api\JobsApi(
 $project_id = 'project_id_example'; // string | Project ID
 $x_phrase_app_otp = 'x_phrase_app_otp_example'; // string | Two-Factor-Authentication token (optional)
 $page = 1; // int | Page number
-$per_page = 25; // int | allows you to specify a page size up to 100 items, 25 by default
+$per_page = 25; // int | Limit on the number of objects to be returned, between 1 and 100. 25 by default
 $branch = my-feature-branch; // string | specify the branch to use
 $owned_by = abcd1234cdef1234abcd1234cdef1234; // string | filter by user owning job
 $assigned_to = abcd1234cdef1234abcd1234cdef1234; // string | filter by user assigned to job
@@ -851,7 +851,7 @@ Name | Type | Description  | Notes
  **project_id** | **string**| Project ID |
  **x_phrase_app_otp** | **string**| Two-Factor-Authentication token (optional) | [optional]
  **page** | **int**| Page number | [optional]
- **per_page** | **int**| allows you to specify a page size up to 100 items, 25 by default | [optional]
+ **per_page** | **int**| Limit on the number of objects to be returned, between 1 and 100. 25 by default | [optional]
  **branch** | **string**| specify the branch to use | [optional]
  **owned_by** | **string**| filter by user owning job | [optional]
  **assigned_to** | **string**| filter by user assigned to job | [optional]
