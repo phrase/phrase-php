@@ -543,7 +543,7 @@ class UploadsApi
     /**
      * Operation uploadShow
      *
-     * View upload details
+     * Get a single upload
      *
      * @param  string $project_id Project ID (required)
      * @param  string $id ID (required)
@@ -563,7 +563,7 @@ class UploadsApi
     /**
      * Operation uploadShowWithHttpInfo
      *
-     * View upload details
+     * Get a single upload
      *
      * @param  string $project_id Project ID (required)
      * @param  string $id ID (required)
@@ -654,7 +654,7 @@ class UploadsApi
     /**
      * Operation uploadShowAsync
      *
-     * View upload details
+     * Get a single upload
      *
      * @param  string $project_id Project ID (required)
      * @param  string $id ID (required)
@@ -677,7 +677,7 @@ class UploadsApi
     /**
      * Operation uploadShowAsyncWithHttpInfo
      *
-     * View upload details
+     * Get a single upload
      *
      * @param  string $project_id Project ID (required)
      * @param  string $id ID (required)

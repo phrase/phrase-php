@@ -337,7 +337,7 @@ Class | Method | HTTP request | Description
 *TeamsApi* | [**teamsUsersDelete**](docs/Api/TeamsApi.md#teamsusersdelete) | **DELETE** /accounts/{account_id}/teams/{team_id}/users/{id} | Remove User
 *TranslationsApi* | [**translationCreate**](docs/Api/TranslationsApi.md#translationcreate) | **POST** /projects/{project_id}/translations | Create a translation
 *TranslationsApi* | [**translationExclude**](docs/Api/TranslationsApi.md#translationexclude) | **PATCH** /projects/{project_id}/translations/{id}/exclude | Exclude a translation from export
-*TranslationsApi* | [**translationInclude**](docs/Api/TranslationsApi.md#translationinclude) | **PATCH** /projects/{project_id}/translations/{id}/include | Revoke exclusion of a translation in export
+*TranslationsApi* | [**translationInclude**](docs/Api/TranslationsApi.md#translationinclude) | **PATCH** /projects/{project_id}/translations/{id}/include | Include a translation
 *TranslationsApi* | [**translationReview**](docs/Api/TranslationsApi.md#translationreview) | **PATCH** /projects/{project_id}/translations/{id}/review | Review a translation
 *TranslationsApi* | [**translationShow**](docs/Api/TranslationsApi.md#translationshow) | **GET** /projects/{project_id}/translations/{id} | Get a single translation
 *TranslationsApi* | [**translationUnverify**](docs/Api/TranslationsApi.md#translationunverify) | **PATCH** /projects/{project_id}/translations/{id}/unverify | Mark a translation as unverified
@@ -345,15 +345,15 @@ Class | Method | HTTP request | Description
 *TranslationsApi* | [**translationVerify**](docs/Api/TranslationsApi.md#translationverify) | **PATCH** /projects/{project_id}/translations/{id}/verify | Verify a translation
 *TranslationsApi* | [**translationsByKey**](docs/Api/TranslationsApi.md#translationsbykey) | **GET** /projects/{project_id}/keys/{key_id}/translations | List translations by key
 *TranslationsApi* | [**translationsByLocale**](docs/Api/TranslationsApi.md#translationsbylocale) | **GET** /projects/{project_id}/locales/{locale_id}/translations | List translations by locale
-*TranslationsApi* | [**translationsExcludeCollection**](docs/Api/TranslationsApi.md#translationsexcludecollection) | **PATCH** /projects/{project_id}/translations/exclude | Set exclude from export flag on translations selected by query
-*TranslationsApi* | [**translationsIncludeCollection**](docs/Api/TranslationsApi.md#translationsincludecollection) | **PATCH** /projects/{project_id}/translations/include | Remove exlude from import flag from translations selected by query
+*TranslationsApi* | [**translationsExcludeCollection**](docs/Api/TranslationsApi.md#translationsexcludecollection) | **PATCH** /projects/{project_id}/translations/exclude | Exclude translations by query
+*TranslationsApi* | [**translationsIncludeCollection**](docs/Api/TranslationsApi.md#translationsincludecollection) | **PATCH** /projects/{project_id}/translations/include | Include translations by query
 *TranslationsApi* | [**translationsList**](docs/Api/TranslationsApi.md#translationslist) | **GET** /projects/{project_id}/translations | List all translations
 *TranslationsApi* | [**translationsReviewCollection**](docs/Api/TranslationsApi.md#translationsreviewcollection) | **PATCH** /projects/{project_id}/translations/review | Review translations selected by query
 *TranslationsApi* | [**translationsSearch**](docs/Api/TranslationsApi.md#translationssearch) | **POST** /projects/{project_id}/translations/search | Search translations
-*TranslationsApi* | [**translationsUnverifyCollection**](docs/Api/TranslationsApi.md#translationsunverifycollection) | **PATCH** /projects/{project_id}/translations/unverify | Mark translations selected by query as unverified
-*TranslationsApi* | [**translationsVerifyCollection**](docs/Api/TranslationsApi.md#translationsverifycollection) | **PATCH** /projects/{project_id}/translations/verify | Verify translations selected by query
+*TranslationsApi* | [**translationsUnverifyCollection**](docs/Api/TranslationsApi.md#translationsunverifycollection) | **PATCH** /projects/{project_id}/translations/unverify | Unverify translations by query
+*TranslationsApi* | [**translationsVerifyCollection**](docs/Api/TranslationsApi.md#translationsverifycollection) | **PATCH** /projects/{project_id}/translations/verify | Verify translations by query
 *UploadsApi* | [**uploadCreate**](docs/Api/UploadsApi.md#uploadcreate) | **POST** /projects/{project_id}/uploads | Upload a new file
-*UploadsApi* | [**uploadShow**](docs/Api/UploadsApi.md#uploadshow) | **GET** /projects/{project_id}/uploads/{id} | View upload details
+*UploadsApi* | [**uploadShow**](docs/Api/UploadsApi.md#uploadshow) | **GET** /projects/{project_id}/uploads/{id} | Get a single upload
 *UploadsApi* | [**uploadsList**](docs/Api/UploadsApi.md#uploadslist) | **GET** /projects/{project_id}/uploads | List uploads
 *UsersApi* | [**showUser**](docs/Api/UsersApi.md#showuser) | **GET** /user | Show current User
 *VariablesApi* | [**variableCreate**](docs/Api/VariablesApi.md#variablecreate) | **POST** /projects/{project_id}/variables | Create a variable

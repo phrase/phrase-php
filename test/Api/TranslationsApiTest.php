@@ -93,7 +93,7 @@ class TranslationsApiTest extends TestCase
     /**
      * Test case for translationInclude
      *
-     * Revoke exclusion of a translation in export.
+     * Include a translation.
      *
      */
     public function testTranslationInclude()
@@ -173,7 +173,7 @@ class TranslationsApiTest extends TestCase
     /**
      * Test case for translationsExcludeCollection
      *
-     * Set exclude from export flag on translations selected by query.
+     * Exclude translations by query.
      *
      */
     public function testTranslationsExcludeCollection()
@@ -183,7 +183,7 @@ class TranslationsApiTest extends TestCase
     /**
      * Test case for translationsIncludeCollection
      *
-     * Remove exlude from import flag from translations selected by query.
+     * Include translations by query.
      *
      */
     public function testTranslationsIncludeCollection()
@@ -223,7 +223,7 @@ class TranslationsApiTest extends TestCase
     /**
      * Test case for translationsUnverifyCollection
      *
-     * Mark translations selected by query as unverified.
+     * Unverify translations by query.
      *
      */
     public function testTranslationsUnverifyCollection()
@@ -233,7 +233,7 @@ class TranslationsApiTest extends TestCase
     /**
      * Test case for translationsVerifyCollection
      *
-     * Verify translations selected by query.
+     * Verify translations by query.
      *
      */
     public function testTranslationsVerifyCollection()

@@ -83,7 +83,7 @@ class UploadsApiTest extends TestCase
     /**
      * Test case for uploadShow
      *
-     * View upload details.
+     * Get a single upload.
      *
      */
     public function testUploadShow()

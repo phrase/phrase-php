@@ -5,7 +5,7 @@ All URIs are relative to *https://api.phrase.com/v2*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**uploadCreate**](UploadsApi.md#uploadCreate) | **POST** /projects/{project_id}/uploads | Upload a new file
-[**uploadShow**](UploadsApi.md#uploadShow) | **GET** /projects/{project_id}/uploads/{id} | View upload details
+[**uploadShow**](UploadsApi.md#uploadShow) | **GET** /projects/{project_id}/uploads/{id} | Get a single upload
 [**uploadsList**](UploadsApi.md#uploadsList) | **GET** /projects/{project_id}/uploads | List uploads
 
 
@@ -105,7 +105,7 @@ Name | Type | Description  | Notes
 
 > \Phrase\Model\Upload uploadShow($project_id, $id, $x_phrase_app_otp, $branch)
 
-View upload details
+Get a single upload
 
 View details and summary for a single upload.
 
