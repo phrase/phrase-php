@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **slug** | **string** |  | [optional] 
 **main_format** | **string** |  | [optional] 
 **project_image_url** | **string** |  | [optional] 
+**media** | **string** |  | [optional] 
 **account** | [**\Phrase\Model\Account**](Account.md) |  | [optional] 
 **space** | [**\Phrase\Model\Space1**](Space1.md) |  | [optional] 
 **point_of_contact** | [**\Phrase\Model\UserPreview**](UserPreview.md) |  | [optional] 

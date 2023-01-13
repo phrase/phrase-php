@@ -57,10 +57,12 @@ class ProjectCreateParameters implements ModelInterface, ArrayAccess
     protected static $openAPITypes = [
         'name' => 'string',
         'main_format' => 'string',
+        'media' => 'string',
         'shares_translation_memory' => 'bool',
         'project_image' => '\SplFileObject',
         'remove_project_image' => 'bool',
         'account_id' => 'string',
+        'point_of_contact' => 'string',
         'source_project_id' => 'string',
         'workflow' => 'string',
         'machine_translation_enabled' => 'bool',
@@ -89,10 +91,12 @@ class ProjectCreateParameters implements ModelInterface, ArrayAccess
     protected static $openAPIFormats = [
         'name' => null,
         'main_format' => null,
+        'media' => null,
         'shares_translation_memory' => null,
         'project_image' => 'binary',
         'remove_project_image' => null,
         'account_id' => null,
+        'point_of_contact' => null,
         'source_project_id' => null,
         'workflow' => null,
         'machine_translation_enabled' => null,
@@ -142,10 +146,12 @@ class ProjectCreateParameters implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'name' => 'name',
         'main_format' => 'main_format',
+        'media' => 'media',
         'shares_translation_memory' => 'shares_translation_memory',
         'project_image' => 'project_image',
         'remove_project_image' => 'remove_project_image',
         'account_id' => 'account_id',
+        'point_of_contact' => 'point_of_contact',
         'source_project_id' => 'source_project_id',
         'workflow' => 'workflow',
         'machine_translation_enabled' => 'machine_translation_enabled',
@@ -174,10 +180,12 @@ class ProjectCreateParameters implements ModelInterface, ArrayAccess
     protected static $setters = [
         'name' => 'setName',
         'main_format' => 'setMainFormat',
+        'media' => 'setMedia',
         'shares_translation_memory' => 'setSharesTranslationMemory',
         'project_image' => 'setProjectImage',
         'remove_project_image' => 'setRemoveProjectImage',
         'account_id' => 'setAccountId',
+        'point_of_contact' => 'setPointOfContact',
         'source_project_id' => 'setSourceProjectId',
         'workflow' => 'setWorkflow',
         'machine_translation_enabled' => 'setMachineTranslationEnabled',
@@ -206,10 +214,12 @@ class ProjectCreateParameters implements ModelInterface, ArrayAccess
     protected static $getters = [
         'name' => 'getName',
         'main_format' => 'getMainFormat',
+        'media' => 'getMedia',
         'shares_translation_memory' => 'getSharesTranslationMemory',
         'project_image' => 'getProjectImage',
         'remove_project_image' => 'getRemoveProjectImage',
         'account_id' => 'getAccountId',
+        'point_of_contact' => 'getPointOfContact',
         'source_project_id' => 'getSourceProjectId',
         'workflow' => 'getWorkflow',
         'machine_translation_enabled' => 'getMachineTranslationEnabled',
@@ -292,10 +302,12 @@ class ProjectCreateParameters implements ModelInterface, ArrayAccess
     {
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['main_format'] = isset($data['main_format']) ? $data['main_format'] : null;
+        $this->container['media'] = isset($data['media']) ? $data['media'] : null;
         $this->container['shares_translation_memory'] = isset($data['shares_translation_memory']) ? $data['shares_translation_memory'] : null;
         $this->container['project_image'] = isset($data['project_image']) ? $data['project_image'] : null;
         $this->container['remove_project_image'] = isset($data['remove_project_image']) ? $data['remove_project_image'] : null;
         $this->container['account_id'] = isset($data['account_id']) ? $data['account_id'] : null;
+        $this->container['point_of_contact'] = isset($data['point_of_contact']) ? $data['point_of_contact'] : null;
         $this->container['source_project_id'] = isset($data['source_project_id']) ? $data['source_project_id'] : null;
         $this->container['workflow'] = isset($data['workflow']) ? $data['workflow'] : null;
         $this->container['machine_translation_enabled'] = isset($data['machine_translation_enabled']) ? $data['machine_translation_enabled'] : null;
@@ -384,6 +396,30 @@ class ProjectCreateParameters implements ModelInterface, ArrayAccess
     public function setMainFormat($main_format)
     {
         $this->container['main_format'] = $main_format;
+
+        return $this;
+    }
+
+    /**
+     * Gets media
+     *
+     * @return string|null
+     */
+    public function getMedia()
+    {
+        return $this->container['media'];
+    }
+
+    /**
+     * Sets media
+     *
+     * @param string|null $media (Optional) Main technology stack used in the project. It affects for example the suggested placeholder style. Predefined values include: `Ruby`, `JavaScript`, `AngularJS`, `React`, `iOS`, `Android`, `Python`, `PHP`, `Java`, `Go`, `Windows Phone`, `Rails`, `Node.js`, `.NET`, `Django`, `Symfony`, `Yii Framework`, `Zend Framework`, `Apple App Store Description`, `Google Play Description`, but it can also take any other value.
+     *
+     * @return $this
+     */
+    public function setMedia($media)
+    {
+        $this->container['media'] = $media;
 
         return $this;
     }
@@ -480,6 +516,30 @@ class ProjectCreateParameters implements ModelInterface, ArrayAccess
     public function setAccountId($account_id)
     {
         $this->container['account_id'] = $account_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets point_of_contact
+     *
+     * @return string|null
+     */
+    public function getPointOfContact()
+    {
+        return $this->container['point_of_contact'];
+    }
+
+    /**
+     * Sets point_of_contact
+     *
+     * @param string|null $point_of_contact (Optional) User ID of the point of contact for the project.
+     *
+     * @return $this
+     */
+    public function setPointOfContact($point_of_contact)
+    {
+        $this->container['point_of_contact'] = $point_of_contact;
 
         return $this;
     }

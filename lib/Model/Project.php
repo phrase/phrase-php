@@ -60,6 +60,7 @@ class Project implements ModelInterface, ArrayAccess
         'slug' => 'string',
         'main_format' => 'string',
         'project_image_url' => 'string',
+        'media' => 'string',
         'account' => '\Phrase\Model\Account',
         'space' => '\Phrase\Model\Space1',
         'point_of_contact' => '\Phrase\Model\UserPreview',
@@ -78,6 +79,7 @@ class Project implements ModelInterface, ArrayAccess
         'slug' => null,
         'main_format' => null,
         'project_image_url' => null,
+        'media' => null,
         'account' => null,
         'space' => null,
         'point_of_contact' => null,
@@ -117,6 +119,7 @@ class Project implements ModelInterface, ArrayAccess
         'slug' => 'slug',
         'main_format' => 'main_format',
         'project_image_url' => 'project_image_url',
+        'media' => 'media',
         'account' => 'account',
         'space' => 'space',
         'point_of_contact' => 'point_of_contact',
@@ -135,6 +138,7 @@ class Project implements ModelInterface, ArrayAccess
         'slug' => 'setSlug',
         'main_format' => 'setMainFormat',
         'project_image_url' => 'setProjectImageUrl',
+        'media' => 'setMedia',
         'account' => 'setAccount',
         'space' => 'setSpace',
         'point_of_contact' => 'setPointOfContact',
@@ -153,6 +157,7 @@ class Project implements ModelInterface, ArrayAccess
         'slug' => 'getSlug',
         'main_format' => 'getMainFormat',
         'project_image_url' => 'getProjectImageUrl',
+        'media' => 'getMedia',
         'account' => 'getAccount',
         'space' => 'getSpace',
         'point_of_contact' => 'getPointOfContact',
@@ -225,6 +230,7 @@ class Project implements ModelInterface, ArrayAccess
         $this->container['slug'] = isset($data['slug']) ? $data['slug'] : null;
         $this->container['main_format'] = isset($data['main_format']) ? $data['main_format'] : null;
         $this->container['project_image_url'] = isset($data['project_image_url']) ? $data['project_image_url'] : null;
+        $this->container['media'] = isset($data['media']) ? $data['media'] : null;
         $this->container['account'] = isset($data['account']) ? $data['account'] : null;
         $this->container['space'] = isset($data['space']) ? $data['space'] : null;
         $this->container['point_of_contact'] = isset($data['point_of_contact']) ? $data['point_of_contact'] : null;
@@ -372,6 +378,30 @@ class Project implements ModelInterface, ArrayAccess
     public function setProjectImageUrl($project_image_url)
     {
         $this->container['project_image_url'] = $project_image_url;
+
+        return $this;
+    }
+
+    /**
+     * Gets media
+     *
+     * @return string|null
+     */
+    public function getMedia()
+    {
+        return $this->container['media'];
+    }
+
+    /**
+     * Sets media
+     *
+     * @param string|null $media media
+     *
+     * @return $this
+     */
+    public function setMedia($media)
+    {
+        $this->container['media'] = $media;
 
         return $this;
     }

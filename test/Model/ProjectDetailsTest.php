@@ -112,6 +112,13 @@ class ProjectDetailsTest extends TestCase
     }
 
     /**
+     * Test attribute "media"
+     */
+    public function testPropertyMedia()
+    {
+    }
+
+    /**
      * Test attribute "account"
      */
     public function testPropertyAccount()

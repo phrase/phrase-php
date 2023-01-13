@@ -91,6 +91,13 @@ class ProjectCreateParametersTest extends TestCase
     }
 
     /**
+     * Test attribute "media"
+     */
+    public function testPropertyMedia()
+    {
+    }
+
+    /**
      * Test attribute "shares_translation_memory"
      */
     public function testPropertySharesTranslationMemory()
@@ -115,6 +122,13 @@ class ProjectCreateParametersTest extends TestCase
      * Test attribute "account_id"
      */
     public function testPropertyAccountId()
+    {
+    }
+
+    /**
+     * Test attribute "point_of_contact"
+     */
+    public function testPropertyPointOfContact()
     {
     }
 

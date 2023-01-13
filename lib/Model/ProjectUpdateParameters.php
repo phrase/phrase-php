@@ -57,7 +57,9 @@ class ProjectUpdateParameters implements ModelInterface, ArrayAccess
     protected static $openAPITypes = [
         'account_id' => 'string',
         'name' => 'string',
+        'point_of_contact' => 'string',
         'main_format' => 'string',
+        'media' => 'object',
         'shares_translation_memory' => 'bool',
         'project_image' => '\SplFileObject',
         'remove_project_image' => 'bool',
@@ -88,7 +90,9 @@ class ProjectUpdateParameters implements ModelInterface, ArrayAccess
     protected static $openAPIFormats = [
         'account_id' => null,
         'name' => null,
+        'point_of_contact' => null,
         'main_format' => null,
+        'media' => null,
         'shares_translation_memory' => null,
         'project_image' => 'binary',
         'remove_project_image' => null,
@@ -140,7 +144,9 @@ class ProjectUpdateParameters implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'account_id' => 'account_id',
         'name' => 'name',
+        'point_of_contact' => 'point_of_contact',
         'main_format' => 'main_format',
+        'media' => 'media',
         'shares_translation_memory' => 'shares_translation_memory',
         'project_image' => 'project_image',
         'remove_project_image' => 'remove_project_image',
@@ -171,7 +177,9 @@ class ProjectUpdateParameters implements ModelInterface, ArrayAccess
     protected static $setters = [
         'account_id' => 'setAccountId',
         'name' => 'setName',
+        'point_of_contact' => 'setPointOfContact',
         'main_format' => 'setMainFormat',
+        'media' => 'setMedia',
         'shares_translation_memory' => 'setSharesTranslationMemory',
         'project_image' => 'setProjectImage',
         'remove_project_image' => 'setRemoveProjectImage',
@@ -202,7 +210,9 @@ class ProjectUpdateParameters implements ModelInterface, ArrayAccess
     protected static $getters = [
         'account_id' => 'getAccountId',
         'name' => 'getName',
+        'point_of_contact' => 'getPointOfContact',
         'main_format' => 'getMainFormat',
+        'media' => 'getMedia',
         'shares_translation_memory' => 'getSharesTranslationMemory',
         'project_image' => 'getProjectImage',
         'remove_project_image' => 'getRemoveProjectImage',
@@ -287,7 +297,9 @@ class ProjectUpdateParameters implements ModelInterface, ArrayAccess
     {
         $this->container['account_id'] = isset($data['account_id']) ? $data['account_id'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['point_of_contact'] = isset($data['point_of_contact']) ? $data['point_of_contact'] : null;
         $this->container['main_format'] = isset($data['main_format']) ? $data['main_format'] : null;
+        $this->container['media'] = isset($data['media']) ? $data['media'] : null;
         $this->container['shares_translation_memory'] = isset($data['shares_translation_memory']) ? $data['shares_translation_memory'] : null;
         $this->container['project_image'] = isset($data['project_image']) ? $data['project_image'] : null;
         $this->container['remove_project_image'] = isset($data['remove_project_image']) ? $data['remove_project_image'] : null;
@@ -383,6 +395,30 @@ class ProjectUpdateParameters implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets point_of_contact
+     *
+     * @return string|null
+     */
+    public function getPointOfContact()
+    {
+        return $this->container['point_of_contact'];
+    }
+
+    /**
+     * Sets point_of_contact
+     *
+     * @param string|null $point_of_contact (Optional) User ID of the point of contact for the project. Pass `null` to unset.
+     *
+     * @return $this
+     */
+    public function setPointOfContact($point_of_contact)
+    {
+        $this->container['point_of_contact'] = $point_of_contact;
+
+        return $this;
+    }
+
+    /**
      * Gets main_format
      *
      * @return string|null
@@ -402,6 +438,30 @@ class ProjectUpdateParameters implements ModelInterface, ArrayAccess
     public function setMainFormat($main_format)
     {
         $this->container['main_format'] = $main_format;
+
+        return $this;
+    }
+
+    /**
+     * Gets media
+     *
+     * @return object|null
+     */
+    public function getMedia()
+    {
+        return $this->container['media'];
+    }
+
+    /**
+     * Sets media
+     *
+     * @param object|null $media media
+     *
+     * @return $this
+     */
+    public function setMedia($media)
+    {
+        $this->container['media'] = $media;
 
         return $this;
     }

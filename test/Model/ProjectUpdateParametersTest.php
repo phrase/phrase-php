@@ -91,9 +91,23 @@ class ProjectUpdateParametersTest extends TestCase
     }
 
     /**
+     * Test attribute "point_of_contact"
+     */
+    public function testPropertyPointOfContact()
+    {
+    }
+
+    /**
      * Test attribute "main_format"
      */
     public function testPropertyMainFormat()
+    {
+    }
+
+    /**
+     * Test attribute "media"
+     */
+    public function testPropertyMedia()
     {
     }
 
