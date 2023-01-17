@@ -820,7 +820,7 @@ Name | Type | Description  | Notes
 
 ## translationsList
 
-> \Phrase\Model\Translation[] translationsList($project_id, $x_phrase_app_otp, $page, $per_page, $branch, $sort, $order, $q)
+> \Phrase\Model\Translation[] translationsList($project_id, $x_phrase_app_otp, $if_modified_since, $if_none_match, $page, $per_page, $branch, $sort, $order, $q)
 
 List all translations
 
@@ -843,6 +843,8 @@ $apiInstance = new Phrase\Api\TranslationsApi(
 );
 $project_id = 'project_id_example'; // string | Project ID
 $x_phrase_app_otp = 'x_phrase_app_otp_example'; // string | Two-Factor-Authentication token (optional)
+$if_modified_since = 'if_modified_since_example'; // string | Last modified condition, see <a href=\"#overview--conditional-get-requests--http-caching\">Conditional GET requests / HTTP Caching</a> (optional)
+$if_none_match = 'if_none_match_example'; // string | ETag condition, see <a href=\"#overview--conditional-get-requests--http-caching\">Conditional GET requests / HTTP Caching</a> (optional)
 $page = 1; // int | Page number
 $per_page = 25; // int | Limit on the number of objects to be returned, between 1 and 100. 25 by default
 $branch = my-feature-branch; // string | specify the branch to use
@@ -851,7 +853,7 @@ $order = desc; // string | Order direction. Can be one of: asc, desc.
 $q = PhraseApp*%20unverified:true%20excluded:true%20tags:feature,center; // string | Specify a query to find translations by content (including wildcards).<br><br> <i>Note: Search is limited to 10000 results and may not include recently updated data (depending on the project size).</i><br> The following qualifiers are supported in the query:<br> <ul>   <li><code>id:translation_id,...</code> for queries on a comma-separated list of ids</li>   <li><code>tags:XYZ</code> for tags on the translation</li>   <li><code>unverified:{true|false}</code> for verification status</li>   <li><code>excluded:{true|false}</code> for exclusion status</li>   <li><code>updated_at:{>=|<=}2013-02-21T00:00:00Z</code> for date range queries</li> </ul> Find more examples <a href=\"#overview--usage-examples\">here</a>.
 
 try {
-    $result = $apiInstance->translationsList($project_id, $x_phrase_app_otp, $page, $per_page, $branch, $sort, $order, $q);
+    $result = $apiInstance->translationsList($project_id, $x_phrase_app_otp, $if_modified_since, $if_none_match, $page, $per_page, $branch, $sort, $order, $q);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling TranslationsApi->translationsList: ', $e->getMessage(), PHP_EOL;
@@ -866,6 +868,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **project_id** | **string**| Project ID |
  **x_phrase_app_otp** | **string**| Two-Factor-Authentication token (optional) | [optional]
+ **if_modified_since** | **string**| Last modified condition, see &lt;a href&#x3D;\&quot;#overview--conditional-get-requests--http-caching\&quot;&gt;Conditional GET requests / HTTP Caching&lt;/a&gt; (optional) | [optional]
+ **if_none_match** | **string**| ETag condition, see &lt;a href&#x3D;\&quot;#overview--conditional-get-requests--http-caching\&quot;&gt;Conditional GET requests / HTTP Caching&lt;/a&gt; (optional) | [optional]
  **page** | **int**| Page number | [optional]
  **per_page** | **int**| Limit on the number of objects to be returned, between 1 and 100. 25 by default | [optional]
  **branch** | **string**| specify the branch to use | [optional]

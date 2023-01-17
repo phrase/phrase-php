@@ -208,7 +208,7 @@ void (empty response body)
 
 ## localeDownload
 
-> \SplFileObject localeDownload($project_id, $id, $x_phrase_app_otp, $branch, $file_format, $tags, $tag, $include_empty_translations, $exclude_empty_zero_forms, $include_translated_keys, $keep_notranslate_tags, $convert_emoji, $format_options, $encoding, $skip_unverified_translations, $include_unverified_translations, $use_last_reviewed_version, $fallback_locale_id, $source_locale_id)
+> \SplFileObject localeDownload($project_id, $id, $x_phrase_app_otp, $if_modified_since, $if_none_match, $branch, $file_format, $tags, $tag, $include_empty_translations, $exclude_empty_zero_forms, $include_translated_keys, $keep_notranslate_tags, $convert_emoji, $format_options, $encoding, $skip_unverified_translations, $include_unverified_translations, $use_last_reviewed_version, $fallback_locale_id, $source_locale_id)
 
 Download a locale
 
@@ -232,6 +232,8 @@ $apiInstance = new Phrase\Api\LocalesApi(
 $project_id = 'project_id_example'; // string | Project ID
 $id = 'id_example'; // string | ID
 $x_phrase_app_otp = 'x_phrase_app_otp_example'; // string | Two-Factor-Authentication token (optional)
+$if_modified_since = 'if_modified_since_example'; // string | Last modified condition, see <a href=\"#overview--conditional-get-requests--http-caching\">Conditional GET requests / HTTP Caching</a> (optional)
+$if_none_match = 'if_none_match_example'; // string | ETag condition, see <a href=\"#overview--conditional-get-requests--http-caching\">Conditional GET requests / HTTP Caching</a> (optional)
 $branch = my-feature-branch; // string | specify the branch to use
 $file_format = yml; // string | File format name. See the <a href=\"https://support.phrase.com/hc/en-us/sections/6111343326364\">format guide</a> for all supported file formats.
 $tags = feature1,feature2; // string | Limit results to keys tagged with a list of comma separated tag names.
@@ -250,7 +252,7 @@ $fallback_locale_id = 'fallback_locale_id_example'; // string | If a key has no 
 $source_locale_id = 'source_locale_id_example'; // string | Provides the source language of a corresponding job as the source language of the generated locale file. This parameter will be ignored unless used in combination with a <code>tag</code> parameter indicating a specific job.
 
 try {
-    $result = $apiInstance->localeDownload($project_id, $id, $x_phrase_app_otp, $branch, $file_format, $tags, $tag, $include_empty_translations, $exclude_empty_zero_forms, $include_translated_keys, $keep_notranslate_tags, $convert_emoji, $format_options, $encoding, $skip_unverified_translations, $include_unverified_translations, $use_last_reviewed_version, $fallback_locale_id, $source_locale_id);
+    $result = $apiInstance->localeDownload($project_id, $id, $x_phrase_app_otp, $if_modified_since, $if_none_match, $branch, $file_format, $tags, $tag, $include_empty_translations, $exclude_empty_zero_forms, $include_translated_keys, $keep_notranslate_tags, $convert_emoji, $format_options, $encoding, $skip_unverified_translations, $include_unverified_translations, $use_last_reviewed_version, $fallback_locale_id, $source_locale_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling LocalesApi->localeDownload: ', $e->getMessage(), PHP_EOL;
@@ -266,6 +268,8 @@ Name | Type | Description  | Notes
  **project_id** | **string**| Project ID |
  **id** | **string**| ID |
  **x_phrase_app_otp** | **string**| Two-Factor-Authentication token (optional) | [optional]
+ **if_modified_since** | **string**| Last modified condition, see &lt;a href&#x3D;\&quot;#overview--conditional-get-requests--http-caching\&quot;&gt;Conditional GET requests / HTTP Caching&lt;/a&gt; (optional) | [optional]
+ **if_none_match** | **string**| ETag condition, see &lt;a href&#x3D;\&quot;#overview--conditional-get-requests--http-caching\&quot;&gt;Conditional GET requests / HTTP Caching&lt;/a&gt; (optional) | [optional]
  **branch** | **string**| specify the branch to use | [optional]
  **file_format** | **string**| File format name. See the &lt;a href&#x3D;\&quot;https://support.phrase.com/hc/en-us/sections/6111343326364\&quot;&gt;format guide&lt;/a&gt; for all supported file formats. | [optional]
  **tags** | **string**| Limit results to keys tagged with a list of comma separated tag names. | [optional]

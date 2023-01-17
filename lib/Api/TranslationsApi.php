@@ -4117,6 +4117,8 @@ class TranslationsApi
      *
      * @param  string $project_id Project ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
+     * @param  string $if_modified_since Last modified condition, see &lt;a href&#x3D;\&quot;#overview--conditional-get-requests--http-caching\&quot;&gt;Conditional GET requests / HTTP Caching&lt;/a&gt; (optional) (optional)
+     * @param  string $if_none_match ETag condition, see &lt;a href&#x3D;\&quot;#overview--conditional-get-requests--http-caching\&quot;&gt;Conditional GET requests / HTTP Caching&lt;/a&gt; (optional) (optional)
      * @param  int $page Page number (optional)
      * @param  int $per_page Limit on the number of objects to be returned, between 1 and 100. 25 by default (optional)
      * @param  string $branch specify the branch to use (optional)
@@ -4128,9 +4130,9 @@ class TranslationsApi
      * @throws \InvalidArgumentException
      * @return \Phrase\Model\Translation[]
      */
-    public function translationsList($project_id, $x_phrase_app_otp = null, $page = null, $per_page = null, $branch = null, $sort = null, $order = null, $q = null)
+    public function translationsList($project_id, $x_phrase_app_otp = null, $if_modified_since = null, $if_none_match = null, $page = null, $per_page = null, $branch = null, $sort = null, $order = null, $q = null)
     {
-        list($response) = $this->translationsListWithHttpInfo($project_id, $x_phrase_app_otp, $page, $per_page, $branch, $sort, $order, $q);
+        list($response) = $this->translationsListWithHttpInfo($project_id, $x_phrase_app_otp, $if_modified_since, $if_none_match, $page, $per_page, $branch, $sort, $order, $q);
         return $response;
     }
 
@@ -4141,6 +4143,8 @@ class TranslationsApi
      *
      * @param  string $project_id Project ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
+     * @param  string $if_modified_since Last modified condition, see &lt;a href&#x3D;\&quot;#overview--conditional-get-requests--http-caching\&quot;&gt;Conditional GET requests / HTTP Caching&lt;/a&gt; (optional) (optional)
+     * @param  string $if_none_match ETag condition, see &lt;a href&#x3D;\&quot;#overview--conditional-get-requests--http-caching\&quot;&gt;Conditional GET requests / HTTP Caching&lt;/a&gt; (optional) (optional)
      * @param  int $page Page number (optional)
      * @param  int $per_page Limit on the number of objects to be returned, between 1 and 100. 25 by default (optional)
      * @param  string $branch specify the branch to use (optional)
@@ -4152,9 +4156,9 @@ class TranslationsApi
      * @throws \InvalidArgumentException
      * @return array of \Phrase\Model\Translation[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function translationsListWithHttpInfo($project_id, $x_phrase_app_otp = null, $page = null, $per_page = null, $branch = null, $sort = null, $order = null, $q = null)
+    public function translationsListWithHttpInfo($project_id, $x_phrase_app_otp = null, $if_modified_since = null, $if_none_match = null, $page = null, $per_page = null, $branch = null, $sort = null, $order = null, $q = null)
     {
-        $request = $this->translationsListRequest($project_id, $x_phrase_app_otp, $page, $per_page, $branch, $sort, $order, $q);
+        $request = $this->translationsListRequest($project_id, $x_phrase_app_otp, $if_modified_since, $if_none_match, $page, $per_page, $branch, $sort, $order, $q);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4236,6 +4240,8 @@ class TranslationsApi
      *
      * @param  string $project_id Project ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
+     * @param  string $if_modified_since Last modified condition, see &lt;a href&#x3D;\&quot;#overview--conditional-get-requests--http-caching\&quot;&gt;Conditional GET requests / HTTP Caching&lt;/a&gt; (optional) (optional)
+     * @param  string $if_none_match ETag condition, see &lt;a href&#x3D;\&quot;#overview--conditional-get-requests--http-caching\&quot;&gt;Conditional GET requests / HTTP Caching&lt;/a&gt; (optional) (optional)
      * @param  int $page Page number (optional)
      * @param  int $per_page Limit on the number of objects to be returned, between 1 and 100. 25 by default (optional)
      * @param  string $branch specify the branch to use (optional)
@@ -4246,9 +4252,9 @@ class TranslationsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function translationsListAsync($project_id, $x_phrase_app_otp = null, $page = null, $per_page = null, $branch = null, $sort = null, $order = null, $q = null)
+    public function translationsListAsync($project_id, $x_phrase_app_otp = null, $if_modified_since = null, $if_none_match = null, $page = null, $per_page = null, $branch = null, $sort = null, $order = null, $q = null)
     {
-        return $this->translationsListAsyncWithHttpInfo($project_id, $x_phrase_app_otp, $page, $per_page, $branch, $sort, $order, $q)
+        return $this->translationsListAsyncWithHttpInfo($project_id, $x_phrase_app_otp, $if_modified_since, $if_none_match, $page, $per_page, $branch, $sort, $order, $q)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4263,6 +4269,8 @@ class TranslationsApi
      *
      * @param  string $project_id Project ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
+     * @param  string $if_modified_since Last modified condition, see &lt;a href&#x3D;\&quot;#overview--conditional-get-requests--http-caching\&quot;&gt;Conditional GET requests / HTTP Caching&lt;/a&gt; (optional) (optional)
+     * @param  string $if_none_match ETag condition, see &lt;a href&#x3D;\&quot;#overview--conditional-get-requests--http-caching\&quot;&gt;Conditional GET requests / HTTP Caching&lt;/a&gt; (optional) (optional)
      * @param  int $page Page number (optional)
      * @param  int $per_page Limit on the number of objects to be returned, between 1 and 100. 25 by default (optional)
      * @param  string $branch specify the branch to use (optional)
@@ -4273,10 +4281,10 @@ class TranslationsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function translationsListAsyncWithHttpInfo($project_id, $x_phrase_app_otp = null, $page = null, $per_page = null, $branch = null, $sort = null, $order = null, $q = null)
+    public function translationsListAsyncWithHttpInfo($project_id, $x_phrase_app_otp = null, $if_modified_since = null, $if_none_match = null, $page = null, $per_page = null, $branch = null, $sort = null, $order = null, $q = null)
     {
         $returnType = '\Phrase\Model\Translation[]';
-        $request = $this->translationsListRequest($project_id, $x_phrase_app_otp, $page, $per_page, $branch, $sort, $order, $q);
+        $request = $this->translationsListRequest($project_id, $x_phrase_app_otp, $if_modified_since, $if_none_match, $page, $per_page, $branch, $sort, $order, $q);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4317,6 +4325,8 @@ class TranslationsApi
      *
      * @param  string $project_id Project ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
+     * @param  string $if_modified_since Last modified condition, see &lt;a href&#x3D;\&quot;#overview--conditional-get-requests--http-caching\&quot;&gt;Conditional GET requests / HTTP Caching&lt;/a&gt; (optional) (optional)
+     * @param  string $if_none_match ETag condition, see &lt;a href&#x3D;\&quot;#overview--conditional-get-requests--http-caching\&quot;&gt;Conditional GET requests / HTTP Caching&lt;/a&gt; (optional) (optional)
      * @param  int $page Page number (optional)
      * @param  int $per_page Limit on the number of objects to be returned, between 1 and 100. 25 by default (optional)
      * @param  string $branch specify the branch to use (optional)
@@ -4327,7 +4337,7 @@ class TranslationsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function translationsListRequest($project_id, $x_phrase_app_otp = null, $page = null, $per_page = null, $branch = null, $sort = null, $order = null, $q = null)
+    protected function translationsListRequest($project_id, $x_phrase_app_otp = null, $if_modified_since = null, $if_none_match = null, $page = null, $per_page = null, $branch = null, $sort = null, $order = null, $q = null)
     {
         // verify the required parameter 'project_id' is set
         if ($project_id === null || (is_array($project_id) && count($project_id) === 0)) {
@@ -4413,6 +4423,14 @@ class TranslationsApi
         // header params
         if ($x_phrase_app_otp !== null) {
             $headerParams['X-PhraseApp-OTP'] = ObjectSerializer::toHeaderValue($x_phrase_app_otp);
+        }
+        // header params
+        if ($if_modified_since !== null) {
+            $headerParams['If-Modified-Since'] = ObjectSerializer::toHeaderValue($if_modified_since);
+        }
+        // header params
+        if ($if_none_match !== null) {
+            $headerParams['If-None-Match'] = ObjectSerializer::toHeaderValue($if_none_match);
         }
 
         // path params

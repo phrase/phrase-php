@@ -1027,6 +1027,8 @@ class LocalesApi
      * @param  string $project_id Project ID (required)
      * @param  string $id ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
+     * @param  string $if_modified_since Last modified condition, see &lt;a href&#x3D;\&quot;#overview--conditional-get-requests--http-caching\&quot;&gt;Conditional GET requests / HTTP Caching&lt;/a&gt; (optional) (optional)
+     * @param  string $if_none_match ETag condition, see &lt;a href&#x3D;\&quot;#overview--conditional-get-requests--http-caching\&quot;&gt;Conditional GET requests / HTTP Caching&lt;/a&gt; (optional) (optional)
      * @param  string $branch specify the branch to use (optional)
      * @param  string $file_format File format name. See the &lt;a href&#x3D;\&quot;https://support.phrase.com/hc/en-us/sections/6111343326364\&quot;&gt;format guide&lt;/a&gt; for all supported file formats. (optional)
      * @param  string $tags Limit results to keys tagged with a list of comma separated tag names. (optional)
@@ -1048,9 +1050,9 @@ class LocalesApi
      * @throws \InvalidArgumentException
      * @return \SplFileObject
      */
-    public function localeDownload($project_id, $id, $x_phrase_app_otp = null, $branch = null, $file_format = null, $tags = null, $tag = null, $include_empty_translations = null, $exclude_empty_zero_forms = null, $include_translated_keys = null, $keep_notranslate_tags = null, $convert_emoji = null, $format_options = null, $encoding = null, $skip_unverified_translations = null, $include_unverified_translations = null, $use_last_reviewed_version = null, $fallback_locale_id = null, $source_locale_id = null)
+    public function localeDownload($project_id, $id, $x_phrase_app_otp = null, $if_modified_since = null, $if_none_match = null, $branch = null, $file_format = null, $tags = null, $tag = null, $include_empty_translations = null, $exclude_empty_zero_forms = null, $include_translated_keys = null, $keep_notranslate_tags = null, $convert_emoji = null, $format_options = null, $encoding = null, $skip_unverified_translations = null, $include_unverified_translations = null, $use_last_reviewed_version = null, $fallback_locale_id = null, $source_locale_id = null)
     {
-        list($response) = $this->localeDownloadWithHttpInfo($project_id, $id, $x_phrase_app_otp, $branch, $file_format, $tags, $tag, $include_empty_translations, $exclude_empty_zero_forms, $include_translated_keys, $keep_notranslate_tags, $convert_emoji, $format_options, $encoding, $skip_unverified_translations, $include_unverified_translations, $use_last_reviewed_version, $fallback_locale_id, $source_locale_id);
+        list($response) = $this->localeDownloadWithHttpInfo($project_id, $id, $x_phrase_app_otp, $if_modified_since, $if_none_match, $branch, $file_format, $tags, $tag, $include_empty_translations, $exclude_empty_zero_forms, $include_translated_keys, $keep_notranslate_tags, $convert_emoji, $format_options, $encoding, $skip_unverified_translations, $include_unverified_translations, $use_last_reviewed_version, $fallback_locale_id, $source_locale_id);
         return $response;
     }
 
@@ -1062,6 +1064,8 @@ class LocalesApi
      * @param  string $project_id Project ID (required)
      * @param  string $id ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
+     * @param  string $if_modified_since Last modified condition, see &lt;a href&#x3D;\&quot;#overview--conditional-get-requests--http-caching\&quot;&gt;Conditional GET requests / HTTP Caching&lt;/a&gt; (optional) (optional)
+     * @param  string $if_none_match ETag condition, see &lt;a href&#x3D;\&quot;#overview--conditional-get-requests--http-caching\&quot;&gt;Conditional GET requests / HTTP Caching&lt;/a&gt; (optional) (optional)
      * @param  string $branch specify the branch to use (optional)
      * @param  string $file_format File format name. See the &lt;a href&#x3D;\&quot;https://support.phrase.com/hc/en-us/sections/6111343326364\&quot;&gt;format guide&lt;/a&gt; for all supported file formats. (optional)
      * @param  string $tags Limit results to keys tagged with a list of comma separated tag names. (optional)
@@ -1083,9 +1087,9 @@ class LocalesApi
      * @throws \InvalidArgumentException
      * @return array of \SplFileObject, HTTP status code, HTTP response headers (array of strings)
      */
-    public function localeDownloadWithHttpInfo($project_id, $id, $x_phrase_app_otp = null, $branch = null, $file_format = null, $tags = null, $tag = null, $include_empty_translations = null, $exclude_empty_zero_forms = null, $include_translated_keys = null, $keep_notranslate_tags = null, $convert_emoji = null, $format_options = null, $encoding = null, $skip_unverified_translations = null, $include_unverified_translations = null, $use_last_reviewed_version = null, $fallback_locale_id = null, $source_locale_id = null)
+    public function localeDownloadWithHttpInfo($project_id, $id, $x_phrase_app_otp = null, $if_modified_since = null, $if_none_match = null, $branch = null, $file_format = null, $tags = null, $tag = null, $include_empty_translations = null, $exclude_empty_zero_forms = null, $include_translated_keys = null, $keep_notranslate_tags = null, $convert_emoji = null, $format_options = null, $encoding = null, $skip_unverified_translations = null, $include_unverified_translations = null, $use_last_reviewed_version = null, $fallback_locale_id = null, $source_locale_id = null)
     {
-        $request = $this->localeDownloadRequest($project_id, $id, $x_phrase_app_otp, $branch, $file_format, $tags, $tag, $include_empty_translations, $exclude_empty_zero_forms, $include_translated_keys, $keep_notranslate_tags, $convert_emoji, $format_options, $encoding, $skip_unverified_translations, $include_unverified_translations, $use_last_reviewed_version, $fallback_locale_id, $source_locale_id);
+        $request = $this->localeDownloadRequest($project_id, $id, $x_phrase_app_otp, $if_modified_since, $if_none_match, $branch, $file_format, $tags, $tag, $include_empty_translations, $exclude_empty_zero_forms, $include_translated_keys, $keep_notranslate_tags, $convert_emoji, $format_options, $encoding, $skip_unverified_translations, $include_unverified_translations, $use_last_reviewed_version, $fallback_locale_id, $source_locale_id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1168,6 +1172,8 @@ class LocalesApi
      * @param  string $project_id Project ID (required)
      * @param  string $id ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
+     * @param  string $if_modified_since Last modified condition, see &lt;a href&#x3D;\&quot;#overview--conditional-get-requests--http-caching\&quot;&gt;Conditional GET requests / HTTP Caching&lt;/a&gt; (optional) (optional)
+     * @param  string $if_none_match ETag condition, see &lt;a href&#x3D;\&quot;#overview--conditional-get-requests--http-caching\&quot;&gt;Conditional GET requests / HTTP Caching&lt;/a&gt; (optional) (optional)
      * @param  string $branch specify the branch to use (optional)
      * @param  string $file_format File format name. See the &lt;a href&#x3D;\&quot;https://support.phrase.com/hc/en-us/sections/6111343326364\&quot;&gt;format guide&lt;/a&gt; for all supported file formats. (optional)
      * @param  string $tags Limit results to keys tagged with a list of comma separated tag names. (optional)
@@ -1188,9 +1194,9 @@ class LocalesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function localeDownloadAsync($project_id, $id, $x_phrase_app_otp = null, $branch = null, $file_format = null, $tags = null, $tag = null, $include_empty_translations = null, $exclude_empty_zero_forms = null, $include_translated_keys = null, $keep_notranslate_tags = null, $convert_emoji = null, $format_options = null, $encoding = null, $skip_unverified_translations = null, $include_unverified_translations = null, $use_last_reviewed_version = null, $fallback_locale_id = null, $source_locale_id = null)
+    public function localeDownloadAsync($project_id, $id, $x_phrase_app_otp = null, $if_modified_since = null, $if_none_match = null, $branch = null, $file_format = null, $tags = null, $tag = null, $include_empty_translations = null, $exclude_empty_zero_forms = null, $include_translated_keys = null, $keep_notranslate_tags = null, $convert_emoji = null, $format_options = null, $encoding = null, $skip_unverified_translations = null, $include_unverified_translations = null, $use_last_reviewed_version = null, $fallback_locale_id = null, $source_locale_id = null)
     {
-        return $this->localeDownloadAsyncWithHttpInfo($project_id, $id, $x_phrase_app_otp, $branch, $file_format, $tags, $tag, $include_empty_translations, $exclude_empty_zero_forms, $include_translated_keys, $keep_notranslate_tags, $convert_emoji, $format_options, $encoding, $skip_unverified_translations, $include_unverified_translations, $use_last_reviewed_version, $fallback_locale_id, $source_locale_id)
+        return $this->localeDownloadAsyncWithHttpInfo($project_id, $id, $x_phrase_app_otp, $if_modified_since, $if_none_match, $branch, $file_format, $tags, $tag, $include_empty_translations, $exclude_empty_zero_forms, $include_translated_keys, $keep_notranslate_tags, $convert_emoji, $format_options, $encoding, $skip_unverified_translations, $include_unverified_translations, $use_last_reviewed_version, $fallback_locale_id, $source_locale_id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1206,6 +1212,8 @@ class LocalesApi
      * @param  string $project_id Project ID (required)
      * @param  string $id ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
+     * @param  string $if_modified_since Last modified condition, see &lt;a href&#x3D;\&quot;#overview--conditional-get-requests--http-caching\&quot;&gt;Conditional GET requests / HTTP Caching&lt;/a&gt; (optional) (optional)
+     * @param  string $if_none_match ETag condition, see &lt;a href&#x3D;\&quot;#overview--conditional-get-requests--http-caching\&quot;&gt;Conditional GET requests / HTTP Caching&lt;/a&gt; (optional) (optional)
      * @param  string $branch specify the branch to use (optional)
      * @param  string $file_format File format name. See the &lt;a href&#x3D;\&quot;https://support.phrase.com/hc/en-us/sections/6111343326364\&quot;&gt;format guide&lt;/a&gt; for all supported file formats. (optional)
      * @param  string $tags Limit results to keys tagged with a list of comma separated tag names. (optional)
@@ -1226,10 +1234,10 @@ class LocalesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function localeDownloadAsyncWithHttpInfo($project_id, $id, $x_phrase_app_otp = null, $branch = null, $file_format = null, $tags = null, $tag = null, $include_empty_translations = null, $exclude_empty_zero_forms = null, $include_translated_keys = null, $keep_notranslate_tags = null, $convert_emoji = null, $format_options = null, $encoding = null, $skip_unverified_translations = null, $include_unverified_translations = null, $use_last_reviewed_version = null, $fallback_locale_id = null, $source_locale_id = null)
+    public function localeDownloadAsyncWithHttpInfo($project_id, $id, $x_phrase_app_otp = null, $if_modified_since = null, $if_none_match = null, $branch = null, $file_format = null, $tags = null, $tag = null, $include_empty_translations = null, $exclude_empty_zero_forms = null, $include_translated_keys = null, $keep_notranslate_tags = null, $convert_emoji = null, $format_options = null, $encoding = null, $skip_unverified_translations = null, $include_unverified_translations = null, $use_last_reviewed_version = null, $fallback_locale_id = null, $source_locale_id = null)
     {
         $returnType = '\SplFileObject';
-        $request = $this->localeDownloadRequest($project_id, $id, $x_phrase_app_otp, $branch, $file_format, $tags, $tag, $include_empty_translations, $exclude_empty_zero_forms, $include_translated_keys, $keep_notranslate_tags, $convert_emoji, $format_options, $encoding, $skip_unverified_translations, $include_unverified_translations, $use_last_reviewed_version, $fallback_locale_id, $source_locale_id);
+        $request = $this->localeDownloadRequest($project_id, $id, $x_phrase_app_otp, $if_modified_since, $if_none_match, $branch, $file_format, $tags, $tag, $include_empty_translations, $exclude_empty_zero_forms, $include_translated_keys, $keep_notranslate_tags, $convert_emoji, $format_options, $encoding, $skip_unverified_translations, $include_unverified_translations, $use_last_reviewed_version, $fallback_locale_id, $source_locale_id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1271,6 +1279,8 @@ class LocalesApi
      * @param  string $project_id Project ID (required)
      * @param  string $id ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
+     * @param  string $if_modified_since Last modified condition, see &lt;a href&#x3D;\&quot;#overview--conditional-get-requests--http-caching\&quot;&gt;Conditional GET requests / HTTP Caching&lt;/a&gt; (optional) (optional)
+     * @param  string $if_none_match ETag condition, see &lt;a href&#x3D;\&quot;#overview--conditional-get-requests--http-caching\&quot;&gt;Conditional GET requests / HTTP Caching&lt;/a&gt; (optional) (optional)
      * @param  string $branch specify the branch to use (optional)
      * @param  string $file_format File format name. See the &lt;a href&#x3D;\&quot;https://support.phrase.com/hc/en-us/sections/6111343326364\&quot;&gt;format guide&lt;/a&gt; for all supported file formats. (optional)
      * @param  string $tags Limit results to keys tagged with a list of comma separated tag names. (optional)
@@ -1291,7 +1301,7 @@ class LocalesApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function localeDownloadRequest($project_id, $id, $x_phrase_app_otp = null, $branch = null, $file_format = null, $tags = null, $tag = null, $include_empty_translations = null, $exclude_empty_zero_forms = null, $include_translated_keys = null, $keep_notranslate_tags = null, $convert_emoji = null, $format_options = null, $encoding = null, $skip_unverified_translations = null, $include_unverified_translations = null, $use_last_reviewed_version = null, $fallback_locale_id = null, $source_locale_id = null)
+    protected function localeDownloadRequest($project_id, $id, $x_phrase_app_otp = null, $if_modified_since = null, $if_none_match = null, $branch = null, $file_format = null, $tags = null, $tag = null, $include_empty_translations = null, $exclude_empty_zero_forms = null, $include_translated_keys = null, $keep_notranslate_tags = null, $convert_emoji = null, $format_options = null, $encoding = null, $skip_unverified_translations = null, $include_unverified_translations = null, $use_last_reviewed_version = null, $fallback_locale_id = null, $source_locale_id = null)
     {
         // verify the required parameter 'project_id' is set
         if ($project_id === null || (is_array($project_id) && count($project_id) === 0)) {
@@ -1493,6 +1503,14 @@ class LocalesApi
         // header params
         if ($x_phrase_app_otp !== null) {
             $headerParams['X-PhraseApp-OTP'] = ObjectSerializer::toHeaderValue($x_phrase_app_otp);
+        }
+        // header params
+        if ($if_modified_since !== null) {
+            $headerParams['If-Modified-Since'] = ObjectSerializer::toHeaderValue($if_modified_since);
+        }
+        // header params
+        if ($if_none_match !== null) {
+            $headerParams['If-None-Match'] = ObjectSerializer::toHeaderValue($if_none_match);
         }
 
         // path params
