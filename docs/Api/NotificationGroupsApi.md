@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 ## notificationGroupsList
 
-> object[] notificationGroupsList($x_phrase_app_otp, $page, $per_page)
+> \Phrase\Model\NotificationGroupDetail[] notificationGroupsList($x_phrase_app_otp, $page, $per_page)
 
 List notification groups
 
@@ -57,7 +57,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**object[]**
+[**\Phrase\Model\NotificationGroupDetail[]**](../Model/NotificationGroupDetail.md)
 
 ### Authorization
 
@@ -75,7 +75,7 @@ Name | Type | Description  | Notes
 
 ## notificationGroupsMarkAllAsRead
 
-> object[] notificationGroupsMarkAllAsRead($x_phrase_app_otp)
+> \Phrase\Model\NotificationGroupDetail[] notificationGroupsMarkAllAsRead($x_phrase_app_otp)
 
 Mark all notification groups as read
 
@@ -116,7 +116,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**object[]**
+[**\Phrase\Model\NotificationGroupDetail[]**](../Model/NotificationGroupDetail.md)
 
 ### Authorization
 

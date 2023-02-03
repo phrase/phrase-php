@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 ## notificationsList
 
-> object[] notificationsList($x_phrase_app_otp, $page, $per_page, $unseen)
+> \Phrase\Model\Notification[] notificationsList($x_phrase_app_otp, $page, $per_page, $unseen)
 
 List notifications
 
@@ -59,7 +59,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**object[]**
+[**\Phrase\Model\Notification[]**](../Model/Notification.md)
 
 ### Authorization
 
@@ -77,7 +77,7 @@ Name | Type | Description  | Notes
 
 ## notificationsMarkAllAsRead
 
-> object[] notificationsMarkAllAsRead($x_phrase_app_otp)
+> \Phrase\Model\Notification[] notificationsMarkAllAsRead($x_phrase_app_otp)
 
 Mark all notifications as read
 
@@ -118,7 +118,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**object[]**
+[**\Phrase\Model\Notification[]**](../Model/Notification.md)
 
 ### Authorization
 

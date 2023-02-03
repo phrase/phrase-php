@@ -59,7 +59,7 @@ class ProjectUpdateParameters implements ModelInterface, ArrayAccess
         'name' => 'string',
         'point_of_contact' => 'string',
         'main_format' => 'string',
-        'media' => 'object',
+        'media' => 'string',
         'shares_translation_memory' => 'bool',
         'project_image' => '\SplFileObject',
         'remove_project_image' => 'bool',
@@ -445,7 +445,7 @@ class ProjectUpdateParameters implements ModelInterface, ArrayAccess
     /**
      * Gets media
      *
-     * @return object|null
+     * @return string|null
      */
     public function getMedia()
     {
@@ -455,7 +455,7 @@ class ProjectUpdateParameters implements ModelInterface, ArrayAccess
     /**
      * Sets media
      *
-     * @param object|null $media media
+     * @param string|null $media (Optional) Main technology stack used in the project. It affects for example the suggested placeholder style. Predefined values include: `Ruby`, `JavaScript`, `AngularJS`, `React`, `iOS`, `Android`, `Python`, `PHP`, `Java`, `Go`, `Windows Phone`, `Rails`, `Node.js`, `.NET`, `Django`, `Symfony`, `Yii Framework`, `Zend Framework`, `Apple App Store Description`, `Google Play Description`, but it can also take any other value.
      *
      * @return $this
      */

@@ -145,7 +145,7 @@ void (empty response body)
 
 ## jobCommentShow
 
-> object jobCommentShow($project_id, $job_id, $id, $x_phrase_app_otp, $branch)
+> \Phrase\Model\JobComment jobCommentShow($project_id, $job_id, $id, $x_phrase_app_otp, $branch)
 
 Get a single job comment
 
@@ -194,7 +194,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**object**
+[**\Phrase\Model\JobComment**](../Model/JobComment.md)
 
 ### Authorization
 
@@ -212,7 +212,7 @@ Name | Type | Description  | Notes
 
 ## jobCommentUpdate
 
-> object jobCommentUpdate($project_id, $key_id, $id, $job_comment_update_parameters, $x_phrase_app_otp)
+> \Phrase\Model\JobComment jobCommentUpdate($project_id, $key_id, $id, $job_comment_update_parameters, $x_phrase_app_otp)
 
 Update a job comment
 
@@ -261,7 +261,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**object**
+[**\Phrase\Model\JobComment**](../Model/JobComment.md)
 
 ### Authorization
 
@@ -279,7 +279,7 @@ Name | Type | Description  | Notes
 
 ## jobCommentsList
 
-> object[] jobCommentsList($project_id, $job_id, $x_phrase_app_otp, $branch)
+> \Phrase\Model\JobComment[] jobCommentsList($project_id, $job_id, $x_phrase_app_otp, $branch)
 
 List job comments
 
@@ -326,7 +326,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**object[]**
+[**\Phrase\Model\JobComment[]**](../Model/JobComment.md)
 
 ### Authorization
 

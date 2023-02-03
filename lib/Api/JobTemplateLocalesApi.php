@@ -423,7 +423,7 @@ class JobTemplateLocalesApi
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return object
+     * @return \Phrase\Model\JobTemplateLocales
      */
     public function jobTemplateLocaleShow($project_id, $job_template_id, $job_template_locale_id, $x_phrase_app_otp = null, $branch = null)
     {
@@ -444,7 +444,7 @@ class JobTemplateLocalesApi
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of object, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Phrase\Model\JobTemplateLocales, HTTP status code, HTTP response headers (array of strings)
      */
     public function jobTemplateLocaleShowWithHttpInfo($project_id, $job_template_id, $job_template_locale_id, $x_phrase_app_otp = null, $branch = null)
     {
@@ -481,20 +481,20 @@ class JobTemplateLocalesApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('object' === '\SplFileObject') {
+                    if ('\Phrase\Model\JobTemplateLocales' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, 'object', []),
+                        ObjectSerializer::deserialize($content, '\Phrase\Model\JobTemplateLocales', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = 'object';
+            $returnType = '\Phrase\Model\JobTemplateLocales';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -513,7 +513,7 @@ class JobTemplateLocalesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'object',
+                        '\Phrase\Model\JobTemplateLocales',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -563,7 +563,7 @@ class JobTemplateLocalesApi
      */
     public function jobTemplateLocaleShowAsyncWithHttpInfo($project_id, $job_template_id, $job_template_locale_id, $x_phrase_app_otp = null, $branch = null)
     {
-        $returnType = 'object';
+        $returnType = '\Phrase\Model\JobTemplateLocales';
         $request = $this->jobTemplateLocaleShowRequest($project_id, $job_template_id, $job_template_locale_id, $x_phrase_app_otp, $branch);
 
         return $this->client
@@ -768,7 +768,7 @@ class JobTemplateLocalesApi
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return object
+     * @return \Phrase\Model\JobTemplateLocales
      */
     public function jobTemplateLocaleUpdate($project_id, $job_template_id, $job_template_locale_id, $job_template_locale_update_parameters, $x_phrase_app_otp = null)
     {
@@ -789,7 +789,7 @@ class JobTemplateLocalesApi
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of object, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Phrase\Model\JobTemplateLocales, HTTP status code, HTTP response headers (array of strings)
      */
     public function jobTemplateLocaleUpdateWithHttpInfo($project_id, $job_template_id, $job_template_locale_id, $job_template_locale_update_parameters, $x_phrase_app_otp = null)
     {
@@ -826,20 +826,20 @@ class JobTemplateLocalesApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('object' === '\SplFileObject') {
+                    if ('\Phrase\Model\JobTemplateLocales' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, 'object', []),
+                        ObjectSerializer::deserialize($content, '\Phrase\Model\JobTemplateLocales', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = 'object';
+            $returnType = '\Phrase\Model\JobTemplateLocales';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -858,7 +858,7 @@ class JobTemplateLocalesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'object',
+                        '\Phrase\Model\JobTemplateLocales',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -908,7 +908,7 @@ class JobTemplateLocalesApi
      */
     public function jobTemplateLocaleUpdateAsyncWithHttpInfo($project_id, $job_template_id, $job_template_locale_id, $job_template_locale_update_parameters, $x_phrase_app_otp = null)
     {
-        $returnType = 'object';
+        $returnType = '\Phrase\Model\JobTemplateLocales';
         $request = $this->jobTemplateLocaleUpdateRequest($project_id, $job_template_id, $job_template_locale_id, $job_template_locale_update_parameters, $x_phrase_app_otp);
 
         return $this->client
@@ -1110,7 +1110,7 @@ class JobTemplateLocalesApi
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Phrase\Model\JobTemplateLocale
+     * @return \Phrase\Model\JobTemplateLocales
      */
     public function jobTemplateLocalesCreate($project_id, $job_template_id, $job_template_locales_create_parameters, $x_phrase_app_otp = null)
     {
@@ -1130,7 +1130,7 @@ class JobTemplateLocalesApi
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Phrase\Model\JobTemplateLocale, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Phrase\Model\JobTemplateLocales, HTTP status code, HTTP response headers (array of strings)
      */
     public function jobTemplateLocalesCreateWithHttpInfo($project_id, $job_template_id, $job_template_locales_create_parameters, $x_phrase_app_otp = null)
     {
@@ -1167,20 +1167,20 @@ class JobTemplateLocalesApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 201:
-                    if ('\Phrase\Model\JobTemplateLocale' === '\SplFileObject') {
+                    if ('\Phrase\Model\JobTemplateLocales' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Phrase\Model\JobTemplateLocale', []),
+                        ObjectSerializer::deserialize($content, '\Phrase\Model\JobTemplateLocales', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Phrase\Model\JobTemplateLocale';
+            $returnType = '\Phrase\Model\JobTemplateLocales';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -1199,7 +1199,7 @@ class JobTemplateLocalesApi
                 case 201:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Phrase\Model\JobTemplateLocale',
+                        '\Phrase\Model\JobTemplateLocales',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1247,7 +1247,7 @@ class JobTemplateLocalesApi
      */
     public function jobTemplateLocalesCreateAsyncWithHttpInfo($project_id, $job_template_id, $job_template_locales_create_parameters, $x_phrase_app_otp = null)
     {
-        $returnType = '\Phrase\Model\JobTemplateLocale';
+        $returnType = '\Phrase\Model\JobTemplateLocales';
         $request = $this->jobTemplateLocalesCreateRequest($project_id, $job_template_id, $job_template_locales_create_parameters, $x_phrase_app_otp);
 
         return $this->client
@@ -1436,7 +1436,7 @@ class JobTemplateLocalesApi
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return object[]
+     * @return \Phrase\Model\JobTemplateLocales[]
      */
     public function jobTemplateLocalesList($project_id, $job_template_id, $x_phrase_app_otp = null, $page = null, $per_page = null, $branch = null)
     {
@@ -1458,7 +1458,7 @@ class JobTemplateLocalesApi
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of object[], HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Phrase\Model\JobTemplateLocales[], HTTP status code, HTTP response headers (array of strings)
      */
     public function jobTemplateLocalesListWithHttpInfo($project_id, $job_template_id, $x_phrase_app_otp = null, $page = null, $per_page = null, $branch = null)
     {
@@ -1495,20 +1495,20 @@ class JobTemplateLocalesApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('object[]' === '\SplFileObject') {
+                    if ('\Phrase\Model\JobTemplateLocales[]' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, 'object[]', []),
+                        ObjectSerializer::deserialize($content, '\Phrase\Model\JobTemplateLocales[]', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = 'object[]';
+            $returnType = '\Phrase\Model\JobTemplateLocales[]';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -1527,7 +1527,7 @@ class JobTemplateLocalesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'object[]',
+                        '\Phrase\Model\JobTemplateLocales[]',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1579,7 +1579,7 @@ class JobTemplateLocalesApi
      */
     public function jobTemplateLocalesListAsyncWithHttpInfo($project_id, $job_template_id, $x_phrase_app_otp = null, $page = null, $per_page = null, $branch = null)
     {
-        $returnType = 'object[]';
+        $returnType = '\Phrase\Model\JobTemplateLocales[]';
         $request = $this->jobTemplateLocalesListRequest($project_id, $job_template_id, $x_phrase_app_otp, $page, $per_page, $branch);
 
         return $this->client

@@ -80,7 +80,7 @@ void (empty response body)
 
 ## jobTemplateLocaleShow
 
-> object jobTemplateLocaleShow($project_id, $job_template_id, $job_template_locale_id, $x_phrase_app_otp, $branch)
+> \Phrase\Model\JobTemplateLocales jobTemplateLocaleShow($project_id, $job_template_id, $job_template_locale_id, $x_phrase_app_otp, $branch)
 
 Get a single job template locale
 
@@ -129,7 +129,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**object**
+[**\Phrase\Model\JobTemplateLocales**](../Model/JobTemplateLocales.md)
 
 ### Authorization
 
@@ -147,7 +147,7 @@ Name | Type | Description  | Notes
 
 ## jobTemplateLocaleUpdate
 
-> object jobTemplateLocaleUpdate($project_id, $job_template_id, $job_template_locale_id, $job_template_locale_update_parameters, $x_phrase_app_otp)
+> \Phrase\Model\JobTemplateLocales jobTemplateLocaleUpdate($project_id, $job_template_id, $job_template_locale_id, $job_template_locale_update_parameters, $x_phrase_app_otp)
 
 Update a job template locale
 
@@ -196,7 +196,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**object**
+[**\Phrase\Model\JobTemplateLocales**](../Model/JobTemplateLocales.md)
 
 ### Authorization
 
@@ -214,7 +214,7 @@ Name | Type | Description  | Notes
 
 ## jobTemplateLocalesCreate
 
-> \Phrase\Model\JobTemplateLocale jobTemplateLocalesCreate($project_id, $job_template_id, $job_template_locales_create_parameters, $x_phrase_app_otp)
+> \Phrase\Model\JobTemplateLocales jobTemplateLocalesCreate($project_id, $job_template_id, $job_template_locales_create_parameters, $x_phrase_app_otp)
 
 Create a job template locale
 
@@ -261,7 +261,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Phrase\Model\JobTemplateLocale**](../Model/JobTemplateLocale.md)
+[**\Phrase\Model\JobTemplateLocales**](../Model/JobTemplateLocales.md)
 
 ### Authorization
 
@@ -279,7 +279,7 @@ Name | Type | Description  | Notes
 
 ## jobTemplateLocalesList
 
-> object[] jobTemplateLocalesList($project_id, $job_template_id, $x_phrase_app_otp, $page, $per_page, $branch)
+> \Phrase\Model\JobTemplateLocales[] jobTemplateLocalesList($project_id, $job_template_id, $x_phrase_app_otp, $page, $per_page, $branch)
 
 List job template locales
 
@@ -330,7 +330,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**object[]**
+[**\Phrase\Model\JobTemplateLocales[]**](../Model/JobTemplateLocales.md)
 
 ### Authorization
 

@@ -1,6 +1,6 @@
 <?php
 /**
- * NotificationGroupDetail
+ * JobTemplateDetails1
  *
  * PHP version 5
  *
@@ -31,14 +31,14 @@ use \ArrayAccess;
 use \Phrase\ObjectSerializer;
 
 /**
- * NotificationGroupDetail Class Doc Comment
+ * JobTemplateDetails1 Class Doc Comment
  *
  * @category Class
  * @package  Phrase
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class NotificationGroupDetail implements ModelInterface, ArrayAccess
+class JobTemplateDetails1 implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -47,7 +47,7 @@ class NotificationGroupDetail implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'notification_group_detail';
+    protected static $openAPIModelName = 'job_template_details_1';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -55,12 +55,9 @@ class NotificationGroupDetail implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'id' => 'string',
-        'event_name' => 'string',
-        'created_at' => '\DateTime',
-        'updated_at' => '\DateTime',
-        'notifications_count' => 'int',
-        'latest_notification' => '\Phrase\Model\Notification'
+        'owner' => '\Phrase\Model\UserPreview',
+        'creator' => '\Phrase\Model\UserPreview',
+        'locales' => '\Phrase\Model\LocalePreview[]'
     ];
 
     /**
@@ -69,12 +66,9 @@ class NotificationGroupDetail implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'id' => null,
-        'event_name' => null,
-        'created_at' => 'date-time',
-        'updated_at' => 'date-time',
-        'notifications_count' => null,
-        'latest_notification' => null
+        'owner' => null,
+        'creator' => null,
+        'locales' => null
     ];
 
     /**
@@ -104,12 +98,9 @@ class NotificationGroupDetail implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'id',
-        'event_name' => 'event_name',
-        'created_at' => 'created_at',
-        'updated_at' => 'updated_at',
-        'notifications_count' => 'notifications_count',
-        'latest_notification' => 'latest_notification'
+        'owner' => 'owner',
+        'creator' => 'creator',
+        'locales' => 'locales'
     ];
 
     /**
@@ -118,12 +109,9 @@ class NotificationGroupDetail implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId',
-        'event_name' => 'setEventName',
-        'created_at' => 'setCreatedAt',
-        'updated_at' => 'setUpdatedAt',
-        'notifications_count' => 'setNotificationsCount',
-        'latest_notification' => 'setLatestNotification'
+        'owner' => 'setOwner',
+        'creator' => 'setCreator',
+        'locales' => 'setLocales'
     ];
 
     /**
@@ -132,12 +120,9 @@ class NotificationGroupDetail implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId',
-        'event_name' => 'getEventName',
-        'created_at' => 'getCreatedAt',
-        'updated_at' => 'getUpdatedAt',
-        'notifications_count' => 'getNotificationsCount',
-        'latest_notification' => 'getLatestNotification'
+        'owner' => 'getOwner',
+        'creator' => 'getCreator',
+        'locales' => 'getLocales'
     ];
 
     /**
@@ -200,12 +185,9 @@ class NotificationGroupDetail implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
-        $this->container['event_name'] = isset($data['event_name']) ? $data['event_name'] : null;
-        $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
-        $this->container['updated_at'] = isset($data['updated_at']) ? $data['updated_at'] : null;
-        $this->container['notifications_count'] = isset($data['notifications_count']) ? $data['notifications_count'] : null;
-        $this->container['latest_notification'] = isset($data['latest_notification']) ? $data['latest_notification'] : null;
+        $this->container['owner'] = isset($data['owner']) ? $data['owner'] : null;
+        $this->container['creator'] = isset($data['creator']) ? $data['creator'] : null;
+        $this->container['locales'] = isset($data['locales']) ? $data['locales'] : null;
     }
 
     /**
@@ -233,145 +215,73 @@ class NotificationGroupDetail implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets id
+     * Gets owner
      *
-     * @return string|null
+     * @return \Phrase\Model\UserPreview|null
      */
-    public function getId()
+    public function getOwner()
     {
-        return $this->container['id'];
+        return $this->container['owner'];
     }
 
     /**
-     * Sets id
+     * Sets owner
      *
-     * @param string|null $id id
+     * @param \Phrase\Model\UserPreview|null $owner owner
      *
      * @return $this
      */
-    public function setId($id)
+    public function setOwner($owner)
     {
-        $this->container['id'] = $id;
+        $this->container['owner'] = $owner;
 
         return $this;
     }
 
     /**
-     * Gets event_name
+     * Gets creator
      *
-     * @return string|null
+     * @return \Phrase\Model\UserPreview|null
      */
-    public function getEventName()
+    public function getCreator()
     {
-        return $this->container['event_name'];
+        return $this->container['creator'];
     }
 
     /**
-     * Sets event_name
+     * Sets creator
      *
-     * @param string|null $event_name event_name
+     * @param \Phrase\Model\UserPreview|null $creator creator
      *
      * @return $this
      */
-    public function setEventName($event_name)
+    public function setCreator($creator)
     {
-        $this->container['event_name'] = $event_name;
+        $this->container['creator'] = $creator;
 
         return $this;
     }
 
     /**
-     * Gets created_at
+     * Gets locales
      *
-     * @return \DateTime|null
+     * @return \Phrase\Model\LocalePreview[]|null
      */
-    public function getCreatedAt()
+    public function getLocales()
     {
-        return $this->container['created_at'];
+        return $this->container['locales'];
     }
 
     /**
-     * Sets created_at
+     * Sets locales
      *
-     * @param \DateTime|null $created_at created_at
+     * @param \Phrase\Model\LocalePreview[]|null $locales locales
      *
      * @return $this
      */
-    public function setCreatedAt($created_at)
+    public function setLocales($locales)
     {
-        $this->container['created_at'] = $created_at;
-
-        return $this;
-    }
-
-    /**
-     * Gets updated_at
-     *
-     * @return \DateTime|null
-     */
-    public function getUpdatedAt()
-    {
-        return $this->container['updated_at'];
-    }
-
-    /**
-     * Sets updated_at
-     *
-     * @param \DateTime|null $updated_at updated_at
-     *
-     * @return $this
-     */
-    public function setUpdatedAt($updated_at)
-    {
-        $this->container['updated_at'] = $updated_at;
-
-        return $this;
-    }
-
-    /**
-     * Gets notifications_count
-     *
-     * @return int|null
-     */
-    public function getNotificationsCount()
-    {
-        return $this->container['notifications_count'];
-    }
-
-    /**
-     * Sets notifications_count
-     *
-     * @param int|null $notifications_count notifications_count
-     *
-     * @return $this
-     */
-    public function setNotificationsCount($notifications_count)
-    {
-        $this->container['notifications_count'] = $notifications_count;
-
-        return $this;
-    }
-
-    /**
-     * Gets latest_notification
-     *
-     * @return \Phrase\Model\Notification|null
-     */
-    public function getLatestNotification()
-    {
-        return $this->container['latest_notification'];
-    }
-
-    /**
-     * Sets latest_notification
-     *
-     * @param \Phrase\Model\Notification|null $latest_notification latest_notification
-     *
-     * @return $this
-     */
-    public function setLatestNotification($latest_notification)
-    {
-        $this->container['latest_notification'] = $latest_notification;
+        $this->container['locales'] = $locales;
 
         return $this;
     }

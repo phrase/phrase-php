@@ -125,7 +125,7 @@ class NotificationsApi
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return object[]
+     * @return \Phrase\Model\Notification[]
      */
     public function notificationsList($x_phrase_app_otp = null, $page = null, $per_page = null, $unseen = null)
     {
@@ -145,7 +145,7 @@ class NotificationsApi
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of object[], HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Phrase\Model\Notification[], HTTP status code, HTTP response headers (array of strings)
      */
     public function notificationsListWithHttpInfo($x_phrase_app_otp = null, $page = null, $per_page = null, $unseen = null)
     {
@@ -182,20 +182,20 @@ class NotificationsApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('object[]' === '\SplFileObject') {
+                    if ('\Phrase\Model\Notification[]' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, 'object[]', []),
+                        ObjectSerializer::deserialize($content, '\Phrase\Model\Notification[]', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = 'object[]';
+            $returnType = '\Phrase\Model\Notification[]';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -214,7 +214,7 @@ class NotificationsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'object[]',
+                        '\Phrase\Model\Notification[]',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -262,7 +262,7 @@ class NotificationsApi
      */
     public function notificationsListAsyncWithHttpInfo($x_phrase_app_otp = null, $page = null, $per_page = null, $unseen = null)
     {
-        $returnType = 'object[]';
+        $returnType = '\Phrase\Model\Notification[]';
         $request = $this->notificationsListRequest($x_phrase_app_otp, $page, $per_page, $unseen);
 
         return $this->client
@@ -442,7 +442,7 @@ class NotificationsApi
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return object[]
+     * @return \Phrase\Model\Notification[]
      */
     public function notificationsMarkAllAsRead($x_phrase_app_otp = null)
     {
@@ -459,7 +459,7 @@ class NotificationsApi
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of object[], HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Phrase\Model\Notification[], HTTP status code, HTTP response headers (array of strings)
      */
     public function notificationsMarkAllAsReadWithHttpInfo($x_phrase_app_otp = null)
     {
@@ -496,20 +496,20 @@ class NotificationsApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('object[]' === '\SplFileObject') {
+                    if ('\Phrase\Model\Notification[]' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, 'object[]', []),
+                        ObjectSerializer::deserialize($content, '\Phrase\Model\Notification[]', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = 'object[]';
+            $returnType = '\Phrase\Model\Notification[]';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -528,7 +528,7 @@ class NotificationsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'object[]',
+                        '\Phrase\Model\Notification[]',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -570,7 +570,7 @@ class NotificationsApi
      */
     public function notificationsMarkAllAsReadAsyncWithHttpInfo($x_phrase_app_otp = null)
     {
-        $returnType = 'object[]';
+        $returnType = '\Phrase\Model\Notification[]';
         $request = $this->notificationsMarkAllAsReadRequest($x_phrase_app_otp);
 
         return $this->client

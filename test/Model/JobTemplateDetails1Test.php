@@ -1,6 +1,6 @@
 <?php
 /**
- * JobTemplateLocaleTest
+ * JobTemplateDetails1Test
  *
  * PHP version 5
  *
@@ -30,15 +30,15 @@ namespace Phrase;
 use PHPUnit\Framework\TestCase;
 
 /**
- * JobTemplateLocaleTest Class Doc Comment
+ * JobTemplateDetails1Test Class Doc Comment
  *
  * @category    Class
- * @description JobTemplateLocale
+ * @description JobTemplateDetails1
  * @package     Phrase
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class JobTemplateLocaleTest extends TestCase
+class JobTemplateDetails1Test extends TestCase
 {
 
     /**
@@ -70,37 +70,30 @@ class JobTemplateLocaleTest extends TestCase
     }
 
     /**
-     * Test "JobTemplateLocale"
+     * Test "JobTemplateDetails1"
      */
-    public function testJobTemplateLocale()
+    public function testJobTemplateDetails1()
     {
     }
 
     /**
-     * Test attribute "id"
+     * Test attribute "owner"
      */
-    public function testPropertyId()
+    public function testPropertyOwner()
     {
     }
 
     /**
-     * Test attribute "job_template"
+     * Test attribute "creator"
      */
-    public function testPropertyJobTemplate()
+    public function testPropertyCreator()
     {
     }
 
     /**
-     * Test attribute "locale"
+     * Test attribute "locales"
      */
-    public function testPropertyLocale()
-    {
-    }
-
-    /**
-     * Test attribute "users"
-     */
-    public function testPropertyUsers()
+    public function testPropertyLocales()
     {
     }
 }

@@ -1,6 +1,6 @@
 <?php
 /**
- * JobTemplateLocale
+ * JobTemplateLocales
  *
  * PHP version 5
  *
@@ -31,14 +31,14 @@ use \ArrayAccess;
 use \Phrase\ObjectSerializer;
 
 /**
- * JobTemplateLocale Class Doc Comment
+ * JobTemplateLocales Class Doc Comment
  *
  * @category Class
  * @package  Phrase
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class JobTemplateLocale implements ModelInterface, ArrayAccess
+class JobTemplateLocales implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -47,7 +47,7 @@ class JobTemplateLocale implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'job_template_locale';
+    protected static $openAPIModelName = 'job_template_locales';
 
     /**
       * Array of property to type mappings. Used for (de)serialization

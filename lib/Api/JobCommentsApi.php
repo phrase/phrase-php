@@ -747,7 +747,7 @@ class JobCommentsApi
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return object
+     * @return \Phrase\Model\JobComment
      */
     public function jobCommentShow($project_id, $job_id, $id, $x_phrase_app_otp = null, $branch = null)
     {
@@ -768,7 +768,7 @@ class JobCommentsApi
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of object, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Phrase\Model\JobComment, HTTP status code, HTTP response headers (array of strings)
      */
     public function jobCommentShowWithHttpInfo($project_id, $job_id, $id, $x_phrase_app_otp = null, $branch = null)
     {
@@ -805,20 +805,20 @@ class JobCommentsApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('object' === '\SplFileObject') {
+                    if ('\Phrase\Model\JobComment' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, 'object', []),
+                        ObjectSerializer::deserialize($content, '\Phrase\Model\JobComment', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = 'object';
+            $returnType = '\Phrase\Model\JobComment';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -837,7 +837,7 @@ class JobCommentsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'object',
+                        '\Phrase\Model\JobComment',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -887,7 +887,7 @@ class JobCommentsApi
      */
     public function jobCommentShowAsyncWithHttpInfo($project_id, $job_id, $id, $x_phrase_app_otp = null, $branch = null)
     {
-        $returnType = 'object';
+        $returnType = '\Phrase\Model\JobComment';
         $request = $this->jobCommentShowRequest($project_id, $job_id, $id, $x_phrase_app_otp, $branch);
 
         return $this->client
@@ -1092,7 +1092,7 @@ class JobCommentsApi
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return object
+     * @return \Phrase\Model\JobComment
      */
     public function jobCommentUpdate($project_id, $key_id, $id, $job_comment_update_parameters, $x_phrase_app_otp = null)
     {
@@ -1113,7 +1113,7 @@ class JobCommentsApi
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of object, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Phrase\Model\JobComment, HTTP status code, HTTP response headers (array of strings)
      */
     public function jobCommentUpdateWithHttpInfo($project_id, $key_id, $id, $job_comment_update_parameters, $x_phrase_app_otp = null)
     {
@@ -1150,20 +1150,20 @@ class JobCommentsApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('object' === '\SplFileObject') {
+                    if ('\Phrase\Model\JobComment' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, 'object', []),
+                        ObjectSerializer::deserialize($content, '\Phrase\Model\JobComment', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = 'object';
+            $returnType = '\Phrase\Model\JobComment';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -1182,7 +1182,7 @@ class JobCommentsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'object',
+                        '\Phrase\Model\JobComment',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1232,7 +1232,7 @@ class JobCommentsApi
      */
     public function jobCommentUpdateAsyncWithHttpInfo($project_id, $key_id, $id, $job_comment_update_parameters, $x_phrase_app_otp = null)
     {
-        $returnType = 'object';
+        $returnType = '\Phrase\Model\JobComment';
         $request = $this->jobCommentUpdateRequest($project_id, $key_id, $id, $job_comment_update_parameters, $x_phrase_app_otp);
 
         return $this->client
@@ -1434,7 +1434,7 @@ class JobCommentsApi
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return object[]
+     * @return \Phrase\Model\JobComment[]
      */
     public function jobCommentsList($project_id, $job_id, $x_phrase_app_otp = null, $branch = null)
     {
@@ -1454,7 +1454,7 @@ class JobCommentsApi
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of object[], HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Phrase\Model\JobComment[], HTTP status code, HTTP response headers (array of strings)
      */
     public function jobCommentsListWithHttpInfo($project_id, $job_id, $x_phrase_app_otp = null, $branch = null)
     {
@@ -1491,20 +1491,20 @@ class JobCommentsApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('object[]' === '\SplFileObject') {
+                    if ('\Phrase\Model\JobComment[]' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, 'object[]', []),
+                        ObjectSerializer::deserialize($content, '\Phrase\Model\JobComment[]', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = 'object[]';
+            $returnType = '\Phrase\Model\JobComment[]';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -1523,7 +1523,7 @@ class JobCommentsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'object[]',
+                        '\Phrase\Model\JobComment[]',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1571,7 +1571,7 @@ class JobCommentsApi
      */
     public function jobCommentsListAsyncWithHttpInfo($project_id, $job_id, $x_phrase_app_otp = null, $branch = null)
     {
-        $returnType = 'object[]';
+        $returnType = '\Phrase\Model\JobComment[]';
         $request = $this->jobCommentsListRequest($project_id, $job_id, $x_phrase_app_otp, $branch);
 
         return $this->client
