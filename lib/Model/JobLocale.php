@@ -58,7 +58,8 @@ class JobLocale implements ModelInterface, ArrayAccess
         'id' => 'string',
         'job' => '\Phrase\Model\JobPreview',
         'locale' => '\Phrase\Model\LocalePreview',
-        'users' => '\Phrase\Model\UserPreview[]',
+        'users' => '\Phrase\Model\LocaleUserPreview[]',
+        'teams' => '\Phrase\Model\LocaleTeamPreview[]',
         'completed' => 'bool',
         'translation_completed_at' => '\DateTime',
         'review_completed_at' => '\DateTime'
@@ -74,6 +75,7 @@ class JobLocale implements ModelInterface, ArrayAccess
         'job' => null,
         'locale' => null,
         'users' => null,
+        'teams' => null,
         'completed' => null,
         'translation_completed_at' => 'date-time',
         'review_completed_at' => 'date-time'
@@ -110,6 +112,7 @@ class JobLocale implements ModelInterface, ArrayAccess
         'job' => 'job',
         'locale' => 'locale',
         'users' => 'users',
+        'teams' => 'teams',
         'completed' => 'completed',
         'translation_completed_at' => 'translation_completed_at',
         'review_completed_at' => 'review_completed_at'
@@ -125,6 +128,7 @@ class JobLocale implements ModelInterface, ArrayAccess
         'job' => 'setJob',
         'locale' => 'setLocale',
         'users' => 'setUsers',
+        'teams' => 'setTeams',
         'completed' => 'setCompleted',
         'translation_completed_at' => 'setTranslationCompletedAt',
         'review_completed_at' => 'setReviewCompletedAt'
@@ -140,6 +144,7 @@ class JobLocale implements ModelInterface, ArrayAccess
         'job' => 'getJob',
         'locale' => 'getLocale',
         'users' => 'getUsers',
+        'teams' => 'getTeams',
         'completed' => 'getCompleted',
         'translation_completed_at' => 'getTranslationCompletedAt',
         'review_completed_at' => 'getReviewCompletedAt'
@@ -209,6 +214,7 @@ class JobLocale implements ModelInterface, ArrayAccess
         $this->container['job'] = isset($data['job']) ? $data['job'] : null;
         $this->container['locale'] = isset($data['locale']) ? $data['locale'] : null;
         $this->container['users'] = isset($data['users']) ? $data['users'] : null;
+        $this->container['teams'] = isset($data['teams']) ? $data['teams'] : null;
         $this->container['completed'] = isset($data['completed']) ? $data['completed'] : null;
         $this->container['translation_completed_at'] = isset($data['translation_completed_at']) ? $data['translation_completed_at'] : null;
         $this->container['review_completed_at'] = isset($data['review_completed_at']) ? $data['review_completed_at'] : null;
@@ -313,7 +319,7 @@ class JobLocale implements ModelInterface, ArrayAccess
     /**
      * Gets users
      *
-     * @return \Phrase\Model\UserPreview[]|null
+     * @return \Phrase\Model\LocaleUserPreview[]|null
      */
     public function getUsers()
     {
@@ -323,13 +329,37 @@ class JobLocale implements ModelInterface, ArrayAccess
     /**
      * Sets users
      *
-     * @param \Phrase\Model\UserPreview[]|null $users users
+     * @param \Phrase\Model\LocaleUserPreview[]|null $users users
      *
      * @return $this
      */
     public function setUsers($users)
     {
         $this->container['users'] = $users;
+
+        return $this;
+    }
+
+    /**
+     * Gets teams
+     *
+     * @return \Phrase\Model\LocaleTeamPreview[]|null
+     */
+    public function getTeams()
+    {
+        return $this->container['teams'];
+    }
+
+    /**
+     * Sets teams
+     *
+     * @param \Phrase\Model\LocaleTeamPreview[]|null $teams teams
+     *
+     * @return $this
+     */
+    public function setTeams($teams)
+    {
+        $this->container['teams'] = $teams;
 
         return $this;
     }

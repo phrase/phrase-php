@@ -103,4 +103,18 @@ class JobTemplateLocalesCreateParametersTest extends TestCase
     public function testPropertyReviewerIds()
     {
     }
+
+    /**
+     * Test attribute "translator_team_ids"
+     */
+    public function testPropertyTranslatorTeamIds()
+    {
+    }
+
+    /**
+     * Test attribute "reviewer_team_ids"
+     */
+    public function testPropertyReviewerTeamIds()
+    {
+    }
 }

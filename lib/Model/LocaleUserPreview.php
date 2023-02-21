@@ -1,6 +1,6 @@
 <?php
 /**
- * JobTemplateLocales
+ * LocaleUserPreview
  *
  * PHP version 5
  *
@@ -31,14 +31,14 @@ use \ArrayAccess;
 use \Phrase\ObjectSerializer;
 
 /**
- * JobTemplateLocales Class Doc Comment
+ * LocaleUserPreview Class Doc Comment
  *
  * @category Class
  * @package  Phrase
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class JobTemplateLocales implements ModelInterface, ArrayAccess
+class LocaleUserPreview implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -47,7 +47,7 @@ class JobTemplateLocales implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'job_template_locales';
+    protected static $openAPIModelName = 'locale_user_preview';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -56,10 +56,9 @@ class JobTemplateLocales implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'id' => 'string',
-        'job_template' => '\Phrase\Model\JobTemplatePreview',
-        'locale' => '\Phrase\Model\LocalePreview',
-        'users' => '\Phrase\Model\Items[]',
-        'teams' => '\Phrase\Model\Items[]'
+        'username' => 'string',
+        'name' => 'string',
+        'role' => 'string'
     ];
 
     /**
@@ -69,10 +68,9 @@ class JobTemplateLocales implements ModelInterface, ArrayAccess
       */
     protected static $openAPIFormats = [
         'id' => null,
-        'job_template' => null,
-        'locale' => null,
-        'users' => null,
-        'teams' => null
+        'username' => null,
+        'name' => null,
+        'role' => null
     ];
 
     /**
@@ -103,10 +101,9 @@ class JobTemplateLocales implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'id' => 'id',
-        'job_template' => 'job_template',
-        'locale' => 'locale',
-        'users' => 'users',
-        'teams' => 'teams'
+        'username' => 'username',
+        'name' => 'name',
+        'role' => 'role'
     ];
 
     /**
@@ -116,10 +113,9 @@ class JobTemplateLocales implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'id' => 'setId',
-        'job_template' => 'setJobTemplate',
-        'locale' => 'setLocale',
-        'users' => 'setUsers',
-        'teams' => 'setTeams'
+        'username' => 'setUsername',
+        'name' => 'setName',
+        'role' => 'setRole'
     ];
 
     /**
@@ -129,10 +125,9 @@ class JobTemplateLocales implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'id' => 'getId',
-        'job_template' => 'getJobTemplate',
-        'locale' => 'getLocale',
-        'users' => 'getUsers',
-        'teams' => 'getTeams'
+        'username' => 'getUsername',
+        'name' => 'getName',
+        'role' => 'getRole'
     ];
 
     /**
@@ -196,10 +191,9 @@ class JobTemplateLocales implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
-        $this->container['job_template'] = isset($data['job_template']) ? $data['job_template'] : null;
-        $this->container['locale'] = isset($data['locale']) ? $data['locale'] : null;
-        $this->container['users'] = isset($data['users']) ? $data['users'] : null;
-        $this->container['teams'] = isset($data['teams']) ? $data['teams'] : null;
+        $this->container['username'] = isset($data['username']) ? $data['username'] : null;
+        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['role'] = isset($data['role']) ? $data['role'] : null;
     }
 
     /**
@@ -251,97 +245,73 @@ class JobTemplateLocales implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets job_template
+     * Gets username
      *
-     * @return \Phrase\Model\JobTemplatePreview|null
+     * @return string|null
      */
-    public function getJobTemplate()
+    public function getUsername()
     {
-        return $this->container['job_template'];
+        return $this->container['username'];
     }
 
     /**
-     * Sets job_template
+     * Sets username
      *
-     * @param \Phrase\Model\JobTemplatePreview|null $job_template job_template
+     * @param string|null $username username
      *
      * @return $this
      */
-    public function setJobTemplate($job_template)
+    public function setUsername($username)
     {
-        $this->container['job_template'] = $job_template;
+        $this->container['username'] = $username;
 
         return $this;
     }
 
     /**
-     * Gets locale
+     * Gets name
      *
-     * @return \Phrase\Model\LocalePreview|null
+     * @return string|null
      */
-    public function getLocale()
+    public function getName()
     {
-        return $this->container['locale'];
+        return $this->container['name'];
     }
 
     /**
-     * Sets locale
+     * Sets name
      *
-     * @param \Phrase\Model\LocalePreview|null $locale locale
+     * @param string|null $name name
      *
      * @return $this
      */
-    public function setLocale($locale)
+    public function setName($name)
     {
-        $this->container['locale'] = $locale;
+        $this->container['name'] = $name;
 
         return $this;
     }
 
     /**
-     * Gets users
+     * Gets role
      *
-     * @return \Phrase\Model\Items[]|null
+     * @return string|null
      */
-    public function getUsers()
+    public function getRole()
     {
-        return $this->container['users'];
+        return $this->container['role'];
     }
 
     /**
-     * Sets users
+     * Sets role
      *
-     * @param \Phrase\Model\Items[]|null $users users
+     * @param string|null $role role
      *
      * @return $this
      */
-    public function setUsers($users)
+    public function setRole($role)
     {
-        $this->container['users'] = $users;
-
-        return $this;
-    }
-
-    /**
-     * Gets teams
-     *
-     * @return \Phrase\Model\Items[]|null
-     */
-    public function getTeams()
-    {
-        return $this->container['teams'];
-    }
-
-    /**
-     * Sets teams
-     *
-     * @param \Phrase\Model\Items[]|null $teams teams
-     *
-     * @return $this
-     */
-    public function setTeams($teams)
-    {
-        $this->container['teams'] = $teams;
+        $this->container['role'] = $role;
 
         return $this;
     }

@@ -1,6 +1,6 @@
 <?php
 /**
- * JobTemplateUserPreview
+ * LocaleTeamPreview
  *
  * PHP version 5
  *
@@ -31,14 +31,14 @@ use \ArrayAccess;
 use \Phrase\ObjectSerializer;
 
 /**
- * JobTemplateUserPreview Class Doc Comment
+ * LocaleTeamPreview Class Doc Comment
  *
  * @category Class
  * @package  Phrase
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class JobTemplateUserPreview implements ModelInterface, ArrayAccess
+class LocaleTeamPreview implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -47,7 +47,7 @@ class JobTemplateUserPreview implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'job_template_user_preview';
+    protected static $openAPIModelName = 'locale_team_preview';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -56,7 +56,6 @@ class JobTemplateUserPreview implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'id' => 'string',
-        'username' => 'string',
         'name' => 'string',
         'role' => 'string'
     ];
@@ -68,7 +67,6 @@ class JobTemplateUserPreview implements ModelInterface, ArrayAccess
       */
     protected static $openAPIFormats = [
         'id' => null,
-        'username' => null,
         'name' => null,
         'role' => null
     ];
@@ -101,7 +99,6 @@ class JobTemplateUserPreview implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'id' => 'id',
-        'username' => 'username',
         'name' => 'name',
         'role' => 'role'
     ];
@@ -113,7 +110,6 @@ class JobTemplateUserPreview implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'id' => 'setId',
-        'username' => 'setUsername',
         'name' => 'setName',
         'role' => 'setRole'
     ];
@@ -125,7 +121,6 @@ class JobTemplateUserPreview implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'id' => 'getId',
-        'username' => 'getUsername',
         'name' => 'getName',
         'role' => 'getRole'
     ];
@@ -191,7 +186,6 @@ class JobTemplateUserPreview implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
-        $this->container['username'] = isset($data['username']) ? $data['username'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['role'] = isset($data['role']) ? $data['role'] : null;
     }
@@ -240,30 +234,6 @@ class JobTemplateUserPreview implements ModelInterface, ArrayAccess
     public function setId($id)
     {
         $this->container['id'] = $id;
-
-        return $this;
-    }
-
-    /**
-     * Gets username
-     *
-     * @return string|null
-     */
-    public function getUsername()
-    {
-        return $this->container['username'];
-    }
-
-    /**
-     * Sets username
-     *
-     * @param string|null $username username
-     *
-     * @return $this
-     */
-    public function setUsername($username)
-    {
-        $this->container['username'] = $username;
 
         return $this;
     }

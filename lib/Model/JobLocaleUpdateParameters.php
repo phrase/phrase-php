@@ -58,7 +58,9 @@ class JobLocaleUpdateParameters implements ModelInterface, ArrayAccess
         'branch' => 'string',
         'locale_id' => 'string',
         'user_ids' => 'string[]',
-        'reviewer_ids' => 'string[]'
+        'reviewer_ids' => 'string[]',
+        'translator_team_ids' => 'string[]',
+        'reviewer_team_ids' => 'string[]'
     ];
 
     /**
@@ -70,7 +72,9 @@ class JobLocaleUpdateParameters implements ModelInterface, ArrayAccess
         'branch' => null,
         'locale_id' => null,
         'user_ids' => null,
-        'reviewer_ids' => null
+        'reviewer_ids' => null,
+        'translator_team_ids' => null,
+        'reviewer_team_ids' => null
     ];
 
     /**
@@ -103,7 +107,9 @@ class JobLocaleUpdateParameters implements ModelInterface, ArrayAccess
         'branch' => 'branch',
         'locale_id' => 'locale_id',
         'user_ids' => 'user_ids',
-        'reviewer_ids' => 'reviewer_ids'
+        'reviewer_ids' => 'reviewer_ids',
+        'translator_team_ids' => 'translator_team_ids',
+        'reviewer_team_ids' => 'reviewer_team_ids'
     ];
 
     /**
@@ -115,7 +121,9 @@ class JobLocaleUpdateParameters implements ModelInterface, ArrayAccess
         'branch' => 'setBranch',
         'locale_id' => 'setLocaleId',
         'user_ids' => 'setUserIds',
-        'reviewer_ids' => 'setReviewerIds'
+        'reviewer_ids' => 'setReviewerIds',
+        'translator_team_ids' => 'setTranslatorTeamIds',
+        'reviewer_team_ids' => 'setReviewerTeamIds'
     ];
 
     /**
@@ -127,7 +135,9 @@ class JobLocaleUpdateParameters implements ModelInterface, ArrayAccess
         'branch' => 'getBranch',
         'locale_id' => 'getLocaleId',
         'user_ids' => 'getUserIds',
-        'reviewer_ids' => 'getReviewerIds'
+        'reviewer_ids' => 'getReviewerIds',
+        'translator_team_ids' => 'getTranslatorTeamIds',
+        'reviewer_team_ids' => 'getReviewerTeamIds'
     ];
 
     /**
@@ -194,6 +204,8 @@ class JobLocaleUpdateParameters implements ModelInterface, ArrayAccess
         $this->container['locale_id'] = isset($data['locale_id']) ? $data['locale_id'] : null;
         $this->container['user_ids'] = isset($data['user_ids']) ? $data['user_ids'] : null;
         $this->container['reviewer_ids'] = isset($data['reviewer_ids']) ? $data['reviewer_ids'] : null;
+        $this->container['translator_team_ids'] = isset($data['translator_team_ids']) ? $data['translator_team_ids'] : null;
+        $this->container['reviewer_team_ids'] = isset($data['reviewer_team_ids']) ? $data['reviewer_team_ids'] : null;
     }
 
     /**
@@ -312,6 +324,54 @@ class JobLocaleUpdateParameters implements ModelInterface, ArrayAccess
     public function setReviewerIds($reviewer_ids)
     {
         $this->container['reviewer_ids'] = $reviewer_ids;
+
+        return $this;
+    }
+
+    /**
+     * Gets translator_team_ids
+     *
+     * @return string[]|null
+     */
+    public function getTranslatorTeamIds()
+    {
+        return $this->container['translator_team_ids'];
+    }
+
+    /**
+     * Sets translator_team_ids
+     *
+     * @param string[]|null $translator_team_ids Array of team ids to be assigned to the job locale as translators
+     *
+     * @return $this
+     */
+    public function setTranslatorTeamIds($translator_team_ids)
+    {
+        $this->container['translator_team_ids'] = $translator_team_ids;
+
+        return $this;
+    }
+
+    /**
+     * Gets reviewer_team_ids
+     *
+     * @return string[]|null
+     */
+    public function getReviewerTeamIds()
+    {
+        return $this->container['reviewer_team_ids'];
+    }
+
+    /**
+     * Sets reviewer_team_ids
+     *
+     * @param string[]|null $reviewer_team_ids Array of team ids to be assigned to the job locale as reviewers
+     *
+     * @return $this
+     */
+    public function setReviewerTeamIds($reviewer_team_ids)
+    {
+        $this->container['reviewer_team_ids'] = $reviewer_team_ids;
 
         return $this;
     }

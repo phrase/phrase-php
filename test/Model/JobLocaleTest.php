@@ -105,6 +105,13 @@ class JobLocaleTest extends TestCase
     }
 
     /**
+     * Test attribute "teams"
+     */
+    public function testPropertyTeams()
+    {
+    }
+
+    /**
      * Test attribute "completed"
      */
     public function testPropertyCompleted()
