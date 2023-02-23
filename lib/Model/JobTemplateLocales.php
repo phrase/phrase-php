@@ -58,8 +58,8 @@ class JobTemplateLocales implements ModelInterface, ArrayAccess
         'id' => 'string',
         'job_template' => '\Phrase\Model\JobTemplatePreview',
         'locale' => '\Phrase\Model\LocalePreview',
-        'users' => '\Phrase\Model\Items[]',
-        'teams' => '\Phrase\Model\Items[]'
+        'users' => '\Phrase\Model\LocaleUserPreview[]',
+        'teams' => '\Phrase\Model\LocaleTeamPreview[]'
     ];
 
     /**
@@ -301,7 +301,7 @@ class JobTemplateLocales implements ModelInterface, ArrayAccess
     /**
      * Gets users
      *
-     * @return \Phrase\Model\Items[]|null
+     * @return \Phrase\Model\LocaleUserPreview[]|null
      */
     public function getUsers()
     {
@@ -311,7 +311,7 @@ class JobTemplateLocales implements ModelInterface, ArrayAccess
     /**
      * Sets users
      *
-     * @param \Phrase\Model\Items[]|null $users users
+     * @param \Phrase\Model\LocaleUserPreview[]|null $users users
      *
      * @return $this
      */
@@ -325,7 +325,7 @@ class JobTemplateLocales implements ModelInterface, ArrayAccess
     /**
      * Gets teams
      *
-     * @return \Phrase\Model\Items[]|null
+     * @return \Phrase\Model\LocaleTeamPreview[]|null
      */
     public function getTeams()
     {
@@ -335,7 +335,7 @@ class JobTemplateLocales implements ModelInterface, ArrayAccess
     /**
      * Sets teams
      *
-     * @param \Phrase\Model\Items[]|null $teams teams
+     * @param \Phrase\Model\LocaleTeamPreview[]|null $teams teams
      *
      * @return $this
      */
