@@ -58,6 +58,7 @@ class ReleaseCreateParameters implements ModelInterface, ArrayAccess
         'description' => 'string',
         'platforms' => 'string[]',
         'locale_ids' => 'string[]',
+        'tags' => 'string[]',
         'branch' => 'string'
     ];
 
@@ -70,6 +71,7 @@ class ReleaseCreateParameters implements ModelInterface, ArrayAccess
         'description' => null,
         'platforms' => null,
         'locale_ids' => null,
+        'tags' => null,
         'branch' => null
     ];
 
@@ -103,6 +105,7 @@ class ReleaseCreateParameters implements ModelInterface, ArrayAccess
         'description' => 'description',
         'platforms' => 'platforms',
         'locale_ids' => 'locale_ids',
+        'tags' => 'tags',
         'branch' => 'branch'
     ];
 
@@ -115,6 +118,7 @@ class ReleaseCreateParameters implements ModelInterface, ArrayAccess
         'description' => 'setDescription',
         'platforms' => 'setPlatforms',
         'locale_ids' => 'setLocaleIds',
+        'tags' => 'setTags',
         'branch' => 'setBranch'
     ];
 
@@ -127,6 +131,7 @@ class ReleaseCreateParameters implements ModelInterface, ArrayAccess
         'description' => 'getDescription',
         'platforms' => 'getPlatforms',
         'locale_ids' => 'getLocaleIds',
+        'tags' => 'getTags',
         'branch' => 'getBranch'
     ];
 
@@ -193,6 +198,7 @@ class ReleaseCreateParameters implements ModelInterface, ArrayAccess
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['platforms'] = isset($data['platforms']) ? $data['platforms'] : null;
         $this->container['locale_ids'] = isset($data['locale_ids']) ? $data['locale_ids'] : null;
+        $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
         $this->container['branch'] = isset($data['branch']) ? $data['branch'] : null;
     }
 
@@ -288,6 +294,30 @@ class ReleaseCreateParameters implements ModelInterface, ArrayAccess
     public function setLocaleIds($locale_ids)
     {
         $this->container['locale_ids'] = $locale_ids;
+
+        return $this;
+    }
+
+    /**
+     * Gets tags
+     *
+     * @return string[]|null
+     */
+    public function getTags()
+    {
+        return $this->container['tags'];
+    }
+
+    /**
+     * Sets tags
+     *
+     * @param string[]|null $tags Only include tagged keys in the release. For a key to be included it must be tagged with all tags provided
+     *
+     * @return $this
+     */
+    public function setTags($tags)
+    {
+        $this->container['tags'] = $tags;
 
         return $this;
     }

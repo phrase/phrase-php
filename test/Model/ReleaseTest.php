@@ -133,6 +133,13 @@ class ReleaseTest extends TestCase
     }
 
     /**
+     * Test attribute "tags"
+     */
+    public function testPropertyTags()
+    {
+    }
+
+    /**
      * Test attribute "project"
      */
     public function testPropertyProject()

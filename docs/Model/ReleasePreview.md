@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **platforms** | **string[]** |  | [optional] 
 **environments** | **string[]** |  | [optional] 
 **locale_codes** | **string[]** |  | [optional] 
+**tags** | **string[]** |  | [optional] 
 **project** | [**\Phrase\Model\ProjectShort**](ProjectShort.md) |  | [optional] 
 **created_at** | [**\DateTime**](\DateTime.md) |  | [optional] 
 **updated_at** | [**\DateTime**](\DateTime.md) |  | [optional] 

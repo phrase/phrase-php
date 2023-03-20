@@ -63,6 +63,7 @@ class ReleasePreview implements ModelInterface, ArrayAccess
         'platforms' => 'string[]',
         'environments' => 'string[]',
         'locale_codes' => 'string[]',
+        'tags' => 'string[]',
         'project' => '\Phrase\Model\ProjectShort',
         'created_at' => '\DateTime',
         'updated_at' => '\DateTime'
@@ -82,6 +83,7 @@ class ReleasePreview implements ModelInterface, ArrayAccess
         'platforms' => null,
         'environments' => null,
         'locale_codes' => null,
+        'tags' => null,
         'project' => null,
         'created_at' => 'date-time',
         'updated_at' => 'date-time'
@@ -122,6 +124,7 @@ class ReleasePreview implements ModelInterface, ArrayAccess
         'platforms' => 'platforms',
         'environments' => 'environments',
         'locale_codes' => 'locale_codes',
+        'tags' => 'tags',
         'project' => 'project',
         'created_at' => 'created_at',
         'updated_at' => 'updated_at'
@@ -141,6 +144,7 @@ class ReleasePreview implements ModelInterface, ArrayAccess
         'platforms' => 'setPlatforms',
         'environments' => 'setEnvironments',
         'locale_codes' => 'setLocaleCodes',
+        'tags' => 'setTags',
         'project' => 'setProject',
         'created_at' => 'setCreatedAt',
         'updated_at' => 'setUpdatedAt'
@@ -160,6 +164,7 @@ class ReleasePreview implements ModelInterface, ArrayAccess
         'platforms' => 'getPlatforms',
         'environments' => 'getEnvironments',
         'locale_codes' => 'getLocaleCodes',
+        'tags' => 'getTags',
         'project' => 'getProject',
         'created_at' => 'getCreatedAt',
         'updated_at' => 'getUpdatedAt'
@@ -233,6 +238,7 @@ class ReleasePreview implements ModelInterface, ArrayAccess
         $this->container['platforms'] = isset($data['platforms']) ? $data['platforms'] : null;
         $this->container['environments'] = isset($data['environments']) ? $data['environments'] : null;
         $this->container['locale_codes'] = isset($data['locale_codes']) ? $data['locale_codes'] : null;
+        $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
         $this->container['project'] = isset($data['project']) ? $data['project'] : null;
         $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
         $this->container['updated_at'] = isset($data['updated_at']) ? $data['updated_at'] : null;
@@ -450,6 +456,30 @@ class ReleasePreview implements ModelInterface, ArrayAccess
     public function setLocaleCodes($locale_codes)
     {
         $this->container['locale_codes'] = $locale_codes;
+
+        return $this;
+    }
+
+    /**
+     * Gets tags
+     *
+     * @return string[]|null
+     */
+    public function getTags()
+    {
+        return $this->container['tags'];
+    }
+
+    /**
+     * Sets tags
+     *
+     * @param string[]|null $tags tags
+     *
+     * @return $this
+     */
+    public function setTags($tags)
+    {
+        $this->container['tags'] = $tags;
 
         return $this;
     }

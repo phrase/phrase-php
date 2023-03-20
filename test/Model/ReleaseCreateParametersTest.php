@@ -98,6 +98,13 @@ class ReleaseCreateParametersTest extends TestCase
     }
 
     /**
+     * Test attribute "tags"
+     */
+    public function testPropertyTags()
+    {
+    }
+
+    /**
      * Test attribute "branch"
      */
     public function testPropertyBranch()
