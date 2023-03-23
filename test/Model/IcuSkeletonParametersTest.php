@@ -103,4 +103,11 @@ class IcuSkeletonParametersTest extends TestCase
     public function testPropertyZeroFormEnabled()
     {
     }
+
+    /**
+     * Test attribute "cldr_version"
+     */
+    public function testPropertyCldrVersion()
+    {
+    }
 }

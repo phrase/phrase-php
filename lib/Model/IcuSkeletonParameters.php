@@ -58,7 +58,8 @@ class IcuSkeletonParameters implements ModelInterface, ArrayAccess
         'content' => 'string',
         'locale_codes' => 'string[]',
         'keep_content' => 'bool',
-        'zero_form_enabled' => 'bool'
+        'zero_form_enabled' => 'bool',
+        'cldr_version' => 'string'
     ];
 
     /**
@@ -70,7 +71,8 @@ class IcuSkeletonParameters implements ModelInterface, ArrayAccess
         'content' => null,
         'locale_codes' => null,
         'keep_content' => null,
-        'zero_form_enabled' => null
+        'zero_form_enabled' => null,
+        'cldr_version' => null
     ];
 
     /**
@@ -103,7 +105,8 @@ class IcuSkeletonParameters implements ModelInterface, ArrayAccess
         'content' => 'content',
         'locale_codes' => 'locale_codes',
         'keep_content' => 'keep_content',
-        'zero_form_enabled' => 'zero_form_enabled'
+        'zero_form_enabled' => 'zero_form_enabled',
+        'cldr_version' => 'cldr_version'
     ];
 
     /**
@@ -115,7 +118,8 @@ class IcuSkeletonParameters implements ModelInterface, ArrayAccess
         'content' => 'setContent',
         'locale_codes' => 'setLocaleCodes',
         'keep_content' => 'setKeepContent',
-        'zero_form_enabled' => 'setZeroFormEnabled'
+        'zero_form_enabled' => 'setZeroFormEnabled',
+        'cldr_version' => 'setCldrVersion'
     ];
 
     /**
@@ -127,7 +131,8 @@ class IcuSkeletonParameters implements ModelInterface, ArrayAccess
         'content' => 'getContent',
         'locale_codes' => 'getLocaleCodes',
         'keep_content' => 'getKeepContent',
-        'zero_form_enabled' => 'getZeroFormEnabled'
+        'zero_form_enabled' => 'getZeroFormEnabled',
+        'cldr_version' => 'getCldrVersion'
     ];
 
     /**
@@ -194,6 +199,7 @@ class IcuSkeletonParameters implements ModelInterface, ArrayAccess
         $this->container['locale_codes'] = isset($data['locale_codes']) ? $data['locale_codes'] : null;
         $this->container['keep_content'] = isset($data['keep_content']) ? $data['keep_content'] : null;
         $this->container['zero_form_enabled'] = isset($data['zero_form_enabled']) ? $data['zero_form_enabled'] : null;
+        $this->container['cldr_version'] = isset($data['cldr_version']) ? $data['cldr_version'] : null;
     }
 
     /**
@@ -312,6 +318,30 @@ class IcuSkeletonParameters implements ModelInterface, ArrayAccess
     public function setZeroFormEnabled($zero_form_enabled)
     {
         $this->container['zero_form_enabled'] = $zero_form_enabled;
+
+        return $this;
+    }
+
+    /**
+     * Gets cldr_version
+     *
+     * @return string|null
+     */
+    public function getCldrVersion()
+    {
+        return $this->container['cldr_version'];
+    }
+
+    /**
+     * Sets cldr_version
+     *
+     * @param string|null $cldr_version Strings supports two CLDR variants, when it comes to pluralization rules. \\ You can choose which one you want to use when constructing the skeletons. Possible values \\ are `legacy` and `cldr_41`. Default value is `legacy`.
+     *
+     * @return $this
+     */
+    public function setCldrVersion($cldr_version)
+    {
+        $this->container['cldr_version'] = $cldr_version;
 
         return $this;
     }
