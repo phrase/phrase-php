@@ -1662,7 +1662,7 @@ class JobLocalesApi
             );
         }
 
-        $resourcePath = '/projects/{project_id}/jobs/{job_id}/locale/{id}';
+        $resourcePath = '/projects/{project_id}/jobs/{job_id}/locales/{id}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
