@@ -134,7 +134,7 @@ class UploadsApi
      * @param  object $locale_mapping Optional, format specific mapping between locale names and the columns the translations to those locales are contained in. (optional)
      * @param  object $format_options Additional options available for specific formats. See our format guide for complete list. (optional)
      * @param  bool $autotranslate If set, translations for the uploaded language will be fetched automatically. (optional)
-     * @param  bool $mark_reviewed Indicated whether the imported translations should be marked as reviewed. This setting is available if the review workflow (currently beta) is enabled for the project. (optional)
+     * @param  bool $mark_reviewed Indicated whether the imported translations should be marked as reviewed. This setting is available if the review workflow is enabled for the project. (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -167,7 +167,7 @@ class UploadsApi
      * @param  object $locale_mapping Optional, format specific mapping between locale names and the columns the translations to those locales are contained in. (optional)
      * @param  object $format_options Additional options available for specific formats. See our format guide for complete list. (optional)
      * @param  bool $autotranslate If set, translations for the uploaded language will be fetched automatically. (optional)
-     * @param  bool $mark_reviewed Indicated whether the imported translations should be marked as reviewed. This setting is available if the review workflow (currently beta) is enabled for the project. (optional)
+     * @param  bool $mark_reviewed Indicated whether the imported translations should be marked as reviewed. This setting is available if the review workflow is enabled for the project. (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -271,7 +271,7 @@ class UploadsApi
      * @param  object $locale_mapping Optional, format specific mapping between locale names and the columns the translations to those locales are contained in. (optional)
      * @param  object $format_options Additional options available for specific formats. See our format guide for complete list. (optional)
      * @param  bool $autotranslate If set, translations for the uploaded language will be fetched automatically. (optional)
-     * @param  bool $mark_reviewed Indicated whether the imported translations should be marked as reviewed. This setting is available if the review workflow (currently beta) is enabled for the project. (optional)
+     * @param  bool $mark_reviewed Indicated whether the imported translations should be marked as reviewed. This setting is available if the review workflow is enabled for the project. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -307,7 +307,7 @@ class UploadsApi
      * @param  object $locale_mapping Optional, format specific mapping between locale names and the columns the translations to those locales are contained in. (optional)
      * @param  object $format_options Additional options available for specific formats. See our format guide for complete list. (optional)
      * @param  bool $autotranslate If set, translations for the uploaded language will be fetched automatically. (optional)
-     * @param  bool $mark_reviewed Indicated whether the imported translations should be marked as reviewed. This setting is available if the review workflow (currently beta) is enabled for the project. (optional)
+     * @param  bool $mark_reviewed Indicated whether the imported translations should be marked as reviewed. This setting is available if the review workflow is enabled for the project. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -370,7 +370,7 @@ class UploadsApi
      * @param  object $locale_mapping Optional, format specific mapping between locale names and the columns the translations to those locales are contained in. (optional)
      * @param  object $format_options Additional options available for specific formats. See our format guide for complete list. (optional)
      * @param  bool $autotranslate If set, translations for the uploaded language will be fetched automatically. (optional)
-     * @param  bool $mark_reviewed Indicated whether the imported translations should be marked as reviewed. This setting is available if the review workflow (currently beta) is enabled for the project. (optional)
+     * @param  bool $mark_reviewed Indicated whether the imported translations should be marked as reviewed. This setting is available if the review workflow is enabled for the project. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request

@@ -635,7 +635,7 @@ class UploadCreateParameters implements ModelInterface, ArrayAccess
     /**
      * Sets mark_reviewed
      *
-     * @param bool|null $mark_reviewed Indicated whether the imported translations should be marked as reviewed. This setting is available if the review workflow (currently beta) is enabled for the project.
+     * @param bool|null $mark_reviewed Indicated whether the imported translations should be marked as reviewed. This setting is available if the review workflow is enabled for the project.
      *
      * @return $this
      */

@@ -49,7 +49,7 @@ $file_encoding = 'file_encoding_example'; // string | Enforces a specific encodi
 $locale_mapping = new \stdClass; // object | Optional, format specific mapping between locale names and the columns the translations to those locales are contained in.
 $format_options = new \stdClass; // object | Additional options available for specific formats. See our format guide for complete list.
 $autotranslate = True; // bool | If set, translations for the uploaded language will be fetched automatically.
-$mark_reviewed = True; // bool | Indicated whether the imported translations should be marked as reviewed. This setting is available if the review workflow (currently beta) is enabled for the project.
+$mark_reviewed = True; // bool | Indicated whether the imported translations should be marked as reviewed. This setting is available if the review workflow is enabled for the project.
 
 try {
     $result = $apiInstance->uploadCreate($project_id, $x_phrase_app_otp, $branch, $file, $file_format, $locale_id, $tags, $update_translations, $update_descriptions, $convert_emoji, $skip_upload_tags, $skip_unverification, $file_encoding, $locale_mapping, $format_options, $autotranslate, $mark_reviewed);
@@ -81,7 +81,7 @@ Name | Type | Description  | Notes
  **locale_mapping** | [**object**](../Model/object.md)| Optional, format specific mapping between locale names and the columns the translations to those locales are contained in. | [optional]
  **format_options** | [**object**](../Model/object.md)| Additional options available for specific formats. See our format guide for complete list. | [optional]
  **autotranslate** | **bool**| If set, translations for the uploaded language will be fetched automatically. | [optional]
- **mark_reviewed** | **bool**| Indicated whether the imported translations should be marked as reviewed. This setting is available if the review workflow (currently beta) is enabled for the project. | [optional]
+ **mark_reviewed** | **bool**| Indicated whether the imported translations should be marked as reviewed. This setting is available if the review workflow is enabled for the project. | [optional]
 
 ### Return type
 

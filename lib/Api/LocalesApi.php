@@ -1042,7 +1042,7 @@ class LocalesApi
      * @param  string $encoding Enforces a specific encoding on the file contents. Valid options are \&quot;UTF-8\&quot;, \&quot;UTF-16\&quot; and \&quot;ISO-8859-1\&quot;. (optional)
      * @param  bool $skip_unverified_translations Indicates whether the locale file should skip all unverified translations. This parameter is deprecated and should be replaced with &lt;code&gt;include_unverified_translations&lt;/code&gt;. (optional)
      * @param  bool $include_unverified_translations if set to false unverified translations are excluded (optional)
-     * @param  bool $use_last_reviewed_version If set to true the last reviewed version of a translation is used. This is only available if the review workflow (currently in beta) is enabled for the project. (optional)
+     * @param  bool $use_last_reviewed_version If set to true the last reviewed version of a translation is used. This is only available if the review workflow is enabled for the project. (optional)
      * @param  string $fallback_locale_id If a key has no translation in the locale being downloaded the translation in the fallback locale will be used. Provide the public ID of the locale that should be used as the fallback. Requires include_empty_translations to be set to &lt;code&gt;true&lt;/code&gt;. (optional)
      * @param  string $source_locale_id Provides the source language of a corresponding job as the source language of the generated locale file. This parameter will be ignored unless used in combination with a &lt;code&gt;tag&lt;/code&gt; parameter indicating a specific job. (optional)
      *
@@ -1079,7 +1079,7 @@ class LocalesApi
      * @param  string $encoding Enforces a specific encoding on the file contents. Valid options are \&quot;UTF-8\&quot;, \&quot;UTF-16\&quot; and \&quot;ISO-8859-1\&quot;. (optional)
      * @param  bool $skip_unverified_translations Indicates whether the locale file should skip all unverified translations. This parameter is deprecated and should be replaced with &lt;code&gt;include_unverified_translations&lt;/code&gt;. (optional)
      * @param  bool $include_unverified_translations if set to false unverified translations are excluded (optional)
-     * @param  bool $use_last_reviewed_version If set to true the last reviewed version of a translation is used. This is only available if the review workflow (currently in beta) is enabled for the project. (optional)
+     * @param  bool $use_last_reviewed_version If set to true the last reviewed version of a translation is used. This is only available if the review workflow is enabled for the project. (optional)
      * @param  string $fallback_locale_id If a key has no translation in the locale being downloaded the translation in the fallback locale will be used. Provide the public ID of the locale that should be used as the fallback. Requires include_empty_translations to be set to &lt;code&gt;true&lt;/code&gt;. (optional)
      * @param  string $source_locale_id Provides the source language of a corresponding job as the source language of the generated locale file. This parameter will be ignored unless used in combination with a &lt;code&gt;tag&lt;/code&gt; parameter indicating a specific job. (optional)
      *
@@ -1187,7 +1187,7 @@ class LocalesApi
      * @param  string $encoding Enforces a specific encoding on the file contents. Valid options are \&quot;UTF-8\&quot;, \&quot;UTF-16\&quot; and \&quot;ISO-8859-1\&quot;. (optional)
      * @param  bool $skip_unverified_translations Indicates whether the locale file should skip all unverified translations. This parameter is deprecated and should be replaced with &lt;code&gt;include_unverified_translations&lt;/code&gt;. (optional)
      * @param  bool $include_unverified_translations if set to false unverified translations are excluded (optional)
-     * @param  bool $use_last_reviewed_version If set to true the last reviewed version of a translation is used. This is only available if the review workflow (currently in beta) is enabled for the project. (optional)
+     * @param  bool $use_last_reviewed_version If set to true the last reviewed version of a translation is used. This is only available if the review workflow is enabled for the project. (optional)
      * @param  string $fallback_locale_id If a key has no translation in the locale being downloaded the translation in the fallback locale will be used. Provide the public ID of the locale that should be used as the fallback. Requires include_empty_translations to be set to &lt;code&gt;true&lt;/code&gt;. (optional)
      * @param  string $source_locale_id Provides the source language of a corresponding job as the source language of the generated locale file. This parameter will be ignored unless used in combination with a &lt;code&gt;tag&lt;/code&gt; parameter indicating a specific job. (optional)
      *
@@ -1227,7 +1227,7 @@ class LocalesApi
      * @param  string $encoding Enforces a specific encoding on the file contents. Valid options are \&quot;UTF-8\&quot;, \&quot;UTF-16\&quot; and \&quot;ISO-8859-1\&quot;. (optional)
      * @param  bool $skip_unverified_translations Indicates whether the locale file should skip all unverified translations. This parameter is deprecated and should be replaced with &lt;code&gt;include_unverified_translations&lt;/code&gt;. (optional)
      * @param  bool $include_unverified_translations if set to false unverified translations are excluded (optional)
-     * @param  bool $use_last_reviewed_version If set to true the last reviewed version of a translation is used. This is only available if the review workflow (currently in beta) is enabled for the project. (optional)
+     * @param  bool $use_last_reviewed_version If set to true the last reviewed version of a translation is used. This is only available if the review workflow is enabled for the project. (optional)
      * @param  string $fallback_locale_id If a key has no translation in the locale being downloaded the translation in the fallback locale will be used. Provide the public ID of the locale that should be used as the fallback. Requires include_empty_translations to be set to &lt;code&gt;true&lt;/code&gt;. (optional)
      * @param  string $source_locale_id Provides the source language of a corresponding job as the source language of the generated locale file. This parameter will be ignored unless used in combination with a &lt;code&gt;tag&lt;/code&gt; parameter indicating a specific job. (optional)
      *
@@ -1294,7 +1294,7 @@ class LocalesApi
      * @param  string $encoding Enforces a specific encoding on the file contents. Valid options are \&quot;UTF-8\&quot;, \&quot;UTF-16\&quot; and \&quot;ISO-8859-1\&quot;. (optional)
      * @param  bool $skip_unverified_translations Indicates whether the locale file should skip all unverified translations. This parameter is deprecated and should be replaced with &lt;code&gt;include_unverified_translations&lt;/code&gt;. (optional)
      * @param  bool $include_unverified_translations if set to false unverified translations are excluded (optional)
-     * @param  bool $use_last_reviewed_version If set to true the last reviewed version of a translation is used. This is only available if the review workflow (currently in beta) is enabled for the project. (optional)
+     * @param  bool $use_last_reviewed_version If set to true the last reviewed version of a translation is used. This is only available if the review workflow is enabled for the project. (optional)
      * @param  string $fallback_locale_id If a key has no translation in the locale being downloaded the translation in the fallback locale will be used. Provide the public ID of the locale that should be used as the fallback. Requires include_empty_translations to be set to &lt;code&gt;true&lt;/code&gt;. (optional)
      * @param  string $source_locale_id Provides the source language of a corresponding job as the source language of the generated locale file. This parameter will be ignored unless used in combination with a &lt;code&gt;tag&lt;/code&gt; parameter indicating a specific job. (optional)
      *
