@@ -6,12 +6,12 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**jobLocaleComplete**](JobLocalesApi.md#jobLocaleComplete) | **POST** /projects/{project_id}/jobs/{job_id}/locales/{id}/complete | Complete a job locale
 [**jobLocaleCompleteReview**](JobLocalesApi.md#jobLocaleCompleteReview) | **POST** /projects/{project_id}/jobs/{job_id}/locales/{id}/complete_review | Review a job locale
-[**jobLocaleDelete**](JobLocalesApi.md#jobLocaleDelete) | **DELETE** /projects/{project_id}/jobs/{job_id}/locales/{id} | Delete a job locale
+[**jobLocaleDelete**](JobLocalesApi.md#jobLocaleDelete) | **DELETE** /projects/{project_id}/jobs/{job_id}/locales/{id} | Remove a target locale from a job
 [**jobLocaleReopen**](JobLocalesApi.md#jobLocaleReopen) | **POST** /projects/{project_id}/jobs/{job_id}/locales/{id}/reopen | Reopen a job locale
-[**jobLocaleShow**](JobLocalesApi.md#jobLocaleShow) | **GET** /projects/{project_id}/jobs/{job_id}/locales/{id} | Get a single job locale
-[**jobLocaleUpdate**](JobLocalesApi.md#jobLocaleUpdate) | **PATCH** /projects/{project_id}/jobs/{job_id}/locales/{id} | Update a job locale
-[**jobLocalesCreate**](JobLocalesApi.md#jobLocalesCreate) | **POST** /projects/{project_id}/jobs/{job_id}/locales | Create a job locale
-[**jobLocalesList**](JobLocalesApi.md#jobLocalesList) | **GET** /projects/{project_id}/jobs/{job_id}/locales | List job locales
+[**jobLocaleShow**](JobLocalesApi.md#jobLocaleShow) | **GET** /projects/{project_id}/jobs/{job_id}/locales/{id} | Show single job target locale
+[**jobLocaleUpdate**](JobLocalesApi.md#jobLocaleUpdate) | **PATCH** /projects/{project_id}/jobs/{job_id}/locales/{id} | Update a job target locale
+[**jobLocalesCreate**](JobLocalesApi.md#jobLocalesCreate) | **POST** /projects/{project_id}/jobs/{job_id}/locales | Add a target locale to a job
+[**jobLocalesList**](JobLocalesApi.md#jobLocalesList) | **GET** /projects/{project_id}/jobs/{job_id}/locales | List job target locales
 
 
 
@@ -153,9 +153,9 @@ Name | Type | Description  | Notes
 
 > jobLocaleDelete($project_id, $job_id, $id, $x_phrase_app_otp, $branch)
 
-Delete a job locale
+Remove a target locale from a job
 
-Delete an existing job locale.
+Removes a target locale from a job.
 
 ### Example
 
@@ -286,9 +286,9 @@ Name | Type | Description  | Notes
 
 > \Phrase\Model\JobLocale jobLocaleShow($project_id, $job_id, $id, $x_phrase_app_otp, $branch)
 
-Get a single job locale
+Show single job target locale
 
-Get a single job locale for a given job.
+Get a single target locale for a given job.
 
 ### Example
 
@@ -353,9 +353,9 @@ Name | Type | Description  | Notes
 
 > \Phrase\Model\JobLocale jobLocaleUpdate($project_id, $job_id, $id, $job_locale_update_parameters, $x_phrase_app_otp)
 
-Update a job locale
+Update a job target locale
 
-Update an existing job locale.
+Update an existing job target locale.
 
 ### Example
 
@@ -420,9 +420,9 @@ Name | Type | Description  | Notes
 
 > \Phrase\Model\JobLocale jobLocalesCreate($project_id, $job_id, $job_locales_create_parameters, $x_phrase_app_otp)
 
-Create a job locale
+Add a target locale to a job
 
-Create a new job locale.
+Adds a target locale to a job.
 
 ### Example
 
@@ -485,9 +485,9 @@ Name | Type | Description  | Notes
 
 > \Phrase\Model\JobLocale[] jobLocalesList($project_id, $job_id, $x_phrase_app_otp, $page, $per_page, $branch)
 
-List job locales
+List job target locales
 
-List all job locales for a given job.
+List all target locales for a given job.
 
 ### Example
 

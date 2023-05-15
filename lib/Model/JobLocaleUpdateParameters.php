@@ -269,7 +269,7 @@ class JobLocaleUpdateParameters implements ModelInterface, ArrayAccess
     /**
      * Sets locale_id
      *
-     * @param string|null $locale_id locale id
+     * @param string|null $locale_id ID of a target locale to update
      *
      * @return $this
      */

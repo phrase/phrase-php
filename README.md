@@ -222,12 +222,12 @@ Class | Method | HTTP request | Description
 *JobCommentsApi* | [**jobCommentsList**](docs/Api/JobCommentsApi.md#jobcommentslist) | **GET** /projects/{project_id}/jobs/{job_id}/comments | List job comments
 *JobLocalesApi* | [**jobLocaleComplete**](docs/Api/JobLocalesApi.md#joblocalecomplete) | **POST** /projects/{project_id}/jobs/{job_id}/locales/{id}/complete | Complete a job locale
 *JobLocalesApi* | [**jobLocaleCompleteReview**](docs/Api/JobLocalesApi.md#joblocalecompletereview) | **POST** /projects/{project_id}/jobs/{job_id}/locales/{id}/complete_review | Review a job locale
-*JobLocalesApi* | [**jobLocaleDelete**](docs/Api/JobLocalesApi.md#joblocaledelete) | **DELETE** /projects/{project_id}/jobs/{job_id}/locales/{id} | Delete a job locale
+*JobLocalesApi* | [**jobLocaleDelete**](docs/Api/JobLocalesApi.md#joblocaledelete) | **DELETE** /projects/{project_id}/jobs/{job_id}/locales/{id} | Remove a target locale from a job
 *JobLocalesApi* | [**jobLocaleReopen**](docs/Api/JobLocalesApi.md#joblocalereopen) | **POST** /projects/{project_id}/jobs/{job_id}/locales/{id}/reopen | Reopen a job locale
-*JobLocalesApi* | [**jobLocaleShow**](docs/Api/JobLocalesApi.md#joblocaleshow) | **GET** /projects/{project_id}/jobs/{job_id}/locales/{id} | Get a single job locale
-*JobLocalesApi* | [**jobLocaleUpdate**](docs/Api/JobLocalesApi.md#joblocaleupdate) | **PATCH** /projects/{project_id}/jobs/{job_id}/locales/{id} | Update a job locale
-*JobLocalesApi* | [**jobLocalesCreate**](docs/Api/JobLocalesApi.md#joblocalescreate) | **POST** /projects/{project_id}/jobs/{job_id}/locales | Create a job locale
-*JobLocalesApi* | [**jobLocalesList**](docs/Api/JobLocalesApi.md#joblocaleslist) | **GET** /projects/{project_id}/jobs/{job_id}/locales | List job locales
+*JobLocalesApi* | [**jobLocaleShow**](docs/Api/JobLocalesApi.md#joblocaleshow) | **GET** /projects/{project_id}/jobs/{job_id}/locales/{id} | Show single job target locale
+*JobLocalesApi* | [**jobLocaleUpdate**](docs/Api/JobLocalesApi.md#joblocaleupdate) | **PATCH** /projects/{project_id}/jobs/{job_id}/locales/{id} | Update a job target locale
+*JobLocalesApi* | [**jobLocalesCreate**](docs/Api/JobLocalesApi.md#joblocalescreate) | **POST** /projects/{project_id}/jobs/{job_id}/locales | Add a target locale to a job
+*JobLocalesApi* | [**jobLocalesList**](docs/Api/JobLocalesApi.md#joblocaleslist) | **GET** /projects/{project_id}/jobs/{job_id}/locales | List job target locales
 *JobTemplateLocalesApi* | [**jobTemplateLocaleDelete**](docs/Api/JobTemplateLocalesApi.md#jobtemplatelocaledelete) | **DELETE** /projects/{project_id}/job_templates/{job_template_id}/locales/{job_template_locale_id} | Delete a job template locale
 *JobTemplateLocalesApi* | [**jobTemplateLocaleShow**](docs/Api/JobTemplateLocalesApi.md#jobtemplatelocaleshow) | **GET** /projects/{project_id}/job_templates/{job_template_id}/locales/{job_template_locale_id} | Get a single job template locale
 *JobTemplateLocalesApi* | [**jobTemplateLocaleUpdate**](docs/Api/JobTemplateLocalesApi.md#jobtemplatelocaleupdate) | **PATCH** /projects/{project_id}/job_templates/{job_template_id}/locales/{job_template_locale_id} | Update a job template locale

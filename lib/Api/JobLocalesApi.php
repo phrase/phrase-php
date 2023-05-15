@@ -802,7 +802,7 @@ class JobLocalesApi
     /**
      * Operation jobLocaleDelete
      *
-     * Delete a job locale
+     * Remove a target locale from a job
      *
      * @param  string $project_id Project ID (required)
      * @param  string $job_id Job ID (required)
@@ -822,7 +822,7 @@ class JobLocalesApi
     /**
      * Operation jobLocaleDeleteWithHttpInfo
      *
-     * Delete a job locale
+     * Remove a target locale from a job
      *
      * @param  string $project_id Project ID (required)
      * @param  string $job_id Job ID (required)
@@ -878,7 +878,7 @@ class JobLocalesApi
     /**
      * Operation jobLocaleDeleteAsync
      *
-     * Delete a job locale
+     * Remove a target locale from a job
      *
      * @param  string $project_id Project ID (required)
      * @param  string $job_id Job ID (required)
@@ -902,7 +902,7 @@ class JobLocalesApi
     /**
      * Operation jobLocaleDeleteAsyncWithHttpInfo
      *
-     * Delete a job locale
+     * Remove a target locale from a job
      *
      * @param  string $project_id Project ID (required)
      * @param  string $job_id Job ID (required)
@@ -1442,7 +1442,7 @@ class JobLocalesApi
     /**
      * Operation jobLocaleShow
      *
-     * Get a single job locale
+     * Show single job target locale
      *
      * @param  string $project_id Project ID (required)
      * @param  string $job_id Job ID (required)
@@ -1463,7 +1463,7 @@ class JobLocalesApi
     /**
      * Operation jobLocaleShowWithHttpInfo
      *
-     * Get a single job locale
+     * Show single job target locale
      *
      * @param  string $project_id Project ID (required)
      * @param  string $job_id Job ID (required)
@@ -1555,7 +1555,7 @@ class JobLocalesApi
     /**
      * Operation jobLocaleShowAsync
      *
-     * Get a single job locale
+     * Show single job target locale
      *
      * @param  string $project_id Project ID (required)
      * @param  string $job_id Job ID (required)
@@ -1579,7 +1579,7 @@ class JobLocalesApi
     /**
      * Operation jobLocaleShowAsyncWithHttpInfo
      *
-     * Get a single job locale
+     * Show single job target locale
      *
      * @param  string $project_id Project ID (required)
      * @param  string $job_id Job ID (required)
@@ -1787,7 +1787,7 @@ class JobLocalesApi
     /**
      * Operation jobLocaleUpdate
      *
-     * Update a job locale
+     * Update a job target locale
      *
      * @param  string $project_id Project ID (required)
      * @param  string $job_id Job ID (required)
@@ -1808,7 +1808,7 @@ class JobLocalesApi
     /**
      * Operation jobLocaleUpdateWithHttpInfo
      *
-     * Update a job locale
+     * Update a job target locale
      *
      * @param  string $project_id Project ID (required)
      * @param  string $job_id Job ID (required)
@@ -1900,7 +1900,7 @@ class JobLocalesApi
     /**
      * Operation jobLocaleUpdateAsync
      *
-     * Update a job locale
+     * Update a job target locale
      *
      * @param  string $project_id Project ID (required)
      * @param  string $job_id Job ID (required)
@@ -1924,7 +1924,7 @@ class JobLocalesApi
     /**
      * Operation jobLocaleUpdateAsyncWithHttpInfo
      *
-     * Update a job locale
+     * Update a job target locale
      *
      * @param  string $project_id Project ID (required)
      * @param  string $job_id Job ID (required)
@@ -2130,7 +2130,7 @@ class JobLocalesApi
     /**
      * Operation jobLocalesCreate
      *
-     * Create a job locale
+     * Add a target locale to a job
      *
      * @param  string $project_id Project ID (required)
      * @param  string $job_id Job ID (required)
@@ -2150,7 +2150,7 @@ class JobLocalesApi
     /**
      * Operation jobLocalesCreateWithHttpInfo
      *
-     * Create a job locale
+     * Add a target locale to a job
      *
      * @param  string $project_id Project ID (required)
      * @param  string $job_id Job ID (required)
@@ -2241,7 +2241,7 @@ class JobLocalesApi
     /**
      * Operation jobLocalesCreateAsync
      *
-     * Create a job locale
+     * Add a target locale to a job
      *
      * @param  string $project_id Project ID (required)
      * @param  string $job_id Job ID (required)
@@ -2264,7 +2264,7 @@ class JobLocalesApi
     /**
      * Operation jobLocalesCreateAsyncWithHttpInfo
      *
-     * Create a job locale
+     * Add a target locale to a job
      *
      * @param  string $project_id Project ID (required)
      * @param  string $job_id Job ID (required)
@@ -2454,7 +2454,7 @@ class JobLocalesApi
     /**
      * Operation jobLocalesList
      *
-     * List job locales
+     * List job target locales
      *
      * @param  string $project_id Project ID (required)
      * @param  string $job_id Job ID (required)
@@ -2476,7 +2476,7 @@ class JobLocalesApi
     /**
      * Operation jobLocalesListWithHttpInfo
      *
-     * List job locales
+     * List job target locales
      *
      * @param  string $project_id Project ID (required)
      * @param  string $job_id Job ID (required)
@@ -2569,7 +2569,7 @@ class JobLocalesApi
     /**
      * Operation jobLocalesListAsync
      *
-     * List job locales
+     * List job target locales
      *
      * @param  string $project_id Project ID (required)
      * @param  string $job_id Job ID (required)
@@ -2594,7 +2594,7 @@ class JobLocalesApi
     /**
      * Operation jobLocalesListAsyncWithHttpInfo
      *
-     * List job locales
+     * List job target locales
      *
      * @param  string $project_id Project ID (required)
      * @param  string $job_id Job ID (required)

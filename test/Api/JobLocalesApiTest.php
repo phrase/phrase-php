@@ -93,7 +93,7 @@ class JobLocalesApiTest extends TestCase
     /**
      * Test case for jobLocaleDelete
      *
-     * Delete a job locale.
+     * Remove a target locale from a job.
      *
      */
     public function testJobLocaleDelete()
@@ -113,7 +113,7 @@ class JobLocalesApiTest extends TestCase
     /**
      * Test case for jobLocaleShow
      *
-     * Get a single job locale.
+     * Show single job target locale.
      *
      */
     public function testJobLocaleShow()
@@ -123,7 +123,7 @@ class JobLocalesApiTest extends TestCase
     /**
      * Test case for jobLocaleUpdate
      *
-     * Update a job locale.
+     * Update a job target locale.
      *
      */
     public function testJobLocaleUpdate()
@@ -133,7 +133,7 @@ class JobLocalesApiTest extends TestCase
     /**
      * Test case for jobLocalesCreate
      *
-     * Create a job locale.
+     * Add a target locale to a job.
      *
      */
     public function testJobLocalesCreate()
@@ -143,7 +143,7 @@ class JobLocalesApiTest extends TestCase
     /**
      * Test case for jobLocalesList
      *
-     * List job locales.
+     * List job target locales.
      *
      */
     public function testJobLocalesList()

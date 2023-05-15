@@ -272,7 +272,7 @@ class JobLocalesCreateParameters implements ModelInterface, ArrayAccess
     /**
      * Sets locale_id
      *
-     * @param string $locale_id locale id
+     * @param string $locale_id ID of a locale to be added
      *
      * @return $this
      */
