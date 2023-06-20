@@ -123,7 +123,7 @@ class TeamsApiTest extends TestCase
     /**
      * Test case for teamsProjectsCreate
      *
-     * Add Project.
+     * Add Project to Team.
      *
      */
     public function testTeamsProjectsCreate()
@@ -133,7 +133,7 @@ class TeamsApiTest extends TestCase
     /**
      * Test case for teamsProjectsDelete
      *
-     * Remove Project.
+     * Remove Project from Team.
      *
      */
     public function testTeamsProjectsDelete()

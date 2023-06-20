@@ -123,7 +123,7 @@ class SpacesApiTest extends TestCase
     /**
      * Test case for spacesProjectsCreate
      *
-     * Add Project.
+     * Add Project to Space.
      *
      */
     public function testSpacesProjectsCreate()
@@ -133,7 +133,7 @@ class SpacesApiTest extends TestCase
     /**
      * Test case for spacesProjectsDelete
      *
-     * Remove Project.
+     * Remove Project from Space.
      *
      */
     public function testSpacesProjectsDelete()
@@ -143,7 +143,7 @@ class SpacesApiTest extends TestCase
     /**
      * Test case for spacesProjectsList
      *
-     * List Projects.
+     * List Projects in Space.
      *
      */
     public function testSpacesProjectsList()

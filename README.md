@@ -322,9 +322,9 @@ Class | Method | HTTP request | Description
 *SpacesApi* | [**spaceShow**](docs/Api/SpacesApi.md#spaceshow) | **GET** /accounts/{account_id}/spaces/{id} | Get Space
 *SpacesApi* | [**spaceUpdate**](docs/Api/SpacesApi.md#spaceupdate) | **PATCH** /accounts/{account_id}/spaces/{id} | Update Space
 *SpacesApi* | [**spacesList**](docs/Api/SpacesApi.md#spaceslist) | **GET** /accounts/{account_id}/spaces | List Spaces
-*SpacesApi* | [**spacesProjectsCreate**](docs/Api/SpacesApi.md#spacesprojectscreate) | **POST** /accounts/{account_id}/spaces/{space_id}/projects | Add Project
-*SpacesApi* | [**spacesProjectsDelete**](docs/Api/SpacesApi.md#spacesprojectsdelete) | **DELETE** /accounts/{account_id}/spaces/{space_id}/projects/{id} | Remove Project
-*SpacesApi* | [**spacesProjectsList**](docs/Api/SpacesApi.md#spacesprojectslist) | **GET** /accounts/{account_id}/spaces/{space_id}/projects | List Projects
+*SpacesApi* | [**spacesProjectsCreate**](docs/Api/SpacesApi.md#spacesprojectscreate) | **POST** /accounts/{account_id}/spaces/{space_id}/projects | Add Project to Space
+*SpacesApi* | [**spacesProjectsDelete**](docs/Api/SpacesApi.md#spacesprojectsdelete) | **DELETE** /accounts/{account_id}/spaces/{space_id}/projects/{id} | Remove Project from Space
+*SpacesApi* | [**spacesProjectsList**](docs/Api/SpacesApi.md#spacesprojectslist) | **GET** /accounts/{account_id}/spaces/{space_id}/projects | List Projects in Space
 *StyleGuidesApi* | [**styleguideCreate**](docs/Api/StyleGuidesApi.md#styleguidecreate) | **POST** /projects/{project_id}/styleguides | Create a style guide
 *StyleGuidesApi* | [**styleguideDelete**](docs/Api/StyleGuidesApi.md#styleguidedelete) | **DELETE** /projects/{project_id}/styleguides/{id} | Delete a style guide
 *StyleGuidesApi* | [**styleguideShow**](docs/Api/StyleGuidesApi.md#styleguideshow) | **GET** /projects/{project_id}/styleguides/{id} | Get a single style guide
@@ -339,8 +339,8 @@ Class | Method | HTTP request | Description
 *TeamsApi* | [**teamShow**](docs/Api/TeamsApi.md#teamshow) | **GET** /accounts/{account_id}/teams/{id} | Get Team
 *TeamsApi* | [**teamUpdate**](docs/Api/TeamsApi.md#teamupdate) | **PATCH** /accounts/{account_id}/teams/{id} | Update Team
 *TeamsApi* | [**teamsList**](docs/Api/TeamsApi.md#teamslist) | **GET** /accounts/{account_id}/teams | List Teams
-*TeamsApi* | [**teamsProjectsCreate**](docs/Api/TeamsApi.md#teamsprojectscreate) | **POST** /accounts/{account_id}/teams/{team_id}/projects | Add Project
-*TeamsApi* | [**teamsProjectsDelete**](docs/Api/TeamsApi.md#teamsprojectsdelete) | **DELETE** /accounts/{account_id}/teams/{team_id}/projects/{id} | Remove Project
+*TeamsApi* | [**teamsProjectsCreate**](docs/Api/TeamsApi.md#teamsprojectscreate) | **POST** /accounts/{account_id}/teams/{team_id}/projects | Add Project to Team
+*TeamsApi* | [**teamsProjectsDelete**](docs/Api/TeamsApi.md#teamsprojectsdelete) | **DELETE** /accounts/{account_id}/teams/{team_id}/projects/{id} | Remove Project from Team
 *TeamsApi* | [**teamsSpacesCreate**](docs/Api/TeamsApi.md#teamsspacescreate) | **POST** /accounts/{account_id}/teams/{team_id}/spaces | Add Space
 *TeamsApi* | [**teamsSpacesDelete**](docs/Api/TeamsApi.md#teamsspacesdelete) | **DELETE** /accounts/{account_id}/teams/{team_id}/spaces/{id} | Remove Space
 *TeamsApi* | [**teamsUsersCreate**](docs/Api/TeamsApi.md#teamsuserscreate) | **POST** /accounts/{account_id}/teams/{team_id}/users | Add User

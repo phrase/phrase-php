@@ -1640,7 +1640,7 @@ class SpacesApi
     /**
      * Operation spacesProjectsCreate
      *
-     * Add Project
+     * Add Project to Space
      *
      * @param  string $account_id Account ID (required)
      * @param  string $space_id Space ID (required)
@@ -1659,7 +1659,7 @@ class SpacesApi
     /**
      * Operation spacesProjectsCreateWithHttpInfo
      *
-     * Add Project
+     * Add Project to Space
      *
      * @param  string $account_id Account ID (required)
      * @param  string $space_id Space ID (required)
@@ -1714,7 +1714,7 @@ class SpacesApi
     /**
      * Operation spacesProjectsCreateAsync
      *
-     * Add Project
+     * Add Project to Space
      *
      * @param  string $account_id Account ID (required)
      * @param  string $space_id Space ID (required)
@@ -1737,7 +1737,7 @@ class SpacesApi
     /**
      * Operation spacesProjectsCreateAsyncWithHttpInfo
      *
-     * Add Project
+     * Add Project to Space
      *
      * @param  string $account_id Account ID (required)
      * @param  string $space_id Space ID (required)
@@ -1916,7 +1916,7 @@ class SpacesApi
     /**
      * Operation spacesProjectsDelete
      *
-     * Remove Project
+     * Remove Project from Space
      *
      * @param  string $account_id Account ID (required)
      * @param  string $space_id Space ID (required)
@@ -1935,7 +1935,7 @@ class SpacesApi
     /**
      * Operation spacesProjectsDeleteWithHttpInfo
      *
-     * Remove Project
+     * Remove Project from Space
      *
      * @param  string $account_id Account ID (required)
      * @param  string $space_id Space ID (required)
@@ -1990,7 +1990,7 @@ class SpacesApi
     /**
      * Operation spacesProjectsDeleteAsync
      *
-     * Remove Project
+     * Remove Project from Space
      *
      * @param  string $account_id Account ID (required)
      * @param  string $space_id Space ID (required)
@@ -2013,7 +2013,7 @@ class SpacesApi
     /**
      * Operation spacesProjectsDeleteAsyncWithHttpInfo
      *
-     * Remove Project
+     * Remove Project from Space
      *
      * @param  string $account_id Account ID (required)
      * @param  string $space_id Space ID (required)
@@ -2197,7 +2197,7 @@ class SpacesApi
     /**
      * Operation spacesProjectsList
      *
-     * List Projects
+     * List Projects in Space
      *
      * @param  string $account_id Account ID (required)
      * @param  string $space_id Space ID (required)
@@ -2218,7 +2218,7 @@ class SpacesApi
     /**
      * Operation spacesProjectsListWithHttpInfo
      *
-     * List Projects
+     * List Projects in Space
      *
      * @param  string $account_id Account ID (required)
      * @param  string $space_id Space ID (required)
@@ -2310,7 +2310,7 @@ class SpacesApi
     /**
      * Operation spacesProjectsListAsync
      *
-     * List Projects
+     * List Projects in Space
      *
      * @param  string $account_id Account ID (required)
      * @param  string $space_id Space ID (required)
@@ -2334,7 +2334,7 @@ class SpacesApi
     /**
      * Operation spacesProjectsListAsyncWithHttpInfo
      *
-     * List Projects
+     * List Projects in Space
      *
      * @param  string $account_id Account ID (required)
      * @param  string $space_id Space ID (required)

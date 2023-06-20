@@ -1640,7 +1640,7 @@ class TeamsApi
     /**
      * Operation teamsProjectsCreate
      *
-     * Add Project
+     * Add Project to Team
      *
      * @param  string $account_id Account ID (required)
      * @param  string $team_id Team ID (required)
@@ -1659,7 +1659,7 @@ class TeamsApi
     /**
      * Operation teamsProjectsCreateWithHttpInfo
      *
-     * Add Project
+     * Add Project to Team
      *
      * @param  string $account_id Account ID (required)
      * @param  string $team_id Team ID (required)
@@ -1714,7 +1714,7 @@ class TeamsApi
     /**
      * Operation teamsProjectsCreateAsync
      *
-     * Add Project
+     * Add Project to Team
      *
      * @param  string $account_id Account ID (required)
      * @param  string $team_id Team ID (required)
@@ -1737,7 +1737,7 @@ class TeamsApi
     /**
      * Operation teamsProjectsCreateAsyncWithHttpInfo
      *
-     * Add Project
+     * Add Project to Team
      *
      * @param  string $account_id Account ID (required)
      * @param  string $team_id Team ID (required)
@@ -1916,7 +1916,7 @@ class TeamsApi
     /**
      * Operation teamsProjectsDelete
      *
-     * Remove Project
+     * Remove Project from Team
      *
      * @param  string $account_id Account ID (required)
      * @param  string $team_id Team ID (required)
@@ -1935,7 +1935,7 @@ class TeamsApi
     /**
      * Operation teamsProjectsDeleteWithHttpInfo
      *
-     * Remove Project
+     * Remove Project from Team
      *
      * @param  string $account_id Account ID (required)
      * @param  string $team_id Team ID (required)
@@ -1990,7 +1990,7 @@ class TeamsApi
     /**
      * Operation teamsProjectsDeleteAsync
      *
-     * Remove Project
+     * Remove Project from Team
      *
      * @param  string $account_id Account ID (required)
      * @param  string $team_id Team ID (required)
@@ -2013,7 +2013,7 @@ class TeamsApi
     /**
      * Operation teamsProjectsDeleteAsyncWithHttpInfo
      *
-     * Remove Project
+     * Remove Project from Team
      *
      * @param  string $account_id Account ID (required)
      * @param  string $team_id Team ID (required)

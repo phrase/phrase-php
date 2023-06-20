@@ -9,8 +9,8 @@ Method | HTTP request | Description
 [**teamShow**](TeamsApi.md#teamShow) | **GET** /accounts/{account_id}/teams/{id} | Get Team
 [**teamUpdate**](TeamsApi.md#teamUpdate) | **PATCH** /accounts/{account_id}/teams/{id} | Update Team
 [**teamsList**](TeamsApi.md#teamsList) | **GET** /accounts/{account_id}/teams | List Teams
-[**teamsProjectsCreate**](TeamsApi.md#teamsProjectsCreate) | **POST** /accounts/{account_id}/teams/{team_id}/projects | Add Project
-[**teamsProjectsDelete**](TeamsApi.md#teamsProjectsDelete) | **DELETE** /accounts/{account_id}/teams/{team_id}/projects/{id} | Remove Project
+[**teamsProjectsCreate**](TeamsApi.md#teamsProjectsCreate) | **POST** /accounts/{account_id}/teams/{team_id}/projects | Add Project to Team
+[**teamsProjectsDelete**](TeamsApi.md#teamsProjectsDelete) | **DELETE** /accounts/{account_id}/teams/{team_id}/projects/{id} | Remove Project from Team
 [**teamsSpacesCreate**](TeamsApi.md#teamsSpacesCreate) | **POST** /accounts/{account_id}/teams/{team_id}/spaces | Add Space
 [**teamsSpacesDelete**](TeamsApi.md#teamsSpacesDelete) | **DELETE** /accounts/{account_id}/teams/{team_id}/spaces/{id} | Remove Space
 [**teamsUsersCreate**](TeamsApi.md#teamsUsersCreate) | **POST** /accounts/{account_id}/teams/{team_id}/users | Add User
@@ -340,7 +340,7 @@ Name | Type | Description  | Notes
 
 > teamsProjectsCreate($account_id, $team_id, $teams_projects_create_parameters, $x_phrase_app_otp)
 
-Add Project
+Add Project to Team
 
 Adds an existing project to the team.
 
@@ -404,7 +404,7 @@ void (empty response body)
 
 > teamsProjectsDelete($account_id, $team_id, $id, $x_phrase_app_otp)
 
-Remove Project
+Remove Project from Team
 
 Removes a specified project from the specified team.
 
