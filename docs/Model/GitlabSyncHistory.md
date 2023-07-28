@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**status** | **int** |  | [optional] 
+**status** | **string** |  | [optional] 
 **action** | **string** |  | [optional] 
 **errors** | **string[]** |  | [optional] 
 **date** | [**\DateTime**](\DateTime.md) |  | [optional] 

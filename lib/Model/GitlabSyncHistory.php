@@ -55,7 +55,7 @@ class GitlabSyncHistory implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'status' => 'int',
+        'status' => 'string',
         'action' => 'string',
         'errors' => 'string[]',
         'date' => '\DateTime',
@@ -229,7 +229,7 @@ class GitlabSyncHistory implements ModelInterface, ArrayAccess
     /**
      * Gets status
      *
-     * @return int|null
+     * @return string|null
      */
     public function getStatus()
     {
@@ -239,7 +239,7 @@ class GitlabSyncHistory implements ModelInterface, ArrayAccess
     /**
      * Sets status
      *
-     * @param int|null $status status
+     * @param string|null $status status
      *
      * @return $this
      */
