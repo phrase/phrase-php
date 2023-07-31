@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **status** | **string** |  | [optional] 
 **action** | **string** |  | [optional] 
-**errors** | **string[]** |  | [optional] 
+**errors** | [**\Phrase\Model\GitlabSyncHistoryErrors[]**](GitlabSyncHistoryErrors.md) |  | [optional] 
 **date** | [**\DateTime**](\DateTime.md) |  | [optional] 
 **details** | [**object**](.md) |  | [optional] 
 

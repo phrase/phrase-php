@@ -1,6 +1,6 @@
 <?php
 /**
- * GitlabSyncHistory
+ * GitlabSyncHistoryErrors
  *
  * PHP version 5
  *
@@ -31,14 +31,14 @@ use \ArrayAccess;
 use \Phrase\ObjectSerializer;
 
 /**
- * GitlabSyncHistory Class Doc Comment
+ * GitlabSyncHistoryErrors Class Doc Comment
  *
  * @category Class
  * @package  Phrase
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class GitlabSyncHistory implements ModelInterface, ArrayAccess
+class GitlabSyncHistoryErrors implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -47,7 +47,7 @@ class GitlabSyncHistory implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'gitlab_sync_history';
+    protected static $openAPIModelName = 'gitlab_sync_history_errors';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -55,11 +55,8 @@ class GitlabSyncHistory implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'status' => 'string',
-        'action' => 'string',
-        'errors' => '\Phrase\Model\GitlabSyncHistoryErrors[]',
-        'date' => '\DateTime',
-        'details' => 'object'
+        'error' => 'string',
+        'message' => 'string'
     ];
 
     /**
@@ -68,11 +65,8 @@ class GitlabSyncHistory implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'status' => null,
-        'action' => null,
-        'errors' => null,
-        'date' => 'date-time',
-        'details' => null
+        'error' => null,
+        'message' => null
     ];
 
     /**
@@ -102,11 +96,8 @@ class GitlabSyncHistory implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'status' => 'status',
-        'action' => 'action',
-        'errors' => 'errors',
-        'date' => 'date',
-        'details' => 'details'
+        'error' => 'error',
+        'message' => 'message'
     ];
 
     /**
@@ -115,11 +106,8 @@ class GitlabSyncHistory implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'status' => 'setStatus',
-        'action' => 'setAction',
-        'errors' => 'setErrors',
-        'date' => 'setDate',
-        'details' => 'setDetails'
+        'error' => 'setError',
+        'message' => 'setMessage'
     ];
 
     /**
@@ -128,11 +116,8 @@ class GitlabSyncHistory implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'status' => 'getStatus',
-        'action' => 'getAction',
-        'errors' => 'getErrors',
-        'date' => 'getDate',
-        'details' => 'getDetails'
+        'error' => 'getError',
+        'message' => 'getMessage'
     ];
 
     /**
@@ -195,11 +180,8 @@ class GitlabSyncHistory implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
-        $this->container['action'] = isset($data['action']) ? $data['action'] : null;
-        $this->container['errors'] = isset($data['errors']) ? $data['errors'] : null;
-        $this->container['date'] = isset($data['date']) ? $data['date'] : null;
-        $this->container['details'] = isset($data['details']) ? $data['details'] : null;
+        $this->container['error'] = isset($data['error']) ? $data['error'] : null;
+        $this->container['message'] = isset($data['message']) ? $data['message'] : null;
     }
 
     /**
@@ -227,121 +209,49 @@ class GitlabSyncHistory implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets status
+     * Gets error
      *
      * @return string|null
      */
-    public function getStatus()
+    public function getError()
     {
-        return $this->container['status'];
+        return $this->container['error'];
     }
 
     /**
-     * Sets status
+     * Sets error
      *
-     * @param string|null $status status
+     * @param string|null $error error
      *
      * @return $this
      */
-    public function setStatus($status)
+    public function setError($error)
     {
-        $this->container['status'] = $status;
+        $this->container['error'] = $error;
 
         return $this;
     }
 
     /**
-     * Gets action
+     * Gets message
      *
      * @return string|null
      */
-    public function getAction()
+    public function getMessage()
     {
-        return $this->container['action'];
+        return $this->container['message'];
     }
 
     /**
-     * Sets action
+     * Sets message
      *
-     * @param string|null $action action
+     * @param string|null $message message
      *
      * @return $this
      */
-    public function setAction($action)
+    public function setMessage($message)
     {
-        $this->container['action'] = $action;
-
-        return $this;
-    }
-
-    /**
-     * Gets errors
-     *
-     * @return \Phrase\Model\GitlabSyncHistoryErrors[]|null
-     */
-    public function getErrors()
-    {
-        return $this->container['errors'];
-    }
-
-    /**
-     * Sets errors
-     *
-     * @param \Phrase\Model\GitlabSyncHistoryErrors[]|null $errors errors
-     *
-     * @return $this
-     */
-    public function setErrors($errors)
-    {
-        $this->container['errors'] = $errors;
-
-        return $this;
-    }
-
-    /**
-     * Gets date
-     *
-     * @return \DateTime|null
-     */
-    public function getDate()
-    {
-        return $this->container['date'];
-    }
-
-    /**
-     * Sets date
-     *
-     * @param \DateTime|null $date date
-     *
-     * @return $this
-     */
-    public function setDate($date)
-    {
-        $this->container['date'] = $date;
-
-        return $this;
-    }
-
-    /**
-     * Gets details
-     *
-     * @return object|null
-     */
-    public function getDetails()
-    {
-        return $this->container['details'];
-    }
-
-    /**
-     * Sets details
-     *
-     * @param object|null $details details
-     *
-     * @return $this
-     */
-    public function setDetails($details)
-    {
-        $this->container['details'] = $details;
+        $this->container['message'] = $message;
 
         return $this;
     }
