@@ -169,6 +169,10 @@ Class | Method | HTTP request | Description
 *BranchesApi* | [**branchShow**](docs/Api/BranchesApi.md#branchshow) | **GET** /projects/{project_id}/branches/{name} | Get a single branch
 *BranchesApi* | [**branchUpdate**](docs/Api/BranchesApi.md#branchupdate) | **PATCH** /projects/{project_id}/branches/{name} | Update a branch
 *BranchesApi* | [**branchesList**](docs/Api/BranchesApi.md#brancheslist) | **GET** /projects/{project_id}/branches | List branches
+*CommentReactionsApi* | [**reactionCreate**](docs/Api/CommentReactionsApi.md#reactioncreate) | **POST** /projects/{project_id}/keys/{key_id}/comments/{comment_id}/reactions | Create a reaction
+*CommentReactionsApi* | [**reactionDelete**](docs/Api/CommentReactionsApi.md#reactiondelete) | **DELETE** /projects/{project_id}/keys/{key_id}/comments/{comment_id}/reactions/{id} | Delete a reaction
+*CommentReactionsApi* | [**reactionShow**](docs/Api/CommentReactionsApi.md#reactionshow) | **GET** /projects/{project_id}/keys/{key_id}/comments/{comment_id}/reactions/{id} | Get a single reaction
+*CommentReactionsApi* | [**reactionsList**](docs/Api/CommentReactionsApi.md#reactionslist) | **GET** /projects/{project_id}/keys/{key_id}/comments/{comment_id}/reactions | List reactions
 *CommentsApi* | [**commentCreate**](docs/Api/CommentsApi.md#commentcreate) | **POST** /projects/{project_id}/keys/{key_id}/comments | Create a comment
 *CommentsApi* | [**commentDelete**](docs/Api/CommentsApi.md#commentdelete) | **DELETE** /projects/{project_id}/keys/{key_id}/comments/{id} | Delete a comment
 *CommentsApi* | [**commentMarkCheck**](docs/Api/CommentsApi.md#commentmarkcheck) | **GET** /projects/{project_id}/keys/{key_id}/comments/{id}/read | Check if comment is read
@@ -412,6 +416,7 @@ Class | Method | HTTP request | Description
  - [Comment](docs/Model/Comment.md)
  - [CommentCreateParameters](docs/Model/CommentCreateParameters.md)
  - [CommentMarkReadParameters](docs/Model/CommentMarkReadParameters.md)
+ - [CommentReaction](docs/Model/CommentReaction.md)
  - [CommentUpdateParameters](docs/Model/CommentUpdateParameters.md)
  - [CurrentUser](docs/Model/CurrentUser.md)
  - [Distribution](docs/Model/Distribution.md)
