@@ -57,10 +57,12 @@ class Comment implements ModelInterface, ArrayAccess
     protected static $openAPITypes = [
         'id' => 'string',
         'message' => 'string',
+        'has_replies' => 'bool',
         'user' => '\Phrase\Model\UserPreview',
         'created_at' => '\DateTime',
         'updated_at' => '\DateTime',
-        'mentioned_users' => '\Phrase\Model\UserPreview[]'
+        'mentioned_users' => '\Phrase\Model\UserPreview[]',
+        'locales' => '\Phrase\Model\LocalePreview[]'
     ];
 
     /**
@@ -71,10 +73,12 @@ class Comment implements ModelInterface, ArrayAccess
     protected static $openAPIFormats = [
         'id' => null,
         'message' => null,
+        'has_replies' => null,
         'user' => null,
         'created_at' => 'date-time',
         'updated_at' => 'date-time',
-        'mentioned_users' => null
+        'mentioned_users' => null,
+        'locales' => null
     ];
 
     /**
@@ -106,10 +110,12 @@ class Comment implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'id' => 'id',
         'message' => 'message',
+        'has_replies' => 'has_replies',
         'user' => 'user',
         'created_at' => 'created_at',
         'updated_at' => 'updated_at',
-        'mentioned_users' => 'mentioned_users'
+        'mentioned_users' => 'mentioned_users',
+        'locales' => 'locales'
     ];
 
     /**
@@ -120,10 +126,12 @@ class Comment implements ModelInterface, ArrayAccess
     protected static $setters = [
         'id' => 'setId',
         'message' => 'setMessage',
+        'has_replies' => 'setHasReplies',
         'user' => 'setUser',
         'created_at' => 'setCreatedAt',
         'updated_at' => 'setUpdatedAt',
-        'mentioned_users' => 'setMentionedUsers'
+        'mentioned_users' => 'setMentionedUsers',
+        'locales' => 'setLocales'
     ];
 
     /**
@@ -134,10 +142,12 @@ class Comment implements ModelInterface, ArrayAccess
     protected static $getters = [
         'id' => 'getId',
         'message' => 'getMessage',
+        'has_replies' => 'getHasReplies',
         'user' => 'getUser',
         'created_at' => 'getCreatedAt',
         'updated_at' => 'getUpdatedAt',
-        'mentioned_users' => 'getMentionedUsers'
+        'mentioned_users' => 'getMentionedUsers',
+        'locales' => 'getLocales'
     ];
 
     /**
@@ -202,10 +212,12 @@ class Comment implements ModelInterface, ArrayAccess
     {
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['message'] = isset($data['message']) ? $data['message'] : null;
+        $this->container['has_replies'] = isset($data['has_replies']) ? $data['has_replies'] : null;
         $this->container['user'] = isset($data['user']) ? $data['user'] : null;
         $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
         $this->container['updated_at'] = isset($data['updated_at']) ? $data['updated_at'] : null;
         $this->container['mentioned_users'] = isset($data['mentioned_users']) ? $data['mentioned_users'] : null;
+        $this->container['locales'] = isset($data['locales']) ? $data['locales'] : null;
     }
 
     /**
@@ -276,6 +288,30 @@ class Comment implements ModelInterface, ArrayAccess
     public function setMessage($message)
     {
         $this->container['message'] = $message;
+
+        return $this;
+    }
+
+    /**
+     * Gets has_replies
+     *
+     * @return bool|null
+     */
+    public function getHasReplies()
+    {
+        return $this->container['has_replies'];
+    }
+
+    /**
+     * Sets has_replies
+     *
+     * @param bool|null $has_replies has_replies
+     *
+     * @return $this
+     */
+    public function setHasReplies($has_replies)
+    {
+        $this->container['has_replies'] = $has_replies;
 
         return $this;
     }
@@ -372,6 +408,30 @@ class Comment implements ModelInterface, ArrayAccess
     public function setMentionedUsers($mentioned_users)
     {
         $this->container['mentioned_users'] = $mentioned_users;
+
+        return $this;
+    }
+
+    /**
+     * Gets locales
+     *
+     * @return \Phrase\Model\LocalePreview[]|null
+     */
+    public function getLocales()
+    {
+        return $this->container['locales'];
+    }
+
+    /**
+     * Sets locales
+     *
+     * @param \Phrase\Model\LocalePreview[]|null $locales locales
+     *
+     * @return $this
+     */
+    public function setLocales($locales)
+    {
+        $this->container['locales'] = $locales;
 
         return $this;
     }

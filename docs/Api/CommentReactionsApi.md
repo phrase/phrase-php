@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 ## reactionCreate
 
-> \Phrase\Model\CommentReaction reactionCreate($project_id, $key_id, $comment_id, $x_phrase_app_otp, $branch)
+> \Phrase\Model\CommentReaction reactionCreate($project_id, $key_id, $comment_id, $x_phrase_app_otp, $branch, $emoji)
 
 Create a reaction
 
@@ -39,9 +39,10 @@ $key_id = 'key_id_example'; // string | Translation Key ID
 $comment_id = 'comment_id_example'; // string | Comment ID
 $x_phrase_app_otp = 'x_phrase_app_otp_example'; // string | Two-Factor-Authentication token (optional)
 $branch = my-feature-branch; // string | specify the branch to use
+$emoji = 👍; // string | specify the emoji for the reaction
 
 try {
-    $result = $apiInstance->reactionCreate($project_id, $key_id, $comment_id, $x_phrase_app_otp, $branch);
+    $result = $apiInstance->reactionCreate($project_id, $key_id, $comment_id, $x_phrase_app_otp, $branch, $emoji);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CommentReactionsApi->reactionCreate: ', $e->getMessage(), PHP_EOL;
@@ -59,6 +60,7 @@ Name | Type | Description  | Notes
  **comment_id** | **string**| Comment ID |
  **x_phrase_app_otp** | **string**| Two-Factor-Authentication token (optional) | [optional]
  **branch** | **string**| specify the branch to use | [optional]
+ **emoji** | **string**| specify the emoji for the reaction | [optional]
 
 ### Return type
 

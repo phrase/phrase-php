@@ -123,14 +123,15 @@ class CommentReactionsApi
      * @param  string $comment_id Comment ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  string $branch specify the branch to use (optional)
+     * @param  string $emoji specify the emoji for the reaction (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Phrase\Model\CommentReaction
      */
-    public function reactionCreate($project_id, $key_id, $comment_id, $x_phrase_app_otp = null, $branch = null)
+    public function reactionCreate($project_id, $key_id, $comment_id, $x_phrase_app_otp = null, $branch = null, $emoji = null)
     {
-        list($response) = $this->reactionCreateWithHttpInfo($project_id, $key_id, $comment_id, $x_phrase_app_otp, $branch);
+        list($response) = $this->reactionCreateWithHttpInfo($project_id, $key_id, $comment_id, $x_phrase_app_otp, $branch, $emoji);
         return $response;
     }
 
@@ -144,14 +145,15 @@ class CommentReactionsApi
      * @param  string $comment_id Comment ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  string $branch specify the branch to use (optional)
+     * @param  string $emoji specify the emoji for the reaction (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Phrase\Model\CommentReaction, HTTP status code, HTTP response headers (array of strings)
      */
-    public function reactionCreateWithHttpInfo($project_id, $key_id, $comment_id, $x_phrase_app_otp = null, $branch = null)
+    public function reactionCreateWithHttpInfo($project_id, $key_id, $comment_id, $x_phrase_app_otp = null, $branch = null, $emoji = null)
     {
-        $request = $this->reactionCreateRequest($project_id, $key_id, $comment_id, $x_phrase_app_otp, $branch);
+        $request = $this->reactionCreateRequest($project_id, $key_id, $comment_id, $x_phrase_app_otp, $branch, $emoji);
 
         try {
             $options = $this->createHttpClientOption();
@@ -236,13 +238,14 @@ class CommentReactionsApi
      * @param  string $comment_id Comment ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  string $branch specify the branch to use (optional)
+     * @param  string $emoji specify the emoji for the reaction (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function reactionCreateAsync($project_id, $key_id, $comment_id, $x_phrase_app_otp = null, $branch = null)
+    public function reactionCreateAsync($project_id, $key_id, $comment_id, $x_phrase_app_otp = null, $branch = null, $emoji = null)
     {
-        return $this->reactionCreateAsyncWithHttpInfo($project_id, $key_id, $comment_id, $x_phrase_app_otp, $branch)
+        return $this->reactionCreateAsyncWithHttpInfo($project_id, $key_id, $comment_id, $x_phrase_app_otp, $branch, $emoji)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -260,14 +263,15 @@ class CommentReactionsApi
      * @param  string $comment_id Comment ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  string $branch specify the branch to use (optional)
+     * @param  string $emoji specify the emoji for the reaction (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function reactionCreateAsyncWithHttpInfo($project_id, $key_id, $comment_id, $x_phrase_app_otp = null, $branch = null)
+    public function reactionCreateAsyncWithHttpInfo($project_id, $key_id, $comment_id, $x_phrase_app_otp = null, $branch = null, $emoji = null)
     {
         $returnType = '\Phrase\Model\CommentReaction';
-        $request = $this->reactionCreateRequest($project_id, $key_id, $comment_id, $x_phrase_app_otp, $branch);
+        $request = $this->reactionCreateRequest($project_id, $key_id, $comment_id, $x_phrase_app_otp, $branch, $emoji);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -311,11 +315,12 @@ class CommentReactionsApi
      * @param  string $comment_id Comment ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  string $branch specify the branch to use (optional)
+     * @param  string $emoji specify the emoji for the reaction (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function reactionCreateRequest($project_id, $key_id, $comment_id, $x_phrase_app_otp = null, $branch = null)
+    protected function reactionCreateRequest($project_id, $key_id, $comment_id, $x_phrase_app_otp = null, $branch = null, $emoji = null)
     {
         // verify the required parameter 'project_id' is set
         if ($project_id === null || (is_array($project_id) && count($project_id) === 0)) {
@@ -352,6 +357,17 @@ class CommentReactionsApi
             }
             else {
                 $queryParams['branch'] = $branch;
+            }
+        }
+        // query params
+        if ($emoji !== null) {
+            if('form' === 'form' && is_array($emoji)) {
+                foreach($emoji as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['emoji'] = $emoji;
             }
         }
 

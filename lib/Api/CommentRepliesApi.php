@@ -1,6 +1,6 @@
 <?php
 /**
- * CommentsApi
+ * CommentRepliesApi
  * PHP version 5
  *
  * @category Class
@@ -38,14 +38,14 @@ use Phrase\HeaderSelector;
 use Phrase\ObjectSerializer;
 
 /**
- * CommentsApi Class Doc Comment
+ * CommentRepliesApi Class Doc Comment
  *
  * @category Class
  * @package  Phrase
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class CommentsApi
+class CommentRepliesApi
 {
     /**
      * @var ClientInterface
@@ -114,2242 +114,13 @@ class CommentsApi
     }
 
     /**
-     * Operation commentCreate
+     * Operation repliesList
      *
-     * Create a comment
-     *
-     * @param  string $project_id Project ID (required)
-     * @param  string $key_id Translation Key ID (required)
-     * @param  \Phrase\Model\CommentCreateParameters $comment_create_parameters comment_create_parameters (required)
-     * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
-     * @param  string $message specify the message for the comment (optional)
-     * @param  string[] $locale_ids specify the locales for the comment (optional)
-     *
-     * @throws \Phrase\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \Phrase\Model\Comment
-     */
-    public function commentCreate($project_id, $key_id, $comment_create_parameters, $x_phrase_app_otp = null, $message = null, $locale_ids = null)
-    {
-        list($response) = $this->commentCreateWithHttpInfo($project_id, $key_id, $comment_create_parameters, $x_phrase_app_otp, $message, $locale_ids);
-        return $response;
-    }
-
-    /**
-     * Operation commentCreateWithHttpInfo
-     *
-     * Create a comment
+     * List replies
      *
      * @param  string $project_id Project ID (required)
      * @param  string $key_id Translation Key ID (required)
-     * @param  \Phrase\Model\CommentCreateParameters $comment_create_parameters (required)
-     * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
-     * @param  string $message specify the message for the comment (optional)
-     * @param  string[] $locale_ids specify the locales for the comment (optional)
-     *
-     * @throws \Phrase\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of \Phrase\Model\Comment, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function commentCreateWithHttpInfo($project_id, $key_id, $comment_create_parameters, $x_phrase_app_otp = null, $message = null, $locale_ids = null)
-    {
-        $request = $this->commentCreateRequest($project_id, $key_id, $comment_create_parameters, $x_phrase_app_otp, $message, $locale_ids);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
-                );
-            }
-
-            $responseBody = $response->getBody();
-            switch($statusCode) {
-                case 201:
-                    if ('\Phrase\Model\Comment' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = (string) $responseBody;
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\Phrase\Model\Comment', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-            }
-
-            $returnType = '\Phrase\Model\Comment';
-            $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = (string) $responseBody;
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 201:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Phrase\Model\Comment',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation commentCreateAsync
-     *
-     * Create a comment
-     *
-     * @param  string $project_id Project ID (required)
-     * @param  string $key_id Translation Key ID (required)
-     * @param  \Phrase\Model\CommentCreateParameters $comment_create_parameters (required)
-     * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
-     * @param  string $message specify the message for the comment (optional)
-     * @param  string[] $locale_ids specify the locales for the comment (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function commentCreateAsync($project_id, $key_id, $comment_create_parameters, $x_phrase_app_otp = null, $message = null, $locale_ids = null)
-    {
-        return $this->commentCreateAsyncWithHttpInfo($project_id, $key_id, $comment_create_parameters, $x_phrase_app_otp, $message, $locale_ids)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation commentCreateAsyncWithHttpInfo
-     *
-     * Create a comment
-     *
-     * @param  string $project_id Project ID (required)
-     * @param  string $key_id Translation Key ID (required)
-     * @param  \Phrase\Model\CommentCreateParameters $comment_create_parameters (required)
-     * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
-     * @param  string $message specify the message for the comment (optional)
-     * @param  string[] $locale_ids specify the locales for the comment (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function commentCreateAsyncWithHttpInfo($project_id, $key_id, $comment_create_parameters, $x_phrase_app_otp = null, $message = null, $locale_ids = null)
-    {
-        $returnType = '\Phrase\Model\Comment';
-        $request = $this->commentCreateRequest($project_id, $key_id, $comment_create_parameters, $x_phrase_app_otp, $message, $locale_ids);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = (string) $responseBody;
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'commentCreate'
-     *
-     * @param  string $project_id Project ID (required)
-     * @param  string $key_id Translation Key ID (required)
-     * @param  \Phrase\Model\CommentCreateParameters $comment_create_parameters (required)
-     * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
-     * @param  string $message specify the message for the comment (optional)
-     * @param  string[] $locale_ids specify the locales for the comment (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    protected function commentCreateRequest($project_id, $key_id, $comment_create_parameters, $x_phrase_app_otp = null, $message = null, $locale_ids = null)
-    {
-        // verify the required parameter 'project_id' is set
-        if ($project_id === null || (is_array($project_id) && count($project_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $project_id when calling commentCreate'
-            );
-        }
-        // verify the required parameter 'key_id' is set
-        if ($key_id === null || (is_array($key_id) && count($key_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $key_id when calling commentCreate'
-            );
-        }
-        // verify the required parameter 'comment_create_parameters' is set
-        if ($comment_create_parameters === null || (is_array($comment_create_parameters) && count($comment_create_parameters) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $comment_create_parameters when calling commentCreate'
-            );
-        }
-
-        $resourcePath = '/projects/{project_id}/keys/{key_id}/comments';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-        // query params
-        if ($message !== null) {
-            if('form' === 'form' && is_array($message)) {
-                foreach($message as $key => $value) {
-                    $queryParams[$key] = $value;
-                }
-            }
-            else {
-                $queryParams['message'] = $message;
-            }
-        }
-        // query params
-        if ($locale_ids !== null) {
-            if('form' === 'form' && is_array($locale_ids)) {
-                foreach($locale_ids as $key => $value) {
-                    $queryParams[$key] = $value;
-                }
-            }
-            else {
-                $queryParams['locale_ids'] = $locale_ids;
-            }
-        }
-
-        // header params
-        if ($x_phrase_app_otp !== null) {
-            $headerParams['X-PhraseApp-OTP'] = ObjectSerializer::toHeaderValue($x_phrase_app_otp);
-        }
-
-        // path params
-        if ($project_id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'project_id' . '}',
-                ObjectSerializer::toPathValue($project_id),
-                $resourcePath
-            );
-        }
-        // path params
-        if ($key_id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'key_id' . '}',
-                ObjectSerializer::toPathValue($key_id),
-                $resourcePath
-            );
-        }
-
-        // body params
-        $_tempBody = null;
-        if (isset($comment_create_parameters)) {
-            $_tempBody = $comment_create_parameters;
-        }
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                ['application/json']
-            );
-        }
-
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
-            } else {
-                $httpBody = $_tempBody;
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
-            }
-        }
-
-        // this endpoint requires HTTP basic authentication
-        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
-            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
-        }
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
-        if ($apiKey !== null) {
-            $headers['Authorization'] = $apiKey;
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
-        return new Request(
-            'POST',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation commentDelete
-     *
-     * Delete a comment
-     *
-     * @param  string $project_id Project ID (required)
-     * @param  string $key_id Translation Key ID (required)
-     * @param  string $id ID (required)
-     * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
-     * @param  string $branch specify the branch to use (optional)
-     *
-     * @throws \Phrase\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return void
-     */
-    public function commentDelete($project_id, $key_id, $id, $x_phrase_app_otp = null, $branch = null)
-    {
-        $this->commentDeleteWithHttpInfo($project_id, $key_id, $id, $x_phrase_app_otp, $branch);
-    }
-
-    /**
-     * Operation commentDeleteWithHttpInfo
-     *
-     * Delete a comment
-     *
-     * @param  string $project_id Project ID (required)
-     * @param  string $key_id Translation Key ID (required)
-     * @param  string $id ID (required)
-     * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
-     * @param  string $branch specify the branch to use (optional)
-     *
-     * @throws \Phrase\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of null, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function commentDeleteWithHttpInfo($project_id, $key_id, $id, $x_phrase_app_otp = null, $branch = null)
-    {
-        $request = $this->commentDeleteRequest($project_id, $key_id, $id, $x_phrase_app_otp, $branch);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
-                );
-            }
-
-            return [null, $statusCode, $response->getHeaders()];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation commentDeleteAsync
-     *
-     * Delete a comment
-     *
-     * @param  string $project_id Project ID (required)
-     * @param  string $key_id Translation Key ID (required)
-     * @param  string $id ID (required)
-     * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
-     * @param  string $branch specify the branch to use (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function commentDeleteAsync($project_id, $key_id, $id, $x_phrase_app_otp = null, $branch = null)
-    {
-        return $this->commentDeleteAsyncWithHttpInfo($project_id, $key_id, $id, $x_phrase_app_otp, $branch)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation commentDeleteAsyncWithHttpInfo
-     *
-     * Delete a comment
-     *
-     * @param  string $project_id Project ID (required)
-     * @param  string $key_id Translation Key ID (required)
-     * @param  string $id ID (required)
-     * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
-     * @param  string $branch specify the branch to use (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function commentDeleteAsyncWithHttpInfo($project_id, $key_id, $id, $x_phrase_app_otp = null, $branch = null)
-    {
-        $returnType = '';
-        $request = $this->commentDeleteRequest($project_id, $key_id, $id, $x_phrase_app_otp, $branch);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    return [null, $response->getStatusCode(), $response->getHeaders()];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'commentDelete'
-     *
-     * @param  string $project_id Project ID (required)
-     * @param  string $key_id Translation Key ID (required)
-     * @param  string $id ID (required)
-     * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
-     * @param  string $branch specify the branch to use (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    protected function commentDeleteRequest($project_id, $key_id, $id, $x_phrase_app_otp = null, $branch = null)
-    {
-        // verify the required parameter 'project_id' is set
-        if ($project_id === null || (is_array($project_id) && count($project_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $project_id when calling commentDelete'
-            );
-        }
-        // verify the required parameter 'key_id' is set
-        if ($key_id === null || (is_array($key_id) && count($key_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $key_id when calling commentDelete'
-            );
-        }
-        // verify the required parameter 'id' is set
-        if ($id === null || (is_array($id) && count($id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $id when calling commentDelete'
-            );
-        }
-
-        $resourcePath = '/projects/{project_id}/keys/{key_id}/comments/{id}';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-        // query params
-        if ($branch !== null) {
-            if('form' === 'form' && is_array($branch)) {
-                foreach($branch as $key => $value) {
-                    $queryParams[$key] = $value;
-                }
-            }
-            else {
-                $queryParams['branch'] = $branch;
-            }
-        }
-
-        // header params
-        if ($x_phrase_app_otp !== null) {
-            $headerParams['X-PhraseApp-OTP'] = ObjectSerializer::toHeaderValue($x_phrase_app_otp);
-        }
-
-        // path params
-        if ($project_id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'project_id' . '}',
-                ObjectSerializer::toPathValue($project_id),
-                $resourcePath
-            );
-        }
-        // path params
-        if ($key_id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'key_id' . '}',
-                ObjectSerializer::toPathValue($key_id),
-                $resourcePath
-            );
-        }
-        // path params
-        if ($id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'id' . '}',
-                ObjectSerializer::toPathValue($id),
-                $resourcePath
-            );
-        }
-
-        // body params
-        $_tempBody = null;
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                []
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                [],
-                []
-            );
-        }
-
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
-            } else {
-                $httpBody = $_tempBody;
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
-            }
-        }
-
-        // this endpoint requires HTTP basic authentication
-        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
-            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
-        }
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
-        if ($apiKey !== null) {
-            $headers['Authorization'] = $apiKey;
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
-        return new Request(
-            'DELETE',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation commentMarkCheck
-     *
-     * Check if comment is read
-     *
-     * @param  string $project_id Project ID (required)
-     * @param  string $key_id Translation Key ID (required)
-     * @param  string $id ID (required)
-     * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
-     * @param  string $branch specify the branch to use (optional)
-     *
-     * @throws \Phrase\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return void
-     */
-    public function commentMarkCheck($project_id, $key_id, $id, $x_phrase_app_otp = null, $branch = null)
-    {
-        $this->commentMarkCheckWithHttpInfo($project_id, $key_id, $id, $x_phrase_app_otp, $branch);
-    }
-
-    /**
-     * Operation commentMarkCheckWithHttpInfo
-     *
-     * Check if comment is read
-     *
-     * @param  string $project_id Project ID (required)
-     * @param  string $key_id Translation Key ID (required)
-     * @param  string $id ID (required)
-     * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
-     * @param  string $branch specify the branch to use (optional)
-     *
-     * @throws \Phrase\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of null, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function commentMarkCheckWithHttpInfo($project_id, $key_id, $id, $x_phrase_app_otp = null, $branch = null)
-    {
-        $request = $this->commentMarkCheckRequest($project_id, $key_id, $id, $x_phrase_app_otp, $branch);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
-                );
-            }
-
-            return [null, $statusCode, $response->getHeaders()];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation commentMarkCheckAsync
-     *
-     * Check if comment is read
-     *
-     * @param  string $project_id Project ID (required)
-     * @param  string $key_id Translation Key ID (required)
-     * @param  string $id ID (required)
-     * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
-     * @param  string $branch specify the branch to use (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function commentMarkCheckAsync($project_id, $key_id, $id, $x_phrase_app_otp = null, $branch = null)
-    {
-        return $this->commentMarkCheckAsyncWithHttpInfo($project_id, $key_id, $id, $x_phrase_app_otp, $branch)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation commentMarkCheckAsyncWithHttpInfo
-     *
-     * Check if comment is read
-     *
-     * @param  string $project_id Project ID (required)
-     * @param  string $key_id Translation Key ID (required)
-     * @param  string $id ID (required)
-     * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
-     * @param  string $branch specify the branch to use (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function commentMarkCheckAsyncWithHttpInfo($project_id, $key_id, $id, $x_phrase_app_otp = null, $branch = null)
-    {
-        $returnType = '';
-        $request = $this->commentMarkCheckRequest($project_id, $key_id, $id, $x_phrase_app_otp, $branch);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    return [null, $response->getStatusCode(), $response->getHeaders()];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'commentMarkCheck'
-     *
-     * @param  string $project_id Project ID (required)
-     * @param  string $key_id Translation Key ID (required)
-     * @param  string $id ID (required)
-     * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
-     * @param  string $branch specify the branch to use (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    protected function commentMarkCheckRequest($project_id, $key_id, $id, $x_phrase_app_otp = null, $branch = null)
-    {
-        // verify the required parameter 'project_id' is set
-        if ($project_id === null || (is_array($project_id) && count($project_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $project_id when calling commentMarkCheck'
-            );
-        }
-        // verify the required parameter 'key_id' is set
-        if ($key_id === null || (is_array($key_id) && count($key_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $key_id when calling commentMarkCheck'
-            );
-        }
-        // verify the required parameter 'id' is set
-        if ($id === null || (is_array($id) && count($id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $id when calling commentMarkCheck'
-            );
-        }
-
-        $resourcePath = '/projects/{project_id}/keys/{key_id}/comments/{id}/read';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-        // query params
-        if ($branch !== null) {
-            if('form' === 'form' && is_array($branch)) {
-                foreach($branch as $key => $value) {
-                    $queryParams[$key] = $value;
-                }
-            }
-            else {
-                $queryParams['branch'] = $branch;
-            }
-        }
-
-        // header params
-        if ($x_phrase_app_otp !== null) {
-            $headerParams['X-PhraseApp-OTP'] = ObjectSerializer::toHeaderValue($x_phrase_app_otp);
-        }
-
-        // path params
-        if ($project_id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'project_id' . '}',
-                ObjectSerializer::toPathValue($project_id),
-                $resourcePath
-            );
-        }
-        // path params
-        if ($key_id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'key_id' . '}',
-                ObjectSerializer::toPathValue($key_id),
-                $resourcePath
-            );
-        }
-        // path params
-        if ($id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'id' . '}',
-                ObjectSerializer::toPathValue($id),
-                $resourcePath
-            );
-        }
-
-        // body params
-        $_tempBody = null;
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                []
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                [],
-                []
-            );
-        }
-
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
-            } else {
-                $httpBody = $_tempBody;
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
-            }
-        }
-
-        // this endpoint requires HTTP basic authentication
-        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
-            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
-        }
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
-        if ($apiKey !== null) {
-            $headers['Authorization'] = $apiKey;
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
-        return new Request(
-            'GET',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation commentMarkRead
-     *
-     * Mark a comment as read
-     *
-     * @param  string $project_id Project ID (required)
-     * @param  string $key_id Translation Key ID (required)
-     * @param  string $id ID (required)
-     * @param  \Phrase\Model\CommentMarkReadParameters $comment_mark_read_parameters comment_mark_read_parameters (required)
-     * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
-     *
-     * @throws \Phrase\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return void
-     */
-    public function commentMarkRead($project_id, $key_id, $id, $comment_mark_read_parameters, $x_phrase_app_otp = null)
-    {
-        $this->commentMarkReadWithHttpInfo($project_id, $key_id, $id, $comment_mark_read_parameters, $x_phrase_app_otp);
-    }
-
-    /**
-     * Operation commentMarkReadWithHttpInfo
-     *
-     * Mark a comment as read
-     *
-     * @param  string $project_id Project ID (required)
-     * @param  string $key_id Translation Key ID (required)
-     * @param  string $id ID (required)
-     * @param  \Phrase\Model\CommentMarkReadParameters $comment_mark_read_parameters (required)
-     * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
-     *
-     * @throws \Phrase\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of null, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function commentMarkReadWithHttpInfo($project_id, $key_id, $id, $comment_mark_read_parameters, $x_phrase_app_otp = null)
-    {
-        $request = $this->commentMarkReadRequest($project_id, $key_id, $id, $comment_mark_read_parameters, $x_phrase_app_otp);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
-                );
-            }
-
-            return [null, $statusCode, $response->getHeaders()];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation commentMarkReadAsync
-     *
-     * Mark a comment as read
-     *
-     * @param  string $project_id Project ID (required)
-     * @param  string $key_id Translation Key ID (required)
-     * @param  string $id ID (required)
-     * @param  \Phrase\Model\CommentMarkReadParameters $comment_mark_read_parameters (required)
-     * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function commentMarkReadAsync($project_id, $key_id, $id, $comment_mark_read_parameters, $x_phrase_app_otp = null)
-    {
-        return $this->commentMarkReadAsyncWithHttpInfo($project_id, $key_id, $id, $comment_mark_read_parameters, $x_phrase_app_otp)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation commentMarkReadAsyncWithHttpInfo
-     *
-     * Mark a comment as read
-     *
-     * @param  string $project_id Project ID (required)
-     * @param  string $key_id Translation Key ID (required)
-     * @param  string $id ID (required)
-     * @param  \Phrase\Model\CommentMarkReadParameters $comment_mark_read_parameters (required)
-     * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function commentMarkReadAsyncWithHttpInfo($project_id, $key_id, $id, $comment_mark_read_parameters, $x_phrase_app_otp = null)
-    {
-        $returnType = '';
-        $request = $this->commentMarkReadRequest($project_id, $key_id, $id, $comment_mark_read_parameters, $x_phrase_app_otp);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    return [null, $response->getStatusCode(), $response->getHeaders()];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'commentMarkRead'
-     *
-     * @param  string $project_id Project ID (required)
-     * @param  string $key_id Translation Key ID (required)
-     * @param  string $id ID (required)
-     * @param  \Phrase\Model\CommentMarkReadParameters $comment_mark_read_parameters (required)
-     * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    protected function commentMarkReadRequest($project_id, $key_id, $id, $comment_mark_read_parameters, $x_phrase_app_otp = null)
-    {
-        // verify the required parameter 'project_id' is set
-        if ($project_id === null || (is_array($project_id) && count($project_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $project_id when calling commentMarkRead'
-            );
-        }
-        // verify the required parameter 'key_id' is set
-        if ($key_id === null || (is_array($key_id) && count($key_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $key_id when calling commentMarkRead'
-            );
-        }
-        // verify the required parameter 'id' is set
-        if ($id === null || (is_array($id) && count($id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $id when calling commentMarkRead'
-            );
-        }
-        // verify the required parameter 'comment_mark_read_parameters' is set
-        if ($comment_mark_read_parameters === null || (is_array($comment_mark_read_parameters) && count($comment_mark_read_parameters) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $comment_mark_read_parameters when calling commentMarkRead'
-            );
-        }
-
-        $resourcePath = '/projects/{project_id}/keys/{key_id}/comments/{id}/read';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-        // header params
-        if ($x_phrase_app_otp !== null) {
-            $headerParams['X-PhraseApp-OTP'] = ObjectSerializer::toHeaderValue($x_phrase_app_otp);
-        }
-
-        // path params
-        if ($project_id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'project_id' . '}',
-                ObjectSerializer::toPathValue($project_id),
-                $resourcePath
-            );
-        }
-        // path params
-        if ($key_id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'key_id' . '}',
-                ObjectSerializer::toPathValue($key_id),
-                $resourcePath
-            );
-        }
-        // path params
-        if ($id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'id' . '}',
-                ObjectSerializer::toPathValue($id),
-                $resourcePath
-            );
-        }
-
-        // body params
-        $_tempBody = null;
-        if (isset($comment_mark_read_parameters)) {
-            $_tempBody = $comment_mark_read_parameters;
-        }
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                []
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                [],
-                ['application/json']
-            );
-        }
-
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
-            } else {
-                $httpBody = $_tempBody;
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
-            }
-        }
-
-        // this endpoint requires HTTP basic authentication
-        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
-            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
-        }
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
-        if ($apiKey !== null) {
-            $headers['Authorization'] = $apiKey;
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
-        return new Request(
-            'PATCH',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation commentMarkUnread
-     *
-     * Mark a comment as unread
-     *
-     * @param  string $project_id Project ID (required)
-     * @param  string $key_id Translation Key ID (required)
-     * @param  string $id ID (required)
-     * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
-     * @param  string $branch specify the branch to use (optional)
-     *
-     * @throws \Phrase\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return void
-     */
-    public function commentMarkUnread($project_id, $key_id, $id, $x_phrase_app_otp = null, $branch = null)
-    {
-        $this->commentMarkUnreadWithHttpInfo($project_id, $key_id, $id, $x_phrase_app_otp, $branch);
-    }
-
-    /**
-     * Operation commentMarkUnreadWithHttpInfo
-     *
-     * Mark a comment as unread
-     *
-     * @param  string $project_id Project ID (required)
-     * @param  string $key_id Translation Key ID (required)
-     * @param  string $id ID (required)
-     * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
-     * @param  string $branch specify the branch to use (optional)
-     *
-     * @throws \Phrase\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of null, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function commentMarkUnreadWithHttpInfo($project_id, $key_id, $id, $x_phrase_app_otp = null, $branch = null)
-    {
-        $request = $this->commentMarkUnreadRequest($project_id, $key_id, $id, $x_phrase_app_otp, $branch);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
-                );
-            }
-
-            return [null, $statusCode, $response->getHeaders()];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation commentMarkUnreadAsync
-     *
-     * Mark a comment as unread
-     *
-     * @param  string $project_id Project ID (required)
-     * @param  string $key_id Translation Key ID (required)
-     * @param  string $id ID (required)
-     * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
-     * @param  string $branch specify the branch to use (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function commentMarkUnreadAsync($project_id, $key_id, $id, $x_phrase_app_otp = null, $branch = null)
-    {
-        return $this->commentMarkUnreadAsyncWithHttpInfo($project_id, $key_id, $id, $x_phrase_app_otp, $branch)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation commentMarkUnreadAsyncWithHttpInfo
-     *
-     * Mark a comment as unread
-     *
-     * @param  string $project_id Project ID (required)
-     * @param  string $key_id Translation Key ID (required)
-     * @param  string $id ID (required)
-     * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
-     * @param  string $branch specify the branch to use (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function commentMarkUnreadAsyncWithHttpInfo($project_id, $key_id, $id, $x_phrase_app_otp = null, $branch = null)
-    {
-        $returnType = '';
-        $request = $this->commentMarkUnreadRequest($project_id, $key_id, $id, $x_phrase_app_otp, $branch);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    return [null, $response->getStatusCode(), $response->getHeaders()];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'commentMarkUnread'
-     *
-     * @param  string $project_id Project ID (required)
-     * @param  string $key_id Translation Key ID (required)
-     * @param  string $id ID (required)
-     * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
-     * @param  string $branch specify the branch to use (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    protected function commentMarkUnreadRequest($project_id, $key_id, $id, $x_phrase_app_otp = null, $branch = null)
-    {
-        // verify the required parameter 'project_id' is set
-        if ($project_id === null || (is_array($project_id) && count($project_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $project_id when calling commentMarkUnread'
-            );
-        }
-        // verify the required parameter 'key_id' is set
-        if ($key_id === null || (is_array($key_id) && count($key_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $key_id when calling commentMarkUnread'
-            );
-        }
-        // verify the required parameter 'id' is set
-        if ($id === null || (is_array($id) && count($id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $id when calling commentMarkUnread'
-            );
-        }
-
-        $resourcePath = '/projects/{project_id}/keys/{key_id}/comments/{id}/read';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-        // query params
-        if ($branch !== null) {
-            if('form' === 'form' && is_array($branch)) {
-                foreach($branch as $key => $value) {
-                    $queryParams[$key] = $value;
-                }
-            }
-            else {
-                $queryParams['branch'] = $branch;
-            }
-        }
-
-        // header params
-        if ($x_phrase_app_otp !== null) {
-            $headerParams['X-PhraseApp-OTP'] = ObjectSerializer::toHeaderValue($x_phrase_app_otp);
-        }
-
-        // path params
-        if ($project_id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'project_id' . '}',
-                ObjectSerializer::toPathValue($project_id),
-                $resourcePath
-            );
-        }
-        // path params
-        if ($key_id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'key_id' . '}',
-                ObjectSerializer::toPathValue($key_id),
-                $resourcePath
-            );
-        }
-        // path params
-        if ($id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'id' . '}',
-                ObjectSerializer::toPathValue($id),
-                $resourcePath
-            );
-        }
-
-        // body params
-        $_tempBody = null;
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                []
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                [],
-                []
-            );
-        }
-
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
-            } else {
-                $httpBody = $_tempBody;
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
-            }
-        }
-
-        // this endpoint requires HTTP basic authentication
-        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
-            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
-        }
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
-        if ($apiKey !== null) {
-            $headers['Authorization'] = $apiKey;
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
-        return new Request(
-            'DELETE',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation commentShow
-     *
-     * Get a single comment
-     *
-     * @param  string $project_id Project ID (required)
-     * @param  string $key_id Translation Key ID (required)
-     * @param  string $id ID (required)
-     * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
-     * @param  string $branch specify the branch to use (optional)
-     *
-     * @throws \Phrase\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \Phrase\Model\Comment
-     */
-    public function commentShow($project_id, $key_id, $id, $x_phrase_app_otp = null, $branch = null)
-    {
-        list($response) = $this->commentShowWithHttpInfo($project_id, $key_id, $id, $x_phrase_app_otp, $branch);
-        return $response;
-    }
-
-    /**
-     * Operation commentShowWithHttpInfo
-     *
-     * Get a single comment
-     *
-     * @param  string $project_id Project ID (required)
-     * @param  string $key_id Translation Key ID (required)
-     * @param  string $id ID (required)
-     * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
-     * @param  string $branch specify the branch to use (optional)
-     *
-     * @throws \Phrase\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of \Phrase\Model\Comment, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function commentShowWithHttpInfo($project_id, $key_id, $id, $x_phrase_app_otp = null, $branch = null)
-    {
-        $request = $this->commentShowRequest($project_id, $key_id, $id, $x_phrase_app_otp, $branch);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
-                );
-            }
-
-            $responseBody = $response->getBody();
-            switch($statusCode) {
-                case 200:
-                    if ('\Phrase\Model\Comment' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = (string) $responseBody;
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\Phrase\Model\Comment', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-            }
-
-            $returnType = '\Phrase\Model\Comment';
-            $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = (string) $responseBody;
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Phrase\Model\Comment',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation commentShowAsync
-     *
-     * Get a single comment
-     *
-     * @param  string $project_id Project ID (required)
-     * @param  string $key_id Translation Key ID (required)
-     * @param  string $id ID (required)
-     * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
-     * @param  string $branch specify the branch to use (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function commentShowAsync($project_id, $key_id, $id, $x_phrase_app_otp = null, $branch = null)
-    {
-        return $this->commentShowAsyncWithHttpInfo($project_id, $key_id, $id, $x_phrase_app_otp, $branch)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation commentShowAsyncWithHttpInfo
-     *
-     * Get a single comment
-     *
-     * @param  string $project_id Project ID (required)
-     * @param  string $key_id Translation Key ID (required)
-     * @param  string $id ID (required)
-     * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
-     * @param  string $branch specify the branch to use (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function commentShowAsyncWithHttpInfo($project_id, $key_id, $id, $x_phrase_app_otp = null, $branch = null)
-    {
-        $returnType = '\Phrase\Model\Comment';
-        $request = $this->commentShowRequest($project_id, $key_id, $id, $x_phrase_app_otp, $branch);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = (string) $responseBody;
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'commentShow'
-     *
-     * @param  string $project_id Project ID (required)
-     * @param  string $key_id Translation Key ID (required)
-     * @param  string $id ID (required)
-     * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
-     * @param  string $branch specify the branch to use (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    protected function commentShowRequest($project_id, $key_id, $id, $x_phrase_app_otp = null, $branch = null)
-    {
-        // verify the required parameter 'project_id' is set
-        if ($project_id === null || (is_array($project_id) && count($project_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $project_id when calling commentShow'
-            );
-        }
-        // verify the required parameter 'key_id' is set
-        if ($key_id === null || (is_array($key_id) && count($key_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $key_id when calling commentShow'
-            );
-        }
-        // verify the required parameter 'id' is set
-        if ($id === null || (is_array($id) && count($id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $id when calling commentShow'
-            );
-        }
-
-        $resourcePath = '/projects/{project_id}/keys/{key_id}/comments/{id}';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-        // query params
-        if ($branch !== null) {
-            if('form' === 'form' && is_array($branch)) {
-                foreach($branch as $key => $value) {
-                    $queryParams[$key] = $value;
-                }
-            }
-            else {
-                $queryParams['branch'] = $branch;
-            }
-        }
-
-        // header params
-        if ($x_phrase_app_otp !== null) {
-            $headerParams['X-PhraseApp-OTP'] = ObjectSerializer::toHeaderValue($x_phrase_app_otp);
-        }
-
-        // path params
-        if ($project_id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'project_id' . '}',
-                ObjectSerializer::toPathValue($project_id),
-                $resourcePath
-            );
-        }
-        // path params
-        if ($key_id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'key_id' . '}',
-                ObjectSerializer::toPathValue($key_id),
-                $resourcePath
-            );
-        }
-        // path params
-        if ($id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'id' . '}',
-                ObjectSerializer::toPathValue($id),
-                $resourcePath
-            );
-        }
-
-        // body params
-        $_tempBody = null;
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                []
-            );
-        }
-
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
-            } else {
-                $httpBody = $_tempBody;
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
-            }
-        }
-
-        // this endpoint requires HTTP basic authentication
-        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
-            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
-        }
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
-        if ($apiKey !== null) {
-            $headers['Authorization'] = $apiKey;
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
-        return new Request(
-            'GET',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation commentUpdate
-     *
-     * Update a comment
-     *
-     * @param  string $project_id Project ID (required)
-     * @param  string $key_id Translation Key ID (required)
-     * @param  string $id ID (required)
-     * @param  \Phrase\Model\CommentUpdateParameters $comment_update_parameters comment_update_parameters (required)
-     * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
-     *
-     * @throws \Phrase\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \Phrase\Model\Comment
-     */
-    public function commentUpdate($project_id, $key_id, $id, $comment_update_parameters, $x_phrase_app_otp = null)
-    {
-        list($response) = $this->commentUpdateWithHttpInfo($project_id, $key_id, $id, $comment_update_parameters, $x_phrase_app_otp);
-        return $response;
-    }
-
-    /**
-     * Operation commentUpdateWithHttpInfo
-     *
-     * Update a comment
-     *
-     * @param  string $project_id Project ID (required)
-     * @param  string $key_id Translation Key ID (required)
-     * @param  string $id ID (required)
-     * @param  \Phrase\Model\CommentUpdateParameters $comment_update_parameters (required)
-     * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
-     *
-     * @throws \Phrase\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of \Phrase\Model\Comment, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function commentUpdateWithHttpInfo($project_id, $key_id, $id, $comment_update_parameters, $x_phrase_app_otp = null)
-    {
-        $request = $this->commentUpdateRequest($project_id, $key_id, $id, $comment_update_parameters, $x_phrase_app_otp);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
-                );
-            }
-
-            $responseBody = $response->getBody();
-            switch($statusCode) {
-                case 200:
-                    if ('\Phrase\Model\Comment' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = (string) $responseBody;
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\Phrase\Model\Comment', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-            }
-
-            $returnType = '\Phrase\Model\Comment';
-            $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = (string) $responseBody;
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Phrase\Model\Comment',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation commentUpdateAsync
-     *
-     * Update a comment
-     *
-     * @param  string $project_id Project ID (required)
-     * @param  string $key_id Translation Key ID (required)
-     * @param  string $id ID (required)
-     * @param  \Phrase\Model\CommentUpdateParameters $comment_update_parameters (required)
-     * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function commentUpdateAsync($project_id, $key_id, $id, $comment_update_parameters, $x_phrase_app_otp = null)
-    {
-        return $this->commentUpdateAsyncWithHttpInfo($project_id, $key_id, $id, $comment_update_parameters, $x_phrase_app_otp)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation commentUpdateAsyncWithHttpInfo
-     *
-     * Update a comment
-     *
-     * @param  string $project_id Project ID (required)
-     * @param  string $key_id Translation Key ID (required)
-     * @param  string $id ID (required)
-     * @param  \Phrase\Model\CommentUpdateParameters $comment_update_parameters (required)
-     * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function commentUpdateAsyncWithHttpInfo($project_id, $key_id, $id, $comment_update_parameters, $x_phrase_app_otp = null)
-    {
-        $returnType = '\Phrase\Model\Comment';
-        $request = $this->commentUpdateRequest($project_id, $key_id, $id, $comment_update_parameters, $x_phrase_app_otp);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = (string) $responseBody;
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'commentUpdate'
-     *
-     * @param  string $project_id Project ID (required)
-     * @param  string $key_id Translation Key ID (required)
-     * @param  string $id ID (required)
-     * @param  \Phrase\Model\CommentUpdateParameters $comment_update_parameters (required)
-     * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    protected function commentUpdateRequest($project_id, $key_id, $id, $comment_update_parameters, $x_phrase_app_otp = null)
-    {
-        // verify the required parameter 'project_id' is set
-        if ($project_id === null || (is_array($project_id) && count($project_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $project_id when calling commentUpdate'
-            );
-        }
-        // verify the required parameter 'key_id' is set
-        if ($key_id === null || (is_array($key_id) && count($key_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $key_id when calling commentUpdate'
-            );
-        }
-        // verify the required parameter 'id' is set
-        if ($id === null || (is_array($id) && count($id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $id when calling commentUpdate'
-            );
-        }
-        // verify the required parameter 'comment_update_parameters' is set
-        if ($comment_update_parameters === null || (is_array($comment_update_parameters) && count($comment_update_parameters) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $comment_update_parameters when calling commentUpdate'
-            );
-        }
-
-        $resourcePath = '/projects/{project_id}/keys/{key_id}/comments/{id}';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-        // header params
-        if ($x_phrase_app_otp !== null) {
-            $headerParams['X-PhraseApp-OTP'] = ObjectSerializer::toHeaderValue($x_phrase_app_otp);
-        }
-
-        // path params
-        if ($project_id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'project_id' . '}',
-                ObjectSerializer::toPathValue($project_id),
-                $resourcePath
-            );
-        }
-        // path params
-        if ($key_id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'key_id' . '}',
-                ObjectSerializer::toPathValue($key_id),
-                $resourcePath
-            );
-        }
-        // path params
-        if ($id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'id' . '}',
-                ObjectSerializer::toPathValue($id),
-                $resourcePath
-            );
-        }
-
-        // body params
-        $_tempBody = null;
-        if (isset($comment_update_parameters)) {
-            $_tempBody = $comment_update_parameters;
-        }
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                ['application/json']
-            );
-        }
-
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
-            } else {
-                $httpBody = $_tempBody;
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
-            }
-        }
-
-        // this endpoint requires HTTP basic authentication
-        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
-            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
-        }
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
-        if ($apiKey !== null) {
-            $headers['Authorization'] = $apiKey;
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
-        return new Request(
-            'PATCH',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation commentsList
-     *
-     * List comments
-     *
-     * @param  string $project_id Project ID (required)
-     * @param  string $key_id Translation Key ID (required)
+     * @param  string $comment_id Comment ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  int $page Page number (optional)
      * @param  int $per_page Limit on the number of objects to be returned, between 1 and 100. 25 by default (optional)
@@ -2359,19 +130,20 @@ class CommentsApi
      * @throws \InvalidArgumentException
      * @return \Phrase\Model\Comment[]
      */
-    public function commentsList($project_id, $key_id, $x_phrase_app_otp = null, $page = null, $per_page = null, $branch = null)
+    public function repliesList($project_id, $key_id, $comment_id, $x_phrase_app_otp = null, $page = null, $per_page = null, $branch = null)
     {
-        list($response) = $this->commentsListWithHttpInfo($project_id, $key_id, $x_phrase_app_otp, $page, $per_page, $branch);
+        list($response) = $this->repliesListWithHttpInfo($project_id, $key_id, $comment_id, $x_phrase_app_otp, $page, $per_page, $branch);
         return $response;
     }
 
     /**
-     * Operation commentsListWithHttpInfo
+     * Operation repliesListWithHttpInfo
      *
-     * List comments
+     * List replies
      *
      * @param  string $project_id Project ID (required)
      * @param  string $key_id Translation Key ID (required)
+     * @param  string $comment_id Comment ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  int $page Page number (optional)
      * @param  int $per_page Limit on the number of objects to be returned, between 1 and 100. 25 by default (optional)
@@ -2381,9 +153,9 @@ class CommentsApi
      * @throws \InvalidArgumentException
      * @return array of \Phrase\Model\Comment[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function commentsListWithHttpInfo($project_id, $key_id, $x_phrase_app_otp = null, $page = null, $per_page = null, $branch = null)
+    public function repliesListWithHttpInfo($project_id, $key_id, $comment_id, $x_phrase_app_otp = null, $page = null, $per_page = null, $branch = null)
     {
-        $request = $this->commentsListRequest($project_id, $key_id, $x_phrase_app_otp, $page, $per_page, $branch);
+        $request = $this->repliesListRequest($project_id, $key_id, $comment_id, $x_phrase_app_otp, $page, $per_page, $branch);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2459,12 +231,13 @@ class CommentsApi
     }
 
     /**
-     * Operation commentsListAsync
+     * Operation repliesListAsync
      *
-     * List comments
+     * List replies
      *
      * @param  string $project_id Project ID (required)
      * @param  string $key_id Translation Key ID (required)
+     * @param  string $comment_id Comment ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  int $page Page number (optional)
      * @param  int $per_page Limit on the number of objects to be returned, between 1 and 100. 25 by default (optional)
@@ -2473,9 +246,9 @@ class CommentsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function commentsListAsync($project_id, $key_id, $x_phrase_app_otp = null, $page = null, $per_page = null, $branch = null)
+    public function repliesListAsync($project_id, $key_id, $comment_id, $x_phrase_app_otp = null, $page = null, $per_page = null, $branch = null)
     {
-        return $this->commentsListAsyncWithHttpInfo($project_id, $key_id, $x_phrase_app_otp, $page, $per_page, $branch)
+        return $this->repliesListAsyncWithHttpInfo($project_id, $key_id, $comment_id, $x_phrase_app_otp, $page, $per_page, $branch)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2484,12 +257,13 @@ class CommentsApi
     }
 
     /**
-     * Operation commentsListAsyncWithHttpInfo
+     * Operation repliesListAsyncWithHttpInfo
      *
-     * List comments
+     * List replies
      *
      * @param  string $project_id Project ID (required)
      * @param  string $key_id Translation Key ID (required)
+     * @param  string $comment_id Comment ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  int $page Page number (optional)
      * @param  int $per_page Limit on the number of objects to be returned, between 1 and 100. 25 by default (optional)
@@ -2498,10 +272,10 @@ class CommentsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function commentsListAsyncWithHttpInfo($project_id, $key_id, $x_phrase_app_otp = null, $page = null, $per_page = null, $branch = null)
+    public function repliesListAsyncWithHttpInfo($project_id, $key_id, $comment_id, $x_phrase_app_otp = null, $page = null, $per_page = null, $branch = null)
     {
         $returnType = '\Phrase\Model\Comment[]';
-        $request = $this->commentsListRequest($project_id, $key_id, $x_phrase_app_otp, $page, $per_page, $branch);
+        $request = $this->repliesListRequest($project_id, $key_id, $comment_id, $x_phrase_app_otp, $page, $per_page, $branch);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2538,10 +312,11 @@ class CommentsApi
     }
 
     /**
-     * Create request for operation 'commentsList'
+     * Create request for operation 'repliesList'
      *
      * @param  string $project_id Project ID (required)
      * @param  string $key_id Translation Key ID (required)
+     * @param  string $comment_id Comment ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  int $page Page number (optional)
      * @param  int $per_page Limit on the number of objects to be returned, between 1 and 100. 25 by default (optional)
@@ -2550,22 +325,28 @@ class CommentsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function commentsListRequest($project_id, $key_id, $x_phrase_app_otp = null, $page = null, $per_page = null, $branch = null)
+    protected function repliesListRequest($project_id, $key_id, $comment_id, $x_phrase_app_otp = null, $page = null, $per_page = null, $branch = null)
     {
         // verify the required parameter 'project_id' is set
         if ($project_id === null || (is_array($project_id) && count($project_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $project_id when calling commentsList'
+                'Missing the required parameter $project_id when calling repliesList'
             );
         }
         // verify the required parameter 'key_id' is set
         if ($key_id === null || (is_array($key_id) && count($key_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $key_id when calling commentsList'
+                'Missing the required parameter $key_id when calling repliesList'
+            );
+        }
+        // verify the required parameter 'comment_id' is set
+        if ($comment_id === null || (is_array($comment_id) && count($comment_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $comment_id when calling repliesList'
             );
         }
 
-        $resourcePath = '/projects/{project_id}/keys/{key_id}/comments';
+        $resourcePath = '/projects/{project_id}/keys/{key_id}/comments/{comment_id}/replies';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2624,6 +405,1687 @@ class CommentsApi
             $resourcePath = str_replace(
                 '{' . 'key_id' . '}',
                 ObjectSerializer::toPathValue($key_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($comment_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'comment_id' . '}',
+                ObjectSerializer::toPathValue($comment_id),
+                $resourcePath
+            );
+        }
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
+            }
+        }
+
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation replyCreate
+     *
+     * Create a reply
+     *
+     * @param  string $project_id Project ID (required)
+     * @param  string $key_id Translation Key ID (required)
+     * @param  string $comment_id Comment ID (required)
+     * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
+     * @param  string $branch specify the branch to use (optional)
+     * @param  string $message specify the message for the comment (optional)
+     *
+     * @throws \Phrase\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \Phrase\Model\Comment
+     */
+    public function replyCreate($project_id, $key_id, $comment_id, $x_phrase_app_otp = null, $branch = null, $message = null)
+    {
+        list($response) = $this->replyCreateWithHttpInfo($project_id, $key_id, $comment_id, $x_phrase_app_otp, $branch, $message);
+        return $response;
+    }
+
+    /**
+     * Operation replyCreateWithHttpInfo
+     *
+     * Create a reply
+     *
+     * @param  string $project_id Project ID (required)
+     * @param  string $key_id Translation Key ID (required)
+     * @param  string $comment_id Comment ID (required)
+     * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
+     * @param  string $branch specify the branch to use (optional)
+     * @param  string $message specify the message for the comment (optional)
+     *
+     * @throws \Phrase\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \Phrase\Model\Comment, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function replyCreateWithHttpInfo($project_id, $key_id, $comment_id, $x_phrase_app_otp = null, $branch = null, $message = null)
+    {
+        $request = $this->replyCreateRequest($project_id, $key_id, $comment_id, $x_phrase_app_otp, $branch, $message);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            switch($statusCode) {
+                case 201:
+                    if ('\Phrase\Model\Comment' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Phrase\Model\Comment', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\Phrase\Model\Comment';
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = (string) $responseBody;
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 201:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Phrase\Model\Comment',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation replyCreateAsync
+     *
+     * Create a reply
+     *
+     * @param  string $project_id Project ID (required)
+     * @param  string $key_id Translation Key ID (required)
+     * @param  string $comment_id Comment ID (required)
+     * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
+     * @param  string $branch specify the branch to use (optional)
+     * @param  string $message specify the message for the comment (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function replyCreateAsync($project_id, $key_id, $comment_id, $x_phrase_app_otp = null, $branch = null, $message = null)
+    {
+        return $this->replyCreateAsyncWithHttpInfo($project_id, $key_id, $comment_id, $x_phrase_app_otp, $branch, $message)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation replyCreateAsyncWithHttpInfo
+     *
+     * Create a reply
+     *
+     * @param  string $project_id Project ID (required)
+     * @param  string $key_id Translation Key ID (required)
+     * @param  string $comment_id Comment ID (required)
+     * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
+     * @param  string $branch specify the branch to use (optional)
+     * @param  string $message specify the message for the comment (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function replyCreateAsyncWithHttpInfo($project_id, $key_id, $comment_id, $x_phrase_app_otp = null, $branch = null, $message = null)
+    {
+        $returnType = '\Phrase\Model\Comment';
+        $request = $this->replyCreateRequest($project_id, $key_id, $comment_id, $x_phrase_app_otp, $branch, $message);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'replyCreate'
+     *
+     * @param  string $project_id Project ID (required)
+     * @param  string $key_id Translation Key ID (required)
+     * @param  string $comment_id Comment ID (required)
+     * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
+     * @param  string $branch specify the branch to use (optional)
+     * @param  string $message specify the message for the comment (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function replyCreateRequest($project_id, $key_id, $comment_id, $x_phrase_app_otp = null, $branch = null, $message = null)
+    {
+        // verify the required parameter 'project_id' is set
+        if ($project_id === null || (is_array($project_id) && count($project_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $project_id when calling replyCreate'
+            );
+        }
+        // verify the required parameter 'key_id' is set
+        if ($key_id === null || (is_array($key_id) && count($key_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $key_id when calling replyCreate'
+            );
+        }
+        // verify the required parameter 'comment_id' is set
+        if ($comment_id === null || (is_array($comment_id) && count($comment_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $comment_id when calling replyCreate'
+            );
+        }
+
+        $resourcePath = '/projects/{project_id}/keys/{key_id}/comments/{comment_id}/replies';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        if ($branch !== null) {
+            if('form' === 'form' && is_array($branch)) {
+                foreach($branch as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['branch'] = $branch;
+            }
+        }
+        // query params
+        if ($message !== null) {
+            if('form' === 'form' && is_array($message)) {
+                foreach($message as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['message'] = $message;
+            }
+        }
+
+        // header params
+        if ($x_phrase_app_otp !== null) {
+            $headerParams['X-PhraseApp-OTP'] = ObjectSerializer::toHeaderValue($x_phrase_app_otp);
+        }
+
+        // path params
+        if ($project_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'project_id' . '}',
+                ObjectSerializer::toPathValue($project_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($key_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'key_id' . '}',
+                ObjectSerializer::toPathValue($key_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($comment_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'comment_id' . '}',
+                ObjectSerializer::toPathValue($comment_id),
+                $resourcePath
+            );
+        }
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
+            }
+        }
+
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
+        return new Request(
+            'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation replyDelete
+     *
+     * Delete a reply
+     *
+     * @param  string $project_id Project ID (required)
+     * @param  string $key_id Translation Key ID (required)
+     * @param  string $comment_id Comment ID (required)
+     * @param  string $id ID (required)
+     * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
+     * @param  string $branch specify the branch to use (optional)
+     *
+     * @throws \Phrase\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return void
+     */
+    public function replyDelete($project_id, $key_id, $comment_id, $id, $x_phrase_app_otp = null, $branch = null)
+    {
+        $this->replyDeleteWithHttpInfo($project_id, $key_id, $comment_id, $id, $x_phrase_app_otp, $branch);
+    }
+
+    /**
+     * Operation replyDeleteWithHttpInfo
+     *
+     * Delete a reply
+     *
+     * @param  string $project_id Project ID (required)
+     * @param  string $key_id Translation Key ID (required)
+     * @param  string $comment_id Comment ID (required)
+     * @param  string $id ID (required)
+     * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
+     * @param  string $branch specify the branch to use (optional)
+     *
+     * @throws \Phrase\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function replyDeleteWithHttpInfo($project_id, $key_id, $comment_id, $id, $x_phrase_app_otp = null, $branch = null)
+    {
+        $request = $this->replyDeleteRequest($project_id, $key_id, $comment_id, $id, $x_phrase_app_otp, $branch);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            return [null, $statusCode, $response->getHeaders()];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation replyDeleteAsync
+     *
+     * Delete a reply
+     *
+     * @param  string $project_id Project ID (required)
+     * @param  string $key_id Translation Key ID (required)
+     * @param  string $comment_id Comment ID (required)
+     * @param  string $id ID (required)
+     * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
+     * @param  string $branch specify the branch to use (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function replyDeleteAsync($project_id, $key_id, $comment_id, $id, $x_phrase_app_otp = null, $branch = null)
+    {
+        return $this->replyDeleteAsyncWithHttpInfo($project_id, $key_id, $comment_id, $id, $x_phrase_app_otp, $branch)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation replyDeleteAsyncWithHttpInfo
+     *
+     * Delete a reply
+     *
+     * @param  string $project_id Project ID (required)
+     * @param  string $key_id Translation Key ID (required)
+     * @param  string $comment_id Comment ID (required)
+     * @param  string $id ID (required)
+     * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
+     * @param  string $branch specify the branch to use (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function replyDeleteAsyncWithHttpInfo($project_id, $key_id, $comment_id, $id, $x_phrase_app_otp = null, $branch = null)
+    {
+        $returnType = '';
+        $request = $this->replyDeleteRequest($project_id, $key_id, $comment_id, $id, $x_phrase_app_otp, $branch);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'replyDelete'
+     *
+     * @param  string $project_id Project ID (required)
+     * @param  string $key_id Translation Key ID (required)
+     * @param  string $comment_id Comment ID (required)
+     * @param  string $id ID (required)
+     * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
+     * @param  string $branch specify the branch to use (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function replyDeleteRequest($project_id, $key_id, $comment_id, $id, $x_phrase_app_otp = null, $branch = null)
+    {
+        // verify the required parameter 'project_id' is set
+        if ($project_id === null || (is_array($project_id) && count($project_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $project_id when calling replyDelete'
+            );
+        }
+        // verify the required parameter 'key_id' is set
+        if ($key_id === null || (is_array($key_id) && count($key_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $key_id when calling replyDelete'
+            );
+        }
+        // verify the required parameter 'comment_id' is set
+        if ($comment_id === null || (is_array($comment_id) && count($comment_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $comment_id when calling replyDelete'
+            );
+        }
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id when calling replyDelete'
+            );
+        }
+
+        $resourcePath = '/projects/{project_id}/keys/{key_id}/comments/{comment_id}/replies/{id}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        if ($branch !== null) {
+            if('form' === 'form' && is_array($branch)) {
+                foreach($branch as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['branch'] = $branch;
+            }
+        }
+
+        // header params
+        if ($x_phrase_app_otp !== null) {
+            $headerParams['X-PhraseApp-OTP'] = ObjectSerializer::toHeaderValue($x_phrase_app_otp);
+        }
+
+        // path params
+        if ($project_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'project_id' . '}',
+                ObjectSerializer::toPathValue($project_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($key_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'key_id' . '}',
+                ObjectSerializer::toPathValue($key_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($comment_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'comment_id' . '}',
+                ObjectSerializer::toPathValue($comment_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'id' . '}',
+                ObjectSerializer::toPathValue($id),
+                $resourcePath
+            );
+        }
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                []
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                [],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
+            }
+        }
+
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
+        return new Request(
+            'DELETE',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation replyMarkAsRead
+     *
+     * Mark a reply as read
+     *
+     * @param  string $project_id Project ID (required)
+     * @param  string $key_id Translation Key ID (required)
+     * @param  string $comment_id Comment ID (required)
+     * @param  string $id ID (required)
+     * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
+     * @param  string $branch specify the branch to use (optional)
+     *
+     * @throws \Phrase\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return void
+     */
+    public function replyMarkAsRead($project_id, $key_id, $comment_id, $id, $x_phrase_app_otp = null, $branch = null)
+    {
+        $this->replyMarkAsReadWithHttpInfo($project_id, $key_id, $comment_id, $id, $x_phrase_app_otp, $branch);
+    }
+
+    /**
+     * Operation replyMarkAsReadWithHttpInfo
+     *
+     * Mark a reply as read
+     *
+     * @param  string $project_id Project ID (required)
+     * @param  string $key_id Translation Key ID (required)
+     * @param  string $comment_id Comment ID (required)
+     * @param  string $id ID (required)
+     * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
+     * @param  string $branch specify the branch to use (optional)
+     *
+     * @throws \Phrase\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function replyMarkAsReadWithHttpInfo($project_id, $key_id, $comment_id, $id, $x_phrase_app_otp = null, $branch = null)
+    {
+        $request = $this->replyMarkAsReadRequest($project_id, $key_id, $comment_id, $id, $x_phrase_app_otp, $branch);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            return [null, $statusCode, $response->getHeaders()];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation replyMarkAsReadAsync
+     *
+     * Mark a reply as read
+     *
+     * @param  string $project_id Project ID (required)
+     * @param  string $key_id Translation Key ID (required)
+     * @param  string $comment_id Comment ID (required)
+     * @param  string $id ID (required)
+     * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
+     * @param  string $branch specify the branch to use (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function replyMarkAsReadAsync($project_id, $key_id, $comment_id, $id, $x_phrase_app_otp = null, $branch = null)
+    {
+        return $this->replyMarkAsReadAsyncWithHttpInfo($project_id, $key_id, $comment_id, $id, $x_phrase_app_otp, $branch)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation replyMarkAsReadAsyncWithHttpInfo
+     *
+     * Mark a reply as read
+     *
+     * @param  string $project_id Project ID (required)
+     * @param  string $key_id Translation Key ID (required)
+     * @param  string $comment_id Comment ID (required)
+     * @param  string $id ID (required)
+     * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
+     * @param  string $branch specify the branch to use (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function replyMarkAsReadAsyncWithHttpInfo($project_id, $key_id, $comment_id, $id, $x_phrase_app_otp = null, $branch = null)
+    {
+        $returnType = '';
+        $request = $this->replyMarkAsReadRequest($project_id, $key_id, $comment_id, $id, $x_phrase_app_otp, $branch);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'replyMarkAsRead'
+     *
+     * @param  string $project_id Project ID (required)
+     * @param  string $key_id Translation Key ID (required)
+     * @param  string $comment_id Comment ID (required)
+     * @param  string $id ID (required)
+     * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
+     * @param  string $branch specify the branch to use (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function replyMarkAsReadRequest($project_id, $key_id, $comment_id, $id, $x_phrase_app_otp = null, $branch = null)
+    {
+        // verify the required parameter 'project_id' is set
+        if ($project_id === null || (is_array($project_id) && count($project_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $project_id when calling replyMarkAsRead'
+            );
+        }
+        // verify the required parameter 'key_id' is set
+        if ($key_id === null || (is_array($key_id) && count($key_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $key_id when calling replyMarkAsRead'
+            );
+        }
+        // verify the required parameter 'comment_id' is set
+        if ($comment_id === null || (is_array($comment_id) && count($comment_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $comment_id when calling replyMarkAsRead'
+            );
+        }
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id when calling replyMarkAsRead'
+            );
+        }
+
+        $resourcePath = '/projects/{project_id}/keys/{key_id}/comments/{comment_id}/replies/{id}/mark_as_read';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        if ($branch !== null) {
+            if('form' === 'form' && is_array($branch)) {
+                foreach($branch as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['branch'] = $branch;
+            }
+        }
+
+        // header params
+        if ($x_phrase_app_otp !== null) {
+            $headerParams['X-PhraseApp-OTP'] = ObjectSerializer::toHeaderValue($x_phrase_app_otp);
+        }
+
+        // path params
+        if ($project_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'project_id' . '}',
+                ObjectSerializer::toPathValue($project_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($key_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'key_id' . '}',
+                ObjectSerializer::toPathValue($key_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($comment_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'comment_id' . '}',
+                ObjectSerializer::toPathValue($comment_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'id' . '}',
+                ObjectSerializer::toPathValue($id),
+                $resourcePath
+            );
+        }
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                []
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                [],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
+            }
+        }
+
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
+        return new Request(
+            'PATCH',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation replyMarkAsUnread
+     *
+     * Mark a reply as unread
+     *
+     * @param  string $project_id Project ID (required)
+     * @param  string $key_id Translation Key ID (required)
+     * @param  string $comment_id Comment ID (required)
+     * @param  string $id ID (required)
+     * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
+     * @param  string $branch specify the branch to use (optional)
+     *
+     * @throws \Phrase\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return void
+     */
+    public function replyMarkAsUnread($project_id, $key_id, $comment_id, $id, $x_phrase_app_otp = null, $branch = null)
+    {
+        $this->replyMarkAsUnreadWithHttpInfo($project_id, $key_id, $comment_id, $id, $x_phrase_app_otp, $branch);
+    }
+
+    /**
+     * Operation replyMarkAsUnreadWithHttpInfo
+     *
+     * Mark a reply as unread
+     *
+     * @param  string $project_id Project ID (required)
+     * @param  string $key_id Translation Key ID (required)
+     * @param  string $comment_id Comment ID (required)
+     * @param  string $id ID (required)
+     * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
+     * @param  string $branch specify the branch to use (optional)
+     *
+     * @throws \Phrase\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function replyMarkAsUnreadWithHttpInfo($project_id, $key_id, $comment_id, $id, $x_phrase_app_otp = null, $branch = null)
+    {
+        $request = $this->replyMarkAsUnreadRequest($project_id, $key_id, $comment_id, $id, $x_phrase_app_otp, $branch);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            return [null, $statusCode, $response->getHeaders()];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation replyMarkAsUnreadAsync
+     *
+     * Mark a reply as unread
+     *
+     * @param  string $project_id Project ID (required)
+     * @param  string $key_id Translation Key ID (required)
+     * @param  string $comment_id Comment ID (required)
+     * @param  string $id ID (required)
+     * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
+     * @param  string $branch specify the branch to use (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function replyMarkAsUnreadAsync($project_id, $key_id, $comment_id, $id, $x_phrase_app_otp = null, $branch = null)
+    {
+        return $this->replyMarkAsUnreadAsyncWithHttpInfo($project_id, $key_id, $comment_id, $id, $x_phrase_app_otp, $branch)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation replyMarkAsUnreadAsyncWithHttpInfo
+     *
+     * Mark a reply as unread
+     *
+     * @param  string $project_id Project ID (required)
+     * @param  string $key_id Translation Key ID (required)
+     * @param  string $comment_id Comment ID (required)
+     * @param  string $id ID (required)
+     * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
+     * @param  string $branch specify the branch to use (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function replyMarkAsUnreadAsyncWithHttpInfo($project_id, $key_id, $comment_id, $id, $x_phrase_app_otp = null, $branch = null)
+    {
+        $returnType = '';
+        $request = $this->replyMarkAsUnreadRequest($project_id, $key_id, $comment_id, $id, $x_phrase_app_otp, $branch);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'replyMarkAsUnread'
+     *
+     * @param  string $project_id Project ID (required)
+     * @param  string $key_id Translation Key ID (required)
+     * @param  string $comment_id Comment ID (required)
+     * @param  string $id ID (required)
+     * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
+     * @param  string $branch specify the branch to use (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function replyMarkAsUnreadRequest($project_id, $key_id, $comment_id, $id, $x_phrase_app_otp = null, $branch = null)
+    {
+        // verify the required parameter 'project_id' is set
+        if ($project_id === null || (is_array($project_id) && count($project_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $project_id when calling replyMarkAsUnread'
+            );
+        }
+        // verify the required parameter 'key_id' is set
+        if ($key_id === null || (is_array($key_id) && count($key_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $key_id when calling replyMarkAsUnread'
+            );
+        }
+        // verify the required parameter 'comment_id' is set
+        if ($comment_id === null || (is_array($comment_id) && count($comment_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $comment_id when calling replyMarkAsUnread'
+            );
+        }
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id when calling replyMarkAsUnread'
+            );
+        }
+
+        $resourcePath = '/projects/{project_id}/keys/{key_id}/comments/{comment_id}/replies/{id}/mark_as_unread';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        if ($branch !== null) {
+            if('form' === 'form' && is_array($branch)) {
+                foreach($branch as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['branch'] = $branch;
+            }
+        }
+
+        // header params
+        if ($x_phrase_app_otp !== null) {
+            $headerParams['X-PhraseApp-OTP'] = ObjectSerializer::toHeaderValue($x_phrase_app_otp);
+        }
+
+        // path params
+        if ($project_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'project_id' . '}',
+                ObjectSerializer::toPathValue($project_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($key_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'key_id' . '}',
+                ObjectSerializer::toPathValue($key_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($comment_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'comment_id' . '}',
+                ObjectSerializer::toPathValue($comment_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'id' . '}',
+                ObjectSerializer::toPathValue($id),
+                $resourcePath
+            );
+        }
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                []
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                [],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
+            }
+        }
+
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
+        return new Request(
+            'PATCH',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation replyShow
+     *
+     * Get a single reply
+     *
+     * @param  string $project_id Project ID (required)
+     * @param  string $key_id Translation Key ID (required)
+     * @param  string $comment_id Comment ID (required)
+     * @param  string $id ID (required)
+     * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
+     * @param  string $branch specify the branch to use (optional)
+     *
+     * @throws \Phrase\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \Phrase\Model\Comment
+     */
+    public function replyShow($project_id, $key_id, $comment_id, $id, $x_phrase_app_otp = null, $branch = null)
+    {
+        list($response) = $this->replyShowWithHttpInfo($project_id, $key_id, $comment_id, $id, $x_phrase_app_otp, $branch);
+        return $response;
+    }
+
+    /**
+     * Operation replyShowWithHttpInfo
+     *
+     * Get a single reply
+     *
+     * @param  string $project_id Project ID (required)
+     * @param  string $key_id Translation Key ID (required)
+     * @param  string $comment_id Comment ID (required)
+     * @param  string $id ID (required)
+     * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
+     * @param  string $branch specify the branch to use (optional)
+     *
+     * @throws \Phrase\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \Phrase\Model\Comment, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function replyShowWithHttpInfo($project_id, $key_id, $comment_id, $id, $x_phrase_app_otp = null, $branch = null)
+    {
+        $request = $this->replyShowRequest($project_id, $key_id, $comment_id, $id, $x_phrase_app_otp, $branch);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            switch($statusCode) {
+                case 200:
+                    if ('\Phrase\Model\Comment' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Phrase\Model\Comment', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\Phrase\Model\Comment';
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = (string) $responseBody;
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Phrase\Model\Comment',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation replyShowAsync
+     *
+     * Get a single reply
+     *
+     * @param  string $project_id Project ID (required)
+     * @param  string $key_id Translation Key ID (required)
+     * @param  string $comment_id Comment ID (required)
+     * @param  string $id ID (required)
+     * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
+     * @param  string $branch specify the branch to use (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function replyShowAsync($project_id, $key_id, $comment_id, $id, $x_phrase_app_otp = null, $branch = null)
+    {
+        return $this->replyShowAsyncWithHttpInfo($project_id, $key_id, $comment_id, $id, $x_phrase_app_otp, $branch)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation replyShowAsyncWithHttpInfo
+     *
+     * Get a single reply
+     *
+     * @param  string $project_id Project ID (required)
+     * @param  string $key_id Translation Key ID (required)
+     * @param  string $comment_id Comment ID (required)
+     * @param  string $id ID (required)
+     * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
+     * @param  string $branch specify the branch to use (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function replyShowAsyncWithHttpInfo($project_id, $key_id, $comment_id, $id, $x_phrase_app_otp = null, $branch = null)
+    {
+        $returnType = '\Phrase\Model\Comment';
+        $request = $this->replyShowRequest($project_id, $key_id, $comment_id, $id, $x_phrase_app_otp, $branch);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'replyShow'
+     *
+     * @param  string $project_id Project ID (required)
+     * @param  string $key_id Translation Key ID (required)
+     * @param  string $comment_id Comment ID (required)
+     * @param  string $id ID (required)
+     * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
+     * @param  string $branch specify the branch to use (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function replyShowRequest($project_id, $key_id, $comment_id, $id, $x_phrase_app_otp = null, $branch = null)
+    {
+        // verify the required parameter 'project_id' is set
+        if ($project_id === null || (is_array($project_id) && count($project_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $project_id when calling replyShow'
+            );
+        }
+        // verify the required parameter 'key_id' is set
+        if ($key_id === null || (is_array($key_id) && count($key_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $key_id when calling replyShow'
+            );
+        }
+        // verify the required parameter 'comment_id' is set
+        if ($comment_id === null || (is_array($comment_id) && count($comment_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $comment_id when calling replyShow'
+            );
+        }
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id when calling replyShow'
+            );
+        }
+
+        $resourcePath = '/projects/{project_id}/keys/{key_id}/comments/{comment_id}/replies/{id}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        if ($branch !== null) {
+            if('form' === 'form' && is_array($branch)) {
+                foreach($branch as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['branch'] = $branch;
+            }
+        }
+
+        // header params
+        if ($x_phrase_app_otp !== null) {
+            $headerParams['X-PhraseApp-OTP'] = ObjectSerializer::toHeaderValue($x_phrase_app_otp);
+        }
+
+        // path params
+        if ($project_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'project_id' . '}',
+                ObjectSerializer::toPathValue($project_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($key_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'key_id' . '}',
+                ObjectSerializer::toPathValue($key_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($comment_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'comment_id' . '}',
+                ObjectSerializer::toPathValue($comment_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'id' . '}',
+                ObjectSerializer::toPathValue($id),
                 $resourcePath
             );
         }
