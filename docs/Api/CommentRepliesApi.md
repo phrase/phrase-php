@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 ## repliesList
 
-> \Phrase\Model\Comment[] repliesList($project_id, $key_id, $comment_id, $x_phrase_app_otp, $page, $per_page, $branch)
+> \Phrase\Model\Comment[] repliesList($project_id, $key_id, $comment_id, $replies_list_parameters, $x_phrase_app_otp, $page, $per_page, $branch, $query, $filters)
 
 List replies
 
@@ -39,13 +39,16 @@ $apiInstance = new Phrase\Api\CommentRepliesApi(
 $project_id = 'project_id_example'; // string | Project ID
 $key_id = 'key_id_example'; // string | Translation Key ID
 $comment_id = 'comment_id_example'; // string | Comment ID
+$replies_list_parameters = new \Phrase\Model\RepliesListParameters(); // \Phrase\Model\RepliesListParameters | 
 $x_phrase_app_otp = 'x_phrase_app_otp_example'; // string | Two-Factor-Authentication token (optional)
 $page = 1; // int | Page number
 $per_page = 25; // int | Limit on the number of objects to be returned, between 1 and 100. 25 by default
 $branch = my-feature-branch; // string | specify the branch to use
+$query = Some comment content; // string | Search query for comment messages
+$filters = ["read","unread"]; // string[] | Specify the filter for the comments
 
 try {
-    $result = $apiInstance->repliesList($project_id, $key_id, $comment_id, $x_phrase_app_otp, $page, $per_page, $branch);
+    $result = $apiInstance->repliesList($project_id, $key_id, $comment_id, $replies_list_parameters, $x_phrase_app_otp, $page, $per_page, $branch, $query, $filters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CommentRepliesApi->repliesList: ', $e->getMessage(), PHP_EOL;
@@ -61,10 +64,13 @@ Name | Type | Description  | Notes
  **project_id** | **string**| Project ID |
  **key_id** | **string**| Translation Key ID |
  **comment_id** | **string**| Comment ID |
+ **replies_list_parameters** | [**\Phrase\Model\RepliesListParameters**](../Model/RepliesListParameters.md)|  |
  **x_phrase_app_otp** | **string**| Two-Factor-Authentication token (optional) | [optional]
  **page** | **int**| Page number | [optional]
  **per_page** | **int**| Limit on the number of objects to be returned, between 1 and 100. 25 by default | [optional]
  **branch** | **string**| specify the branch to use | [optional]
+ **query** | **string**| Search query for comment messages | [optional]
+ **filters** | [**string[]**](../Model/string.md)| Specify the filter for the comments | [optional]
 
 ### Return type
 
@@ -76,7 +82,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
