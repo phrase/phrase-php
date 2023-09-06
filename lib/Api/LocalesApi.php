@@ -747,7 +747,7 @@ class LocalesApi
      * Delete a locale
      *
      * @param  string $project_id Project ID (required)
-     * @param  string $id ID (required)
+     * @param  string $id Locale ID or locale name (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  string $branch specify the branch to use (optional)
      *
@@ -766,7 +766,7 @@ class LocalesApi
      * Delete a locale
      *
      * @param  string $project_id Project ID (required)
-     * @param  string $id ID (required)
+     * @param  string $id Locale ID or locale name (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  string $branch specify the branch to use (optional)
      *
@@ -821,7 +821,7 @@ class LocalesApi
      * Delete a locale
      *
      * @param  string $project_id Project ID (required)
-     * @param  string $id ID (required)
+     * @param  string $id Locale ID or locale name (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  string $branch specify the branch to use (optional)
      *
@@ -844,7 +844,7 @@ class LocalesApi
      * Delete a locale
      *
      * @param  string $project_id Project ID (required)
-     * @param  string $id ID (required)
+     * @param  string $id Locale ID or locale name (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  string $branch specify the branch to use (optional)
      *
@@ -883,7 +883,7 @@ class LocalesApi
      * Create request for operation 'localeDelete'
      *
      * @param  string $project_id Project ID (required)
-     * @param  string $id ID (required)
+     * @param  string $id Locale ID or locale name (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  string $branch specify the branch to use (optional)
      *
@@ -1025,7 +1025,7 @@ class LocalesApi
      * Download a locale
      *
      * @param  string $project_id Project ID (required)
-     * @param  string $id ID (required)
+     * @param  string $id Locale ID or locale name (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  string $if_modified_since Last modified condition, see &lt;a href&#x3D;\&quot;#overview--conditional-get-requests--http-caching\&quot;&gt;Conditional GET requests / HTTP Caching&lt;/a&gt; (optional) (optional)
      * @param  string $if_none_match ETag condition, see &lt;a href&#x3D;\&quot;#overview--conditional-get-requests--http-caching\&quot;&gt;Conditional GET requests / HTTP Caching&lt;/a&gt; (optional) (optional)
@@ -1062,7 +1062,7 @@ class LocalesApi
      * Download a locale
      *
      * @param  string $project_id Project ID (required)
-     * @param  string $id ID (required)
+     * @param  string $id Locale ID or locale name (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  string $if_modified_since Last modified condition, see &lt;a href&#x3D;\&quot;#overview--conditional-get-requests--http-caching\&quot;&gt;Conditional GET requests / HTTP Caching&lt;/a&gt; (optional) (optional)
      * @param  string $if_none_match ETag condition, see &lt;a href&#x3D;\&quot;#overview--conditional-get-requests--http-caching\&quot;&gt;Conditional GET requests / HTTP Caching&lt;/a&gt; (optional) (optional)
@@ -1170,7 +1170,7 @@ class LocalesApi
      * Download a locale
      *
      * @param  string $project_id Project ID (required)
-     * @param  string $id ID (required)
+     * @param  string $id Locale ID or locale name (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  string $if_modified_since Last modified condition, see &lt;a href&#x3D;\&quot;#overview--conditional-get-requests--http-caching\&quot;&gt;Conditional GET requests / HTTP Caching&lt;/a&gt; (optional) (optional)
      * @param  string $if_none_match ETag condition, see &lt;a href&#x3D;\&quot;#overview--conditional-get-requests--http-caching\&quot;&gt;Conditional GET requests / HTTP Caching&lt;/a&gt; (optional) (optional)
@@ -1210,7 +1210,7 @@ class LocalesApi
      * Download a locale
      *
      * @param  string $project_id Project ID (required)
-     * @param  string $id ID (required)
+     * @param  string $id Locale ID or locale name (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  string $if_modified_since Last modified condition, see &lt;a href&#x3D;\&quot;#overview--conditional-get-requests--http-caching\&quot;&gt;Conditional GET requests / HTTP Caching&lt;/a&gt; (optional) (optional)
      * @param  string $if_none_match ETag condition, see &lt;a href&#x3D;\&quot;#overview--conditional-get-requests--http-caching\&quot;&gt;Conditional GET requests / HTTP Caching&lt;/a&gt; (optional) (optional)
@@ -1277,7 +1277,7 @@ class LocalesApi
      * Create request for operation 'localeDownload'
      *
      * @param  string $project_id Project ID (required)
-     * @param  string $id ID (required)
+     * @param  string $id Locale ID or locale name (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  string $if_modified_since Last modified condition, see &lt;a href&#x3D;\&quot;#overview--conditional-get-requests--http-caching\&quot;&gt;Conditional GET requests / HTTP Caching&lt;/a&gt; (optional) (optional)
      * @param  string $if_none_match ETag condition, see &lt;a href&#x3D;\&quot;#overview--conditional-get-requests--http-caching\&quot;&gt;Conditional GET requests / HTTP Caching&lt;/a&gt; (optional) (optional)
@@ -1609,7 +1609,7 @@ class LocalesApi
      * Get a single locale
      *
      * @param  string $project_id Project ID (required)
-     * @param  string $id ID (required)
+     * @param  string $id Locale ID or locale name (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  string $branch specify the branch to use (optional)
      *
@@ -1629,7 +1629,7 @@ class LocalesApi
      * Get a single locale
      *
      * @param  string $project_id Project ID (required)
-     * @param  string $id ID (required)
+     * @param  string $id Locale ID or locale name (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  string $branch specify the branch to use (optional)
      *
@@ -1720,7 +1720,7 @@ class LocalesApi
      * Get a single locale
      *
      * @param  string $project_id Project ID (required)
-     * @param  string $id ID (required)
+     * @param  string $id Locale ID or locale name (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  string $branch specify the branch to use (optional)
      *
@@ -1743,7 +1743,7 @@ class LocalesApi
      * Get a single locale
      *
      * @param  string $project_id Project ID (required)
-     * @param  string $id ID (required)
+     * @param  string $id Locale ID or locale name (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  string $branch specify the branch to use (optional)
      *
@@ -1793,7 +1793,7 @@ class LocalesApi
      * Create request for operation 'localeShow'
      *
      * @param  string $project_id Project ID (required)
-     * @param  string $id ID (required)
+     * @param  string $id Locale ID or locale name (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  string $branch specify the branch to use (optional)
      *
@@ -1935,7 +1935,7 @@ class LocalesApi
      * Update a locale
      *
      * @param  string $project_id Project ID (required)
-     * @param  string $id ID (required)
+     * @param  string $id Locale ID or locale name (required)
      * @param  \Phrase\Model\LocaleUpdateParameters $locale_update_parameters locale_update_parameters (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      *
@@ -1955,7 +1955,7 @@ class LocalesApi
      * Update a locale
      *
      * @param  string $project_id Project ID (required)
-     * @param  string $id ID (required)
+     * @param  string $id Locale ID or locale name (required)
      * @param  \Phrase\Model\LocaleUpdateParameters $locale_update_parameters (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      *
@@ -2046,7 +2046,7 @@ class LocalesApi
      * Update a locale
      *
      * @param  string $project_id Project ID (required)
-     * @param  string $id ID (required)
+     * @param  string $id Locale ID or locale name (required)
      * @param  \Phrase\Model\LocaleUpdateParameters $locale_update_parameters (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      *
@@ -2069,7 +2069,7 @@ class LocalesApi
      * Update a locale
      *
      * @param  string $project_id Project ID (required)
-     * @param  string $id ID (required)
+     * @param  string $id Locale ID or locale name (required)
      * @param  \Phrase\Model\LocaleUpdateParameters $locale_update_parameters (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      *
@@ -2119,7 +2119,7 @@ class LocalesApi
      * Create request for operation 'localeUpdate'
      *
      * @param  string $project_id Project ID (required)
-     * @param  string $id ID (required)
+     * @param  string $id Locale ID or locale name (required)
      * @param  \Phrase\Model\LocaleUpdateParameters $locale_update_parameters (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      *

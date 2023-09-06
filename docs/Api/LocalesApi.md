@@ -166,7 +166,7 @@ $apiInstance = new Phrase\Api\LocalesApi(
     $config
 );
 $project_id = 'project_id_example'; // string | Project ID
-$id = 'id_example'; // string | ID
+$id = 'id_example'; // string | Locale ID or locale name
 $x_phrase_app_otp = 'x_phrase_app_otp_example'; // string | Two-Factor-Authentication token (optional)
 $branch = my-feature-branch; // string | specify the branch to use
 
@@ -184,7 +184,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **project_id** | **string**| Project ID |
- **id** | **string**| ID |
+ **id** | **string**| Locale ID or locale name |
  **x_phrase_app_otp** | **string**| Two-Factor-Authentication token (optional) | [optional]
  **branch** | **string**| specify the branch to use | [optional]
 
@@ -230,7 +230,7 @@ $apiInstance = new Phrase\Api\LocalesApi(
     $config
 );
 $project_id = 'project_id_example'; // string | Project ID
-$id = 'id_example'; // string | ID
+$id = 'id_example'; // string | Locale ID or locale name
 $x_phrase_app_otp = 'x_phrase_app_otp_example'; // string | Two-Factor-Authentication token (optional)
 $if_modified_since = 'if_modified_since_example'; // string | Last modified condition, see <a href=\"#overview--conditional-get-requests--http-caching\">Conditional GET requests / HTTP Caching</a> (optional)
 $if_none_match = 'if_none_match_example'; // string | ETag condition, see <a href=\"#overview--conditional-get-requests--http-caching\">Conditional GET requests / HTTP Caching</a> (optional)
@@ -266,7 +266,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **project_id** | **string**| Project ID |
- **id** | **string**| ID |
+ **id** | **string**| Locale ID or locale name |
  **x_phrase_app_otp** | **string**| Two-Factor-Authentication token (optional) | [optional]
  **if_modified_since** | **string**| Last modified condition, see &lt;a href&#x3D;\&quot;#overview--conditional-get-requests--http-caching\&quot;&gt;Conditional GET requests / HTTP Caching&lt;/a&gt; (optional) | [optional]
  **if_none_match** | **string**| ETag condition, see &lt;a href&#x3D;\&quot;#overview--conditional-get-requests--http-caching\&quot;&gt;Conditional GET requests / HTTP Caching&lt;/a&gt; (optional) | [optional]
@@ -329,7 +329,7 @@ $apiInstance = new Phrase\Api\LocalesApi(
     $config
 );
 $project_id = 'project_id_example'; // string | Project ID
-$id = 'id_example'; // string | ID
+$id = 'id_example'; // string | Locale ID or locale name
 $x_phrase_app_otp = 'x_phrase_app_otp_example'; // string | Two-Factor-Authentication token (optional)
 $branch = my-feature-branch; // string | specify the branch to use
 
@@ -348,7 +348,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **project_id** | **string**| Project ID |
- **id** | **string**| ID |
+ **id** | **string**| Locale ID or locale name |
  **x_phrase_app_otp** | **string**| Two-Factor-Authentication token (optional) | [optional]
  **branch** | **string**| specify the branch to use | [optional]
 
@@ -394,7 +394,7 @@ $apiInstance = new Phrase\Api\LocalesApi(
     $config
 );
 $project_id = 'project_id_example'; // string | Project ID
-$id = 'id_example'; // string | ID
+$id = 'id_example'; // string | Locale ID or locale name
 $locale_update_parameters = new \Phrase\Model\LocaleUpdateParameters(); // \Phrase\Model\LocaleUpdateParameters | 
 $x_phrase_app_otp = 'x_phrase_app_otp_example'; // string | Two-Factor-Authentication token (optional)
 
@@ -413,7 +413,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **project_id** | **string**| Project ID |
- **id** | **string**| ID |
+ **id** | **string**| Locale ID or locale name |
  **locale_update_parameters** | [**\Phrase\Model\LocaleUpdateParameters**](../Model/LocaleUpdateParameters.md)|  |
  **x_phrase_app_otp** | **string**| Two-Factor-Authentication token (optional) | [optional]
 
