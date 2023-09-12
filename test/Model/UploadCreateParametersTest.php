@@ -180,4 +180,11 @@ class UploadCreateParametersTest extends TestCase
     public function testPropertyMarkReviewed()
     {
     }
+
+    /**
+     * Test attribute "tag_only_affected_keys"
+     */
+    public function testPropertyTagOnlyAffectedKeys()
+    {
+    }
 }

@@ -69,7 +69,8 @@ class UploadCreateParameters implements ModelInterface, ArrayAccess
         'locale_mapping' => 'object',
         'format_options' => 'object',
         'autotranslate' => 'bool',
-        'mark_reviewed' => 'bool'
+        'mark_reviewed' => 'bool',
+        'tag_only_affected_keys' => 'bool'
     ];
 
     /**
@@ -92,7 +93,8 @@ class UploadCreateParameters implements ModelInterface, ArrayAccess
         'locale_mapping' => null,
         'format_options' => null,
         'autotranslate' => null,
-        'mark_reviewed' => null
+        'mark_reviewed' => null,
+        'tag_only_affected_keys' => null
     ];
 
     /**
@@ -136,7 +138,8 @@ class UploadCreateParameters implements ModelInterface, ArrayAccess
         'locale_mapping' => 'locale_mapping',
         'format_options' => 'format_options',
         'autotranslate' => 'autotranslate',
-        'mark_reviewed' => 'mark_reviewed'
+        'mark_reviewed' => 'mark_reviewed',
+        'tag_only_affected_keys' => 'tag_only_affected_keys'
     ];
 
     /**
@@ -159,7 +162,8 @@ class UploadCreateParameters implements ModelInterface, ArrayAccess
         'locale_mapping' => 'setLocaleMapping',
         'format_options' => 'setFormatOptions',
         'autotranslate' => 'setAutotranslate',
-        'mark_reviewed' => 'setMarkReviewed'
+        'mark_reviewed' => 'setMarkReviewed',
+        'tag_only_affected_keys' => 'setTagOnlyAffectedKeys'
     ];
 
     /**
@@ -182,7 +186,8 @@ class UploadCreateParameters implements ModelInterface, ArrayAccess
         'locale_mapping' => 'getLocaleMapping',
         'format_options' => 'getFormatOptions',
         'autotranslate' => 'getAutotranslate',
-        'mark_reviewed' => 'getMarkReviewed'
+        'mark_reviewed' => 'getMarkReviewed',
+        'tag_only_affected_keys' => 'getTagOnlyAffectedKeys'
     ];
 
     /**
@@ -260,6 +265,7 @@ class UploadCreateParameters implements ModelInterface, ArrayAccess
         $this->container['format_options'] = isset($data['format_options']) ? $data['format_options'] : null;
         $this->container['autotranslate'] = isset($data['autotranslate']) ? $data['autotranslate'] : null;
         $this->container['mark_reviewed'] = isset($data['mark_reviewed']) ? $data['mark_reviewed'] : null;
+        $this->container['tag_only_affected_keys'] = isset($data['tag_only_affected_keys']) ? $data['tag_only_affected_keys'] : false;
     }
 
     /**
@@ -642,6 +648,30 @@ class UploadCreateParameters implements ModelInterface, ArrayAccess
     public function setMarkReviewed($mark_reviewed)
     {
         $this->container['mark_reviewed'] = $mark_reviewed;
+
+        return $this;
+    }
+
+    /**
+     * Gets tag_only_affected_keys
+     *
+     * @return bool|null
+     */
+    public function getTagOnlyAffectedKeys()
+    {
+        return $this->container['tag_only_affected_keys'];
+    }
+
+    /**
+     * Sets tag_only_affected_keys
+     *
+     * @param bool|null $tag_only_affected_keys Indicates whether only keys affected (created or updated) by the upload should be tagged. The default is `false`
+     *
+     * @return $this
+     */
+    public function setTagOnlyAffectedKeys($tag_only_affected_keys)
+    {
+        $this->container['tag_only_affected_keys'] = $tag_only_affected_keys;
 
         return $this;
     }
