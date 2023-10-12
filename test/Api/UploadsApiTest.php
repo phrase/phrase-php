@@ -24,12 +24,22 @@
  * Please update the test case below to test the endpoint.
  */
 
-namespace Phrase;
+ namespace Phrase;
 
-use \Phrase\Configuration;
-use \Phrase\ApiException;
-use \Phrase\ObjectSerializer;
-use PHPUnit\Framework\TestCase;
+ use \Phrase\Configuration as Configuration;
+ use \Phrase\ApiException;
+ use \Phrase\ObjectSerializer;
+
+ use \Phrase\Api\UploadsApi as Api;
+ use \Phrase\Model\UploadCreateParameters;
+
+ use PHPUnit\Framework\TestCase;
+
+ use GuzzleHttp\Client;
+ use GuzzleHttp\Handler\MockHandler;
+ use GuzzleHttp\HandlerStack;
+ use GuzzleHttp\Middleware;
+ use GuzzleHttp\Psr7\Response;
 
 /**
  * UploadsApiTest Class Doc Comment
@@ -41,6 +51,9 @@ use PHPUnit\Framework\TestCase;
  */
 class UploadsApiTest extends TestCase
 {
+    private $apiInstance;
+    private $mock;
+    private $history = [];
 
     /**
      * Setup before running any test cases
@@ -54,6 +67,16 @@ class UploadsApiTest extends TestCase
      */
     public function setUp()
     {
+        $this->mock = new MockHandler();
+        $history = Middleware::history($this->history);
+        $handlerStack = HandlerStack::create($this->mock);
+        $handlerStack->push($history);
+        $client = new Client(['handler' => $handlerStack]);
+
+        $config = Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+        $config = Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'token');
+
+        $this->apiInstance = new Api($client, $config);
     }
 
     /**
@@ -78,6 +101,27 @@ class UploadsApiTest extends TestCase
      */
     public function testUploadCreate()
     {
+        $fileName = '/tmp/test.txt';
+        $this->mock->append(new Response(200, [], '{"id": "dGVzdA","filename": "my_file.yml","state": "pending","format": "yml","upload_tags": [{"name": "my_tag","priority": 1}],"created_at": "2018-02-19T15:47:30Z","updated_at": "2018-02-19T15:47:30Z","file_size": 0,"source_locale": "en","target_locales": ["de","fr"],"file": {"id": "dGVzdA","name": "my_file.yml","content_type": "application/x-yaml","encoding": "UTF-8","created_at": "2018-02-19T15:47:30Z","updated_at": "2018-02-19T15:47:30Z","file_size": 0,"format": "yml","hash": "3cfd3b8d7c7a1d6c9f6d2f6c7d6b6c3c"} }'));
+        $projectId = "projectId_example";
+        $file = new \SplFileObject($fileName, 'w+');
+        $file->fwrite('test');
+
+        $result = $this->apiInstance->uploadCreate($projectId, null, null, $file);
+        $file = null;
+        unlink($fileName);
+
+        $this->assertEquals('dGVzdA', $result->getId());
+        $this->assertEquals('my_file.yml', $result->getFilename());
+        $this->assertEquals('pending', $result->getState());
+        $this->assertEquals('yml', $result->getFormat());
+        $this->assertEquals(new \DateTime('2018-02-19T15:47:30Z'), $result->getCreatedAt());
+        $this->assertEquals(new \DateTime('2018-02-19T15:47:30Z'), $result->getUpdatedAt());
+
+        $lastRequest = $this->history[count($this->history) - 1]['request'];
+        $this->assertEquals('POST', $lastRequest->getMethod());
+        $this->assertEquals('/v2/projects/'.$projectId.'/uploads', $lastRequest->getUri()->getPath());
+        $this->assertContains('multipart/form-data', $lastRequest->getHeader('Content-Type')[0]);
     }
 
     /**

@@ -26,10 +26,19 @@
 
 namespace Phrase;
 
-use \Phrase\Configuration;
+use \Phrase\Configuration as Configuration;
 use \Phrase\ApiException;
 use \Phrase\ObjectSerializer;
+
+use \Phrase\Api\LocalesApi as Api;
+
 use PHPUnit\Framework\TestCase;
+
+use GuzzleHttp\Client;
+use GuzzleHttp\Handler\MockHandler;
+use GuzzleHttp\HandlerStack;
+use GuzzleHttp\Middleware;
+use GuzzleHttp\Psr7\Response;
 
 /**
  * LocalesApiTest Class Doc Comment
@@ -41,6 +50,9 @@ use PHPUnit\Framework\TestCase;
  */
 class LocalesApiTest extends TestCase
 {
+    private $apiInstance;
+    private $mock;
+    private $history = [];
 
     /**
      * Setup before running any test cases
@@ -54,6 +66,16 @@ class LocalesApiTest extends TestCase
      */
     public function setUp()
     {
+        $this->mock = new MockHandler();
+        $history = Middleware::history($this->history);
+        $handlerStack = HandlerStack::create($this->mock);
+        $handlerStack->push($history);
+        $client = new Client(['handler' => $handlerStack]);
+
+        $config = Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+        $config = Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'token');
+
+        $this->apiInstance = new Api($client, $config);
     }
 
     /**
@@ -108,6 +130,18 @@ class LocalesApiTest extends TestCase
      */
     public function testLocaleDownload()
     {
+        $this->mock->append(new Response(200, [], 'foo'));
+
+        $projectId = "project_id_example";
+        $id = "locale_id";
+        $result = $this->apiInstance->localeDownload($projectId, $id);
+
+        $this->assertNotNull($result);
+        $this->assertEquals('foo', $result);
+
+        $lastRequest = $this->history[count($this->history)-1]['request'];
+        $this->assertEquals('GET', $lastRequest->getMethod());
+        $this->assertEquals('/v2/projects/'.$projectId.'/locales/'.$id.'/download', $lastRequest->getUri()->getPath());
     }
 
     /**
@@ -138,5 +172,20 @@ class LocalesApiTest extends TestCase
      */
     public function testLocalesList()
     {
+        $this->mock->append(new Response(200, [], '[{"id":"locale_id","name":"locale_name","code":"locale_code","default":true,"main":true,"rtl":true,"plural_forms":["plural_forms"]}]'));
+
+        $projectId = "project_id_example";
+
+        $result = $this->apiInstance->localesList($projectId);
+
+        $lastRequest = $this->history[count($this->history)-1]['request'];
+        $this->assertNotNull($result);
+        $this->assertEquals(1, count($result));
+        $this->assertEquals('locale_id', $result[0]['id']);
+        $this->assertEquals('locale_name', $result[0]['name']);
+
+        $this->assertEquals('GET', $lastRequest->getMethod());
+        $this->assertEquals('/v2/projects/'.$projectId.'/locales', $lastRequest->getUri()->getPath());
+
     }
 }
