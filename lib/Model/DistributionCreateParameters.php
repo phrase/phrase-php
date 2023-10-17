@@ -311,7 +311,7 @@ class DistributionCreateParameters implements ModelInterface, ArrayAccess
     /**
      * Sets platforms
      *
-     * @param string[]|null $platforms List of platforms the distribution should support. Valid values are: * `android` * `ios` * `flutter` * `i18next`
+     * @param string[]|null $platforms List of platforms the distribution should support. Valid values are: * `android` * `ios` * `flutter` * `i18next` * `rails`
      *
      * @return $this
      */
