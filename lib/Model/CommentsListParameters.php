@@ -58,7 +58,8 @@ class CommentsListParameters implements ModelInterface, ArrayAccess
         'branch' => 'string',
         'query' => 'string',
         'locale_ids' => 'string[]',
-        'filters' => 'string[]'
+        'filters' => 'string[]',
+        'order' => 'string'
     ];
 
     /**
@@ -70,7 +71,8 @@ class CommentsListParameters implements ModelInterface, ArrayAccess
         'branch' => null,
         'query' => null,
         'locale_ids' => null,
-        'filters' => null
+        'filters' => null,
+        'order' => null
     ];
 
     /**
@@ -103,7 +105,8 @@ class CommentsListParameters implements ModelInterface, ArrayAccess
         'branch' => 'branch',
         'query' => 'query',
         'locale_ids' => 'locale_ids',
-        'filters' => 'filters'
+        'filters' => 'filters',
+        'order' => 'order'
     ];
 
     /**
@@ -115,7 +118,8 @@ class CommentsListParameters implements ModelInterface, ArrayAccess
         'branch' => 'setBranch',
         'query' => 'setQuery',
         'locale_ids' => 'setLocaleIds',
-        'filters' => 'setFilters'
+        'filters' => 'setFilters',
+        'order' => 'setOrder'
     ];
 
     /**
@@ -127,7 +131,8 @@ class CommentsListParameters implements ModelInterface, ArrayAccess
         'branch' => 'getBranch',
         'query' => 'getQuery',
         'locale_ids' => 'getLocaleIds',
-        'filters' => 'getFilters'
+        'filters' => 'getFilters',
+        'order' => 'getOrder'
     ];
 
     /**
@@ -194,6 +199,7 @@ class CommentsListParameters implements ModelInterface, ArrayAccess
         $this->container['query'] = isset($data['query']) ? $data['query'] : null;
         $this->container['locale_ids'] = isset($data['locale_ids']) ? $data['locale_ids'] : null;
         $this->container['filters'] = isset($data['filters']) ? $data['filters'] : null;
+        $this->container['order'] = isset($data['order']) ? $data['order'] : null;
     }
 
     /**
@@ -312,6 +318,30 @@ class CommentsListParameters implements ModelInterface, ArrayAccess
     public function setFilters($filters)
     {
         $this->container['filters'] = $filters;
+
+        return $this;
+    }
+
+    /**
+     * Gets order
+     *
+     * @return string|null
+     */
+    public function getOrder()
+    {
+        return $this->container['order'];
+    }
+
+    /**
+     * Sets order
+     *
+     * @param string|null $order Specify ordering of comments
+     *
+     * @return $this
+     */
+    public function setOrder($order)
+    {
+        $this->container['order'] = $order;
 
         return $this;
     }

@@ -484,7 +484,7 @@ Name | Type | Description  | Notes
 
 ## commentsList
 
-> \Phrase\Model\Comment[] commentsList($project_id, $key_id, $comments_list_parameters, $x_phrase_app_otp, $page, $per_page, $branch, $query, $locale_ids, $filters)
+> \Phrase\Model\Comment[] commentsList($project_id, $key_id, $comments_list_parameters, $x_phrase_app_otp, $page, $per_page, $branch, $query, $locale_ids, $filters, $order)
 
 List comments
 
@@ -515,9 +515,10 @@ $branch = my-feature-branch; // string | specify the branch to use
 $query = Some comment content; // string | Search query for comment messages
 $locale_ids = ["someId"]; // string[] | Search comments by their assigned locales
 $filters = ["read","unread"]; // string[] | Specify the filter for the comments
+$order = desc; // string | Order direction. Can be one of: asc, desc.
 
 try {
-    $result = $apiInstance->commentsList($project_id, $key_id, $comments_list_parameters, $x_phrase_app_otp, $page, $per_page, $branch, $query, $locale_ids, $filters);
+    $result = $apiInstance->commentsList($project_id, $key_id, $comments_list_parameters, $x_phrase_app_otp, $page, $per_page, $branch, $query, $locale_ids, $filters, $order);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CommentsApi->commentsList: ', $e->getMessage(), PHP_EOL;
@@ -540,6 +541,7 @@ Name | Type | Description  | Notes
  **query** | **string**| Search query for comment messages | [optional]
  **locale_ids** | [**string[]**](../Model/string.md)| Search comments by their assigned locales | [optional]
  **filters** | [**string[]**](../Model/string.md)| Specify the filter for the comments | [optional]
+ **order** | **string**| Order direction. Can be one of: asc, desc. | [optional]
 
 ### Return type
 

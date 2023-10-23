@@ -279,7 +279,7 @@ Name | Type | Description  | Notes
 
 ## jobCommentsList
 
-> \Phrase\Model\JobComment[] jobCommentsList($project_id, $job_id, $x_phrase_app_otp, $branch)
+> \Phrase\Model\JobComment[] jobCommentsList($project_id, $job_id, $x_phrase_app_otp, $branch, $order)
 
 List job comments
 
@@ -304,9 +304,10 @@ $project_id = 'project_id_example'; // string | Project ID
 $job_id = 'job_id_example'; // string | Job ID
 $x_phrase_app_otp = 'x_phrase_app_otp_example'; // string | Two-Factor-Authentication token (optional)
 $branch = my-feature-branch; // string | specify the branch to use
+$order = desc; // string | Order direction. Can be one of: asc, desc.
 
 try {
-    $result = $apiInstance->jobCommentsList($project_id, $job_id, $x_phrase_app_otp, $branch);
+    $result = $apiInstance->jobCommentsList($project_id, $job_id, $x_phrase_app_otp, $branch, $order);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling JobCommentsApi->jobCommentsList: ', $e->getMessage(), PHP_EOL;
@@ -323,6 +324,7 @@ Name | Type | Description  | Notes
  **job_id** | **string**| Job ID |
  **x_phrase_app_otp** | **string**| Two-Factor-Authentication token (optional) | [optional]
  **branch** | **string**| specify the branch to use | [optional]
+ **order** | **string**| Order direction. Can be one of: asc, desc. | [optional]
 
 ### Return type
 

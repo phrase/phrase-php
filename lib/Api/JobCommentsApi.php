@@ -1431,14 +1431,15 @@ class JobCommentsApi
      * @param  string $job_id Job ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  string $branch specify the branch to use (optional)
+     * @param  string $order Order direction. Can be one of: asc, desc. (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Phrase\Model\JobComment[]
      */
-    public function jobCommentsList($project_id, $job_id, $x_phrase_app_otp = null, $branch = null)
+    public function jobCommentsList($project_id, $job_id, $x_phrase_app_otp = null, $branch = null, $order = null)
     {
-        list($response) = $this->jobCommentsListWithHttpInfo($project_id, $job_id, $x_phrase_app_otp, $branch);
+        list($response) = $this->jobCommentsListWithHttpInfo($project_id, $job_id, $x_phrase_app_otp, $branch, $order);
         return $response;
     }
 
@@ -1451,14 +1452,15 @@ class JobCommentsApi
      * @param  string $job_id Job ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  string $branch specify the branch to use (optional)
+     * @param  string $order Order direction. Can be one of: asc, desc. (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Phrase\Model\JobComment[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function jobCommentsListWithHttpInfo($project_id, $job_id, $x_phrase_app_otp = null, $branch = null)
+    public function jobCommentsListWithHttpInfo($project_id, $job_id, $x_phrase_app_otp = null, $branch = null, $order = null)
     {
-        $request = $this->jobCommentsListRequest($project_id, $job_id, $x_phrase_app_otp, $branch);
+        $request = $this->jobCommentsListRequest($project_id, $job_id, $x_phrase_app_otp, $branch, $order);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1542,13 +1544,14 @@ class JobCommentsApi
      * @param  string $job_id Job ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  string $branch specify the branch to use (optional)
+     * @param  string $order Order direction. Can be one of: asc, desc. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function jobCommentsListAsync($project_id, $job_id, $x_phrase_app_otp = null, $branch = null)
+    public function jobCommentsListAsync($project_id, $job_id, $x_phrase_app_otp = null, $branch = null, $order = null)
     {
-        return $this->jobCommentsListAsyncWithHttpInfo($project_id, $job_id, $x_phrase_app_otp, $branch)
+        return $this->jobCommentsListAsyncWithHttpInfo($project_id, $job_id, $x_phrase_app_otp, $branch, $order)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1565,14 +1568,15 @@ class JobCommentsApi
      * @param  string $job_id Job ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  string $branch specify the branch to use (optional)
+     * @param  string $order Order direction. Can be one of: asc, desc. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function jobCommentsListAsyncWithHttpInfo($project_id, $job_id, $x_phrase_app_otp = null, $branch = null)
+    public function jobCommentsListAsyncWithHttpInfo($project_id, $job_id, $x_phrase_app_otp = null, $branch = null, $order = null)
     {
         $returnType = '\Phrase\Model\JobComment[]';
-        $request = $this->jobCommentsListRequest($project_id, $job_id, $x_phrase_app_otp, $branch);
+        $request = $this->jobCommentsListRequest($project_id, $job_id, $x_phrase_app_otp, $branch, $order);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1615,11 +1619,12 @@ class JobCommentsApi
      * @param  string $job_id Job ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  string $branch specify the branch to use (optional)
+     * @param  string $order Order direction. Can be one of: asc, desc. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function jobCommentsListRequest($project_id, $job_id, $x_phrase_app_otp = null, $branch = null)
+    protected function jobCommentsListRequest($project_id, $job_id, $x_phrase_app_otp = null, $branch = null, $order = null)
     {
         // verify the required parameter 'project_id' is set
         if ($project_id === null || (is_array($project_id) && count($project_id) === 0)) {
@@ -1650,6 +1655,17 @@ class JobCommentsApi
             }
             else {
                 $queryParams['branch'] = $branch;
+            }
+        }
+        // query params
+        if ($order !== null) {
+            if('form' === 'form' && is_array($order)) {
+                foreach($order as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['order'] = $order;
             }
         }
 

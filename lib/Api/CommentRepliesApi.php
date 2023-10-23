@@ -128,14 +128,15 @@ class CommentRepliesApi
      * @param  string $branch specify the branch to use (optional)
      * @param  string $query Search query for comment messages (optional)
      * @param  string[] $filters Specify the filter for the comments (optional)
+     * @param  string $order Order direction. Can be one of: asc, desc. (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Phrase\Model\Comment[]
      */
-    public function repliesList($project_id, $key_id, $comment_id, $replies_list_parameters, $x_phrase_app_otp = null, $page = null, $per_page = null, $branch = null, $query = null, $filters = null)
+    public function repliesList($project_id, $key_id, $comment_id, $replies_list_parameters, $x_phrase_app_otp = null, $page = null, $per_page = null, $branch = null, $query = null, $filters = null, $order = null)
     {
-        list($response) = $this->repliesListWithHttpInfo($project_id, $key_id, $comment_id, $replies_list_parameters, $x_phrase_app_otp, $page, $per_page, $branch, $query, $filters);
+        list($response) = $this->repliesListWithHttpInfo($project_id, $key_id, $comment_id, $replies_list_parameters, $x_phrase_app_otp, $page, $per_page, $branch, $query, $filters, $order);
         return $response;
     }
 
@@ -154,14 +155,15 @@ class CommentRepliesApi
      * @param  string $branch specify the branch to use (optional)
      * @param  string $query Search query for comment messages (optional)
      * @param  string[] $filters Specify the filter for the comments (optional)
+     * @param  string $order Order direction. Can be one of: asc, desc. (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Phrase\Model\Comment[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function repliesListWithHttpInfo($project_id, $key_id, $comment_id, $replies_list_parameters, $x_phrase_app_otp = null, $page = null, $per_page = null, $branch = null, $query = null, $filters = null)
+    public function repliesListWithHttpInfo($project_id, $key_id, $comment_id, $replies_list_parameters, $x_phrase_app_otp = null, $page = null, $per_page = null, $branch = null, $query = null, $filters = null, $order = null)
     {
-        $request = $this->repliesListRequest($project_id, $key_id, $comment_id, $replies_list_parameters, $x_phrase_app_otp, $page, $per_page, $branch, $query, $filters);
+        $request = $this->repliesListRequest($project_id, $key_id, $comment_id, $replies_list_parameters, $x_phrase_app_otp, $page, $per_page, $branch, $query, $filters, $order);
 
         try {
             $options = $this->createHttpClientOption();
@@ -251,13 +253,14 @@ class CommentRepliesApi
      * @param  string $branch specify the branch to use (optional)
      * @param  string $query Search query for comment messages (optional)
      * @param  string[] $filters Specify the filter for the comments (optional)
+     * @param  string $order Order direction. Can be one of: asc, desc. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function repliesListAsync($project_id, $key_id, $comment_id, $replies_list_parameters, $x_phrase_app_otp = null, $page = null, $per_page = null, $branch = null, $query = null, $filters = null)
+    public function repliesListAsync($project_id, $key_id, $comment_id, $replies_list_parameters, $x_phrase_app_otp = null, $page = null, $per_page = null, $branch = null, $query = null, $filters = null, $order = null)
     {
-        return $this->repliesListAsyncWithHttpInfo($project_id, $key_id, $comment_id, $replies_list_parameters, $x_phrase_app_otp, $page, $per_page, $branch, $query, $filters)
+        return $this->repliesListAsyncWithHttpInfo($project_id, $key_id, $comment_id, $replies_list_parameters, $x_phrase_app_otp, $page, $per_page, $branch, $query, $filters, $order)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -280,14 +283,15 @@ class CommentRepliesApi
      * @param  string $branch specify the branch to use (optional)
      * @param  string $query Search query for comment messages (optional)
      * @param  string[] $filters Specify the filter for the comments (optional)
+     * @param  string $order Order direction. Can be one of: asc, desc. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function repliesListAsyncWithHttpInfo($project_id, $key_id, $comment_id, $replies_list_parameters, $x_phrase_app_otp = null, $page = null, $per_page = null, $branch = null, $query = null, $filters = null)
+    public function repliesListAsyncWithHttpInfo($project_id, $key_id, $comment_id, $replies_list_parameters, $x_phrase_app_otp = null, $page = null, $per_page = null, $branch = null, $query = null, $filters = null, $order = null)
     {
         $returnType = '\Phrase\Model\Comment[]';
-        $request = $this->repliesListRequest($project_id, $key_id, $comment_id, $replies_list_parameters, $x_phrase_app_otp, $page, $per_page, $branch, $query, $filters);
+        $request = $this->repliesListRequest($project_id, $key_id, $comment_id, $replies_list_parameters, $x_phrase_app_otp, $page, $per_page, $branch, $query, $filters, $order);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -336,11 +340,12 @@ class CommentRepliesApi
      * @param  string $branch specify the branch to use (optional)
      * @param  string $query Search query for comment messages (optional)
      * @param  string[] $filters Specify the filter for the comments (optional)
+     * @param  string $order Order direction. Can be one of: asc, desc. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function repliesListRequest($project_id, $key_id, $comment_id, $replies_list_parameters, $x_phrase_app_otp = null, $page = null, $per_page = null, $branch = null, $query = null, $filters = null)
+    protected function repliesListRequest($project_id, $key_id, $comment_id, $replies_list_parameters, $x_phrase_app_otp = null, $page = null, $per_page = null, $branch = null, $query = null, $filters = null, $order = null)
     {
         // verify the required parameter 'project_id' is set
         if ($project_id === null || (is_array($project_id) && count($project_id) === 0)) {
@@ -427,6 +432,17 @@ class CommentRepliesApi
             }
             else {
                 $queryParams['filters'] = $filters;
+            }
+        }
+        // query params
+        if ($order !== null) {
+            if('form' === 'form' && is_array($order)) {
+                foreach($order as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['order'] = $order;
             }
         }
 

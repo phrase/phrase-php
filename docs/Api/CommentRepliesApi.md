@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 ## repliesList
 
-> \Phrase\Model\Comment[] repliesList($project_id, $key_id, $comment_id, $replies_list_parameters, $x_phrase_app_otp, $page, $per_page, $branch, $query, $filters)
+> \Phrase\Model\Comment[] repliesList($project_id, $key_id, $comment_id, $replies_list_parameters, $x_phrase_app_otp, $page, $per_page, $branch, $query, $filters, $order)
 
 List replies
 
@@ -46,9 +46,10 @@ $per_page = 25; // int | Limit on the number of objects to be returned, between 
 $branch = my-feature-branch; // string | specify the branch to use
 $query = Some comment content; // string | Search query for comment messages
 $filters = ["read","unread"]; // string[] | Specify the filter for the comments
+$order = desc; // string | Order direction. Can be one of: asc, desc.
 
 try {
-    $result = $apiInstance->repliesList($project_id, $key_id, $comment_id, $replies_list_parameters, $x_phrase_app_otp, $page, $per_page, $branch, $query, $filters);
+    $result = $apiInstance->repliesList($project_id, $key_id, $comment_id, $replies_list_parameters, $x_phrase_app_otp, $page, $per_page, $branch, $query, $filters, $order);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CommentRepliesApi->repliesList: ', $e->getMessage(), PHP_EOL;
@@ -71,6 +72,7 @@ Name | Type | Description  | Notes
  **branch** | **string**| specify the branch to use | [optional]
  **query** | **string**| Search query for comment messages | [optional]
  **filters** | [**string[]**](../Model/string.md)| Specify the filter for the comments | [optional]
+ **order** | **string**| Order direction. Can be one of: asc, desc. | [optional]
 
 ### Return type
 

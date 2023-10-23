@@ -96,4 +96,11 @@ class RepliesListParametersTest extends TestCase
     public function testPropertyFilters()
     {
     }
+
+    /**
+     * Test attribute "order"
+     */
+    public function testPropertyOrder()
+    {
+    }
 }
