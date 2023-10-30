@@ -6,8 +6,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **string** |  | [optional] 
 **repository_name** | **string** |  | [optional] 
-**last_export_to_bitbucket_at** | [**\DateTime**](\DateTime.md) |  | [optional] 
-**last_import_from_bitbucket_at** | [**\DateTime**](\DateTime.md) |  | [optional] 
+**last_export_to_bitbucket_at** | **\DateTime** |  | [optional] 
+**last_import_from_bitbucket_at** | **\DateTime** |  | [optional] 
 **valid_phraseapp_yaml** | **bool** |  | [optional] 
 **phraseapp_projects** | [**\Phrase\Model\ProjectShort[]**](ProjectShort.md) |  | [optional] 
 

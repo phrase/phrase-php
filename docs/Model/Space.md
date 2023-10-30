@@ -6,8 +6,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **string** |  | [optional] 
 **name** | **string** |  | [optional] 
-**created_at** | [**\DateTime**](\DateTime.md) |  | [optional] 
-**updated_at** | [**\DateTime**](\DateTime.md) |  | [optional] 
+**created_at** | **\DateTime** |  | [optional] 
+**updated_at** | **\DateTime** |  | [optional] 
 **projects_count** | **int** |  | [optional] 
 **projects** | [**\Phrase\Model\Project[]**](Project.md) |  | [optional] 
 

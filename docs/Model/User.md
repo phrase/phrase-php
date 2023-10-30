@@ -8,8 +8,8 @@ Name | Type | Description | Notes
 **username** | **string** |  | [optional] 
 **name** | **string** |  | [optional] 
 **position** | **string** |  | [optional] 
-**created_at** | [**\DateTime**](\DateTime.md) |  | [optional] 
-**updated_at** | [**\DateTime**](\DateTime.md) |  | [optional] 
+**created_at** | **\DateTime** |  | [optional] 
+**updated_at** | **\DateTime** |  | [optional] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

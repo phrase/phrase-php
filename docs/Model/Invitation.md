@@ -12,13 +12,13 @@ Name | Type | Description | Notes
 **locales** | [**\Phrase\Model\LocalePreview[]**](LocalePreview.md) |  | [optional] 
 **teams** | [**\Phrase\Model\TeamShort[]**](TeamShort.md) |  | [optional] 
 **default_locale_codes** | **string[]** |  | [optional] 
-**permissions** | [**object**](.md) |  | [optional] 
+**permissions** | **object** |  | [optional] 
 **locale_ids** | **string[]** |  | [optional] 
-**created_at** | [**\DateTime**](\DateTime.md) |  | [optional] 
-**updated_at** | [**\DateTime**](\DateTime.md) |  | [optional] 
-**accepted_at** | [**\DateTime**](\DateTime.md) |  | [optional] 
+**created_at** | **\DateTime** |  | [optional] 
+**updated_at** | **\DateTime** |  | [optional] 
+**accepted_at** | **\DateTime** |  | [optional] 
 **spaces** | [**\Phrase\Model\Space[]**](Space.md) |  | [optional] 
-**project_role** | [**\Phrase\Model\MemberProjectDetailProjectRoles[]**](MemberProjectDetailProjectRoles.md) |  | [optional] 
+**project_role** | [**\Phrase\Model\MemberProjectDetailProjectRolesInner[]**](MemberProjectDetailProjectRolesInner.md) |  | [optional] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

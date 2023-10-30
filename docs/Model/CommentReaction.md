@@ -6,8 +6,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **string** |  | [optional] 
 **emoji** | **string** |  | [optional] 
-**created_at** | [**\DateTime**](\DateTime.md) |  | [optional] 
-**updated_at** | [**\DateTime**](\DateTime.md) |  | [optional] 
+**created_at** | **\DateTime** |  | [optional] 
+**updated_at** | **\DateTime** |  | [optional] 
 **comment** | [**\Phrase\Model\Comment**](Comment.md) |  | [optional] 
 **user** | [**\Phrase\Model\UserPreview**](UserPreview.md) |  | [optional] 
 

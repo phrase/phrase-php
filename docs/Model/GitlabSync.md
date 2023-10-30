@@ -12,8 +12,8 @@ Name | Type | Description | Notes
 **auto_import_secret** | **string** |  | [optional] 
 **auto_import_url** | **string** |  | [optional] 
 **self_hosted_api_url** | **string** |  | [optional] 
-**last_exported_at** | [**\DateTime**](\DateTime.md) |  | [optional] 
-**last_imported_at** | [**\DateTime**](\DateTime.md) |  | [optional] 
+**last_exported_at** | **\DateTime** |  | [optional] 
+**last_imported_at** | **\DateTime** |  | [optional] 
 **last_status** | **string** |  | [optional] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)

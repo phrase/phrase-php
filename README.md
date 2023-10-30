@@ -114,19 +114,6 @@ $config = Phrase\Configuration::getDefaultConfiguration()->setHost('https://api.
 
 
 
-## Basic
-
-
-- **Type**: HTTP basic authentication
-
-```php
-$config = Phrase\Configuration::getDefaultConfiguration()
-              ->setUsername('YOUR_USERNAME')
-              ->setPassword('YOUR_PASSWORD');
-```
-
-
-
 ## Token
 
 
@@ -139,6 +126,19 @@ $config = Phrase\Configuration::getDefaultConfiguration()->setApiKey('Authorizat
 $config = Phrase\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'token');
 ```
 
+
+
+
+## Basic
+
+
+- **Type**: HTTP basic authentication
+
+```php
+$config = Phrase\Configuration::getDefaultConfiguration()
+              ->setUsername('YOUR_USERNAME')
+              ->setPassword('YOUR_PASSWORD');
+```
 
 
 ## Documentation for API Endpoints
@@ -405,7 +405,6 @@ Class | Method | HTTP request | Description
 
  - [Account](docs/Model/Account.md)
  - [AccountDetails](docs/Model/AccountDetails.md)
- - [AccountDetails1](docs/Model/AccountDetails1.md)
  - [AccountSearchResult](docs/Model/AccountSearchResult.md)
  - [AffectedCount](docs/Model/AffectedCount.md)
  - [AffectedResources](docs/Model/AffectedResources.md)
@@ -413,7 +412,6 @@ Class | Method | HTTP request | Description
  - [AuthorizationCreateParameters](docs/Model/AuthorizationCreateParameters.md)
  - [AuthorizationUpdateParameters](docs/Model/AuthorizationUpdateParameters.md)
  - [AuthorizationWithToken](docs/Model/AuthorizationWithToken.md)
- - [AuthorizationWithToken1](docs/Model/AuthorizationWithToken1.md)
  - [BitbucketSync](docs/Model/BitbucketSync.md)
  - [BitbucketSyncExportParameters](docs/Model/BitbucketSyncExportParameters.md)
  - [BitbucketSyncExportResponse](docs/Model/BitbucketSyncExportResponse.md)
@@ -448,7 +446,7 @@ Class | Method | HTTP request | Description
  - [GitlabSyncExport](docs/Model/GitlabSyncExport.md)
  - [GitlabSyncExportParameters](docs/Model/GitlabSyncExportParameters.md)
  - [GitlabSyncHistory](docs/Model/GitlabSyncHistory.md)
- - [GitlabSyncHistoryErrors](docs/Model/GitlabSyncHistoryErrors.md)
+ - [GitlabSyncHistoryErrorsInner](docs/Model/GitlabSyncHistoryErrorsInner.md)
  - [GitlabSyncImportParameters](docs/Model/GitlabSyncImportParameters.md)
  - [Glossary](docs/Model/Glossary.md)
  - [GlossaryCreateParameters](docs/Model/GlossaryCreateParameters.md)
@@ -461,9 +459,9 @@ Class | Method | HTTP request | Description
  - [GlossaryUpdateParameters](docs/Model/GlossaryUpdateParameters.md)
  - [Icu](docs/Model/Icu.md)
  - [IcuSkeletonParameters](docs/Model/IcuSkeletonParameters.md)
- - [InlineResponse422](docs/Model/InlineResponse422.md)
- - [InlineResponse422Errors](docs/Model/InlineResponse422Errors.md)
  - [Invitation](docs/Model/Invitation.md)
+ - [InvitationCreate422Response](docs/Model/InvitationCreate422Response.md)
+ - [InvitationCreate422ResponseErrorsInner](docs/Model/InvitationCreate422ResponseErrorsInner.md)
  - [InvitationCreateParameters](docs/Model/InvitationCreateParameters.md)
  - [InvitationUpdateParameters](docs/Model/InvitationUpdateParameters.md)
  - [InvitationUpdateSettingsParameters](docs/Model/InvitationUpdateSettingsParameters.md)
@@ -474,7 +472,6 @@ Class | Method | HTTP request | Description
  - [JobCompleteParameters](docs/Model/JobCompleteParameters.md)
  - [JobCreateParameters](docs/Model/JobCreateParameters.md)
  - [JobDetails](docs/Model/JobDetails.md)
- - [JobDetails1](docs/Model/JobDetails1.md)
  - [JobKeysCreateParameters](docs/Model/JobKeysCreateParameters.md)
  - [JobLocale](docs/Model/JobLocale.md)
  - [JobLocaleCompleteParameters](docs/Model/JobLocaleCompleteParameters.md)
@@ -488,7 +485,6 @@ Class | Method | HTTP request | Description
  - [JobTemplate](docs/Model/JobTemplate.md)
  - [JobTemplateCreateParameters](docs/Model/JobTemplateCreateParameters.md)
  - [JobTemplateDetails](docs/Model/JobTemplateDetails.md)
- - [JobTemplateDetails1](docs/Model/JobTemplateDetails1.md)
  - [JobTemplateLocaleUpdateParameters](docs/Model/JobTemplateLocaleUpdateParameters.md)
  - [JobTemplateLocales](docs/Model/JobTemplateLocales.md)
  - [JobTemplateLocalesCreateParameters](docs/Model/JobTemplateLocalesCreateParameters.md)
@@ -506,7 +502,6 @@ Class | Method | HTTP request | Description
  - [Locale](docs/Model/Locale.md)
  - [LocaleCreateParameters](docs/Model/LocaleCreateParameters.md)
  - [LocaleDetails](docs/Model/LocaleDetails.md)
- - [LocaleDetails1](docs/Model/LocaleDetails1.md)
  - [LocalePreview](docs/Model/LocalePreview.md)
  - [LocalePreview1](docs/Model/LocalePreview1.md)
  - [LocaleStatistics](docs/Model/LocaleStatistics.md)
@@ -515,8 +510,8 @@ Class | Method | HTTP request | Description
  - [LocaleUserPreview](docs/Model/LocaleUserPreview.md)
  - [Member](docs/Model/Member.md)
  - [MemberProjectDetail](docs/Model/MemberProjectDetail.md)
- - [MemberProjectDetailProjectRoles](docs/Model/MemberProjectDetailProjectRoles.md)
- - [MemberSpaces](docs/Model/MemberSpaces.md)
+ - [MemberProjectDetailProjectRolesInner](docs/Model/MemberProjectDetailProjectRolesInner.md)
+ - [MemberSpacesInner](docs/Model/MemberSpacesInner.md)
  - [MemberUpdateParameters](docs/Model/MemberUpdateParameters.md)
  - [MemberUpdateSettingsParameters](docs/Model/MemberUpdateSettingsParameters.md)
  - [Notification](docs/Model/Notification.md)
@@ -533,10 +528,7 @@ Class | Method | HTTP request | Description
  - [Project](docs/Model/Project.md)
  - [ProjectCreateParameters](docs/Model/ProjectCreateParameters.md)
  - [ProjectDetails](docs/Model/ProjectDetails.md)
- - [ProjectDetails1](docs/Model/ProjectDetails1.md)
  - [ProjectLocales](docs/Model/ProjectLocales.md)
- - [ProjectLocales1](docs/Model/ProjectLocales1.md)
- - [ProjectMemberSpecific](docs/Model/ProjectMemberSpecific.md)
  - [ProjectShort](docs/Model/ProjectShort.md)
  - [ProjectUpdateParameters](docs/Model/ProjectUpdateParameters.md)
  - [Release](docs/Model/Release.md)
@@ -545,7 +537,6 @@ Class | Method | HTTP request | Description
  - [ReleaseUpdateParameters](docs/Model/ReleaseUpdateParameters.md)
  - [RepliesListParameters](docs/Model/RepliesListParameters.md)
  - [Screenshot](docs/Model/Screenshot.md)
- - [ScreenshotCreateParameters](docs/Model/ScreenshotCreateParameters.md)
  - [ScreenshotMarker](docs/Model/ScreenshotMarker.md)
  - [ScreenshotMarkerCreateParameters](docs/Model/ScreenshotMarkerCreateParameters.md)
  - [ScreenshotMarkerUpdateParameters](docs/Model/ScreenshotMarkerUpdateParameters.md)
@@ -559,14 +550,12 @@ Class | Method | HTTP request | Description
  - [Styleguide](docs/Model/Styleguide.md)
  - [StyleguideCreateParameters](docs/Model/StyleguideCreateParameters.md)
  - [StyleguideDetails](docs/Model/StyleguideDetails.md)
- - [StyleguideDetails1](docs/Model/StyleguideDetails1.md)
  - [StyleguidePreview](docs/Model/StyleguidePreview.md)
  - [StyleguideUpdateParameters](docs/Model/StyleguideUpdateParameters.md)
  - [Subscription](docs/Model/Subscription.md)
  - [Tag](docs/Model/Tag.md)
  - [TagCreateParameters](docs/Model/TagCreateParameters.md)
  - [TagWithStats](docs/Model/TagWithStats.md)
- - [TagWithStats1](docs/Model/TagWithStats1.md)
  - [TagWithStats1Statistics](docs/Model/TagWithStats1Statistics.md)
  - [TagWithStats1Statistics1](docs/Model/TagWithStats1Statistics1.md)
  - [Team](docs/Model/Team.md)
@@ -580,12 +569,10 @@ Class | Method | HTTP request | Description
  - [Translation](docs/Model/Translation.md)
  - [TranslationCreateParameters](docs/Model/TranslationCreateParameters.md)
  - [TranslationDetails](docs/Model/TranslationDetails.md)
- - [TranslationDetails1](docs/Model/TranslationDetails1.md)
  - [TranslationExcludeParameters](docs/Model/TranslationExcludeParameters.md)
  - [TranslationIncludeParameters](docs/Model/TranslationIncludeParameters.md)
  - [TranslationKey](docs/Model/TranslationKey.md)
  - [TranslationKeyDetails](docs/Model/TranslationKeyDetails.md)
- - [TranslationKeyDetails1](docs/Model/TranslationKeyDetails1.md)
  - [TranslationOrder](docs/Model/TranslationOrder.md)
  - [TranslationReviewParameters](docs/Model/TranslationReviewParameters.md)
  - [TranslationUnverifyParameters](docs/Model/TranslationUnverifyParameters.md)
@@ -593,7 +580,6 @@ Class | Method | HTTP request | Description
  - [TranslationVerifyParameters](docs/Model/TranslationVerifyParameters.md)
  - [TranslationVersion](docs/Model/TranslationVersion.md)
  - [TranslationVersionWithUser](docs/Model/TranslationVersionWithUser.md)
- - [TranslationVersionWithUser1](docs/Model/TranslationVersionWithUser1.md)
  - [TranslationsExcludeParameters](docs/Model/TranslationsExcludeParameters.md)
  - [TranslationsIncludeParameters](docs/Model/TranslationsIncludeParameters.md)
  - [TranslationsReviewParameters](docs/Model/TranslationsReviewParameters.md)
@@ -601,7 +587,6 @@ Class | Method | HTTP request | Description
  - [TranslationsUnverifyParameters](docs/Model/TranslationsUnverifyParameters.md)
  - [TranslationsVerifyParameters](docs/Model/TranslationsVerifyParameters.md)
  - [Upload](docs/Model/Upload.md)
- - [UploadCreateParameters](docs/Model/UploadCreateParameters.md)
  - [UploadSummary](docs/Model/UploadSummary.md)
  - [User](docs/Model/User.md)
  - [UserPreview](docs/Model/UserPreview.md)

@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **space_ids** | **string[]** | List of spaces the user is assigned to. | [optional] 
 **team_ids** | **string[]** | List of teams the user is assigned to. | [optional] 
 **default_locale_codes** | **string[]** | List of default locales for the user. | [optional] 
-**permissions** | **map[string,string]** | Additional permissions depending on invitation role. | [optional] 
+**permissions** | **array&lt;string,string&gt;** | Additional permissions depending on invitation role. | [optional] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

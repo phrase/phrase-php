@@ -46,8 +46,8 @@ $convert_emoji = True; // bool | This option is obsolete. Providing the option w
 $skip_upload_tags = True; // bool | Indicates whether the upload should not create upload tags.
 $skip_unverification = True; // bool | Indicates whether the upload should unverify updated translations.
 $file_encoding = 'file_encoding_example'; // string | Enforces a specific encoding on the file contents. Valid options are \\\"UTF-8\\\", \\\"UTF-16\\\" and \\\"ISO-8859-1\\\".
-$locale_mapping = new \stdClass; // object | Optional, format specific mapping between locale names and the columns the translations to those locales are contained in.
-$format_options = new \stdClass; // object | Additional options available for specific formats. See our format guide for complete list.
+$locale_mapping = array('key' => new \stdClass); // object | Optional, format specific mapping between locale names and the columns the translations to those locales are contained in.
+$format_options = array('key' => new \stdClass); // object | Additional options available for specific formats. See our format guide for complete list.
 $autotranslate = True; // bool | If set, translations for the uploaded language will be fetched automatically.
 $mark_reviewed = True; // bool | Indicated whether the imported translations should be marked as reviewed. This setting is available if the review workflow is enabled for the project.
 $tag_only_affected_keys = false; // bool | Indicates whether only keys affected (created or updated) by the upload should be tagged. The default is `false`

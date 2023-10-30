@@ -8,8 +8,8 @@ Name | Type | Description | Notes
 **name** | **string** |  | [optional] 
 **slug** | **string** |  | [optional] 
 **company** | **string** |  | [optional] 
-**created_at** | [**\DateTime**](\DateTime.md) |  | [optional] 
-**updated_at** | [**\DateTime**](\DateTime.md) |  | [optional] 
+**created_at** | **\DateTime** |  | [optional] 
+**updated_at** | **\DateTime** |  | [optional] 
 **company_logo_url** | **string** |  | [optional] 
 **subscription** | [**\Phrase\Model\Subscription**](Subscription.md) |  | [optional] 
 
