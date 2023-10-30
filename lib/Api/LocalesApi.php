@@ -1424,7 +1424,7 @@ class LocalesApi
         }
         // query params
         if ($format_options !== null) {
-            if('form' === 'form' && is_array($format_options)) {
+            if('form' === 'deepObject' && is_array($format_options)) {
                 foreach($format_options as $key => $value) {
                     $queryParams[$key] = $value;
                 }
