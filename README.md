@@ -323,6 +323,8 @@ Class | Method | HTTP request | Description
 *ReleasesApi* | [**releaseShow**](docs/Api/ReleasesApi.md#releaseshow) | **GET** /accounts/{account_id}/distributions/{distribution_id}/releases/{id} | Get a single release
 *ReleasesApi* | [**releaseUpdate**](docs/Api/ReleasesApi.md#releaseupdate) | **PATCH** /accounts/{account_id}/distributions/{distribution_id}/releases/{id} | Update a release
 *ReleasesApi* | [**releasesList**](docs/Api/ReleasesApi.md#releaseslist) | **GET** /accounts/{account_id}/distributions/{distribution_id}/releases | List releases
+*ReportsApi* | [**reportLocalesList**](docs/Api/ReportsApi.md#reportlocaleslist) | **GET** /projects/{project_id}/report/locales | List Locale Reports
+*ReportsApi* | [**reportShow**](docs/Api/ReportsApi.md#reportshow) | **GET** /projects/{project_id}/report | Get Project Report
 *ScreenshotMarkersApi* | [**screenshotMarkerCreate**](docs/Api/ScreenshotMarkersApi.md#screenshotmarkercreate) | **POST** /projects/{project_id}/screenshots/{screenshot_id}/markers | Create a screenshot marker
 *ScreenshotMarkersApi* | [**screenshotMarkerDelete**](docs/Api/ScreenshotMarkersApi.md#screenshotmarkerdelete) | **DELETE** /projects/{project_id}/screenshots/{screenshot_id}/markers | Delete a screenshot marker
 *ScreenshotMarkersApi* | [**screenshotMarkerShow**](docs/Api/ScreenshotMarkersApi.md#screenshotmarkershow) | **GET** /projects/{project_id}/screenshots/{screenshot_id}/markers/{id} | Get a single screenshot marker
@@ -504,6 +506,7 @@ Class | Method | HTTP request | Description
  - [LocaleDetails](docs/Model/LocaleDetails.md)
  - [LocalePreview](docs/Model/LocalePreview.md)
  - [LocalePreview1](docs/Model/LocalePreview1.md)
+ - [LocaleReport](docs/Model/LocaleReport.md)
  - [LocaleStatistics](docs/Model/LocaleStatistics.md)
  - [LocaleTeamPreview](docs/Model/LocaleTeamPreview.md)
  - [LocaleUpdateParameters](docs/Model/LocaleUpdateParameters.md)
@@ -529,6 +532,7 @@ Class | Method | HTTP request | Description
  - [ProjectCreateParameters](docs/Model/ProjectCreateParameters.md)
  - [ProjectDetails](docs/Model/ProjectDetails.md)
  - [ProjectLocales](docs/Model/ProjectLocales.md)
+ - [ProjectReport](docs/Model/ProjectReport.md)
  - [ProjectShort](docs/Model/ProjectShort.md)
  - [ProjectUpdateParameters](docs/Model/ProjectUpdateParameters.md)
  - [Release](docs/Model/Release.md)

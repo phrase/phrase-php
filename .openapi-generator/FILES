@@ -39,6 +39,7 @@ docs/Api/OrganizationJobTemplateLocalesApi.md
 docs/Api/OrganizationJobTemplatesApi.md
 docs/Api/ProjectsApi.md
 docs/Api/ReleasesApi.md
+docs/Api/ReportsApi.md
 docs/Api/ScreenshotMarkersApi.md
 docs/Api/ScreenshotsApi.md
 docs/Api/SearchApi.md
@@ -154,6 +155,7 @@ docs/Model/LocaleCreateParameters.md
 docs/Model/LocaleDetails.md
 docs/Model/LocalePreview.md
 docs/Model/LocalePreview1.md
+docs/Model/LocaleReport.md
 docs/Model/LocaleStatistics.md
 docs/Model/LocaleTeamPreview.md
 docs/Model/LocaleUpdateParameters.md
@@ -179,6 +181,7 @@ docs/Model/Project.md
 docs/Model/ProjectCreateParameters.md
 docs/Model/ProjectDetails.md
 docs/Model/ProjectLocales.md
+docs/Model/ProjectReport.md
 docs/Model/ProjectShort.md
 docs/Model/ProjectUpdateParameters.md
 docs/Model/Release.md
@@ -283,6 +286,7 @@ lib/Api/OrganizationJobTemplateLocalesApi.php
 lib/Api/OrganizationJobTemplatesApi.php
 lib/Api/ProjectsApi.php
 lib/Api/ReleasesApi.php
+lib/Api/ReportsApi.php
 lib/Api/ScreenshotMarkersApi.php
 lib/Api/ScreenshotsApi.php
 lib/Api/SearchApi.php
@@ -401,6 +405,7 @@ lib/Model/LocaleCreateParameters.php
 lib/Model/LocaleDetails.php
 lib/Model/LocalePreview.php
 lib/Model/LocalePreview1.php
+lib/Model/LocaleReport.php
 lib/Model/LocaleStatistics.php
 lib/Model/LocaleTeamPreview.php
 lib/Model/LocaleUpdateParameters.php
@@ -427,6 +432,7 @@ lib/Model/Project.php
 lib/Model/ProjectCreateParameters.php
 lib/Model/ProjectDetails.php
 lib/Model/ProjectLocales.php
+lib/Model/ProjectReport.php
 lib/Model/ProjectShort.php
 lib/Model/ProjectUpdateParameters.php
 lib/Model/Release.php
@@ -531,6 +537,7 @@ test/Api/OrganizationJobTemplateLocalesApiTest.php
 test/Api/OrganizationJobTemplatesApiTest.php
 test/Api/ProjectsApiTest.php
 test/Api/ReleasesApiTest.php
+test/Api/ReportsApiTest.php
 test/Api/ScreenshotMarkersApiTest.php
 test/Api/ScreenshotsApiTest.php
 test/Api/SearchApiTest.php
@@ -644,6 +651,7 @@ test/Model/LocaleCreateParametersTest.php
 test/Model/LocaleDetailsTest.php
 test/Model/LocalePreview1Test.php
 test/Model/LocalePreviewTest.php
+test/Model/LocaleReportTest.php
 test/Model/LocaleStatisticsTest.php
 test/Model/LocaleTeamPreviewTest.php
 test/Model/LocaleTest.php
@@ -669,6 +677,7 @@ test/Model/OrganizationJobTemplateUpdateParametersTest.php
 test/Model/ProjectCreateParametersTest.php
 test/Model/ProjectDetailsTest.php
 test/Model/ProjectLocalesTest.php
+test/Model/ProjectReportTest.php
 test/Model/ProjectShortTest.php
 test/Model/ProjectTest.php
 test/Model/ProjectUpdateParametersTest.php
