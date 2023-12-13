@@ -12,6 +12,7 @@ docs/Api/BranchesApi.md
 docs/Api/CommentReactionsApi.md
 docs/Api/CommentRepliesApi.md
 docs/Api/CommentsApi.md
+docs/Api/CustomMetadataApi.md
 docs/Api/DistributionsApi.md
 docs/Api/DocumentsApi.md
 docs/Api/FigmaAttachmentsApi.md
@@ -82,6 +83,10 @@ docs/Model/CommentReaction.md
 docs/Model/CommentUpdateParameters.md
 docs/Model/CommentsListParameters.md
 docs/Model/CurrentUser.md
+docs/Model/CustomMetadataDataType.md
+docs/Model/CustomMetadataProperty.md
+docs/Model/CustomMetadataPropertyCreate422Response.md
+docs/Model/CustomMetadataPropertyCreate422ResponseErrorsInner.md
 docs/Model/Distribution.md
 docs/Model/DistributionCreateParameters.md
 docs/Model/DistributionPreview.md
@@ -111,8 +116,6 @@ docs/Model/GlossaryUpdateParameters.md
 docs/Model/Icu.md
 docs/Model/IcuSkeletonParameters.md
 docs/Model/Invitation.md
-docs/Model/InvitationCreate422Response.md
-docs/Model/InvitationCreate422ResponseErrorsInner.md
 docs/Model/InvitationCreateParameters.md
 docs/Model/InvitationUpdateParameters.md
 docs/Model/InvitationUpdateSettingsParameters.md
@@ -259,6 +262,7 @@ lib/Api/BranchesApi.php
 lib/Api/CommentReactionsApi.php
 lib/Api/CommentRepliesApi.php
 lib/Api/CommentsApi.php
+lib/Api/CustomMetadataApi.php
 lib/Api/DistributionsApi.php
 lib/Api/DocumentsApi.php
 lib/Api/FigmaAttachmentsApi.php
@@ -332,6 +336,10 @@ lib/Model/CommentReaction.php
 lib/Model/CommentUpdateParameters.php
 lib/Model/CommentsListParameters.php
 lib/Model/CurrentUser.php
+lib/Model/CustomMetadataDataType.php
+lib/Model/CustomMetadataProperty.php
+lib/Model/CustomMetadataPropertyCreate422Response.php
+lib/Model/CustomMetadataPropertyCreate422ResponseErrorsInner.php
 lib/Model/Distribution.php
 lib/Model/DistributionCreateParameters.php
 lib/Model/DistributionPreview.php
@@ -361,8 +369,6 @@ lib/Model/GlossaryUpdateParameters.php
 lib/Model/Icu.php
 lib/Model/IcuSkeletonParameters.php
 lib/Model/Invitation.php
-lib/Model/InvitationCreate422Response.php
-lib/Model/InvitationCreate422ResponseErrorsInner.php
 lib/Model/InvitationCreateParameters.php
 lib/Model/InvitationUpdateParameters.php
 lib/Model/InvitationUpdateSettingsParameters.php
@@ -511,6 +517,7 @@ test/Api/BranchesApiTest.php
 test/Api/CommentReactionsApiTest.php
 test/Api/CommentRepliesApiTest.php
 test/Api/CommentsApiTest.php
+test/Api/CustomMetadataApiTest.php
 test/Api/DistributionsApiTest.php
 test/Api/DocumentsApiTest.php
 test/Api/FigmaAttachmentsApiTest.php
@@ -579,6 +586,10 @@ test/Model/CommentTest.php
 test/Model/CommentUpdateParametersTest.php
 test/Model/CommentsListParametersTest.php
 test/Model/CurrentUserTest.php
+test/Model/CustomMetadataDataTypeTest.php
+test/Model/CustomMetadataPropertyCreate422ResponseErrorsInnerTest.php
+test/Model/CustomMetadataPropertyCreate422ResponseTest.php
+test/Model/CustomMetadataPropertyTest.php
 test/Model/DistributionCreateParametersTest.php
 test/Model/DistributionPreviewTest.php
 test/Model/DistributionTest.php
@@ -607,8 +618,6 @@ test/Model/GlossaryTest.php
 test/Model/GlossaryUpdateParametersTest.php
 test/Model/IcuSkeletonParametersTest.php
 test/Model/IcuTest.php
-test/Model/InvitationCreate422ResponseErrorsInnerTest.php
-test/Model/InvitationCreate422ResponseTest.php
 test/Model/InvitationCreateParametersTest.php
 test/Model/InvitationTest.php
 test/Model/InvitationUpdateParametersTest.php

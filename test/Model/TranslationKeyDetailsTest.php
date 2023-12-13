@@ -201,4 +201,11 @@ class TranslationKeyDetailsTest extends TestCase
     public function testPropertyCreator()
     {
     }
+
+    /**
+     * Test attribute "custom_metadata"
+     */
+    public function testPropertyCustomMetadata()
+    {
+    }
 }

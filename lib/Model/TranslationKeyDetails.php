@@ -72,7 +72,8 @@ class TranslationKeyDetails implements ModelInterface, ArrayAccess
         'xml_space_preserve' => 'bool',
         'original_file' => 'string',
         'format_value_type' => 'string',
-        'creator' => '\Phrase\Model\UserPreview'
+        'creator' => '\Phrase\Model\UserPreview',
+        'custom_metadata' => 'array<string,string>'
     ];
 
     /**
@@ -98,7 +99,8 @@ class TranslationKeyDetails implements ModelInterface, ArrayAccess
         'xml_space_preserve' => null,
         'original_file' => null,
         'format_value_type' => null,
-        'creator' => null
+        'creator' => null,
+        'custom_metadata' => null
     ];
 
     /**
@@ -145,7 +147,8 @@ class TranslationKeyDetails implements ModelInterface, ArrayAccess
         'xml_space_preserve' => 'xml_space_preserve',
         'original_file' => 'original_file',
         'format_value_type' => 'format_value_type',
-        'creator' => 'creator'
+        'creator' => 'creator',
+        'custom_metadata' => 'custom_metadata'
     ];
 
     /**
@@ -171,7 +174,8 @@ class TranslationKeyDetails implements ModelInterface, ArrayAccess
         'xml_space_preserve' => 'setXmlSpacePreserve',
         'original_file' => 'setOriginalFile',
         'format_value_type' => 'setFormatValueType',
-        'creator' => 'setCreator'
+        'creator' => 'setCreator',
+        'custom_metadata' => 'setCustomMetadata'
     ];
 
     /**
@@ -197,7 +201,8 @@ class TranslationKeyDetails implements ModelInterface, ArrayAccess
         'xml_space_preserve' => 'getXmlSpacePreserve',
         'original_file' => 'getOriginalFile',
         'format_value_type' => 'getFormatValueType',
-        'creator' => 'getCreator'
+        'creator' => 'getCreator',
+        'custom_metadata' => 'getCustomMetadata'
     ];
 
     /**
@@ -278,6 +283,7 @@ class TranslationKeyDetails implements ModelInterface, ArrayAccess
         $this->container['original_file'] = isset($data['original_file']) ? $data['original_file'] : null;
         $this->container['format_value_type'] = isset($data['format_value_type']) ? $data['format_value_type'] : null;
         $this->container['creator'] = isset($data['creator']) ? $data['creator'] : null;
+        $this->container['custom_metadata'] = isset($data['custom_metadata']) ? $data['custom_metadata'] : null;
     }
 
     /**
@@ -732,6 +738,30 @@ class TranslationKeyDetails implements ModelInterface, ArrayAccess
     public function setCreator($creator)
     {
         $this->container['creator'] = $creator;
+
+        return $this;
+    }
+
+    /**
+     * Gets custom_metadata
+     *
+     * @return array&lt;string,string&gt;|null
+     */
+    public function getCustomMetadata()
+    {
+        return $this->container['custom_metadata'];
+    }
+
+    /**
+     * Sets custom_metadata
+     *
+     * @param array&lt;string,string&gt;|null $custom_metadata custom_metadata
+     *
+     * @return $this
+     */
+    public function setCustomMetadata($custom_metadata)
+    {
+        $this->container['custom_metadata'] = $custom_metadata;
 
         return $this;
     }

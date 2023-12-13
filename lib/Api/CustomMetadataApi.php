@@ -1,6 +1,6 @@
 <?php
 /**
- * InvitationsApi
+ * CustomMetadataApi
  * PHP version 5
  *
  * @category Class
@@ -38,14 +38,14 @@ use Phrase\HeaderSelector;
 use Phrase\ObjectSerializer;
 
 /**
- * InvitationsApi Class Doc Comment
+ * CustomMetadataApi Class Doc Comment
  *
  * @category Class
  * @package  Phrase
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class InvitationsApi
+class CustomMetadataApi
 {
     /**
      * @var ClientInterface
@@ -114,334 +114,9 @@ class InvitationsApi
     }
 
     /**
-     * Operation invitationCreate
+     * Operation customMetadataPropertiesDelete
      *
-     * Create a new invitation
-     *
-     * @param  string $account_id Account ID (required)
-     * @param  \Phrase\Model\InvitationCreateParameters $invitation_create_parameters invitation_create_parameters (required)
-     * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
-     *
-     * @throws \Phrase\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \Phrase\Model\Invitation|\Phrase\Model\CustomMetadataPropertyCreate422Response
-     */
-    public function invitationCreate($account_id, $invitation_create_parameters, $x_phrase_app_otp = null)
-    {
-        list($response) = $this->invitationCreateWithHttpInfo($account_id, $invitation_create_parameters, $x_phrase_app_otp);
-        return $response;
-    }
-
-    /**
-     * Operation invitationCreateWithHttpInfo
-     *
-     * Create a new invitation
-     *
-     * @param  string $account_id Account ID (required)
-     * @param  \Phrase\Model\InvitationCreateParameters $invitation_create_parameters (required)
-     * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
-     *
-     * @throws \Phrase\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of \Phrase\Model\Invitation|\Phrase\Model\CustomMetadataPropertyCreate422Response, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function invitationCreateWithHttpInfo($account_id, $invitation_create_parameters, $x_phrase_app_otp = null)
-    {
-        $request = $this->invitationCreateRequest($account_id, $invitation_create_parameters, $x_phrase_app_otp);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
-                );
-            }
-
-            $responseBody = $response->getBody();
-            switch($statusCode) {
-                case 201:
-                    if ('\Phrase\Model\Invitation' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = (string) $responseBody;
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\Phrase\Model\Invitation', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 422:
-                    if ('\Phrase\Model\CustomMetadataPropertyCreate422Response' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = (string) $responseBody;
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\Phrase\Model\CustomMetadataPropertyCreate422Response', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-            }
-
-            $returnType = '\Phrase\Model\Invitation';
-            $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = (string) $responseBody;
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 201:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Phrase\Model\Invitation',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 422:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Phrase\Model\CustomMetadataPropertyCreate422Response',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation invitationCreateAsync
-     *
-     * Create a new invitation
-     *
-     * @param  string $account_id Account ID (required)
-     * @param  \Phrase\Model\InvitationCreateParameters $invitation_create_parameters (required)
-     * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function invitationCreateAsync($account_id, $invitation_create_parameters, $x_phrase_app_otp = null)
-    {
-        return $this->invitationCreateAsyncWithHttpInfo($account_id, $invitation_create_parameters, $x_phrase_app_otp)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation invitationCreateAsyncWithHttpInfo
-     *
-     * Create a new invitation
-     *
-     * @param  string $account_id Account ID (required)
-     * @param  \Phrase\Model\InvitationCreateParameters $invitation_create_parameters (required)
-     * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function invitationCreateAsyncWithHttpInfo($account_id, $invitation_create_parameters, $x_phrase_app_otp = null)
-    {
-        $returnType = '\Phrase\Model\Invitation';
-        $request = $this->invitationCreateRequest($account_id, $invitation_create_parameters, $x_phrase_app_otp);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = (string) $responseBody;
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'invitationCreate'
-     *
-     * @param  string $account_id Account ID (required)
-     * @param  \Phrase\Model\InvitationCreateParameters $invitation_create_parameters (required)
-     * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    protected function invitationCreateRequest($account_id, $invitation_create_parameters, $x_phrase_app_otp = null)
-    {
-        // verify the required parameter 'account_id' is set
-        if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $account_id when calling invitationCreate'
-            );
-        }
-        // verify the required parameter 'invitation_create_parameters' is set
-        if ($invitation_create_parameters === null || (is_array($invitation_create_parameters) && count($invitation_create_parameters) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $invitation_create_parameters when calling invitationCreate'
-            );
-        }
-
-        $resourcePath = '/accounts/{account_id}/invitations';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-        // header params
-        if ($x_phrase_app_otp !== null) {
-            $headerParams['X-PhraseApp-OTP'] = ObjectSerializer::toHeaderValue($x_phrase_app_otp);
-        }
-
-        // path params
-        if ($account_id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'account_id' . '}',
-                ObjectSerializer::toPathValue($account_id),
-                $resourcePath
-            );
-        }
-
-        // body params
-        $_tempBody = null;
-        if (isset($invitation_create_parameters)) {
-            $_tempBody = $invitation_create_parameters;
-        }
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                ['application/json']
-            );
-        }
-
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
-            } else {
-                $httpBody = $_tempBody;
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
-            }
-        }
-
-        // this endpoint requires HTTP basic authentication
-        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
-            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
-        }
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
-        if ($apiKey !== null) {
-            $headers['Authorization'] = $apiKey;
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
-        return new Request(
-            'POST',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation invitationDelete
-     *
-     * Delete an invitation
+     * Destroy property
      *
      * @param  string $account_id Account ID (required)
      * @param  string $id ID (required)
@@ -451,15 +126,15 @@ class InvitationsApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function invitationDelete($account_id, $id, $x_phrase_app_otp = null)
+    public function customMetadataPropertiesDelete($account_id, $id, $x_phrase_app_otp = null)
     {
-        $this->invitationDeleteWithHttpInfo($account_id, $id, $x_phrase_app_otp);
+        $this->customMetadataPropertiesDeleteWithHttpInfo($account_id, $id, $x_phrase_app_otp);
     }
 
     /**
-     * Operation invitationDeleteWithHttpInfo
+     * Operation customMetadataPropertiesDeleteWithHttpInfo
      *
-     * Delete an invitation
+     * Destroy property
      *
      * @param  string $account_id Account ID (required)
      * @param  string $id ID (required)
@@ -469,9 +144,9 @@ class InvitationsApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function invitationDeleteWithHttpInfo($account_id, $id, $x_phrase_app_otp = null)
+    public function customMetadataPropertiesDeleteWithHttpInfo($account_id, $id, $x_phrase_app_otp = null)
     {
-        $request = $this->invitationDeleteRequest($account_id, $id, $x_phrase_app_otp);
+        $request = $this->customMetadataPropertiesDeleteRequest($account_id, $id, $x_phrase_app_otp);
 
         try {
             $options = $this->createHttpClientOption();
@@ -511,9 +186,9 @@ class InvitationsApi
     }
 
     /**
-     * Operation invitationDeleteAsync
+     * Operation customMetadataPropertiesDeleteAsync
      *
-     * Delete an invitation
+     * Destroy property
      *
      * @param  string $account_id Account ID (required)
      * @param  string $id ID (required)
@@ -522,9 +197,9 @@ class InvitationsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function invitationDeleteAsync($account_id, $id, $x_phrase_app_otp = null)
+    public function customMetadataPropertiesDeleteAsync($account_id, $id, $x_phrase_app_otp = null)
     {
-        return $this->invitationDeleteAsyncWithHttpInfo($account_id, $id, $x_phrase_app_otp)
+        return $this->customMetadataPropertiesDeleteAsyncWithHttpInfo($account_id, $id, $x_phrase_app_otp)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -533,9 +208,9 @@ class InvitationsApi
     }
 
     /**
-     * Operation invitationDeleteAsyncWithHttpInfo
+     * Operation customMetadataPropertiesDeleteAsyncWithHttpInfo
      *
-     * Delete an invitation
+     * Destroy property
      *
      * @param  string $account_id Account ID (required)
      * @param  string $id ID (required)
@@ -544,10 +219,10 @@ class InvitationsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function invitationDeleteAsyncWithHttpInfo($account_id, $id, $x_phrase_app_otp = null)
+    public function customMetadataPropertiesDeleteAsyncWithHttpInfo($account_id, $id, $x_phrase_app_otp = null)
     {
         $returnType = '';
-        $request = $this->invitationDeleteRequest($account_id, $id, $x_phrase_app_otp);
+        $request = $this->customMetadataPropertiesDeleteRequest($account_id, $id, $x_phrase_app_otp);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -573,7 +248,7 @@ class InvitationsApi
     }
 
     /**
-     * Create request for operation 'invitationDelete'
+     * Create request for operation 'customMetadataPropertiesDelete'
      *
      * @param  string $account_id Account ID (required)
      * @param  string $id ID (required)
@@ -582,22 +257,22 @@ class InvitationsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function invitationDeleteRequest($account_id, $id, $x_phrase_app_otp = null)
+    protected function customMetadataPropertiesDeleteRequest($account_id, $id, $x_phrase_app_otp = null)
     {
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $account_id when calling invitationDelete'
+                'Missing the required parameter $account_id when calling customMetadataPropertiesDelete'
             );
         }
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $id when calling invitationDelete'
+                'Missing the required parameter $id when calling customMetadataPropertiesDelete'
             );
         }
 
-        $resourcePath = '/accounts/{account_id}/invitations/{id}';
+        $resourcePath = '/accounts/{account_id}/custom_metadata/properties/{id}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -701,40 +376,50 @@ class InvitationsApi
     }
 
     /**
-     * Operation invitationResend
+     * Operation customMetadataPropertiesList
      *
-     * Resend an invitation
+     * List properties
      *
      * @param  string $account_id Account ID (required)
-     * @param  string $id ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
+     * @param  CustomMetadataDataType $data_type Data Type of Custom Metadata Property (optional)
+     * @param  string $project_id id of project that the properties belong to (optional)
+     * @param  int $page Page number (optional)
+     * @param  int $per_page Limit on the number of objects to be returned, between 1 and 100. 25 by default (optional)
+     * @param  string $sort Sort criteria. Can be one of: name, data_type, created_at. (optional)
+     * @param  string $order Order direction. Can be one of: asc, desc. (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Phrase\Model\Invitation
+     * @return \Phrase\Model\CustomMetadataProperty[]
      */
-    public function invitationResend($account_id, $id, $x_phrase_app_otp = null)
+    public function customMetadataPropertiesList($account_id, $x_phrase_app_otp = null, $data_type = null, $project_id = null, $page = null, $per_page = null, $sort = null, $order = null)
     {
-        list($response) = $this->invitationResendWithHttpInfo($account_id, $id, $x_phrase_app_otp);
+        list($response) = $this->customMetadataPropertiesListWithHttpInfo($account_id, $x_phrase_app_otp, $data_type, $project_id, $page, $per_page, $sort, $order);
         return $response;
     }
 
     /**
-     * Operation invitationResendWithHttpInfo
+     * Operation customMetadataPropertiesListWithHttpInfo
      *
-     * Resend an invitation
+     * List properties
      *
      * @param  string $account_id Account ID (required)
-     * @param  string $id ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
+     * @param  CustomMetadataDataType $data_type Data Type of Custom Metadata Property (optional)
+     * @param  string $project_id id of project that the properties belong to (optional)
+     * @param  int $page Page number (optional)
+     * @param  int $per_page Limit on the number of objects to be returned, between 1 and 100. 25 by default (optional)
+     * @param  string $sort Sort criteria. Can be one of: name, data_type, created_at. (optional)
+     * @param  string $order Order direction. Can be one of: asc, desc. (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Phrase\Model\Invitation, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Phrase\Model\CustomMetadataProperty[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function invitationResendWithHttpInfo($account_id, $id, $x_phrase_app_otp = null)
+    public function customMetadataPropertiesListWithHttpInfo($account_id, $x_phrase_app_otp = null, $data_type = null, $project_id = null, $page = null, $per_page = null, $sort = null, $order = null)
     {
-        $request = $this->invitationResendRequest($account_id, $id, $x_phrase_app_otp);
+        $request = $this->customMetadataPropertiesListRequest($account_id, $x_phrase_app_otp, $data_type, $project_id, $page, $per_page, $sort, $order);
 
         try {
             $options = $this->createHttpClientOption();
@@ -767,20 +452,20 @@ class InvitationsApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\Phrase\Model\Invitation' === '\SplFileObject') {
+                    if ('\Phrase\Model\CustomMetadataProperty[]' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Phrase\Model\Invitation', []),
+                        ObjectSerializer::deserialize($content, '\Phrase\Model\CustomMetadataProperty[]', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Phrase\Model\Invitation';
+            $returnType = '\Phrase\Model\CustomMetadataProperty[]';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -799,7 +484,7 @@ class InvitationsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Phrase\Model\Invitation',
+                        '\Phrase\Model\CustomMetadataProperty[]',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -810,20 +495,25 @@ class InvitationsApi
     }
 
     /**
-     * Operation invitationResendAsync
+     * Operation customMetadataPropertiesListAsync
      *
-     * Resend an invitation
+     * List properties
      *
      * @param  string $account_id Account ID (required)
-     * @param  string $id ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
+     * @param  CustomMetadataDataType $data_type Data Type of Custom Metadata Property (optional)
+     * @param  string $project_id id of project that the properties belong to (optional)
+     * @param  int $page Page number (optional)
+     * @param  int $per_page Limit on the number of objects to be returned, between 1 and 100. 25 by default (optional)
+     * @param  string $sort Sort criteria. Can be one of: name, data_type, created_at. (optional)
+     * @param  string $order Order direction. Can be one of: asc, desc. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function invitationResendAsync($account_id, $id, $x_phrase_app_otp = null)
+    public function customMetadataPropertiesListAsync($account_id, $x_phrase_app_otp = null, $data_type = null, $project_id = null, $page = null, $per_page = null, $sort = null, $order = null)
     {
-        return $this->invitationResendAsyncWithHttpInfo($account_id, $id, $x_phrase_app_otp)
+        return $this->customMetadataPropertiesListAsyncWithHttpInfo($account_id, $x_phrase_app_otp, $data_type, $project_id, $page, $per_page, $sort, $order)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -832,21 +522,26 @@ class InvitationsApi
     }
 
     /**
-     * Operation invitationResendAsyncWithHttpInfo
+     * Operation customMetadataPropertiesListAsyncWithHttpInfo
      *
-     * Resend an invitation
+     * List properties
      *
      * @param  string $account_id Account ID (required)
-     * @param  string $id ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
+     * @param  CustomMetadataDataType $data_type Data Type of Custom Metadata Property (optional)
+     * @param  string $project_id id of project that the properties belong to (optional)
+     * @param  int $page Page number (optional)
+     * @param  int $per_page Limit on the number of objects to be returned, between 1 and 100. 25 by default (optional)
+     * @param  string $sort Sort criteria. Can be one of: name, data_type, created_at. (optional)
+     * @param  string $order Order direction. Can be one of: asc, desc. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function invitationResendAsyncWithHttpInfo($account_id, $id, $x_phrase_app_otp = null)
+    public function customMetadataPropertiesListAsyncWithHttpInfo($account_id, $x_phrase_app_otp = null, $data_type = null, $project_id = null, $page = null, $per_page = null, $sort = null, $order = null)
     {
-        $returnType = '\Phrase\Model\Invitation';
-        $request = $this->invitationResendRequest($account_id, $id, $x_phrase_app_otp);
+        $returnType = '\Phrase\Model\CustomMetadataProperty[]';
+        $request = $this->customMetadataPropertiesListRequest($account_id, $x_phrase_app_otp, $data_type, $project_id, $page, $per_page, $sort, $order);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -883,37 +578,102 @@ class InvitationsApi
     }
 
     /**
-     * Create request for operation 'invitationResend'
+     * Create request for operation 'customMetadataPropertiesList'
      *
      * @param  string $account_id Account ID (required)
-     * @param  string $id ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
+     * @param  CustomMetadataDataType $data_type Data Type of Custom Metadata Property (optional)
+     * @param  string $project_id id of project that the properties belong to (optional)
+     * @param  int $page Page number (optional)
+     * @param  int $per_page Limit on the number of objects to be returned, between 1 and 100. 25 by default (optional)
+     * @param  string $sort Sort criteria. Can be one of: name, data_type, created_at. (optional)
+     * @param  string $order Order direction. Can be one of: asc, desc. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function invitationResendRequest($account_id, $id, $x_phrase_app_otp = null)
+    protected function customMetadataPropertiesListRequest($account_id, $x_phrase_app_otp = null, $data_type = null, $project_id = null, $page = null, $per_page = null, $sort = null, $order = null)
     {
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $account_id when calling invitationResend'
-            );
-        }
-        // verify the required parameter 'id' is set
-        if ($id === null || (is_array($id) && count($id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $id when calling invitationResend'
+                'Missing the required parameter $account_id when calling customMetadataPropertiesList'
             );
         }
 
-        $resourcePath = '/accounts/{account_id}/invitations/{id}/resend';
+        $resourcePath = '/accounts/{account_id}/custom_metadata/properties';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        if ($data_type !== null) {
+            if('form' === 'form' && is_array($data_type)) {
+                foreach($data_type as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['data_type'] = $data_type;
+            }
+        }
+        // query params
+        if ($project_id !== null) {
+            if('form' === 'form' && is_array($project_id)) {
+                foreach($project_id as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['project_id'] = $project_id;
+            }
+        }
+        // query params
+        if ($page !== null) {
+            if('form' === 'form' && is_array($page)) {
+                foreach($page as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['page'] = $page;
+            }
+        }
+        // query params
+        if ($per_page !== null) {
+            if('form' === 'form' && is_array($per_page)) {
+                foreach($per_page as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['per_page'] = $per_page;
+            }
+        }
+        // query params
+        if ($sort !== null) {
+            if('form' === 'form' && is_array($sort)) {
+                foreach($sort as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['sort'] = $sort;
+            }
+        }
+        // query params
+        if ($order !== null) {
+            if('form' === 'form' && is_array($order)) {
+                foreach($order as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['order'] = $order;
+            }
+        }
 
         // header params
         if ($x_phrase_app_otp !== null) {
@@ -928,11 +688,406 @@ class InvitationsApi
                 $resourcePath
             );
         }
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
+            }
+        }
+
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
+        return new Request(
+            'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation customMetadataPropertyCreate
+     *
+     * Create a property
+     *
+     * @param  string $account_id Account ID (required)
+     * @param  string $name name of the property (required)
+     * @param  CustomMetadataDataType $data_type Data Type of Custom Metadata Property (required)
+     * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
+     * @param  string $description description of property (optional)
+     * @param  string[] $project_ids ids of projects that the property belongs to (optional)
+     * @param  string[] $value_options value options of property (only applies to single or multi select properties) (optional)
+     *
+     * @throws \Phrase\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \Phrase\Model\CustomMetadataProperty|\Phrase\Model\CustomMetadataPropertyCreate422Response
+     */
+    public function customMetadataPropertyCreate($account_id, $name, $data_type, $x_phrase_app_otp = null, $description = null, $project_ids = null, $value_options = null)
+    {
+        list($response) = $this->customMetadataPropertyCreateWithHttpInfo($account_id, $name, $data_type, $x_phrase_app_otp, $description, $project_ids, $value_options);
+        return $response;
+    }
+
+    /**
+     * Operation customMetadataPropertyCreateWithHttpInfo
+     *
+     * Create a property
+     *
+     * @param  string $account_id Account ID (required)
+     * @param  string $name name of the property (required)
+     * @param  CustomMetadataDataType $data_type Data Type of Custom Metadata Property (required)
+     * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
+     * @param  string $description description of property (optional)
+     * @param  string[] $project_ids ids of projects that the property belongs to (optional)
+     * @param  string[] $value_options value options of property (only applies to single or multi select properties) (optional)
+     *
+     * @throws \Phrase\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \Phrase\Model\CustomMetadataProperty|\Phrase\Model\CustomMetadataPropertyCreate422Response, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function customMetadataPropertyCreateWithHttpInfo($account_id, $name, $data_type, $x_phrase_app_otp = null, $description = null, $project_ids = null, $value_options = null)
+    {
+        $request = $this->customMetadataPropertyCreateRequest($account_id, $name, $data_type, $x_phrase_app_otp, $description, $project_ids, $value_options);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            switch($statusCode) {
+                case 200:
+                    if ('\Phrase\Model\CustomMetadataProperty' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Phrase\Model\CustomMetadataProperty', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 422:
+                    if ('\Phrase\Model\CustomMetadataPropertyCreate422Response' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Phrase\Model\CustomMetadataPropertyCreate422Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\Phrase\Model\CustomMetadataProperty';
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = (string) $responseBody;
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Phrase\Model\CustomMetadataProperty',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 422:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Phrase\Model\CustomMetadataPropertyCreate422Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation customMetadataPropertyCreateAsync
+     *
+     * Create a property
+     *
+     * @param  string $account_id Account ID (required)
+     * @param  string $name name of the property (required)
+     * @param  CustomMetadataDataType $data_type Data Type of Custom Metadata Property (required)
+     * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
+     * @param  string $description description of property (optional)
+     * @param  string[] $project_ids ids of projects that the property belongs to (optional)
+     * @param  string[] $value_options value options of property (only applies to single or multi select properties) (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function customMetadataPropertyCreateAsync($account_id, $name, $data_type, $x_phrase_app_otp = null, $description = null, $project_ids = null, $value_options = null)
+    {
+        return $this->customMetadataPropertyCreateAsyncWithHttpInfo($account_id, $name, $data_type, $x_phrase_app_otp, $description, $project_ids, $value_options)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation customMetadataPropertyCreateAsyncWithHttpInfo
+     *
+     * Create a property
+     *
+     * @param  string $account_id Account ID (required)
+     * @param  string $name name of the property (required)
+     * @param  CustomMetadataDataType $data_type Data Type of Custom Metadata Property (required)
+     * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
+     * @param  string $description description of property (optional)
+     * @param  string[] $project_ids ids of projects that the property belongs to (optional)
+     * @param  string[] $value_options value options of property (only applies to single or multi select properties) (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function customMetadataPropertyCreateAsyncWithHttpInfo($account_id, $name, $data_type, $x_phrase_app_otp = null, $description = null, $project_ids = null, $value_options = null)
+    {
+        $returnType = '\Phrase\Model\CustomMetadataProperty';
+        $request = $this->customMetadataPropertyCreateRequest($account_id, $name, $data_type, $x_phrase_app_otp, $description, $project_ids, $value_options);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'customMetadataPropertyCreate'
+     *
+     * @param  string $account_id Account ID (required)
+     * @param  string $name name of the property (required)
+     * @param  CustomMetadataDataType $data_type Data Type of Custom Metadata Property (required)
+     * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
+     * @param  string $description description of property (optional)
+     * @param  string[] $project_ids ids of projects that the property belongs to (optional)
+     * @param  string[] $value_options value options of property (only applies to single or multi select properties) (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function customMetadataPropertyCreateRequest($account_id, $name, $data_type, $x_phrase_app_otp = null, $description = null, $project_ids = null, $value_options = null)
+    {
+        // verify the required parameter 'account_id' is set
+        if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $account_id when calling customMetadataPropertyCreate'
+            );
+        }
+        // verify the required parameter 'name' is set
+        if ($name === null || (is_array($name) && count($name) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $name when calling customMetadataPropertyCreate'
+            );
+        }
+        // verify the required parameter 'data_type' is set
+        if ($data_type === null || (is_array($data_type) && count($data_type) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $data_type when calling customMetadataPropertyCreate'
+            );
+        }
+
+        $resourcePath = '/accounts/{account_id}/custom_metadata/properties';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        if ($name !== null) {
+            if('form' === 'form' && is_array($name)) {
+                foreach($name as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['name'] = $name;
+            }
+        }
+        // query params
+        if ($data_type !== null) {
+            if('form' === 'form' && is_array($data_type)) {
+                foreach($data_type as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['data_type'] = $data_type;
+            }
+        }
+        // query params
+        if ($description !== null) {
+            if('form' === 'form' && is_array($description)) {
+                foreach($description as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['description'] = $description;
+            }
+        }
+        // query params
+        if ($project_ids !== null) {
+            if('form' === 'form' && is_array($project_ids)) {
+                foreach($project_ids as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['project_ids'] = $project_ids;
+            }
+        }
+        // query params
+        if ($value_options !== null) {
+            if('form' === 'form' && is_array($value_options)) {
+                foreach($value_options as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['value_options'] = $value_options;
+            }
+        }
+
+        // header params
+        if ($x_phrase_app_otp !== null) {
+            $headerParams['X-PhraseApp-OTP'] = ObjectSerializer::toHeaderValue($x_phrase_app_otp);
+        }
+
         // path params
-        if ($id !== null) {
+        if ($account_id !== null) {
             $resourcePath = str_replace(
-                '{' . 'id' . '}',
-                ObjectSerializer::toPathValue($id),
+                '{' . 'account_id' . '}',
+                ObjectSerializer::toPathValue($account_id),
                 $resourcePath
             );
         }
@@ -1011,9 +1166,9 @@ class InvitationsApi
     }
 
     /**
-     * Operation invitationShow
+     * Operation customMetadataPropertyShow
      *
-     * Get a single invitation
+     * Get a single property
      *
      * @param  string $account_id Account ID (required)
      * @param  string $id ID (required)
@@ -1021,18 +1176,18 @@ class InvitationsApi
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Phrase\Model\Invitation
+     * @return \Phrase\Model\CustomMetadataProperty
      */
-    public function invitationShow($account_id, $id, $x_phrase_app_otp = null)
+    public function customMetadataPropertyShow($account_id, $id, $x_phrase_app_otp = null)
     {
-        list($response) = $this->invitationShowWithHttpInfo($account_id, $id, $x_phrase_app_otp);
+        list($response) = $this->customMetadataPropertyShowWithHttpInfo($account_id, $id, $x_phrase_app_otp);
         return $response;
     }
 
     /**
-     * Operation invitationShowWithHttpInfo
+     * Operation customMetadataPropertyShowWithHttpInfo
      *
-     * Get a single invitation
+     * Get a single property
      *
      * @param  string $account_id Account ID (required)
      * @param  string $id ID (required)
@@ -1040,11 +1195,11 @@ class InvitationsApi
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Phrase\Model\Invitation, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Phrase\Model\CustomMetadataProperty, HTTP status code, HTTP response headers (array of strings)
      */
-    public function invitationShowWithHttpInfo($account_id, $id, $x_phrase_app_otp = null)
+    public function customMetadataPropertyShowWithHttpInfo($account_id, $id, $x_phrase_app_otp = null)
     {
-        $request = $this->invitationShowRequest($account_id, $id, $x_phrase_app_otp);
+        $request = $this->customMetadataPropertyShowRequest($account_id, $id, $x_phrase_app_otp);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1077,20 +1232,20 @@ class InvitationsApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\Phrase\Model\Invitation' === '\SplFileObject') {
+                    if ('\Phrase\Model\CustomMetadataProperty' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Phrase\Model\Invitation', []),
+                        ObjectSerializer::deserialize($content, '\Phrase\Model\CustomMetadataProperty', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Phrase\Model\Invitation';
+            $returnType = '\Phrase\Model\CustomMetadataProperty';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -1109,7 +1264,7 @@ class InvitationsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Phrase\Model\Invitation',
+                        '\Phrase\Model\CustomMetadataProperty',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1120,9 +1275,9 @@ class InvitationsApi
     }
 
     /**
-     * Operation invitationShowAsync
+     * Operation customMetadataPropertyShowAsync
      *
-     * Get a single invitation
+     * Get a single property
      *
      * @param  string $account_id Account ID (required)
      * @param  string $id ID (required)
@@ -1131,9 +1286,9 @@ class InvitationsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function invitationShowAsync($account_id, $id, $x_phrase_app_otp = null)
+    public function customMetadataPropertyShowAsync($account_id, $id, $x_phrase_app_otp = null)
     {
-        return $this->invitationShowAsyncWithHttpInfo($account_id, $id, $x_phrase_app_otp)
+        return $this->customMetadataPropertyShowAsyncWithHttpInfo($account_id, $id, $x_phrase_app_otp)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1142,9 +1297,9 @@ class InvitationsApi
     }
 
     /**
-     * Operation invitationShowAsyncWithHttpInfo
+     * Operation customMetadataPropertyShowAsyncWithHttpInfo
      *
-     * Get a single invitation
+     * Get a single property
      *
      * @param  string $account_id Account ID (required)
      * @param  string $id ID (required)
@@ -1153,10 +1308,10 @@ class InvitationsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function invitationShowAsyncWithHttpInfo($account_id, $id, $x_phrase_app_otp = null)
+    public function customMetadataPropertyShowAsyncWithHttpInfo($account_id, $id, $x_phrase_app_otp = null)
     {
-        $returnType = '\Phrase\Model\Invitation';
-        $request = $this->invitationShowRequest($account_id, $id, $x_phrase_app_otp);
+        $returnType = '\Phrase\Model\CustomMetadataProperty';
+        $request = $this->customMetadataPropertyShowRequest($account_id, $id, $x_phrase_app_otp);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1193,7 +1348,7 @@ class InvitationsApi
     }
 
     /**
-     * Create request for operation 'invitationShow'
+     * Create request for operation 'customMetadataPropertyShow'
      *
      * @param  string $account_id Account ID (required)
      * @param  string $id ID (required)
@@ -1202,22 +1357,22 @@ class InvitationsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function invitationShowRequest($account_id, $id, $x_phrase_app_otp = null)
+    protected function customMetadataPropertyShowRequest($account_id, $id, $x_phrase_app_otp = null)
     {
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $account_id when calling invitationShow'
+                'Missing the required parameter $account_id when calling customMetadataPropertyShow'
             );
         }
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $id when calling invitationShow'
+                'Missing the required parameter $id when calling customMetadataPropertyShow'
             );
         }
 
-        $resourcePath = '/accounts/{account_id}/invitations/{id}';
+        $resourcePath = '/accounts/{account_id}/custom_metadata/properties/{id}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1321,42 +1476,48 @@ class InvitationsApi
     }
 
     /**
-     * Operation invitationUpdate
+     * Operation customMetadataPropertyUpdate
      *
-     * Update an invitation
+     * Update a property
      *
      * @param  string $account_id Account ID (required)
      * @param  string $id ID (required)
-     * @param  \Phrase\Model\InvitationUpdateParameters $invitation_update_parameters invitation_update_parameters (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
+     * @param  string $name name of the property (optional)
+     * @param  string $description description of property (optional)
+     * @param  string[] $project_ids ids of projects that the property belongs to (optional)
+     * @param  string[] $value_options value options of property (only applies to single or multi select properties) (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Phrase\Model\Invitation
+     * @return \Phrase\Model\CustomMetadataProperty
      */
-    public function invitationUpdate($account_id, $id, $invitation_update_parameters, $x_phrase_app_otp = null)
+    public function customMetadataPropertyUpdate($account_id, $id, $x_phrase_app_otp = null, $name = null, $description = null, $project_ids = null, $value_options = null)
     {
-        list($response) = $this->invitationUpdateWithHttpInfo($account_id, $id, $invitation_update_parameters, $x_phrase_app_otp);
+        list($response) = $this->customMetadataPropertyUpdateWithHttpInfo($account_id, $id, $x_phrase_app_otp, $name, $description, $project_ids, $value_options);
         return $response;
     }
 
     /**
-     * Operation invitationUpdateWithHttpInfo
+     * Operation customMetadataPropertyUpdateWithHttpInfo
      *
-     * Update an invitation
+     * Update a property
      *
      * @param  string $account_id Account ID (required)
      * @param  string $id ID (required)
-     * @param  \Phrase\Model\InvitationUpdateParameters $invitation_update_parameters (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
+     * @param  string $name name of the property (optional)
+     * @param  string $description description of property (optional)
+     * @param  string[] $project_ids ids of projects that the property belongs to (optional)
+     * @param  string[] $value_options value options of property (only applies to single or multi select properties) (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Phrase\Model\Invitation, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Phrase\Model\CustomMetadataProperty, HTTP status code, HTTP response headers (array of strings)
      */
-    public function invitationUpdateWithHttpInfo($account_id, $id, $invitation_update_parameters, $x_phrase_app_otp = null)
+    public function customMetadataPropertyUpdateWithHttpInfo($account_id, $id, $x_phrase_app_otp = null, $name = null, $description = null, $project_ids = null, $value_options = null)
     {
-        $request = $this->invitationUpdateRequest($account_id, $id, $invitation_update_parameters, $x_phrase_app_otp);
+        $request = $this->customMetadataPropertyUpdateRequest($account_id, $id, $x_phrase_app_otp, $name, $description, $project_ids, $value_options);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1389,20 +1550,20 @@ class InvitationsApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\Phrase\Model\Invitation' === '\SplFileObject') {
+                    if ('\Phrase\Model\CustomMetadataProperty' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Phrase\Model\Invitation', []),
+                        ObjectSerializer::deserialize($content, '\Phrase\Model\CustomMetadataProperty', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Phrase\Model\Invitation';
+            $returnType = '\Phrase\Model\CustomMetadataProperty';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -1421,7 +1582,7 @@ class InvitationsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Phrase\Model\Invitation',
+                        '\Phrase\Model\CustomMetadataProperty',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1432,21 +1593,24 @@ class InvitationsApi
     }
 
     /**
-     * Operation invitationUpdateAsync
+     * Operation customMetadataPropertyUpdateAsync
      *
-     * Update an invitation
+     * Update a property
      *
      * @param  string $account_id Account ID (required)
      * @param  string $id ID (required)
-     * @param  \Phrase\Model\InvitationUpdateParameters $invitation_update_parameters (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
+     * @param  string $name name of the property (optional)
+     * @param  string $description description of property (optional)
+     * @param  string[] $project_ids ids of projects that the property belongs to (optional)
+     * @param  string[] $value_options value options of property (only applies to single or multi select properties) (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function invitationUpdateAsync($account_id, $id, $invitation_update_parameters, $x_phrase_app_otp = null)
+    public function customMetadataPropertyUpdateAsync($account_id, $id, $x_phrase_app_otp = null, $name = null, $description = null, $project_ids = null, $value_options = null)
     {
-        return $this->invitationUpdateAsyncWithHttpInfo($account_id, $id, $invitation_update_parameters, $x_phrase_app_otp)
+        return $this->customMetadataPropertyUpdateAsyncWithHttpInfo($account_id, $id, $x_phrase_app_otp, $name, $description, $project_ids, $value_options)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1455,22 +1619,25 @@ class InvitationsApi
     }
 
     /**
-     * Operation invitationUpdateAsyncWithHttpInfo
+     * Operation customMetadataPropertyUpdateAsyncWithHttpInfo
      *
-     * Update an invitation
+     * Update a property
      *
      * @param  string $account_id Account ID (required)
      * @param  string $id ID (required)
-     * @param  \Phrase\Model\InvitationUpdateParameters $invitation_update_parameters (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
+     * @param  string $name name of the property (optional)
+     * @param  string $description description of property (optional)
+     * @param  string[] $project_ids ids of projects that the property belongs to (optional)
+     * @param  string[] $value_options value options of property (only applies to single or multi select properties) (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function invitationUpdateAsyncWithHttpInfo($account_id, $id, $invitation_update_parameters, $x_phrase_app_otp = null)
+    public function customMetadataPropertyUpdateAsyncWithHttpInfo($account_id, $id, $x_phrase_app_otp = null, $name = null, $description = null, $project_ids = null, $value_options = null)
     {
-        $returnType = '\Phrase\Model\Invitation';
-        $request = $this->invitationUpdateRequest($account_id, $id, $invitation_update_parameters, $x_phrase_app_otp);
+        $returnType = '\Phrase\Model\CustomMetadataProperty';
+        $request = $this->customMetadataPropertyUpdateRequest($account_id, $id, $x_phrase_app_otp, $name, $description, $project_ids, $value_options);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1507,44 +1674,85 @@ class InvitationsApi
     }
 
     /**
-     * Create request for operation 'invitationUpdate'
+     * Create request for operation 'customMetadataPropertyUpdate'
      *
      * @param  string $account_id Account ID (required)
      * @param  string $id ID (required)
-     * @param  \Phrase\Model\InvitationUpdateParameters $invitation_update_parameters (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
+     * @param  string $name name of the property (optional)
+     * @param  string $description description of property (optional)
+     * @param  string[] $project_ids ids of projects that the property belongs to (optional)
+     * @param  string[] $value_options value options of property (only applies to single or multi select properties) (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function invitationUpdateRequest($account_id, $id, $invitation_update_parameters, $x_phrase_app_otp = null)
+    protected function customMetadataPropertyUpdateRequest($account_id, $id, $x_phrase_app_otp = null, $name = null, $description = null, $project_ids = null, $value_options = null)
     {
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $account_id when calling invitationUpdate'
+                'Missing the required parameter $account_id when calling customMetadataPropertyUpdate'
             );
         }
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $id when calling invitationUpdate'
-            );
-        }
-        // verify the required parameter 'invitation_update_parameters' is set
-        if ($invitation_update_parameters === null || (is_array($invitation_update_parameters) && count($invitation_update_parameters) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $invitation_update_parameters when calling invitationUpdate'
+                'Missing the required parameter $id when calling customMetadataPropertyUpdate'
             );
         }
 
-        $resourcePath = '/accounts/{account_id}/invitations/{id}';
+        $resourcePath = '/accounts/{account_id}/custom_metadata/properties/{id}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        if ($name !== null) {
+            if('form' === 'form' && is_array($name)) {
+                foreach($name as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['name'] = $name;
+            }
+        }
+        // query params
+        if ($description !== null) {
+            if('form' === 'form' && is_array($description)) {
+                foreach($description as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['description'] = $description;
+            }
+        }
+        // query params
+        if ($project_ids !== null) {
+            if('form' === 'form' && is_array($project_ids)) {
+                foreach($project_ids as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['project_ids'] = $project_ids;
+            }
+        }
+        // query params
+        if ($value_options !== null) {
+            if('form' === 'form' && is_array($value_options)) {
+                foreach($value_options as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['value_options'] = $value_options;
+            }
+        }
 
         // header params
         if ($x_phrase_app_otp !== null) {
@@ -1564,656 +1772,6 @@ class InvitationsApi
             $resourcePath = str_replace(
                 '{' . 'id' . '}',
                 ObjectSerializer::toPathValue($id),
-                $resourcePath
-            );
-        }
-
-        // body params
-        $_tempBody = null;
-        if (isset($invitation_update_parameters)) {
-            $_tempBody = $invitation_update_parameters;
-        }
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                ['application/json']
-            );
-        }
-
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
-            } else {
-                $httpBody = $_tempBody;
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
-            }
-        }
-
-        // this endpoint requires HTTP basic authentication
-        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
-            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
-        }
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
-        if ($apiKey !== null) {
-            $headers['Authorization'] = $apiKey;
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
-        return new Request(
-            'PATCH',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation invitationUpdateSettings
-     *
-     * Update a member's invitation access
-     *
-     * @param  string $project_id Project ID (required)
-     * @param  string $id ID (required)
-     * @param  \Phrase\Model\InvitationUpdateSettingsParameters $invitation_update_settings_parameters invitation_update_settings_parameters (required)
-     * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
-     *
-     * @throws \Phrase\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \Phrase\Model\Invitation
-     */
-    public function invitationUpdateSettings($project_id, $id, $invitation_update_settings_parameters, $x_phrase_app_otp = null)
-    {
-        list($response) = $this->invitationUpdateSettingsWithHttpInfo($project_id, $id, $invitation_update_settings_parameters, $x_phrase_app_otp);
-        return $response;
-    }
-
-    /**
-     * Operation invitationUpdateSettingsWithHttpInfo
-     *
-     * Update a member's invitation access
-     *
-     * @param  string $project_id Project ID (required)
-     * @param  string $id ID (required)
-     * @param  \Phrase\Model\InvitationUpdateSettingsParameters $invitation_update_settings_parameters (required)
-     * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
-     *
-     * @throws \Phrase\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of \Phrase\Model\Invitation, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function invitationUpdateSettingsWithHttpInfo($project_id, $id, $invitation_update_settings_parameters, $x_phrase_app_otp = null)
-    {
-        $request = $this->invitationUpdateSettingsRequest($project_id, $id, $invitation_update_settings_parameters, $x_phrase_app_otp);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
-                );
-            }
-
-            $responseBody = $response->getBody();
-            switch($statusCode) {
-                case 200:
-                    if ('\Phrase\Model\Invitation' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = (string) $responseBody;
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\Phrase\Model\Invitation', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-            }
-
-            $returnType = '\Phrase\Model\Invitation';
-            $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = (string) $responseBody;
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Phrase\Model\Invitation',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation invitationUpdateSettingsAsync
-     *
-     * Update a member's invitation access
-     *
-     * @param  string $project_id Project ID (required)
-     * @param  string $id ID (required)
-     * @param  \Phrase\Model\InvitationUpdateSettingsParameters $invitation_update_settings_parameters (required)
-     * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function invitationUpdateSettingsAsync($project_id, $id, $invitation_update_settings_parameters, $x_phrase_app_otp = null)
-    {
-        return $this->invitationUpdateSettingsAsyncWithHttpInfo($project_id, $id, $invitation_update_settings_parameters, $x_phrase_app_otp)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation invitationUpdateSettingsAsyncWithHttpInfo
-     *
-     * Update a member's invitation access
-     *
-     * @param  string $project_id Project ID (required)
-     * @param  string $id ID (required)
-     * @param  \Phrase\Model\InvitationUpdateSettingsParameters $invitation_update_settings_parameters (required)
-     * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function invitationUpdateSettingsAsyncWithHttpInfo($project_id, $id, $invitation_update_settings_parameters, $x_phrase_app_otp = null)
-    {
-        $returnType = '\Phrase\Model\Invitation';
-        $request = $this->invitationUpdateSettingsRequest($project_id, $id, $invitation_update_settings_parameters, $x_phrase_app_otp);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = (string) $responseBody;
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'invitationUpdateSettings'
-     *
-     * @param  string $project_id Project ID (required)
-     * @param  string $id ID (required)
-     * @param  \Phrase\Model\InvitationUpdateSettingsParameters $invitation_update_settings_parameters (required)
-     * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    protected function invitationUpdateSettingsRequest($project_id, $id, $invitation_update_settings_parameters, $x_phrase_app_otp = null)
-    {
-        // verify the required parameter 'project_id' is set
-        if ($project_id === null || (is_array($project_id) && count($project_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $project_id when calling invitationUpdateSettings'
-            );
-        }
-        // verify the required parameter 'id' is set
-        if ($id === null || (is_array($id) && count($id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $id when calling invitationUpdateSettings'
-            );
-        }
-        // verify the required parameter 'invitation_update_settings_parameters' is set
-        if ($invitation_update_settings_parameters === null || (is_array($invitation_update_settings_parameters) && count($invitation_update_settings_parameters) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $invitation_update_settings_parameters when calling invitationUpdateSettings'
-            );
-        }
-
-        $resourcePath = '/projects/{project_id}/invitations/{id}';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-        // header params
-        if ($x_phrase_app_otp !== null) {
-            $headerParams['X-PhraseApp-OTP'] = ObjectSerializer::toHeaderValue($x_phrase_app_otp);
-        }
-
-        // path params
-        if ($project_id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'project_id' . '}',
-                ObjectSerializer::toPathValue($project_id),
-                $resourcePath
-            );
-        }
-        // path params
-        if ($id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'id' . '}',
-                ObjectSerializer::toPathValue($id),
-                $resourcePath
-            );
-        }
-
-        // body params
-        $_tempBody = null;
-        if (isset($invitation_update_settings_parameters)) {
-            $_tempBody = $invitation_update_settings_parameters;
-        }
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                ['application/json']
-            );
-        }
-
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
-            } else {
-                $httpBody = $_tempBody;
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
-            }
-        }
-
-        // this endpoint requires HTTP basic authentication
-        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
-            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
-        }
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
-        if ($apiKey !== null) {
-            $headers['Authorization'] = $apiKey;
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
-        return new Request(
-            'PATCH',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation invitationsList
-     *
-     * List invitations
-     *
-     * @param  string $account_id Account ID (required)
-     * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
-     * @param  int $page Page number (optional)
-     * @param  int $per_page Limit on the number of objects to be returned, between 1 and 100. 25 by default (optional)
-     *
-     * @throws \Phrase\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \Phrase\Model\Invitation[]
-     */
-    public function invitationsList($account_id, $x_phrase_app_otp = null, $page = null, $per_page = null)
-    {
-        list($response) = $this->invitationsListWithHttpInfo($account_id, $x_phrase_app_otp, $page, $per_page);
-        return $response;
-    }
-
-    /**
-     * Operation invitationsListWithHttpInfo
-     *
-     * List invitations
-     *
-     * @param  string $account_id Account ID (required)
-     * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
-     * @param  int $page Page number (optional)
-     * @param  int $per_page Limit on the number of objects to be returned, between 1 and 100. 25 by default (optional)
-     *
-     * @throws \Phrase\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of \Phrase\Model\Invitation[], HTTP status code, HTTP response headers (array of strings)
-     */
-    public function invitationsListWithHttpInfo($account_id, $x_phrase_app_otp = null, $page = null, $per_page = null)
-    {
-        $request = $this->invitationsListRequest($account_id, $x_phrase_app_otp, $page, $per_page);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
-                );
-            }
-
-            $responseBody = $response->getBody();
-            switch($statusCode) {
-                case 200:
-                    if ('\Phrase\Model\Invitation[]' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = (string) $responseBody;
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\Phrase\Model\Invitation[]', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-            }
-
-            $returnType = '\Phrase\Model\Invitation[]';
-            $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = (string) $responseBody;
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Phrase\Model\Invitation[]',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation invitationsListAsync
-     *
-     * List invitations
-     *
-     * @param  string $account_id Account ID (required)
-     * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
-     * @param  int $page Page number (optional)
-     * @param  int $per_page Limit on the number of objects to be returned, between 1 and 100. 25 by default (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function invitationsListAsync($account_id, $x_phrase_app_otp = null, $page = null, $per_page = null)
-    {
-        return $this->invitationsListAsyncWithHttpInfo($account_id, $x_phrase_app_otp, $page, $per_page)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation invitationsListAsyncWithHttpInfo
-     *
-     * List invitations
-     *
-     * @param  string $account_id Account ID (required)
-     * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
-     * @param  int $page Page number (optional)
-     * @param  int $per_page Limit on the number of objects to be returned, between 1 and 100. 25 by default (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function invitationsListAsyncWithHttpInfo($account_id, $x_phrase_app_otp = null, $page = null, $per_page = null)
-    {
-        $returnType = '\Phrase\Model\Invitation[]';
-        $request = $this->invitationsListRequest($account_id, $x_phrase_app_otp, $page, $per_page);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = (string) $responseBody;
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'invitationsList'
-     *
-     * @param  string $account_id Account ID (required)
-     * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
-     * @param  int $page Page number (optional)
-     * @param  int $per_page Limit on the number of objects to be returned, between 1 and 100. 25 by default (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    protected function invitationsListRequest($account_id, $x_phrase_app_otp = null, $page = null, $per_page = null)
-    {
-        // verify the required parameter 'account_id' is set
-        if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $account_id when calling invitationsList'
-            );
-        }
-
-        $resourcePath = '/accounts/{account_id}/invitations';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-        // query params
-        if ($page !== null) {
-            if('form' === 'form' && is_array($page)) {
-                foreach($page as $key => $value) {
-                    $queryParams[$key] = $value;
-                }
-            }
-            else {
-                $queryParams['page'] = $page;
-            }
-        }
-        // query params
-        if ($per_page !== null) {
-            if('form' === 'form' && is_array($per_page)) {
-                foreach($per_page as $key => $value) {
-                    $queryParams[$key] = $value;
-                }
-            }
-            else {
-                $queryParams['per_page'] = $per_page;
-            }
-        }
-
-        // header params
-        if ($x_phrase_app_otp !== null) {
-            $headerParams['X-PhraseApp-OTP'] = ObjectSerializer::toHeaderValue($x_phrase_app_otp);
-        }
-
-        // path params
-        if ($account_id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'account_id' . '}',
-                ObjectSerializer::toPathValue($account_id),
                 $resourcePath
             );
         }
@@ -2284,7 +1842,7 @@ class InvitationsApi
 
         $query = \GuzzleHttp\Psr7\Query::build($queryParams);
         return new Request(
-            'GET',
+            'PATCH',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody

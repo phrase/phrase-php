@@ -69,7 +69,8 @@ class KeyUpdateParameters implements ModelInterface, ArrayAccess
         'xml_space_preserve' => 'bool',
         'original_file' => 'string',
         'localized_format_string' => 'string',
-        'localized_format_key' => 'string'
+        'localized_format_key' => 'string',
+        'custom_metadata' => 'object'
     ];
 
     /**
@@ -92,7 +93,8 @@ class KeyUpdateParameters implements ModelInterface, ArrayAccess
         'xml_space_preserve' => null,
         'original_file' => null,
         'localized_format_string' => null,
-        'localized_format_key' => null
+        'localized_format_key' => null,
+        'custom_metadata' => null
     ];
 
     /**
@@ -136,7 +138,8 @@ class KeyUpdateParameters implements ModelInterface, ArrayAccess
         'xml_space_preserve' => 'xml_space_preserve',
         'original_file' => 'original_file',
         'localized_format_string' => 'localized_format_string',
-        'localized_format_key' => 'localized_format_key'
+        'localized_format_key' => 'localized_format_key',
+        'custom_metadata' => 'custom_metadata'
     ];
 
     /**
@@ -159,7 +162,8 @@ class KeyUpdateParameters implements ModelInterface, ArrayAccess
         'xml_space_preserve' => 'setXmlSpacePreserve',
         'original_file' => 'setOriginalFile',
         'localized_format_string' => 'setLocalizedFormatString',
-        'localized_format_key' => 'setLocalizedFormatKey'
+        'localized_format_key' => 'setLocalizedFormatKey',
+        'custom_metadata' => 'setCustomMetadata'
     ];
 
     /**
@@ -182,7 +186,8 @@ class KeyUpdateParameters implements ModelInterface, ArrayAccess
         'xml_space_preserve' => 'getXmlSpacePreserve',
         'original_file' => 'getOriginalFile',
         'localized_format_string' => 'getLocalizedFormatString',
-        'localized_format_key' => 'getLocalizedFormatKey'
+        'localized_format_key' => 'getLocalizedFormatKey',
+        'custom_metadata' => 'getCustomMetadata'
     ];
 
     /**
@@ -260,6 +265,7 @@ class KeyUpdateParameters implements ModelInterface, ArrayAccess
         $this->container['original_file'] = isset($data['original_file']) ? $data['original_file'] : null;
         $this->container['localized_format_string'] = isset($data['localized_format_string']) ? $data['localized_format_string'] : null;
         $this->container['localized_format_key'] = isset($data['localized_format_key']) ? $data['localized_format_key'] : null;
+        $this->container['custom_metadata'] = isset($data['custom_metadata']) ? $data['custom_metadata'] : null;
     }
 
     /**
@@ -642,6 +648,30 @@ class KeyUpdateParameters implements ModelInterface, ArrayAccess
     public function setLocalizedFormatKey($localized_format_key)
     {
         $this->container['localized_format_key'] = $localized_format_key;
+
+        return $this;
+    }
+
+    /**
+     * Gets custom_metadata
+     *
+     * @return object|null
+     */
+    public function getCustomMetadata()
+    {
+        return $this->container['custom_metadata'];
+    }
+
+    /**
+     * Sets custom_metadata
+     *
+     * @param object|null $custom_metadata Updates/Creates custom metadata property name and value pairs to be associated with key. If you want to delete a custom metadata property, you can set its value to null. If you want to update a custom metadata property, you can set its value to the new value.
+     *
+     * @return $this
+     */
+    public function setCustomMetadata($custom_metadata)
+    {
+        $this->container['custom_metadata'] = $custom_metadata;
 
         return $this;
     }

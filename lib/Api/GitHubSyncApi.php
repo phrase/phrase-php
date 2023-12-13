@@ -181,7 +181,7 @@ class GitHubSyncApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Phrase\Model\InvitationCreate422Response',
+                        '\Phrase\Model\CustomMetadataPropertyCreate422Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -427,7 +427,7 @@ class GitHubSyncApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Phrase\Model\InvitationCreate422Response',
+                        '\Phrase\Model\CustomMetadataPropertyCreate422Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);

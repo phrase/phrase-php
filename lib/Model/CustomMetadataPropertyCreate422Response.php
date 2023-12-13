@@ -1,6 +1,6 @@
 <?php
 /**
- * InvitationCreate422Response
+ * CustomMetadataPropertyCreate422Response
  *
  * PHP version 5
  *
@@ -31,14 +31,14 @@ use \ArrayAccess;
 use \Phrase\ObjectSerializer;
 
 /**
- * InvitationCreate422Response Class Doc Comment
+ * CustomMetadataPropertyCreate422Response Class Doc Comment
  *
  * @category Class
  * @package  Phrase
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class InvitationCreate422Response implements ModelInterface, ArrayAccess
+class CustomMetadataPropertyCreate422Response implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -47,7 +47,7 @@ class InvitationCreate422Response implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'invitation_create_422_response';
+    protected static $openAPIModelName = 'custom_metadata_property_create_422_response';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -56,7 +56,7 @@ class InvitationCreate422Response implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'message' => 'string',
-        'errors' => '\Phrase\Model\InvitationCreate422ResponseErrorsInner[]'
+        'errors' => '\Phrase\Model\CustomMetadataPropertyCreate422ResponseErrorsInner[]'
     ];
 
     /**
@@ -235,7 +235,7 @@ class InvitationCreate422Response implements ModelInterface, ArrayAccess
     /**
      * Gets errors
      *
-     * @return \Phrase\Model\InvitationCreate422ResponseErrorsInner[]|null
+     * @return \Phrase\Model\CustomMetadataPropertyCreate422ResponseErrorsInner[]|null
      */
     public function getErrors()
     {
@@ -245,7 +245,7 @@ class InvitationCreate422Response implements ModelInterface, ArrayAccess
     /**
      * Sets errors
      *
-     * @param \Phrase\Model\InvitationCreate422ResponseErrorsInner[]|null $errors errors
+     * @param \Phrase\Model\CustomMetadataPropertyCreate422ResponseErrorsInner[]|null $errors errors
      *
      * @return $this
      */

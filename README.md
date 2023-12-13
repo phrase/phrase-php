@@ -187,6 +187,11 @@ Class | Method | HTTP request | Description
 *CommentsApi* | [**commentShow**](docs/Api/CommentsApi.md#commentshow) | **GET** /projects/{project_id}/keys/{key_id}/comments/{id} | Get a single comment
 *CommentsApi* | [**commentUpdate**](docs/Api/CommentsApi.md#commentupdate) | **PATCH** /projects/{project_id}/keys/{key_id}/comments/{id} | Update a comment
 *CommentsApi* | [**commentsList**](docs/Api/CommentsApi.md#commentslist) | **GET** /projects/{project_id}/keys/{key_id}/comments | List comments
+*CustomMetadataApi* | [**customMetadataPropertiesDelete**](docs/Api/CustomMetadataApi.md#custommetadatapropertiesdelete) | **DELETE** /accounts/{account_id}/custom_metadata/properties/{id} | Destroy property
+*CustomMetadataApi* | [**customMetadataPropertiesList**](docs/Api/CustomMetadataApi.md#custommetadatapropertieslist) | **GET** /accounts/{account_id}/custom_metadata/properties | List properties
+*CustomMetadataApi* | [**customMetadataPropertyCreate**](docs/Api/CustomMetadataApi.md#custommetadatapropertycreate) | **POST** /accounts/{account_id}/custom_metadata/properties | Create a property
+*CustomMetadataApi* | [**customMetadataPropertyShow**](docs/Api/CustomMetadataApi.md#custommetadatapropertyshow) | **GET** /accounts/{account_id}/custom_metadata/properties/{id} | Get a single property
+*CustomMetadataApi* | [**customMetadataPropertyUpdate**](docs/Api/CustomMetadataApi.md#custommetadatapropertyupdate) | **PATCH** /accounts/{account_id}/custom_metadata/properties/{id} | Update a property
 *DistributionsApi* | [**distributionCreate**](docs/Api/DistributionsApi.md#distributioncreate) | **POST** /accounts/{account_id}/distributions | Create a distribution
 *DistributionsApi* | [**distributionDelete**](docs/Api/DistributionsApi.md#distributiondelete) | **DELETE** /accounts/{account_id}/distributions/{id} | Delete a distribution
 *DistributionsApi* | [**distributionShow**](docs/Api/DistributionsApi.md#distributionshow) | **GET** /accounts/{account_id}/distributions/{id} | Get a single distribution
@@ -433,6 +438,10 @@ Class | Method | HTTP request | Description
  - [CommentUpdateParameters](docs/Model/CommentUpdateParameters.md)
  - [CommentsListParameters](docs/Model/CommentsListParameters.md)
  - [CurrentUser](docs/Model/CurrentUser.md)
+ - [CustomMetadataDataType](docs/Model/CustomMetadataDataType.md)
+ - [CustomMetadataProperty](docs/Model/CustomMetadataProperty.md)
+ - [CustomMetadataPropertyCreate422Response](docs/Model/CustomMetadataPropertyCreate422Response.md)
+ - [CustomMetadataPropertyCreate422ResponseErrorsInner](docs/Model/CustomMetadataPropertyCreate422ResponseErrorsInner.md)
  - [Distribution](docs/Model/Distribution.md)
  - [DistributionCreateParameters](docs/Model/DistributionCreateParameters.md)
  - [DistributionPreview](docs/Model/DistributionPreview.md)
@@ -462,8 +471,6 @@ Class | Method | HTTP request | Description
  - [Icu](docs/Model/Icu.md)
  - [IcuSkeletonParameters](docs/Model/IcuSkeletonParameters.md)
  - [Invitation](docs/Model/Invitation.md)
- - [InvitationCreate422Response](docs/Model/InvitationCreate422Response.md)
- - [InvitationCreate422ResponseErrorsInner](docs/Model/InvitationCreate422ResponseErrorsInner.md)
  - [InvitationCreateParameters](docs/Model/InvitationCreateParameters.md)
  - [InvitationUpdateParameters](docs/Model/InvitationUpdateParameters.md)
  - [InvitationUpdateSettingsParameters](docs/Model/InvitationUpdateSettingsParameters.md)

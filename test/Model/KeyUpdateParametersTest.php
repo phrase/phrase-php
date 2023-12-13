@@ -180,4 +180,11 @@ class KeyUpdateParametersTest extends TestCase
     public function testPropertyLocalizedFormatKey()
     {
     }
+
+    /**
+     * Test attribute "custom_metadata"
+     */
+    public function testPropertyCustomMetadata()
+    {
+    }
 }

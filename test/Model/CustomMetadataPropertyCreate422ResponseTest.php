@@ -1,6 +1,6 @@
 <?php
 /**
- * InvitationCreate422ResponseTest
+ * CustomMetadataPropertyCreate422ResponseTest
  *
  * PHP version 5
  *
@@ -30,15 +30,15 @@ namespace Phrase;
 use PHPUnit\Framework\TestCase;
 
 /**
- * InvitationCreate422ResponseTest Class Doc Comment
+ * CustomMetadataPropertyCreate422ResponseTest Class Doc Comment
  *
  * @category    Class
- * @description InvitationCreate422Response
+ * @description CustomMetadataPropertyCreate422Response
  * @package     Phrase
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class InvitationCreate422ResponseTest extends TestCase
+class CustomMetadataPropertyCreate422ResponseTest extends TestCase
 {
 
     /**
@@ -70,9 +70,9 @@ class InvitationCreate422ResponseTest extends TestCase
     }
 
     /**
-     * Test "InvitationCreate422Response"
+     * Test "CustomMetadataPropertyCreate422Response"
      */
-    public function testInvitationCreate422Response()
+    public function testCustomMetadataPropertyCreate422Response()
     {
     }
 

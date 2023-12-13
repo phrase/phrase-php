@@ -22,6 +22,7 @@ Name | Type | Description | Notes
 **original_file** | **string** |  | [optional] 
 **format_value_type** | **string** |  | [optional] 
 **creator** | [**\Phrase\Model\UserPreview**](UserPreview.md) |  | [optional] 
+**custom_metadata** | **array&lt;string,string&gt;** |  | [optional] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

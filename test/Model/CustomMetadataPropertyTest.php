@@ -1,6 +1,6 @@
 <?php
 /**
- * KeyCreateParametersTest
+ * CustomMetadataPropertyTest
  *
  * PHP version 5
  *
@@ -30,15 +30,15 @@ namespace Phrase;
 use PHPUnit\Framework\TestCase;
 
 /**
- * KeyCreateParametersTest Class Doc Comment
+ * CustomMetadataPropertyTest Class Doc Comment
  *
  * @category    Class
- * @description KeyCreateParameters
+ * @description CustomMetadataProperty
  * @package     Phrase
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class KeyCreateParametersTest extends TestCase
+class CustomMetadataPropertyTest extends TestCase
 {
 
     /**
@@ -70,16 +70,16 @@ class KeyCreateParametersTest extends TestCase
     }
 
     /**
-     * Test "KeyCreateParameters"
+     * Test "CustomMetadataProperty"
      */
-    public function testKeyCreateParameters()
+    public function testCustomMetadataProperty()
     {
     }
 
     /**
-     * Test attribute "branch"
+     * Test attribute "id"
      */
-    public function testPropertyBranch()
+    public function testPropertyId()
     {
     }
 
@@ -98,20 +98,6 @@ class KeyCreateParametersTest extends TestCase
     }
 
     /**
-     * Test attribute "plural"
-     */
-    public function testPropertyPlural()
-    {
-    }
-
-    /**
-     * Test attribute "name_plural"
-     */
-    public function testPropertyNamePlural()
-    {
-    }
-
-    /**
      * Test attribute "data_type"
      */
     public function testPropertyDataType()
@@ -119,79 +105,37 @@ class KeyCreateParametersTest extends TestCase
     }
 
     /**
-     * Test attribute "tags"
+     * Test attribute "user"
      */
-    public function testPropertyTags()
+    public function testPropertyUser()
     {
     }
 
     /**
-     * Test attribute "max_characters_allowed"
+     * Test attribute "projects"
      */
-    public function testPropertyMaxCharactersAllowed()
+    public function testPropertyProjects()
     {
     }
 
     /**
-     * Test attribute "screenshot"
+     * Test attribute "value_options"
      */
-    public function testPropertyScreenshot()
+    public function testPropertyValueOptions()
     {
     }
 
     /**
-     * Test attribute "remove_screenshot"
+     * Test attribute "created_at"
      */
-    public function testPropertyRemoveScreenshot()
+    public function testPropertyCreatedAt()
     {
     }
 
     /**
-     * Test attribute "unformatted"
+     * Test attribute "updated_at"
      */
-    public function testPropertyUnformatted()
-    {
-    }
-
-    /**
-     * Test attribute "default_translation_content"
-     */
-    public function testPropertyDefaultTranslationContent()
-    {
-    }
-
-    /**
-     * Test attribute "xml_space_preserve"
-     */
-    public function testPropertyXmlSpacePreserve()
-    {
-    }
-
-    /**
-     * Test attribute "original_file"
-     */
-    public function testPropertyOriginalFile()
-    {
-    }
-
-    /**
-     * Test attribute "localized_format_string"
-     */
-    public function testPropertyLocalizedFormatString()
-    {
-    }
-
-    /**
-     * Test attribute "localized_format_key"
-     */
-    public function testPropertyLocalizedFormatKey()
-    {
-    }
-
-    /**
-     * Test attribute "custom_metadata"
-     */
-    public function testPropertyCustomMetadata()
+    public function testPropertyUpdatedAt()
     {
     }
 }

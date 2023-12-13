@@ -1,6 +1,6 @@
 <?php
 /**
- * InvitationCreate422ResponseErrorsInner
+ * CustomMetadataPropertyCreate422ResponseErrorsInner
  *
  * PHP version 5
  *
@@ -31,14 +31,14 @@ use \ArrayAccess;
 use \Phrase\ObjectSerializer;
 
 /**
- * InvitationCreate422ResponseErrorsInner Class Doc Comment
+ * CustomMetadataPropertyCreate422ResponseErrorsInner Class Doc Comment
  *
  * @category Class
  * @package  Phrase
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class InvitationCreate422ResponseErrorsInner implements ModelInterface, ArrayAccess
+class CustomMetadataPropertyCreate422ResponseErrorsInner implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -47,7 +47,7 @@ class InvitationCreate422ResponseErrorsInner implements ModelInterface, ArrayAcc
       *
       * @var string
       */
-    protected static $openAPIModelName = 'invitation_create_422_response_errors_inner';
+    protected static $openAPIModelName = 'custom_metadata_property_create_422_response_errors_inner';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
