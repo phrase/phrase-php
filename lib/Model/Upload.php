@@ -60,6 +60,7 @@ class Upload implements ModelInterface, ArrayAccess
         'format' => 'string',
         'state' => 'string',
         'tag' => 'string',
+        'url' => 'string',
         'summary' => '\Phrase\Model\UploadSummary',
         'created_at' => '\DateTime',
         'updated_at' => '\DateTime'
@@ -76,6 +77,7 @@ class Upload implements ModelInterface, ArrayAccess
         'format' => null,
         'state' => null,
         'tag' => null,
+        'url' => null,
         'summary' => null,
         'created_at' => 'date-time',
         'updated_at' => 'date-time'
@@ -113,6 +115,7 @@ class Upload implements ModelInterface, ArrayAccess
         'format' => 'format',
         'state' => 'state',
         'tag' => 'tag',
+        'url' => 'url',
         'summary' => 'summary',
         'created_at' => 'created_at',
         'updated_at' => 'updated_at'
@@ -129,6 +132,7 @@ class Upload implements ModelInterface, ArrayAccess
         'format' => 'setFormat',
         'state' => 'setState',
         'tag' => 'setTag',
+        'url' => 'setUrl',
         'summary' => 'setSummary',
         'created_at' => 'setCreatedAt',
         'updated_at' => 'setUpdatedAt'
@@ -145,6 +149,7 @@ class Upload implements ModelInterface, ArrayAccess
         'format' => 'getFormat',
         'state' => 'getState',
         'tag' => 'getTag',
+        'url' => 'getUrl',
         'summary' => 'getSummary',
         'created_at' => 'getCreatedAt',
         'updated_at' => 'getUpdatedAt'
@@ -215,6 +220,7 @@ class Upload implements ModelInterface, ArrayAccess
         $this->container['format'] = isset($data['format']) ? $data['format'] : null;
         $this->container['state'] = isset($data['state']) ? $data['state'] : null;
         $this->container['tag'] = isset($data['tag']) ? $data['tag'] : null;
+        $this->container['url'] = isset($data['url']) ? $data['url'] : null;
         $this->container['summary'] = isset($data['summary']) ? $data['summary'] : null;
         $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
         $this->container['updated_at'] = isset($data['updated_at']) ? $data['updated_at'] : null;
@@ -360,6 +366,30 @@ class Upload implements ModelInterface, ArrayAccess
     public function setTag($tag)
     {
         $this->container['tag'] = $tag;
+
+        return $this;
+    }
+
+    /**
+     * Gets url
+     *
+     * @return string|null
+     */
+    public function getUrl()
+    {
+        return $this->container['url'];
+    }
+
+    /**
+     * Sets url
+     *
+     * @param string|null $url The URL to the upload in Phrase Strings app.
+     *
+     * @return $this
+     */
+    public function setUrl($url)
+    {
+        $this->container['url'] = $url;
 
         return $this;
     }
