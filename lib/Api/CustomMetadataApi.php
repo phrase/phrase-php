@@ -768,20 +768,16 @@ class CustomMetadataApi
      * Create a property
      *
      * @param  string $account_id Account ID (required)
-     * @param  string $name name of the property (required)
-     * @param  CustomMetadataDataType $data_type Data Type of Custom Metadata Property (required)
+     * @param  \Phrase\Model\CustomMetadataPropertiesCreateParameters $custom_metadata_properties_create_parameters custom_metadata_properties_create_parameters (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
-     * @param  string $description description of property (optional)
-     * @param  string[] $project_ids ids of projects that the property belongs to (optional)
-     * @param  string[] $value_options value options of property (only applies to single or multi select properties) (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Phrase\Model\CustomMetadataProperty|\Phrase\Model\CustomMetadataPropertyCreate422Response
      */
-    public function customMetadataPropertyCreate($account_id, $name, $data_type, $x_phrase_app_otp = null, $description = null, $project_ids = null, $value_options = null)
+    public function customMetadataPropertyCreate($account_id, $custom_metadata_properties_create_parameters, $x_phrase_app_otp = null)
     {
-        list($response) = $this->customMetadataPropertyCreateWithHttpInfo($account_id, $name, $data_type, $x_phrase_app_otp, $description, $project_ids, $value_options);
+        list($response) = $this->customMetadataPropertyCreateWithHttpInfo($account_id, $custom_metadata_properties_create_parameters, $x_phrase_app_otp);
         return $response;
     }
 
@@ -791,20 +787,16 @@ class CustomMetadataApi
      * Create a property
      *
      * @param  string $account_id Account ID (required)
-     * @param  string $name name of the property (required)
-     * @param  CustomMetadataDataType $data_type Data Type of Custom Metadata Property (required)
+     * @param  \Phrase\Model\CustomMetadataPropertiesCreateParameters $custom_metadata_properties_create_parameters (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
-     * @param  string $description description of property (optional)
-     * @param  string[] $project_ids ids of projects that the property belongs to (optional)
-     * @param  string[] $value_options value options of property (only applies to single or multi select properties) (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Phrase\Model\CustomMetadataProperty|\Phrase\Model\CustomMetadataPropertyCreate422Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function customMetadataPropertyCreateWithHttpInfo($account_id, $name, $data_type, $x_phrase_app_otp = null, $description = null, $project_ids = null, $value_options = null)
+    public function customMetadataPropertyCreateWithHttpInfo($account_id, $custom_metadata_properties_create_parameters, $x_phrase_app_otp = null)
     {
-        $request = $this->customMetadataPropertyCreateRequest($account_id, $name, $data_type, $x_phrase_app_otp, $description, $project_ids, $value_options);
+        $request = $this->customMetadataPropertyCreateRequest($account_id, $custom_metadata_properties_create_parameters, $x_phrase_app_otp);
 
         try {
             $options = $this->createHttpClientOption();
@@ -905,19 +897,15 @@ class CustomMetadataApi
      * Create a property
      *
      * @param  string $account_id Account ID (required)
-     * @param  string $name name of the property (required)
-     * @param  CustomMetadataDataType $data_type Data Type of Custom Metadata Property (required)
+     * @param  \Phrase\Model\CustomMetadataPropertiesCreateParameters $custom_metadata_properties_create_parameters (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
-     * @param  string $description description of property (optional)
-     * @param  string[] $project_ids ids of projects that the property belongs to (optional)
-     * @param  string[] $value_options value options of property (only applies to single or multi select properties) (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function customMetadataPropertyCreateAsync($account_id, $name, $data_type, $x_phrase_app_otp = null, $description = null, $project_ids = null, $value_options = null)
+    public function customMetadataPropertyCreateAsync($account_id, $custom_metadata_properties_create_parameters, $x_phrase_app_otp = null)
     {
-        return $this->customMetadataPropertyCreateAsyncWithHttpInfo($account_id, $name, $data_type, $x_phrase_app_otp, $description, $project_ids, $value_options)
+        return $this->customMetadataPropertyCreateAsyncWithHttpInfo($account_id, $custom_metadata_properties_create_parameters, $x_phrase_app_otp)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -931,20 +919,16 @@ class CustomMetadataApi
      * Create a property
      *
      * @param  string $account_id Account ID (required)
-     * @param  string $name name of the property (required)
-     * @param  CustomMetadataDataType $data_type Data Type of Custom Metadata Property (required)
+     * @param  \Phrase\Model\CustomMetadataPropertiesCreateParameters $custom_metadata_properties_create_parameters (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
-     * @param  string $description description of property (optional)
-     * @param  string[] $project_ids ids of projects that the property belongs to (optional)
-     * @param  string[] $value_options value options of property (only applies to single or multi select properties) (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function customMetadataPropertyCreateAsyncWithHttpInfo($account_id, $name, $data_type, $x_phrase_app_otp = null, $description = null, $project_ids = null, $value_options = null)
+    public function customMetadataPropertyCreateAsyncWithHttpInfo($account_id, $custom_metadata_properties_create_parameters, $x_phrase_app_otp = null)
     {
         $returnType = '\Phrase\Model\CustomMetadataProperty';
-        $request = $this->customMetadataPropertyCreateRequest($account_id, $name, $data_type, $x_phrase_app_otp, $description, $project_ids, $value_options);
+        $request = $this->customMetadataPropertyCreateRequest($account_id, $custom_metadata_properties_create_parameters, $x_phrase_app_otp);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -984,17 +968,13 @@ class CustomMetadataApi
      * Create request for operation 'customMetadataPropertyCreate'
      *
      * @param  string $account_id Account ID (required)
-     * @param  string $name name of the property (required)
-     * @param  CustomMetadataDataType $data_type Data Type of Custom Metadata Property (required)
+     * @param  \Phrase\Model\CustomMetadataPropertiesCreateParameters $custom_metadata_properties_create_parameters (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
-     * @param  string $description description of property (optional)
-     * @param  string[] $project_ids ids of projects that the property belongs to (optional)
-     * @param  string[] $value_options value options of property (only applies to single or multi select properties) (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function customMetadataPropertyCreateRequest($account_id, $name, $data_type, $x_phrase_app_otp = null, $description = null, $project_ids = null, $value_options = null)
+    protected function customMetadataPropertyCreateRequest($account_id, $custom_metadata_properties_create_parameters, $x_phrase_app_otp = null)
     {
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -1002,16 +982,10 @@ class CustomMetadataApi
                 'Missing the required parameter $account_id when calling customMetadataPropertyCreate'
             );
         }
-        // verify the required parameter 'name' is set
-        if ($name === null || (is_array($name) && count($name) === 0)) {
+        // verify the required parameter 'custom_metadata_properties_create_parameters' is set
+        if ($custom_metadata_properties_create_parameters === null || (is_array($custom_metadata_properties_create_parameters) && count($custom_metadata_properties_create_parameters) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $name when calling customMetadataPropertyCreate'
-            );
-        }
-        // verify the required parameter 'data_type' is set
-        if ($data_type === null || (is_array($data_type) && count($data_type) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $data_type when calling customMetadataPropertyCreate'
+                'Missing the required parameter $custom_metadata_properties_create_parameters when calling customMetadataPropertyCreate'
             );
         }
 
@@ -1022,61 +996,6 @@ class CustomMetadataApi
         $httpBody = '';
         $multipart = false;
 
-        // query params
-        if ($name !== null) {
-            if('form' === 'form' && is_array($name)) {
-                foreach($name as $key => $value) {
-                    $queryParams[$key] = $value;
-                }
-            }
-            else {
-                $queryParams['name'] = $name;
-            }
-        }
-        // query params
-        if ($data_type !== null) {
-            if('form' === 'form' && is_array($data_type)) {
-                foreach($data_type as $key => $value) {
-                    $queryParams[$key] = $value;
-                }
-            }
-            else {
-                $queryParams['data_type'] = $data_type;
-            }
-        }
-        // query params
-        if ($description !== null) {
-            if('form' === 'form' && is_array($description)) {
-                foreach($description as $key => $value) {
-                    $queryParams[$key] = $value;
-                }
-            }
-            else {
-                $queryParams['description'] = $description;
-            }
-        }
-        // query params
-        if ($project_ids !== null) {
-            if('form' === 'form' && is_array($project_ids)) {
-                foreach($project_ids as $key => $value) {
-                    $queryParams[$key] = $value;
-                }
-            }
-            else {
-                $queryParams['project_ids'] = $project_ids;
-            }
-        }
-        // query params
-        if ($value_options !== null) {
-            if('form' === 'form' && is_array($value_options)) {
-                foreach($value_options as $key => $value) {
-                    $queryParams[$key] = $value;
-                }
-            }
-            else {
-                $queryParams['value_options'] = $value_options;
-            }
-        }
 
         // header params
         if ($x_phrase_app_otp !== null) {
@@ -1094,6 +1013,9 @@ class CustomMetadataApi
 
         // body params
         $_tempBody = null;
+        if (isset($custom_metadata_properties_create_parameters)) {
+            $_tempBody = $custom_metadata_properties_create_parameters;
+        }
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
@@ -1102,7 +1024,7 @@ class CustomMetadataApi
         } else {
             $headers = $this->headerSelector->selectHeaders(
                 ['application/json'],
-                []
+                ['application/json']
             );
         }
 
@@ -1482,19 +1404,16 @@ class CustomMetadataApi
      *
      * @param  string $account_id Account ID (required)
      * @param  string $id ID (required)
+     * @param  \Phrase\Model\CustomMetadataPropertiesUpdateParameters $custom_metadata_properties_update_parameters custom_metadata_properties_update_parameters (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
-     * @param  string $name name of the property (optional)
-     * @param  string $description description of property (optional)
-     * @param  string[] $project_ids ids of projects that the property belongs to (optional)
-     * @param  string[] $value_options value options of property (only applies to single or multi select properties) (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Phrase\Model\CustomMetadataProperty
      */
-    public function customMetadataPropertyUpdate($account_id, $id, $x_phrase_app_otp = null, $name = null, $description = null, $project_ids = null, $value_options = null)
+    public function customMetadataPropertyUpdate($account_id, $id, $custom_metadata_properties_update_parameters, $x_phrase_app_otp = null)
     {
-        list($response) = $this->customMetadataPropertyUpdateWithHttpInfo($account_id, $id, $x_phrase_app_otp, $name, $description, $project_ids, $value_options);
+        list($response) = $this->customMetadataPropertyUpdateWithHttpInfo($account_id, $id, $custom_metadata_properties_update_parameters, $x_phrase_app_otp);
         return $response;
     }
 
@@ -1505,19 +1424,16 @@ class CustomMetadataApi
      *
      * @param  string $account_id Account ID (required)
      * @param  string $id ID (required)
+     * @param  \Phrase\Model\CustomMetadataPropertiesUpdateParameters $custom_metadata_properties_update_parameters (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
-     * @param  string $name name of the property (optional)
-     * @param  string $description description of property (optional)
-     * @param  string[] $project_ids ids of projects that the property belongs to (optional)
-     * @param  string[] $value_options value options of property (only applies to single or multi select properties) (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Phrase\Model\CustomMetadataProperty, HTTP status code, HTTP response headers (array of strings)
      */
-    public function customMetadataPropertyUpdateWithHttpInfo($account_id, $id, $x_phrase_app_otp = null, $name = null, $description = null, $project_ids = null, $value_options = null)
+    public function customMetadataPropertyUpdateWithHttpInfo($account_id, $id, $custom_metadata_properties_update_parameters, $x_phrase_app_otp = null)
     {
-        $request = $this->customMetadataPropertyUpdateRequest($account_id, $id, $x_phrase_app_otp, $name, $description, $project_ids, $value_options);
+        $request = $this->customMetadataPropertyUpdateRequest($account_id, $id, $custom_metadata_properties_update_parameters, $x_phrase_app_otp);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1599,18 +1515,15 @@ class CustomMetadataApi
      *
      * @param  string $account_id Account ID (required)
      * @param  string $id ID (required)
+     * @param  \Phrase\Model\CustomMetadataPropertiesUpdateParameters $custom_metadata_properties_update_parameters (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
-     * @param  string $name name of the property (optional)
-     * @param  string $description description of property (optional)
-     * @param  string[] $project_ids ids of projects that the property belongs to (optional)
-     * @param  string[] $value_options value options of property (only applies to single or multi select properties) (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function customMetadataPropertyUpdateAsync($account_id, $id, $x_phrase_app_otp = null, $name = null, $description = null, $project_ids = null, $value_options = null)
+    public function customMetadataPropertyUpdateAsync($account_id, $id, $custom_metadata_properties_update_parameters, $x_phrase_app_otp = null)
     {
-        return $this->customMetadataPropertyUpdateAsyncWithHttpInfo($account_id, $id, $x_phrase_app_otp, $name, $description, $project_ids, $value_options)
+        return $this->customMetadataPropertyUpdateAsyncWithHttpInfo($account_id, $id, $custom_metadata_properties_update_parameters, $x_phrase_app_otp)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1625,19 +1538,16 @@ class CustomMetadataApi
      *
      * @param  string $account_id Account ID (required)
      * @param  string $id ID (required)
+     * @param  \Phrase\Model\CustomMetadataPropertiesUpdateParameters $custom_metadata_properties_update_parameters (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
-     * @param  string $name name of the property (optional)
-     * @param  string $description description of property (optional)
-     * @param  string[] $project_ids ids of projects that the property belongs to (optional)
-     * @param  string[] $value_options value options of property (only applies to single or multi select properties) (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function customMetadataPropertyUpdateAsyncWithHttpInfo($account_id, $id, $x_phrase_app_otp = null, $name = null, $description = null, $project_ids = null, $value_options = null)
+    public function customMetadataPropertyUpdateAsyncWithHttpInfo($account_id, $id, $custom_metadata_properties_update_parameters, $x_phrase_app_otp = null)
     {
         $returnType = '\Phrase\Model\CustomMetadataProperty';
-        $request = $this->customMetadataPropertyUpdateRequest($account_id, $id, $x_phrase_app_otp, $name, $description, $project_ids, $value_options);
+        $request = $this->customMetadataPropertyUpdateRequest($account_id, $id, $custom_metadata_properties_update_parameters, $x_phrase_app_otp);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1678,16 +1588,13 @@ class CustomMetadataApi
      *
      * @param  string $account_id Account ID (required)
      * @param  string $id ID (required)
+     * @param  \Phrase\Model\CustomMetadataPropertiesUpdateParameters $custom_metadata_properties_update_parameters (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
-     * @param  string $name name of the property (optional)
-     * @param  string $description description of property (optional)
-     * @param  string[] $project_ids ids of projects that the property belongs to (optional)
-     * @param  string[] $value_options value options of property (only applies to single or multi select properties) (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function customMetadataPropertyUpdateRequest($account_id, $id, $x_phrase_app_otp = null, $name = null, $description = null, $project_ids = null, $value_options = null)
+    protected function customMetadataPropertyUpdateRequest($account_id, $id, $custom_metadata_properties_update_parameters, $x_phrase_app_otp = null)
     {
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -1701,6 +1608,12 @@ class CustomMetadataApi
                 'Missing the required parameter $id when calling customMetadataPropertyUpdate'
             );
         }
+        // verify the required parameter 'custom_metadata_properties_update_parameters' is set
+        if ($custom_metadata_properties_update_parameters === null || (is_array($custom_metadata_properties_update_parameters) && count($custom_metadata_properties_update_parameters) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $custom_metadata_properties_update_parameters when calling customMetadataPropertyUpdate'
+            );
+        }
 
         $resourcePath = '/accounts/{account_id}/custom_metadata/properties/{id}';
         $formParams = [];
@@ -1709,50 +1622,6 @@ class CustomMetadataApi
         $httpBody = '';
         $multipart = false;
 
-        // query params
-        if ($name !== null) {
-            if('form' === 'form' && is_array($name)) {
-                foreach($name as $key => $value) {
-                    $queryParams[$key] = $value;
-                }
-            }
-            else {
-                $queryParams['name'] = $name;
-            }
-        }
-        // query params
-        if ($description !== null) {
-            if('form' === 'form' && is_array($description)) {
-                foreach($description as $key => $value) {
-                    $queryParams[$key] = $value;
-                }
-            }
-            else {
-                $queryParams['description'] = $description;
-            }
-        }
-        // query params
-        if ($project_ids !== null) {
-            if('form' === 'form' && is_array($project_ids)) {
-                foreach($project_ids as $key => $value) {
-                    $queryParams[$key] = $value;
-                }
-            }
-            else {
-                $queryParams['project_ids'] = $project_ids;
-            }
-        }
-        // query params
-        if ($value_options !== null) {
-            if('form' === 'form' && is_array($value_options)) {
-                foreach($value_options as $key => $value) {
-                    $queryParams[$key] = $value;
-                }
-            }
-            else {
-                $queryParams['value_options'] = $value_options;
-            }
-        }
 
         // header params
         if ($x_phrase_app_otp !== null) {
@@ -1778,6 +1647,9 @@ class CustomMetadataApi
 
         // body params
         $_tempBody = null;
+        if (isset($custom_metadata_properties_update_parameters)) {
+            $_tempBody = $custom_metadata_properties_update_parameters;
+        }
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
@@ -1786,7 +1658,7 @@ class CustomMetadataApi
         } else {
             $headers = $this->headerSelector->selectHeaders(
                 ['application/json'],
-                []
+                ['application/json']
             );
         }
 

@@ -84,6 +84,8 @@ docs/Model/CommentUpdateParameters.md
 docs/Model/CommentsListParameters.md
 docs/Model/CurrentUser.md
 docs/Model/CustomMetadataDataType.md
+docs/Model/CustomMetadataPropertiesCreateParameters.md
+docs/Model/CustomMetadataPropertiesUpdateParameters.md
 docs/Model/CustomMetadataProperty.md
 docs/Model/CustomMetadataPropertyCreate422Response.md
 docs/Model/CustomMetadataPropertyCreate422ResponseErrorsInner.md
@@ -337,6 +339,8 @@ lib/Model/CommentUpdateParameters.php
 lib/Model/CommentsListParameters.php
 lib/Model/CurrentUser.php
 lib/Model/CustomMetadataDataType.php
+lib/Model/CustomMetadataPropertiesCreateParameters.php
+lib/Model/CustomMetadataPropertiesUpdateParameters.php
 lib/Model/CustomMetadataProperty.php
 lib/Model/CustomMetadataPropertyCreate422Response.php
 lib/Model/CustomMetadataPropertyCreate422ResponseErrorsInner.php
@@ -587,6 +591,8 @@ test/Model/CommentUpdateParametersTest.php
 test/Model/CommentsListParametersTest.php
 test/Model/CurrentUserTest.php
 test/Model/CustomMetadataDataTypeTest.php
+test/Model/CustomMetadataPropertiesCreateParametersTest.php
+test/Model/CustomMetadataPropertiesUpdateParametersTest.php
 test/Model/CustomMetadataPropertyCreate422ResponseErrorsInnerTest.php
 test/Model/CustomMetadataPropertyCreate422ResponseTest.php
 test/Model/CustomMetadataPropertyTest.php

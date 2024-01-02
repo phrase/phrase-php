@@ -1,6 +1,6 @@
 <?php
 /**
- * CustomMetadataDataTypeTest
+ * CustomMetadataPropertiesCreateParametersTest
  *
  * PHP version 5
  *
@@ -30,15 +30,15 @@ namespace Phrase;
 use PHPUnit\Framework\TestCase;
 
 /**
- * CustomMetadataDataTypeTest Class Doc Comment
+ * CustomMetadataPropertiesCreateParametersTest Class Doc Comment
  *
  * @category    Class
- * @description data type of the property
+ * @description CustomMetadataPropertiesCreateParameters
  * @package     Phrase
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class CustomMetadataDataTypeTest extends TestCase
+class CustomMetadataPropertiesCreateParametersTest extends TestCase
 {
 
     /**
@@ -70,9 +70,44 @@ class CustomMetadataDataTypeTest extends TestCase
     }
 
     /**
-     * Test "CustomMetadataDataType"
+     * Test "CustomMetadataPropertiesCreateParameters"
      */
-    public function testCustomMetadataDataType()
+    public function testCustomMetadataPropertiesCreateParameters()
+    {
+    }
+
+    /**
+     * Test attribute "name"
+     */
+    public function testPropertyName()
+    {
+    }
+
+    /**
+     * Test attribute "data_type"
+     */
+    public function testPropertyDataType()
+    {
+    }
+
+    /**
+     * Test attribute "project_ids"
+     */
+    public function testPropertyProjectIds()
+    {
+    }
+
+    /**
+     * Test attribute "description"
+     */
+    public function testPropertyDescription()
+    {
+    }
+
+    /**
+     * Test attribute "value_options"
+     */
+    public function testPropertyValueOptions()
     {
     }
 }

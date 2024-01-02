@@ -149,7 +149,7 @@ Name | Type | Description  | Notes
 
 ## customMetadataPropertyCreate
 
-> \Phrase\Model\CustomMetadataProperty customMetadataPropertyCreate($account_id, $name, $data_type, $x_phrase_app_otp, $description, $project_ids, $value_options)
+> \Phrase\Model\CustomMetadataProperty customMetadataPropertyCreate($account_id, $custom_metadata_properties_create_parameters, $x_phrase_app_otp)
 
 Create a property
 
@@ -171,15 +171,11 @@ $apiInstance = new Phrase\Api\CustomMetadataApi(
     $config
 );
 $account_id = 'account_id_example'; // string | Account ID
-$name = ["Fruit"]; // string | name of the property
-$data_type = boolean; // CustomMetadataDataType | Data Type of Custom Metadata Property
+$custom_metadata_properties_create_parameters = new \Phrase\Model\CustomMetadataPropertiesCreateParameters(); // \Phrase\Model\CustomMetadataPropertiesCreateParameters | 
 $x_phrase_app_otp = 'x_phrase_app_otp_example'; // string | Two-Factor-Authentication token (optional)
-$description = ["A healthy snack for all ages"]; // string | description of property
-$project_ids = ["abcd1234cdef1234abcd1234cdef1234"]; // string[] | ids of projects that the property belongs to
-$value_options = ["Apple","Banana","Coconut"]; // string[] | value options of property (only applies to single or multi select properties)
 
 try {
-    $result = $apiInstance->customMetadataPropertyCreate($account_id, $name, $data_type, $x_phrase_app_otp, $description, $project_ids, $value_options);
+    $result = $apiInstance->customMetadataPropertyCreate($account_id, $custom_metadata_properties_create_parameters, $x_phrase_app_otp);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CustomMetadataApi->customMetadataPropertyCreate: ', $e->getMessage(), PHP_EOL;
@@ -193,12 +189,8 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **account_id** | **string**| Account ID |
- **name** | **string**| name of the property |
- **data_type** | [**CustomMetadataDataType**](../Model/.md)| Data Type of Custom Metadata Property |
+ **custom_metadata_properties_create_parameters** | [**\Phrase\Model\CustomMetadataPropertiesCreateParameters**](../Model/CustomMetadataPropertiesCreateParameters.md)|  |
  **x_phrase_app_otp** | **string**| Two-Factor-Authentication token (optional) | [optional]
- **description** | **string**| description of property | [optional]
- **project_ids** | [**string[]**](../Model/string.md)| ids of projects that the property belongs to | [optional]
- **value_options** | [**string[]**](../Model/string.md)| value options of property (only applies to single or multi select properties) | [optional]
 
 ### Return type
 
@@ -210,7 +202,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
@@ -283,7 +275,7 @@ Name | Type | Description  | Notes
 
 ## customMetadataPropertyUpdate
 
-> \Phrase\Model\CustomMetadataProperty customMetadataPropertyUpdate($account_id, $id, $x_phrase_app_otp, $name, $description, $project_ids, $value_options)
+> \Phrase\Model\CustomMetadataProperty customMetadataPropertyUpdate($account_id, $id, $custom_metadata_properties_update_parameters, $x_phrase_app_otp)
 
 Update a property
 
@@ -306,14 +298,11 @@ $apiInstance = new Phrase\Api\CustomMetadataApi(
 );
 $account_id = 'account_id_example'; // string | Account ID
 $id = 'id_example'; // string | ID
+$custom_metadata_properties_update_parameters = new \Phrase\Model\CustomMetadataPropertiesUpdateParameters(); // \Phrase\Model\CustomMetadataPropertiesUpdateParameters | 
 $x_phrase_app_otp = 'x_phrase_app_otp_example'; // string | Two-Factor-Authentication token (optional)
-$name = ["Fruit"]; // string | name of the property
-$description = ["A healthy snack for all ages"]; // string | description of property
-$project_ids = ["abcd1234cdef1234abcd1234cdef1234"]; // string[] | ids of projects that the property belongs to
-$value_options = ["Apple","Banana","Coconut"]; // string[] | value options of property (only applies to single or multi select properties)
 
 try {
-    $result = $apiInstance->customMetadataPropertyUpdate($account_id, $id, $x_phrase_app_otp, $name, $description, $project_ids, $value_options);
+    $result = $apiInstance->customMetadataPropertyUpdate($account_id, $id, $custom_metadata_properties_update_parameters, $x_phrase_app_otp);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CustomMetadataApi->customMetadataPropertyUpdate: ', $e->getMessage(), PHP_EOL;
@@ -328,11 +317,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **account_id** | **string**| Account ID |
  **id** | **string**| ID |
+ **custom_metadata_properties_update_parameters** | [**\Phrase\Model\CustomMetadataPropertiesUpdateParameters**](../Model/CustomMetadataPropertiesUpdateParameters.md)|  |
  **x_phrase_app_otp** | **string**| Two-Factor-Authentication token (optional) | [optional]
- **name** | **string**| name of the property | [optional]
- **description** | **string**| description of property | [optional]
- **project_ids** | [**string[]**](../Model/string.md)| ids of projects that the property belongs to | [optional]
- **value_options** | [**string[]**](../Model/string.md)| value options of property (only applies to single or multi select properties) | [optional]
 
 ### Return type
 
@@ -344,7 +330,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)

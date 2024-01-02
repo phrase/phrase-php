@@ -32,6 +32,7 @@ use \Phrase\ObjectSerializer;
  * CustomMetadataDataType Class Doc Comment
  *
  * @category Class
+ * @description data type of the property
  * @package  Phrase
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

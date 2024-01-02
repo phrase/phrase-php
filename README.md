@@ -439,6 +439,8 @@ Class | Method | HTTP request | Description
  - [CommentsListParameters](docs/Model/CommentsListParameters.md)
  - [CurrentUser](docs/Model/CurrentUser.md)
  - [CustomMetadataDataType](docs/Model/CustomMetadataDataType.md)
+ - [CustomMetadataPropertiesCreateParameters](docs/Model/CustomMetadataPropertiesCreateParameters.md)
+ - [CustomMetadataPropertiesUpdateParameters](docs/Model/CustomMetadataPropertiesUpdateParameters.md)
  - [CustomMetadataProperty](docs/Model/CustomMetadataProperty.md)
  - [CustomMetadataPropertyCreate422Response](docs/Model/CustomMetadataPropertyCreate422Response.md)
  - [CustomMetadataPropertyCreate422ResponseErrorsInner](docs/Model/CustomMetadataPropertyCreate422ResponseErrorsInner.md)
