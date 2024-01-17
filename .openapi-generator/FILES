@@ -39,6 +39,7 @@ docs/Api/OrdersApi.md
 docs/Api/OrganizationJobTemplateLocalesApi.md
 docs/Api/OrganizationJobTemplatesApi.md
 docs/Api/ProjectsApi.md
+docs/Api/QualityPerformanceScoreApi.md
 docs/Api/ReleasesApi.md
 docs/Api/ReportsApi.md
 docs/Api/ScreenshotMarkersApi.md
@@ -94,6 +95,8 @@ docs/Model/DistributionCreateParameters.md
 docs/Model/DistributionPreview.md
 docs/Model/DistributionUpdateParameters.md
 docs/Model/Document.md
+docs/Model/Error.md
+docs/Model/ErrorError.md
 docs/Model/FigmaAttachment.md
 docs/Model/FigmaAttachmentCreateParameters.md
 docs/Model/FigmaAttachmentUpdateParameters.md
@@ -189,6 +192,12 @@ docs/Model/ProjectLocales.md
 docs/Model/ProjectReport.md
 docs/Model/ProjectShort.md
 docs/Model/ProjectUpdateParameters.md
+docs/Model/ProjectsQualityPerformanceScore200Response.md
+docs/Model/ProjectsQualityPerformanceScore200ResponseAnyOf.md
+docs/Model/ProjectsQualityPerformanceScore200ResponseAnyOfData.md
+docs/Model/ProjectsQualityPerformanceScore200ResponseAnyOfDataTranslationsInner.md
+docs/Model/ProjectsQualityPerformanceScore200ResponseAnyOfErrorsInner.md
+docs/Model/ProjectsQualityPerformanceScoreRequest.md
 docs/Model/Release.md
 docs/Model/ReleaseCreateParameters.md
 docs/Model/ReleasePreview.md
@@ -291,6 +300,7 @@ lib/Api/OrdersApi.php
 lib/Api/OrganizationJobTemplateLocalesApi.php
 lib/Api/OrganizationJobTemplatesApi.php
 lib/Api/ProjectsApi.php
+lib/Api/QualityPerformanceScoreApi.php
 lib/Api/ReleasesApi.php
 lib/Api/ReportsApi.php
 lib/Api/ScreenshotMarkersApi.php
@@ -349,6 +359,8 @@ lib/Model/DistributionCreateParameters.php
 lib/Model/DistributionPreview.php
 lib/Model/DistributionUpdateParameters.php
 lib/Model/Document.php
+lib/Model/Error.php
+lib/Model/ErrorError.php
 lib/Model/FigmaAttachment.php
 lib/Model/FigmaAttachmentCreateParameters.php
 lib/Model/FigmaAttachmentUpdateParameters.php
@@ -445,6 +457,12 @@ lib/Model/ProjectLocales.php
 lib/Model/ProjectReport.php
 lib/Model/ProjectShort.php
 lib/Model/ProjectUpdateParameters.php
+lib/Model/ProjectsQualityPerformanceScore200Response.php
+lib/Model/ProjectsQualityPerformanceScore200ResponseAnyOf.php
+lib/Model/ProjectsQualityPerformanceScore200ResponseAnyOfData.php
+lib/Model/ProjectsQualityPerformanceScore200ResponseAnyOfDataTranslationsInner.php
+lib/Model/ProjectsQualityPerformanceScore200ResponseAnyOfErrorsInner.php
+lib/Model/ProjectsQualityPerformanceScoreRequest.php
 lib/Model/Release.php
 lib/Model/ReleaseCreateParameters.php
 lib/Model/ReleasePreview.php
@@ -547,6 +565,7 @@ test/Api/OrdersApiTest.php
 test/Api/OrganizationJobTemplateLocalesApiTest.php
 test/Api/OrganizationJobTemplatesApiTest.php
 test/Api/ProjectsApiTest.php
+test/Api/QualityPerformanceScoreApiTest.php
 test/Api/ReleasesApiTest.php
 test/Api/ReportsApiTest.php
 test/Api/ScreenshotMarkersApiTest.php
@@ -601,6 +620,8 @@ test/Model/DistributionPreviewTest.php
 test/Model/DistributionTest.php
 test/Model/DistributionUpdateParametersTest.php
 test/Model/DocumentTest.php
+test/Model/ErrorErrorTest.php
+test/Model/ErrorTest.php
 test/Model/FigmaAttachmentCreateParametersTest.php
 test/Model/FigmaAttachmentTest.php
 test/Model/FigmaAttachmentUpdateParametersTest.php
@@ -696,6 +717,12 @@ test/Model/ProjectReportTest.php
 test/Model/ProjectShortTest.php
 test/Model/ProjectTest.php
 test/Model/ProjectUpdateParametersTest.php
+test/Model/ProjectsQualityPerformanceScore200ResponseAnyOfDataTest.php
+test/Model/ProjectsQualityPerformanceScore200ResponseAnyOfDataTranslationsInnerTest.php
+test/Model/ProjectsQualityPerformanceScore200ResponseAnyOfErrorsInnerTest.php
+test/Model/ProjectsQualityPerformanceScore200ResponseAnyOfTest.php
+test/Model/ProjectsQualityPerformanceScore200ResponseTest.php
+test/Model/ProjectsQualityPerformanceScoreRequestTest.php
 test/Model/ReleaseCreateParametersTest.php
 test/Model/ReleasePreviewTest.php
 test/Model/ReleaseTest.php
