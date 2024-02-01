@@ -73,7 +73,7 @@ class QualityPerformanceScoreApiTest extends TestCase
     /**
      * Test case for projectsQualityPerformanceScore
      *
-     * Get project's translations' quality performance scores.
+     * Get Translation Quality.
      *
      */
     public function testProjectsQualityPerformanceScore()

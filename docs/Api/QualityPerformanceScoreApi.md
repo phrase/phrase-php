@@ -4,17 +4,17 @@ All URIs are relative to *https://api.phrase.com/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**projectsQualityPerformanceScore**](QualityPerformanceScoreApi.md#projectsQualityPerformanceScore) | **POST** /projects/{id}/quality_performance_score | Get project&#39;s translations&#39; quality performance scores
+[**projectsQualityPerformanceScore**](QualityPerformanceScoreApi.md#projectsQualityPerformanceScore) | **POST** /projects/{project_id}/quality_performance_score | Get Translation Quality
 
 
 
 ## projectsQualityPerformanceScore
 
-> \Phrase\Model\ProjectsQualityPerformanceScore200Response projectsQualityPerformanceScore($id, $projects_quality_performance_score_request, $x_phrase_app_otp)
+> \Phrase\Model\ProjectsQualityPerformanceScore200Response projectsQualityPerformanceScore($project_id, $projects_quality_performance_score_request, $x_phrase_app_otp)
 
-Get project's translations' quality performance scores
+Get Translation Quality
 
-Get project's translations' quality performance scores
+Retrieves the quality scores for your Strings translations. Returns a score, measured by Phrase QPS
 
 ### Example
 
@@ -31,12 +31,12 @@ $apiInstance = new Phrase\Api\QualityPerformanceScoreApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = 'id_example'; // string | ID
+$project_id = 'project_id_example'; // string | Project ID
 $projects_quality_performance_score_request = new \Phrase\Model\ProjectsQualityPerformanceScoreRequest(); // \Phrase\Model\ProjectsQualityPerformanceScoreRequest | 
 $x_phrase_app_otp = 'x_phrase_app_otp_example'; // string | Two-Factor-Authentication token (optional)
 
 try {
-    $result = $apiInstance->projectsQualityPerformanceScore($id, $projects_quality_performance_score_request, $x_phrase_app_otp);
+    $result = $apiInstance->projectsQualityPerformanceScore($project_id, $projects_quality_performance_score_request, $x_phrase_app_otp);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling QualityPerformanceScoreApi->projectsQualityPerformanceScore: ', $e->getMessage(), PHP_EOL;
@@ -49,7 +49,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **string**| ID |
+ **project_id** | **string**| Project ID |
  **projects_quality_performance_score_request** | [**\Phrase\Model\ProjectsQualityPerformanceScoreRequest**](../Model/ProjectsQualityPerformanceScoreRequest.md)|  |
  **x_phrase_app_otp** | **string**| Two-Factor-Authentication token (optional) | [optional]
 

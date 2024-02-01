@@ -245,7 +245,7 @@ class ProjectsQualityPerformanceScore200ResponseAnyOf implements ModelInterface,
     /**
      * Sets errors
      *
-     * @param \Phrase\Model\ProjectsQualityPerformanceScore200ResponseAnyOfErrorsInner[]|null $errors Array of errors for any failing translation ids
+     * @param \Phrase\Model\ProjectsQualityPerformanceScore200ResponseAnyOfErrorsInner[]|null $errors Array of errors for any failing translation IDs
      *
      * @return $this
      */

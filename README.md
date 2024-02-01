@@ -322,7 +322,7 @@ Class | Method | HTTP request | Description
 *ProjectsApi* | [**projectShow**](docs/Api/ProjectsApi.md#projectshow) | **GET** /projects/{id} | Get a single project
 *ProjectsApi* | [**projectUpdate**](docs/Api/ProjectsApi.md#projectupdate) | **PATCH** /projects/{id} | Update a project
 *ProjectsApi* | [**projectsList**](docs/Api/ProjectsApi.md#projectslist) | **GET** /projects | List projects
-*QualityPerformanceScoreApi* | [**projectsQualityPerformanceScore**](docs/Api/QualityPerformanceScoreApi.md#projectsqualityperformancescore) | **POST** /projects/{id}/quality_performance_score | Get project&#39;s translations&#39; quality performance scores
+*QualityPerformanceScoreApi* | [**projectsQualityPerformanceScore**](docs/Api/QualityPerformanceScoreApi.md#projectsqualityperformancescore) | **POST** /projects/{project_id}/quality_performance_score | Get Translation Quality
 *ReleasesApi* | [**releaseCreate**](docs/Api/ReleasesApi.md#releasecreate) | **POST** /accounts/{account_id}/distributions/{distribution_id}/releases | Create a release
 *ReleasesApi* | [**releaseDelete**](docs/Api/ReleasesApi.md#releasedelete) | **DELETE** /accounts/{account_id}/distributions/{distribution_id}/releases/{id} | Delete a release
 *ReleasesApi* | [**releasePublish**](docs/Api/ReleasesApi.md#releasepublish) | **POST** /accounts/{account_id}/distributions/{distribution_id}/releases/{id}/publish | Publish a release
