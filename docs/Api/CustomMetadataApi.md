@@ -76,7 +76,7 @@ void (empty response body)
 
 ## customMetadataPropertiesList
 
-> \Phrase\Model\CustomMetadataProperty[] customMetadataPropertiesList($account_id, $x_phrase_app_otp, $data_type, $project_id, $page, $per_page, $sort, $order)
+> \Phrase\Model\CustomMetadataProperty[] customMetadataPropertiesList($account_id, $x_phrase_app_otp, $data_type, $project_id, $page, $per_page, $q, $sort, $order)
 
 List properties
 
@@ -103,11 +103,12 @@ $data_type = boolean; // CustomMetadataDataType | Data Type of Custom Metadata P
 $project_id = abcd1234cdef1234abcd1234cdef1234; // string | id of project that the properties belong to
 $page = 1; // int | Page number
 $per_page = 25; // int | Limit on the number of objects to be returned, between 1 and 100. 25 by default
+$q = character_name; // string | query to find a property by name
 $sort = updated_at; // string | Sort criteria. Can be one of: name, data_type, created_at.
 $order = desc; // string | Order direction. Can be one of: asc, desc.
 
 try {
-    $result = $apiInstance->customMetadataPropertiesList($account_id, $x_phrase_app_otp, $data_type, $project_id, $page, $per_page, $sort, $order);
+    $result = $apiInstance->customMetadataPropertiesList($account_id, $x_phrase_app_otp, $data_type, $project_id, $page, $per_page, $q, $sort, $order);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CustomMetadataApi->customMetadataPropertiesList: ', $e->getMessage(), PHP_EOL;
@@ -126,6 +127,7 @@ Name | Type | Description  | Notes
  **project_id** | **string**| id of project that the properties belong to | [optional]
  **page** | **int**| Page number | [optional]
  **per_page** | **int**| Limit on the number of objects to be returned, between 1 and 100. 25 by default | [optional]
+ **q** | **string**| query to find a property by name | [optional]
  **sort** | **string**| Sort criteria. Can be one of: name, data_type, created_at. | [optional]
  **order** | **string**| Order direction. Can be one of: asc, desc. | [optional]
 

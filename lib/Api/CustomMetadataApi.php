@@ -386,6 +386,7 @@ class CustomMetadataApi
      * @param  string $project_id id of project that the properties belong to (optional)
      * @param  int $page Page number (optional)
      * @param  int $per_page Limit on the number of objects to be returned, between 1 and 100. 25 by default (optional)
+     * @param  string $q query to find a property by name (optional)
      * @param  string $sort Sort criteria. Can be one of: name, data_type, created_at. (optional)
      * @param  string $order Order direction. Can be one of: asc, desc. (optional)
      *
@@ -393,9 +394,9 @@ class CustomMetadataApi
      * @throws \InvalidArgumentException
      * @return \Phrase\Model\CustomMetadataProperty[]
      */
-    public function customMetadataPropertiesList($account_id, $x_phrase_app_otp = null, $data_type = null, $project_id = null, $page = null, $per_page = null, $sort = null, $order = null)
+    public function customMetadataPropertiesList($account_id, $x_phrase_app_otp = null, $data_type = null, $project_id = null, $page = null, $per_page = null, $q = null, $sort = null, $order = null)
     {
-        list($response) = $this->customMetadataPropertiesListWithHttpInfo($account_id, $x_phrase_app_otp, $data_type, $project_id, $page, $per_page, $sort, $order);
+        list($response) = $this->customMetadataPropertiesListWithHttpInfo($account_id, $x_phrase_app_otp, $data_type, $project_id, $page, $per_page, $q, $sort, $order);
         return $response;
     }
 
@@ -410,6 +411,7 @@ class CustomMetadataApi
      * @param  string $project_id id of project that the properties belong to (optional)
      * @param  int $page Page number (optional)
      * @param  int $per_page Limit on the number of objects to be returned, between 1 and 100. 25 by default (optional)
+     * @param  string $q query to find a property by name (optional)
      * @param  string $sort Sort criteria. Can be one of: name, data_type, created_at. (optional)
      * @param  string $order Order direction. Can be one of: asc, desc. (optional)
      *
@@ -417,9 +419,9 @@ class CustomMetadataApi
      * @throws \InvalidArgumentException
      * @return array of \Phrase\Model\CustomMetadataProperty[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function customMetadataPropertiesListWithHttpInfo($account_id, $x_phrase_app_otp = null, $data_type = null, $project_id = null, $page = null, $per_page = null, $sort = null, $order = null)
+    public function customMetadataPropertiesListWithHttpInfo($account_id, $x_phrase_app_otp = null, $data_type = null, $project_id = null, $page = null, $per_page = null, $q = null, $sort = null, $order = null)
     {
-        $request = $this->customMetadataPropertiesListRequest($account_id, $x_phrase_app_otp, $data_type, $project_id, $page, $per_page, $sort, $order);
+        $request = $this->customMetadataPropertiesListRequest($account_id, $x_phrase_app_otp, $data_type, $project_id, $page, $per_page, $q, $sort, $order);
 
         try {
             $options = $this->createHttpClientOption();
@@ -505,15 +507,16 @@ class CustomMetadataApi
      * @param  string $project_id id of project that the properties belong to (optional)
      * @param  int $page Page number (optional)
      * @param  int $per_page Limit on the number of objects to be returned, between 1 and 100. 25 by default (optional)
+     * @param  string $q query to find a property by name (optional)
      * @param  string $sort Sort criteria. Can be one of: name, data_type, created_at. (optional)
      * @param  string $order Order direction. Can be one of: asc, desc. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function customMetadataPropertiesListAsync($account_id, $x_phrase_app_otp = null, $data_type = null, $project_id = null, $page = null, $per_page = null, $sort = null, $order = null)
+    public function customMetadataPropertiesListAsync($account_id, $x_phrase_app_otp = null, $data_type = null, $project_id = null, $page = null, $per_page = null, $q = null, $sort = null, $order = null)
     {
-        return $this->customMetadataPropertiesListAsyncWithHttpInfo($account_id, $x_phrase_app_otp, $data_type, $project_id, $page, $per_page, $sort, $order)
+        return $this->customMetadataPropertiesListAsyncWithHttpInfo($account_id, $x_phrase_app_otp, $data_type, $project_id, $page, $per_page, $q, $sort, $order)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -532,16 +535,17 @@ class CustomMetadataApi
      * @param  string $project_id id of project that the properties belong to (optional)
      * @param  int $page Page number (optional)
      * @param  int $per_page Limit on the number of objects to be returned, between 1 and 100. 25 by default (optional)
+     * @param  string $q query to find a property by name (optional)
      * @param  string $sort Sort criteria. Can be one of: name, data_type, created_at. (optional)
      * @param  string $order Order direction. Can be one of: asc, desc. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function customMetadataPropertiesListAsyncWithHttpInfo($account_id, $x_phrase_app_otp = null, $data_type = null, $project_id = null, $page = null, $per_page = null, $sort = null, $order = null)
+    public function customMetadataPropertiesListAsyncWithHttpInfo($account_id, $x_phrase_app_otp = null, $data_type = null, $project_id = null, $page = null, $per_page = null, $q = null, $sort = null, $order = null)
     {
         $returnType = '\Phrase\Model\CustomMetadataProperty[]';
-        $request = $this->customMetadataPropertiesListRequest($account_id, $x_phrase_app_otp, $data_type, $project_id, $page, $per_page, $sort, $order);
+        $request = $this->customMetadataPropertiesListRequest($account_id, $x_phrase_app_otp, $data_type, $project_id, $page, $per_page, $q, $sort, $order);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -586,13 +590,14 @@ class CustomMetadataApi
      * @param  string $project_id id of project that the properties belong to (optional)
      * @param  int $page Page number (optional)
      * @param  int $per_page Limit on the number of objects to be returned, between 1 and 100. 25 by default (optional)
+     * @param  string $q query to find a property by name (optional)
      * @param  string $sort Sort criteria. Can be one of: name, data_type, created_at. (optional)
      * @param  string $order Order direction. Can be one of: asc, desc. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function customMetadataPropertiesListRequest($account_id, $x_phrase_app_otp = null, $data_type = null, $project_id = null, $page = null, $per_page = null, $sort = null, $order = null)
+    protected function customMetadataPropertiesListRequest($account_id, $x_phrase_app_otp = null, $data_type = null, $project_id = null, $page = null, $per_page = null, $q = null, $sort = null, $order = null)
     {
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -650,6 +655,17 @@ class CustomMetadataApi
             }
             else {
                 $queryParams['per_page'] = $per_page;
+            }
+        }
+        // query params
+        if ($q !== null) {
+            if('form' === 'form' && is_array($q)) {
+                foreach($q as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['q'] = $q;
             }
         }
         // query params
