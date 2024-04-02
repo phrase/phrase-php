@@ -31,6 +31,7 @@ docs/Api/JobTemplatesApi.md
 docs/Api/JobsApi.md
 docs/Api/KeysApi.md
 docs/Api/KeysFigmaAttachmentsApi.md
+docs/Api/LinkedKeysApi.md
 docs/Api/LocalesApi.md
 docs/Api/MembersApi.md
 docs/Api/NotificationGroupsApi.md
@@ -151,6 +152,10 @@ docs/Model/JobTemplatePreview.md
 docs/Model/JobTemplateUpdateParameters.md
 docs/Model/JobUpdateParameters.md
 docs/Model/KeyCreateParameters.md
+docs/Model/KeyLink.md
+docs/Model/KeyLinksBatchDestroyParameters.md
+docs/Model/KeyLinksCreateParameters.md
+docs/Model/KeyLinksIndex400Response.md
 docs/Model/KeyPreview.md
 docs/Model/KeyUpdateParameters.md
 docs/Model/KeysExcludeParameters.md
@@ -292,6 +297,7 @@ lib/Api/JobTemplatesApi.php
 lib/Api/JobsApi.php
 lib/Api/KeysApi.php
 lib/Api/KeysFigmaAttachmentsApi.php
+lib/Api/LinkedKeysApi.php
 lib/Api/LocalesApi.php
 lib/Api/MembersApi.php
 lib/Api/NotificationGroupsApi.php
@@ -415,6 +421,10 @@ lib/Model/JobTemplatePreview.php
 lib/Model/JobTemplateUpdateParameters.php
 lib/Model/JobUpdateParameters.php
 lib/Model/KeyCreateParameters.php
+lib/Model/KeyLink.php
+lib/Model/KeyLinksBatchDestroyParameters.php
+lib/Model/KeyLinksCreateParameters.php
+lib/Model/KeyLinksIndex400Response.php
 lib/Model/KeyPreview.php
 lib/Model/KeyUpdateParameters.php
 lib/Model/KeysExcludeParameters.php
@@ -558,6 +568,7 @@ test/Api/JobTemplatesApiTest.php
 test/Api/JobsApiTest.php
 test/Api/KeysApiTest.php
 test/Api/KeysFigmaAttachmentsApiTest.php
+test/Api/LinkedKeysApiTest.php
 test/Api/MembersApiTest.php
 test/Api/NotificationGroupsApiTest.php
 test/Api/NotificationsApiTest.php
@@ -676,6 +687,10 @@ test/Model/JobTemplateUpdateParametersTest.php
 test/Model/JobTest.php
 test/Model/JobUpdateParametersTest.php
 test/Model/KeyCreateParametersTest.php
+test/Model/KeyLinkTest.php
+test/Model/KeyLinksBatchDestroyParametersTest.php
+test/Model/KeyLinksCreateParametersTest.php
+test/Model/KeyLinksIndex400ResponseTest.php
 test/Model/KeyPreviewTest.php
 test/Model/KeyUpdateParametersTest.php
 test/Model/KeysExcludeParametersTest.php
