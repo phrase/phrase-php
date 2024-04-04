@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 ## keyLinksBatchDestroy
 
-> keyLinksBatchDestroy($account_id, $key_links_batch_destroy_parameters, $x_phrase_app_otp, $unlink_parent)
+> keyLinksBatchDestroy($project_id, $id, $key_links_batch_destroy_parameters, $x_phrase_app_otp, $unlink_parent)
 
 Batch unlink child keys from a parent key
 
@@ -34,13 +34,14 @@ $apiInstance = new Phrase\Api\LinkedKeysApi(
     new GuzzleHttp\Client(),
     $config
 );
-$account_id = 'account_id_example'; // string | Account ID
+$project_id = 'project_id_example'; // string | Project ID
+$id = 'id_example'; // string | Parent Translation Key ID
 $key_links_batch_destroy_parameters = new \Phrase\Model\KeyLinksBatchDestroyParameters(); // \Phrase\Model\KeyLinksBatchDestroyParameters | 
 $x_phrase_app_otp = 'x_phrase_app_otp_example'; // string | Two-Factor-Authentication token (optional)
 $unlink_parent = True; // bool | Whether to unlink the parent key as well and unmark it as linked-key.
 
 try {
-    $apiInstance->keyLinksBatchDestroy($account_id, $key_links_batch_destroy_parameters, $x_phrase_app_otp, $unlink_parent);
+    $apiInstance->keyLinksBatchDestroy($project_id, $id, $key_links_batch_destroy_parameters, $x_phrase_app_otp, $unlink_parent);
 } catch (Exception $e) {
     echo 'Exception when calling LinkedKeysApi->keyLinksBatchDestroy: ', $e->getMessage(), PHP_EOL;
 }
@@ -52,7 +53,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **account_id** | **string**| Account ID |
+ **project_id** | **string**| Project ID |
+ **id** | **string**| Parent Translation Key ID |
  **key_links_batch_destroy_parameters** | [**\Phrase\Model\KeyLinksBatchDestroyParameters**](../Model/KeyLinksBatchDestroyParameters.md)|  |
  **x_phrase_app_otp** | **string**| Two-Factor-Authentication token (optional) | [optional]
  **unlink_parent** | **bool**| Whether to unlink the parent key as well and unmark it as linked-key. | [optional]
@@ -77,7 +79,7 @@ void (empty response body)
 
 ## keyLinksCreate
 
-> \Phrase\Model\KeyLink keyLinksCreate($account_id, $key_links_create_parameters, $x_phrase_app_otp)
+> \Phrase\Model\KeyLink keyLinksCreate($project_id, $id, $key_links_create_parameters, $x_phrase_app_otp)
 
 Link child keys to a parent key
 
@@ -98,12 +100,13 @@ $apiInstance = new Phrase\Api\LinkedKeysApi(
     new GuzzleHttp\Client(),
     $config
 );
-$account_id = 'account_id_example'; // string | Account ID
+$project_id = 'project_id_example'; // string | Project ID
+$id = 'id_example'; // string | Parent Translation Key ID
 $key_links_create_parameters = new \Phrase\Model\KeyLinksCreateParameters(); // \Phrase\Model\KeyLinksCreateParameters | 
 $x_phrase_app_otp = 'x_phrase_app_otp_example'; // string | Two-Factor-Authentication token (optional)
 
 try {
-    $result = $apiInstance->keyLinksCreate($account_id, $key_links_create_parameters, $x_phrase_app_otp);
+    $result = $apiInstance->keyLinksCreate($project_id, $id, $key_links_create_parameters, $x_phrase_app_otp);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling LinkedKeysApi->keyLinksCreate: ', $e->getMessage(), PHP_EOL;
@@ -116,7 +119,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **account_id** | **string**| Account ID |
+ **project_id** | **string**| Project ID |
+ **id** | **string**| Parent Translation Key ID |
  **key_links_create_parameters** | [**\Phrase\Model\KeyLinksCreateParameters**](../Model/KeyLinksCreateParameters.md)|  |
  **x_phrase_app_otp** | **string**| Two-Factor-Authentication token (optional) | [optional]
 
@@ -140,7 +144,7 @@ Name | Type | Description  | Notes
 
 ## keyLinksDestroy
 
-> keyLinksDestroy($account_id, $child_key_id, $x_phrase_app_otp)
+> keyLinksDestroy($project_id, $id, $child_key_id, $x_phrase_app_otp)
 
 Unlink a child key from a parent key
 
@@ -161,12 +165,13 @@ $apiInstance = new Phrase\Api\LinkedKeysApi(
     new GuzzleHttp\Client(),
     $config
 );
-$account_id = 'account_id_example'; // string | Account ID
+$project_id = 'project_id_example'; // string | Project ID
+$id = 'id_example'; // string | Parent Translation Key ID
 $child_key_id = 'child_key_id_example'; // string | The ID of the child key to unlink.
 $x_phrase_app_otp = 'x_phrase_app_otp_example'; // string | Two-Factor-Authentication token (optional)
 
 try {
-    $apiInstance->keyLinksDestroy($account_id, $child_key_id, $x_phrase_app_otp);
+    $apiInstance->keyLinksDestroy($project_id, $id, $child_key_id, $x_phrase_app_otp);
 } catch (Exception $e) {
     echo 'Exception when calling LinkedKeysApi->keyLinksDestroy: ', $e->getMessage(), PHP_EOL;
 }
@@ -178,7 +183,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **account_id** | **string**| Account ID |
+ **project_id** | **string**| Project ID |
+ **id** | **string**| Parent Translation Key ID |
  **child_key_id** | **string**| The ID of the child key to unlink. |
  **x_phrase_app_otp** | **string**| Two-Factor-Authentication token (optional) | [optional]
 
@@ -202,7 +208,7 @@ void (empty response body)
 
 ## keyLinksIndex
 
-> \Phrase\Model\KeyLink keyLinksIndex($account_id, $x_phrase_app_otp)
+> \Phrase\Model\KeyLink keyLinksIndex($project_id, $id, $x_phrase_app_otp)
 
 Retrieve all child keys linked to a specific parent key
 
@@ -223,11 +229,12 @@ $apiInstance = new Phrase\Api\LinkedKeysApi(
     new GuzzleHttp\Client(),
     $config
 );
-$account_id = 'account_id_example'; // string | Account ID
+$project_id = 'project_id_example'; // string | Project ID
+$id = 'id_example'; // string | Parent Translation Key ID
 $x_phrase_app_otp = 'x_phrase_app_otp_example'; // string | Two-Factor-Authentication token (optional)
 
 try {
-    $result = $apiInstance->keyLinksIndex($account_id, $x_phrase_app_otp);
+    $result = $apiInstance->keyLinksIndex($project_id, $id, $x_phrase_app_otp);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling LinkedKeysApi->keyLinksIndex: ', $e->getMessage(), PHP_EOL;
@@ -240,7 +247,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **account_id** | **string**| Account ID |
+ **project_id** | **string**| Project ID |
+ **id** | **string**| Parent Translation Key ID |
  **x_phrase_app_otp** | **string**| Two-Factor-Authentication token (optional) | [optional]
 
 ### Return type
