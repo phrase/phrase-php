@@ -42,6 +42,7 @@ docs/Api/OrganizationJobTemplatesApi.md
 docs/Api/ProjectsApi.md
 docs/Api/QualityPerformanceScoreApi.md
 docs/Api/ReleasesApi.md
+docs/Api/RepoSyncsApi.md
 docs/Api/ReportsApi.md
 docs/Api/ScreenshotMarkersApi.md
 docs/Api/ScreenshotsApi.md
@@ -208,6 +209,11 @@ docs/Model/ReleaseCreateParameters.md
 docs/Model/ReleasePreview.md
 docs/Model/ReleaseUpdateParameters.md
 docs/Model/RepliesListParameters.md
+docs/Model/RepoSync.md
+docs/Model/RepoSyncEvent.md
+docs/Model/RepoSyncEventErrorsInner.md
+docs/Model/RepoSyncExport.md
+docs/Model/RepoSyncImport.md
 docs/Model/Screenshot.md
 docs/Model/ScreenshotMarker.md
 docs/Model/ScreenshotMarkerCreateParameters.md
@@ -308,6 +314,7 @@ lib/Api/OrganizationJobTemplatesApi.php
 lib/Api/ProjectsApi.php
 lib/Api/QualityPerformanceScoreApi.php
 lib/Api/ReleasesApi.php
+lib/Api/RepoSyncsApi.php
 lib/Api/ReportsApi.php
 lib/Api/ScreenshotMarkersApi.php
 lib/Api/ScreenshotsApi.php
@@ -478,6 +485,11 @@ lib/Model/ReleaseCreateParameters.php
 lib/Model/ReleasePreview.php
 lib/Model/ReleaseUpdateParameters.php
 lib/Model/RepliesListParameters.php
+lib/Model/RepoSync.php
+lib/Model/RepoSyncEvent.php
+lib/Model/RepoSyncEventErrorsInner.php
+lib/Model/RepoSyncExport.php
+lib/Model/RepoSyncImport.php
 lib/Model/Screenshot.php
 lib/Model/ScreenshotMarker.php
 lib/Model/ScreenshotMarkerCreateParameters.php
@@ -578,6 +590,7 @@ test/Api/OrganizationJobTemplatesApiTest.php
 test/Api/ProjectsApiTest.php
 test/Api/QualityPerformanceScoreApiTest.php
 test/Api/ReleasesApiTest.php
+test/Api/RepoSyncsApiTest.php
 test/Api/ReportsApiTest.php
 test/Api/ScreenshotMarkersApiTest.php
 test/Api/ScreenshotsApiTest.php
@@ -743,6 +756,11 @@ test/Model/ReleasePreviewTest.php
 test/Model/ReleaseTest.php
 test/Model/ReleaseUpdateParametersTest.php
 test/Model/RepliesListParametersTest.php
+test/Model/RepoSyncEventErrorsInnerTest.php
+test/Model/RepoSyncEventTest.php
+test/Model/RepoSyncExportTest.php
+test/Model/RepoSyncImportTest.php
+test/Model/RepoSyncTest.php
 test/Model/ScreenshotMarkerCreateParametersTest.php
 test/Model/ScreenshotMarkerTest.php
 test/Model/ScreenshotMarkerUpdateParametersTest.php
