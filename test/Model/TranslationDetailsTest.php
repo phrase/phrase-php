@@ -166,4 +166,11 @@ class TranslationDetailsTest extends TestCase
     public function testPropertyWordCount()
     {
     }
+
+    /**
+     * Test attribute "linked_translation"
+     */
+    public function testPropertyLinkedTranslation()
+    {
+    }
 }

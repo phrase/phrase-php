@@ -67,7 +67,8 @@ class TranslationDetails implements ModelInterface, ArrayAccess
         'created_at' => '\DateTime',
         'updated_at' => '\DateTime',
         'user' => '\Phrase\Model\UserPreview',
-        'word_count' => 'int'
+        'word_count' => 'int',
+        'linked_translation' => '\Phrase\Model\TranslationParent'
     ];
 
     /**
@@ -88,7 +89,8 @@ class TranslationDetails implements ModelInterface, ArrayAccess
         'created_at' => 'date-time',
         'updated_at' => 'date-time',
         'user' => null,
-        'word_count' => null
+        'word_count' => null,
+        'linked_translation' => null
     ];
 
     /**
@@ -130,7 +132,8 @@ class TranslationDetails implements ModelInterface, ArrayAccess
         'created_at' => 'created_at',
         'updated_at' => 'updated_at',
         'user' => 'user',
-        'word_count' => 'word_count'
+        'word_count' => 'word_count',
+        'linked_translation' => 'linked_translation'
     ];
 
     /**
@@ -151,7 +154,8 @@ class TranslationDetails implements ModelInterface, ArrayAccess
         'created_at' => 'setCreatedAt',
         'updated_at' => 'setUpdatedAt',
         'user' => 'setUser',
-        'word_count' => 'setWordCount'
+        'word_count' => 'setWordCount',
+        'linked_translation' => 'setLinkedTranslation'
     ];
 
     /**
@@ -172,7 +176,8 @@ class TranslationDetails implements ModelInterface, ArrayAccess
         'created_at' => 'getCreatedAt',
         'updated_at' => 'getUpdatedAt',
         'user' => 'getUser',
-        'word_count' => 'getWordCount'
+        'word_count' => 'getWordCount',
+        'linked_translation' => 'getLinkedTranslation'
     ];
 
     /**
@@ -248,6 +253,7 @@ class TranslationDetails implements ModelInterface, ArrayAccess
         $this->container['updated_at'] = isset($data['updated_at']) ? $data['updated_at'] : null;
         $this->container['user'] = isset($data['user']) ? $data['user'] : null;
         $this->container['word_count'] = isset($data['word_count']) ? $data['word_count'] : null;
+        $this->container['linked_translation'] = isset($data['linked_translation']) ? $data['linked_translation'] : null;
     }
 
     /**
@@ -582,6 +588,30 @@ class TranslationDetails implements ModelInterface, ArrayAccess
     public function setWordCount($word_count)
     {
         $this->container['word_count'] = $word_count;
+
+        return $this;
+    }
+
+    /**
+     * Gets linked_translation
+     *
+     * @return \Phrase\Model\TranslationParent|null
+     */
+    public function getLinkedTranslation()
+    {
+        return $this->container['linked_translation'];
+    }
+
+    /**
+     * Sets linked_translation
+     *
+     * @param \Phrase\Model\TranslationParent|null $linked_translation linked_translation
+     *
+     * @return $this
+     */
+    public function setLinkedTranslation($linked_translation)
+    {
+        $this->container['linked_translation'] = $linked_translation;
 
         return $this;
     }

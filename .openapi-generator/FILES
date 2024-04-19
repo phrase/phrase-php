@@ -252,6 +252,7 @@ docs/Model/TranslationIncludeParameters.md
 docs/Model/TranslationKey.md
 docs/Model/TranslationKeyDetails.md
 docs/Model/TranslationOrder.md
+docs/Model/TranslationParent.md
 docs/Model/TranslationReviewParameters.md
 docs/Model/TranslationUnverifyParameters.md
 docs/Model/TranslationUpdateParameters.md
@@ -528,6 +529,7 @@ lib/Model/TranslationIncludeParameters.php
 lib/Model/TranslationKey.php
 lib/Model/TranslationKeyDetails.php
 lib/Model/TranslationOrder.php
+lib/Model/TranslationParent.php
 lib/Model/TranslationReviewParameters.php
 lib/Model/TranslationUnverifyParameters.php
 lib/Model/TranslationUpdateParameters.php
@@ -798,6 +800,7 @@ test/Model/TranslationIncludeParametersTest.php
 test/Model/TranslationKeyDetailsTest.php
 test/Model/TranslationKeyTest.php
 test/Model/TranslationOrderTest.php
+test/Model/TranslationParentTest.php
 test/Model/TranslationReviewParametersTest.php
 test/Model/TranslationTest.php
 test/Model/TranslationUnverifyParametersTest.php
