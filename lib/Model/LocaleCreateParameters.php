@@ -247,6 +247,12 @@ class LocaleCreateParameters implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['name'] === null) {
+            $invalidProperties[] = "'name' can't be null";
+        }
+        if ($this->container['code'] === null) {
+            $invalidProperties[] = "'code' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -289,7 +295,7 @@ class LocaleCreateParameters implements ModelInterface, ArrayAccess
     /**
      * Gets name
      *
-     * @return string|null
+     * @return string
      */
     public function getName()
     {
@@ -299,7 +305,7 @@ class LocaleCreateParameters implements ModelInterface, ArrayAccess
     /**
      * Sets name
      *
-     * @param string|null $name Locale name
+     * @param string $name Locale name
      *
      * @return $this
      */
@@ -313,7 +319,7 @@ class LocaleCreateParameters implements ModelInterface, ArrayAccess
     /**
      * Gets code
      *
-     * @return string|null
+     * @return string
      */
     public function getCode()
     {
@@ -323,7 +329,7 @@ class LocaleCreateParameters implements ModelInterface, ArrayAccess
     /**
      * Sets code
      *
-     * @param string|null $code Locale ISO code
+     * @param string $code Locale ISO code
      *
      * @return $this
      */
@@ -419,7 +425,7 @@ class LocaleCreateParameters implements ModelInterface, ArrayAccess
     /**
      * Sets source_locale_id
      *
-     * @param string|null $source_locale_id Source locale. Can be the name or public id of the locale. Preferred is the public id.
+     * @param string|null $source_locale_id Source locale. Can be the name or id of the locale. Preferred is id.
      *
      * @return $this
      */

@@ -199,6 +199,9 @@ class AuthorizationCreateParameters implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['note'] === null) {
+            $invalidProperties[] = "'note' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -217,7 +220,7 @@ class AuthorizationCreateParameters implements ModelInterface, ArrayAccess
     /**
      * Gets note
      *
-     * @return string|null
+     * @return string
      */
     public function getNote()
     {
@@ -227,7 +230,7 @@ class AuthorizationCreateParameters implements ModelInterface, ArrayAccess
     /**
      * Sets note
      *
-     * @param string|null $note A note to help you remember what the access is used for.
+     * @param string $note A note to help you remember what the access is used for.
      *
      * @return $this
      */

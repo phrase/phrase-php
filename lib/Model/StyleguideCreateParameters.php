@@ -259,6 +259,9 @@ class StyleguideCreateParameters implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['title'] === null) {
+            $invalidProperties[] = "'title' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -277,7 +280,7 @@ class StyleguideCreateParameters implements ModelInterface, ArrayAccess
     /**
      * Gets title
      *
-     * @return string|null
+     * @return string
      */
     public function getTitle()
     {
@@ -287,7 +290,7 @@ class StyleguideCreateParameters implements ModelInterface, ArrayAccess
     /**
      * Sets title
      *
-     * @param string|null $title Style guide title
+     * @param string $title Style guide title
      *
      * @return $this
      */

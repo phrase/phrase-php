@@ -193,6 +193,9 @@ class TagCreateParameters implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['name'] === null) {
+            $invalidProperties[] = "'name' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -235,7 +238,7 @@ class TagCreateParameters implements ModelInterface, ArrayAccess
     /**
      * Gets name
      *
-     * @return string|null
+     * @return string
      */
     public function getName()
     {
@@ -245,7 +248,7 @@ class TagCreateParameters implements ModelInterface, ArrayAccess
     /**
      * Sets name
      *
-     * @param string|null $name Name of the tag
+     * @param string $name Name of the tag
      *
      * @return $this
      */

@@ -103,7 +103,7 @@ class LinkedKeysApiTest extends TestCase
     /**
      * Test case for keyLinksIndex
      *
-     * Retrieve all child keys linked to a specific parent key.
+     * List child keys of a parent key.
      *
      */
     public function testKeyLinksIndex()

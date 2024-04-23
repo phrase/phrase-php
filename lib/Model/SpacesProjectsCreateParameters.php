@@ -187,6 +187,9 @@ class SpacesProjectsCreateParameters implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['id'] === null) {
+            $invalidProperties[] = "'id' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -205,7 +208,7 @@ class SpacesProjectsCreateParameters implements ModelInterface, ArrayAccess
     /**
      * Gets id
      *
-     * @return string|null
+     * @return string
      */
     public function getId()
     {
@@ -215,7 +218,7 @@ class SpacesProjectsCreateParameters implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param string|null $id Project ID to add or to the Space
+     * @param string $id Project ID to add or to the Space
      *
      * @return $this
      */

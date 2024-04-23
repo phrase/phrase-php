@@ -229,6 +229,12 @@ class InvitationCreateParameters implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['email'] === null) {
+            $invalidProperties[] = "'email' can't be null";
+        }
+        if ($this->container['role'] === null) {
+            $invalidProperties[] = "'role' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -247,7 +253,7 @@ class InvitationCreateParameters implements ModelInterface, ArrayAccess
     /**
      * Gets email
      *
-     * @return string|null
+     * @return string
      */
     public function getEmail()
     {
@@ -257,7 +263,7 @@ class InvitationCreateParameters implements ModelInterface, ArrayAccess
     /**
      * Sets email
      *
-     * @param string|null $email The email of the invited user. The <code>email</code> can not be updated once created. Create a new invitation for each unique email.
+     * @param string $email The email of the invited user. The <code>email</code> can not be updated once created. Create a new invitation for each unique email.
      *
      * @return $this
      */
@@ -271,7 +277,7 @@ class InvitationCreateParameters implements ModelInterface, ArrayAccess
     /**
      * Gets role
      *
-     * @return string|null
+     * @return string
      */
     public function getRole()
     {
@@ -281,7 +287,7 @@ class InvitationCreateParameters implements ModelInterface, ArrayAccess
     /**
      * Sets role
      *
-     * @param string|null $role Invitiation role, can be any of Manager, Developer, Translator.
+     * @param string $role Invitiation role, can be any of Manager, Developer, Translator.
      *
      * @return $this
      */

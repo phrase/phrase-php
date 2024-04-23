@@ -119,11 +119,11 @@ class UploadsApi
      * Upload a new file
      *
      * @param  string $project_id Project ID (required)
+     * @param  \SplFileObject $file File to be imported (required)
+     * @param  string $file_format File format. Auto-detected when possible and not specified. (required)
+     * @param  string $locale_id Locale of the file&#39;s content. Can be the name or id of the locale. Preferred is id. (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  string $branch specify the branch to use (optional)
-     * @param  \SplFileObject $file File to be imported (optional)
-     * @param  string $file_format File format. Auto-detected when possible and not specified. (optional)
-     * @param  string $locale_id Locale of the file&#39;s content. Can be the name or public id of the locale. Preferred is the public id. (optional)
      * @param  string $tags List of tags separated by comma to be associated with the new keys contained in the upload. (optional)
      * @param  bool $update_translations Indicates whether existing translations should be updated with the file content. (optional)
      * @param  bool $update_descriptions Existing key descriptions will be updated with the file content. Empty descriptions overwrite existing descriptions. (optional)
@@ -131,7 +131,7 @@ class UploadsApi
      * @param  bool $skip_upload_tags Indicates whether the upload should not create upload tags. (optional)
      * @param  bool $skip_unverification Indicates whether the upload should unverify updated translations. (optional)
      * @param  string $file_encoding Enforces a specific encoding on the file contents. Valid options are \\\&quot;UTF-8\\\&quot;, \\\&quot;UTF-16\\\&quot; and \\\&quot;ISO-8859-1\\\&quot;. (optional)
-     * @param  object $locale_mapping Optional, format specific mapping between locale names and the columns the translations to those locales are contained in. (optional)
+     * @param  object $locale_mapping Mapping between locale names and translation columns. Required in some formats like CSV or XLSX. (optional)
      * @param  object $format_options Additional options available for specific formats. See our format guide for complete list. (optional)
      * @param  bool $autotranslate If set, translations for the uploaded language will be fetched automatically. (optional)
      * @param  bool $mark_reviewed Indicated whether the imported translations should be marked as reviewed. This setting is available if the review workflow is enabled for the project. (optional)
@@ -141,9 +141,9 @@ class UploadsApi
      * @throws \InvalidArgumentException
      * @return \Phrase\Model\Upload
      */
-    public function uploadCreate($project_id, $x_phrase_app_otp = null, $branch = null, $file = null, $file_format = null, $locale_id = null, $tags = null, $update_translations = null, $update_descriptions = null, $convert_emoji = null, $skip_upload_tags = null, $skip_unverification = null, $file_encoding = null, $locale_mapping = null, $format_options = null, $autotranslate = null, $mark_reviewed = null, $tag_only_affected_keys = false)
+    public function uploadCreate($project_id, $file, $file_format, $locale_id, $x_phrase_app_otp = null, $branch = null, $tags = null, $update_translations = null, $update_descriptions = null, $convert_emoji = null, $skip_upload_tags = null, $skip_unverification = null, $file_encoding = null, $locale_mapping = null, $format_options = null, $autotranslate = null, $mark_reviewed = null, $tag_only_affected_keys = false)
     {
-        list($response) = $this->uploadCreateWithHttpInfo($project_id, $x_phrase_app_otp, $branch, $file, $file_format, $locale_id, $tags, $update_translations, $update_descriptions, $convert_emoji, $skip_upload_tags, $skip_unverification, $file_encoding, $locale_mapping, $format_options, $autotranslate, $mark_reviewed, $tag_only_affected_keys);
+        list($response) = $this->uploadCreateWithHttpInfo($project_id, $file, $file_format, $locale_id, $x_phrase_app_otp, $branch, $tags, $update_translations, $update_descriptions, $convert_emoji, $skip_upload_tags, $skip_unverification, $file_encoding, $locale_mapping, $format_options, $autotranslate, $mark_reviewed, $tag_only_affected_keys);
         return $response;
     }
 
@@ -153,11 +153,11 @@ class UploadsApi
      * Upload a new file
      *
      * @param  string $project_id Project ID (required)
+     * @param  \SplFileObject $file File to be imported (required)
+     * @param  string $file_format File format. Auto-detected when possible and not specified. (required)
+     * @param  string $locale_id Locale of the file&#39;s content. Can be the name or id of the locale. Preferred is id. (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  string $branch specify the branch to use (optional)
-     * @param  \SplFileObject $file File to be imported (optional)
-     * @param  string $file_format File format. Auto-detected when possible and not specified. (optional)
-     * @param  string $locale_id Locale of the file&#39;s content. Can be the name or public id of the locale. Preferred is the public id. (optional)
      * @param  string $tags List of tags separated by comma to be associated with the new keys contained in the upload. (optional)
      * @param  bool $update_translations Indicates whether existing translations should be updated with the file content. (optional)
      * @param  bool $update_descriptions Existing key descriptions will be updated with the file content. Empty descriptions overwrite existing descriptions. (optional)
@@ -165,7 +165,7 @@ class UploadsApi
      * @param  bool $skip_upload_tags Indicates whether the upload should not create upload tags. (optional)
      * @param  bool $skip_unverification Indicates whether the upload should unverify updated translations. (optional)
      * @param  string $file_encoding Enforces a specific encoding on the file contents. Valid options are \\\&quot;UTF-8\\\&quot;, \\\&quot;UTF-16\\\&quot; and \\\&quot;ISO-8859-1\\\&quot;. (optional)
-     * @param  object $locale_mapping Optional, format specific mapping between locale names and the columns the translations to those locales are contained in. (optional)
+     * @param  object $locale_mapping Mapping between locale names and translation columns. Required in some formats like CSV or XLSX. (optional)
      * @param  object $format_options Additional options available for specific formats. See our format guide for complete list. (optional)
      * @param  bool $autotranslate If set, translations for the uploaded language will be fetched automatically. (optional)
      * @param  bool $mark_reviewed Indicated whether the imported translations should be marked as reviewed. This setting is available if the review workflow is enabled for the project. (optional)
@@ -175,9 +175,9 @@ class UploadsApi
      * @throws \InvalidArgumentException
      * @return array of \Phrase\Model\Upload, HTTP status code, HTTP response headers (array of strings)
      */
-    public function uploadCreateWithHttpInfo($project_id, $x_phrase_app_otp = null, $branch = null, $file = null, $file_format = null, $locale_id = null, $tags = null, $update_translations = null, $update_descriptions = null, $convert_emoji = null, $skip_upload_tags = null, $skip_unverification = null, $file_encoding = null, $locale_mapping = null, $format_options = null, $autotranslate = null, $mark_reviewed = null, $tag_only_affected_keys = false)
+    public function uploadCreateWithHttpInfo($project_id, $file, $file_format, $locale_id, $x_phrase_app_otp = null, $branch = null, $tags = null, $update_translations = null, $update_descriptions = null, $convert_emoji = null, $skip_upload_tags = null, $skip_unverification = null, $file_encoding = null, $locale_mapping = null, $format_options = null, $autotranslate = null, $mark_reviewed = null, $tag_only_affected_keys = false)
     {
-        $request = $this->uploadCreateRequest($project_id, $x_phrase_app_otp, $branch, $file, $file_format, $locale_id, $tags, $update_translations, $update_descriptions, $convert_emoji, $skip_upload_tags, $skip_unverification, $file_encoding, $locale_mapping, $format_options, $autotranslate, $mark_reviewed, $tag_only_affected_keys);
+        $request = $this->uploadCreateRequest($project_id, $file, $file_format, $locale_id, $x_phrase_app_otp, $branch, $tags, $update_translations, $update_descriptions, $convert_emoji, $skip_upload_tags, $skip_unverification, $file_encoding, $locale_mapping, $format_options, $autotranslate, $mark_reviewed, $tag_only_affected_keys);
 
         try {
             $options = $this->createHttpClientOption();
@@ -258,11 +258,11 @@ class UploadsApi
      * Upload a new file
      *
      * @param  string $project_id Project ID (required)
+     * @param  \SplFileObject $file File to be imported (required)
+     * @param  string $file_format File format. Auto-detected when possible and not specified. (required)
+     * @param  string $locale_id Locale of the file&#39;s content. Can be the name or id of the locale. Preferred is id. (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  string $branch specify the branch to use (optional)
-     * @param  \SplFileObject $file File to be imported (optional)
-     * @param  string $file_format File format. Auto-detected when possible and not specified. (optional)
-     * @param  string $locale_id Locale of the file&#39;s content. Can be the name or public id of the locale. Preferred is the public id. (optional)
      * @param  string $tags List of tags separated by comma to be associated with the new keys contained in the upload. (optional)
      * @param  bool $update_translations Indicates whether existing translations should be updated with the file content. (optional)
      * @param  bool $update_descriptions Existing key descriptions will be updated with the file content. Empty descriptions overwrite existing descriptions. (optional)
@@ -270,7 +270,7 @@ class UploadsApi
      * @param  bool $skip_upload_tags Indicates whether the upload should not create upload tags. (optional)
      * @param  bool $skip_unverification Indicates whether the upload should unverify updated translations. (optional)
      * @param  string $file_encoding Enforces a specific encoding on the file contents. Valid options are \\\&quot;UTF-8\\\&quot;, \\\&quot;UTF-16\\\&quot; and \\\&quot;ISO-8859-1\\\&quot;. (optional)
-     * @param  object $locale_mapping Optional, format specific mapping between locale names and the columns the translations to those locales are contained in. (optional)
+     * @param  object $locale_mapping Mapping between locale names and translation columns. Required in some formats like CSV or XLSX. (optional)
      * @param  object $format_options Additional options available for specific formats. See our format guide for complete list. (optional)
      * @param  bool $autotranslate If set, translations for the uploaded language will be fetched automatically. (optional)
      * @param  bool $mark_reviewed Indicated whether the imported translations should be marked as reviewed. This setting is available if the review workflow is enabled for the project. (optional)
@@ -279,9 +279,9 @@ class UploadsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function uploadCreateAsync($project_id, $x_phrase_app_otp = null, $branch = null, $file = null, $file_format = null, $locale_id = null, $tags = null, $update_translations = null, $update_descriptions = null, $convert_emoji = null, $skip_upload_tags = null, $skip_unverification = null, $file_encoding = null, $locale_mapping = null, $format_options = null, $autotranslate = null, $mark_reviewed = null, $tag_only_affected_keys = false)
+    public function uploadCreateAsync($project_id, $file, $file_format, $locale_id, $x_phrase_app_otp = null, $branch = null, $tags = null, $update_translations = null, $update_descriptions = null, $convert_emoji = null, $skip_upload_tags = null, $skip_unverification = null, $file_encoding = null, $locale_mapping = null, $format_options = null, $autotranslate = null, $mark_reviewed = null, $tag_only_affected_keys = false)
     {
-        return $this->uploadCreateAsyncWithHttpInfo($project_id, $x_phrase_app_otp, $branch, $file, $file_format, $locale_id, $tags, $update_translations, $update_descriptions, $convert_emoji, $skip_upload_tags, $skip_unverification, $file_encoding, $locale_mapping, $format_options, $autotranslate, $mark_reviewed, $tag_only_affected_keys)
+        return $this->uploadCreateAsyncWithHttpInfo($project_id, $file, $file_format, $locale_id, $x_phrase_app_otp, $branch, $tags, $update_translations, $update_descriptions, $convert_emoji, $skip_upload_tags, $skip_unverification, $file_encoding, $locale_mapping, $format_options, $autotranslate, $mark_reviewed, $tag_only_affected_keys)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -295,11 +295,11 @@ class UploadsApi
      * Upload a new file
      *
      * @param  string $project_id Project ID (required)
+     * @param  \SplFileObject $file File to be imported (required)
+     * @param  string $file_format File format. Auto-detected when possible and not specified. (required)
+     * @param  string $locale_id Locale of the file&#39;s content. Can be the name or id of the locale. Preferred is id. (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  string $branch specify the branch to use (optional)
-     * @param  \SplFileObject $file File to be imported (optional)
-     * @param  string $file_format File format. Auto-detected when possible and not specified. (optional)
-     * @param  string $locale_id Locale of the file&#39;s content. Can be the name or public id of the locale. Preferred is the public id. (optional)
      * @param  string $tags List of tags separated by comma to be associated with the new keys contained in the upload. (optional)
      * @param  bool $update_translations Indicates whether existing translations should be updated with the file content. (optional)
      * @param  bool $update_descriptions Existing key descriptions will be updated with the file content. Empty descriptions overwrite existing descriptions. (optional)
@@ -307,7 +307,7 @@ class UploadsApi
      * @param  bool $skip_upload_tags Indicates whether the upload should not create upload tags. (optional)
      * @param  bool $skip_unverification Indicates whether the upload should unverify updated translations. (optional)
      * @param  string $file_encoding Enforces a specific encoding on the file contents. Valid options are \\\&quot;UTF-8\\\&quot;, \\\&quot;UTF-16\\\&quot; and \\\&quot;ISO-8859-1\\\&quot;. (optional)
-     * @param  object $locale_mapping Optional, format specific mapping between locale names and the columns the translations to those locales are contained in. (optional)
+     * @param  object $locale_mapping Mapping between locale names and translation columns. Required in some formats like CSV or XLSX. (optional)
      * @param  object $format_options Additional options available for specific formats. See our format guide for complete list. (optional)
      * @param  bool $autotranslate If set, translations for the uploaded language will be fetched automatically. (optional)
      * @param  bool $mark_reviewed Indicated whether the imported translations should be marked as reviewed. This setting is available if the review workflow is enabled for the project. (optional)
@@ -316,10 +316,10 @@ class UploadsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function uploadCreateAsyncWithHttpInfo($project_id, $x_phrase_app_otp = null, $branch = null, $file = null, $file_format = null, $locale_id = null, $tags = null, $update_translations = null, $update_descriptions = null, $convert_emoji = null, $skip_upload_tags = null, $skip_unverification = null, $file_encoding = null, $locale_mapping = null, $format_options = null, $autotranslate = null, $mark_reviewed = null, $tag_only_affected_keys = false)
+    public function uploadCreateAsyncWithHttpInfo($project_id, $file, $file_format, $locale_id, $x_phrase_app_otp = null, $branch = null, $tags = null, $update_translations = null, $update_descriptions = null, $convert_emoji = null, $skip_upload_tags = null, $skip_unverification = null, $file_encoding = null, $locale_mapping = null, $format_options = null, $autotranslate = null, $mark_reviewed = null, $tag_only_affected_keys = false)
     {
         $returnType = '\Phrase\Model\Upload';
-        $request = $this->uploadCreateRequest($project_id, $x_phrase_app_otp, $branch, $file, $file_format, $locale_id, $tags, $update_translations, $update_descriptions, $convert_emoji, $skip_upload_tags, $skip_unverification, $file_encoding, $locale_mapping, $format_options, $autotranslate, $mark_reviewed, $tag_only_affected_keys);
+        $request = $this->uploadCreateRequest($project_id, $file, $file_format, $locale_id, $x_phrase_app_otp, $branch, $tags, $update_translations, $update_descriptions, $convert_emoji, $skip_upload_tags, $skip_unverification, $file_encoding, $locale_mapping, $format_options, $autotranslate, $mark_reviewed, $tag_only_affected_keys);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -359,11 +359,11 @@ class UploadsApi
      * Create request for operation 'uploadCreate'
      *
      * @param  string $project_id Project ID (required)
+     * @param  \SplFileObject $file File to be imported (required)
+     * @param  string $file_format File format. Auto-detected when possible and not specified. (required)
+     * @param  string $locale_id Locale of the file&#39;s content. Can be the name or id of the locale. Preferred is id. (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  string $branch specify the branch to use (optional)
-     * @param  \SplFileObject $file File to be imported (optional)
-     * @param  string $file_format File format. Auto-detected when possible and not specified. (optional)
-     * @param  string $locale_id Locale of the file&#39;s content. Can be the name or public id of the locale. Preferred is the public id. (optional)
      * @param  string $tags List of tags separated by comma to be associated with the new keys contained in the upload. (optional)
      * @param  bool $update_translations Indicates whether existing translations should be updated with the file content. (optional)
      * @param  bool $update_descriptions Existing key descriptions will be updated with the file content. Empty descriptions overwrite existing descriptions. (optional)
@@ -371,7 +371,7 @@ class UploadsApi
      * @param  bool $skip_upload_tags Indicates whether the upload should not create upload tags. (optional)
      * @param  bool $skip_unverification Indicates whether the upload should unverify updated translations. (optional)
      * @param  string $file_encoding Enforces a specific encoding on the file contents. Valid options are \\\&quot;UTF-8\\\&quot;, \\\&quot;UTF-16\\\&quot; and \\\&quot;ISO-8859-1\\\&quot;. (optional)
-     * @param  object $locale_mapping Optional, format specific mapping between locale names and the columns the translations to those locales are contained in. (optional)
+     * @param  object $locale_mapping Mapping between locale names and translation columns. Required in some formats like CSV or XLSX. (optional)
      * @param  object $format_options Additional options available for specific formats. See our format guide for complete list. (optional)
      * @param  bool $autotranslate If set, translations for the uploaded language will be fetched automatically. (optional)
      * @param  bool $mark_reviewed Indicated whether the imported translations should be marked as reviewed. This setting is available if the review workflow is enabled for the project. (optional)
@@ -380,12 +380,30 @@ class UploadsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function uploadCreateRequest($project_id, $x_phrase_app_otp = null, $branch = null, $file = null, $file_format = null, $locale_id = null, $tags = null, $update_translations = null, $update_descriptions = null, $convert_emoji = null, $skip_upload_tags = null, $skip_unverification = null, $file_encoding = null, $locale_mapping = null, $format_options = null, $autotranslate = null, $mark_reviewed = null, $tag_only_affected_keys = false)
+    protected function uploadCreateRequest($project_id, $file, $file_format, $locale_id, $x_phrase_app_otp = null, $branch = null, $tags = null, $update_translations = null, $update_descriptions = null, $convert_emoji = null, $skip_upload_tags = null, $skip_unverification = null, $file_encoding = null, $locale_mapping = null, $format_options = null, $autotranslate = null, $mark_reviewed = null, $tag_only_affected_keys = false)
     {
         // verify the required parameter 'project_id' is set
         if ($project_id === null || (is_array($project_id) && count($project_id) === 0)) {
             throw new \InvalidArgumentException(
                 'Missing the required parameter $project_id when calling uploadCreate'
+            );
+        }
+        // verify the required parameter 'file' is set
+        if ($file === null || (is_array($file) && count($file) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $file when calling uploadCreate'
+            );
+        }
+        // verify the required parameter 'file_format' is set
+        if ($file_format === null || (is_array($file_format) && count($file_format) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $file_format when calling uploadCreate'
+            );
+        }
+        // verify the required parameter 'locale_id' is set
+        if ($locale_id === null || (is_array($locale_id) && count($locale_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $locale_id when calling uploadCreate'
             );
         }
 

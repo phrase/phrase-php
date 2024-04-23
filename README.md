@@ -227,7 +227,7 @@ Class | Method | HTTP request | Description
 *GlossaryTermsApi* | [**glossaryTermShow**](docs/Api/GlossaryTermsApi.md#glossarytermshow) | **GET** /accounts/{account_id}/glossaries/{glossary_id}/terms/{id} | Get a single term
 *GlossaryTermsApi* | [**glossaryTermUpdate**](docs/Api/GlossaryTermsApi.md#glossarytermupdate) | **PATCH** /accounts/{account_id}/glossaries/{glossary_id}/terms/{id} | Update a term
 *GlossaryTermsApi* | [**glossaryTermsList**](docs/Api/GlossaryTermsApi.md#glossarytermslist) | **GET** /accounts/{account_id}/glossaries/{glossary_id}/terms | List terms
-*ICUApi* | [**icuSkeleton**](docs/Api/ICUApi.md#icuskeleton) | **POST** /icu/skeleton | Build icu skeletons
+*ICUApi* | [**icuSkeleton**](docs/Api/ICUApi.md#icuskeleton) | **POST** /icu/skeleton | Build ICU skeletons
 *InvitationsApi* | [**invitationCreate**](docs/Api/InvitationsApi.md#invitationcreate) | **POST** /accounts/{account_id}/invitations | Create a new invitation
 *InvitationsApi* | [**invitationDelete**](docs/Api/InvitationsApi.md#invitationdelete) | **DELETE** /accounts/{account_id}/invitations/{id} | Delete an invitation
 *InvitationsApi* | [**invitationResend**](docs/Api/InvitationsApi.md#invitationresend) | **POST** /accounts/{account_id}/invitations/{id}/resend | Resend an invitation
@@ -287,7 +287,7 @@ Class | Method | HTTP request | Description
 *LinkedKeysApi* | [**keyLinksBatchDestroy**](docs/Api/LinkedKeysApi.md#keylinksbatchdestroy) | **DELETE** /projects/{project_id}/keys/{id}/key_links | Batch unlink child keys from a parent key
 *LinkedKeysApi* | [**keyLinksCreate**](docs/Api/LinkedKeysApi.md#keylinkscreate) | **POST** /projects/{project_id}/keys/{id}/key_links | Link child keys to a parent key
 *LinkedKeysApi* | [**keyLinksDestroy**](docs/Api/LinkedKeysApi.md#keylinksdestroy) | **DELETE** /projects/{project_id}/keys/{id}/key_links/{child_key_id} | Unlink a child key from a parent key
-*LinkedKeysApi* | [**keyLinksIndex**](docs/Api/LinkedKeysApi.md#keylinksindex) | **GET** /projects/{project_id}/keys/{id}/key_links | Retrieve all child keys linked to a specific parent key
+*LinkedKeysApi* | [**keyLinksIndex**](docs/Api/LinkedKeysApi.md#keylinksindex) | **GET** /projects/{project_id}/keys/{id}/key_links | List child keys of a parent key
 *LocalesApi* | [**accountLocales**](docs/Api/LocalesApi.md#accountlocales) | **GET** /accounts/{id}/locales | List locales used in account
 *LocalesApi* | [**localeCreate**](docs/Api/LocalesApi.md#localecreate) | **POST** /projects/{project_id}/locales | Create a locale
 *LocalesApi* | [**localeDelete**](docs/Api/LocalesApi.md#localedelete) | **DELETE** /projects/{project_id}/locales/{id} | Delete a locale

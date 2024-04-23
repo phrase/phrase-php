@@ -187,6 +187,9 @@ class TeamsUsersCreateParameters implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['id'] === null) {
+            $invalidProperties[] = "'id' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -205,7 +208,7 @@ class TeamsUsersCreateParameters implements ModelInterface, ArrayAccess
     /**
      * Gets id
      *
-     * @return string|null
+     * @return string
      */
     public function getId()
     {
@@ -215,7 +218,7 @@ class TeamsUsersCreateParameters implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param string|null $id User ID to add to the Team
+     * @param string $id User ID to add to the Team
      *
      * @return $this
      */

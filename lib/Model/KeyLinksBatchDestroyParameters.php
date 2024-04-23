@@ -55,7 +55,8 @@ class KeyLinksBatchDestroyParameters implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'child_key_ids' => 'string[]'
+        'child_key_ids' => 'string[]',
+        'unlink_parent' => 'bool'
     ];
 
     /**
@@ -64,7 +65,8 @@ class KeyLinksBatchDestroyParameters implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'child_key_ids' => null
+        'child_key_ids' => null,
+        'unlink_parent' => null
     ];
 
     /**
@@ -94,7 +96,8 @@ class KeyLinksBatchDestroyParameters implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'child_key_ids' => 'child_key_ids'
+        'child_key_ids' => 'child_key_ids',
+        'unlink_parent' => 'unlink_parent'
     ];
 
     /**
@@ -103,7 +106,8 @@ class KeyLinksBatchDestroyParameters implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'child_key_ids' => 'setChildKeyIds'
+        'child_key_ids' => 'setChildKeyIds',
+        'unlink_parent' => 'setUnlinkParent'
     ];
 
     /**
@@ -112,7 +116,8 @@ class KeyLinksBatchDestroyParameters implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'child_key_ids' => 'getChildKeyIds'
+        'child_key_ids' => 'getChildKeyIds',
+        'unlink_parent' => 'getUnlinkParent'
     ];
 
     /**
@@ -176,6 +181,7 @@ class KeyLinksBatchDestroyParameters implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['child_key_ids'] = isset($data['child_key_ids']) ? $data['child_key_ids'] : null;
+        $this->container['unlink_parent'] = isset($data['unlink_parent']) ? $data['unlink_parent'] : false;
     }
 
     /**
@@ -225,6 +231,30 @@ class KeyLinksBatchDestroyParameters implements ModelInterface, ArrayAccess
     public function setChildKeyIds($child_key_ids)
     {
         $this->container['child_key_ids'] = $child_key_ids;
+
+        return $this;
+    }
+
+    /**
+     * Gets unlink_parent
+     *
+     * @return bool|null
+     */
+    public function getUnlinkParent()
+    {
+        return $this->container['unlink_parent'];
+    }
+
+    /**
+     * Sets unlink_parent
+     *
+     * @param bool|null $unlink_parent Whether to unlink the parent key as well and unmark it as linked-key.
+     *
+     * @return $this
+     */
+    public function setUnlinkParent($unlink_parent)
+    {
+        $this->container['unlink_parent'] = $unlink_parent;
 
         return $this;
     }

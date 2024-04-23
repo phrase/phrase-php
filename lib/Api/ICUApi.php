@@ -116,7 +116,7 @@ class ICUApi
     /**
      * Operation icuSkeleton
      *
-     * Build icu skeletons
+     * Build ICU skeletons
      *
      * @param  \Phrase\Model\IcuSkeletonParameters $icu_skeleton_parameters icu_skeleton_parameters (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
@@ -134,7 +134,7 @@ class ICUApi
     /**
      * Operation icuSkeletonWithHttpInfo
      *
-     * Build icu skeletons
+     * Build ICU skeletons
      *
      * @param  \Phrase\Model\IcuSkeletonParameters $icu_skeleton_parameters (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
@@ -223,7 +223,7 @@ class ICUApi
     /**
      * Operation icuSkeletonAsync
      *
-     * Build icu skeletons
+     * Build ICU skeletons
      *
      * @param  \Phrase\Model\IcuSkeletonParameters $icu_skeleton_parameters (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
@@ -244,7 +244,7 @@ class ICUApi
     /**
      * Operation icuSkeletonAsyncWithHttpInfo
      *
-     * Build icu skeletons
+     * Build ICU skeletons
      *
      * @param  \Phrase\Model\IcuSkeletonParameters $icu_skeleton_parameters (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)

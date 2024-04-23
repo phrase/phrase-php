@@ -73,7 +73,7 @@ class ICUApiTest extends TestCase
     /**
      * Test case for icuSkeleton
      *
-     * Build icu skeletons.
+     * Build ICU skeletons.
      *
      */
     public function testIcuSkeleton()

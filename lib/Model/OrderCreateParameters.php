@@ -271,6 +271,12 @@ class OrderCreateParameters implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['name'] === null) {
+            $invalidProperties[] = "'name' can't be null";
+        }
+        if ($this->container['lsp'] === null) {
+            $invalidProperties[] = "'lsp' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -313,7 +319,7 @@ class OrderCreateParameters implements ModelInterface, ArrayAccess
     /**
      * Gets name
      *
-     * @return string|null
+     * @return string
      */
     public function getName()
     {
@@ -323,7 +329,7 @@ class OrderCreateParameters implements ModelInterface, ArrayAccess
     /**
      * Sets name
      *
-     * @param string|null $name the name of the order, default name is: Translation order from 'current datetime'
+     * @param string $name the name of the order, default name is: Translation order from 'current datetime'
      *
      * @return $this
      */
@@ -337,7 +343,7 @@ class OrderCreateParameters implements ModelInterface, ArrayAccess
     /**
      * Gets lsp
      *
-     * @return string|null
+     * @return string
      */
     public function getLsp()
     {
@@ -347,7 +353,7 @@ class OrderCreateParameters implements ModelInterface, ArrayAccess
     /**
      * Sets lsp
      *
-     * @param string|null $lsp Name of the LSP that should process this order. Can be one of gengo, textmaster.
+     * @param string $lsp Name of the LSP that should process this order. Can be one of gengo, textmaster.
      *
      * @return $this
      */
@@ -371,7 +377,7 @@ class OrderCreateParameters implements ModelInterface, ArrayAccess
     /**
      * Sets source_locale_id
      *
-     * @param string|null $source_locale_id Source locale for the order. Can be the name or public id of the source locale. Preferred is the public id.
+     * @param string|null $source_locale_id Source locale for the order. Can be the name or id of the source locale. Preferred is id.
      *
      * @return $this
      */
@@ -395,7 +401,7 @@ class OrderCreateParameters implements ModelInterface, ArrayAccess
     /**
      * Sets target_locale_ids
      *
-     * @param string[]|null $target_locale_ids List of target locales you want the source content translate to. Can be the name or public id of the target locales. Preferred is the public id.
+     * @param string[]|null $target_locale_ids List of target locales you want the source content translate to. Can be the name or id of the target locales. Preferred is id.
      *
      * @return $this
      */

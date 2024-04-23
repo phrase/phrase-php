@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 ## uploadCreate
 
-> \Phrase\Model\Upload uploadCreate($project_id, $x_phrase_app_otp, $branch, $file, $file_format, $locale_id, $tags, $update_translations, $update_descriptions, $convert_emoji, $skip_upload_tags, $skip_unverification, $file_encoding, $locale_mapping, $format_options, $autotranslate, $mark_reviewed, $tag_only_affected_keys)
+> \Phrase\Model\Upload uploadCreate($project_id, $file, $file_format, $locale_id, $x_phrase_app_otp, $branch, $tags, $update_translations, $update_descriptions, $convert_emoji, $skip_upload_tags, $skip_unverification, $file_encoding, $locale_mapping, $format_options, $autotranslate, $mark_reviewed, $tag_only_affected_keys)
 
 Upload a new file
 
@@ -34,11 +34,11 @@ $apiInstance = new Phrase\Api\UploadsApi(
     $config
 );
 $project_id = 'project_id_example'; // string | Project ID
-$x_phrase_app_otp = 'x_phrase_app_otp_example'; // string | Two-Factor-Authentication token (optional)
-$branch = 'branch_example'; // string | specify the branch to use
 $file = "/path/to/file.txt"; // \SplFileObject | File to be imported
 $file_format = 'file_format_example'; // string | File format. Auto-detected when possible and not specified.
-$locale_id = 'locale_id_example'; // string | Locale of the file's content. Can be the name or public id of the locale. Preferred is the public id.
+$locale_id = 'locale_id_example'; // string | Locale of the file's content. Can be the name or id of the locale. Preferred is id.
+$x_phrase_app_otp = 'x_phrase_app_otp_example'; // string | Two-Factor-Authentication token (optional)
+$branch = 'branch_example'; // string | specify the branch to use
 $tags = 'tags_example'; // string | List of tags separated by comma to be associated with the new keys contained in the upload.
 $update_translations = True; // bool | Indicates whether existing translations should be updated with the file content.
 $update_descriptions = True; // bool | Existing key descriptions will be updated with the file content. Empty descriptions overwrite existing descriptions.
@@ -46,14 +46,14 @@ $convert_emoji = True; // bool | This option is obsolete. Providing the option w
 $skip_upload_tags = True; // bool | Indicates whether the upload should not create upload tags.
 $skip_unverification = True; // bool | Indicates whether the upload should unverify updated translations.
 $file_encoding = 'file_encoding_example'; // string | Enforces a specific encoding on the file contents. Valid options are \\\"UTF-8\\\", \\\"UTF-16\\\" and \\\"ISO-8859-1\\\".
-$locale_mapping = array('key' => new \stdClass); // object | Optional, format specific mapping between locale names and the columns the translations to those locales are contained in.
+$locale_mapping = array('key' => new \stdClass); // object | Mapping between locale names and translation columns. Required in some formats like CSV or XLSX.
 $format_options = array('key' => new \stdClass); // object | Additional options available for specific formats. See our format guide for complete list.
 $autotranslate = True; // bool | If set, translations for the uploaded language will be fetched automatically.
 $mark_reviewed = True; // bool | Indicated whether the imported translations should be marked as reviewed. This setting is available if the review workflow is enabled for the project.
 $tag_only_affected_keys = false; // bool | Indicates whether only keys affected (created or updated) by the upload should be tagged. The default is `false`
 
 try {
-    $result = $apiInstance->uploadCreate($project_id, $x_phrase_app_otp, $branch, $file, $file_format, $locale_id, $tags, $update_translations, $update_descriptions, $convert_emoji, $skip_upload_tags, $skip_unverification, $file_encoding, $locale_mapping, $format_options, $autotranslate, $mark_reviewed, $tag_only_affected_keys);
+    $result = $apiInstance->uploadCreate($project_id, $file, $file_format, $locale_id, $x_phrase_app_otp, $branch, $tags, $update_translations, $update_descriptions, $convert_emoji, $skip_upload_tags, $skip_unverification, $file_encoding, $locale_mapping, $format_options, $autotranslate, $mark_reviewed, $tag_only_affected_keys);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling UploadsApi->uploadCreate: ', $e->getMessage(), PHP_EOL;
@@ -67,11 +67,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **project_id** | **string**| Project ID |
+ **file** | **\SplFileObject****\SplFileObject**| File to be imported |
+ **file_format** | **string**| File format. Auto-detected when possible and not specified. |
+ **locale_id** | **string**| Locale of the file&#39;s content. Can be the name or id of the locale. Preferred is id. |
  **x_phrase_app_otp** | **string**| Two-Factor-Authentication token (optional) | [optional]
  **branch** | **string**| specify the branch to use | [optional]
- **file** | **\SplFileObject****\SplFileObject**| File to be imported | [optional]
- **file_format** | **string**| File format. Auto-detected when possible and not specified. | [optional]
- **locale_id** | **string**| Locale of the file&#39;s content. Can be the name or public id of the locale. Preferred is the public id. | [optional]
  **tags** | **string**| List of tags separated by comma to be associated with the new keys contained in the upload. | [optional]
  **update_translations** | **bool**| Indicates whether existing translations should be updated with the file content. | [optional]
  **update_descriptions** | **bool**| Existing key descriptions will be updated with the file content. Empty descriptions overwrite existing descriptions. | [optional]
@@ -79,7 +79,7 @@ Name | Type | Description  | Notes
  **skip_upload_tags** | **bool**| Indicates whether the upload should not create upload tags. | [optional]
  **skip_unverification** | **bool**| Indicates whether the upload should unverify updated translations. | [optional]
  **file_encoding** | **string**| Enforces a specific encoding on the file contents. Valid options are \\\&quot;UTF-8\\\&quot;, \\\&quot;UTF-16\\\&quot; and \\\&quot;ISO-8859-1\\\&quot;. | [optional]
- **locale_mapping** | [**object**](../Model/object.md)| Optional, format specific mapping between locale names and the columns the translations to those locales are contained in. | [optional]
+ **locale_mapping** | [**object**](../Model/object.md)| Mapping between locale names and translation columns. Required in some formats like CSV or XLSX. | [optional]
  **format_options** | [**object**](../Model/object.md)| Additional options available for specific formats. See our format guide for complete list. | [optional]
  **autotranslate** | **bool**| If set, translations for the uploaded language will be fetched automatically. | [optional]
  **mark_reviewed** | **bool**| Indicated whether the imported translations should be marked as reviewed. This setting is available if the review workflow is enabled for the project. | [optional]

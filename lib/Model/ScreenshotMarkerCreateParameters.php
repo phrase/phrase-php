@@ -199,6 +199,9 @@ class ScreenshotMarkerCreateParameters implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['key_id'] === null) {
+            $invalidProperties[] = "'key_id' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -241,7 +244,7 @@ class ScreenshotMarkerCreateParameters implements ModelInterface, ArrayAccess
     /**
      * Gets key_id
      *
-     * @return string|null
+     * @return string
      */
     public function getKeyId()
     {
@@ -251,7 +254,7 @@ class ScreenshotMarkerCreateParameters implements ModelInterface, ArrayAccess
     /**
      * Sets key_id
      *
-     * @param string|null $key_id Specify the Key ID which should be highlighted on the specified screenshot. The Key must belong to the project.
+     * @param string $key_id Specify the Key ID which should be highlighted on the specified screenshot. The Key must belong to the project.
      *
      * @return $this
      */

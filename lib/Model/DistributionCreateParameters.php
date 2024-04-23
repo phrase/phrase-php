@@ -235,6 +235,12 @@ class DistributionCreateParameters implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['name'] === null) {
+            $invalidProperties[] = "'name' can't be null";
+        }
+        if ($this->container['project_id'] === null) {
+            $invalidProperties[] = "'project_id' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -253,7 +259,7 @@ class DistributionCreateParameters implements ModelInterface, ArrayAccess
     /**
      * Gets name
      *
-     * @return string|null
+     * @return string
      */
     public function getName()
     {
@@ -263,7 +269,7 @@ class DistributionCreateParameters implements ModelInterface, ArrayAccess
     /**
      * Sets name
      *
-     * @param string|null $name Name of the distribution
+     * @param string $name Name of the distribution
      *
      * @return $this
      */
@@ -277,7 +283,7 @@ class DistributionCreateParameters implements ModelInterface, ArrayAccess
     /**
      * Gets project_id
      *
-     * @return string|null
+     * @return string
      */
     public function getProjectId()
     {
@@ -287,7 +293,7 @@ class DistributionCreateParameters implements ModelInterface, ArrayAccess
     /**
      * Sets project_id
      *
-     * @param string|null $project_id Project id the distribution should be assigned to.
+     * @param string $project_id Project id the distribution should be assigned to.
      *
      * @return $this
      */

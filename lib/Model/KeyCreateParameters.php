@@ -283,6 +283,9 @@ class KeyCreateParameters implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['name'] === null) {
+            $invalidProperties[] = "'name' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -325,7 +328,7 @@ class KeyCreateParameters implements ModelInterface, ArrayAccess
     /**
      * Gets name
      *
-     * @return string|null
+     * @return string
      */
     public function getName()
     {
@@ -335,7 +338,7 @@ class KeyCreateParameters implements ModelInterface, ArrayAccess
     /**
      * Sets name
      *
-     * @param string|null $name Key name
+     * @param string $name Key name
      *
      * @return $this
      */

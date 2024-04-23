@@ -7,13 +7,13 @@ Method | HTTP request | Description
 [**keyLinksBatchDestroy**](LinkedKeysApi.md#keyLinksBatchDestroy) | **DELETE** /projects/{project_id}/keys/{id}/key_links | Batch unlink child keys from a parent key
 [**keyLinksCreate**](LinkedKeysApi.md#keyLinksCreate) | **POST** /projects/{project_id}/keys/{id}/key_links | Link child keys to a parent key
 [**keyLinksDestroy**](LinkedKeysApi.md#keyLinksDestroy) | **DELETE** /projects/{project_id}/keys/{id}/key_links/{child_key_id} | Unlink a child key from a parent key
-[**keyLinksIndex**](LinkedKeysApi.md#keyLinksIndex) | **GET** /projects/{project_id}/keys/{id}/key_links | Retrieve all child keys linked to a specific parent key
+[**keyLinksIndex**](LinkedKeysApi.md#keyLinksIndex) | **GET** /projects/{project_id}/keys/{id}/key_links | List child keys of a parent key
 
 
 
 ## keyLinksBatchDestroy
 
-> keyLinksBatchDestroy($project_id, $id, $key_links_batch_destroy_parameters, $x_phrase_app_otp, $unlink_parent)
+> keyLinksBatchDestroy($project_id, $id, $key_links_batch_destroy_parameters, $x_phrase_app_otp)
 
 Batch unlink child keys from a parent key
 
@@ -38,10 +38,9 @@ $project_id = 'project_id_example'; // string | Project ID
 $id = 'id_example'; // string | Parent Translation Key ID
 $key_links_batch_destroy_parameters = new \Phrase\Model\KeyLinksBatchDestroyParameters(); // \Phrase\Model\KeyLinksBatchDestroyParameters | 
 $x_phrase_app_otp = 'x_phrase_app_otp_example'; // string | Two-Factor-Authentication token (optional)
-$unlink_parent = True; // bool | Whether to unlink the parent key as well and unmark it as linked-key.
 
 try {
-    $apiInstance->keyLinksBatchDestroy($project_id, $id, $key_links_batch_destroy_parameters, $x_phrase_app_otp, $unlink_parent);
+    $apiInstance->keyLinksBatchDestroy($project_id, $id, $key_links_batch_destroy_parameters, $x_phrase_app_otp);
 } catch (Exception $e) {
     echo 'Exception when calling LinkedKeysApi->keyLinksBatchDestroy: ', $e->getMessage(), PHP_EOL;
 }
@@ -57,7 +56,6 @@ Name | Type | Description  | Notes
  **id** | **string**| Parent Translation Key ID |
  **key_links_batch_destroy_parameters** | [**\Phrase\Model\KeyLinksBatchDestroyParameters**](../Model/KeyLinksBatchDestroyParameters.md)|  |
  **x_phrase_app_otp** | **string**| Two-Factor-Authentication token (optional) | [optional]
- **unlink_parent** | **bool**| Whether to unlink the parent key as well and unmark it as linked-key. | [optional]
 
 ### Return type
 
@@ -210,7 +208,7 @@ void (empty response body)
 
 > \Phrase\Model\KeyLink keyLinksIndex($project_id, $id, $x_phrase_app_otp)
 
-Retrieve all child keys linked to a specific parent key
+List child keys of a parent key
 
 Returns detailed information about a parent key, including its linked child keys.
 

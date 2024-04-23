@@ -4,7 +4,7 @@ All URIs are relative to *https://api.phrase.com/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**icuSkeleton**](ICUApi.md#icuSkeleton) | **POST** /icu/skeleton | Build icu skeletons
+[**icuSkeleton**](ICUApi.md#icuSkeleton) | **POST** /icu/skeleton | Build ICU skeletons
 
 
 
@@ -12,9 +12,9 @@ Method | HTTP request | Description
 
 > \Phrase\Model\Icu icuSkeleton($icu_skeleton_parameters, $x_phrase_app_otp)
 
-Build icu skeletons
+Build ICU skeletons
 
-Returns icu skeletons for multiple locale codes based on a source content.
+Returns ICU skeletons for multiple locale codes based on a source content.
 
 ### Example
 

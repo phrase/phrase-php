@@ -281,7 +281,7 @@ class TranslationCreateParameters implements ModelInterface, ArrayAccess
     /**
      * Sets locale_id
      *
-     * @param string|null $locale_id Locale. Can be the name or public id of the locale. Preferred is the public id.
+     * @param string|null $locale_id Locale. Can be the name or id of the locale. Preferred is id
      *
      * @return $this
      */

@@ -82,4 +82,11 @@ class KeyLinksBatchDestroyParametersTest extends TestCase
     public function testPropertyChildKeyIds()
     {
     }
+
+    /**
+     * Test attribute "unlink_parent"
+     */
+    public function testPropertyUnlinkParent()
+    {
+    }
 }

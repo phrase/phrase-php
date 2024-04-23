@@ -187,6 +187,9 @@ class BlacklistedKeyCreateParameters implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['name'] === null) {
+            $invalidProperties[] = "'name' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -205,7 +208,7 @@ class BlacklistedKeyCreateParameters implements ModelInterface, ArrayAccess
     /**
      * Gets name
      *
-     * @return string|null
+     * @return string
      */
     public function getName()
     {
@@ -215,7 +218,7 @@ class BlacklistedKeyCreateParameters implements ModelInterface, ArrayAccess
     /**
      * Sets name
      *
-     * @param string|null $name Blocked key name
+     * @param string $name Blocked key name
      *
      * @return $this
      */

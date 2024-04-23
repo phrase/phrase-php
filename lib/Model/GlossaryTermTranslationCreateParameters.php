@@ -193,6 +193,12 @@ class GlossaryTermTranslationCreateParameters implements ModelInterface, ArrayAc
     {
         $invalidProperties = [];
 
+        if ($this->container['locale_code'] === null) {
+            $invalidProperties[] = "'locale_code' can't be null";
+        }
+        if ($this->container['content'] === null) {
+            $invalidProperties[] = "'content' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -211,7 +217,7 @@ class GlossaryTermTranslationCreateParameters implements ModelInterface, ArrayAc
     /**
      * Gets locale_code
      *
-     * @return string|null
+     * @return string
      */
     public function getLocaleCode()
     {
@@ -221,7 +227,7 @@ class GlossaryTermTranslationCreateParameters implements ModelInterface, ArrayAc
     /**
      * Sets locale_code
      *
-     * @param string|null $locale_code Identifies the language for this translation
+     * @param string $locale_code Identifies the language for this translation
      *
      * @return $this
      */
@@ -235,7 +241,7 @@ class GlossaryTermTranslationCreateParameters implements ModelInterface, ArrayAc
     /**
      * Gets content
      *
-     * @return string|null
+     * @return string
      */
     public function getContent()
     {
@@ -245,7 +251,7 @@ class GlossaryTermTranslationCreateParameters implements ModelInterface, ArrayAc
     /**
      * Sets content
      *
-     * @param string|null $content The content of the translation
+     * @param string $content The content of the translation
      *
      * @return $this
      */

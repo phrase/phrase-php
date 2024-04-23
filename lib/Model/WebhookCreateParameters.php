@@ -217,6 +217,9 @@ class WebhookCreateParameters implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['callback_url'] === null) {
+            $invalidProperties[] = "'callback_url' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -235,7 +238,7 @@ class WebhookCreateParameters implements ModelInterface, ArrayAccess
     /**
      * Gets callback_url
      *
-     * @return string|null
+     * @return string
      */
     public function getCallbackUrl()
     {
@@ -245,7 +248,7 @@ class WebhookCreateParameters implements ModelInterface, ArrayAccess
     /**
      * Sets callback_url
      *
-     * @param string|null $callback_url Callback URL to send requests to
+     * @param string $callback_url Callback URL to send requests to
      *
      * @return $this
      */

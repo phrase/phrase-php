@@ -223,27 +223,6 @@ class KeyLink implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['created_at'] === null) {
-            $invalidProperties[] = "'created_at' can't be null";
-        }
-        if ($this->container['updated_at'] === null) {
-            $invalidProperties[] = "'updated_at' can't be null";
-        }
-        if ($this->container['created_by'] === null) {
-            $invalidProperties[] = "'created_by' can't be null";
-        }
-        if ($this->container['updated_by'] === null) {
-            $invalidProperties[] = "'updated_by' can't be null";
-        }
-        if ($this->container['account'] === null) {
-            $invalidProperties[] = "'account' can't be null";
-        }
-        if ($this->container['parent'] === null) {
-            $invalidProperties[] = "'parent' can't be null";
-        }
-        if ($this->container['children'] === null) {
-            $invalidProperties[] = "'children' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -262,7 +241,7 @@ class KeyLink implements ModelInterface, ArrayAccess
     /**
      * Gets created_at
      *
-     * @return \DateTime
+     * @return \DateTime|null
      */
     public function getCreatedAt()
     {
@@ -272,7 +251,7 @@ class KeyLink implements ModelInterface, ArrayAccess
     /**
      * Sets created_at
      *
-     * @param \DateTime $created_at The timestamp when the link was created.
+     * @param \DateTime|null $created_at The timestamp when the link was created.
      *
      * @return $this
      */
@@ -286,7 +265,7 @@ class KeyLink implements ModelInterface, ArrayAccess
     /**
      * Gets updated_at
      *
-     * @return \DateTime
+     * @return \DateTime|null
      */
     public function getUpdatedAt()
     {
@@ -296,7 +275,7 @@ class KeyLink implements ModelInterface, ArrayAccess
     /**
      * Sets updated_at
      *
-     * @param \DateTime $updated_at The timestamp when the link was last updated.
+     * @param \DateTime|null $updated_at The timestamp when the link was last updated.
      *
      * @return $this
      */
@@ -310,7 +289,7 @@ class KeyLink implements ModelInterface, ArrayAccess
     /**
      * Gets created_by
      *
-     * @return \Phrase\Model\UserPreview
+     * @return \Phrase\Model\UserPreview|null
      */
     public function getCreatedBy()
     {
@@ -320,7 +299,7 @@ class KeyLink implements ModelInterface, ArrayAccess
     /**
      * Sets created_by
      *
-     * @param \Phrase\Model\UserPreview $created_by created_by
+     * @param \Phrase\Model\UserPreview|null $created_by created_by
      *
      * @return $this
      */
@@ -334,7 +313,7 @@ class KeyLink implements ModelInterface, ArrayAccess
     /**
      * Gets updated_by
      *
-     * @return \Phrase\Model\UserPreview
+     * @return \Phrase\Model\UserPreview|null
      */
     public function getUpdatedBy()
     {
@@ -344,7 +323,7 @@ class KeyLink implements ModelInterface, ArrayAccess
     /**
      * Sets updated_by
      *
-     * @param \Phrase\Model\UserPreview $updated_by updated_by
+     * @param \Phrase\Model\UserPreview|null $updated_by updated_by
      *
      * @return $this
      */
@@ -358,7 +337,7 @@ class KeyLink implements ModelInterface, ArrayAccess
     /**
      * Gets account
      *
-     * @return \Phrase\Model\Account
+     * @return \Phrase\Model\Account|null
      */
     public function getAccount()
     {
@@ -368,7 +347,7 @@ class KeyLink implements ModelInterface, ArrayAccess
     /**
      * Sets account
      *
-     * @param \Phrase\Model\Account $account account
+     * @param \Phrase\Model\Account|null $account account
      *
      * @return $this
      */
@@ -382,7 +361,7 @@ class KeyLink implements ModelInterface, ArrayAccess
     /**
      * Gets parent
      *
-     * @return \Phrase\Model\KeyPreview
+     * @return \Phrase\Model\KeyPreview|null
      */
     public function getParent()
     {
@@ -392,7 +371,7 @@ class KeyLink implements ModelInterface, ArrayAccess
     /**
      * Sets parent
      *
-     * @param \Phrase\Model\KeyPreview $parent parent
+     * @param \Phrase\Model\KeyPreview|null $parent parent
      *
      * @return $this
      */
@@ -406,7 +385,7 @@ class KeyLink implements ModelInterface, ArrayAccess
     /**
      * Gets children
      *
-     * @return \Phrase\Model\KeyPreview[]
+     * @return \Phrase\Model\KeyPreview[]|null
      */
     public function getChildren()
     {
@@ -416,7 +395,7 @@ class KeyLink implements ModelInterface, ArrayAccess
     /**
      * Sets children
      *
-     * @param \Phrase\Model\KeyPreview[] $children The child translation keys linked to the parent.
+     * @param \Phrase\Model\KeyPreview[]|null $children The child translation keys linked to the parent.
      *
      * @return $this
      */

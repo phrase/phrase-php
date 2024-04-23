@@ -122,15 +122,14 @@ class LinkedKeysApi
      * @param  string $id Parent Translation Key ID (required)
      * @param  \Phrase\Model\KeyLinksBatchDestroyParameters $key_links_batch_destroy_parameters key_links_batch_destroy_parameters (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
-     * @param  bool $unlink_parent Whether to unlink the parent key as well and unmark it as linked-key. (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function keyLinksBatchDestroy($project_id, $id, $key_links_batch_destroy_parameters, $x_phrase_app_otp = null, $unlink_parent = null)
+    public function keyLinksBatchDestroy($project_id, $id, $key_links_batch_destroy_parameters, $x_phrase_app_otp = null)
     {
-        $this->keyLinksBatchDestroyWithHttpInfo($project_id, $id, $key_links_batch_destroy_parameters, $x_phrase_app_otp, $unlink_parent);
+        $this->keyLinksBatchDestroyWithHttpInfo($project_id, $id, $key_links_batch_destroy_parameters, $x_phrase_app_otp);
     }
 
     /**
@@ -142,15 +141,14 @@ class LinkedKeysApi
      * @param  string $id Parent Translation Key ID (required)
      * @param  \Phrase\Model\KeyLinksBatchDestroyParameters $key_links_batch_destroy_parameters (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
-     * @param  bool $unlink_parent Whether to unlink the parent key as well and unmark it as linked-key. (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function keyLinksBatchDestroyWithHttpInfo($project_id, $id, $key_links_batch_destroy_parameters, $x_phrase_app_otp = null, $unlink_parent = null)
+    public function keyLinksBatchDestroyWithHttpInfo($project_id, $id, $key_links_batch_destroy_parameters, $x_phrase_app_otp = null)
     {
-        $request = $this->keyLinksBatchDestroyRequest($project_id, $id, $key_links_batch_destroy_parameters, $x_phrase_app_otp, $unlink_parent);
+        $request = $this->keyLinksBatchDestroyRequest($project_id, $id, $key_links_batch_destroy_parameters, $x_phrase_app_otp);
 
         try {
             $options = $this->createHttpClientOption();
@@ -206,14 +204,13 @@ class LinkedKeysApi
      * @param  string $id Parent Translation Key ID (required)
      * @param  \Phrase\Model\KeyLinksBatchDestroyParameters $key_links_batch_destroy_parameters (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
-     * @param  bool $unlink_parent Whether to unlink the parent key as well and unmark it as linked-key. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function keyLinksBatchDestroyAsync($project_id, $id, $key_links_batch_destroy_parameters, $x_phrase_app_otp = null, $unlink_parent = null)
+    public function keyLinksBatchDestroyAsync($project_id, $id, $key_links_batch_destroy_parameters, $x_phrase_app_otp = null)
     {
-        return $this->keyLinksBatchDestroyAsyncWithHttpInfo($project_id, $id, $key_links_batch_destroy_parameters, $x_phrase_app_otp, $unlink_parent)
+        return $this->keyLinksBatchDestroyAsyncWithHttpInfo($project_id, $id, $key_links_batch_destroy_parameters, $x_phrase_app_otp)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -230,15 +227,14 @@ class LinkedKeysApi
      * @param  string $id Parent Translation Key ID (required)
      * @param  \Phrase\Model\KeyLinksBatchDestroyParameters $key_links_batch_destroy_parameters (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
-     * @param  bool $unlink_parent Whether to unlink the parent key as well and unmark it as linked-key. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function keyLinksBatchDestroyAsyncWithHttpInfo($project_id, $id, $key_links_batch_destroy_parameters, $x_phrase_app_otp = null, $unlink_parent = null)
+    public function keyLinksBatchDestroyAsyncWithHttpInfo($project_id, $id, $key_links_batch_destroy_parameters, $x_phrase_app_otp = null)
     {
         $returnType = '';
-        $request = $this->keyLinksBatchDestroyRequest($project_id, $id, $key_links_batch_destroy_parameters, $x_phrase_app_otp, $unlink_parent);
+        $request = $this->keyLinksBatchDestroyRequest($project_id, $id, $key_links_batch_destroy_parameters, $x_phrase_app_otp);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -270,12 +266,11 @@ class LinkedKeysApi
      * @param  string $id Parent Translation Key ID (required)
      * @param  \Phrase\Model\KeyLinksBatchDestroyParameters $key_links_batch_destroy_parameters (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
-     * @param  bool $unlink_parent Whether to unlink the parent key as well and unmark it as linked-key. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function keyLinksBatchDestroyRequest($project_id, $id, $key_links_batch_destroy_parameters, $x_phrase_app_otp = null, $unlink_parent = null)
+    protected function keyLinksBatchDestroyRequest($project_id, $id, $key_links_batch_destroy_parameters, $x_phrase_app_otp = null)
     {
         // verify the required parameter 'project_id' is set
         if ($project_id === null || (is_array($project_id) && count($project_id) === 0)) {
@@ -303,17 +298,6 @@ class LinkedKeysApi
         $httpBody = '';
         $multipart = false;
 
-        // query params
-        if ($unlink_parent !== null) {
-            if('form' === 'form' && is_array($unlink_parent)) {
-                foreach($unlink_parent as $key => $value) {
-                    $queryParams[$key] = $value;
-                }
-            }
-            else {
-                $queryParams['unlink_parent'] = $unlink_parent;
-            }
-        }
 
         // header params
         if ($x_phrase_app_otp !== null) {
@@ -1049,7 +1033,7 @@ class LinkedKeysApi
     /**
      * Operation keyLinksIndex
      *
-     * Retrieve all child keys linked to a specific parent key
+     * List child keys of a parent key
      *
      * @param  string $project_id Project ID (required)
      * @param  string $id Parent Translation Key ID (required)
@@ -1068,7 +1052,7 @@ class LinkedKeysApi
     /**
      * Operation keyLinksIndexWithHttpInfo
      *
-     * Retrieve all child keys linked to a specific parent key
+     * List child keys of a parent key
      *
      * @param  string $project_id Project ID (required)
      * @param  string $id Parent Translation Key ID (required)
@@ -1178,7 +1162,7 @@ class LinkedKeysApi
     /**
      * Operation keyLinksIndexAsync
      *
-     * Retrieve all child keys linked to a specific parent key
+     * List child keys of a parent key
      *
      * @param  string $project_id Project ID (required)
      * @param  string $id Parent Translation Key ID (required)
@@ -1200,7 +1184,7 @@ class LinkedKeysApi
     /**
      * Operation keyLinksIndexAsyncWithHttpInfo
      *
-     * Retrieve all child keys linked to a specific parent key
+     * List child keys of a parent key
      *
      * @param  string $project_id Project ID (required)
      * @param  string $id Parent Translation Key ID (required)

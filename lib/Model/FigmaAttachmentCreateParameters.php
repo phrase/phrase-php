@@ -193,6 +193,9 @@ class FigmaAttachmentCreateParameters implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['url'] === null) {
+            $invalidProperties[] = "'url' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -235,7 +238,7 @@ class FigmaAttachmentCreateParameters implements ModelInterface, ArrayAccess
     /**
      * Gets url
      *
-     * @return string|null
+     * @return string
      */
     public function getUrl()
     {
@@ -245,7 +248,7 @@ class FigmaAttachmentCreateParameters implements ModelInterface, ArrayAccess
     /**
      * Sets url
      *
-     * @param string|null $url Figma file url
+     * @param string $url Figma file url
      *
      * @return $this
      */

@@ -205,6 +205,9 @@ class GlossaryTermCreateParameters implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['term'] === null) {
+            $invalidProperties[] = "'term' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -223,7 +226,7 @@ class GlossaryTermCreateParameters implements ModelInterface, ArrayAccess
     /**
      * Gets term
      *
-     * @return string|null
+     * @return string
      */
     public function getTerm()
     {
@@ -233,7 +236,7 @@ class GlossaryTermCreateParameters implements ModelInterface, ArrayAccess
     /**
      * Sets term
      *
-     * @param string|null $term Glossary term
+     * @param string $term Glossary term
      *
      * @return $this
      */

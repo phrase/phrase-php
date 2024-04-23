@@ -419,7 +419,7 @@ class LocaleUpdateParameters implements ModelInterface, ArrayAccess
     /**
      * Sets source_locale_id
      *
-     * @param string|null $source_locale_id Source locale. Can be the name or public id of the locale. Preferred is the public id.
+     * @param string|null $source_locale_id Source locale. Can be the name or id of the locale. Preferred is id.
      *
      * @return $this
      */
