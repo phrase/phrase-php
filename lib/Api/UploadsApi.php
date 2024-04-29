@@ -126,6 +126,7 @@ class UploadsApi
      * @param  string $branch specify the branch to use (optional)
      * @param  string $tags List of tags separated by comma to be associated with the new keys contained in the upload. (optional)
      * @param  bool $update_translations Indicates whether existing translations should be updated with the file content. (optional)
+     * @param  bool $update_translation_keys Pass &#x60;false&#x60; here to prevent new keys from being created and existing keys updated. (optional, default to true)
      * @param  bool $update_descriptions Existing key descriptions will be updated with the file content. Empty descriptions overwrite existing descriptions. (optional)
      * @param  bool $convert_emoji This option is obsolete. Providing the option will cause a bad request error. (optional)
      * @param  bool $skip_upload_tags Indicates whether the upload should not create upload tags. (optional)
@@ -141,9 +142,9 @@ class UploadsApi
      * @throws \InvalidArgumentException
      * @return \Phrase\Model\Upload
      */
-    public function uploadCreate($project_id, $file, $file_format, $locale_id, $x_phrase_app_otp = null, $branch = null, $tags = null, $update_translations = null, $update_descriptions = null, $convert_emoji = null, $skip_upload_tags = null, $skip_unverification = null, $file_encoding = null, $locale_mapping = null, $format_options = null, $autotranslate = null, $mark_reviewed = null, $tag_only_affected_keys = false)
+    public function uploadCreate($project_id, $file, $file_format, $locale_id, $x_phrase_app_otp = null, $branch = null, $tags = null, $update_translations = null, $update_translation_keys = true, $update_descriptions = null, $convert_emoji = null, $skip_upload_tags = null, $skip_unverification = null, $file_encoding = null, $locale_mapping = null, $format_options = null, $autotranslate = null, $mark_reviewed = null, $tag_only_affected_keys = false)
     {
-        list($response) = $this->uploadCreateWithHttpInfo($project_id, $file, $file_format, $locale_id, $x_phrase_app_otp, $branch, $tags, $update_translations, $update_descriptions, $convert_emoji, $skip_upload_tags, $skip_unverification, $file_encoding, $locale_mapping, $format_options, $autotranslate, $mark_reviewed, $tag_only_affected_keys);
+        list($response) = $this->uploadCreateWithHttpInfo($project_id, $file, $file_format, $locale_id, $x_phrase_app_otp, $branch, $tags, $update_translations, $update_translation_keys, $update_descriptions, $convert_emoji, $skip_upload_tags, $skip_unverification, $file_encoding, $locale_mapping, $format_options, $autotranslate, $mark_reviewed, $tag_only_affected_keys);
         return $response;
     }
 
@@ -160,6 +161,7 @@ class UploadsApi
      * @param  string $branch specify the branch to use (optional)
      * @param  string $tags List of tags separated by comma to be associated with the new keys contained in the upload. (optional)
      * @param  bool $update_translations Indicates whether existing translations should be updated with the file content. (optional)
+     * @param  bool $update_translation_keys Pass &#x60;false&#x60; here to prevent new keys from being created and existing keys updated. (optional, default to true)
      * @param  bool $update_descriptions Existing key descriptions will be updated with the file content. Empty descriptions overwrite existing descriptions. (optional)
      * @param  bool $convert_emoji This option is obsolete. Providing the option will cause a bad request error. (optional)
      * @param  bool $skip_upload_tags Indicates whether the upload should not create upload tags. (optional)
@@ -175,9 +177,9 @@ class UploadsApi
      * @throws \InvalidArgumentException
      * @return array of \Phrase\Model\Upload, HTTP status code, HTTP response headers (array of strings)
      */
-    public function uploadCreateWithHttpInfo($project_id, $file, $file_format, $locale_id, $x_phrase_app_otp = null, $branch = null, $tags = null, $update_translations = null, $update_descriptions = null, $convert_emoji = null, $skip_upload_tags = null, $skip_unverification = null, $file_encoding = null, $locale_mapping = null, $format_options = null, $autotranslate = null, $mark_reviewed = null, $tag_only_affected_keys = false)
+    public function uploadCreateWithHttpInfo($project_id, $file, $file_format, $locale_id, $x_phrase_app_otp = null, $branch = null, $tags = null, $update_translations = null, $update_translation_keys = true, $update_descriptions = null, $convert_emoji = null, $skip_upload_tags = null, $skip_unverification = null, $file_encoding = null, $locale_mapping = null, $format_options = null, $autotranslate = null, $mark_reviewed = null, $tag_only_affected_keys = false)
     {
-        $request = $this->uploadCreateRequest($project_id, $file, $file_format, $locale_id, $x_phrase_app_otp, $branch, $tags, $update_translations, $update_descriptions, $convert_emoji, $skip_upload_tags, $skip_unverification, $file_encoding, $locale_mapping, $format_options, $autotranslate, $mark_reviewed, $tag_only_affected_keys);
+        $request = $this->uploadCreateRequest($project_id, $file, $file_format, $locale_id, $x_phrase_app_otp, $branch, $tags, $update_translations, $update_translation_keys, $update_descriptions, $convert_emoji, $skip_upload_tags, $skip_unverification, $file_encoding, $locale_mapping, $format_options, $autotranslate, $mark_reviewed, $tag_only_affected_keys);
 
         try {
             $options = $this->createHttpClientOption();
@@ -265,6 +267,7 @@ class UploadsApi
      * @param  string $branch specify the branch to use (optional)
      * @param  string $tags List of tags separated by comma to be associated with the new keys contained in the upload. (optional)
      * @param  bool $update_translations Indicates whether existing translations should be updated with the file content. (optional)
+     * @param  bool $update_translation_keys Pass &#x60;false&#x60; here to prevent new keys from being created and existing keys updated. (optional, default to true)
      * @param  bool $update_descriptions Existing key descriptions will be updated with the file content. Empty descriptions overwrite existing descriptions. (optional)
      * @param  bool $convert_emoji This option is obsolete. Providing the option will cause a bad request error. (optional)
      * @param  bool $skip_upload_tags Indicates whether the upload should not create upload tags. (optional)
@@ -279,9 +282,9 @@ class UploadsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function uploadCreateAsync($project_id, $file, $file_format, $locale_id, $x_phrase_app_otp = null, $branch = null, $tags = null, $update_translations = null, $update_descriptions = null, $convert_emoji = null, $skip_upload_tags = null, $skip_unverification = null, $file_encoding = null, $locale_mapping = null, $format_options = null, $autotranslate = null, $mark_reviewed = null, $tag_only_affected_keys = false)
+    public function uploadCreateAsync($project_id, $file, $file_format, $locale_id, $x_phrase_app_otp = null, $branch = null, $tags = null, $update_translations = null, $update_translation_keys = true, $update_descriptions = null, $convert_emoji = null, $skip_upload_tags = null, $skip_unverification = null, $file_encoding = null, $locale_mapping = null, $format_options = null, $autotranslate = null, $mark_reviewed = null, $tag_only_affected_keys = false)
     {
-        return $this->uploadCreateAsyncWithHttpInfo($project_id, $file, $file_format, $locale_id, $x_phrase_app_otp, $branch, $tags, $update_translations, $update_descriptions, $convert_emoji, $skip_upload_tags, $skip_unverification, $file_encoding, $locale_mapping, $format_options, $autotranslate, $mark_reviewed, $tag_only_affected_keys)
+        return $this->uploadCreateAsyncWithHttpInfo($project_id, $file, $file_format, $locale_id, $x_phrase_app_otp, $branch, $tags, $update_translations, $update_translation_keys, $update_descriptions, $convert_emoji, $skip_upload_tags, $skip_unverification, $file_encoding, $locale_mapping, $format_options, $autotranslate, $mark_reviewed, $tag_only_affected_keys)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -302,6 +305,7 @@ class UploadsApi
      * @param  string $branch specify the branch to use (optional)
      * @param  string $tags List of tags separated by comma to be associated with the new keys contained in the upload. (optional)
      * @param  bool $update_translations Indicates whether existing translations should be updated with the file content. (optional)
+     * @param  bool $update_translation_keys Pass &#x60;false&#x60; here to prevent new keys from being created and existing keys updated. (optional, default to true)
      * @param  bool $update_descriptions Existing key descriptions will be updated with the file content. Empty descriptions overwrite existing descriptions. (optional)
      * @param  bool $convert_emoji This option is obsolete. Providing the option will cause a bad request error. (optional)
      * @param  bool $skip_upload_tags Indicates whether the upload should not create upload tags. (optional)
@@ -316,10 +320,10 @@ class UploadsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function uploadCreateAsyncWithHttpInfo($project_id, $file, $file_format, $locale_id, $x_phrase_app_otp = null, $branch = null, $tags = null, $update_translations = null, $update_descriptions = null, $convert_emoji = null, $skip_upload_tags = null, $skip_unverification = null, $file_encoding = null, $locale_mapping = null, $format_options = null, $autotranslate = null, $mark_reviewed = null, $tag_only_affected_keys = false)
+    public function uploadCreateAsyncWithHttpInfo($project_id, $file, $file_format, $locale_id, $x_phrase_app_otp = null, $branch = null, $tags = null, $update_translations = null, $update_translation_keys = true, $update_descriptions = null, $convert_emoji = null, $skip_upload_tags = null, $skip_unverification = null, $file_encoding = null, $locale_mapping = null, $format_options = null, $autotranslate = null, $mark_reviewed = null, $tag_only_affected_keys = false)
     {
         $returnType = '\Phrase\Model\Upload';
-        $request = $this->uploadCreateRequest($project_id, $file, $file_format, $locale_id, $x_phrase_app_otp, $branch, $tags, $update_translations, $update_descriptions, $convert_emoji, $skip_upload_tags, $skip_unverification, $file_encoding, $locale_mapping, $format_options, $autotranslate, $mark_reviewed, $tag_only_affected_keys);
+        $request = $this->uploadCreateRequest($project_id, $file, $file_format, $locale_id, $x_phrase_app_otp, $branch, $tags, $update_translations, $update_translation_keys, $update_descriptions, $convert_emoji, $skip_upload_tags, $skip_unverification, $file_encoding, $locale_mapping, $format_options, $autotranslate, $mark_reviewed, $tag_only_affected_keys);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -366,6 +370,7 @@ class UploadsApi
      * @param  string $branch specify the branch to use (optional)
      * @param  string $tags List of tags separated by comma to be associated with the new keys contained in the upload. (optional)
      * @param  bool $update_translations Indicates whether existing translations should be updated with the file content. (optional)
+     * @param  bool $update_translation_keys Pass &#x60;false&#x60; here to prevent new keys from being created and existing keys updated. (optional, default to true)
      * @param  bool $update_descriptions Existing key descriptions will be updated with the file content. Empty descriptions overwrite existing descriptions. (optional)
      * @param  bool $convert_emoji This option is obsolete. Providing the option will cause a bad request error. (optional)
      * @param  bool $skip_upload_tags Indicates whether the upload should not create upload tags. (optional)
@@ -380,7 +385,7 @@ class UploadsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function uploadCreateRequest($project_id, $file, $file_format, $locale_id, $x_phrase_app_otp = null, $branch = null, $tags = null, $update_translations = null, $update_descriptions = null, $convert_emoji = null, $skip_upload_tags = null, $skip_unverification = null, $file_encoding = null, $locale_mapping = null, $format_options = null, $autotranslate = null, $mark_reviewed = null, $tag_only_affected_keys = false)
+    protected function uploadCreateRequest($project_id, $file, $file_format, $locale_id, $x_phrase_app_otp = null, $branch = null, $tags = null, $update_translations = null, $update_translation_keys = true, $update_descriptions = null, $convert_emoji = null, $skip_upload_tags = null, $skip_unverification = null, $file_encoding = null, $locale_mapping = null, $format_options = null, $autotranslate = null, $mark_reviewed = null, $tag_only_affected_keys = false)
     {
         // verify the required parameter 'project_id' is set
         if ($project_id === null || (is_array($project_id) && count($project_id) === 0)) {
@@ -453,6 +458,10 @@ class UploadsApi
         // form params
         if ($update_translations !== null) {
             $this->formParamsAppend($formParams, 'update_translations', $update_translations);
+        }
+        // form params
+        if ($update_translation_keys !== null) {
+            $this->formParamsAppend($formParams, 'update_translation_keys', $update_translation_keys);
         }
         // form params
         if ($update_descriptions !== null) {
