@@ -580,7 +580,6 @@ test/Api/JobLocalesApiTest.php
 test/Api/JobTemplateLocalesApiTest.php
 test/Api/JobTemplatesApiTest.php
 test/Api/JobsApiTest.php
-test/Api/KeysApiTest.php
 test/Api/KeysFigmaAttachmentsApiTest.php
 test/Api/LinkedKeysApiTest.php
 test/Api/MembersApiTest.php

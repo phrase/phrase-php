@@ -26,10 +26,18 @@
 
 namespace Phrase;
 
-use \Phrase\Configuration;
+use \Phrase\Configuration as Configuration;
 use \Phrase\ApiException;
 use \Phrase\ObjectSerializer;
 use PHPUnit\Framework\TestCase;
+
+use \Phrase\Api\KeysApi as Api;
+
+use GuzzleHttp\Client;
+use GuzzleHttp\Handler\MockHandler;
+use GuzzleHttp\HandlerStack;
+use GuzzleHttp\Middleware;
+use GuzzleHttp\Psr7\Response;
 
 /**
  * KeysApiTest Class Doc Comment
@@ -41,6 +49,9 @@ use PHPUnit\Framework\TestCase;
  */
 class KeysApiTest extends TestCase
 {
+    private $apiInstance;
+    private $mock;
+    private $history = [];
 
     /**
      * Setup before running any test cases
@@ -54,6 +65,16 @@ class KeysApiTest extends TestCase
      */
     public function setUp()
     {
+        $this->mock = new MockHandler();
+        $history = Middleware::history($this->history);
+        $handlerStack = HandlerStack::create($this->mock);
+        $handlerStack->push($history);
+        $client = new Client(['handler' => $handlerStack]);
+
+        $config = Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+        $config = Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'token');
+
+        $this->apiInstance = new Api($client, $config);
     }
 
     /**
@@ -98,6 +119,21 @@ class KeysApiTest extends TestCase
      */
     public function testKeyShow()
     {
+        $this->mock->append(new Response(200, [], '{"id":"KEY_ID","name":"five","description":null,"name_hash":"NAME_HASH","plural":false,"tags":["upload-20231101_143051","fas"],"default_translation_content":"","created_at":"2023-11-01T14:31:01Z","updated_at":"2024-03-20T21:10:44Z","name_plural":null,"comments_count":0,"data_type":"string","max_characters_allowed":0,"screenshot_url":null,"unformatted":false,"xml_space_preserve":false,"original_file":null,"format_value_type":null,"localized_format_key":null,"localized_format_string":null,"custom_metadata":{"Name":"my name"},"creator":{"id":"CREATOR_ID","username":"username","name":"NAME","gravatar_uid":"UID"}}'));
+
+        $projectId = "project_id_example";
+        $id = "key_id";
+        $result = $this->apiInstance->keyShow($projectId, $id);
+
+        $this->assertNotNull($result);
+        $this->assertInstanceOf('\Phrase\Model\TranslationKeyDetails', $result);
+        $this->assertEquals('KEY_ID', $result->getId());
+        $this->assertEquals('five', $result->getName());
+        $this->assertEquals('my name', $result->getCustomMetadata()['Name']);
+
+        $lastRequest = $this->history[count($this->history)-1]['request'];
+        $this->assertEquals('GET', $lastRequest->getMethod());
+        $this->assertEquals('/v2/projects/'.$projectId.'/keys/'.$id, $lastRequest->getUri()->getPath());
     }
 
     /**
