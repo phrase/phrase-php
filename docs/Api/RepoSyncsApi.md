@@ -4,19 +4,19 @@ All URIs are relative to *https://api.phrase.com/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**repoSyncActivate**](RepoSyncsApi.md#repoSyncActivate) | **POST** /accounts/{account_id}/repo_syncs/{repo_sync_id}/activate | Activate a Repo Sync
-[**repoSyncDeactivate**](RepoSyncsApi.md#repoSyncDeactivate) | **POST** /accounts/{account_id}/repo_syncs/{repo_sync_id}/deactivate | Deactivate a Repo Sync
-[**repoSyncEvents**](RepoSyncsApi.md#repoSyncEvents) | **GET** /accounts/{account_id}/repo_syncs/{repo_sync_id}/events | Repository Syncs History
-[**repoSyncExport**](RepoSyncsApi.md#repoSyncExport) | **POST** /accounts/{account_id}/repo_syncs/{repo_sync_id}/export | Export to code repository
-[**repoSyncImport**](RepoSyncsApi.md#repoSyncImport) | **POST** /accounts/{account_id}/repo_syncs/{repo_sync_id}/import | Import from code repository
+[**repoSyncActivate**](RepoSyncsApi.md#repoSyncActivate) | **POST** /accounts/{account_id}/repo_syncs/{id}/activate | Activate a Repo Sync
+[**repoSyncDeactivate**](RepoSyncsApi.md#repoSyncDeactivate) | **POST** /accounts/{account_id}/repo_syncs/{id}/deactivate | Deactivate a Repo Sync
+[**repoSyncEvents**](RepoSyncsApi.md#repoSyncEvents) | **GET** /accounts/{account_id}/repo_syncs/{id}/events | Repository Syncs History
+[**repoSyncExport**](RepoSyncsApi.md#repoSyncExport) | **POST** /accounts/{account_id}/repo_syncs/{id}/export | Export to code repository
+[**repoSyncImport**](RepoSyncsApi.md#repoSyncImport) | **POST** /accounts/{account_id}/repo_syncs/{id}/import | Import from code repository
 [**repoSyncList**](RepoSyncsApi.md#repoSyncList) | **GET** /accounts/{account_id}/repo_syncs | Get Repo Syncs
-[**repoSyncShow**](RepoSyncsApi.md#repoSyncShow) | **GET** /accounts/{account_id}/repo_syncs/{repo_sync_id} | Get a single Repo Sync
+[**repoSyncShow**](RepoSyncsApi.md#repoSyncShow) | **GET** /accounts/{account_id}/repo_syncs/{id} | Get a single Repo Sync
 
 
 
 ## repoSyncActivate
 
-> \Phrase\Model\RepoSync repoSyncActivate($account_id, $repo_sync_id, $x_phrase_app_otp)
+> \Phrase\Model\RepoSync repoSyncActivate($account_id, $id, $x_phrase_app_otp)
 
 Activate a Repo Sync
 
@@ -38,11 +38,11 @@ $apiInstance = new Phrase\Api\RepoSyncsApi(
     $config
 );
 $account_id = 'account_id_example'; // string | Account ID
-$repo_sync_id = 'repo_sync_id_example'; // string | Repo Sync ID
+$id = 'id_example'; // string | ID
 $x_phrase_app_otp = 'x_phrase_app_otp_example'; // string | Two-Factor-Authentication token (optional)
 
 try {
-    $result = $apiInstance->repoSyncActivate($account_id, $repo_sync_id, $x_phrase_app_otp);
+    $result = $apiInstance->repoSyncActivate($account_id, $id, $x_phrase_app_otp);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling RepoSyncsApi->repoSyncActivate: ', $e->getMessage(), PHP_EOL;
@@ -56,7 +56,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **account_id** | **string**| Account ID |
- **repo_sync_id** | **string**| Repo Sync ID |
+ **id** | **string**| ID |
  **x_phrase_app_otp** | **string**| Two-Factor-Authentication token (optional) | [optional]
 
 ### Return type
@@ -79,7 +79,7 @@ Name | Type | Description  | Notes
 
 ## repoSyncDeactivate
 
-> \Phrase\Model\RepoSync repoSyncDeactivate($account_id, $repo_sync_id, $x_phrase_app_otp)
+> \Phrase\Model\RepoSync repoSyncDeactivate($account_id, $id, $x_phrase_app_otp)
 
 Deactivate a Repo Sync
 
@@ -101,11 +101,11 @@ $apiInstance = new Phrase\Api\RepoSyncsApi(
     $config
 );
 $account_id = 'account_id_example'; // string | Account ID
-$repo_sync_id = 'repo_sync_id_example'; // string | Repo Sync ID
+$id = 'id_example'; // string | ID
 $x_phrase_app_otp = 'x_phrase_app_otp_example'; // string | Two-Factor-Authentication token (optional)
 
 try {
-    $result = $apiInstance->repoSyncDeactivate($account_id, $repo_sync_id, $x_phrase_app_otp);
+    $result = $apiInstance->repoSyncDeactivate($account_id, $id, $x_phrase_app_otp);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling RepoSyncsApi->repoSyncDeactivate: ', $e->getMessage(), PHP_EOL;
@@ -119,7 +119,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **account_id** | **string**| Account ID |
- **repo_sync_id** | **string**| Repo Sync ID |
+ **id** | **string**| ID |
  **x_phrase_app_otp** | **string**| Two-Factor-Authentication token (optional) | [optional]
 
 ### Return type
@@ -142,7 +142,7 @@ Name | Type | Description  | Notes
 
 ## repoSyncEvents
 
-> \Phrase\Model\RepoSyncEvent[] repoSyncEvents($account_id, $repo_sync_id, $x_phrase_app_otp)
+> \Phrase\Model\RepoSyncEvent[] repoSyncEvents($account_id, $id, $x_phrase_app_otp)
 
 Repository Syncs History
 
@@ -164,11 +164,11 @@ $apiInstance = new Phrase\Api\RepoSyncsApi(
     $config
 );
 $account_id = 'account_id_example'; // string | Account ID
-$repo_sync_id = 'repo_sync_id_example'; // string | Repo Sync ID
+$id = 'id_example'; // string | ID
 $x_phrase_app_otp = 'x_phrase_app_otp_example'; // string | Two-Factor-Authentication token (optional)
 
 try {
-    $result = $apiInstance->repoSyncEvents($account_id, $repo_sync_id, $x_phrase_app_otp);
+    $result = $apiInstance->repoSyncEvents($account_id, $id, $x_phrase_app_otp);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling RepoSyncsApi->repoSyncEvents: ', $e->getMessage(), PHP_EOL;
@@ -182,7 +182,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **account_id** | **string**| Account ID |
- **repo_sync_id** | **string**| Repo Sync ID |
+ **id** | **string**| ID |
  **x_phrase_app_otp** | **string**| Two-Factor-Authentication token (optional) | [optional]
 
 ### Return type
@@ -205,7 +205,7 @@ Name | Type | Description  | Notes
 
 ## repoSyncExport
 
-> \Phrase\Model\RepoSyncExport repoSyncExport($account_id, $repo_sync_id, $x_phrase_app_otp)
+> \Phrase\Model\RepoSyncExport repoSyncExport($account_id, $id, $x_phrase_app_otp)
 
 Export to code repository
 
@@ -227,11 +227,11 @@ $apiInstance = new Phrase\Api\RepoSyncsApi(
     $config
 );
 $account_id = 'account_id_example'; // string | Account ID
-$repo_sync_id = 'repo_sync_id_example'; // string | Repo Sync ID
+$id = 'id_example'; // string | ID
 $x_phrase_app_otp = 'x_phrase_app_otp_example'; // string | Two-Factor-Authentication token (optional)
 
 try {
-    $result = $apiInstance->repoSyncExport($account_id, $repo_sync_id, $x_phrase_app_otp);
+    $result = $apiInstance->repoSyncExport($account_id, $id, $x_phrase_app_otp);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling RepoSyncsApi->repoSyncExport: ', $e->getMessage(), PHP_EOL;
@@ -245,7 +245,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **account_id** | **string**| Account ID |
- **repo_sync_id** | **string**| Repo Sync ID |
+ **id** | **string**| ID |
  **x_phrase_app_otp** | **string**| Two-Factor-Authentication token (optional) | [optional]
 
 ### Return type
@@ -268,7 +268,7 @@ Name | Type | Description  | Notes
 
 ## repoSyncImport
 
-> \Phrase\Model\RepoSyncImport repoSyncImport($account_id, $repo_sync_id, $x_phrase_app_otp)
+> \Phrase\Model\RepoSyncImport repoSyncImport($account_id, $id, $x_phrase_app_otp)
 
 Import from code repository
 
@@ -290,11 +290,11 @@ $apiInstance = new Phrase\Api\RepoSyncsApi(
     $config
 );
 $account_id = 'account_id_example'; // string | Account ID
-$repo_sync_id = 'repo_sync_id_example'; // string | Repo Sync ID
+$id = 'id_example'; // string | ID
 $x_phrase_app_otp = 'x_phrase_app_otp_example'; // string | Two-Factor-Authentication token (optional)
 
 try {
-    $result = $apiInstance->repoSyncImport($account_id, $repo_sync_id, $x_phrase_app_otp);
+    $result = $apiInstance->repoSyncImport($account_id, $id, $x_phrase_app_otp);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling RepoSyncsApi->repoSyncImport: ', $e->getMessage(), PHP_EOL;
@@ -308,7 +308,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **account_id** | **string**| Account ID |
- **repo_sync_id** | **string**| Repo Sync ID |
+ **id** | **string**| ID |
  **x_phrase_app_otp** | **string**| Two-Factor-Authentication token (optional) | [optional]
 
 ### Return type
@@ -392,7 +392,7 @@ Name | Type | Description  | Notes
 
 ## repoSyncShow
 
-> \Phrase\Model\RepoSync repoSyncShow($account_id, $repo_sync_id, $x_phrase_app_otp)
+> \Phrase\Model\RepoSync repoSyncShow($account_id, $id, $x_phrase_app_otp)
 
 Get a single Repo Sync
 
@@ -414,11 +414,11 @@ $apiInstance = new Phrase\Api\RepoSyncsApi(
     $config
 );
 $account_id = 'account_id_example'; // string | Account ID
-$repo_sync_id = 'repo_sync_id_example'; // string | Repo Sync ID
+$id = 'id_example'; // string | ID
 $x_phrase_app_otp = 'x_phrase_app_otp_example'; // string | Two-Factor-Authentication token (optional)
 
 try {
-    $result = $apiInstance->repoSyncShow($account_id, $repo_sync_id, $x_phrase_app_otp);
+    $result = $apiInstance->repoSyncShow($account_id, $id, $x_phrase_app_otp);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling RepoSyncsApi->repoSyncShow: ', $e->getMessage(), PHP_EOL;
@@ -432,7 +432,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **account_id** | **string**| Account ID |
- **repo_sync_id** | **string**| Repo Sync ID |
+ **id** | **string**| ID |
  **x_phrase_app_otp** | **string**| Two-Factor-Authentication token (optional) | [optional]
 
 ### Return type

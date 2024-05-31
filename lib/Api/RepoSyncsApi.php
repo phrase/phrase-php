@@ -119,16 +119,16 @@ class RepoSyncsApi
      * Activate a Repo Sync
      *
      * @param  string $account_id Account ID (required)
-     * @param  string $repo_sync_id Repo Sync ID (required)
+     * @param  string $id ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Phrase\Model\RepoSync
      */
-    public function repoSyncActivate($account_id, $repo_sync_id, $x_phrase_app_otp = null)
+    public function repoSyncActivate($account_id, $id, $x_phrase_app_otp = null)
     {
-        list($response) = $this->repoSyncActivateWithHttpInfo($account_id, $repo_sync_id, $x_phrase_app_otp);
+        list($response) = $this->repoSyncActivateWithHttpInfo($account_id, $id, $x_phrase_app_otp);
         return $response;
     }
 
@@ -138,16 +138,16 @@ class RepoSyncsApi
      * Activate a Repo Sync
      *
      * @param  string $account_id Account ID (required)
-     * @param  string $repo_sync_id Repo Sync ID (required)
+     * @param  string $id ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Phrase\Model\RepoSync, HTTP status code, HTTP response headers (array of strings)
      */
-    public function repoSyncActivateWithHttpInfo($account_id, $repo_sync_id, $x_phrase_app_otp = null)
+    public function repoSyncActivateWithHttpInfo($account_id, $id, $x_phrase_app_otp = null)
     {
-        $request = $this->repoSyncActivateRequest($account_id, $repo_sync_id, $x_phrase_app_otp);
+        $request = $this->repoSyncActivateRequest($account_id, $id, $x_phrase_app_otp);
 
         try {
             $options = $this->createHttpClientOption();
@@ -228,15 +228,15 @@ class RepoSyncsApi
      * Activate a Repo Sync
      *
      * @param  string $account_id Account ID (required)
-     * @param  string $repo_sync_id Repo Sync ID (required)
+     * @param  string $id ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function repoSyncActivateAsync($account_id, $repo_sync_id, $x_phrase_app_otp = null)
+    public function repoSyncActivateAsync($account_id, $id, $x_phrase_app_otp = null)
     {
-        return $this->repoSyncActivateAsyncWithHttpInfo($account_id, $repo_sync_id, $x_phrase_app_otp)
+        return $this->repoSyncActivateAsyncWithHttpInfo($account_id, $id, $x_phrase_app_otp)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -250,16 +250,16 @@ class RepoSyncsApi
      * Activate a Repo Sync
      *
      * @param  string $account_id Account ID (required)
-     * @param  string $repo_sync_id Repo Sync ID (required)
+     * @param  string $id ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function repoSyncActivateAsyncWithHttpInfo($account_id, $repo_sync_id, $x_phrase_app_otp = null)
+    public function repoSyncActivateAsyncWithHttpInfo($account_id, $id, $x_phrase_app_otp = null)
     {
         $returnType = '\Phrase\Model\RepoSync';
-        $request = $this->repoSyncActivateRequest($account_id, $repo_sync_id, $x_phrase_app_otp);
+        $request = $this->repoSyncActivateRequest($account_id, $id, $x_phrase_app_otp);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -299,13 +299,13 @@ class RepoSyncsApi
      * Create request for operation 'repoSyncActivate'
      *
      * @param  string $account_id Account ID (required)
-     * @param  string $repo_sync_id Repo Sync ID (required)
+     * @param  string $id ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function repoSyncActivateRequest($account_id, $repo_sync_id, $x_phrase_app_otp = null)
+    protected function repoSyncActivateRequest($account_id, $id, $x_phrase_app_otp = null)
     {
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -313,14 +313,14 @@ class RepoSyncsApi
                 'Missing the required parameter $account_id when calling repoSyncActivate'
             );
         }
-        // verify the required parameter 'repo_sync_id' is set
-        if ($repo_sync_id === null || (is_array($repo_sync_id) && count($repo_sync_id) === 0)) {
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $repo_sync_id when calling repoSyncActivate'
+                'Missing the required parameter $id when calling repoSyncActivate'
             );
         }
 
-        $resourcePath = '/accounts/{account_id}/repo_syncs/{repo_sync_id}/activate';
+        $resourcePath = '/accounts/{account_id}/repo_syncs/{id}/activate';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -342,10 +342,10 @@ class RepoSyncsApi
             );
         }
         // path params
-        if ($repo_sync_id !== null) {
+        if ($id !== null) {
             $resourcePath = str_replace(
-                '{' . 'repo_sync_id' . '}',
-                ObjectSerializer::toPathValue($repo_sync_id),
+                '{' . 'id' . '}',
+                ObjectSerializer::toPathValue($id),
                 $resourcePath
             );
         }
@@ -429,16 +429,16 @@ class RepoSyncsApi
      * Deactivate a Repo Sync
      *
      * @param  string $account_id Account ID (required)
-     * @param  string $repo_sync_id Repo Sync ID (required)
+     * @param  string $id ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Phrase\Model\RepoSync
      */
-    public function repoSyncDeactivate($account_id, $repo_sync_id, $x_phrase_app_otp = null)
+    public function repoSyncDeactivate($account_id, $id, $x_phrase_app_otp = null)
     {
-        list($response) = $this->repoSyncDeactivateWithHttpInfo($account_id, $repo_sync_id, $x_phrase_app_otp);
+        list($response) = $this->repoSyncDeactivateWithHttpInfo($account_id, $id, $x_phrase_app_otp);
         return $response;
     }
 
@@ -448,16 +448,16 @@ class RepoSyncsApi
      * Deactivate a Repo Sync
      *
      * @param  string $account_id Account ID (required)
-     * @param  string $repo_sync_id Repo Sync ID (required)
+     * @param  string $id ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Phrase\Model\RepoSync, HTTP status code, HTTP response headers (array of strings)
      */
-    public function repoSyncDeactivateWithHttpInfo($account_id, $repo_sync_id, $x_phrase_app_otp = null)
+    public function repoSyncDeactivateWithHttpInfo($account_id, $id, $x_phrase_app_otp = null)
     {
-        $request = $this->repoSyncDeactivateRequest($account_id, $repo_sync_id, $x_phrase_app_otp);
+        $request = $this->repoSyncDeactivateRequest($account_id, $id, $x_phrase_app_otp);
 
         try {
             $options = $this->createHttpClientOption();
@@ -538,15 +538,15 @@ class RepoSyncsApi
      * Deactivate a Repo Sync
      *
      * @param  string $account_id Account ID (required)
-     * @param  string $repo_sync_id Repo Sync ID (required)
+     * @param  string $id ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function repoSyncDeactivateAsync($account_id, $repo_sync_id, $x_phrase_app_otp = null)
+    public function repoSyncDeactivateAsync($account_id, $id, $x_phrase_app_otp = null)
     {
-        return $this->repoSyncDeactivateAsyncWithHttpInfo($account_id, $repo_sync_id, $x_phrase_app_otp)
+        return $this->repoSyncDeactivateAsyncWithHttpInfo($account_id, $id, $x_phrase_app_otp)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -560,16 +560,16 @@ class RepoSyncsApi
      * Deactivate a Repo Sync
      *
      * @param  string $account_id Account ID (required)
-     * @param  string $repo_sync_id Repo Sync ID (required)
+     * @param  string $id ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function repoSyncDeactivateAsyncWithHttpInfo($account_id, $repo_sync_id, $x_phrase_app_otp = null)
+    public function repoSyncDeactivateAsyncWithHttpInfo($account_id, $id, $x_phrase_app_otp = null)
     {
         $returnType = '\Phrase\Model\RepoSync';
-        $request = $this->repoSyncDeactivateRequest($account_id, $repo_sync_id, $x_phrase_app_otp);
+        $request = $this->repoSyncDeactivateRequest($account_id, $id, $x_phrase_app_otp);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -609,13 +609,13 @@ class RepoSyncsApi
      * Create request for operation 'repoSyncDeactivate'
      *
      * @param  string $account_id Account ID (required)
-     * @param  string $repo_sync_id Repo Sync ID (required)
+     * @param  string $id ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function repoSyncDeactivateRequest($account_id, $repo_sync_id, $x_phrase_app_otp = null)
+    protected function repoSyncDeactivateRequest($account_id, $id, $x_phrase_app_otp = null)
     {
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -623,14 +623,14 @@ class RepoSyncsApi
                 'Missing the required parameter $account_id when calling repoSyncDeactivate'
             );
         }
-        // verify the required parameter 'repo_sync_id' is set
-        if ($repo_sync_id === null || (is_array($repo_sync_id) && count($repo_sync_id) === 0)) {
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $repo_sync_id when calling repoSyncDeactivate'
+                'Missing the required parameter $id when calling repoSyncDeactivate'
             );
         }
 
-        $resourcePath = '/accounts/{account_id}/repo_syncs/{repo_sync_id}/deactivate';
+        $resourcePath = '/accounts/{account_id}/repo_syncs/{id}/deactivate';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -652,10 +652,10 @@ class RepoSyncsApi
             );
         }
         // path params
-        if ($repo_sync_id !== null) {
+        if ($id !== null) {
             $resourcePath = str_replace(
-                '{' . 'repo_sync_id' . '}',
-                ObjectSerializer::toPathValue($repo_sync_id),
+                '{' . 'id' . '}',
+                ObjectSerializer::toPathValue($id),
                 $resourcePath
             );
         }
@@ -739,16 +739,16 @@ class RepoSyncsApi
      * Repository Syncs History
      *
      * @param  string $account_id Account ID (required)
-     * @param  string $repo_sync_id Repo Sync ID (required)
+     * @param  string $id ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Phrase\Model\RepoSyncEvent[]
      */
-    public function repoSyncEvents($account_id, $repo_sync_id, $x_phrase_app_otp = null)
+    public function repoSyncEvents($account_id, $id, $x_phrase_app_otp = null)
     {
-        list($response) = $this->repoSyncEventsWithHttpInfo($account_id, $repo_sync_id, $x_phrase_app_otp);
+        list($response) = $this->repoSyncEventsWithHttpInfo($account_id, $id, $x_phrase_app_otp);
         return $response;
     }
 
@@ -758,16 +758,16 @@ class RepoSyncsApi
      * Repository Syncs History
      *
      * @param  string $account_id Account ID (required)
-     * @param  string $repo_sync_id Repo Sync ID (required)
+     * @param  string $id ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Phrase\Model\RepoSyncEvent[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function repoSyncEventsWithHttpInfo($account_id, $repo_sync_id, $x_phrase_app_otp = null)
+    public function repoSyncEventsWithHttpInfo($account_id, $id, $x_phrase_app_otp = null)
     {
-        $request = $this->repoSyncEventsRequest($account_id, $repo_sync_id, $x_phrase_app_otp);
+        $request = $this->repoSyncEventsRequest($account_id, $id, $x_phrase_app_otp);
 
         try {
             $options = $this->createHttpClientOption();
@@ -848,15 +848,15 @@ class RepoSyncsApi
      * Repository Syncs History
      *
      * @param  string $account_id Account ID (required)
-     * @param  string $repo_sync_id Repo Sync ID (required)
+     * @param  string $id ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function repoSyncEventsAsync($account_id, $repo_sync_id, $x_phrase_app_otp = null)
+    public function repoSyncEventsAsync($account_id, $id, $x_phrase_app_otp = null)
     {
-        return $this->repoSyncEventsAsyncWithHttpInfo($account_id, $repo_sync_id, $x_phrase_app_otp)
+        return $this->repoSyncEventsAsyncWithHttpInfo($account_id, $id, $x_phrase_app_otp)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -870,16 +870,16 @@ class RepoSyncsApi
      * Repository Syncs History
      *
      * @param  string $account_id Account ID (required)
-     * @param  string $repo_sync_id Repo Sync ID (required)
+     * @param  string $id ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function repoSyncEventsAsyncWithHttpInfo($account_id, $repo_sync_id, $x_phrase_app_otp = null)
+    public function repoSyncEventsAsyncWithHttpInfo($account_id, $id, $x_phrase_app_otp = null)
     {
         $returnType = '\Phrase\Model\RepoSyncEvent[]';
-        $request = $this->repoSyncEventsRequest($account_id, $repo_sync_id, $x_phrase_app_otp);
+        $request = $this->repoSyncEventsRequest($account_id, $id, $x_phrase_app_otp);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -919,13 +919,13 @@ class RepoSyncsApi
      * Create request for operation 'repoSyncEvents'
      *
      * @param  string $account_id Account ID (required)
-     * @param  string $repo_sync_id Repo Sync ID (required)
+     * @param  string $id ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function repoSyncEventsRequest($account_id, $repo_sync_id, $x_phrase_app_otp = null)
+    protected function repoSyncEventsRequest($account_id, $id, $x_phrase_app_otp = null)
     {
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -933,14 +933,14 @@ class RepoSyncsApi
                 'Missing the required parameter $account_id when calling repoSyncEvents'
             );
         }
-        // verify the required parameter 'repo_sync_id' is set
-        if ($repo_sync_id === null || (is_array($repo_sync_id) && count($repo_sync_id) === 0)) {
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $repo_sync_id when calling repoSyncEvents'
+                'Missing the required parameter $id when calling repoSyncEvents'
             );
         }
 
-        $resourcePath = '/accounts/{account_id}/repo_syncs/{repo_sync_id}/events';
+        $resourcePath = '/accounts/{account_id}/repo_syncs/{id}/events';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -962,10 +962,10 @@ class RepoSyncsApi
             );
         }
         // path params
-        if ($repo_sync_id !== null) {
+        if ($id !== null) {
             $resourcePath = str_replace(
-                '{' . 'repo_sync_id' . '}',
-                ObjectSerializer::toPathValue($repo_sync_id),
+                '{' . 'id' . '}',
+                ObjectSerializer::toPathValue($id),
                 $resourcePath
             );
         }
@@ -1049,16 +1049,16 @@ class RepoSyncsApi
      * Export to code repository
      *
      * @param  string $account_id Account ID (required)
-     * @param  string $repo_sync_id Repo Sync ID (required)
+     * @param  string $id ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Phrase\Model\RepoSyncExport
      */
-    public function repoSyncExport($account_id, $repo_sync_id, $x_phrase_app_otp = null)
+    public function repoSyncExport($account_id, $id, $x_phrase_app_otp = null)
     {
-        list($response) = $this->repoSyncExportWithHttpInfo($account_id, $repo_sync_id, $x_phrase_app_otp);
+        list($response) = $this->repoSyncExportWithHttpInfo($account_id, $id, $x_phrase_app_otp);
         return $response;
     }
 
@@ -1068,16 +1068,16 @@ class RepoSyncsApi
      * Export to code repository
      *
      * @param  string $account_id Account ID (required)
-     * @param  string $repo_sync_id Repo Sync ID (required)
+     * @param  string $id ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Phrase\Model\RepoSyncExport, HTTP status code, HTTP response headers (array of strings)
      */
-    public function repoSyncExportWithHttpInfo($account_id, $repo_sync_id, $x_phrase_app_otp = null)
+    public function repoSyncExportWithHttpInfo($account_id, $id, $x_phrase_app_otp = null)
     {
-        $request = $this->repoSyncExportRequest($account_id, $repo_sync_id, $x_phrase_app_otp);
+        $request = $this->repoSyncExportRequest($account_id, $id, $x_phrase_app_otp);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1158,15 +1158,15 @@ class RepoSyncsApi
      * Export to code repository
      *
      * @param  string $account_id Account ID (required)
-     * @param  string $repo_sync_id Repo Sync ID (required)
+     * @param  string $id ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function repoSyncExportAsync($account_id, $repo_sync_id, $x_phrase_app_otp = null)
+    public function repoSyncExportAsync($account_id, $id, $x_phrase_app_otp = null)
     {
-        return $this->repoSyncExportAsyncWithHttpInfo($account_id, $repo_sync_id, $x_phrase_app_otp)
+        return $this->repoSyncExportAsyncWithHttpInfo($account_id, $id, $x_phrase_app_otp)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1180,16 +1180,16 @@ class RepoSyncsApi
      * Export to code repository
      *
      * @param  string $account_id Account ID (required)
-     * @param  string $repo_sync_id Repo Sync ID (required)
+     * @param  string $id ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function repoSyncExportAsyncWithHttpInfo($account_id, $repo_sync_id, $x_phrase_app_otp = null)
+    public function repoSyncExportAsyncWithHttpInfo($account_id, $id, $x_phrase_app_otp = null)
     {
         $returnType = '\Phrase\Model\RepoSyncExport';
-        $request = $this->repoSyncExportRequest($account_id, $repo_sync_id, $x_phrase_app_otp);
+        $request = $this->repoSyncExportRequest($account_id, $id, $x_phrase_app_otp);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1229,13 +1229,13 @@ class RepoSyncsApi
      * Create request for operation 'repoSyncExport'
      *
      * @param  string $account_id Account ID (required)
-     * @param  string $repo_sync_id Repo Sync ID (required)
+     * @param  string $id ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function repoSyncExportRequest($account_id, $repo_sync_id, $x_phrase_app_otp = null)
+    protected function repoSyncExportRequest($account_id, $id, $x_phrase_app_otp = null)
     {
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -1243,14 +1243,14 @@ class RepoSyncsApi
                 'Missing the required parameter $account_id when calling repoSyncExport'
             );
         }
-        // verify the required parameter 'repo_sync_id' is set
-        if ($repo_sync_id === null || (is_array($repo_sync_id) && count($repo_sync_id) === 0)) {
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $repo_sync_id when calling repoSyncExport'
+                'Missing the required parameter $id when calling repoSyncExport'
             );
         }
 
-        $resourcePath = '/accounts/{account_id}/repo_syncs/{repo_sync_id}/export';
+        $resourcePath = '/accounts/{account_id}/repo_syncs/{id}/export';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1272,10 +1272,10 @@ class RepoSyncsApi
             );
         }
         // path params
-        if ($repo_sync_id !== null) {
+        if ($id !== null) {
             $resourcePath = str_replace(
-                '{' . 'repo_sync_id' . '}',
-                ObjectSerializer::toPathValue($repo_sync_id),
+                '{' . 'id' . '}',
+                ObjectSerializer::toPathValue($id),
                 $resourcePath
             );
         }
@@ -1359,16 +1359,16 @@ class RepoSyncsApi
      * Import from code repository
      *
      * @param  string $account_id Account ID (required)
-     * @param  string $repo_sync_id Repo Sync ID (required)
+     * @param  string $id ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Phrase\Model\RepoSyncImport
      */
-    public function repoSyncImport($account_id, $repo_sync_id, $x_phrase_app_otp = null)
+    public function repoSyncImport($account_id, $id, $x_phrase_app_otp = null)
     {
-        list($response) = $this->repoSyncImportWithHttpInfo($account_id, $repo_sync_id, $x_phrase_app_otp);
+        list($response) = $this->repoSyncImportWithHttpInfo($account_id, $id, $x_phrase_app_otp);
         return $response;
     }
 
@@ -1378,16 +1378,16 @@ class RepoSyncsApi
      * Import from code repository
      *
      * @param  string $account_id Account ID (required)
-     * @param  string $repo_sync_id Repo Sync ID (required)
+     * @param  string $id ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Phrase\Model\RepoSyncImport, HTTP status code, HTTP response headers (array of strings)
      */
-    public function repoSyncImportWithHttpInfo($account_id, $repo_sync_id, $x_phrase_app_otp = null)
+    public function repoSyncImportWithHttpInfo($account_id, $id, $x_phrase_app_otp = null)
     {
-        $request = $this->repoSyncImportRequest($account_id, $repo_sync_id, $x_phrase_app_otp);
+        $request = $this->repoSyncImportRequest($account_id, $id, $x_phrase_app_otp);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1468,15 +1468,15 @@ class RepoSyncsApi
      * Import from code repository
      *
      * @param  string $account_id Account ID (required)
-     * @param  string $repo_sync_id Repo Sync ID (required)
+     * @param  string $id ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function repoSyncImportAsync($account_id, $repo_sync_id, $x_phrase_app_otp = null)
+    public function repoSyncImportAsync($account_id, $id, $x_phrase_app_otp = null)
     {
-        return $this->repoSyncImportAsyncWithHttpInfo($account_id, $repo_sync_id, $x_phrase_app_otp)
+        return $this->repoSyncImportAsyncWithHttpInfo($account_id, $id, $x_phrase_app_otp)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1490,16 +1490,16 @@ class RepoSyncsApi
      * Import from code repository
      *
      * @param  string $account_id Account ID (required)
-     * @param  string $repo_sync_id Repo Sync ID (required)
+     * @param  string $id ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function repoSyncImportAsyncWithHttpInfo($account_id, $repo_sync_id, $x_phrase_app_otp = null)
+    public function repoSyncImportAsyncWithHttpInfo($account_id, $id, $x_phrase_app_otp = null)
     {
         $returnType = '\Phrase\Model\RepoSyncImport';
-        $request = $this->repoSyncImportRequest($account_id, $repo_sync_id, $x_phrase_app_otp);
+        $request = $this->repoSyncImportRequest($account_id, $id, $x_phrase_app_otp);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1539,13 +1539,13 @@ class RepoSyncsApi
      * Create request for operation 'repoSyncImport'
      *
      * @param  string $account_id Account ID (required)
-     * @param  string $repo_sync_id Repo Sync ID (required)
+     * @param  string $id ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function repoSyncImportRequest($account_id, $repo_sync_id, $x_phrase_app_otp = null)
+    protected function repoSyncImportRequest($account_id, $id, $x_phrase_app_otp = null)
     {
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -1553,14 +1553,14 @@ class RepoSyncsApi
                 'Missing the required parameter $account_id when calling repoSyncImport'
             );
         }
-        // verify the required parameter 'repo_sync_id' is set
-        if ($repo_sync_id === null || (is_array($repo_sync_id) && count($repo_sync_id) === 0)) {
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $repo_sync_id when calling repoSyncImport'
+                'Missing the required parameter $id when calling repoSyncImport'
             );
         }
 
-        $resourcePath = '/accounts/{account_id}/repo_syncs/{repo_sync_id}/import';
+        $resourcePath = '/accounts/{account_id}/repo_syncs/{id}/import';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1582,10 +1582,10 @@ class RepoSyncsApi
             );
         }
         // path params
-        if ($repo_sync_id !== null) {
+        if ($id !== null) {
             $resourcePath = str_replace(
-                '{' . 'repo_sync_id' . '}',
-                ObjectSerializer::toPathValue($repo_sync_id),
+                '{' . 'id' . '}',
+                ObjectSerializer::toPathValue($id),
                 $resourcePath
             );
         }
@@ -1960,16 +1960,16 @@ class RepoSyncsApi
      * Get a single Repo Sync
      *
      * @param  string $account_id Account ID (required)
-     * @param  string $repo_sync_id Repo Sync ID (required)
+     * @param  string $id ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Phrase\Model\RepoSync
      */
-    public function repoSyncShow($account_id, $repo_sync_id, $x_phrase_app_otp = null)
+    public function repoSyncShow($account_id, $id, $x_phrase_app_otp = null)
     {
-        list($response) = $this->repoSyncShowWithHttpInfo($account_id, $repo_sync_id, $x_phrase_app_otp);
+        list($response) = $this->repoSyncShowWithHttpInfo($account_id, $id, $x_phrase_app_otp);
         return $response;
     }
 
@@ -1979,16 +1979,16 @@ class RepoSyncsApi
      * Get a single Repo Sync
      *
      * @param  string $account_id Account ID (required)
-     * @param  string $repo_sync_id Repo Sync ID (required)
+     * @param  string $id ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Phrase\Model\RepoSync, HTTP status code, HTTP response headers (array of strings)
      */
-    public function repoSyncShowWithHttpInfo($account_id, $repo_sync_id, $x_phrase_app_otp = null)
+    public function repoSyncShowWithHttpInfo($account_id, $id, $x_phrase_app_otp = null)
     {
-        $request = $this->repoSyncShowRequest($account_id, $repo_sync_id, $x_phrase_app_otp);
+        $request = $this->repoSyncShowRequest($account_id, $id, $x_phrase_app_otp);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2069,15 +2069,15 @@ class RepoSyncsApi
      * Get a single Repo Sync
      *
      * @param  string $account_id Account ID (required)
-     * @param  string $repo_sync_id Repo Sync ID (required)
+     * @param  string $id ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function repoSyncShowAsync($account_id, $repo_sync_id, $x_phrase_app_otp = null)
+    public function repoSyncShowAsync($account_id, $id, $x_phrase_app_otp = null)
     {
-        return $this->repoSyncShowAsyncWithHttpInfo($account_id, $repo_sync_id, $x_phrase_app_otp)
+        return $this->repoSyncShowAsyncWithHttpInfo($account_id, $id, $x_phrase_app_otp)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2091,16 +2091,16 @@ class RepoSyncsApi
      * Get a single Repo Sync
      *
      * @param  string $account_id Account ID (required)
-     * @param  string $repo_sync_id Repo Sync ID (required)
+     * @param  string $id ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function repoSyncShowAsyncWithHttpInfo($account_id, $repo_sync_id, $x_phrase_app_otp = null)
+    public function repoSyncShowAsyncWithHttpInfo($account_id, $id, $x_phrase_app_otp = null)
     {
         $returnType = '\Phrase\Model\RepoSync';
-        $request = $this->repoSyncShowRequest($account_id, $repo_sync_id, $x_phrase_app_otp);
+        $request = $this->repoSyncShowRequest($account_id, $id, $x_phrase_app_otp);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2140,13 +2140,13 @@ class RepoSyncsApi
      * Create request for operation 'repoSyncShow'
      *
      * @param  string $account_id Account ID (required)
-     * @param  string $repo_sync_id Repo Sync ID (required)
+     * @param  string $id ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function repoSyncShowRequest($account_id, $repo_sync_id, $x_phrase_app_otp = null)
+    protected function repoSyncShowRequest($account_id, $id, $x_phrase_app_otp = null)
     {
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -2154,14 +2154,14 @@ class RepoSyncsApi
                 'Missing the required parameter $account_id when calling repoSyncShow'
             );
         }
-        // verify the required parameter 'repo_sync_id' is set
-        if ($repo_sync_id === null || (is_array($repo_sync_id) && count($repo_sync_id) === 0)) {
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $repo_sync_id when calling repoSyncShow'
+                'Missing the required parameter $id when calling repoSyncShow'
             );
         }
 
-        $resourcePath = '/accounts/{account_id}/repo_syncs/{repo_sync_id}';
+        $resourcePath = '/accounts/{account_id}/repo_syncs/{id}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2183,10 +2183,10 @@ class RepoSyncsApi
             );
         }
         // path params
-        if ($repo_sync_id !== null) {
+        if ($id !== null) {
             $resourcePath = str_replace(
-                '{' . 'repo_sync_id' . '}',
-                ObjectSerializer::toPathValue($repo_sync_id),
+                '{' . 'id' . '}',
+                ObjectSerializer::toPathValue($id),
                 $resourcePath
             );
         }
