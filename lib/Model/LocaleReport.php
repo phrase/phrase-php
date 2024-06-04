@@ -56,10 +56,10 @@ class LocaleReport implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'keys_count' => 'int',
-        'translated_translations_percentage' => 'int',
-        'unverified_translations_percentage' => 'int',
-        'reviewed_translations_percentage' => 'int',
-        'untranslated_keys_percentage' => 'int',
+        'translated_translations_percentage' => 'float',
+        'unverified_translations_percentage' => 'float',
+        'reviewed_translations_percentage' => 'float',
+        'untranslated_keys_percentage' => 'float',
         'completed_translations_count' => 'int',
         'untranslated_keys_count' => 'int',
         'unverified_translations_count' => 'int',
@@ -307,7 +307,7 @@ class LocaleReport implements ModelInterface, ArrayAccess
     /**
      * Gets translated_translations_percentage
      *
-     * @return int|null
+     * @return float|null
      */
     public function getTranslatedTranslationsPercentage()
     {
@@ -317,7 +317,7 @@ class LocaleReport implements ModelInterface, ArrayAccess
     /**
      * Sets translated_translations_percentage
      *
-     * @param int|null $translated_translations_percentage translated_translations_percentage
+     * @param float|null $translated_translations_percentage translated_translations_percentage
      *
      * @return $this
      */
@@ -331,7 +331,7 @@ class LocaleReport implements ModelInterface, ArrayAccess
     /**
      * Gets unverified_translations_percentage
      *
-     * @return int|null
+     * @return float|null
      */
     public function getUnverifiedTranslationsPercentage()
     {
@@ -341,7 +341,7 @@ class LocaleReport implements ModelInterface, ArrayAccess
     /**
      * Sets unverified_translations_percentage
      *
-     * @param int|null $unverified_translations_percentage unverified_translations_percentage
+     * @param float|null $unverified_translations_percentage unverified_translations_percentage
      *
      * @return $this
      */
@@ -355,7 +355,7 @@ class LocaleReport implements ModelInterface, ArrayAccess
     /**
      * Gets reviewed_translations_percentage
      *
-     * @return int|null
+     * @return float|null
      */
     public function getReviewedTranslationsPercentage()
     {
@@ -365,7 +365,7 @@ class LocaleReport implements ModelInterface, ArrayAccess
     /**
      * Sets reviewed_translations_percentage
      *
-     * @param int|null $reviewed_translations_percentage reviewed_translations_percentage
+     * @param float|null $reviewed_translations_percentage reviewed_translations_percentage
      *
      * @return $this
      */
@@ -379,7 +379,7 @@ class LocaleReport implements ModelInterface, ArrayAccess
     /**
      * Gets untranslated_keys_percentage
      *
-     * @return int|null
+     * @return float|null
      */
     public function getUntranslatedKeysPercentage()
     {
@@ -389,7 +389,7 @@ class LocaleReport implements ModelInterface, ArrayAccess
     /**
      * Sets untranslated_keys_percentage
      *
-     * @param int|null $untranslated_keys_percentage untranslated_keys_percentage
+     * @param float|null $untranslated_keys_percentage untranslated_keys_percentage
      *
      * @return $this
      */
