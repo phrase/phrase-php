@@ -41,6 +41,7 @@ docs/Api/OrganizationJobTemplateLocalesApi.md
 docs/Api/OrganizationJobTemplatesApi.md
 docs/Api/ProjectsApi.md
 docs/Api/QualityPerformanceScoreApi.md
+docs/Api/ReleaseTriggersApi.md
 docs/Api/ReleasesApi.md
 docs/Api/RepoSyncsApi.md
 docs/Api/ReportsApi.md
@@ -206,8 +207,11 @@ docs/Model/ProjectsQualityPerformanceScore200ResponseAnyOfErrorsInner.md
 docs/Model/ProjectsQualityPerformanceScoreRequest.md
 docs/Model/Release.md
 docs/Model/ReleaseCreateParameters.md
+docs/Model/ReleaseCreateParameters1.md
 docs/Model/ReleasePreview.md
+docs/Model/ReleaseTrigger.md
 docs/Model/ReleaseUpdateParameters.md
+docs/Model/ReleaseUpdateParameters1.md
 docs/Model/RepliesListParameters.md
 docs/Model/RepoSync.md
 docs/Model/RepoSyncEvent.md
@@ -314,6 +318,7 @@ lib/Api/OrganizationJobTemplateLocalesApi.php
 lib/Api/OrganizationJobTemplatesApi.php
 lib/Api/ProjectsApi.php
 lib/Api/QualityPerformanceScoreApi.php
+lib/Api/ReleaseTriggersApi.php
 lib/Api/ReleasesApi.php
 lib/Api/RepoSyncsApi.php
 lib/Api/ReportsApi.php
@@ -483,8 +488,11 @@ lib/Model/ProjectsQualityPerformanceScore200ResponseAnyOfErrorsInner.php
 lib/Model/ProjectsQualityPerformanceScoreRequest.php
 lib/Model/Release.php
 lib/Model/ReleaseCreateParameters.php
+lib/Model/ReleaseCreateParameters1.php
 lib/Model/ReleasePreview.php
+lib/Model/ReleaseTrigger.php
 lib/Model/ReleaseUpdateParameters.php
+lib/Model/ReleaseUpdateParameters1.php
 lib/Model/RepliesListParameters.php
 lib/Model/RepoSync.php
 lib/Model/RepoSyncEvent.php
@@ -590,6 +598,7 @@ test/Api/OrganizationJobTemplateLocalesApiTest.php
 test/Api/OrganizationJobTemplatesApiTest.php
 test/Api/ProjectsApiTest.php
 test/Api/QualityPerformanceScoreApiTest.php
+test/Api/ReleaseTriggersApiTest.php
 test/Api/ReleasesApiTest.php
 test/Api/RepoSyncsApiTest.php
 test/Api/ReportsApiTest.php
@@ -752,9 +761,12 @@ test/Model/ProjectsQualityPerformanceScore200ResponseAnyOfErrorsInnerTest.php
 test/Model/ProjectsQualityPerformanceScore200ResponseAnyOfTest.php
 test/Model/ProjectsQualityPerformanceScore200ResponseTest.php
 test/Model/ProjectsQualityPerformanceScoreRequestTest.php
+test/Model/ReleaseCreateParameters1Test.php
 test/Model/ReleaseCreateParametersTest.php
 test/Model/ReleasePreviewTest.php
 test/Model/ReleaseTest.php
+test/Model/ReleaseTriggerTest.php
+test/Model/ReleaseUpdateParameters1Test.php
 test/Model/ReleaseUpdateParametersTest.php
 test/Model/RepliesListParametersTest.php
 test/Model/RepoSyncEventErrorsInnerTest.php
