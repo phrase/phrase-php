@@ -59,6 +59,8 @@ class ReleaseCreateParameters implements ModelInterface, ArrayAccess
         'platforms' => 'string[]',
         'locale_ids' => 'string[]',
         'tags' => 'string[]',
+        'app_min_version' => 'string',
+        'app_max_version' => 'string',
         'branch' => 'string'
     ];
 
@@ -72,6 +74,8 @@ class ReleaseCreateParameters implements ModelInterface, ArrayAccess
         'platforms' => null,
         'locale_ids' => null,
         'tags' => null,
+        'app_min_version' => null,
+        'app_max_version' => null,
         'branch' => null
     ];
 
@@ -106,6 +110,8 @@ class ReleaseCreateParameters implements ModelInterface, ArrayAccess
         'platforms' => 'platforms',
         'locale_ids' => 'locale_ids',
         'tags' => 'tags',
+        'app_min_version' => 'app_min_version',
+        'app_max_version' => 'app_max_version',
         'branch' => 'branch'
     ];
 
@@ -119,6 +125,8 @@ class ReleaseCreateParameters implements ModelInterface, ArrayAccess
         'platforms' => 'setPlatforms',
         'locale_ids' => 'setLocaleIds',
         'tags' => 'setTags',
+        'app_min_version' => 'setAppMinVersion',
+        'app_max_version' => 'setAppMaxVersion',
         'branch' => 'setBranch'
     ];
 
@@ -132,6 +140,8 @@ class ReleaseCreateParameters implements ModelInterface, ArrayAccess
         'platforms' => 'getPlatforms',
         'locale_ids' => 'getLocaleIds',
         'tags' => 'getTags',
+        'app_min_version' => 'getAppMinVersion',
+        'app_max_version' => 'getAppMaxVersion',
         'branch' => 'getBranch'
     ];
 
@@ -199,6 +209,8 @@ class ReleaseCreateParameters implements ModelInterface, ArrayAccess
         $this->container['platforms'] = isset($data['platforms']) ? $data['platforms'] : null;
         $this->container['locale_ids'] = isset($data['locale_ids']) ? $data['locale_ids'] : null;
         $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
+        $this->container['app_min_version'] = isset($data['app_min_version']) ? $data['app_min_version'] : null;
+        $this->container['app_max_version'] = isset($data['app_max_version']) ? $data['app_max_version'] : null;
         $this->container['branch'] = isset($data['branch']) ? $data['branch'] : null;
     }
 
@@ -318,6 +330,54 @@ class ReleaseCreateParameters implements ModelInterface, ArrayAccess
     public function setTags($tags)
     {
         $this->container['tags'] = $tags;
+
+        return $this;
+    }
+
+    /**
+     * Gets app_min_version
+     *
+     * @return string|null
+     */
+    public function getAppMinVersion()
+    {
+        return $this->container['app_min_version'];
+    }
+
+    /**
+     * Sets app_min_version
+     *
+     * @param string|null $app_min_version Minimum version of the app that the release supports in semver format
+     *
+     * @return $this
+     */
+    public function setAppMinVersion($app_min_version)
+    {
+        $this->container['app_min_version'] = $app_min_version;
+
+        return $this;
+    }
+
+    /**
+     * Gets app_max_version
+     *
+     * @return string|null
+     */
+    public function getAppMaxVersion()
+    {
+        return $this->container['app_max_version'];
+    }
+
+    /**
+     * Sets app_max_version
+     *
+     * @param string|null $app_max_version Maximum version of the app that the release supports in semver format
+     *
+     * @return $this
+     */
+    public function setAppMaxVersion($app_max_version)
+    {
+        $this->container['app_max_version'] = $app_max_version;
 
         return $this;
     }

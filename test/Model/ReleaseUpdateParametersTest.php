@@ -91,6 +91,20 @@ class ReleaseUpdateParametersTest extends TestCase
     }
 
     /**
+     * Test attribute "app_min_version"
+     */
+    public function testPropertyAppMinVersion()
+    {
+    }
+
+    /**
+     * Test attribute "app_max_version"
+     */
+    public function testPropertyAppMaxVersion()
+    {
+    }
+
+    /**
      * Test attribute "branch"
      */
     public function testPropertyBranch()

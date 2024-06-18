@@ -57,6 +57,8 @@ class ReleaseUpdateParameters implements ModelInterface, ArrayAccess
     protected static $openAPITypes = [
         'description' => 'string',
         'platforms' => 'string[]',
+        'app_min_version' => 'string',
+        'app_max_version' => 'string',
         'branch' => 'string'
     ];
 
@@ -68,6 +70,8 @@ class ReleaseUpdateParameters implements ModelInterface, ArrayAccess
     protected static $openAPIFormats = [
         'description' => null,
         'platforms' => null,
+        'app_min_version' => null,
+        'app_max_version' => null,
         'branch' => null
     ];
 
@@ -100,6 +104,8 @@ class ReleaseUpdateParameters implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'description' => 'description',
         'platforms' => 'platforms',
+        'app_min_version' => 'app_min_version',
+        'app_max_version' => 'app_max_version',
         'branch' => 'branch'
     ];
 
@@ -111,6 +117,8 @@ class ReleaseUpdateParameters implements ModelInterface, ArrayAccess
     protected static $setters = [
         'description' => 'setDescription',
         'platforms' => 'setPlatforms',
+        'app_min_version' => 'setAppMinVersion',
+        'app_max_version' => 'setAppMaxVersion',
         'branch' => 'setBranch'
     ];
 
@@ -122,6 +130,8 @@ class ReleaseUpdateParameters implements ModelInterface, ArrayAccess
     protected static $getters = [
         'description' => 'getDescription',
         'platforms' => 'getPlatforms',
+        'app_min_version' => 'getAppMinVersion',
+        'app_max_version' => 'getAppMaxVersion',
         'branch' => 'getBranch'
     ];
 
@@ -187,6 +197,8 @@ class ReleaseUpdateParameters implements ModelInterface, ArrayAccess
     {
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['platforms'] = isset($data['platforms']) ? $data['platforms'] : null;
+        $this->container['app_min_version'] = isset($data['app_min_version']) ? $data['app_min_version'] : null;
+        $this->container['app_max_version'] = isset($data['app_max_version']) ? $data['app_max_version'] : null;
         $this->container['branch'] = isset($data['branch']) ? $data['branch'] : null;
     }
 
@@ -258,6 +270,54 @@ class ReleaseUpdateParameters implements ModelInterface, ArrayAccess
     public function setPlatforms($platforms)
     {
         $this->container['platforms'] = $platforms;
+
+        return $this;
+    }
+
+    /**
+     * Gets app_min_version
+     *
+     * @return string|null
+     */
+    public function getAppMinVersion()
+    {
+        return $this->container['app_min_version'];
+    }
+
+    /**
+     * Sets app_min_version
+     *
+     * @param string|null $app_min_version Minimum version of the app that the release supports in semver format
+     *
+     * @return $this
+     */
+    public function setAppMinVersion($app_min_version)
+    {
+        $this->container['app_min_version'] = $app_min_version;
+
+        return $this;
+    }
+
+    /**
+     * Gets app_max_version
+     *
+     * @return string|null
+     */
+    public function getAppMaxVersion()
+    {
+        return $this->container['app_max_version'];
+    }
+
+    /**
+     * Sets app_max_version
+     *
+     * @param string|null $app_max_version Maximum version of the app that the release supports in semver format
+     *
+     * @return $this
+     */
+    public function setAppMaxVersion($app_max_version)
+    {
+        $this->container['app_max_version'] = $app_max_version;
 
         return $this;
     }
