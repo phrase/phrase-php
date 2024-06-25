@@ -32,6 +32,7 @@ docs/Api/JobsApi.md
 docs/Api/KeysApi.md
 docs/Api/KeysFigmaAttachmentsApi.md
 docs/Api/LinkedKeysApi.md
+docs/Api/LocaleDownloadsApi.md
 docs/Api/LocalesApi.md
 docs/Api/MembersApi.md
 docs/Api/NotificationGroupsApi.md
@@ -168,6 +169,10 @@ docs/Model/KeysUntagParameters.md
 docs/Model/Locale.md
 docs/Model/LocaleCreateParameters.md
 docs/Model/LocaleDetails.md
+docs/Model/LocaleDownload.md
+docs/Model/LocaleDownloadCreateParameters.md
+docs/Model/LocaleDownloadParams.md
+docs/Model/LocaleDownloadResult.md
 docs/Model/LocalePreview.md
 docs/Model/LocalePreview1.md
 docs/Model/LocaleReport.md
@@ -309,6 +314,7 @@ lib/Api/JobsApi.php
 lib/Api/KeysApi.php
 lib/Api/KeysFigmaAttachmentsApi.php
 lib/Api/LinkedKeysApi.php
+lib/Api/LocaleDownloadsApi.php
 lib/Api/LocalesApi.php
 lib/Api/MembersApi.php
 lib/Api/NotificationGroupsApi.php
@@ -448,6 +454,10 @@ lib/Model/KeysUntagParameters.php
 lib/Model/Locale.php
 lib/Model/LocaleCreateParameters.php
 lib/Model/LocaleDetails.php
+lib/Model/LocaleDownload.php
+lib/Model/LocaleDownloadCreateParameters.php
+lib/Model/LocaleDownloadParams.php
+lib/Model/LocaleDownloadResult.php
 lib/Model/LocalePreview.php
 lib/Model/LocalePreview1.php
 lib/Model/LocaleReport.php
@@ -590,6 +600,7 @@ test/Api/JobTemplatesApiTest.php
 test/Api/JobsApiTest.php
 test/Api/KeysFigmaAttachmentsApiTest.php
 test/Api/LinkedKeysApiTest.php
+test/Api/LocaleDownloadsApiTest.php
 test/Api/MembersApiTest.php
 test/Api/NotificationGroupsApiTest.php
 test/Api/NotificationsApiTest.php
@@ -723,6 +734,10 @@ test/Model/KeysTagParametersTest.php
 test/Model/KeysUntagParametersTest.php
 test/Model/LocaleCreateParametersTest.php
 test/Model/LocaleDetailsTest.php
+test/Model/LocaleDownloadCreateParametersTest.php
+test/Model/LocaleDownloadParamsTest.php
+test/Model/LocaleDownloadResultTest.php
+test/Model/LocaleDownloadTest.php
 test/Model/LocalePreview1Test.php
 test/Model/LocalePreviewTest.php
 test/Model/LocaleReportTest.php
