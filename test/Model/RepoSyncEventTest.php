@@ -77,6 +77,13 @@ class RepoSyncEventTest extends TestCase
     }
 
     /**
+     * Test attribute "id"
+     */
+    public function testPropertyId()
+    {
+    }
+
+    /**
      * Test attribute "event_type"
      */
     public function testPropertyEventType()

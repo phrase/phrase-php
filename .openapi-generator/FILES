@@ -221,8 +221,6 @@ docs/Model/RepliesListParameters.md
 docs/Model/RepoSync.md
 docs/Model/RepoSyncEvent.md
 docs/Model/RepoSyncEventErrorsInner.md
-docs/Model/RepoSyncExport.md
-docs/Model/RepoSyncImport.md
 docs/Model/Screenshot.md
 docs/Model/ScreenshotMarker.md
 docs/Model/ScreenshotMarkerCreateParameters.md
@@ -507,8 +505,6 @@ lib/Model/RepliesListParameters.php
 lib/Model/RepoSync.php
 lib/Model/RepoSyncEvent.php
 lib/Model/RepoSyncEventErrorsInner.php
-lib/Model/RepoSyncExport.php
-lib/Model/RepoSyncImport.php
 lib/Model/Screenshot.php
 lib/Model/ScreenshotMarker.php
 lib/Model/ScreenshotMarkerCreateParameters.php
@@ -786,8 +782,6 @@ test/Model/ReleaseUpdateParametersTest.php
 test/Model/RepliesListParametersTest.php
 test/Model/RepoSyncEventErrorsInnerTest.php
 test/Model/RepoSyncEventTest.php
-test/Model/RepoSyncExportTest.php
-test/Model/RepoSyncImportTest.php
 test/Model/RepoSyncTest.php
 test/Model/ScreenshotMarkerCreateParametersTest.php
 test/Model/ScreenshotMarkerTest.php

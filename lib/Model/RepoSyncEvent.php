@@ -55,6 +55,7 @@ class RepoSyncEvent implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
+        'id' => 'string',
         'event_type' => 'string',
         'created_at' => '\DateTime',
         'status' => 'string',
@@ -69,6 +70,7 @@ class RepoSyncEvent implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
+        'id' => null,
         'event_type' => null,
         'created_at' => 'date-time',
         'status' => null,
@@ -104,6 +106,7 @@ class RepoSyncEvent implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'id' => 'id',
         'event_type' => 'event_type',
         'created_at' => 'created_at',
         'status' => 'status',
@@ -118,6 +121,7 @@ class RepoSyncEvent implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'id' => 'setId',
         'event_type' => 'setEventType',
         'created_at' => 'setCreatedAt',
         'status' => 'setStatus',
@@ -132,6 +136,7 @@ class RepoSyncEvent implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'id' => 'getId',
         'event_type' => 'getEventType',
         'created_at' => 'getCreatedAt',
         'status' => 'getStatus',
@@ -232,6 +237,7 @@ class RepoSyncEvent implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['event_type'] = isset($data['event_type']) ? $data['event_type'] : null;
         $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
@@ -279,6 +285,30 @@ class RepoSyncEvent implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets id
+     *
+     * @return string|null
+     */
+    public function getId()
+    {
+        return $this->container['id'];
+    }
+
+    /**
+     * Sets id
+     *
+     * @param string|null $id id
+     *
+     * @return $this
+     */
+    public function setId($id)
+    {
+        $this->container['id'] = $id;
+
+        return $this;
+    }
 
     /**
      * Gets event_type

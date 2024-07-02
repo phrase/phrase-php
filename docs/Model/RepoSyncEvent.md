@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**id** | **string** |  | [optional] 
 **event_type** | **string** |  | [optional] 
 **created_at** | **\DateTime** |  | [optional] 
 **status** | **string** |  | [optional] 

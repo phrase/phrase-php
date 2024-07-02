@@ -91,6 +91,16 @@ class RepoSyncsApiTest extends TestCase
     }
 
     /**
+     * Test case for repoSyncEventShow
+     *
+     * Get a single Repo Sync Event.
+     *
+     */
+    public function testRepoSyncEventShow()
+    {
+    }
+
+    /**
      * Test case for repoSyncEvents
      *
      * Repository Syncs History.
