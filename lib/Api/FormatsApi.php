@@ -376,7 +376,7 @@ class FormatsApi
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
+        $query = http_build_query($queryParams);
         return new Request(
             'GET',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
