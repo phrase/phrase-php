@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 ## uploadCreate
 
-> \Phrase\Model\Upload uploadCreate($project_id, $file, $file_format, $locale_id, $x_phrase_app_otp, $branch, $tags, $update_translations, $update_translation_keys, $update_descriptions, $convert_emoji, $skip_upload_tags, $skip_unverification, $file_encoding, $locale_mapping, $format_options, $autotranslate, $mark_reviewed, $tag_only_affected_keys)
+> \Phrase\Model\Upload uploadCreate($project_id, $file, $file_format, $locale_id, $x_phrase_app_otp, $branch, $tags, $update_translations, $update_translation_keys, $update_translations_on_source_match, $update_descriptions, $convert_emoji, $skip_upload_tags, $skip_unverification, $file_encoding, $locale_mapping, $format_options, $autotranslate, $mark_reviewed, $tag_only_affected_keys)
 
 Upload a new file
 
@@ -42,6 +42,7 @@ $branch = 'branch_example'; // string | specify the branch to use
 $tags = 'tags_example'; // string | List of tags separated by comma to be associated with the new keys contained in the upload.
 $update_translations = True; // bool | Indicates whether existing translations should be updated with the file content.
 $update_translation_keys = true; // bool | Pass `false` here to prevent new keys from being created and existing keys updated.
+$update_translations_on_source_match = false; // bool | Update target translations only if the source translations of the uploaded multilingual file match the stored translations.
 $update_descriptions = True; // bool | Existing key descriptions will be updated with the file content. Empty descriptions overwrite existing descriptions.
 $convert_emoji = True; // bool | This option is obsolete. Providing the option will cause a bad request error.
 $skip_upload_tags = True; // bool | Indicates whether the upload should not create upload tags.
@@ -54,7 +55,7 @@ $mark_reviewed = True; // bool | Indicated whether the imported translations sho
 $tag_only_affected_keys = false; // bool | Indicates whether only keys affected (created or updated) by the upload should be tagged. The default is `false`
 
 try {
-    $result = $apiInstance->uploadCreate($project_id, $file, $file_format, $locale_id, $x_phrase_app_otp, $branch, $tags, $update_translations, $update_translation_keys, $update_descriptions, $convert_emoji, $skip_upload_tags, $skip_unverification, $file_encoding, $locale_mapping, $format_options, $autotranslate, $mark_reviewed, $tag_only_affected_keys);
+    $result = $apiInstance->uploadCreate($project_id, $file, $file_format, $locale_id, $x_phrase_app_otp, $branch, $tags, $update_translations, $update_translation_keys, $update_translations_on_source_match, $update_descriptions, $convert_emoji, $skip_upload_tags, $skip_unverification, $file_encoding, $locale_mapping, $format_options, $autotranslate, $mark_reviewed, $tag_only_affected_keys);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling UploadsApi->uploadCreate: ', $e->getMessage(), PHP_EOL;
@@ -76,6 +77,7 @@ Name | Type | Description  | Notes
  **tags** | **string**| List of tags separated by comma to be associated with the new keys contained in the upload. | [optional]
  **update_translations** | **bool**| Indicates whether existing translations should be updated with the file content. | [optional]
  **update_translation_keys** | **bool**| Pass &#x60;false&#x60; here to prevent new keys from being created and existing keys updated. | [optional] [default to true]
+ **update_translations_on_source_match** | **bool**| Update target translations only if the source translations of the uploaded multilingual file match the stored translations. | [optional] [default to false]
  **update_descriptions** | **bool**| Existing key descriptions will be updated with the file content. Empty descriptions overwrite existing descriptions. | [optional]
  **convert_emoji** | **bool**| This option is obsolete. Providing the option will cause a bad request error. | [optional]
  **skip_upload_tags** | **bool**| Indicates whether the upload should not create upload tags. | [optional]
