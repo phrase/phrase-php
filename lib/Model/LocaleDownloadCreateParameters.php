@@ -66,6 +66,7 @@ class LocaleDownloadCreateParameters implements ModelInterface, ArrayAccess
         'encoding' => 'string',
         'include_unverified_translations' => 'bool',
         'use_last_reviewed_version' => 'bool',
+        'locale_ids' => 'string[]',
         'fallback_locale_id' => 'string',
         'source_locale_id' => 'string',
         'custom_metadata_filters' => 'object'
@@ -88,6 +89,7 @@ class LocaleDownloadCreateParameters implements ModelInterface, ArrayAccess
         'encoding' => null,
         'include_unverified_translations' => null,
         'use_last_reviewed_version' => null,
+        'locale_ids' => null,
         'fallback_locale_id' => null,
         'source_locale_id' => null,
         'custom_metadata_filters' => null
@@ -131,6 +133,7 @@ class LocaleDownloadCreateParameters implements ModelInterface, ArrayAccess
         'encoding' => 'encoding',
         'include_unverified_translations' => 'include_unverified_translations',
         'use_last_reviewed_version' => 'use_last_reviewed_version',
+        'locale_ids' => 'locale_ids',
         'fallback_locale_id' => 'fallback_locale_id',
         'source_locale_id' => 'source_locale_id',
         'custom_metadata_filters' => 'custom_metadata_filters'
@@ -153,6 +156,7 @@ class LocaleDownloadCreateParameters implements ModelInterface, ArrayAccess
         'encoding' => 'setEncoding',
         'include_unverified_translations' => 'setIncludeUnverifiedTranslations',
         'use_last_reviewed_version' => 'setUseLastReviewedVersion',
+        'locale_ids' => 'setLocaleIds',
         'fallback_locale_id' => 'setFallbackLocaleId',
         'source_locale_id' => 'setSourceLocaleId',
         'custom_metadata_filters' => 'setCustomMetadataFilters'
@@ -175,6 +179,7 @@ class LocaleDownloadCreateParameters implements ModelInterface, ArrayAccess
         'encoding' => 'getEncoding',
         'include_unverified_translations' => 'getIncludeUnverifiedTranslations',
         'use_last_reviewed_version' => 'getUseLastReviewedVersion',
+        'locale_ids' => 'getLocaleIds',
         'fallback_locale_id' => 'getFallbackLocaleId',
         'source_locale_id' => 'getSourceLocaleId',
         'custom_metadata_filters' => 'getCustomMetadataFilters'
@@ -251,6 +256,7 @@ class LocaleDownloadCreateParameters implements ModelInterface, ArrayAccess
         $this->container['encoding'] = isset($data['encoding']) ? $data['encoding'] : null;
         $this->container['include_unverified_translations'] = isset($data['include_unverified_translations']) ? $data['include_unverified_translations'] : null;
         $this->container['use_last_reviewed_version'] = isset($data['use_last_reviewed_version']) ? $data['use_last_reviewed_version'] : null;
+        $this->container['locale_ids'] = isset($data['locale_ids']) ? $data['locale_ids'] : null;
         $this->container['fallback_locale_id'] = isset($data['fallback_locale_id']) ? $data['fallback_locale_id'] : null;
         $this->container['source_locale_id'] = isset($data['source_locale_id']) ? $data['source_locale_id'] : null;
         $this->container['custom_metadata_filters'] = isset($data['custom_metadata_filters']) ? $data['custom_metadata_filters'] : null;
@@ -543,6 +549,30 @@ class LocaleDownloadCreateParameters implements ModelInterface, ArrayAccess
     public function setUseLastReviewedVersion($use_last_reviewed_version)
     {
         $this->container['use_last_reviewed_version'] = $use_last_reviewed_version;
+
+        return $this;
+    }
+
+    /**
+     * Gets locale_ids
+     *
+     * @return string[]|null
+     */
+    public function getLocaleIds()
+    {
+        return $this->container['locale_ids'];
+    }
+
+    /**
+     * Sets locale_ids
+     *
+     * @param string[]|null $locale_ids Locale IDs or locale names
+     *
+     * @return $this
+     */
+    public function setLocaleIds($locale_ids)
+    {
+        $this->container['locale_ids'] = $locale_ids;
 
         return $this;
     }

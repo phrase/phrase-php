@@ -154,6 +154,13 @@ class LocaleDownloadCreateParametersTest extends TestCase
     }
 
     /**
+     * Test attribute "locale_ids"
+     */
+    public function testPropertyLocaleIds()
+    {
+    }
+
+    /**
      * Test attribute "fallback_locale_id"
      */
     public function testPropertyFallbackLocaleId()
