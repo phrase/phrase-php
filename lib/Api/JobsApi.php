@@ -1353,7 +1353,7 @@ class JobsApi
      * @param  string $id ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  string $branch specify the branch to use (optional)
-     * @param  string[] $translation_key_ids ids of keys that should added to the job (optional)
+     * @param  string[] $translation_key_ids ids of keys that should be removed from the job (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1373,7 +1373,7 @@ class JobsApi
      * @param  string $id ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  string $branch specify the branch to use (optional)
-     * @param  string[] $translation_key_ids ids of keys that should added to the job (optional)
+     * @param  string[] $translation_key_ids ids of keys that should be removed from the job (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1429,7 +1429,7 @@ class JobsApi
      * @param  string $id ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  string $branch specify the branch to use (optional)
-     * @param  string[] $translation_key_ids ids of keys that should added to the job (optional)
+     * @param  string[] $translation_key_ids ids of keys that should be removed from the job (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1453,7 +1453,7 @@ class JobsApi
      * @param  string $id ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  string $branch specify the branch to use (optional)
-     * @param  string[] $translation_key_ids ids of keys that should added to the job (optional)
+     * @param  string[] $translation_key_ids ids of keys that should be removed from the job (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1493,7 +1493,7 @@ class JobsApi
      * @param  string $id ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  string $branch specify the branch to use (optional)
-     * @param  string[] $translation_key_ids ids of keys that should added to the job (optional)
+     * @param  string[] $translation_key_ids ids of keys that should be removed from the job (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request

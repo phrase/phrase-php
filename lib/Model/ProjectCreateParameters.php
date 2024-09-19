@@ -77,10 +77,7 @@ class ProjectCreateParameters implements ModelInterface, ArrayAccess
         'autotranslate_check_new_locales' => 'bool',
         'autotranslate_mark_as_unverified' => 'bool',
         'autotranslate_use_machine_translation' => 'bool',
-        'autotranslate_use_translation_memory' => 'bool',
-        'smart_suggest_enabled' => 'bool',
-        'smart_suggest_use_glossary' => 'bool',
-        'smart_suggest_use_machine_translation' => 'bool'
+        'autotranslate_use_translation_memory' => 'bool'
     ];
 
     /**
@@ -111,10 +108,7 @@ class ProjectCreateParameters implements ModelInterface, ArrayAccess
         'autotranslate_check_new_locales' => null,
         'autotranslate_mark_as_unverified' => null,
         'autotranslate_use_machine_translation' => null,
-        'autotranslate_use_translation_memory' => null,
-        'smart_suggest_enabled' => null,
-        'smart_suggest_use_glossary' => null,
-        'smart_suggest_use_machine_translation' => null
+        'autotranslate_use_translation_memory' => null
     ];
 
     /**
@@ -166,10 +160,7 @@ class ProjectCreateParameters implements ModelInterface, ArrayAccess
         'autotranslate_check_new_locales' => 'autotranslate_check_new_locales',
         'autotranslate_mark_as_unverified' => 'autotranslate_mark_as_unverified',
         'autotranslate_use_machine_translation' => 'autotranslate_use_machine_translation',
-        'autotranslate_use_translation_memory' => 'autotranslate_use_translation_memory',
-        'smart_suggest_enabled' => 'smart_suggest_enabled',
-        'smart_suggest_use_glossary' => 'smart_suggest_use_glossary',
-        'smart_suggest_use_machine_translation' => 'smart_suggest_use_machine_translation'
+        'autotranslate_use_translation_memory' => 'autotranslate_use_translation_memory'
     ];
 
     /**
@@ -200,10 +191,7 @@ class ProjectCreateParameters implements ModelInterface, ArrayAccess
         'autotranslate_check_new_locales' => 'setAutotranslateCheckNewLocales',
         'autotranslate_mark_as_unverified' => 'setAutotranslateMarkAsUnverified',
         'autotranslate_use_machine_translation' => 'setAutotranslateUseMachineTranslation',
-        'autotranslate_use_translation_memory' => 'setAutotranslateUseTranslationMemory',
-        'smart_suggest_enabled' => 'setSmartSuggestEnabled',
-        'smart_suggest_use_glossary' => 'setSmartSuggestUseGlossary',
-        'smart_suggest_use_machine_translation' => 'setSmartSuggestUseMachineTranslation'
+        'autotranslate_use_translation_memory' => 'setAutotranslateUseTranslationMemory'
     ];
 
     /**
@@ -234,10 +222,7 @@ class ProjectCreateParameters implements ModelInterface, ArrayAccess
         'autotranslate_check_new_locales' => 'getAutotranslateCheckNewLocales',
         'autotranslate_mark_as_unverified' => 'getAutotranslateMarkAsUnverified',
         'autotranslate_use_machine_translation' => 'getAutotranslateUseMachineTranslation',
-        'autotranslate_use_translation_memory' => 'getAutotranslateUseTranslationMemory',
-        'smart_suggest_enabled' => 'getSmartSuggestEnabled',
-        'smart_suggest_use_glossary' => 'getSmartSuggestUseGlossary',
-        'smart_suggest_use_machine_translation' => 'getSmartSuggestUseMachineTranslation'
+        'autotranslate_use_translation_memory' => 'getAutotranslateUseTranslationMemory'
     ];
 
     /**
@@ -323,9 +308,6 @@ class ProjectCreateParameters implements ModelInterface, ArrayAccess
         $this->container['autotranslate_mark_as_unverified'] = isset($data['autotranslate_mark_as_unverified']) ? $data['autotranslate_mark_as_unverified'] : null;
         $this->container['autotranslate_use_machine_translation'] = isset($data['autotranslate_use_machine_translation']) ? $data['autotranslate_use_machine_translation'] : null;
         $this->container['autotranslate_use_translation_memory'] = isset($data['autotranslate_use_translation_memory']) ? $data['autotranslate_use_translation_memory'] : null;
-        $this->container['smart_suggest_enabled'] = isset($data['smart_suggest_enabled']) ? $data['smart_suggest_enabled'] : null;
-        $this->container['smart_suggest_use_glossary'] = isset($data['smart_suggest_use_glossary']) ? $data['smart_suggest_use_glossary'] : null;
-        $this->container['smart_suggest_use_machine_translation'] = isset($data['smart_suggest_use_machine_translation']) ? $data['smart_suggest_use_machine_translation'] : null;
     }
 
     /**
@@ -608,7 +590,7 @@ class ProjectCreateParameters implements ModelInterface, ArrayAccess
     /**
      * Sets machine_translation_enabled
      *
-     * @param bool|null $machine_translation_enabled (Optional) Enable machine translation support in the project. Required for Autopilot and Smart Suggest
+     * @param bool|null $machine_translation_enabled (Optional) Enable machine translation support in the project. Required for Pre-Translation
      *
      * @return $this
      */
@@ -903,78 +885,6 @@ class ProjectCreateParameters implements ModelInterface, ArrayAccess
     public function setAutotranslateUseTranslationMemory($autotranslate_use_translation_memory)
     {
         $this->container['autotranslate_use_translation_memory'] = $autotranslate_use_translation_memory;
-
-        return $this;
-    }
-
-    /**
-     * Gets smart_suggest_enabled
-     *
-     * @return bool|null
-     */
-    public function getSmartSuggestEnabled()
-    {
-        return $this->container['smart_suggest_enabled'];
-    }
-
-    /**
-     * Sets smart_suggest_enabled
-     *
-     * @param bool|null $smart_suggest_enabled (Optional) Smart Suggest, requires machine_translation_enabled
-     *
-     * @return $this
-     */
-    public function setSmartSuggestEnabled($smart_suggest_enabled)
-    {
-        $this->container['smart_suggest_enabled'] = $smart_suggest_enabled;
-
-        return $this;
-    }
-
-    /**
-     * Gets smart_suggest_use_glossary
-     *
-     * @return bool|null
-     */
-    public function getSmartSuggestUseGlossary()
-    {
-        return $this->container['smart_suggest_use_glossary'];
-    }
-
-    /**
-     * Sets smart_suggest_use_glossary
-     *
-     * @param bool|null $smart_suggest_use_glossary (Optional) Requires smart_suggest_enabled to be true
-     *
-     * @return $this
-     */
-    public function setSmartSuggestUseGlossary($smart_suggest_use_glossary)
-    {
-        $this->container['smart_suggest_use_glossary'] = $smart_suggest_use_glossary;
-
-        return $this;
-    }
-
-    /**
-     * Gets smart_suggest_use_machine_translation
-     *
-     * @return bool|null
-     */
-    public function getSmartSuggestUseMachineTranslation()
-    {
-        return $this->container['smart_suggest_use_machine_translation'];
-    }
-
-    /**
-     * Sets smart_suggest_use_machine_translation
-     *
-     * @param bool|null $smart_suggest_use_machine_translation (Optional) Requires smart_suggest_enabled to be true
-     *
-     * @return $this
-     */
-    public function setSmartSuggestUseMachineTranslation($smart_suggest_use_machine_translation)
-    {
-        $this->container['smart_suggest_use_machine_translation'] = $smart_suggest_use_machine_translation;
 
         return $this;
     }

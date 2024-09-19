@@ -236,25 +236,4 @@ class ProjectCreateParametersTest extends TestCase
     public function testPropertyAutotranslateUseTranslationMemory()
     {
     }
-
-    /**
-     * Test attribute "smart_suggest_enabled"
-     */
-    public function testPropertySmartSuggestEnabled()
-    {
-    }
-
-    /**
-     * Test attribute "smart_suggest_use_glossary"
-     */
-    public function testPropertySmartSuggestUseGlossary()
-    {
-    }
-
-    /**
-     * Test attribute "smart_suggest_use_machine_translation"
-     */
-    public function testPropertySmartSuggestUseMachineTranslation()
-    {
-    }
 }
