@@ -118,15 +118,14 @@ class FormatsApi
      *
      * List formats
      *
-     * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Phrase\Model\Format[]
      */
-    public function formatsList($x_phrase_app_otp = null)
+    public function formatsList()
     {
-        list($response) = $this->formatsListWithHttpInfo($x_phrase_app_otp);
+        list($response) = $this->formatsListWithHttpInfo();
         return $response;
     }
 
@@ -135,15 +134,14 @@ class FormatsApi
      *
      * List formats
      *
-     * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Phrase\Model\Format[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function formatsListWithHttpInfo($x_phrase_app_otp = null)
+    public function formatsListWithHttpInfo()
     {
-        $request = $this->formatsListRequest($x_phrase_app_otp);
+        $request = $this->formatsListRequest();
 
         try {
             $options = $this->createHttpClientOption();
@@ -223,14 +221,13 @@ class FormatsApi
      *
      * List formats
      *
-     * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function formatsListAsync($x_phrase_app_otp = null)
+    public function formatsListAsync()
     {
-        return $this->formatsListAsyncWithHttpInfo($x_phrase_app_otp)
+        return $this->formatsListAsyncWithHttpInfo()
             ->then(
                 function ($response) {
                     return $response[0];
@@ -243,15 +240,14 @@ class FormatsApi
      *
      * List formats
      *
-     * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function formatsListAsyncWithHttpInfo($x_phrase_app_otp = null)
+    public function formatsListAsyncWithHttpInfo()
     {
         $returnType = '\Phrase\Model\Format[]';
-        $request = $this->formatsListRequest($x_phrase_app_otp);
+        $request = $this->formatsListRequest();
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -290,12 +286,11 @@ class FormatsApi
     /**
      * Create request for operation 'formatsList'
      *
-     * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function formatsListRequest($x_phrase_app_otp = null)
+    protected function formatsListRequest()
     {
 
         $resourcePath = '/formats';
@@ -306,10 +301,6 @@ class FormatsApi
         $multipart = false;
 
 
-        // header params
-        if ($x_phrase_app_otp !== null) {
-            $headerParams['X-PhraseApp-OTP'] = ObjectSerializer::toHeaderValue($x_phrase_app_otp);
-        }
 
 
         // body params

@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 ## formatsList
 
-> \Phrase\Model\Format[] formatsList($x_phrase_app_otp)
+> \Phrase\Model\Format[] formatsList()
 
 List formats
 
@@ -31,10 +31,9 @@ $apiInstance = new Phrase\Api\FormatsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$x_phrase_app_otp = 'x_phrase_app_otp_example'; // string | Two-Factor-Authentication token (optional)
 
 try {
-    $result = $apiInstance->formatsList($x_phrase_app_otp);
+    $result = $apiInstance->formatsList();
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling FormatsApi->formatsList: ', $e->getMessage(), PHP_EOL;
@@ -44,10 +43,7 @@ try {
 
 ### Parameters
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **x_phrase_app_otp** | **string**| Two-Factor-Authentication token (optional) | [optional]
+This endpoint does not need any parameter.
 
 ### Return type
 
