@@ -1045,15 +1045,17 @@ class LocalesApi
      * @param  bool $use_last_reviewed_version If set to true the last reviewed version of a translation is used. This is only available if the review workflow is enabled for the project. (optional)
      * @param  string $fallback_locale_id If a key has no translation in the locale being downloaded the translation in the fallback locale will be used. Provide the ID of the locale that should be used as the fallback. Requires include_empty_translations to be set to &lt;code&gt;true&lt;/code&gt;. (optional)
      * @param  string $source_locale_id Provides the source language of a corresponding job as the source language of the generated locale file. This parameter will be ignored unless used in combination with a &lt;code&gt;tag&lt;/code&gt; parameter indicating a specific job. (optional)
+     * @param  string $translation_key_prefix Download all translation keys, and remove the specified prefix where possible. Warning: this may create duplicate key names if other keys share the same name after the prefix is removed. (optional)
+     * @param  bool $filter_by_prefix Only download translation keys containing the specified prefix, and remove the prefix from the generated file. (optional)
      * @param  object $custom_metadata_filters Custom metadata filters. Provide the name of the metadata field and the value to filter by. Only keys with matching metadata will be included in the download. (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \SplFileObject
      */
-    public function localeDownload($project_id, $id, $x_phrase_app_otp = null, $if_modified_since = null, $if_none_match = null, $branch = null, $file_format = null, $tags = null, $tag = null, $include_empty_translations = null, $exclude_empty_zero_forms = null, $include_translated_keys = null, $keep_notranslate_tags = null, $convert_emoji = null, $format_options = null, $encoding = null, $skip_unverified_translations = null, $include_unverified_translations = null, $use_last_reviewed_version = null, $fallback_locale_id = null, $source_locale_id = null, $custom_metadata_filters = null)
+    public function localeDownload($project_id, $id, $x_phrase_app_otp = null, $if_modified_since = null, $if_none_match = null, $branch = null, $file_format = null, $tags = null, $tag = null, $include_empty_translations = null, $exclude_empty_zero_forms = null, $include_translated_keys = null, $keep_notranslate_tags = null, $convert_emoji = null, $format_options = null, $encoding = null, $skip_unverified_translations = null, $include_unverified_translations = null, $use_last_reviewed_version = null, $fallback_locale_id = null, $source_locale_id = null, $translation_key_prefix = null, $filter_by_prefix = null, $custom_metadata_filters = null)
     {
-        list($response) = $this->localeDownloadWithHttpInfo($project_id, $id, $x_phrase_app_otp, $if_modified_since, $if_none_match, $branch, $file_format, $tags, $tag, $include_empty_translations, $exclude_empty_zero_forms, $include_translated_keys, $keep_notranslate_tags, $convert_emoji, $format_options, $encoding, $skip_unverified_translations, $include_unverified_translations, $use_last_reviewed_version, $fallback_locale_id, $source_locale_id, $custom_metadata_filters);
+        list($response) = $this->localeDownloadWithHttpInfo($project_id, $id, $x_phrase_app_otp, $if_modified_since, $if_none_match, $branch, $file_format, $tags, $tag, $include_empty_translations, $exclude_empty_zero_forms, $include_translated_keys, $keep_notranslate_tags, $convert_emoji, $format_options, $encoding, $skip_unverified_translations, $include_unverified_translations, $use_last_reviewed_version, $fallback_locale_id, $source_locale_id, $translation_key_prefix, $filter_by_prefix, $custom_metadata_filters);
         return $response;
     }
 
@@ -1083,15 +1085,17 @@ class LocalesApi
      * @param  bool $use_last_reviewed_version If set to true the last reviewed version of a translation is used. This is only available if the review workflow is enabled for the project. (optional)
      * @param  string $fallback_locale_id If a key has no translation in the locale being downloaded the translation in the fallback locale will be used. Provide the ID of the locale that should be used as the fallback. Requires include_empty_translations to be set to &lt;code&gt;true&lt;/code&gt;. (optional)
      * @param  string $source_locale_id Provides the source language of a corresponding job as the source language of the generated locale file. This parameter will be ignored unless used in combination with a &lt;code&gt;tag&lt;/code&gt; parameter indicating a specific job. (optional)
+     * @param  string $translation_key_prefix Download all translation keys, and remove the specified prefix where possible. Warning: this may create duplicate key names if other keys share the same name after the prefix is removed. (optional)
+     * @param  bool $filter_by_prefix Only download translation keys containing the specified prefix, and remove the prefix from the generated file. (optional)
      * @param  object $custom_metadata_filters Custom metadata filters. Provide the name of the metadata field and the value to filter by. Only keys with matching metadata will be included in the download. (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \SplFileObject, HTTP status code, HTTP response headers (array of strings)
      */
-    public function localeDownloadWithHttpInfo($project_id, $id, $x_phrase_app_otp = null, $if_modified_since = null, $if_none_match = null, $branch = null, $file_format = null, $tags = null, $tag = null, $include_empty_translations = null, $exclude_empty_zero_forms = null, $include_translated_keys = null, $keep_notranslate_tags = null, $convert_emoji = null, $format_options = null, $encoding = null, $skip_unverified_translations = null, $include_unverified_translations = null, $use_last_reviewed_version = null, $fallback_locale_id = null, $source_locale_id = null, $custom_metadata_filters = null)
+    public function localeDownloadWithHttpInfo($project_id, $id, $x_phrase_app_otp = null, $if_modified_since = null, $if_none_match = null, $branch = null, $file_format = null, $tags = null, $tag = null, $include_empty_translations = null, $exclude_empty_zero_forms = null, $include_translated_keys = null, $keep_notranslate_tags = null, $convert_emoji = null, $format_options = null, $encoding = null, $skip_unverified_translations = null, $include_unverified_translations = null, $use_last_reviewed_version = null, $fallback_locale_id = null, $source_locale_id = null, $translation_key_prefix = null, $filter_by_prefix = null, $custom_metadata_filters = null)
     {
-        $request = $this->localeDownloadRequest($project_id, $id, $x_phrase_app_otp, $if_modified_since, $if_none_match, $branch, $file_format, $tags, $tag, $include_empty_translations, $exclude_empty_zero_forms, $include_translated_keys, $keep_notranslate_tags, $convert_emoji, $format_options, $encoding, $skip_unverified_translations, $include_unverified_translations, $use_last_reviewed_version, $fallback_locale_id, $source_locale_id, $custom_metadata_filters);
+        $request = $this->localeDownloadRequest($project_id, $id, $x_phrase_app_otp, $if_modified_since, $if_none_match, $branch, $file_format, $tags, $tag, $include_empty_translations, $exclude_empty_zero_forms, $include_translated_keys, $keep_notranslate_tags, $convert_emoji, $format_options, $encoding, $skip_unverified_translations, $include_unverified_translations, $use_last_reviewed_version, $fallback_locale_id, $source_locale_id, $translation_key_prefix, $filter_by_prefix, $custom_metadata_filters);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1192,14 +1196,16 @@ class LocalesApi
      * @param  bool $use_last_reviewed_version If set to true the last reviewed version of a translation is used. This is only available if the review workflow is enabled for the project. (optional)
      * @param  string $fallback_locale_id If a key has no translation in the locale being downloaded the translation in the fallback locale will be used. Provide the ID of the locale that should be used as the fallback. Requires include_empty_translations to be set to &lt;code&gt;true&lt;/code&gt;. (optional)
      * @param  string $source_locale_id Provides the source language of a corresponding job as the source language of the generated locale file. This parameter will be ignored unless used in combination with a &lt;code&gt;tag&lt;/code&gt; parameter indicating a specific job. (optional)
+     * @param  string $translation_key_prefix Download all translation keys, and remove the specified prefix where possible. Warning: this may create duplicate key names if other keys share the same name after the prefix is removed. (optional)
+     * @param  bool $filter_by_prefix Only download translation keys containing the specified prefix, and remove the prefix from the generated file. (optional)
      * @param  object $custom_metadata_filters Custom metadata filters. Provide the name of the metadata field and the value to filter by. Only keys with matching metadata will be included in the download. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function localeDownloadAsync($project_id, $id, $x_phrase_app_otp = null, $if_modified_since = null, $if_none_match = null, $branch = null, $file_format = null, $tags = null, $tag = null, $include_empty_translations = null, $exclude_empty_zero_forms = null, $include_translated_keys = null, $keep_notranslate_tags = null, $convert_emoji = null, $format_options = null, $encoding = null, $skip_unverified_translations = null, $include_unverified_translations = null, $use_last_reviewed_version = null, $fallback_locale_id = null, $source_locale_id = null, $custom_metadata_filters = null)
+    public function localeDownloadAsync($project_id, $id, $x_phrase_app_otp = null, $if_modified_since = null, $if_none_match = null, $branch = null, $file_format = null, $tags = null, $tag = null, $include_empty_translations = null, $exclude_empty_zero_forms = null, $include_translated_keys = null, $keep_notranslate_tags = null, $convert_emoji = null, $format_options = null, $encoding = null, $skip_unverified_translations = null, $include_unverified_translations = null, $use_last_reviewed_version = null, $fallback_locale_id = null, $source_locale_id = null, $translation_key_prefix = null, $filter_by_prefix = null, $custom_metadata_filters = null)
     {
-        return $this->localeDownloadAsyncWithHttpInfo($project_id, $id, $x_phrase_app_otp, $if_modified_since, $if_none_match, $branch, $file_format, $tags, $tag, $include_empty_translations, $exclude_empty_zero_forms, $include_translated_keys, $keep_notranslate_tags, $convert_emoji, $format_options, $encoding, $skip_unverified_translations, $include_unverified_translations, $use_last_reviewed_version, $fallback_locale_id, $source_locale_id, $custom_metadata_filters)
+        return $this->localeDownloadAsyncWithHttpInfo($project_id, $id, $x_phrase_app_otp, $if_modified_since, $if_none_match, $branch, $file_format, $tags, $tag, $include_empty_translations, $exclude_empty_zero_forms, $include_translated_keys, $keep_notranslate_tags, $convert_emoji, $format_options, $encoding, $skip_unverified_translations, $include_unverified_translations, $use_last_reviewed_version, $fallback_locale_id, $source_locale_id, $translation_key_prefix, $filter_by_prefix, $custom_metadata_filters)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1233,15 +1239,17 @@ class LocalesApi
      * @param  bool $use_last_reviewed_version If set to true the last reviewed version of a translation is used. This is only available if the review workflow is enabled for the project. (optional)
      * @param  string $fallback_locale_id If a key has no translation in the locale being downloaded the translation in the fallback locale will be used. Provide the ID of the locale that should be used as the fallback. Requires include_empty_translations to be set to &lt;code&gt;true&lt;/code&gt;. (optional)
      * @param  string $source_locale_id Provides the source language of a corresponding job as the source language of the generated locale file. This parameter will be ignored unless used in combination with a &lt;code&gt;tag&lt;/code&gt; parameter indicating a specific job. (optional)
+     * @param  string $translation_key_prefix Download all translation keys, and remove the specified prefix where possible. Warning: this may create duplicate key names if other keys share the same name after the prefix is removed. (optional)
+     * @param  bool $filter_by_prefix Only download translation keys containing the specified prefix, and remove the prefix from the generated file. (optional)
      * @param  object $custom_metadata_filters Custom metadata filters. Provide the name of the metadata field and the value to filter by. Only keys with matching metadata will be included in the download. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function localeDownloadAsyncWithHttpInfo($project_id, $id, $x_phrase_app_otp = null, $if_modified_since = null, $if_none_match = null, $branch = null, $file_format = null, $tags = null, $tag = null, $include_empty_translations = null, $exclude_empty_zero_forms = null, $include_translated_keys = null, $keep_notranslate_tags = null, $convert_emoji = null, $format_options = null, $encoding = null, $skip_unverified_translations = null, $include_unverified_translations = null, $use_last_reviewed_version = null, $fallback_locale_id = null, $source_locale_id = null, $custom_metadata_filters = null)
+    public function localeDownloadAsyncWithHttpInfo($project_id, $id, $x_phrase_app_otp = null, $if_modified_since = null, $if_none_match = null, $branch = null, $file_format = null, $tags = null, $tag = null, $include_empty_translations = null, $exclude_empty_zero_forms = null, $include_translated_keys = null, $keep_notranslate_tags = null, $convert_emoji = null, $format_options = null, $encoding = null, $skip_unverified_translations = null, $include_unverified_translations = null, $use_last_reviewed_version = null, $fallback_locale_id = null, $source_locale_id = null, $translation_key_prefix = null, $filter_by_prefix = null, $custom_metadata_filters = null)
     {
         $returnType = '\SplFileObject';
-        $request = $this->localeDownloadRequest($project_id, $id, $x_phrase_app_otp, $if_modified_since, $if_none_match, $branch, $file_format, $tags, $tag, $include_empty_translations, $exclude_empty_zero_forms, $include_translated_keys, $keep_notranslate_tags, $convert_emoji, $format_options, $encoding, $skip_unverified_translations, $include_unverified_translations, $use_last_reviewed_version, $fallback_locale_id, $source_locale_id, $custom_metadata_filters);
+        $request = $this->localeDownloadRequest($project_id, $id, $x_phrase_app_otp, $if_modified_since, $if_none_match, $branch, $file_format, $tags, $tag, $include_empty_translations, $exclude_empty_zero_forms, $include_translated_keys, $keep_notranslate_tags, $convert_emoji, $format_options, $encoding, $skip_unverified_translations, $include_unverified_translations, $use_last_reviewed_version, $fallback_locale_id, $source_locale_id, $translation_key_prefix, $filter_by_prefix, $custom_metadata_filters);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1301,12 +1309,14 @@ class LocalesApi
      * @param  bool $use_last_reviewed_version If set to true the last reviewed version of a translation is used. This is only available if the review workflow is enabled for the project. (optional)
      * @param  string $fallback_locale_id If a key has no translation in the locale being downloaded the translation in the fallback locale will be used. Provide the ID of the locale that should be used as the fallback. Requires include_empty_translations to be set to &lt;code&gt;true&lt;/code&gt;. (optional)
      * @param  string $source_locale_id Provides the source language of a corresponding job as the source language of the generated locale file. This parameter will be ignored unless used in combination with a &lt;code&gt;tag&lt;/code&gt; parameter indicating a specific job. (optional)
+     * @param  string $translation_key_prefix Download all translation keys, and remove the specified prefix where possible. Warning: this may create duplicate key names if other keys share the same name after the prefix is removed. (optional)
+     * @param  bool $filter_by_prefix Only download translation keys containing the specified prefix, and remove the prefix from the generated file. (optional)
      * @param  object $custom_metadata_filters Custom metadata filters. Provide the name of the metadata field and the value to filter by. Only keys with matching metadata will be included in the download. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function localeDownloadRequest($project_id, $id, $x_phrase_app_otp = null, $if_modified_since = null, $if_none_match = null, $branch = null, $file_format = null, $tags = null, $tag = null, $include_empty_translations = null, $exclude_empty_zero_forms = null, $include_translated_keys = null, $keep_notranslate_tags = null, $convert_emoji = null, $format_options = null, $encoding = null, $skip_unverified_translations = null, $include_unverified_translations = null, $use_last_reviewed_version = null, $fallback_locale_id = null, $source_locale_id = null, $custom_metadata_filters = null)
+    protected function localeDownloadRequest($project_id, $id, $x_phrase_app_otp = null, $if_modified_since = null, $if_none_match = null, $branch = null, $file_format = null, $tags = null, $tag = null, $include_empty_translations = null, $exclude_empty_zero_forms = null, $include_translated_keys = null, $keep_notranslate_tags = null, $convert_emoji = null, $format_options = null, $encoding = null, $skip_unverified_translations = null, $include_unverified_translations = null, $use_last_reviewed_version = null, $fallback_locale_id = null, $source_locale_id = null, $translation_key_prefix = null, $filter_by_prefix = null, $custom_metadata_filters = null)
     {
         // verify the required parameter 'project_id' is set
         if ($project_id === null || (is_array($project_id) && count($project_id) === 0)) {
@@ -1502,6 +1512,28 @@ class LocalesApi
             }
             else {
                 $queryParams['source_locale_id'] = $source_locale_id;
+            }
+        }
+        // query params
+        if ($translation_key_prefix !== null) {
+            if('form' === 'form' && is_array($translation_key_prefix)) {
+                foreach($translation_key_prefix as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['translation_key_prefix'] = $translation_key_prefix;
+            }
+        }
+        // query params
+        if ($filter_by_prefix !== null) {
+            if('form' === 'form' && is_array($filter_by_prefix)) {
+                foreach($filter_by_prefix as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['filter_by_prefix'] = $filter_by_prefix;
             }
         }
         // query params

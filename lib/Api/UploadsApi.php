@@ -138,14 +138,15 @@ class UploadsApi
      * @param  bool $autotranslate If set, translations for the uploaded language will be fetched automatically. (optional)
      * @param  bool $mark_reviewed Indicated whether the imported translations should be marked as reviewed. This setting is available if the review workflow is enabled for the project. (optional)
      * @param  bool $tag_only_affected_keys Indicates whether only keys affected (created or updated) by the upload should be tagged. The default is &#x60;false&#x60; (optional, default to false)
+     * @param  string $translation_key_prefix This prefix will be added to all uploaded translation key names to prevent collisions. Use a meaningful prefix related to your project or file to keep key names organized. (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Phrase\Model\Upload
      */
-    public function uploadCreate($project_id, $file, $file_format, $locale_id, $x_phrase_app_otp = null, $branch = null, $tags = null, $update_translations = null, $update_translation_keys = true, $update_translations_on_source_match = false, $update_descriptions = null, $convert_emoji = null, $skip_upload_tags = null, $skip_unverification = null, $file_encoding = null, $locale_mapping = null, $format_options = null, $autotranslate = null, $mark_reviewed = null, $tag_only_affected_keys = false)
+    public function uploadCreate($project_id, $file, $file_format, $locale_id, $x_phrase_app_otp = null, $branch = null, $tags = null, $update_translations = null, $update_translation_keys = true, $update_translations_on_source_match = false, $update_descriptions = null, $convert_emoji = null, $skip_upload_tags = null, $skip_unverification = null, $file_encoding = null, $locale_mapping = null, $format_options = null, $autotranslate = null, $mark_reviewed = null, $tag_only_affected_keys = false, $translation_key_prefix = null)
     {
-        list($response) = $this->uploadCreateWithHttpInfo($project_id, $file, $file_format, $locale_id, $x_phrase_app_otp, $branch, $tags, $update_translations, $update_translation_keys, $update_translations_on_source_match, $update_descriptions, $convert_emoji, $skip_upload_tags, $skip_unverification, $file_encoding, $locale_mapping, $format_options, $autotranslate, $mark_reviewed, $tag_only_affected_keys);
+        list($response) = $this->uploadCreateWithHttpInfo($project_id, $file, $file_format, $locale_id, $x_phrase_app_otp, $branch, $tags, $update_translations, $update_translation_keys, $update_translations_on_source_match, $update_descriptions, $convert_emoji, $skip_upload_tags, $skip_unverification, $file_encoding, $locale_mapping, $format_options, $autotranslate, $mark_reviewed, $tag_only_affected_keys, $translation_key_prefix);
         return $response;
     }
 
@@ -174,14 +175,15 @@ class UploadsApi
      * @param  bool $autotranslate If set, translations for the uploaded language will be fetched automatically. (optional)
      * @param  bool $mark_reviewed Indicated whether the imported translations should be marked as reviewed. This setting is available if the review workflow is enabled for the project. (optional)
      * @param  bool $tag_only_affected_keys Indicates whether only keys affected (created or updated) by the upload should be tagged. The default is &#x60;false&#x60; (optional, default to false)
+     * @param  string $translation_key_prefix This prefix will be added to all uploaded translation key names to prevent collisions. Use a meaningful prefix related to your project or file to keep key names organized. (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Phrase\Model\Upload, HTTP status code, HTTP response headers (array of strings)
      */
-    public function uploadCreateWithHttpInfo($project_id, $file, $file_format, $locale_id, $x_phrase_app_otp = null, $branch = null, $tags = null, $update_translations = null, $update_translation_keys = true, $update_translations_on_source_match = false, $update_descriptions = null, $convert_emoji = null, $skip_upload_tags = null, $skip_unverification = null, $file_encoding = null, $locale_mapping = null, $format_options = null, $autotranslate = null, $mark_reviewed = null, $tag_only_affected_keys = false)
+    public function uploadCreateWithHttpInfo($project_id, $file, $file_format, $locale_id, $x_phrase_app_otp = null, $branch = null, $tags = null, $update_translations = null, $update_translation_keys = true, $update_translations_on_source_match = false, $update_descriptions = null, $convert_emoji = null, $skip_upload_tags = null, $skip_unverification = null, $file_encoding = null, $locale_mapping = null, $format_options = null, $autotranslate = null, $mark_reviewed = null, $tag_only_affected_keys = false, $translation_key_prefix = null)
     {
-        $request = $this->uploadCreateRequest($project_id, $file, $file_format, $locale_id, $x_phrase_app_otp, $branch, $tags, $update_translations, $update_translation_keys, $update_translations_on_source_match, $update_descriptions, $convert_emoji, $skip_upload_tags, $skip_unverification, $file_encoding, $locale_mapping, $format_options, $autotranslate, $mark_reviewed, $tag_only_affected_keys);
+        $request = $this->uploadCreateRequest($project_id, $file, $file_format, $locale_id, $x_phrase_app_otp, $branch, $tags, $update_translations, $update_translation_keys, $update_translations_on_source_match, $update_descriptions, $convert_emoji, $skip_upload_tags, $skip_unverification, $file_encoding, $locale_mapping, $format_options, $autotranslate, $mark_reviewed, $tag_only_affected_keys, $translation_key_prefix);
 
         try {
             $options = $this->createHttpClientOption();
@@ -281,13 +283,14 @@ class UploadsApi
      * @param  bool $autotranslate If set, translations for the uploaded language will be fetched automatically. (optional)
      * @param  bool $mark_reviewed Indicated whether the imported translations should be marked as reviewed. This setting is available if the review workflow is enabled for the project. (optional)
      * @param  bool $tag_only_affected_keys Indicates whether only keys affected (created or updated) by the upload should be tagged. The default is &#x60;false&#x60; (optional, default to false)
+     * @param  string $translation_key_prefix This prefix will be added to all uploaded translation key names to prevent collisions. Use a meaningful prefix related to your project or file to keep key names organized. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function uploadCreateAsync($project_id, $file, $file_format, $locale_id, $x_phrase_app_otp = null, $branch = null, $tags = null, $update_translations = null, $update_translation_keys = true, $update_translations_on_source_match = false, $update_descriptions = null, $convert_emoji = null, $skip_upload_tags = null, $skip_unverification = null, $file_encoding = null, $locale_mapping = null, $format_options = null, $autotranslate = null, $mark_reviewed = null, $tag_only_affected_keys = false)
+    public function uploadCreateAsync($project_id, $file, $file_format, $locale_id, $x_phrase_app_otp = null, $branch = null, $tags = null, $update_translations = null, $update_translation_keys = true, $update_translations_on_source_match = false, $update_descriptions = null, $convert_emoji = null, $skip_upload_tags = null, $skip_unverification = null, $file_encoding = null, $locale_mapping = null, $format_options = null, $autotranslate = null, $mark_reviewed = null, $tag_only_affected_keys = false, $translation_key_prefix = null)
     {
-        return $this->uploadCreateAsyncWithHttpInfo($project_id, $file, $file_format, $locale_id, $x_phrase_app_otp, $branch, $tags, $update_translations, $update_translation_keys, $update_translations_on_source_match, $update_descriptions, $convert_emoji, $skip_upload_tags, $skip_unverification, $file_encoding, $locale_mapping, $format_options, $autotranslate, $mark_reviewed, $tag_only_affected_keys)
+        return $this->uploadCreateAsyncWithHttpInfo($project_id, $file, $file_format, $locale_id, $x_phrase_app_otp, $branch, $tags, $update_translations, $update_translation_keys, $update_translations_on_source_match, $update_descriptions, $convert_emoji, $skip_upload_tags, $skip_unverification, $file_encoding, $locale_mapping, $format_options, $autotranslate, $mark_reviewed, $tag_only_affected_keys, $translation_key_prefix)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -320,14 +323,15 @@ class UploadsApi
      * @param  bool $autotranslate If set, translations for the uploaded language will be fetched automatically. (optional)
      * @param  bool $mark_reviewed Indicated whether the imported translations should be marked as reviewed. This setting is available if the review workflow is enabled for the project. (optional)
      * @param  bool $tag_only_affected_keys Indicates whether only keys affected (created or updated) by the upload should be tagged. The default is &#x60;false&#x60; (optional, default to false)
+     * @param  string $translation_key_prefix This prefix will be added to all uploaded translation key names to prevent collisions. Use a meaningful prefix related to your project or file to keep key names organized. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function uploadCreateAsyncWithHttpInfo($project_id, $file, $file_format, $locale_id, $x_phrase_app_otp = null, $branch = null, $tags = null, $update_translations = null, $update_translation_keys = true, $update_translations_on_source_match = false, $update_descriptions = null, $convert_emoji = null, $skip_upload_tags = null, $skip_unverification = null, $file_encoding = null, $locale_mapping = null, $format_options = null, $autotranslate = null, $mark_reviewed = null, $tag_only_affected_keys = false)
+    public function uploadCreateAsyncWithHttpInfo($project_id, $file, $file_format, $locale_id, $x_phrase_app_otp = null, $branch = null, $tags = null, $update_translations = null, $update_translation_keys = true, $update_translations_on_source_match = false, $update_descriptions = null, $convert_emoji = null, $skip_upload_tags = null, $skip_unverification = null, $file_encoding = null, $locale_mapping = null, $format_options = null, $autotranslate = null, $mark_reviewed = null, $tag_only_affected_keys = false, $translation_key_prefix = null)
     {
         $returnType = '\Phrase\Model\Upload';
-        $request = $this->uploadCreateRequest($project_id, $file, $file_format, $locale_id, $x_phrase_app_otp, $branch, $tags, $update_translations, $update_translation_keys, $update_translations_on_source_match, $update_descriptions, $convert_emoji, $skip_upload_tags, $skip_unverification, $file_encoding, $locale_mapping, $format_options, $autotranslate, $mark_reviewed, $tag_only_affected_keys);
+        $request = $this->uploadCreateRequest($project_id, $file, $file_format, $locale_id, $x_phrase_app_otp, $branch, $tags, $update_translations, $update_translation_keys, $update_translations_on_source_match, $update_descriptions, $convert_emoji, $skip_upload_tags, $skip_unverification, $file_encoding, $locale_mapping, $format_options, $autotranslate, $mark_reviewed, $tag_only_affected_keys, $translation_key_prefix);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -386,11 +390,12 @@ class UploadsApi
      * @param  bool $autotranslate If set, translations for the uploaded language will be fetched automatically. (optional)
      * @param  bool $mark_reviewed Indicated whether the imported translations should be marked as reviewed. This setting is available if the review workflow is enabled for the project. (optional)
      * @param  bool $tag_only_affected_keys Indicates whether only keys affected (created or updated) by the upload should be tagged. The default is &#x60;false&#x60; (optional, default to false)
+     * @param  string $translation_key_prefix This prefix will be added to all uploaded translation key names to prevent collisions. Use a meaningful prefix related to your project or file to keep key names organized. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function uploadCreateRequest($project_id, $file, $file_format, $locale_id, $x_phrase_app_otp = null, $branch = null, $tags = null, $update_translations = null, $update_translation_keys = true, $update_translations_on_source_match = false, $update_descriptions = null, $convert_emoji = null, $skip_upload_tags = null, $skip_unverification = null, $file_encoding = null, $locale_mapping = null, $format_options = null, $autotranslate = null, $mark_reviewed = null, $tag_only_affected_keys = false)
+    protected function uploadCreateRequest($project_id, $file, $file_format, $locale_id, $x_phrase_app_otp = null, $branch = null, $tags = null, $update_translations = null, $update_translation_keys = true, $update_translations_on_source_match = false, $update_descriptions = null, $convert_emoji = null, $skip_upload_tags = null, $skip_unverification = null, $file_encoding = null, $locale_mapping = null, $format_options = null, $autotranslate = null, $mark_reviewed = null, $tag_only_affected_keys = false, $translation_key_prefix = null)
     {
         // verify the required parameter 'project_id' is set
         if ($project_id === null || (is_array($project_id) && count($project_id) === 0)) {
@@ -511,6 +516,10 @@ class UploadsApi
         // form params
         if ($tag_only_affected_keys !== null) {
             $this->formParamsAppend($formParams, 'tag_only_affected_keys', $tag_only_affected_keys);
+        }
+        // form params
+        if ($translation_key_prefix !== null) {
+            $this->formParamsAppend($formParams, 'translation_key_prefix', $translation_key_prefix);
         }
         // body params
         $_tempBody = null;
