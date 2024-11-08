@@ -1141,14 +1141,9 @@ class GlossaryTermTranslationsApi
      */
     protected function formParamsAppend(&$formParams, $name, $value)
     {
-        if (is_object($value)) {
-            foreach ((array) $value as $k => $v) {
-                $formParams[$name.'['.$k.']'] = ObjectSerializer::toFormValue($v);
-            }
-
-            return;
+        $formValues = ObjectSerializer::toFormValues($name, $value);
+        foreach ($formValues as $k => $v) {
+            $formParams[$k] = $v;
         }
-
-        $formParams[$name] = ObjectSerializer::toFormValue($value);
     }
 }

@@ -366,7 +366,7 @@ class ScreenshotsApi
         // form params
         if ($filename !== null) {
             $multipart = true;
-            $formParams['filename'] = \GuzzleHttp\Psr7\Utils::tryFopen(ObjectSerializer::toFormValue($filename), 'rb');
+            $formParams['filename'] = \GuzzleHttp\Psr7\Utils::tryFopen($filename->getRealPath(), 'rb');
         }
         // body params
         $_tempBody = null;
@@ -1747,14 +1747,9 @@ class ScreenshotsApi
      */
     protected function formParamsAppend(&$formParams, $name, $value)
     {
-        if (is_object($value)) {
-            foreach ((array) $value as $k => $v) {
-                $formParams[$name.'['.$k.']'] = ObjectSerializer::toFormValue($v);
-            }
-
-            return;
+        $formValues = ObjectSerializer::toFormValues($name, $value);
+        foreach ($formValues as $k => $v) {
+            $formParams[$k] = $v;
         }
-
-        $formParams[$name] = ObjectSerializer::toFormValue($value);
     }
 }

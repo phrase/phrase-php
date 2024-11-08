@@ -451,7 +451,7 @@ class UploadsApi
         // form params
         if ($file !== null) {
             $multipart = true;
-            $formParams['file'] = \GuzzleHttp\Psr7\Utils::tryFopen(ObjectSerializer::toFormValue($file), 'rb');
+            $formParams['file'] = \GuzzleHttp\Psr7\Utils::tryFopen($file->getRealPath(), 'rb');
         }
         // form params
         if ($file_format !== null) {
@@ -1282,14 +1282,9 @@ class UploadsApi
      */
     protected function formParamsAppend(&$formParams, $name, $value)
     {
-        if (is_object($value)) {
-            foreach ((array) $value as $k => $v) {
-                $formParams[$name.'['.$k.']'] = ObjectSerializer::toFormValue($v);
-            }
-
-            return;
+        $formValues = ObjectSerializer::toFormValues($name, $value);
+        foreach ($formValues as $k => $v) {
+            $formParams[$k] = $v;
         }
-
-        $formParams[$name] = ObjectSerializer::toFormValue($value);
     }
 }
