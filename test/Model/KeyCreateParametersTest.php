@@ -161,6 +161,13 @@ class KeyCreateParametersTest extends TestCase
     }
 
     /**
+     * Test attribute "autotranslate"
+     */
+    public function testPropertyAutotranslate()
+    {
+    }
+
+    /**
      * Test attribute "xml_space_preserve"
      */
     public function testPropertyXmlSpacePreserve()
