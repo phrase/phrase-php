@@ -49,7 +49,7 @@ $skip_upload_tags = True; // bool | Indicates whether the upload should not crea
 $skip_unverification = True; // bool | Indicates whether the upload should unverify updated translations.
 $file_encoding = 'file_encoding_example'; // string | Enforces a specific encoding on the file contents. Valid options are \\\"UTF-8\\\", \\\"UTF-16\\\" and \\\"ISO-8859-1\\\".
 $locale_mapping = array('key' => new \stdClass); // object | Mapping between locale names and translation columns. Required in some formats like CSV or XLSX.
-$format_options = array('key' => new \stdClass); // object | Additional options available for specific formats. See our format guide for complete list.
+$format_options = array('key' => new \stdClass); // object | Additional options available for specific formats. See our format guide for the [complete list](https://support.phrase.com/hc/en-us/articles/9652464547740-List-of-Supported-File-Types-Strings).
 $autotranslate = True; // bool | If set, translations for the uploaded language will be fetched automatically.
 $mark_reviewed = True; // bool | Indicated whether the imported translations should be marked as reviewed. This setting is available if the review workflow is enabled for the project.
 $tag_only_affected_keys = false; // bool | Indicates whether only keys affected (created or updated) by the upload should be tagged. The default is `false`
@@ -85,7 +85,7 @@ Name | Type | Description  | Notes
  **skip_unverification** | **bool**| Indicates whether the upload should unverify updated translations. | [optional]
  **file_encoding** | **string**| Enforces a specific encoding on the file contents. Valid options are \\\&quot;UTF-8\\\&quot;, \\\&quot;UTF-16\\\&quot; and \\\&quot;ISO-8859-1\\\&quot;. | [optional]
  **locale_mapping** | [**object**](../Model/object.md)| Mapping between locale names and translation columns. Required in some formats like CSV or XLSX. | [optional]
- **format_options** | [**object**](../Model/object.md)| Additional options available for specific formats. See our format guide for complete list. | [optional]
+ **format_options** | [**object**](../Model/object.md)| Additional options available for specific formats. See our format guide for the [complete list](https://support.phrase.com/hc/en-us/articles/9652464547740-List-of-Supported-File-Types-Strings). | [optional]
  **autotranslate** | **bool**| If set, translations for the uploaded language will be fetched automatically. | [optional]
  **mark_reviewed** | **bool**| Indicated whether the imported translations should be marked as reviewed. This setting is available if the review workflow is enabled for the project. | [optional]
  **tag_only_affected_keys** | **bool**| Indicates whether only keys affected (created or updated) by the upload should be tagged. The default is &#x60;false&#x60; | [optional] [default to false]
