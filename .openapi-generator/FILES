@@ -83,6 +83,7 @@ docs/Model/BranchName.md
 docs/Model/BranchUpdateParameters.md
 docs/Model/Comment.md
 docs/Model/CommentCreateParameters.md
+docs/Model/CommentCreateParameters1.md
 docs/Model/CommentMarkReadParameters.md
 docs/Model/CommentReaction.md
 docs/Model/CommentUpdateParameters.md
@@ -366,6 +367,7 @@ lib/Model/BranchName.php
 lib/Model/BranchUpdateParameters.php
 lib/Model/Comment.php
 lib/Model/CommentCreateParameters.php
+lib/Model/CommentCreateParameters1.php
 lib/Model/CommentMarkReadParameters.php
 lib/Model/CommentReaction.php
 lib/Model/CommentUpdateParameters.php
@@ -643,6 +645,7 @@ test/Model/BranchMergeParametersTest.php
 test/Model/BranchNameTest.php
 test/Model/BranchTest.php
 test/Model/BranchUpdateParametersTest.php
+test/Model/CommentCreateParameters1Test.php
 test/Model/CommentCreateParametersTest.php
 test/Model/CommentMarkReadParametersTest.php
 test/Model/CommentReactionTest.php

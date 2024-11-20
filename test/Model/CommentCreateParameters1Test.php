@@ -1,6 +1,6 @@
 <?php
 /**
- * CommentCreateParametersTest
+ * CommentCreateParameters1Test
  *
  * PHP version 5
  *
@@ -30,15 +30,15 @@ namespace Phrase;
 use PHPUnit\Framework\TestCase;
 
 /**
- * CommentCreateParametersTest Class Doc Comment
+ * CommentCreateParameters1Test Class Doc Comment
  *
  * @category    Class
- * @description CommentCreateParameters
+ * @description CommentCreateParameters1
  * @package     Phrase
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class CommentCreateParametersTest extends TestCase
+class CommentCreateParameters1Test extends TestCase
 {
 
     /**
@@ -70,9 +70,9 @@ class CommentCreateParametersTest extends TestCase
     }
 
     /**
-     * Test "CommentCreateParameters"
+     * Test "CommentCreateParameters1"
      */
-    public function testCommentCreateParameters()
+    public function testCommentCreateParameters1()
     {
     }
 
@@ -87,13 +87,6 @@ class CommentCreateParametersTest extends TestCase
      * Test attribute "branch"
      */
     public function testPropertyBranch()
-    {
-    }
-
-    /**
-     * Test attribute "locale_ids"
-     */
-    public function testPropertyLocaleIds()
     {
     }
 }

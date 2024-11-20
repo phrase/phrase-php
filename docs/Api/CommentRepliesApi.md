@@ -94,7 +94,7 @@ Name | Type | Description  | Notes
 
 ## replyCreate
 
-> \Phrase\Model\Comment replyCreate($project_id, $key_id, $comment_id, $x_phrase_app_otp, $branch, $message)
+> \Phrase\Model\Comment replyCreate($project_id, $key_id, $comment_id, $comment_create_parameters1, $x_phrase_app_otp)
 
 Create a reply
 
@@ -118,12 +118,11 @@ $apiInstance = new Phrase\Api\CommentRepliesApi(
 $project_id = 'project_id_example'; // string | Project ID
 $key_id = 'key_id_example'; // string | Translation Key ID
 $comment_id = 'comment_id_example'; // string | Comment ID
+$comment_create_parameters1 = new \Phrase\Model\CommentCreateParameters1(); // \Phrase\Model\CommentCreateParameters1 | 
 $x_phrase_app_otp = 'x_phrase_app_otp_example'; // string | Two-Factor-Authentication token (optional)
-$branch = my-feature-branch; // string | specify the branch to use
-$message = some message...; // string | specify the message for the comment
 
 try {
-    $result = $apiInstance->replyCreate($project_id, $key_id, $comment_id, $x_phrase_app_otp, $branch, $message);
+    $result = $apiInstance->replyCreate($project_id, $key_id, $comment_id, $comment_create_parameters1, $x_phrase_app_otp);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CommentRepliesApi->replyCreate: ', $e->getMessage(), PHP_EOL;
@@ -139,9 +138,8 @@ Name | Type | Description  | Notes
  **project_id** | **string**| Project ID |
  **key_id** | **string**| Translation Key ID |
  **comment_id** | **string**| Comment ID |
+ **comment_create_parameters1** | [**\Phrase\Model\CommentCreateParameters1**](../Model/CommentCreateParameters1.md)|  |
  **x_phrase_app_otp** | **string**| Two-Factor-Authentication token (optional) | [optional]
- **branch** | **string**| specify the branch to use | [optional]
- **message** | **string**| specify the message for the comment | [optional]
 
 ### Return type
 
@@ -153,7 +151,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)

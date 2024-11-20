@@ -560,17 +560,16 @@ class CommentRepliesApi
      * @param  string $project_id Project ID (required)
      * @param  string $key_id Translation Key ID (required)
      * @param  string $comment_id Comment ID (required)
+     * @param  \Phrase\Model\CommentCreateParameters1 $comment_create_parameters1 comment_create_parameters1 (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
-     * @param  string $branch specify the branch to use (optional)
-     * @param  string $message specify the message for the comment (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Phrase\Model\Comment
      */
-    public function replyCreate($project_id, $key_id, $comment_id, $x_phrase_app_otp = null, $branch = null, $message = null)
+    public function replyCreate($project_id, $key_id, $comment_id, $comment_create_parameters1, $x_phrase_app_otp = null)
     {
-        list($response) = $this->replyCreateWithHttpInfo($project_id, $key_id, $comment_id, $x_phrase_app_otp, $branch, $message);
+        list($response) = $this->replyCreateWithHttpInfo($project_id, $key_id, $comment_id, $comment_create_parameters1, $x_phrase_app_otp);
         return $response;
     }
 
@@ -582,17 +581,16 @@ class CommentRepliesApi
      * @param  string $project_id Project ID (required)
      * @param  string $key_id Translation Key ID (required)
      * @param  string $comment_id Comment ID (required)
+     * @param  \Phrase\Model\CommentCreateParameters1 $comment_create_parameters1 (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
-     * @param  string $branch specify the branch to use (optional)
-     * @param  string $message specify the message for the comment (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Phrase\Model\Comment, HTTP status code, HTTP response headers (array of strings)
      */
-    public function replyCreateWithHttpInfo($project_id, $key_id, $comment_id, $x_phrase_app_otp = null, $branch = null, $message = null)
+    public function replyCreateWithHttpInfo($project_id, $key_id, $comment_id, $comment_create_parameters1, $x_phrase_app_otp = null)
     {
-        $request = $this->replyCreateRequest($project_id, $key_id, $comment_id, $x_phrase_app_otp, $branch, $message);
+        $request = $this->replyCreateRequest($project_id, $key_id, $comment_id, $comment_create_parameters1, $x_phrase_app_otp);
 
         try {
             $options = $this->createHttpClientOption();
@@ -675,16 +673,15 @@ class CommentRepliesApi
      * @param  string $project_id Project ID (required)
      * @param  string $key_id Translation Key ID (required)
      * @param  string $comment_id Comment ID (required)
+     * @param  \Phrase\Model\CommentCreateParameters1 $comment_create_parameters1 (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
-     * @param  string $branch specify the branch to use (optional)
-     * @param  string $message specify the message for the comment (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function replyCreateAsync($project_id, $key_id, $comment_id, $x_phrase_app_otp = null, $branch = null, $message = null)
+    public function replyCreateAsync($project_id, $key_id, $comment_id, $comment_create_parameters1, $x_phrase_app_otp = null)
     {
-        return $this->replyCreateAsyncWithHttpInfo($project_id, $key_id, $comment_id, $x_phrase_app_otp, $branch, $message)
+        return $this->replyCreateAsyncWithHttpInfo($project_id, $key_id, $comment_id, $comment_create_parameters1, $x_phrase_app_otp)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -700,17 +697,16 @@ class CommentRepliesApi
      * @param  string $project_id Project ID (required)
      * @param  string $key_id Translation Key ID (required)
      * @param  string $comment_id Comment ID (required)
+     * @param  \Phrase\Model\CommentCreateParameters1 $comment_create_parameters1 (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
-     * @param  string $branch specify the branch to use (optional)
-     * @param  string $message specify the message for the comment (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function replyCreateAsyncWithHttpInfo($project_id, $key_id, $comment_id, $x_phrase_app_otp = null, $branch = null, $message = null)
+    public function replyCreateAsyncWithHttpInfo($project_id, $key_id, $comment_id, $comment_create_parameters1, $x_phrase_app_otp = null)
     {
         $returnType = '\Phrase\Model\Comment';
-        $request = $this->replyCreateRequest($project_id, $key_id, $comment_id, $x_phrase_app_otp, $branch, $message);
+        $request = $this->replyCreateRequest($project_id, $key_id, $comment_id, $comment_create_parameters1, $x_phrase_app_otp);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -752,14 +748,13 @@ class CommentRepliesApi
      * @param  string $project_id Project ID (required)
      * @param  string $key_id Translation Key ID (required)
      * @param  string $comment_id Comment ID (required)
+     * @param  \Phrase\Model\CommentCreateParameters1 $comment_create_parameters1 (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
-     * @param  string $branch specify the branch to use (optional)
-     * @param  string $message specify the message for the comment (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function replyCreateRequest($project_id, $key_id, $comment_id, $x_phrase_app_otp = null, $branch = null, $message = null)
+    protected function replyCreateRequest($project_id, $key_id, $comment_id, $comment_create_parameters1, $x_phrase_app_otp = null)
     {
         // verify the required parameter 'project_id' is set
         if ($project_id === null || (is_array($project_id) && count($project_id) === 0)) {
@@ -779,6 +774,12 @@ class CommentRepliesApi
                 'Missing the required parameter $comment_id when calling replyCreate'
             );
         }
+        // verify the required parameter 'comment_create_parameters1' is set
+        if ($comment_create_parameters1 === null || (is_array($comment_create_parameters1) && count($comment_create_parameters1) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $comment_create_parameters1 when calling replyCreate'
+            );
+        }
 
         $resourcePath = '/projects/{project_id}/keys/{key_id}/comments/{comment_id}/replies';
         $formParams = [];
@@ -787,28 +788,6 @@ class CommentRepliesApi
         $httpBody = '';
         $multipart = false;
 
-        // query params
-        if ($branch !== null) {
-            if('form' === 'form' && is_array($branch)) {
-                foreach($branch as $key => $value) {
-                    $queryParams[$key] = $value;
-                }
-            }
-            else {
-                $queryParams['branch'] = $branch;
-            }
-        }
-        // query params
-        if ($message !== null) {
-            if('form' === 'form' && is_array($message)) {
-                foreach($message as $key => $value) {
-                    $queryParams[$key] = $value;
-                }
-            }
-            else {
-                $queryParams['message'] = $message;
-            }
-        }
 
         // header params
         if ($x_phrase_app_otp !== null) {
@@ -842,6 +821,9 @@ class CommentRepliesApi
 
         // body params
         $_tempBody = null;
+        if (isset($comment_create_parameters1)) {
+            $_tempBody = $comment_create_parameters1;
+        }
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
@@ -850,7 +832,7 @@ class CommentRepliesApi
         } else {
             $headers = $this->headerSelector->selectHeaders(
                 ['application/json'],
-                []
+                ['application/json']
             );
         }
 

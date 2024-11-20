@@ -1,6 +1,6 @@
 <?php
 /**
- * CommentCreateParameters
+ * CommentCreateParameters1
  *
  * PHP version 5
  *
@@ -31,14 +31,14 @@ use \ArrayAccess;
 use \Phrase\ObjectSerializer;
 
 /**
- * CommentCreateParameters Class Doc Comment
+ * CommentCreateParameters1 Class Doc Comment
  *
  * @category Class
  * @package  Phrase
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class CommentCreateParameters implements ModelInterface, ArrayAccess
+class CommentCreateParameters1 implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -47,7 +47,7 @@ class CommentCreateParameters implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'comment_create_parameters';
+    protected static $openAPIModelName = 'comment_create_parameters_1';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -56,8 +56,7 @@ class CommentCreateParameters implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'message' => 'string',
-        'branch' => 'string',
-        'locale_ids' => 'string[]'
+        'branch' => 'string'
     ];
 
     /**
@@ -67,8 +66,7 @@ class CommentCreateParameters implements ModelInterface, ArrayAccess
       */
     protected static $openAPIFormats = [
         'message' => null,
-        'branch' => null,
-        'locale_ids' => null
+        'branch' => null
     ];
 
     /**
@@ -99,8 +97,7 @@ class CommentCreateParameters implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'message' => 'message',
-        'branch' => 'branch',
-        'locale_ids' => 'locale_ids'
+        'branch' => 'branch'
     ];
 
     /**
@@ -110,8 +107,7 @@ class CommentCreateParameters implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'message' => 'setMessage',
-        'branch' => 'setBranch',
-        'locale_ids' => 'setLocaleIds'
+        'branch' => 'setBranch'
     ];
 
     /**
@@ -121,8 +117,7 @@ class CommentCreateParameters implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'message' => 'getMessage',
-        'branch' => 'getBranch',
-        'locale_ids' => 'getLocaleIds'
+        'branch' => 'getBranch'
     ];
 
     /**
@@ -187,7 +182,6 @@ class CommentCreateParameters implements ModelInterface, ArrayAccess
     {
         $this->container['message'] = isset($data['message']) ? $data['message'] : null;
         $this->container['branch'] = isset($data['branch']) ? $data['branch'] : null;
-        $this->container['locale_ids'] = isset($data['locale_ids']) ? $data['locale_ids'] : null;
     }
 
     /**
@@ -230,7 +224,7 @@ class CommentCreateParameters implements ModelInterface, ArrayAccess
     /**
      * Sets message
      *
-     * @param string $message Comment message
+     * @param string $message Reply message body
      *
      * @return $this
      */
@@ -254,37 +248,13 @@ class CommentCreateParameters implements ModelInterface, ArrayAccess
     /**
      * Sets branch
      *
-     * @param string|null $branch specify the branch to use
+     * @param string|null $branch Specify the branch to use
      *
      * @return $this
      */
     public function setBranch($branch)
     {
         $this->container['branch'] = $branch;
-
-        return $this;
-    }
-
-    /**
-     * Gets locale_ids
-     *
-     * @return string[]|null
-     */
-    public function getLocaleIds()
-    {
-        return $this->container['locale_ids'];
-    }
-
-    /**
-     * Sets locale_ids
-     *
-     * @param string[]|null $locale_ids specify the locales for the comment
-     *
-     * @return $this
-     */
-    public function setLocaleIds($locale_ids)
-    {
-        $this->container['locale_ids'] = $locale_ids;
 
         return $this;
     }

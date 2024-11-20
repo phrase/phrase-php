@@ -122,16 +122,14 @@ class CommentsApi
      * @param  string $key_id Translation Key ID (required)
      * @param  \Phrase\Model\CommentCreateParameters $comment_create_parameters comment_create_parameters (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
-     * @param  string $message specify the message for the comment (optional)
-     * @param  string[] $locale_ids specify the locales for the comment (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Phrase\Model\Comment
      */
-    public function commentCreate($project_id, $key_id, $comment_create_parameters, $x_phrase_app_otp = null, $message = null, $locale_ids = null)
+    public function commentCreate($project_id, $key_id, $comment_create_parameters, $x_phrase_app_otp = null)
     {
-        list($response) = $this->commentCreateWithHttpInfo($project_id, $key_id, $comment_create_parameters, $x_phrase_app_otp, $message, $locale_ids);
+        list($response) = $this->commentCreateWithHttpInfo($project_id, $key_id, $comment_create_parameters, $x_phrase_app_otp);
         return $response;
     }
 
@@ -144,16 +142,14 @@ class CommentsApi
      * @param  string $key_id Translation Key ID (required)
      * @param  \Phrase\Model\CommentCreateParameters $comment_create_parameters (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
-     * @param  string $message specify the message for the comment (optional)
-     * @param  string[] $locale_ids specify the locales for the comment (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Phrase\Model\Comment, HTTP status code, HTTP response headers (array of strings)
      */
-    public function commentCreateWithHttpInfo($project_id, $key_id, $comment_create_parameters, $x_phrase_app_otp = null, $message = null, $locale_ids = null)
+    public function commentCreateWithHttpInfo($project_id, $key_id, $comment_create_parameters, $x_phrase_app_otp = null)
     {
-        $request = $this->commentCreateRequest($project_id, $key_id, $comment_create_parameters, $x_phrase_app_otp, $message, $locale_ids);
+        $request = $this->commentCreateRequest($project_id, $key_id, $comment_create_parameters, $x_phrase_app_otp);
 
         try {
             $options = $this->createHttpClientOption();
@@ -237,15 +233,13 @@ class CommentsApi
      * @param  string $key_id Translation Key ID (required)
      * @param  \Phrase\Model\CommentCreateParameters $comment_create_parameters (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
-     * @param  string $message specify the message for the comment (optional)
-     * @param  string[] $locale_ids specify the locales for the comment (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function commentCreateAsync($project_id, $key_id, $comment_create_parameters, $x_phrase_app_otp = null, $message = null, $locale_ids = null)
+    public function commentCreateAsync($project_id, $key_id, $comment_create_parameters, $x_phrase_app_otp = null)
     {
-        return $this->commentCreateAsyncWithHttpInfo($project_id, $key_id, $comment_create_parameters, $x_phrase_app_otp, $message, $locale_ids)
+        return $this->commentCreateAsyncWithHttpInfo($project_id, $key_id, $comment_create_parameters, $x_phrase_app_otp)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -262,16 +256,14 @@ class CommentsApi
      * @param  string $key_id Translation Key ID (required)
      * @param  \Phrase\Model\CommentCreateParameters $comment_create_parameters (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
-     * @param  string $message specify the message for the comment (optional)
-     * @param  string[] $locale_ids specify the locales for the comment (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function commentCreateAsyncWithHttpInfo($project_id, $key_id, $comment_create_parameters, $x_phrase_app_otp = null, $message = null, $locale_ids = null)
+    public function commentCreateAsyncWithHttpInfo($project_id, $key_id, $comment_create_parameters, $x_phrase_app_otp = null)
     {
         $returnType = '\Phrase\Model\Comment';
-        $request = $this->commentCreateRequest($project_id, $key_id, $comment_create_parameters, $x_phrase_app_otp, $message, $locale_ids);
+        $request = $this->commentCreateRequest($project_id, $key_id, $comment_create_parameters, $x_phrase_app_otp);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -314,13 +306,11 @@ class CommentsApi
      * @param  string $key_id Translation Key ID (required)
      * @param  \Phrase\Model\CommentCreateParameters $comment_create_parameters (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
-     * @param  string $message specify the message for the comment (optional)
-     * @param  string[] $locale_ids specify the locales for the comment (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function commentCreateRequest($project_id, $key_id, $comment_create_parameters, $x_phrase_app_otp = null, $message = null, $locale_ids = null)
+    protected function commentCreateRequest($project_id, $key_id, $comment_create_parameters, $x_phrase_app_otp = null)
     {
         // verify the required parameter 'project_id' is set
         if ($project_id === null || (is_array($project_id) && count($project_id) === 0)) {
@@ -348,28 +338,6 @@ class CommentsApi
         $httpBody = '';
         $multipart = false;
 
-        // query params
-        if ($message !== null) {
-            if('form' === 'form' && is_array($message)) {
-                foreach($message as $key => $value) {
-                    $queryParams[$key] = $value;
-                }
-            }
-            else {
-                $queryParams['message'] = $message;
-            }
-        }
-        // query params
-        if ($locale_ids !== null) {
-            if('form' === 'form' && is_array($locale_ids)) {
-                foreach($locale_ids as $key => $value) {
-                    $queryParams[$key] = $value;
-                }
-            }
-            else {
-                $queryParams['locale_ids'] = $locale_ids;
-            }
-        }
 
         // header params
         if ($x_phrase_app_otp !== null) {

@@ -17,7 +17,7 @@ Method | HTTP request | Description
 
 ## commentCreate
 
-> \Phrase\Model\Comment commentCreate($project_id, $key_id, $comment_create_parameters, $x_phrase_app_otp, $message, $locale_ids)
+> \Phrase\Model\Comment commentCreate($project_id, $key_id, $comment_create_parameters, $x_phrase_app_otp)
 
 Create a comment
 
@@ -42,11 +42,9 @@ $project_id = 'project_id_example'; // string | Project ID
 $key_id = 'key_id_example'; // string | Translation Key ID
 $comment_create_parameters = new \Phrase\Model\CommentCreateParameters(); // \Phrase\Model\CommentCreateParameters | 
 $x_phrase_app_otp = 'x_phrase_app_otp_example'; // string | Two-Factor-Authentication token (optional)
-$message = some message...; // string | specify the message for the comment
-$locale_ids = someId; // string[] | specify the locales for the comment
 
 try {
-    $result = $apiInstance->commentCreate($project_id, $key_id, $comment_create_parameters, $x_phrase_app_otp, $message, $locale_ids);
+    $result = $apiInstance->commentCreate($project_id, $key_id, $comment_create_parameters, $x_phrase_app_otp);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CommentsApi->commentCreate: ', $e->getMessage(), PHP_EOL;
@@ -63,8 +61,6 @@ Name | Type | Description  | Notes
  **key_id** | **string**| Translation Key ID |
  **comment_create_parameters** | [**\Phrase\Model\CommentCreateParameters**](../Model/CommentCreateParameters.md)|  |
  **x_phrase_app_otp** | **string**| Two-Factor-Authentication token (optional) | [optional]
- **message** | **string**| specify the message for the comment | [optional]
- **locale_ids** | [**string[]**](../Model/string.md)| specify the locales for the comment | [optional]
 
 ### Return type
 

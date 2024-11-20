@@ -453,6 +453,7 @@ Class | Method | HTTP request | Description
  - [BranchUpdateParameters](docs/Model/BranchUpdateParameters.md)
  - [Comment](docs/Model/Comment.md)
  - [CommentCreateParameters](docs/Model/CommentCreateParameters.md)
+ - [CommentCreateParameters1](docs/Model/CommentCreateParameters1.md)
  - [CommentMarkReadParameters](docs/Model/CommentMarkReadParameters.md)
  - [CommentReaction](docs/Model/CommentReaction.md)
  - [CommentUpdateParameters](docs/Model/CommentUpdateParameters.md)
