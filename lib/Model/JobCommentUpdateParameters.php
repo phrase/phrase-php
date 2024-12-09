@@ -55,7 +55,8 @@ class JobCommentUpdateParameters implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'message' => 'string'
+        'message' => 'string',
+        'branch' => 'string'
     ];
 
     /**
@@ -64,7 +65,8 @@ class JobCommentUpdateParameters implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'message' => null
+        'message' => null,
+        'branch' => null
     ];
 
     /**
@@ -94,7 +96,8 @@ class JobCommentUpdateParameters implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'message' => 'message'
+        'message' => 'message',
+        'branch' => 'branch'
     ];
 
     /**
@@ -103,7 +106,8 @@ class JobCommentUpdateParameters implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'message' => 'setMessage'
+        'message' => 'setMessage',
+        'branch' => 'setBranch'
     ];
 
     /**
@@ -112,7 +116,8 @@ class JobCommentUpdateParameters implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'message' => 'getMessage'
+        'message' => 'getMessage',
+        'branch' => 'getBranch'
     ];
 
     /**
@@ -176,6 +181,7 @@ class JobCommentUpdateParameters implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['message'] = isset($data['message']) ? $data['message'] : null;
+        $this->container['branch'] = isset($data['branch']) ? $data['branch'] : null;
     }
 
     /**
@@ -222,6 +228,30 @@ class JobCommentUpdateParameters implements ModelInterface, ArrayAccess
     public function setMessage($message)
     {
         $this->container['message'] = $message;
+
+        return $this;
+    }
+
+    /**
+     * Gets branch
+     *
+     * @return string|null
+     */
+    public function getBranch()
+    {
+        return $this->container['branch'];
+    }
+
+    /**
+     * Sets branch
+     *
+     * @param string|null $branch Branch name for the job
+     *
+     * @return $this
+     */
+    public function setBranch($branch)
+    {
+        $this->container['branch'] = $branch;
 
         return $this;
     }

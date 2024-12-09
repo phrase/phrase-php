@@ -446,7 +446,7 @@ class JobCommentsApi
      * @param  string $job_id Job ID (required)
      * @param  string $id ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
-     * @param  string $branch specify the branch to use (optional)
+     * @param  string $branch Branch to use (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -466,7 +466,7 @@ class JobCommentsApi
      * @param  string $job_id Job ID (required)
      * @param  string $id ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
-     * @param  string $branch specify the branch to use (optional)
+     * @param  string $branch Branch to use (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -522,7 +522,7 @@ class JobCommentsApi
      * @param  string $job_id Job ID (required)
      * @param  string $id ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
-     * @param  string $branch specify the branch to use (optional)
+     * @param  string $branch Branch to use (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -546,7 +546,7 @@ class JobCommentsApi
      * @param  string $job_id Job ID (required)
      * @param  string $id ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
-     * @param  string $branch specify the branch to use (optional)
+     * @param  string $branch Branch to use (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -586,7 +586,7 @@ class JobCommentsApi
      * @param  string $job_id Job ID (required)
      * @param  string $id ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
-     * @param  string $branch specify the branch to use (optional)
+     * @param  string $branch Branch to use (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -743,7 +743,7 @@ class JobCommentsApi
      * @param  string $job_id Job ID (required)
      * @param  string $id ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
-     * @param  string $branch specify the branch to use (optional)
+     * @param  string $branch Branch to use (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -764,7 +764,7 @@ class JobCommentsApi
      * @param  string $job_id Job ID (required)
      * @param  string $id ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
-     * @param  string $branch specify the branch to use (optional)
+     * @param  string $branch Branch to use (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -856,7 +856,7 @@ class JobCommentsApi
      * @param  string $job_id Job ID (required)
      * @param  string $id ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
-     * @param  string $branch specify the branch to use (optional)
+     * @param  string $branch Branch to use (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -880,7 +880,7 @@ class JobCommentsApi
      * @param  string $job_id Job ID (required)
      * @param  string $id ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
-     * @param  string $branch specify the branch to use (optional)
+     * @param  string $branch Branch to use (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -931,7 +931,7 @@ class JobCommentsApi
      * @param  string $job_id Job ID (required)
      * @param  string $id ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
-     * @param  string $branch specify the branch to use (optional)
+     * @param  string $branch Branch to use (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -1430,7 +1430,7 @@ class JobCommentsApi
      * @param  string $project_id Project ID (required)
      * @param  string $job_id Job ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
-     * @param  string $branch specify the branch to use (optional)
+     * @param  string $branch Branch to use (optional)
      * @param  string $order Order direction. Can be one of: asc, desc. (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
@@ -1451,7 +1451,7 @@ class JobCommentsApi
      * @param  string $project_id Project ID (required)
      * @param  string $job_id Job ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
-     * @param  string $branch specify the branch to use (optional)
+     * @param  string $branch Branch to use (optional)
      * @param  string $order Order direction. Can be one of: asc, desc. (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
@@ -1543,7 +1543,7 @@ class JobCommentsApi
      * @param  string $project_id Project ID (required)
      * @param  string $job_id Job ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
-     * @param  string $branch specify the branch to use (optional)
+     * @param  string $branch Branch to use (optional)
      * @param  string $order Order direction. Can be one of: asc, desc. (optional)
      *
      * @throws \InvalidArgumentException
@@ -1567,7 +1567,7 @@ class JobCommentsApi
      * @param  string $project_id Project ID (required)
      * @param  string $job_id Job ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
-     * @param  string $branch specify the branch to use (optional)
+     * @param  string $branch Branch to use (optional)
      * @param  string $order Order direction. Can be one of: asc, desc. (optional)
      *
      * @throws \InvalidArgumentException
@@ -1618,7 +1618,7 @@ class JobCommentsApi
      * @param  string $project_id Project ID (required)
      * @param  string $job_id Job ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
-     * @param  string $branch specify the branch to use (optional)
+     * @param  string $branch Branch to use (optional)
      * @param  string $order Order direction. Can be one of: asc, desc. (optional)
      *
      * @throws \InvalidArgumentException

@@ -82,4 +82,11 @@ class JobCommentCreateParametersTest extends TestCase
     public function testPropertyMessage()
     {
     }
+
+    /**
+     * Test attribute "branch"
+     */
+    public function testPropertyBranch()
+    {
+    }
 }

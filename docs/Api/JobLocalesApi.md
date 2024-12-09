@@ -176,7 +176,7 @@ $project_id = 'project_id_example'; // string | Project ID
 $job_id = 'job_id_example'; // string | Job ID
 $id = 'id_example'; // string | ID
 $x_phrase_app_otp = 'x_phrase_app_otp_example'; // string | Two-Factor-Authentication token (optional)
-$branch = my-feature-branch; // string | specify the branch to use
+$branch = my-feature-branch; // string | Branch to use
 
 try {
     $apiInstance->jobLocaleDelete($project_id, $job_id, $id, $x_phrase_app_otp, $branch);
@@ -195,7 +195,7 @@ Name | Type | Description  | Notes
  **job_id** | **string**| Job ID |
  **id** | **string**| ID |
  **x_phrase_app_otp** | **string**| Two-Factor-Authentication token (optional) | [optional]
- **branch** | **string**| specify the branch to use | [optional]
+ **branch** | **string**| Branch to use | [optional]
 
 ### Return type
 
@@ -309,7 +309,7 @@ $project_id = 'project_id_example'; // string | Project ID
 $job_id = 'job_id_example'; // string | Job ID
 $id = 'id_example'; // string | ID
 $x_phrase_app_otp = 'x_phrase_app_otp_example'; // string | Two-Factor-Authentication token (optional)
-$branch = my-feature-branch; // string | specify the branch to use
+$branch = my-feature-branch; // string | Branch to use
 
 try {
     $result = $apiInstance->jobLocaleShow($project_id, $job_id, $id, $x_phrase_app_otp, $branch);
@@ -329,7 +329,7 @@ Name | Type | Description  | Notes
  **job_id** | **string**| Job ID |
  **id** | **string**| ID |
  **x_phrase_app_otp** | **string**| Two-Factor-Authentication token (optional) | [optional]
- **branch** | **string**| specify the branch to use | [optional]
+ **branch** | **string**| Branch to use | [optional]
 
 ### Return type
 
@@ -509,7 +509,7 @@ $job_id = 'job_id_example'; // string | Job ID
 $x_phrase_app_otp = 'x_phrase_app_otp_example'; // string | Two-Factor-Authentication token (optional)
 $page = 1; // int | Page number
 $per_page = 25; // int | Limit on the number of objects to be returned, between 1 and 100. 25 by default
-$branch = my-feature-branch; // string | specify the branch to use
+$branch = my-feature-branch; // string | Branch to use
 
 try {
     $result = $apiInstance->jobLocalesList($project_id, $job_id, $x_phrase_app_otp, $page, $per_page, $branch);
@@ -530,7 +530,7 @@ Name | Type | Description  | Notes
  **x_phrase_app_otp** | **string**| Two-Factor-Authentication token (optional) | [optional]
  **page** | **int**| Page number | [optional]
  **per_page** | **int**| Limit on the number of objects to be returned, between 1 and 100. 25 by default | [optional]
- **branch** | **string**| specify the branch to use | [optional]
+ **branch** | **string**| Branch to use | [optional]
 
 ### Return type
 

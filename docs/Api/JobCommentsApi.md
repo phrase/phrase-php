@@ -104,7 +104,7 @@ $project_id = 'project_id_example'; // string | Project ID
 $job_id = 'job_id_example'; // string | Job ID
 $id = 'id_example'; // string | ID
 $x_phrase_app_otp = 'x_phrase_app_otp_example'; // string | Two-Factor-Authentication token (optional)
-$branch = my-feature-branch; // string | specify the branch to use
+$branch = my-feature-branch; // string | Branch to use
 
 try {
     $apiInstance->jobCommentDelete($project_id, $job_id, $id, $x_phrase_app_otp, $branch);
@@ -123,7 +123,7 @@ Name | Type | Description  | Notes
  **job_id** | **string**| Job ID |
  **id** | **string**| ID |
  **x_phrase_app_otp** | **string**| Two-Factor-Authentication token (optional) | [optional]
- **branch** | **string**| specify the branch to use | [optional]
+ **branch** | **string**| Branch to use | [optional]
 
 ### Return type
 
@@ -170,7 +170,7 @@ $project_id = 'project_id_example'; // string | Project ID
 $job_id = 'job_id_example'; // string | Job ID
 $id = 'id_example'; // string | ID
 $x_phrase_app_otp = 'x_phrase_app_otp_example'; // string | Two-Factor-Authentication token (optional)
-$branch = my-feature-branch; // string | specify the branch to use
+$branch = my-feature-branch; // string | Branch to use
 
 try {
     $result = $apiInstance->jobCommentShow($project_id, $job_id, $id, $x_phrase_app_otp, $branch);
@@ -190,7 +190,7 @@ Name | Type | Description  | Notes
  **job_id** | **string**| Job ID |
  **id** | **string**| ID |
  **x_phrase_app_otp** | **string**| Two-Factor-Authentication token (optional) | [optional]
- **branch** | **string**| specify the branch to use | [optional]
+ **branch** | **string**| Branch to use | [optional]
 
 ### Return type
 
@@ -303,7 +303,7 @@ $apiInstance = new Phrase\Api\JobCommentsApi(
 $project_id = 'project_id_example'; // string | Project ID
 $job_id = 'job_id_example'; // string | Job ID
 $x_phrase_app_otp = 'x_phrase_app_otp_example'; // string | Two-Factor-Authentication token (optional)
-$branch = my-feature-branch; // string | specify the branch to use
+$branch = my-feature-branch; // string | Branch to use
 $order = desc; // string | Order direction. Can be one of: asc, desc.
 
 try {
@@ -323,7 +323,7 @@ Name | Type | Description  | Notes
  **project_id** | **string**| Project ID |
  **job_id** | **string**| Job ID |
  **x_phrase_app_otp** | **string**| Two-Factor-Authentication token (optional) | [optional]
- **branch** | **string**| specify the branch to use | [optional]
+ **branch** | **string**| Branch to use | [optional]
  **order** | **string**| Order direction. Can be one of: asc, desc. | [optional]
 
 ### Return type
