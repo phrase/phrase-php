@@ -76,7 +76,8 @@ class ProjectUpdateParameters implements ModelInterface, ArrayAccess
         'autotranslate_check_new_locales' => 'bool',
         'autotranslate_mark_as_unverified' => 'bool',
         'autotranslate_use_machine_translation' => 'bool',
-        'autotranslate_use_translation_memory' => 'bool'
+        'autotranslate_use_translation_memory' => 'bool',
+        'default_encoding' => 'string'
     ];
 
     /**
@@ -106,7 +107,8 @@ class ProjectUpdateParameters implements ModelInterface, ArrayAccess
         'autotranslate_check_new_locales' => null,
         'autotranslate_mark_as_unverified' => null,
         'autotranslate_use_machine_translation' => null,
-        'autotranslate_use_translation_memory' => null
+        'autotranslate_use_translation_memory' => null,
+        'default_encoding' => null
     ];
 
     /**
@@ -157,7 +159,8 @@ class ProjectUpdateParameters implements ModelInterface, ArrayAccess
         'autotranslate_check_new_locales' => 'autotranslate_check_new_locales',
         'autotranslate_mark_as_unverified' => 'autotranslate_mark_as_unverified',
         'autotranslate_use_machine_translation' => 'autotranslate_use_machine_translation',
-        'autotranslate_use_translation_memory' => 'autotranslate_use_translation_memory'
+        'autotranslate_use_translation_memory' => 'autotranslate_use_translation_memory',
+        'default_encoding' => 'default_encoding'
     ];
 
     /**
@@ -187,7 +190,8 @@ class ProjectUpdateParameters implements ModelInterface, ArrayAccess
         'autotranslate_check_new_locales' => 'setAutotranslateCheckNewLocales',
         'autotranslate_mark_as_unverified' => 'setAutotranslateMarkAsUnverified',
         'autotranslate_use_machine_translation' => 'setAutotranslateUseMachineTranslation',
-        'autotranslate_use_translation_memory' => 'setAutotranslateUseTranslationMemory'
+        'autotranslate_use_translation_memory' => 'setAutotranslateUseTranslationMemory',
+        'default_encoding' => 'setDefaultEncoding'
     ];
 
     /**
@@ -217,7 +221,8 @@ class ProjectUpdateParameters implements ModelInterface, ArrayAccess
         'autotranslate_check_new_locales' => 'getAutotranslateCheckNewLocales',
         'autotranslate_mark_as_unverified' => 'getAutotranslateMarkAsUnverified',
         'autotranslate_use_machine_translation' => 'getAutotranslateUseMachineTranslation',
-        'autotranslate_use_translation_memory' => 'getAutotranslateUseTranslationMemory'
+        'autotranslate_use_translation_memory' => 'getAutotranslateUseTranslationMemory',
+        'default_encoding' => 'getDefaultEncoding'
     ];
 
     /**
@@ -261,8 +266,29 @@ class ProjectUpdateParameters implements ModelInterface, ArrayAccess
         return self::$openAPIModelName;
     }
 
+    const DEFAULT_ENCODING_UTF_8 = 'UTF-8';
+    const DEFAULT_ENCODING_UTF_16 = 'UTF-16';
+    const DEFAULT_ENCODING_UTF_16_BE = 'UTF-16BE';
+    const DEFAULT_ENCODING_UTF_16_LE = 'UTF-16LE';
+    const DEFAULT_ENCODING_ISO_8859_1 = 'ISO-8859-1';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getDefaultEncodingAllowableValues()
+    {
+        return [
+            self::DEFAULT_ENCODING_UTF_8,
+            self::DEFAULT_ENCODING_UTF_16,
+            self::DEFAULT_ENCODING_UTF_16_BE,
+            self::DEFAULT_ENCODING_UTF_16_LE,
+            self::DEFAULT_ENCODING_ISO_8859_1,
+        ];
+    }
     
 
     /**
@@ -302,6 +328,7 @@ class ProjectUpdateParameters implements ModelInterface, ArrayAccess
         $this->container['autotranslate_mark_as_unverified'] = isset($data['autotranslate_mark_as_unverified']) ? $data['autotranslate_mark_as_unverified'] : null;
         $this->container['autotranslate_use_machine_translation'] = isset($data['autotranslate_use_machine_translation']) ? $data['autotranslate_use_machine_translation'] : null;
         $this->container['autotranslate_use_translation_memory'] = isset($data['autotranslate_use_translation_memory']) ? $data['autotranslate_use_translation_memory'] : null;
+        $this->container['default_encoding'] = isset($data['default_encoding']) ? $data['default_encoding'] : null;
     }
 
     /**
@@ -312,6 +339,14 @@ class ProjectUpdateParameters implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        $allowedValues = $this->getDefaultEncodingAllowableValues();
+        if (!is_null($this->container['default_encoding']) && !in_array($this->container['default_encoding'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'default_encoding', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
 
         return $invalidProperties;
     }
@@ -852,6 +887,39 @@ class ProjectUpdateParameters implements ModelInterface, ArrayAccess
     public function setAutotranslateUseTranslationMemory($autotranslate_use_translation_memory)
     {
         $this->container['autotranslate_use_translation_memory'] = $autotranslate_use_translation_memory;
+
+        return $this;
+    }
+
+    /**
+     * Gets default_encoding
+     *
+     * @return string|null
+     */
+    public function getDefaultEncoding()
+    {
+        return $this->container['default_encoding'];
+    }
+
+    /**
+     * Sets default_encoding
+     *
+     * @param string|null $default_encoding (Optional) Sets the default encoding for Uploads. If you leave it empty, we will try to guess it automatically for you when you Upload a file. You can still override this value by setting the <a href='#post-/projects/-project_id-/uploads'>`file_encoding`</a> parameter for Uploads.
+     *
+     * @return $this
+     */
+    public function setDefaultEncoding($default_encoding)
+    {
+        $allowedValues = $this->getDefaultEncodingAllowableValues();
+        if (!is_null($default_encoding) && !in_array($default_encoding, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'default_encoding', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['default_encoding'] = $default_encoding;
 
         return $this;
     }

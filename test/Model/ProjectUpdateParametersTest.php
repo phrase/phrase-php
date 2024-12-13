@@ -229,4 +229,11 @@ class ProjectUpdateParametersTest extends TestCase
     public function testPropertyAutotranslateUseTranslationMemory()
     {
     }
+
+    /**
+     * Test attribute "default_encoding"
+     */
+    public function testPropertyDefaultEncoding()
+    {
+    }
 }
