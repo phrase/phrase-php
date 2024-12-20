@@ -328,10 +328,10 @@ Class | Method | HTTP request | Description
 *ReleasesApi* | [**releaseShow**](docs/Api/ReleasesApi.md#releaseshow) | **GET** /accounts/{account_id}/distributions/{distribution_id}/releases/{id} | Get a single release
 *ReleasesApi* | [**releaseUpdate**](docs/Api/ReleasesApi.md#releaseupdate) | **PATCH** /accounts/{account_id}/distributions/{distribution_id}/releases/{id} | Update a release
 *ReleasesApi* | [**releasesList**](docs/Api/ReleasesApi.md#releaseslist) | **GET** /accounts/{account_id}/distributions/{distribution_id}/releases | List releases
+*RepoSyncEventsApi* | [**repoSyncEventList**](docs/Api/RepoSyncEventsApi.md#reposynceventlist) | **GET** /accounts/{account_id}/repo_syncs/{id}/events | Repository Syncs History
+*RepoSyncEventsApi* | [**repoSyncEventShow**](docs/Api/RepoSyncEventsApi.md#reposynceventshow) | **GET** /accounts/{account_id}/repo_syncs/{repo_sync_id}/events/{id} | Get a single Repo Sync Event
 *RepoSyncsApi* | [**repoSyncActivate**](docs/Api/RepoSyncsApi.md#reposyncactivate) | **POST** /accounts/{account_id}/repo_syncs/{id}/activate | Activate a Repo Sync
 *RepoSyncsApi* | [**repoSyncDeactivate**](docs/Api/RepoSyncsApi.md#reposyncdeactivate) | **POST** /accounts/{account_id}/repo_syncs/{id}/deactivate | Deactivate a Repo Sync
-*RepoSyncsApi* | [**repoSyncEventShow**](docs/Api/RepoSyncsApi.md#reposynceventshow) | **GET** /accounts/{account_id}/repo_syncs/{repo_sync_id}/events/{id} | Get a single Repo Sync Event
-*RepoSyncsApi* | [**repoSyncEvents**](docs/Api/RepoSyncsApi.md#reposyncevents) | **GET** /accounts/{account_id}/repo_syncs/{id}/events | Repository Syncs History
 *RepoSyncsApi* | [**repoSyncExport**](docs/Api/RepoSyncsApi.md#reposyncexport) | **POST** /accounts/{account_id}/repo_syncs/{id}/export | Export to code repository
 *RepoSyncsApi* | [**repoSyncImport**](docs/Api/RepoSyncsApi.md#reposyncimport) | **POST** /accounts/{account_id}/repo_syncs/{id}/import | Import from code repository
 *RepoSyncsApi* | [**repoSyncList**](docs/Api/RepoSyncsApi.md#reposynclist) | **GET** /accounts/{account_id}/repo_syncs | Get Repo Syncs

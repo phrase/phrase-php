@@ -84,9 +84,9 @@ class RepoSyncEventTest extends TestCase
     }
 
     /**
-     * Test attribute "event_type"
+     * Test attribute "type"
      */
-    public function testPropertyEventType()
+    public function testPropertyType()
     {
     }
 

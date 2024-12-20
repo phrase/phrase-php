@@ -41,6 +41,7 @@ docs/Api/ProjectsApi.md
 docs/Api/QualityPerformanceScoreApi.md
 docs/Api/ReleaseTriggersApi.md
 docs/Api/ReleasesApi.md
+docs/Api/RepoSyncEventsApi.md
 docs/Api/RepoSyncsApi.md
 docs/Api/ReportsApi.md
 docs/Api/ScreenshotMarkersApi.md
@@ -307,6 +308,7 @@ lib/Api/ProjectsApi.php
 lib/Api/QualityPerformanceScoreApi.php
 lib/Api/ReleaseTriggersApi.php
 lib/Api/ReleasesApi.php
+lib/Api/RepoSyncEventsApi.php
 lib/Api/RepoSyncsApi.php
 lib/Api/ReportsApi.php
 lib/Api/ScreenshotMarkersApi.php
@@ -576,6 +578,7 @@ test/Api/ProjectsApiTest.php
 test/Api/QualityPerformanceScoreApiTest.php
 test/Api/ReleaseTriggersApiTest.php
 test/Api/ReleasesApiTest.php
+test/Api/RepoSyncEventsApiTest.php
 test/Api/RepoSyncsApiTest.php
 test/Api/ReportsApiTest.php
 test/Api/ScreenshotMarkersApiTest.php

@@ -1,6 +1,6 @@
 <?php
 /**
- * RepoSyncsApiTest
+ * RepoSyncEventsApiTest
  * PHP version 5
  *
  * @category Class
@@ -32,14 +32,14 @@ use \Phrase\ObjectSerializer;
 use PHPUnit\Framework\TestCase;
 
 /**
- * RepoSyncsApiTest Class Doc Comment
+ * RepoSyncEventsApiTest Class Doc Comment
  *
  * @category Class
  * @package  Phrase
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class RepoSyncsApiTest extends TestCase
+class RepoSyncEventsApiTest extends TestCase
 {
 
     /**
@@ -71,62 +71,22 @@ class RepoSyncsApiTest extends TestCase
     }
 
     /**
-     * Test case for repoSyncActivate
+     * Test case for repoSyncEventList
      *
-     * Activate a Repo Sync.
+     * Repository Syncs History.
      *
      */
-    public function testRepoSyncActivate()
+    public function testRepoSyncEventList()
     {
     }
 
     /**
-     * Test case for repoSyncDeactivate
+     * Test case for repoSyncEventShow
      *
-     * Deactivate a Repo Sync.
-     *
-     */
-    public function testRepoSyncDeactivate()
-    {
-    }
-
-    /**
-     * Test case for repoSyncExport
-     *
-     * Export to code repository.
+     * Get a single Repo Sync Event.
      *
      */
-    public function testRepoSyncExport()
-    {
-    }
-
-    /**
-     * Test case for repoSyncImport
-     *
-     * Import from code repository.
-     *
-     */
-    public function testRepoSyncImport()
-    {
-    }
-
-    /**
-     * Test case for repoSyncList
-     *
-     * Get Repo Syncs.
-     *
-     */
-    public function testRepoSyncList()
-    {
-    }
-
-    /**
-     * Test case for repoSyncShow
-     *
-     * Get a single Repo Sync.
-     *
-     */
-    public function testRepoSyncShow()
+    public function testRepoSyncEventShow()
     {
     }
 }

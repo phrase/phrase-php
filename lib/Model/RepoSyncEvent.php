@@ -56,7 +56,7 @@ class RepoSyncEvent implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'id' => 'string',
-        'event_type' => 'string',
+        'type' => 'string',
         'created_at' => '\DateTime',
         'status' => 'string',
         'pull_request_url' => 'string',
@@ -71,7 +71,7 @@ class RepoSyncEvent implements ModelInterface, ArrayAccess
       */
     protected static $openAPIFormats = [
         'id' => null,
-        'event_type' => null,
+        'type' => null,
         'created_at' => 'date-time',
         'status' => null,
         'pull_request_url' => null,
@@ -107,7 +107,7 @@ class RepoSyncEvent implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'id' => 'id',
-        'event_type' => 'event_type',
+        'type' => 'type',
         'created_at' => 'created_at',
         'status' => 'status',
         'pull_request_url' => 'pull_request_url',
@@ -122,7 +122,7 @@ class RepoSyncEvent implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'id' => 'setId',
-        'event_type' => 'setEventType',
+        'type' => 'setType',
         'created_at' => 'setCreatedAt',
         'status' => 'setStatus',
         'pull_request_url' => 'setPullRequestUrl',
@@ -137,7 +137,7 @@ class RepoSyncEvent implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'id' => 'getId',
-        'event_type' => 'getEventType',
+        'type' => 'getType',
         'created_at' => 'getCreatedAt',
         'status' => 'getStatus',
         'pull_request_url' => 'getPullRequestUrl',
@@ -186,8 +186,8 @@ class RepoSyncEvent implements ModelInterface, ArrayAccess
         return self::$openAPIModelName;
     }
 
-    const EVENT_TYPE_IMPORT = 'import';
-    const EVENT_TYPE_EXPORT = 'export';
+    const TYPE_IMPORT = 'import';
+    const TYPE_EXPORT = 'export';
     const STATUS_RUNNING = 'running';
     const STATUS_SUCCESS = 'success';
     const STATUS_FAILURE = 'failure';
@@ -199,11 +199,11 @@ class RepoSyncEvent implements ModelInterface, ArrayAccess
      *
      * @return string[]
      */
-    public function getEventTypeAllowableValues()
+    public function getTypeAllowableValues()
     {
         return [
-            self::EVENT_TYPE_IMPORT,
-            self::EVENT_TYPE_EXPORT,
+            self::TYPE_IMPORT,
+            self::TYPE_EXPORT,
         ];
     }
     
@@ -238,7 +238,7 @@ class RepoSyncEvent implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
-        $this->container['event_type'] = isset($data['event_type']) ? $data['event_type'] : null;
+        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
         $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['pull_request_url'] = isset($data['pull_request_url']) ? $data['pull_request_url'] : null;
@@ -255,10 +255,10 @@ class RepoSyncEvent implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        $allowedValues = $this->getEventTypeAllowableValues();
-        if (!is_null($this->container['event_type']) && !in_array($this->container['event_type'], $allowedValues, true)) {
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
-                "invalid value for 'event_type', must be one of '%s'",
+                "invalid value for 'type', must be one of '%s'",
                 implode("', '", $allowedValues)
             );
         }
@@ -311,34 +311,34 @@ class RepoSyncEvent implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets event_type
+     * Gets type
      *
      * @return string|null
      */
-    public function getEventType()
+    public function getType()
     {
-        return $this->container['event_type'];
+        return $this->container['type'];
     }
 
     /**
-     * Sets event_type
+     * Sets type
      *
-     * @param string|null $event_type event_type
+     * @param string|null $type type
      *
      * @return $this
      */
-    public function setEventType($event_type)
+    public function setType($type)
     {
-        $allowedValues = $this->getEventTypeAllowableValues();
-        if (!is_null($event_type) && !in_array($event_type, $allowedValues, true)) {
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!is_null($type) && !in_array($type, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
-                    "Invalid value for 'event_type', must be one of '%s'",
+                    "Invalid value for 'type', must be one of '%s'",
                     implode("', '", $allowedValues)
                 )
             );
         }
-        $this->container['event_type'] = $event_type;
+        $this->container['type'] = $type;
 
         return $this;
     }
