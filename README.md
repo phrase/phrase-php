@@ -567,7 +567,6 @@ Class | Method | HTTP request | Description
  - [RepliesListParameters](docs/Model/RepliesListParameters.md)
  - [RepoSync](docs/Model/RepoSync.md)
  - [RepoSyncEvent](docs/Model/RepoSyncEvent.md)
- - [RepoSyncEventErrorsInner](docs/Model/RepoSyncEventErrorsInner.md)
  - [Screenshot](docs/Model/Screenshot.md)
  - [ScreenshotMarker](docs/Model/ScreenshotMarker.md)
  - [ScreenshotMarkerCreateParameters](docs/Model/ScreenshotMarkerCreateParameters.md)

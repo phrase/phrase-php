@@ -61,7 +61,7 @@ class RepoSyncEvent implements ModelInterface, ArrayAccess
         'status' => 'string',
         'pull_request_url' => 'string',
         'auto_import' => 'bool',
-        'errors' => '\Phrase\Model\RepoSyncEventErrorsInner[]'
+        'errors' => 'string[]'
     ];
 
     /**
@@ -451,7 +451,7 @@ class RepoSyncEvent implements ModelInterface, ArrayAccess
     /**
      * Gets errors
      *
-     * @return \Phrase\Model\RepoSyncEventErrorsInner[]|null
+     * @return string[]|null
      */
     public function getErrors()
     {
@@ -461,7 +461,7 @@ class RepoSyncEvent implements ModelInterface, ArrayAccess
     /**
      * Sets errors
      *
-     * @param \Phrase\Model\RepoSyncEventErrorsInner[]|null $errors List of error messages, in case of failure
+     * @param string[]|null $errors List of error messages, in case of failure
      *
      * @return $this
      */
