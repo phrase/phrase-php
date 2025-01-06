@@ -1,6 +1,6 @@
 <?php
 /**
- * ProjectsQualityPerformanceScore200ResponseTest
+ * QualityPerformanceScoreList200ResponseAnyOfDataTest
  *
  * PHP version 5
  *
@@ -30,15 +30,15 @@ namespace Phrase;
 use PHPUnit\Framework\TestCase;
 
 /**
- * ProjectsQualityPerformanceScore200ResponseTest Class Doc Comment
+ * QualityPerformanceScoreList200ResponseAnyOfDataTest Class Doc Comment
  *
  * @category    Class
- * @description ProjectsQualityPerformanceScore200Response
+ * @description QualityPerformanceScoreList200ResponseAnyOfData
  * @package     Phrase
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class ProjectsQualityPerformanceScore200ResponseTest extends TestCase
+class QualityPerformanceScoreList200ResponseAnyOfDataTest extends TestCase
 {
 
     /**
@@ -70,30 +70,16 @@ class ProjectsQualityPerformanceScore200ResponseTest extends TestCase
     }
 
     /**
-     * Test "ProjectsQualityPerformanceScore200Response"
+     * Test "QualityPerformanceScoreList200ResponseAnyOfData"
      */
-    public function testProjectsQualityPerformanceScore200Response()
+    public function testQualityPerformanceScoreList200ResponseAnyOfData()
     {
     }
 
     /**
-     * Test attribute "error"
+     * Test attribute "translations"
      */
-    public function testPropertyError()
-    {
-    }
-
-    /**
-     * Test attribute "data"
-     */
-    public function testPropertyData()
-    {
-    }
-
-    /**
-     * Test attribute "errors"
-     */
-    public function testPropertyErrors()
+    public function testPropertyTranslations()
     {
     }
 }

@@ -1,6 +1,6 @@
 <?php
 /**
- * ProjectsQualityPerformanceScoreRequestTest
+ * QualityPerformanceScoreListRequestTest
  *
  * PHP version 5
  *
@@ -30,15 +30,15 @@ namespace Phrase;
 use PHPUnit\Framework\TestCase;
 
 /**
- * ProjectsQualityPerformanceScoreRequestTest Class Doc Comment
+ * QualityPerformanceScoreListRequestTest Class Doc Comment
  *
  * @category    Class
- * @description ProjectsQualityPerformanceScoreRequest
+ * @description QualityPerformanceScoreListRequest
  * @package     Phrase
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class ProjectsQualityPerformanceScoreRequestTest extends TestCase
+class QualityPerformanceScoreListRequestTest extends TestCase
 {
 
     /**
@@ -70,9 +70,9 @@ class ProjectsQualityPerformanceScoreRequestTest extends TestCase
     }
 
     /**
-     * Test "ProjectsQualityPerformanceScoreRequest"
+     * Test "QualityPerformanceScoreListRequest"
      */
-    public function testProjectsQualityPerformanceScoreRequest()
+    public function testQualityPerformanceScoreListRequest()
     {
     }
 

@@ -1,6 +1,6 @@
 <?php
 /**
- * ProjectsQualityPerformanceScore200ResponseAnyOfData
+ * QualityPerformanceScoreList200ResponseAnyOfDataTranslationsInner
  *
  * PHP version 5
  *
@@ -31,14 +31,14 @@ use \ArrayAccess;
 use \Phrase\ObjectSerializer;
 
 /**
- * ProjectsQualityPerformanceScore200ResponseAnyOfData Class Doc Comment
+ * QualityPerformanceScoreList200ResponseAnyOfDataTranslationsInner Class Doc Comment
  *
  * @category Class
  * @package  Phrase
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class ProjectsQualityPerformanceScore200ResponseAnyOfData implements ModelInterface, ArrayAccess
+class QualityPerformanceScoreList200ResponseAnyOfDataTranslationsInner implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -47,7 +47,7 @@ class ProjectsQualityPerformanceScore200ResponseAnyOfData implements ModelInterf
       *
       * @var string
       */
-    protected static $openAPIModelName = 'projects_quality_performance_score_200_response_anyOf_data';
+    protected static $openAPIModelName = 'quality_performance_score_list_200_response_anyOf_data_translations_inner';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -55,7 +55,9 @@ class ProjectsQualityPerformanceScore200ResponseAnyOfData implements ModelInterf
       * @var string[]
       */
     protected static $openAPITypes = [
-        'translations' => '\Phrase\Model\ProjectsQualityPerformanceScore200ResponseAnyOfDataTranslationsInner[]'
+        'engine' => 'string',
+        'score' => 'float',
+        'id' => 'string'
     ];
 
     /**
@@ -64,7 +66,9 @@ class ProjectsQualityPerformanceScore200ResponseAnyOfData implements ModelInterf
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'translations' => null
+        'engine' => null,
+        'score' => null,
+        'id' => null
     ];
 
     /**
@@ -94,7 +98,9 @@ class ProjectsQualityPerformanceScore200ResponseAnyOfData implements ModelInterf
      * @var string[]
      */
     protected static $attributeMap = [
-        'translations' => 'translations'
+        'engine' => 'engine',
+        'score' => 'score',
+        'id' => 'id'
     ];
 
     /**
@@ -103,7 +109,9 @@ class ProjectsQualityPerformanceScore200ResponseAnyOfData implements ModelInterf
      * @var string[]
      */
     protected static $setters = [
-        'translations' => 'setTranslations'
+        'engine' => 'setEngine',
+        'score' => 'setScore',
+        'id' => 'setId'
     ];
 
     /**
@@ -112,7 +120,9 @@ class ProjectsQualityPerformanceScore200ResponseAnyOfData implements ModelInterf
      * @var string[]
      */
     protected static $getters = [
-        'translations' => 'getTranslations'
+        'engine' => 'getEngine',
+        'score' => 'getScore',
+        'id' => 'getId'
     ];
 
     /**
@@ -175,7 +185,9 @@ class ProjectsQualityPerformanceScore200ResponseAnyOfData implements ModelInterf
      */
     public function __construct(array $data = null)
     {
-        $this->container['translations'] = isset($data['translations']) ? $data['translations'] : null;
+        $this->container['engine'] = isset($data['engine']) ? $data['engine'] : null;
+        $this->container['score'] = isset($data['score']) ? $data['score'] : null;
+        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
     }
 
     /**
@@ -203,25 +215,73 @@ class ProjectsQualityPerformanceScore200ResponseAnyOfData implements ModelInterf
 
 
     /**
-     * Gets translations
+     * Gets engine
      *
-     * @return \Phrase\Model\ProjectsQualityPerformanceScore200ResponseAnyOfDataTranslationsInner[]|null
+     * @return string|null
      */
-    public function getTranslations()
+    public function getEngine()
     {
-        return $this->container['translations'];
+        return $this->container['engine'];
     }
 
     /**
-     * Sets translations
+     * Sets engine
      *
-     * @param \Phrase\Model\ProjectsQualityPerformanceScore200ResponseAnyOfDataTranslationsInner[]|null $translations translations
+     * @param string|null $engine Engine used for the translation scoring
      *
      * @return $this
      */
-    public function setTranslations($translations)
+    public function setEngine($engine)
     {
-        $this->container['translations'] = $translations;
+        $this->container['engine'] = $engine;
+
+        return $this;
+    }
+
+    /**
+     * Gets score
+     *
+     * @return float|null
+     */
+    public function getScore()
+    {
+        return $this->container['score'];
+    }
+
+    /**
+     * Sets score
+     *
+     * @param float|null $score Quality score for the translation
+     *
+     * @return $this
+     */
+    public function setScore($score)
+    {
+        $this->container['score'] = $score;
+
+        return $this;
+    }
+
+    /**
+     * Gets id
+     *
+     * @return string|null
+     */
+    public function getId()
+    {
+        return $this->container['id'];
+    }
+
+    /**
+     * Sets id
+     *
+     * @param string|null $id One of the translation ids passed in arguments
+     *
+     * @return $this
+     */
+    public function setId($id)
+    {
+        $this->container['id'] = $id;
 
         return $this;
     }

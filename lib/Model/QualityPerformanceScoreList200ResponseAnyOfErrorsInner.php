@@ -1,6 +1,6 @@
 <?php
 /**
- * ProjectsQualityPerformanceScore200Response
+ * QualityPerformanceScoreList200ResponseAnyOfErrorsInner
  *
  * PHP version 5
  *
@@ -31,14 +31,14 @@ use \ArrayAccess;
 use \Phrase\ObjectSerializer;
 
 /**
- * ProjectsQualityPerformanceScore200Response Class Doc Comment
+ * QualityPerformanceScoreList200ResponseAnyOfErrorsInner Class Doc Comment
  *
  * @category Class
  * @package  Phrase
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class ProjectsQualityPerformanceScore200Response implements ModelInterface, ArrayAccess
+class QualityPerformanceScoreList200ResponseAnyOfErrorsInner implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -47,7 +47,7 @@ class ProjectsQualityPerformanceScore200Response implements ModelInterface, Arra
       *
       * @var string
       */
-    protected static $openAPIModelName = 'projects_quality_performance_score_200_response';
+    protected static $openAPIModelName = 'quality_performance_score_list_200_response_anyOf_errors_inner';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -55,9 +55,9 @@ class ProjectsQualityPerformanceScore200Response implements ModelInterface, Arra
       * @var string[]
       */
     protected static $openAPITypes = [
-        'error' => '\Phrase\Model\ErrorError',
-        'data' => '\Phrase\Model\ProjectsQualityPerformanceScore200ResponseAnyOfData',
-        'errors' => '\Phrase\Model\ProjectsQualityPerformanceScore200ResponseAnyOfErrorsInner[]'
+        'message' => 'string',
+        'code' => 'string',
+        'id' => 'string'
     ];
 
     /**
@@ -66,9 +66,9 @@ class ProjectsQualityPerformanceScore200Response implements ModelInterface, Arra
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'error' => null,
-        'data' => null,
-        'errors' => null
+        'message' => null,
+        'code' => null,
+        'id' => null
     ];
 
     /**
@@ -98,9 +98,9 @@ class ProjectsQualityPerformanceScore200Response implements ModelInterface, Arra
      * @var string[]
      */
     protected static $attributeMap = [
-        'error' => 'error',
-        'data' => 'data',
-        'errors' => 'errors'
+        'message' => 'message',
+        'code' => 'code',
+        'id' => 'id'
     ];
 
     /**
@@ -109,9 +109,9 @@ class ProjectsQualityPerformanceScore200Response implements ModelInterface, Arra
      * @var string[]
      */
     protected static $setters = [
-        'error' => 'setError',
-        'data' => 'setData',
-        'errors' => 'setErrors'
+        'message' => 'setMessage',
+        'code' => 'setCode',
+        'id' => 'setId'
     ];
 
     /**
@@ -120,9 +120,9 @@ class ProjectsQualityPerformanceScore200Response implements ModelInterface, Arra
      * @var string[]
      */
     protected static $getters = [
-        'error' => 'getError',
-        'data' => 'getData',
-        'errors' => 'getErrors'
+        'message' => 'getMessage',
+        'code' => 'getCode',
+        'id' => 'getId'
     ];
 
     /**
@@ -185,9 +185,9 @@ class ProjectsQualityPerformanceScore200Response implements ModelInterface, Arra
      */
     public function __construct(array $data = null)
     {
-        $this->container['error'] = isset($data['error']) ? $data['error'] : null;
-        $this->container['data'] = isset($data['data']) ? $data['data'] : null;
-        $this->container['errors'] = isset($data['errors']) ? $data['errors'] : null;
+        $this->container['message'] = isset($data['message']) ? $data['message'] : null;
+        $this->container['code'] = isset($data['code']) ? $data['code'] : null;
+        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
     }
 
     /**
@@ -215,73 +215,73 @@ class ProjectsQualityPerformanceScore200Response implements ModelInterface, Arra
 
 
     /**
-     * Gets error
+     * Gets message
      *
-     * @return \Phrase\Model\ErrorError|null
+     * @return string|null
      */
-    public function getError()
+    public function getMessage()
     {
-        return $this->container['error'];
+        return $this->container['message'];
     }
 
     /**
-     * Sets error
+     * Sets message
      *
-     * @param \Phrase\Model\ErrorError|null $error error
+     * @param string|null $message message
      *
      * @return $this
      */
-    public function setError($error)
+    public function setMessage($message)
     {
-        $this->container['error'] = $error;
+        $this->container['message'] = $message;
 
         return $this;
     }
 
     /**
-     * Gets data
+     * Gets code
      *
-     * @return \Phrase\Model\ProjectsQualityPerformanceScore200ResponseAnyOfData|null
+     * @return string|null
      */
-    public function getData()
+    public function getCode()
     {
-        return $this->container['data'];
+        return $this->container['code'];
     }
 
     /**
-     * Sets data
+     * Sets code
      *
-     * @param \Phrase\Model\ProjectsQualityPerformanceScore200ResponseAnyOfData|null $data data
+     * @param string|null $code code
      *
      * @return $this
      */
-    public function setData($data)
+    public function setCode($code)
     {
-        $this->container['data'] = $data;
+        $this->container['code'] = $code;
 
         return $this;
     }
 
     /**
-     * Gets errors
+     * Gets id
      *
-     * @return \Phrase\Model\ProjectsQualityPerformanceScore200ResponseAnyOfErrorsInner[]|null
+     * @return string|null
      */
-    public function getErrors()
+    public function getId()
     {
-        return $this->container['errors'];
+        return $this->container['id'];
     }
 
     /**
-     * Sets errors
+     * Sets id
      *
-     * @param \Phrase\Model\ProjectsQualityPerformanceScore200ResponseAnyOfErrorsInner[]|null $errors Array of errors for any failing translation IDs
+     * @param string|null $id One of the translation ids passed in arguments
      *
      * @return $this
      */
-    public function setErrors($errors)
+    public function setId($id)
     {
-        $this->container['errors'] = $errors;
+        $this->container['id'] = $id;
 
         return $this;
     }

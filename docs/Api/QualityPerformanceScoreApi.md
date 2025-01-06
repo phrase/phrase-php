@@ -4,13 +4,13 @@ All URIs are relative to *https://api.phrase.com/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**projectsQualityPerformanceScore**](QualityPerformanceScoreApi.md#projectsQualityPerformanceScore) | **POST** /projects/{project_id}/quality_performance_score | Get Translation Quality
+[**qualityPerformanceScoreList**](QualityPerformanceScoreApi.md#qualityPerformanceScoreList) | **POST** /projects/{project_id}/quality_performance_score | Get Translation Quality
 
 
 
-## projectsQualityPerformanceScore
+## qualityPerformanceScoreList
 
-> \Phrase\Model\ProjectsQualityPerformanceScore200Response projectsQualityPerformanceScore($project_id, $projects_quality_performance_score_request, $x_phrase_app_otp)
+> \Phrase\Model\QualityPerformanceScoreList200Response qualityPerformanceScoreList($project_id, $quality_performance_score_list_request, $x_phrase_app_otp)
 
 Get Translation Quality
 
@@ -32,14 +32,14 @@ $apiInstance = new Phrase\Api\QualityPerformanceScoreApi(
     $config
 );
 $project_id = 'project_id_example'; // string | Project ID
-$projects_quality_performance_score_request = new \Phrase\Model\ProjectsQualityPerformanceScoreRequest(); // \Phrase\Model\ProjectsQualityPerformanceScoreRequest | 
+$quality_performance_score_list_request = new \Phrase\Model\QualityPerformanceScoreListRequest(); // \Phrase\Model\QualityPerformanceScoreListRequest | 
 $x_phrase_app_otp = 'x_phrase_app_otp_example'; // string | Two-Factor-Authentication token (optional)
 
 try {
-    $result = $apiInstance->projectsQualityPerformanceScore($project_id, $projects_quality_performance_score_request, $x_phrase_app_otp);
+    $result = $apiInstance->qualityPerformanceScoreList($project_id, $quality_performance_score_list_request, $x_phrase_app_otp);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling QualityPerformanceScoreApi->projectsQualityPerformanceScore: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling QualityPerformanceScoreApi->qualityPerformanceScoreList: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -50,12 +50,12 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **project_id** | **string**| Project ID |
- **projects_quality_performance_score_request** | [**\Phrase\Model\ProjectsQualityPerformanceScoreRequest**](../Model/ProjectsQualityPerformanceScoreRequest.md)|  |
+ **quality_performance_score_list_request** | [**\Phrase\Model\QualityPerformanceScoreListRequest**](../Model/QualityPerformanceScoreListRequest.md)|  |
  **x_phrase_app_otp** | **string**| Two-Factor-Authentication token (optional) | [optional]
 
 ### Return type
 
-[**\Phrase\Model\ProjectsQualityPerformanceScore200Response**](../Model/ProjectsQualityPerformanceScore200Response.md)
+[**\Phrase\Model\QualityPerformanceScoreList200Response**](../Model/QualityPerformanceScoreList200Response.md)
 
 ### Authorization
 

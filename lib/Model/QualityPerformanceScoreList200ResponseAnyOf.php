@@ -1,6 +1,6 @@
 <?php
 /**
- * ProjectsQualityPerformanceScore200ResponseAnyOfDataTranslationsInner
+ * QualityPerformanceScoreList200ResponseAnyOf
  *
  * PHP version 5
  *
@@ -31,14 +31,14 @@ use \ArrayAccess;
 use \Phrase\ObjectSerializer;
 
 /**
- * ProjectsQualityPerformanceScore200ResponseAnyOfDataTranslationsInner Class Doc Comment
+ * QualityPerformanceScoreList200ResponseAnyOf Class Doc Comment
  *
  * @category Class
  * @package  Phrase
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class ProjectsQualityPerformanceScore200ResponseAnyOfDataTranslationsInner implements ModelInterface, ArrayAccess
+class QualityPerformanceScoreList200ResponseAnyOf implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -47,7 +47,7 @@ class ProjectsQualityPerformanceScore200ResponseAnyOfDataTranslationsInner imple
       *
       * @var string
       */
-    protected static $openAPIModelName = 'projects_quality_performance_score_200_response_anyOf_data_translations_inner';
+    protected static $openAPIModelName = 'quality_performance_score_list_200_response_anyOf';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -55,9 +55,8 @@ class ProjectsQualityPerformanceScore200ResponseAnyOfDataTranslationsInner imple
       * @var string[]
       */
     protected static $openAPITypes = [
-        'engine' => 'string',
-        'score' => 'float',
-        'id' => 'string'
+        'data' => '\Phrase\Model\QualityPerformanceScoreList200ResponseAnyOfData',
+        'errors' => '\Phrase\Model\QualityPerformanceScoreList200ResponseAnyOfErrorsInner[]'
     ];
 
     /**
@@ -66,9 +65,8 @@ class ProjectsQualityPerformanceScore200ResponseAnyOfDataTranslationsInner imple
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'engine' => null,
-        'score' => null,
-        'id' => null
+        'data' => null,
+        'errors' => null
     ];
 
     /**
@@ -98,9 +96,8 @@ class ProjectsQualityPerformanceScore200ResponseAnyOfDataTranslationsInner imple
      * @var string[]
      */
     protected static $attributeMap = [
-        'engine' => 'engine',
-        'score' => 'score',
-        'id' => 'id'
+        'data' => 'data',
+        'errors' => 'errors'
     ];
 
     /**
@@ -109,9 +106,8 @@ class ProjectsQualityPerformanceScore200ResponseAnyOfDataTranslationsInner imple
      * @var string[]
      */
     protected static $setters = [
-        'engine' => 'setEngine',
-        'score' => 'setScore',
-        'id' => 'setId'
+        'data' => 'setData',
+        'errors' => 'setErrors'
     ];
 
     /**
@@ -120,9 +116,8 @@ class ProjectsQualityPerformanceScore200ResponseAnyOfDataTranslationsInner imple
      * @var string[]
      */
     protected static $getters = [
-        'engine' => 'getEngine',
-        'score' => 'getScore',
-        'id' => 'getId'
+        'data' => 'getData',
+        'errors' => 'getErrors'
     ];
 
     /**
@@ -185,9 +180,8 @@ class ProjectsQualityPerformanceScore200ResponseAnyOfDataTranslationsInner imple
      */
     public function __construct(array $data = null)
     {
-        $this->container['engine'] = isset($data['engine']) ? $data['engine'] : null;
-        $this->container['score'] = isset($data['score']) ? $data['score'] : null;
-        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['data'] = isset($data['data']) ? $data['data'] : null;
+        $this->container['errors'] = isset($data['errors']) ? $data['errors'] : null;
     }
 
     /**
@@ -215,73 +209,49 @@ class ProjectsQualityPerformanceScore200ResponseAnyOfDataTranslationsInner imple
 
 
     /**
-     * Gets engine
+     * Gets data
      *
-     * @return string|null
+     * @return \Phrase\Model\QualityPerformanceScoreList200ResponseAnyOfData|null
      */
-    public function getEngine()
+    public function getData()
     {
-        return $this->container['engine'];
+        return $this->container['data'];
     }
 
     /**
-     * Sets engine
+     * Sets data
      *
-     * @param string|null $engine Engine used for the translation scoring
+     * @param \Phrase\Model\QualityPerformanceScoreList200ResponseAnyOfData|null $data data
      *
      * @return $this
      */
-    public function setEngine($engine)
+    public function setData($data)
     {
-        $this->container['engine'] = $engine;
+        $this->container['data'] = $data;
 
         return $this;
     }
 
     /**
-     * Gets score
+     * Gets errors
      *
-     * @return float|null
+     * @return \Phrase\Model\QualityPerformanceScoreList200ResponseAnyOfErrorsInner[]|null
      */
-    public function getScore()
+    public function getErrors()
     {
-        return $this->container['score'];
+        return $this->container['errors'];
     }
 
     /**
-     * Sets score
+     * Sets errors
      *
-     * @param float|null $score Quality score for the translation
+     * @param \Phrase\Model\QualityPerformanceScoreList200ResponseAnyOfErrorsInner[]|null $errors Array of errors for any failing translation IDs
      *
      * @return $this
      */
-    public function setScore($score)
+    public function setErrors($errors)
     {
-        $this->container['score'] = $score;
-
-        return $this;
-    }
-
-    /**
-     * Gets id
-     *
-     * @return string|null
-     */
-    public function getId()
-    {
-        return $this->container['id'];
-    }
-
-    /**
-     * Sets id
-     *
-     * @param string|null $id One of the translation ids passed in arguments
-     *
-     * @return $this
-     */
-    public function setId($id)
-    {
-        $this->container['id'] = $id;
+        $this->container['errors'] = $errors;
 
         return $this;
     }

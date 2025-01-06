@@ -1,6 +1,6 @@
 <?php
 /**
- * ProjectsQualityPerformanceScore200ResponseAnyOf
+ * QualityPerformanceScoreListRequest
  *
  * PHP version 5
  *
@@ -31,14 +31,14 @@ use \ArrayAccess;
 use \Phrase\ObjectSerializer;
 
 /**
- * ProjectsQualityPerformanceScore200ResponseAnyOf Class Doc Comment
+ * QualityPerformanceScoreListRequest Class Doc Comment
  *
  * @category Class
  * @package  Phrase
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class ProjectsQualityPerformanceScore200ResponseAnyOf implements ModelInterface, ArrayAccess
+class QualityPerformanceScoreListRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -47,7 +47,7 @@ class ProjectsQualityPerformanceScore200ResponseAnyOf implements ModelInterface,
       *
       * @var string
       */
-    protected static $openAPIModelName = 'projects_quality_performance_score_200_response_anyOf';
+    protected static $openAPIModelName = 'quality_performance_score_list_request';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -55,8 +55,7 @@ class ProjectsQualityPerformanceScore200ResponseAnyOf implements ModelInterface,
       * @var string[]
       */
     protected static $openAPITypes = [
-        'data' => '\Phrase\Model\ProjectsQualityPerformanceScore200ResponseAnyOfData',
-        'errors' => '\Phrase\Model\ProjectsQualityPerformanceScore200ResponseAnyOfErrorsInner[]'
+        'translation_ids' => 'string[]'
     ];
 
     /**
@@ -65,8 +64,7 @@ class ProjectsQualityPerformanceScore200ResponseAnyOf implements ModelInterface,
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'data' => null,
-        'errors' => null
+        'translation_ids' => null
     ];
 
     /**
@@ -96,8 +94,7 @@ class ProjectsQualityPerformanceScore200ResponseAnyOf implements ModelInterface,
      * @var string[]
      */
     protected static $attributeMap = [
-        'data' => 'data',
-        'errors' => 'errors'
+        'translation_ids' => 'translation_ids'
     ];
 
     /**
@@ -106,8 +103,7 @@ class ProjectsQualityPerformanceScore200ResponseAnyOf implements ModelInterface,
      * @var string[]
      */
     protected static $setters = [
-        'data' => 'setData',
-        'errors' => 'setErrors'
+        'translation_ids' => 'setTranslationIds'
     ];
 
     /**
@@ -116,8 +112,7 @@ class ProjectsQualityPerformanceScore200ResponseAnyOf implements ModelInterface,
      * @var string[]
      */
     protected static $getters = [
-        'data' => 'getData',
-        'errors' => 'getErrors'
+        'translation_ids' => 'getTranslationIds'
     ];
 
     /**
@@ -180,8 +175,7 @@ class ProjectsQualityPerformanceScore200ResponseAnyOf implements ModelInterface,
      */
     public function __construct(array $data = null)
     {
-        $this->container['data'] = isset($data['data']) ? $data['data'] : null;
-        $this->container['errors'] = isset($data['errors']) ? $data['errors'] : null;
+        $this->container['translation_ids'] = isset($data['translation_ids']) ? $data['translation_ids'] : null;
     }
 
     /**
@@ -209,49 +203,25 @@ class ProjectsQualityPerformanceScore200ResponseAnyOf implements ModelInterface,
 
 
     /**
-     * Gets data
+     * Gets translation_ids
      *
-     * @return \Phrase\Model\ProjectsQualityPerformanceScore200ResponseAnyOfData|null
+     * @return string[]|null
      */
-    public function getData()
+    public function getTranslationIds()
     {
-        return $this->container['data'];
+        return $this->container['translation_ids'];
     }
 
     /**
-     * Sets data
+     * Sets translation_ids
      *
-     * @param \Phrase\Model\ProjectsQualityPerformanceScore200ResponseAnyOfData|null $data data
+     * @param string[]|null $translation_ids Translation ids you want to get the quality performance score for
      *
      * @return $this
      */
-    public function setData($data)
+    public function setTranslationIds($translation_ids)
     {
-        $this->container['data'] = $data;
-
-        return $this;
-    }
-
-    /**
-     * Gets errors
-     *
-     * @return \Phrase\Model\ProjectsQualityPerformanceScore200ResponseAnyOfErrorsInner[]|null
-     */
-    public function getErrors()
-    {
-        return $this->container['errors'];
-    }
-
-    /**
-     * Sets errors
-     *
-     * @param \Phrase\Model\ProjectsQualityPerformanceScore200ResponseAnyOfErrorsInner[]|null $errors Array of errors for any failing translation IDs
-     *
-     * @return $this
-     */
-    public function setErrors($errors)
-    {
-        $this->container['errors'] = $errors;
+        $this->container['translation_ids'] = $translation_ids;
 
         return $this;
     }

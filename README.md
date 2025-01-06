@@ -316,7 +316,7 @@ Class | Method | HTTP request | Description
 *ProjectsApi* | [**projectShow**](docs/Api/ProjectsApi.md#projectshow) | **GET** /projects/{id} | Get a single project
 *ProjectsApi* | [**projectUpdate**](docs/Api/ProjectsApi.md#projectupdate) | **PATCH** /projects/{id} | Update a project
 *ProjectsApi* | [**projectsList**](docs/Api/ProjectsApi.md#projectslist) | **GET** /projects | List projects
-*QualityPerformanceScoreApi* | [**projectsQualityPerformanceScore**](docs/Api/QualityPerformanceScoreApi.md#projectsqualityperformancescore) | **POST** /projects/{project_id}/quality_performance_score | Get Translation Quality
+*QualityPerformanceScoreApi* | [**qualityPerformanceScoreList**](docs/Api/QualityPerformanceScoreApi.md#qualityperformancescorelist) | **POST** /projects/{project_id}/quality_performance_score | Get Translation Quality
 *ReleaseTriggersApi* | [**releaseTriggersCreate**](docs/Api/ReleaseTriggersApi.md#releasetriggerscreate) | **POST** /accounts/{account_id}/distributions/{distribution_id}/release_triggers | Create a release trigger
 *ReleaseTriggersApi* | [**releaseTriggersDestroy**](docs/Api/ReleaseTriggersApi.md#releasetriggersdestroy) | **DELETE** /accounts/{account_id}/distributions/{distribution_id}/release_triggers/{id} | Delete a single release trigger
 *ReleaseTriggersApi* | [**releaseTriggersList**](docs/Api/ReleaseTriggersApi.md#releasetriggerslist) | **GET** /accounts/{account_id}/distributions/{distribution_id}/release_triggers | List release triggers
@@ -551,12 +551,12 @@ Class | Method | HTTP request | Description
  - [ProjectReport](docs/Model/ProjectReport.md)
  - [ProjectShort](docs/Model/ProjectShort.md)
  - [ProjectUpdateParameters](docs/Model/ProjectUpdateParameters.md)
- - [ProjectsQualityPerformanceScore200Response](docs/Model/ProjectsQualityPerformanceScore200Response.md)
- - [ProjectsQualityPerformanceScore200ResponseAnyOf](docs/Model/ProjectsQualityPerformanceScore200ResponseAnyOf.md)
- - [ProjectsQualityPerformanceScore200ResponseAnyOfData](docs/Model/ProjectsQualityPerformanceScore200ResponseAnyOfData.md)
- - [ProjectsQualityPerformanceScore200ResponseAnyOfDataTranslationsInner](docs/Model/ProjectsQualityPerformanceScore200ResponseAnyOfDataTranslationsInner.md)
- - [ProjectsQualityPerformanceScore200ResponseAnyOfErrorsInner](docs/Model/ProjectsQualityPerformanceScore200ResponseAnyOfErrorsInner.md)
- - [ProjectsQualityPerformanceScoreRequest](docs/Model/ProjectsQualityPerformanceScoreRequest.md)
+ - [QualityPerformanceScoreList200Response](docs/Model/QualityPerformanceScoreList200Response.md)
+ - [QualityPerformanceScoreList200ResponseAnyOf](docs/Model/QualityPerformanceScoreList200ResponseAnyOf.md)
+ - [QualityPerformanceScoreList200ResponseAnyOfData](docs/Model/QualityPerformanceScoreList200ResponseAnyOfData.md)
+ - [QualityPerformanceScoreList200ResponseAnyOfDataTranslationsInner](docs/Model/QualityPerformanceScoreList200ResponseAnyOfDataTranslationsInner.md)
+ - [QualityPerformanceScoreList200ResponseAnyOfErrorsInner](docs/Model/QualityPerformanceScoreList200ResponseAnyOfErrorsInner.md)
+ - [QualityPerformanceScoreListRequest](docs/Model/QualityPerformanceScoreListRequest.md)
  - [Release](docs/Model/Release.md)
  - [ReleaseCreateParameters](docs/Model/ReleaseCreateParameters.md)
  - [ReleaseCreateParameters1](docs/Model/ReleaseCreateParameters1.md)

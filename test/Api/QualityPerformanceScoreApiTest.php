@@ -71,12 +71,12 @@ class QualityPerformanceScoreApiTest extends TestCase
     }
 
     /**
-     * Test case for projectsQualityPerformanceScore
+     * Test case for qualityPerformanceScoreList
      *
      * Get Translation Quality.
      *
      */
-    public function testProjectsQualityPerformanceScore()
+    public function testQualityPerformanceScoreList()
     {
     }
 }

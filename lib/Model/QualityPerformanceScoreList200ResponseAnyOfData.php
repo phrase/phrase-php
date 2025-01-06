@@ -1,6 +1,6 @@
 <?php
 /**
- * ProjectsQualityPerformanceScoreRequest
+ * QualityPerformanceScoreList200ResponseAnyOfData
  *
  * PHP version 5
  *
@@ -31,14 +31,14 @@ use \ArrayAccess;
 use \Phrase\ObjectSerializer;
 
 /**
- * ProjectsQualityPerformanceScoreRequest Class Doc Comment
+ * QualityPerformanceScoreList200ResponseAnyOfData Class Doc Comment
  *
  * @category Class
  * @package  Phrase
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class ProjectsQualityPerformanceScoreRequest implements ModelInterface, ArrayAccess
+class QualityPerformanceScoreList200ResponseAnyOfData implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -47,7 +47,7 @@ class ProjectsQualityPerformanceScoreRequest implements ModelInterface, ArrayAcc
       *
       * @var string
       */
-    protected static $openAPIModelName = 'projects_quality_performance_score_request';
+    protected static $openAPIModelName = 'quality_performance_score_list_200_response_anyOf_data';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -55,7 +55,7 @@ class ProjectsQualityPerformanceScoreRequest implements ModelInterface, ArrayAcc
       * @var string[]
       */
     protected static $openAPITypes = [
-        'translation_ids' => 'string[]'
+        'translations' => '\Phrase\Model\QualityPerformanceScoreList200ResponseAnyOfDataTranslationsInner[]'
     ];
 
     /**
@@ -64,7 +64,7 @@ class ProjectsQualityPerformanceScoreRequest implements ModelInterface, ArrayAcc
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'translation_ids' => null
+        'translations' => null
     ];
 
     /**
@@ -94,7 +94,7 @@ class ProjectsQualityPerformanceScoreRequest implements ModelInterface, ArrayAcc
      * @var string[]
      */
     protected static $attributeMap = [
-        'translation_ids' => 'translation_ids'
+        'translations' => 'translations'
     ];
 
     /**
@@ -103,7 +103,7 @@ class ProjectsQualityPerformanceScoreRequest implements ModelInterface, ArrayAcc
      * @var string[]
      */
     protected static $setters = [
-        'translation_ids' => 'setTranslationIds'
+        'translations' => 'setTranslations'
     ];
 
     /**
@@ -112,7 +112,7 @@ class ProjectsQualityPerformanceScoreRequest implements ModelInterface, ArrayAcc
      * @var string[]
      */
     protected static $getters = [
-        'translation_ids' => 'getTranslationIds'
+        'translations' => 'getTranslations'
     ];
 
     /**
@@ -175,7 +175,7 @@ class ProjectsQualityPerformanceScoreRequest implements ModelInterface, ArrayAcc
      */
     public function __construct(array $data = null)
     {
-        $this->container['translation_ids'] = isset($data['translation_ids']) ? $data['translation_ids'] : null;
+        $this->container['translations'] = isset($data['translations']) ? $data['translations'] : null;
     }
 
     /**
@@ -203,25 +203,25 @@ class ProjectsQualityPerformanceScoreRequest implements ModelInterface, ArrayAcc
 
 
     /**
-     * Gets translation_ids
+     * Gets translations
      *
-     * @return string[]|null
+     * @return \Phrase\Model\QualityPerformanceScoreList200ResponseAnyOfDataTranslationsInner[]|null
      */
-    public function getTranslationIds()
+    public function getTranslations()
     {
-        return $this->container['translation_ids'];
+        return $this->container['translations'];
     }
 
     /**
-     * Sets translation_ids
+     * Sets translations
      *
-     * @param string[]|null $translation_ids Translation ids you want to get the quality performance score for
+     * @param \Phrase\Model\QualityPerformanceScoreList200ResponseAnyOfDataTranslationsInner[]|null $translations translations
      *
      * @return $this
      */
-    public function setTranslationIds($translation_ids)
+    public function setTranslations($translations)
     {
-        $this->container['translation_ids'] = $translation_ids;
+        $this->container['translations'] = $translations;
 
         return $this;
     }

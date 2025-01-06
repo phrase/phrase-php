@@ -114,40 +114,40 @@ class QualityPerformanceScoreApi
     }
 
     /**
-     * Operation projectsQualityPerformanceScore
+     * Operation qualityPerformanceScoreList
      *
      * Get Translation Quality
      *
      * @param  string $project_id Project ID (required)
-     * @param  \Phrase\Model\ProjectsQualityPerformanceScoreRequest $projects_quality_performance_score_request projects_quality_performance_score_request (required)
+     * @param  \Phrase\Model\QualityPerformanceScoreListRequest $quality_performance_score_list_request quality_performance_score_list_request (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Phrase\Model\ProjectsQualityPerformanceScore200Response|\Phrase\Model\CustomMetadataPropertyCreate422Response
+     * @return \Phrase\Model\QualityPerformanceScoreList200Response|\Phrase\Model\CustomMetadataPropertyCreate422Response
      */
-    public function projectsQualityPerformanceScore($project_id, $projects_quality_performance_score_request, $x_phrase_app_otp = null)
+    public function qualityPerformanceScoreList($project_id, $quality_performance_score_list_request, $x_phrase_app_otp = null)
     {
-        list($response) = $this->projectsQualityPerformanceScoreWithHttpInfo($project_id, $projects_quality_performance_score_request, $x_phrase_app_otp);
+        list($response) = $this->qualityPerformanceScoreListWithHttpInfo($project_id, $quality_performance_score_list_request, $x_phrase_app_otp);
         return $response;
     }
 
     /**
-     * Operation projectsQualityPerformanceScoreWithHttpInfo
+     * Operation qualityPerformanceScoreListWithHttpInfo
      *
      * Get Translation Quality
      *
      * @param  string $project_id Project ID (required)
-     * @param  \Phrase\Model\ProjectsQualityPerformanceScoreRequest $projects_quality_performance_score_request (required)
+     * @param  \Phrase\Model\QualityPerformanceScoreListRequest $quality_performance_score_list_request (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Phrase\Model\ProjectsQualityPerformanceScore200Response|\Phrase\Model\CustomMetadataPropertyCreate422Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Phrase\Model\QualityPerformanceScoreList200Response|\Phrase\Model\CustomMetadataPropertyCreate422Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function projectsQualityPerformanceScoreWithHttpInfo($project_id, $projects_quality_performance_score_request, $x_phrase_app_otp = null)
+    public function qualityPerformanceScoreListWithHttpInfo($project_id, $quality_performance_score_list_request, $x_phrase_app_otp = null)
     {
-        $request = $this->projectsQualityPerformanceScoreRequest($project_id, $projects_quality_performance_score_request, $x_phrase_app_otp);
+        $request = $this->qualityPerformanceScoreListRequest($project_id, $quality_performance_score_list_request, $x_phrase_app_otp);
 
         try {
             $options = $this->createHttpClientOption();
@@ -180,14 +180,14 @@ class QualityPerformanceScoreApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\Phrase\Model\ProjectsQualityPerformanceScore200Response' === '\SplFileObject') {
+                    if ('\Phrase\Model\QualityPerformanceScoreList200Response' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Phrase\Model\ProjectsQualityPerformanceScore200Response', []),
+                        ObjectSerializer::deserialize($content, '\Phrase\Model\QualityPerformanceScoreList200Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -205,7 +205,7 @@ class QualityPerformanceScoreApi
                     ];
             }
 
-            $returnType = '\Phrase\Model\ProjectsQualityPerformanceScore200Response';
+            $returnType = '\Phrase\Model\QualityPerformanceScoreList200Response';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -224,7 +224,7 @@ class QualityPerformanceScoreApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Phrase\Model\ProjectsQualityPerformanceScore200Response',
+                        '\Phrase\Model\QualityPerformanceScoreList200Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -243,20 +243,20 @@ class QualityPerformanceScoreApi
     }
 
     /**
-     * Operation projectsQualityPerformanceScoreAsync
+     * Operation qualityPerformanceScoreListAsync
      *
      * Get Translation Quality
      *
      * @param  string $project_id Project ID (required)
-     * @param  \Phrase\Model\ProjectsQualityPerformanceScoreRequest $projects_quality_performance_score_request (required)
+     * @param  \Phrase\Model\QualityPerformanceScoreListRequest $quality_performance_score_list_request (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function projectsQualityPerformanceScoreAsync($project_id, $projects_quality_performance_score_request, $x_phrase_app_otp = null)
+    public function qualityPerformanceScoreListAsync($project_id, $quality_performance_score_list_request, $x_phrase_app_otp = null)
     {
-        return $this->projectsQualityPerformanceScoreAsyncWithHttpInfo($project_id, $projects_quality_performance_score_request, $x_phrase_app_otp)
+        return $this->qualityPerformanceScoreListAsyncWithHttpInfo($project_id, $quality_performance_score_list_request, $x_phrase_app_otp)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -265,21 +265,21 @@ class QualityPerformanceScoreApi
     }
 
     /**
-     * Operation projectsQualityPerformanceScoreAsyncWithHttpInfo
+     * Operation qualityPerformanceScoreListAsyncWithHttpInfo
      *
      * Get Translation Quality
      *
      * @param  string $project_id Project ID (required)
-     * @param  \Phrase\Model\ProjectsQualityPerformanceScoreRequest $projects_quality_performance_score_request (required)
+     * @param  \Phrase\Model\QualityPerformanceScoreListRequest $quality_performance_score_list_request (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function projectsQualityPerformanceScoreAsyncWithHttpInfo($project_id, $projects_quality_performance_score_request, $x_phrase_app_otp = null)
+    public function qualityPerformanceScoreListAsyncWithHttpInfo($project_id, $quality_performance_score_list_request, $x_phrase_app_otp = null)
     {
-        $returnType = '\Phrase\Model\ProjectsQualityPerformanceScore200Response';
-        $request = $this->projectsQualityPerformanceScoreRequest($project_id, $projects_quality_performance_score_request, $x_phrase_app_otp);
+        $returnType = '\Phrase\Model\QualityPerformanceScoreList200Response';
+        $request = $this->qualityPerformanceScoreListRequest($project_id, $quality_performance_score_list_request, $x_phrase_app_otp);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -316,27 +316,27 @@ class QualityPerformanceScoreApi
     }
 
     /**
-     * Create request for operation 'projectsQualityPerformanceScore'
+     * Create request for operation 'qualityPerformanceScoreList'
      *
      * @param  string $project_id Project ID (required)
-     * @param  \Phrase\Model\ProjectsQualityPerformanceScoreRequest $projects_quality_performance_score_request (required)
+     * @param  \Phrase\Model\QualityPerformanceScoreListRequest $quality_performance_score_list_request (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function projectsQualityPerformanceScoreRequest($project_id, $projects_quality_performance_score_request, $x_phrase_app_otp = null)
+    protected function qualityPerformanceScoreListRequest($project_id, $quality_performance_score_list_request, $x_phrase_app_otp = null)
     {
         // verify the required parameter 'project_id' is set
         if ($project_id === null || (is_array($project_id) && count($project_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $project_id when calling projectsQualityPerformanceScore'
+                'Missing the required parameter $project_id when calling qualityPerformanceScoreList'
             );
         }
-        // verify the required parameter 'projects_quality_performance_score_request' is set
-        if ($projects_quality_performance_score_request === null || (is_array($projects_quality_performance_score_request) && count($projects_quality_performance_score_request) === 0)) {
+        // verify the required parameter 'quality_performance_score_list_request' is set
+        if ($quality_performance_score_list_request === null || (is_array($quality_performance_score_list_request) && count($quality_performance_score_list_request) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $projects_quality_performance_score_request when calling projectsQualityPerformanceScore'
+                'Missing the required parameter $quality_performance_score_list_request when calling qualityPerformanceScoreList'
             );
         }
 
@@ -364,8 +364,8 @@ class QualityPerformanceScoreApi
 
         // body params
         $_tempBody = null;
-        if (isset($projects_quality_performance_score_request)) {
-            $_tempBody = $projects_quality_performance_score_request;
+        if (isset($quality_performance_score_list_request)) {
+            $_tempBody = $quality_performance_score_list_request;
         }
 
         if ($multipart) {

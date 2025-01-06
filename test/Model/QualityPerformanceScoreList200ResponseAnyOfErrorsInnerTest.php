@@ -1,6 +1,6 @@
 <?php
 /**
- * ProjectsQualityPerformanceScore200ResponseAnyOfDataTranslationsInnerTest
+ * QualityPerformanceScoreList200ResponseAnyOfErrorsInnerTest
  *
  * PHP version 5
  *
@@ -30,15 +30,15 @@ namespace Phrase;
 use PHPUnit\Framework\TestCase;
 
 /**
- * ProjectsQualityPerformanceScore200ResponseAnyOfDataTranslationsInnerTest Class Doc Comment
+ * QualityPerformanceScoreList200ResponseAnyOfErrorsInnerTest Class Doc Comment
  *
  * @category    Class
- * @description ProjectsQualityPerformanceScore200ResponseAnyOfDataTranslationsInner
+ * @description QualityPerformanceScoreList200ResponseAnyOfErrorsInner
  * @package     Phrase
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class ProjectsQualityPerformanceScore200ResponseAnyOfDataTranslationsInnerTest extends TestCase
+class QualityPerformanceScoreList200ResponseAnyOfErrorsInnerTest extends TestCase
 {
 
     /**
@@ -70,23 +70,23 @@ class ProjectsQualityPerformanceScore200ResponseAnyOfDataTranslationsInnerTest e
     }
 
     /**
-     * Test "ProjectsQualityPerformanceScore200ResponseAnyOfDataTranslationsInner"
+     * Test "QualityPerformanceScoreList200ResponseAnyOfErrorsInner"
      */
-    public function testProjectsQualityPerformanceScore200ResponseAnyOfDataTranslationsInner()
+    public function testQualityPerformanceScoreList200ResponseAnyOfErrorsInner()
     {
     }
 
     /**
-     * Test attribute "engine"
+     * Test attribute "message"
      */
-    public function testPropertyEngine()
+    public function testPropertyMessage()
     {
     }
 
     /**
-     * Test attribute "score"
+     * Test attribute "code"
      */
-    public function testPropertyScore()
+    public function testPropertyCode()
     {
     }
 
