@@ -1351,17 +1351,16 @@ class JobsApi
      *
      * @param  string $project_id Project ID (required)
      * @param  string $id ID (required)
+     * @param  \Phrase\Model\JobKeysDeleteParameters $job_keys_delete_parameters job_keys_delete_parameters (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
-     * @param  string $branch specify the branch to use (optional)
-     * @param  string[] $translation_key_ids ids of keys that should be removed from the job (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function jobKeysDelete($project_id, $id, $x_phrase_app_otp = null, $branch = null, $translation_key_ids = null)
+    public function jobKeysDelete($project_id, $id, $job_keys_delete_parameters, $x_phrase_app_otp = null)
     {
-        $this->jobKeysDeleteWithHttpInfo($project_id, $id, $x_phrase_app_otp, $branch, $translation_key_ids);
+        $this->jobKeysDeleteWithHttpInfo($project_id, $id, $job_keys_delete_parameters, $x_phrase_app_otp);
     }
 
     /**
@@ -1371,17 +1370,16 @@ class JobsApi
      *
      * @param  string $project_id Project ID (required)
      * @param  string $id ID (required)
+     * @param  \Phrase\Model\JobKeysDeleteParameters $job_keys_delete_parameters (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
-     * @param  string $branch specify the branch to use (optional)
-     * @param  string[] $translation_key_ids ids of keys that should be removed from the job (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function jobKeysDeleteWithHttpInfo($project_id, $id, $x_phrase_app_otp = null, $branch = null, $translation_key_ids = null)
+    public function jobKeysDeleteWithHttpInfo($project_id, $id, $job_keys_delete_parameters, $x_phrase_app_otp = null)
     {
-        $request = $this->jobKeysDeleteRequest($project_id, $id, $x_phrase_app_otp, $branch, $translation_key_ids);
+        $request = $this->jobKeysDeleteRequest($project_id, $id, $job_keys_delete_parameters, $x_phrase_app_otp);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1427,16 +1425,15 @@ class JobsApi
      *
      * @param  string $project_id Project ID (required)
      * @param  string $id ID (required)
+     * @param  \Phrase\Model\JobKeysDeleteParameters $job_keys_delete_parameters (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
-     * @param  string $branch specify the branch to use (optional)
-     * @param  string[] $translation_key_ids ids of keys that should be removed from the job (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function jobKeysDeleteAsync($project_id, $id, $x_phrase_app_otp = null, $branch = null, $translation_key_ids = null)
+    public function jobKeysDeleteAsync($project_id, $id, $job_keys_delete_parameters, $x_phrase_app_otp = null)
     {
-        return $this->jobKeysDeleteAsyncWithHttpInfo($project_id, $id, $x_phrase_app_otp, $branch, $translation_key_ids)
+        return $this->jobKeysDeleteAsyncWithHttpInfo($project_id, $id, $job_keys_delete_parameters, $x_phrase_app_otp)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1451,17 +1448,16 @@ class JobsApi
      *
      * @param  string $project_id Project ID (required)
      * @param  string $id ID (required)
+     * @param  \Phrase\Model\JobKeysDeleteParameters $job_keys_delete_parameters (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
-     * @param  string $branch specify the branch to use (optional)
-     * @param  string[] $translation_key_ids ids of keys that should be removed from the job (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function jobKeysDeleteAsyncWithHttpInfo($project_id, $id, $x_phrase_app_otp = null, $branch = null, $translation_key_ids = null)
+    public function jobKeysDeleteAsyncWithHttpInfo($project_id, $id, $job_keys_delete_parameters, $x_phrase_app_otp = null)
     {
         $returnType = '';
-        $request = $this->jobKeysDeleteRequest($project_id, $id, $x_phrase_app_otp, $branch, $translation_key_ids);
+        $request = $this->jobKeysDeleteRequest($project_id, $id, $job_keys_delete_parameters, $x_phrase_app_otp);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1491,14 +1487,13 @@ class JobsApi
      *
      * @param  string $project_id Project ID (required)
      * @param  string $id ID (required)
+     * @param  \Phrase\Model\JobKeysDeleteParameters $job_keys_delete_parameters (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
-     * @param  string $branch specify the branch to use (optional)
-     * @param  string[] $translation_key_ids ids of keys that should be removed from the job (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function jobKeysDeleteRequest($project_id, $id, $x_phrase_app_otp = null, $branch = null, $translation_key_ids = null)
+    protected function jobKeysDeleteRequest($project_id, $id, $job_keys_delete_parameters, $x_phrase_app_otp = null)
     {
         // verify the required parameter 'project_id' is set
         if ($project_id === null || (is_array($project_id) && count($project_id) === 0)) {
@@ -1512,6 +1507,12 @@ class JobsApi
                 'Missing the required parameter $id when calling jobKeysDelete'
             );
         }
+        // verify the required parameter 'job_keys_delete_parameters' is set
+        if ($job_keys_delete_parameters === null || (is_array($job_keys_delete_parameters) && count($job_keys_delete_parameters) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $job_keys_delete_parameters when calling jobKeysDelete'
+            );
+        }
 
         $resourcePath = '/projects/{project_id}/jobs/{id}/keys';
         $formParams = [];
@@ -1520,28 +1521,6 @@ class JobsApi
         $httpBody = '';
         $multipart = false;
 
-        // query params
-        if ($branch !== null) {
-            if('form' === 'form' && is_array($branch)) {
-                foreach($branch as $key => $value) {
-                    $queryParams[$key] = $value;
-                }
-            }
-            else {
-                $queryParams['branch'] = $branch;
-            }
-        }
-        // query params
-        if ($translation_key_ids !== null) {
-            if('form' === 'form' && is_array($translation_key_ids)) {
-                foreach($translation_key_ids as $key => $value) {
-                    $queryParams[$key] = $value;
-                }
-            }
-            else {
-                $queryParams['translation_key_ids'] = $translation_key_ids;
-            }
-        }
 
         // header params
         if ($x_phrase_app_otp !== null) {
@@ -1567,6 +1546,9 @@ class JobsApi
 
         // body params
         $_tempBody = null;
+        if (isset($job_keys_delete_parameters)) {
+            $_tempBody = $job_keys_delete_parameters;
+        }
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
@@ -1575,7 +1557,7 @@ class JobsApi
         } else {
             $headers = $this->headerSelector->selectHeaders(
                 [],
-                []
+                ['application/json']
             );
         }
 

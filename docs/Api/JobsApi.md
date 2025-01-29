@@ -279,7 +279,7 @@ Name | Type | Description  | Notes
 
 ## jobKeysDelete
 
-> jobKeysDelete($project_id, $id, $x_phrase_app_otp, $branch, $translation_key_ids)
+> jobKeysDelete($project_id, $id, $job_keys_delete_parameters, $x_phrase_app_otp)
 
 Remove keys from job
 
@@ -302,12 +302,11 @@ $apiInstance = new Phrase\Api\JobsApi(
 );
 $project_id = 'project_id_example'; // string | Project ID
 $id = 'id_example'; // string | ID
+$job_keys_delete_parameters = new \Phrase\Model\JobKeysDeleteParameters(); // \Phrase\Model\JobKeysDeleteParameters | 
 $x_phrase_app_otp = 'x_phrase_app_otp_example'; // string | Two-Factor-Authentication token (optional)
-$branch = my-feature-branch; // string | specify the branch to use
-$translation_key_ids = ["abcd1234cdef1234abcd1234cdef1234"]; // string[] | ids of keys that should be removed from the job
 
 try {
-    $apiInstance->jobKeysDelete($project_id, $id, $x_phrase_app_otp, $branch, $translation_key_ids);
+    $apiInstance->jobKeysDelete($project_id, $id, $job_keys_delete_parameters, $x_phrase_app_otp);
 } catch (Exception $e) {
     echo 'Exception when calling JobsApi->jobKeysDelete: ', $e->getMessage(), PHP_EOL;
 }
@@ -321,9 +320,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **project_id** | **string**| Project ID |
  **id** | **string**| ID |
+ **job_keys_delete_parameters** | [**\Phrase\Model\JobKeysDeleteParameters**](../Model/JobKeysDeleteParameters.md)|  |
  **x_phrase_app_otp** | **string**| Two-Factor-Authentication token (optional) | [optional]
- **branch** | **string**| specify the branch to use | [optional]
- **translation_key_ids** | [**string[]**](../Model/string.md)| ids of keys that should be removed from the job | [optional]
 
 ### Return type
 
@@ -335,7 +333,7 @@ void (empty response body)
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json
 - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)

@@ -123,6 +123,7 @@ docs/Model/JobCompleteParameters.md
 docs/Model/JobCreateParameters.md
 docs/Model/JobDetails.md
 docs/Model/JobKeysCreateParameters.md
+docs/Model/JobKeysDeleteParameters.md
 docs/Model/JobLocale.md
 docs/Model/JobLocaleCompleteParameters.md
 docs/Model/JobLocaleCompleteReviewParameters.md
@@ -392,6 +393,7 @@ lib/Model/JobCompleteParameters.php
 lib/Model/JobCreateParameters.php
 lib/Model/JobDetails.php
 lib/Model/JobKeysCreateParameters.php
+lib/Model/JobKeysDeleteParameters.php
 lib/Model/JobLocale.php
 lib/Model/JobLocaleCompleteParameters.php
 lib/Model/JobLocaleCompleteReviewParameters.php
@@ -656,6 +658,7 @@ test/Model/JobCompleteParametersTest.php
 test/Model/JobCreateParametersTest.php
 test/Model/JobDetailsTest.php
 test/Model/JobKeysCreateParametersTest.php
+test/Model/JobKeysDeleteParametersTest.php
 test/Model/JobLocaleCompleteParametersTest.php
 test/Model/JobLocaleCompleteReviewParametersTest.php
 test/Model/JobLocaleReopenParametersTest.php

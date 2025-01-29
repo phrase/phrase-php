@@ -483,6 +483,7 @@ Class | Method | HTTP request | Description
  - [JobCreateParameters](docs/Model/JobCreateParameters.md)
  - [JobDetails](docs/Model/JobDetails.md)
  - [JobKeysCreateParameters](docs/Model/JobKeysCreateParameters.md)
+ - [JobKeysDeleteParameters](docs/Model/JobKeysDeleteParameters.md)
  - [JobLocale](docs/Model/JobLocale.md)
  - [JobLocaleCompleteParameters](docs/Model/JobLocaleCompleteParameters.md)
  - [JobLocaleCompleteReviewParameters](docs/Model/JobLocaleCompleteReviewParameters.md)
