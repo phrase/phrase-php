@@ -67,6 +67,7 @@ class JobDetails implements ModelInterface, ArrayAccess
         'updated_at' => '\DateTime',
         'owner' => '\Phrase\Model\UserPreview',
         'job_tag_name' => 'string',
+        'source_translations_updated_at' => '\DateTime',
         'source_locale' => '\Phrase\Model\LocalePreview',
         'locales' => '\Phrase\Model\LocalePreview[]',
         'keys' => '\Phrase\Model\KeyPreview[]'
@@ -90,6 +91,7 @@ class JobDetails implements ModelInterface, ArrayAccess
         'updated_at' => 'date-time',
         'owner' => null,
         'job_tag_name' => null,
+        'source_translations_updated_at' => 'date-time',
         'source_locale' => null,
         'locales' => null,
         'keys' => null
@@ -134,6 +136,7 @@ class JobDetails implements ModelInterface, ArrayAccess
         'updated_at' => 'updated_at',
         'owner' => 'owner',
         'job_tag_name' => 'job_tag_name',
+        'source_translations_updated_at' => 'source_translations_updated_at',
         'source_locale' => 'source_locale',
         'locales' => 'locales',
         'keys' => 'keys'
@@ -157,6 +160,7 @@ class JobDetails implements ModelInterface, ArrayAccess
         'updated_at' => 'setUpdatedAt',
         'owner' => 'setOwner',
         'job_tag_name' => 'setJobTagName',
+        'source_translations_updated_at' => 'setSourceTranslationsUpdatedAt',
         'source_locale' => 'setSourceLocale',
         'locales' => 'setLocales',
         'keys' => 'setKeys'
@@ -180,6 +184,7 @@ class JobDetails implements ModelInterface, ArrayAccess
         'updated_at' => 'getUpdatedAt',
         'owner' => 'getOwner',
         'job_tag_name' => 'getJobTagName',
+        'source_translations_updated_at' => 'getSourceTranslationsUpdatedAt',
         'source_locale' => 'getSourceLocale',
         'locales' => 'getLocales',
         'keys' => 'getKeys'
@@ -257,6 +262,7 @@ class JobDetails implements ModelInterface, ArrayAccess
         $this->container['updated_at'] = isset($data['updated_at']) ? $data['updated_at'] : null;
         $this->container['owner'] = isset($data['owner']) ? $data['owner'] : null;
         $this->container['job_tag_name'] = isset($data['job_tag_name']) ? $data['job_tag_name'] : null;
+        $this->container['source_translations_updated_at'] = isset($data['source_translations_updated_at']) ? $data['source_translations_updated_at'] : null;
         $this->container['source_locale'] = isset($data['source_locale']) ? $data['source_locale'] : null;
         $this->container['locales'] = isset($data['locales']) ? $data['locales'] : null;
         $this->container['keys'] = isset($data['keys']) ? $data['keys'] : null;
@@ -570,6 +576,30 @@ class JobDetails implements ModelInterface, ArrayAccess
     public function setJobTagName($job_tag_name)
     {
         $this->container['job_tag_name'] = $job_tag_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets source_translations_updated_at
+     *
+     * @return \DateTime|null
+     */
+    public function getSourceTranslationsUpdatedAt()
+    {
+        return $this->container['source_translations_updated_at'];
+    }
+
+    /**
+     * Sets source_translations_updated_at
+     *
+     * @param \DateTime|null $source_translations_updated_at source_translations_updated_at
+     *
+     * @return $this
+     */
+    public function setSourceTranslationsUpdatedAt($source_translations_updated_at)
+    {
+        $this->container['source_translations_updated_at'] = $source_translations_updated_at;
 
         return $this;
     }

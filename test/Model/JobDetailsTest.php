@@ -161,6 +161,13 @@ class JobDetailsTest extends TestCase
     }
 
     /**
+     * Test attribute "source_translations_updated_at"
+     */
+    public function testPropertySourceTranslationsUpdatedAt()
+    {
+    }
+
+    /**
      * Test attribute "source_locale"
      */
     public function testPropertySourceLocale()

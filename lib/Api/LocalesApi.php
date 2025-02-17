@@ -1048,14 +1048,15 @@ class LocalesApi
      * @param  string $translation_key_prefix Download all translation keys, and remove the specified prefix where possible. Warning: this may create duplicate key names if other keys share the same name after the prefix is removed. (optional)
      * @param  bool $filter_by_prefix Only download translation keys containing the specified prefix, and remove the prefix from the generated file. (optional)
      * @param  object $custom_metadata_filters Custom metadata filters. Provide the name of the metadata field and the value to filter by. Only keys with matching metadata will be included in the download. (optional)
+     * @param  string[] $locale_ids Locale IDs or locale names (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \SplFileObject
      */
-    public function localeDownload($project_id, $id, $x_phrase_app_otp = null, $if_modified_since = null, $if_none_match = null, $branch = null, $file_format = null, $tags = null, $tag = null, $include_empty_translations = null, $exclude_empty_zero_forms = null, $include_translated_keys = null, $keep_notranslate_tags = null, $convert_emoji = null, $format_options = null, $encoding = null, $skip_unverified_translations = null, $include_unverified_translations = null, $use_last_reviewed_version = null, $fallback_locale_id = null, $source_locale_id = null, $translation_key_prefix = null, $filter_by_prefix = null, $custom_metadata_filters = null)
+    public function localeDownload($project_id, $id, $x_phrase_app_otp = null, $if_modified_since = null, $if_none_match = null, $branch = null, $file_format = null, $tags = null, $tag = null, $include_empty_translations = null, $exclude_empty_zero_forms = null, $include_translated_keys = null, $keep_notranslate_tags = null, $convert_emoji = null, $format_options = null, $encoding = null, $skip_unverified_translations = null, $include_unverified_translations = null, $use_last_reviewed_version = null, $fallback_locale_id = null, $source_locale_id = null, $translation_key_prefix = null, $filter_by_prefix = null, $custom_metadata_filters = null, $locale_ids = null)
     {
-        list($response) = $this->localeDownloadWithHttpInfo($project_id, $id, $x_phrase_app_otp, $if_modified_since, $if_none_match, $branch, $file_format, $tags, $tag, $include_empty_translations, $exclude_empty_zero_forms, $include_translated_keys, $keep_notranslate_tags, $convert_emoji, $format_options, $encoding, $skip_unverified_translations, $include_unverified_translations, $use_last_reviewed_version, $fallback_locale_id, $source_locale_id, $translation_key_prefix, $filter_by_prefix, $custom_metadata_filters);
+        list($response) = $this->localeDownloadWithHttpInfo($project_id, $id, $x_phrase_app_otp, $if_modified_since, $if_none_match, $branch, $file_format, $tags, $tag, $include_empty_translations, $exclude_empty_zero_forms, $include_translated_keys, $keep_notranslate_tags, $convert_emoji, $format_options, $encoding, $skip_unverified_translations, $include_unverified_translations, $use_last_reviewed_version, $fallback_locale_id, $source_locale_id, $translation_key_prefix, $filter_by_prefix, $custom_metadata_filters, $locale_ids);
         return $response;
     }
 
@@ -1088,14 +1089,15 @@ class LocalesApi
      * @param  string $translation_key_prefix Download all translation keys, and remove the specified prefix where possible. Warning: this may create duplicate key names if other keys share the same name after the prefix is removed. (optional)
      * @param  bool $filter_by_prefix Only download translation keys containing the specified prefix, and remove the prefix from the generated file. (optional)
      * @param  object $custom_metadata_filters Custom metadata filters. Provide the name of the metadata field and the value to filter by. Only keys with matching metadata will be included in the download. (optional)
+     * @param  string[] $locale_ids Locale IDs or locale names (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \SplFileObject, HTTP status code, HTTP response headers (array of strings)
      */
-    public function localeDownloadWithHttpInfo($project_id, $id, $x_phrase_app_otp = null, $if_modified_since = null, $if_none_match = null, $branch = null, $file_format = null, $tags = null, $tag = null, $include_empty_translations = null, $exclude_empty_zero_forms = null, $include_translated_keys = null, $keep_notranslate_tags = null, $convert_emoji = null, $format_options = null, $encoding = null, $skip_unverified_translations = null, $include_unverified_translations = null, $use_last_reviewed_version = null, $fallback_locale_id = null, $source_locale_id = null, $translation_key_prefix = null, $filter_by_prefix = null, $custom_metadata_filters = null)
+    public function localeDownloadWithHttpInfo($project_id, $id, $x_phrase_app_otp = null, $if_modified_since = null, $if_none_match = null, $branch = null, $file_format = null, $tags = null, $tag = null, $include_empty_translations = null, $exclude_empty_zero_forms = null, $include_translated_keys = null, $keep_notranslate_tags = null, $convert_emoji = null, $format_options = null, $encoding = null, $skip_unverified_translations = null, $include_unverified_translations = null, $use_last_reviewed_version = null, $fallback_locale_id = null, $source_locale_id = null, $translation_key_prefix = null, $filter_by_prefix = null, $custom_metadata_filters = null, $locale_ids = null)
     {
-        $request = $this->localeDownloadRequest($project_id, $id, $x_phrase_app_otp, $if_modified_since, $if_none_match, $branch, $file_format, $tags, $tag, $include_empty_translations, $exclude_empty_zero_forms, $include_translated_keys, $keep_notranslate_tags, $convert_emoji, $format_options, $encoding, $skip_unverified_translations, $include_unverified_translations, $use_last_reviewed_version, $fallback_locale_id, $source_locale_id, $translation_key_prefix, $filter_by_prefix, $custom_metadata_filters);
+        $request = $this->localeDownloadRequest($project_id, $id, $x_phrase_app_otp, $if_modified_since, $if_none_match, $branch, $file_format, $tags, $tag, $include_empty_translations, $exclude_empty_zero_forms, $include_translated_keys, $keep_notranslate_tags, $convert_emoji, $format_options, $encoding, $skip_unverified_translations, $include_unverified_translations, $use_last_reviewed_version, $fallback_locale_id, $source_locale_id, $translation_key_prefix, $filter_by_prefix, $custom_metadata_filters, $locale_ids);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1199,13 +1201,14 @@ class LocalesApi
      * @param  string $translation_key_prefix Download all translation keys, and remove the specified prefix where possible. Warning: this may create duplicate key names if other keys share the same name after the prefix is removed. (optional)
      * @param  bool $filter_by_prefix Only download translation keys containing the specified prefix, and remove the prefix from the generated file. (optional)
      * @param  object $custom_metadata_filters Custom metadata filters. Provide the name of the metadata field and the value to filter by. Only keys with matching metadata will be included in the download. (optional)
+     * @param  string[] $locale_ids Locale IDs or locale names (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function localeDownloadAsync($project_id, $id, $x_phrase_app_otp = null, $if_modified_since = null, $if_none_match = null, $branch = null, $file_format = null, $tags = null, $tag = null, $include_empty_translations = null, $exclude_empty_zero_forms = null, $include_translated_keys = null, $keep_notranslate_tags = null, $convert_emoji = null, $format_options = null, $encoding = null, $skip_unverified_translations = null, $include_unverified_translations = null, $use_last_reviewed_version = null, $fallback_locale_id = null, $source_locale_id = null, $translation_key_prefix = null, $filter_by_prefix = null, $custom_metadata_filters = null)
+    public function localeDownloadAsync($project_id, $id, $x_phrase_app_otp = null, $if_modified_since = null, $if_none_match = null, $branch = null, $file_format = null, $tags = null, $tag = null, $include_empty_translations = null, $exclude_empty_zero_forms = null, $include_translated_keys = null, $keep_notranslate_tags = null, $convert_emoji = null, $format_options = null, $encoding = null, $skip_unverified_translations = null, $include_unverified_translations = null, $use_last_reviewed_version = null, $fallback_locale_id = null, $source_locale_id = null, $translation_key_prefix = null, $filter_by_prefix = null, $custom_metadata_filters = null, $locale_ids = null)
     {
-        return $this->localeDownloadAsyncWithHttpInfo($project_id, $id, $x_phrase_app_otp, $if_modified_since, $if_none_match, $branch, $file_format, $tags, $tag, $include_empty_translations, $exclude_empty_zero_forms, $include_translated_keys, $keep_notranslate_tags, $convert_emoji, $format_options, $encoding, $skip_unverified_translations, $include_unverified_translations, $use_last_reviewed_version, $fallback_locale_id, $source_locale_id, $translation_key_prefix, $filter_by_prefix, $custom_metadata_filters)
+        return $this->localeDownloadAsyncWithHttpInfo($project_id, $id, $x_phrase_app_otp, $if_modified_since, $if_none_match, $branch, $file_format, $tags, $tag, $include_empty_translations, $exclude_empty_zero_forms, $include_translated_keys, $keep_notranslate_tags, $convert_emoji, $format_options, $encoding, $skip_unverified_translations, $include_unverified_translations, $use_last_reviewed_version, $fallback_locale_id, $source_locale_id, $translation_key_prefix, $filter_by_prefix, $custom_metadata_filters, $locale_ids)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1242,14 +1245,15 @@ class LocalesApi
      * @param  string $translation_key_prefix Download all translation keys, and remove the specified prefix where possible. Warning: this may create duplicate key names if other keys share the same name after the prefix is removed. (optional)
      * @param  bool $filter_by_prefix Only download translation keys containing the specified prefix, and remove the prefix from the generated file. (optional)
      * @param  object $custom_metadata_filters Custom metadata filters. Provide the name of the metadata field and the value to filter by. Only keys with matching metadata will be included in the download. (optional)
+     * @param  string[] $locale_ids Locale IDs or locale names (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function localeDownloadAsyncWithHttpInfo($project_id, $id, $x_phrase_app_otp = null, $if_modified_since = null, $if_none_match = null, $branch = null, $file_format = null, $tags = null, $tag = null, $include_empty_translations = null, $exclude_empty_zero_forms = null, $include_translated_keys = null, $keep_notranslate_tags = null, $convert_emoji = null, $format_options = null, $encoding = null, $skip_unverified_translations = null, $include_unverified_translations = null, $use_last_reviewed_version = null, $fallback_locale_id = null, $source_locale_id = null, $translation_key_prefix = null, $filter_by_prefix = null, $custom_metadata_filters = null)
+    public function localeDownloadAsyncWithHttpInfo($project_id, $id, $x_phrase_app_otp = null, $if_modified_since = null, $if_none_match = null, $branch = null, $file_format = null, $tags = null, $tag = null, $include_empty_translations = null, $exclude_empty_zero_forms = null, $include_translated_keys = null, $keep_notranslate_tags = null, $convert_emoji = null, $format_options = null, $encoding = null, $skip_unverified_translations = null, $include_unverified_translations = null, $use_last_reviewed_version = null, $fallback_locale_id = null, $source_locale_id = null, $translation_key_prefix = null, $filter_by_prefix = null, $custom_metadata_filters = null, $locale_ids = null)
     {
         $returnType = '\SplFileObject';
-        $request = $this->localeDownloadRequest($project_id, $id, $x_phrase_app_otp, $if_modified_since, $if_none_match, $branch, $file_format, $tags, $tag, $include_empty_translations, $exclude_empty_zero_forms, $include_translated_keys, $keep_notranslate_tags, $convert_emoji, $format_options, $encoding, $skip_unverified_translations, $include_unverified_translations, $use_last_reviewed_version, $fallback_locale_id, $source_locale_id, $translation_key_prefix, $filter_by_prefix, $custom_metadata_filters);
+        $request = $this->localeDownloadRequest($project_id, $id, $x_phrase_app_otp, $if_modified_since, $if_none_match, $branch, $file_format, $tags, $tag, $include_empty_translations, $exclude_empty_zero_forms, $include_translated_keys, $keep_notranslate_tags, $convert_emoji, $format_options, $encoding, $skip_unverified_translations, $include_unverified_translations, $use_last_reviewed_version, $fallback_locale_id, $source_locale_id, $translation_key_prefix, $filter_by_prefix, $custom_metadata_filters, $locale_ids);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1312,11 +1316,12 @@ class LocalesApi
      * @param  string $translation_key_prefix Download all translation keys, and remove the specified prefix where possible. Warning: this may create duplicate key names if other keys share the same name after the prefix is removed. (optional)
      * @param  bool $filter_by_prefix Only download translation keys containing the specified prefix, and remove the prefix from the generated file. (optional)
      * @param  object $custom_metadata_filters Custom metadata filters. Provide the name of the metadata field and the value to filter by. Only keys with matching metadata will be included in the download. (optional)
+     * @param  string[] $locale_ids Locale IDs or locale names (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function localeDownloadRequest($project_id, $id, $x_phrase_app_otp = null, $if_modified_since = null, $if_none_match = null, $branch = null, $file_format = null, $tags = null, $tag = null, $include_empty_translations = null, $exclude_empty_zero_forms = null, $include_translated_keys = null, $keep_notranslate_tags = null, $convert_emoji = null, $format_options = null, $encoding = null, $skip_unverified_translations = null, $include_unverified_translations = null, $use_last_reviewed_version = null, $fallback_locale_id = null, $source_locale_id = null, $translation_key_prefix = null, $filter_by_prefix = null, $custom_metadata_filters = null)
+    protected function localeDownloadRequest($project_id, $id, $x_phrase_app_otp = null, $if_modified_since = null, $if_none_match = null, $branch = null, $file_format = null, $tags = null, $tag = null, $include_empty_translations = null, $exclude_empty_zero_forms = null, $include_translated_keys = null, $keep_notranslate_tags = null, $convert_emoji = null, $format_options = null, $encoding = null, $skip_unverified_translations = null, $include_unverified_translations = null, $use_last_reviewed_version = null, $fallback_locale_id = null, $source_locale_id = null, $translation_key_prefix = null, $filter_by_prefix = null, $custom_metadata_filters = null, $locale_ids = null)
     {
         // verify the required parameter 'project_id' is set
         if ($project_id === null || (is_array($project_id) && count($project_id) === 0)) {
@@ -1545,6 +1550,17 @@ class LocalesApi
             }
             else {
                 $queryParams['custom_metadata_filters'] = $custom_metadata_filters;
+            }
+        }
+        // query params
+        if ($locale_ids !== null) {
+            if('form' === 'form' && is_array($locale_ids)) {
+                foreach($locale_ids as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['locale_ids'] = $locale_ids;
             }
         }
 
