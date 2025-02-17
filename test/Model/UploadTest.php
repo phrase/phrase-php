@@ -112,6 +112,13 @@ class UploadTest extends TestCase
     }
 
     /**
+     * Test attribute "tags"
+     */
+    public function testPropertyTags()
+    {
+    }
+
+    /**
      * Test attribute "url"
      */
     public function testPropertyUrl()
