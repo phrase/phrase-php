@@ -3485,15 +3485,16 @@ class JobsApi
      * @param  int $per_page Limit on the number of objects to be returned, between 1 and 100. 25 by default (optional)
      * @param  string $owned_by filter by user owning job (optional)
      * @param  string $assigned_to filter by user assigned to job (optional)
-     * @param  string $state filter by state of job Valid states are &lt;code&gt;draft&lt;/code&gt;, &lt;code&gt;in_progress&lt;/code&gt;, &lt;code&gt;completed&lt;/code&gt; (optional)
+     * @param  string $state filter by state of job; valid states are: &lt;code&gt;draft&lt;/code&gt;, &lt;code&gt;in_progress&lt;/code&gt;, &lt;code&gt;completed&lt;/code&gt; (optional)
+     * @param  string $updated_since filter by jobs updated since given date (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Phrase\Model\Job[]
      */
-    public function jobsByAccount($account_id, $x_phrase_app_otp = null, $page = null, $per_page = null, $owned_by = null, $assigned_to = null, $state = null)
+    public function jobsByAccount($account_id, $x_phrase_app_otp = null, $page = null, $per_page = null, $owned_by = null, $assigned_to = null, $state = null, $updated_since = null)
     {
-        list($response) = $this->jobsByAccountWithHttpInfo($account_id, $x_phrase_app_otp, $page, $per_page, $owned_by, $assigned_to, $state);
+        list($response) = $this->jobsByAccountWithHttpInfo($account_id, $x_phrase_app_otp, $page, $per_page, $owned_by, $assigned_to, $state, $updated_since);
         return $response;
     }
 
@@ -3508,15 +3509,16 @@ class JobsApi
      * @param  int $per_page Limit on the number of objects to be returned, between 1 and 100. 25 by default (optional)
      * @param  string $owned_by filter by user owning job (optional)
      * @param  string $assigned_to filter by user assigned to job (optional)
-     * @param  string $state filter by state of job Valid states are &lt;code&gt;draft&lt;/code&gt;, &lt;code&gt;in_progress&lt;/code&gt;, &lt;code&gt;completed&lt;/code&gt; (optional)
+     * @param  string $state filter by state of job; valid states are: &lt;code&gt;draft&lt;/code&gt;, &lt;code&gt;in_progress&lt;/code&gt;, &lt;code&gt;completed&lt;/code&gt; (optional)
+     * @param  string $updated_since filter by jobs updated since given date (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Phrase\Model\Job[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function jobsByAccountWithHttpInfo($account_id, $x_phrase_app_otp = null, $page = null, $per_page = null, $owned_by = null, $assigned_to = null, $state = null)
+    public function jobsByAccountWithHttpInfo($account_id, $x_phrase_app_otp = null, $page = null, $per_page = null, $owned_by = null, $assigned_to = null, $state = null, $updated_since = null)
     {
-        $request = $this->jobsByAccountRequest($account_id, $x_phrase_app_otp, $page, $per_page, $owned_by, $assigned_to, $state);
+        $request = $this->jobsByAccountRequest($account_id, $x_phrase_app_otp, $page, $per_page, $owned_by, $assigned_to, $state, $updated_since);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3602,14 +3604,15 @@ class JobsApi
      * @param  int $per_page Limit on the number of objects to be returned, between 1 and 100. 25 by default (optional)
      * @param  string $owned_by filter by user owning job (optional)
      * @param  string $assigned_to filter by user assigned to job (optional)
-     * @param  string $state filter by state of job Valid states are &lt;code&gt;draft&lt;/code&gt;, &lt;code&gt;in_progress&lt;/code&gt;, &lt;code&gt;completed&lt;/code&gt; (optional)
+     * @param  string $state filter by state of job; valid states are: &lt;code&gt;draft&lt;/code&gt;, &lt;code&gt;in_progress&lt;/code&gt;, &lt;code&gt;completed&lt;/code&gt; (optional)
+     * @param  string $updated_since filter by jobs updated since given date (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function jobsByAccountAsync($account_id, $x_phrase_app_otp = null, $page = null, $per_page = null, $owned_by = null, $assigned_to = null, $state = null)
+    public function jobsByAccountAsync($account_id, $x_phrase_app_otp = null, $page = null, $per_page = null, $owned_by = null, $assigned_to = null, $state = null, $updated_since = null)
     {
-        return $this->jobsByAccountAsyncWithHttpInfo($account_id, $x_phrase_app_otp, $page, $per_page, $owned_by, $assigned_to, $state)
+        return $this->jobsByAccountAsyncWithHttpInfo($account_id, $x_phrase_app_otp, $page, $per_page, $owned_by, $assigned_to, $state, $updated_since)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3628,15 +3631,16 @@ class JobsApi
      * @param  int $per_page Limit on the number of objects to be returned, between 1 and 100. 25 by default (optional)
      * @param  string $owned_by filter by user owning job (optional)
      * @param  string $assigned_to filter by user assigned to job (optional)
-     * @param  string $state filter by state of job Valid states are &lt;code&gt;draft&lt;/code&gt;, &lt;code&gt;in_progress&lt;/code&gt;, &lt;code&gt;completed&lt;/code&gt; (optional)
+     * @param  string $state filter by state of job; valid states are: &lt;code&gt;draft&lt;/code&gt;, &lt;code&gt;in_progress&lt;/code&gt;, &lt;code&gt;completed&lt;/code&gt; (optional)
+     * @param  string $updated_since filter by jobs updated since given date (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function jobsByAccountAsyncWithHttpInfo($account_id, $x_phrase_app_otp = null, $page = null, $per_page = null, $owned_by = null, $assigned_to = null, $state = null)
+    public function jobsByAccountAsyncWithHttpInfo($account_id, $x_phrase_app_otp = null, $page = null, $per_page = null, $owned_by = null, $assigned_to = null, $state = null, $updated_since = null)
     {
         $returnType = '\Phrase\Model\Job[]';
-        $request = $this->jobsByAccountRequest($account_id, $x_phrase_app_otp, $page, $per_page, $owned_by, $assigned_to, $state);
+        $request = $this->jobsByAccountRequest($account_id, $x_phrase_app_otp, $page, $per_page, $owned_by, $assigned_to, $state, $updated_since);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3681,12 +3685,13 @@ class JobsApi
      * @param  int $per_page Limit on the number of objects to be returned, between 1 and 100. 25 by default (optional)
      * @param  string $owned_by filter by user owning job (optional)
      * @param  string $assigned_to filter by user assigned to job (optional)
-     * @param  string $state filter by state of job Valid states are &lt;code&gt;draft&lt;/code&gt;, &lt;code&gt;in_progress&lt;/code&gt;, &lt;code&gt;completed&lt;/code&gt; (optional)
+     * @param  string $state filter by state of job; valid states are: &lt;code&gt;draft&lt;/code&gt;, &lt;code&gt;in_progress&lt;/code&gt;, &lt;code&gt;completed&lt;/code&gt; (optional)
+     * @param  string $updated_since filter by jobs updated since given date (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function jobsByAccountRequest($account_id, $x_phrase_app_otp = null, $page = null, $per_page = null, $owned_by = null, $assigned_to = null, $state = null)
+    protected function jobsByAccountRequest($account_id, $x_phrase_app_otp = null, $page = null, $per_page = null, $owned_by = null, $assigned_to = null, $state = null, $updated_since = null)
     {
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -3755,6 +3760,17 @@ class JobsApi
             }
             else {
                 $queryParams['state'] = $state;
+            }
+        }
+        // query params
+        if ($updated_since !== null) {
+            if('form' === 'form' && is_array($updated_since)) {
+                foreach($updated_since as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['updated_since'] = $updated_since;
             }
         }
 
@@ -3854,18 +3870,19 @@ class JobsApi
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  int $page Page number (optional)
      * @param  int $per_page Limit on the number of objects to be returned, between 1 and 100. 25 by default (optional)
-     * @param  string $branch specify the branch to use (optional)
+     * @param  string $branch Branch to use (optional)
      * @param  string $owned_by filter by user owning job (optional)
      * @param  string $assigned_to filter by user assigned to job (optional)
-     * @param  string $state filter by state of job Valid states are &lt;code&gt;draft&lt;/code&gt;, &lt;code&gt;in_progress&lt;/code&gt;, &lt;code&gt;completed&lt;/code&gt; (optional)
+     * @param  string $state filter by state of job; valid states are: &lt;code&gt;draft&lt;/code&gt;, &lt;code&gt;in_progress&lt;/code&gt;, &lt;code&gt;completed&lt;/code&gt; (optional)
+     * @param  string $updated_since filter by jobs updated since given date (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Phrase\Model\Job[]
      */
-    public function jobsList($project_id, $x_phrase_app_otp = null, $page = null, $per_page = null, $branch = null, $owned_by = null, $assigned_to = null, $state = null)
+    public function jobsList($project_id, $x_phrase_app_otp = null, $page = null, $per_page = null, $branch = null, $owned_by = null, $assigned_to = null, $state = null, $updated_since = null)
     {
-        list($response) = $this->jobsListWithHttpInfo($project_id, $x_phrase_app_otp, $page, $per_page, $branch, $owned_by, $assigned_to, $state);
+        list($response) = $this->jobsListWithHttpInfo($project_id, $x_phrase_app_otp, $page, $per_page, $branch, $owned_by, $assigned_to, $state, $updated_since);
         return $response;
     }
 
@@ -3878,18 +3895,19 @@ class JobsApi
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  int $page Page number (optional)
      * @param  int $per_page Limit on the number of objects to be returned, between 1 and 100. 25 by default (optional)
-     * @param  string $branch specify the branch to use (optional)
+     * @param  string $branch Branch to use (optional)
      * @param  string $owned_by filter by user owning job (optional)
      * @param  string $assigned_to filter by user assigned to job (optional)
-     * @param  string $state filter by state of job Valid states are &lt;code&gt;draft&lt;/code&gt;, &lt;code&gt;in_progress&lt;/code&gt;, &lt;code&gt;completed&lt;/code&gt; (optional)
+     * @param  string $state filter by state of job; valid states are: &lt;code&gt;draft&lt;/code&gt;, &lt;code&gt;in_progress&lt;/code&gt;, &lt;code&gt;completed&lt;/code&gt; (optional)
+     * @param  string $updated_since filter by jobs updated since given date (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Phrase\Model\Job[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function jobsListWithHttpInfo($project_id, $x_phrase_app_otp = null, $page = null, $per_page = null, $branch = null, $owned_by = null, $assigned_to = null, $state = null)
+    public function jobsListWithHttpInfo($project_id, $x_phrase_app_otp = null, $page = null, $per_page = null, $branch = null, $owned_by = null, $assigned_to = null, $state = null, $updated_since = null)
     {
-        $request = $this->jobsListRequest($project_id, $x_phrase_app_otp, $page, $per_page, $branch, $owned_by, $assigned_to, $state);
+        $request = $this->jobsListRequest($project_id, $x_phrase_app_otp, $page, $per_page, $branch, $owned_by, $assigned_to, $state, $updated_since);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3973,17 +3991,18 @@ class JobsApi
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  int $page Page number (optional)
      * @param  int $per_page Limit on the number of objects to be returned, between 1 and 100. 25 by default (optional)
-     * @param  string $branch specify the branch to use (optional)
+     * @param  string $branch Branch to use (optional)
      * @param  string $owned_by filter by user owning job (optional)
      * @param  string $assigned_to filter by user assigned to job (optional)
-     * @param  string $state filter by state of job Valid states are &lt;code&gt;draft&lt;/code&gt;, &lt;code&gt;in_progress&lt;/code&gt;, &lt;code&gt;completed&lt;/code&gt; (optional)
+     * @param  string $state filter by state of job; valid states are: &lt;code&gt;draft&lt;/code&gt;, &lt;code&gt;in_progress&lt;/code&gt;, &lt;code&gt;completed&lt;/code&gt; (optional)
+     * @param  string $updated_since filter by jobs updated since given date (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function jobsListAsync($project_id, $x_phrase_app_otp = null, $page = null, $per_page = null, $branch = null, $owned_by = null, $assigned_to = null, $state = null)
+    public function jobsListAsync($project_id, $x_phrase_app_otp = null, $page = null, $per_page = null, $branch = null, $owned_by = null, $assigned_to = null, $state = null, $updated_since = null)
     {
-        return $this->jobsListAsyncWithHttpInfo($project_id, $x_phrase_app_otp, $page, $per_page, $branch, $owned_by, $assigned_to, $state)
+        return $this->jobsListAsyncWithHttpInfo($project_id, $x_phrase_app_otp, $page, $per_page, $branch, $owned_by, $assigned_to, $state, $updated_since)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4000,18 +4019,19 @@ class JobsApi
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  int $page Page number (optional)
      * @param  int $per_page Limit on the number of objects to be returned, between 1 and 100. 25 by default (optional)
-     * @param  string $branch specify the branch to use (optional)
+     * @param  string $branch Branch to use (optional)
      * @param  string $owned_by filter by user owning job (optional)
      * @param  string $assigned_to filter by user assigned to job (optional)
-     * @param  string $state filter by state of job Valid states are &lt;code&gt;draft&lt;/code&gt;, &lt;code&gt;in_progress&lt;/code&gt;, &lt;code&gt;completed&lt;/code&gt; (optional)
+     * @param  string $state filter by state of job; valid states are: &lt;code&gt;draft&lt;/code&gt;, &lt;code&gt;in_progress&lt;/code&gt;, &lt;code&gt;completed&lt;/code&gt; (optional)
+     * @param  string $updated_since filter by jobs updated since given date (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function jobsListAsyncWithHttpInfo($project_id, $x_phrase_app_otp = null, $page = null, $per_page = null, $branch = null, $owned_by = null, $assigned_to = null, $state = null)
+    public function jobsListAsyncWithHttpInfo($project_id, $x_phrase_app_otp = null, $page = null, $per_page = null, $branch = null, $owned_by = null, $assigned_to = null, $state = null, $updated_since = null)
     {
         $returnType = '\Phrase\Model\Job[]';
-        $request = $this->jobsListRequest($project_id, $x_phrase_app_otp, $page, $per_page, $branch, $owned_by, $assigned_to, $state);
+        $request = $this->jobsListRequest($project_id, $x_phrase_app_otp, $page, $per_page, $branch, $owned_by, $assigned_to, $state, $updated_since);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4054,15 +4074,16 @@ class JobsApi
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  int $page Page number (optional)
      * @param  int $per_page Limit on the number of objects to be returned, between 1 and 100. 25 by default (optional)
-     * @param  string $branch specify the branch to use (optional)
+     * @param  string $branch Branch to use (optional)
      * @param  string $owned_by filter by user owning job (optional)
      * @param  string $assigned_to filter by user assigned to job (optional)
-     * @param  string $state filter by state of job Valid states are &lt;code&gt;draft&lt;/code&gt;, &lt;code&gt;in_progress&lt;/code&gt;, &lt;code&gt;completed&lt;/code&gt; (optional)
+     * @param  string $state filter by state of job; valid states are: &lt;code&gt;draft&lt;/code&gt;, &lt;code&gt;in_progress&lt;/code&gt;, &lt;code&gt;completed&lt;/code&gt; (optional)
+     * @param  string $updated_since filter by jobs updated since given date (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function jobsListRequest($project_id, $x_phrase_app_otp = null, $page = null, $per_page = null, $branch = null, $owned_by = null, $assigned_to = null, $state = null)
+    protected function jobsListRequest($project_id, $x_phrase_app_otp = null, $page = null, $per_page = null, $branch = null, $owned_by = null, $assigned_to = null, $state = null, $updated_since = null)
     {
         // verify the required parameter 'project_id' is set
         if ($project_id === null || (is_array($project_id) && count($project_id) === 0)) {
@@ -4142,6 +4163,17 @@ class JobsApi
             }
             else {
                 $queryParams['state'] = $state;
+            }
+        }
+        // query params
+        if ($updated_since !== null) {
+            if('form' === 'form' && is_array($updated_since)) {
+                foreach($updated_since as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['updated_since'] = $updated_since;
             }
         }
 

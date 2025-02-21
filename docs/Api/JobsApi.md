@@ -731,7 +731,7 @@ Name | Type | Description  | Notes
 
 ## jobsByAccount
 
-> \Phrase\Model\Job[] jobsByAccount($account_id, $x_phrase_app_otp, $page, $per_page, $owned_by, $assigned_to, $state)
+> \Phrase\Model\Job[] jobsByAccount($account_id, $x_phrase_app_otp, $page, $per_page, $owned_by, $assigned_to, $state, $updated_since)
 
 List account jobs
 
@@ -758,10 +758,11 @@ $page = 1; // int | Page number
 $per_page = 25; // int | Limit on the number of objects to be returned, between 1 and 100. 25 by default
 $owned_by = abcd1234cdef1234abcd1234cdef1234; // string | filter by user owning job
 $assigned_to = abcd1234cdef1234abcd1234cdef1234; // string | filter by user assigned to job
-$state = completed; // string | filter by state of job Valid states are <code>draft</code>, <code>in_progress</code>, <code>completed</code>
+$state = completed; // string | filter by state of job; valid states are: <code>draft</code>, <code>in_progress</code>, <code>completed</code>
+$updated_since = 2013-02-21T00:00:00.000Z; // string | filter by jobs updated since given date
 
 try {
-    $result = $apiInstance->jobsByAccount($account_id, $x_phrase_app_otp, $page, $per_page, $owned_by, $assigned_to, $state);
+    $result = $apiInstance->jobsByAccount($account_id, $x_phrase_app_otp, $page, $per_page, $owned_by, $assigned_to, $state, $updated_since);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling JobsApi->jobsByAccount: ', $e->getMessage(), PHP_EOL;
@@ -780,7 +781,8 @@ Name | Type | Description  | Notes
  **per_page** | **int**| Limit on the number of objects to be returned, between 1 and 100. 25 by default | [optional]
  **owned_by** | **string**| filter by user owning job | [optional]
  **assigned_to** | **string**| filter by user assigned to job | [optional]
- **state** | **string**| filter by state of job Valid states are &lt;code&gt;draft&lt;/code&gt;, &lt;code&gt;in_progress&lt;/code&gt;, &lt;code&gt;completed&lt;/code&gt; | [optional]
+ **state** | **string**| filter by state of job; valid states are: &lt;code&gt;draft&lt;/code&gt;, &lt;code&gt;in_progress&lt;/code&gt;, &lt;code&gt;completed&lt;/code&gt; | [optional]
+ **updated_since** | **string**| filter by jobs updated since given date | [optional]
 
 ### Return type
 
@@ -802,7 +804,7 @@ Name | Type | Description  | Notes
 
 ## jobsList
 
-> \Phrase\Model\Job[] jobsList($project_id, $x_phrase_app_otp, $page, $per_page, $branch, $owned_by, $assigned_to, $state)
+> \Phrase\Model\Job[] jobsList($project_id, $x_phrase_app_otp, $page, $per_page, $branch, $owned_by, $assigned_to, $state, $updated_since)
 
 List jobs
 
@@ -827,13 +829,14 @@ $project_id = 'project_id_example'; // string | Project ID
 $x_phrase_app_otp = 'x_phrase_app_otp_example'; // string | Two-Factor-Authentication token (optional)
 $page = 1; // int | Page number
 $per_page = 25; // int | Limit on the number of objects to be returned, between 1 and 100. 25 by default
-$branch = my-feature-branch; // string | specify the branch to use
+$branch = my-feature-branch; // string | Branch to use
 $owned_by = abcd1234cdef1234abcd1234cdef1234; // string | filter by user owning job
 $assigned_to = abcd1234cdef1234abcd1234cdef1234; // string | filter by user assigned to job
-$state = completed; // string | filter by state of job Valid states are <code>draft</code>, <code>in_progress</code>, <code>completed</code>
+$state = completed; // string | filter by state of job; valid states are: <code>draft</code>, <code>in_progress</code>, <code>completed</code>
+$updated_since = 2013-02-21T00:00:00.000Z; // string | filter by jobs updated since given date
 
 try {
-    $result = $apiInstance->jobsList($project_id, $x_phrase_app_otp, $page, $per_page, $branch, $owned_by, $assigned_to, $state);
+    $result = $apiInstance->jobsList($project_id, $x_phrase_app_otp, $page, $per_page, $branch, $owned_by, $assigned_to, $state, $updated_since);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling JobsApi->jobsList: ', $e->getMessage(), PHP_EOL;
@@ -850,10 +853,11 @@ Name | Type | Description  | Notes
  **x_phrase_app_otp** | **string**| Two-Factor-Authentication token (optional) | [optional]
  **page** | **int**| Page number | [optional]
  **per_page** | **int**| Limit on the number of objects to be returned, between 1 and 100. 25 by default | [optional]
- **branch** | **string**| specify the branch to use | [optional]
+ **branch** | **string**| Branch to use | [optional]
  **owned_by** | **string**| filter by user owning job | [optional]
  **assigned_to** | **string**| filter by user assigned to job | [optional]
- **state** | **string**| filter by state of job Valid states are &lt;code&gt;draft&lt;/code&gt;, &lt;code&gt;in_progress&lt;/code&gt;, &lt;code&gt;completed&lt;/code&gt; | [optional]
+ **state** | **string**| filter by state of job; valid states are: &lt;code&gt;draft&lt;/code&gt;, &lt;code&gt;in_progress&lt;/code&gt;, &lt;code&gt;completed&lt;/code&gt; | [optional]
+ **updated_since** | **string**| filter by jobs updated since given date | [optional]
 
 ### Return type
 
