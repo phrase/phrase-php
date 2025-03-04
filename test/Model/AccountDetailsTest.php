@@ -131,4 +131,11 @@ class AccountDetailsTest extends TestCase
     public function testPropertySubscription()
     {
     }
+
+    /**
+     * Test attribute "roles"
+     */
+    public function testPropertyRoles()
+    {
+    }
 }

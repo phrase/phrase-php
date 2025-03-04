@@ -62,7 +62,8 @@ class AccountDetails implements ModelInterface, ArrayAccess
         'created_at' => '\DateTime',
         'updated_at' => '\DateTime',
         'company_logo_url' => 'string',
-        'subscription' => '\Phrase\Model\Subscription'
+        'subscription' => '\Phrase\Model\Subscription',
+        'roles' => 'string[]'
     ];
 
     /**
@@ -78,7 +79,8 @@ class AccountDetails implements ModelInterface, ArrayAccess
         'created_at' => 'date-time',
         'updated_at' => 'date-time',
         'company_logo_url' => null,
-        'subscription' => null
+        'subscription' => null,
+        'roles' => null
     ];
 
     /**
@@ -115,7 +117,8 @@ class AccountDetails implements ModelInterface, ArrayAccess
         'created_at' => 'created_at',
         'updated_at' => 'updated_at',
         'company_logo_url' => 'company_logo_url',
-        'subscription' => 'subscription'
+        'subscription' => 'subscription',
+        'roles' => 'roles'
     ];
 
     /**
@@ -131,7 +134,8 @@ class AccountDetails implements ModelInterface, ArrayAccess
         'created_at' => 'setCreatedAt',
         'updated_at' => 'setUpdatedAt',
         'company_logo_url' => 'setCompanyLogoUrl',
-        'subscription' => 'setSubscription'
+        'subscription' => 'setSubscription',
+        'roles' => 'setRoles'
     ];
 
     /**
@@ -147,7 +151,8 @@ class AccountDetails implements ModelInterface, ArrayAccess
         'created_at' => 'getCreatedAt',
         'updated_at' => 'getUpdatedAt',
         'company_logo_url' => 'getCompanyLogoUrl',
-        'subscription' => 'getSubscription'
+        'subscription' => 'getSubscription',
+        'roles' => 'getRoles'
     ];
 
     /**
@@ -218,6 +223,7 @@ class AccountDetails implements ModelInterface, ArrayAccess
         $this->container['updated_at'] = isset($data['updated_at']) ? $data['updated_at'] : null;
         $this->container['company_logo_url'] = isset($data['company_logo_url']) ? $data['company_logo_url'] : null;
         $this->container['subscription'] = isset($data['subscription']) ? $data['subscription'] : null;
+        $this->container['roles'] = isset($data['roles']) ? $data['roles'] : null;
     }
 
     /**
@@ -432,6 +438,30 @@ class AccountDetails implements ModelInterface, ArrayAccess
     public function setSubscription($subscription)
     {
         $this->container['subscription'] = $subscription;
+
+        return $this;
+    }
+
+    /**
+     * Gets roles
+     *
+     * @return string[]|null
+     */
+    public function getRoles()
+    {
+        return $this->container['roles'];
+    }
+
+    /**
+     * Sets roles
+     *
+     * @param string[]|null $roles roles
+     *
+     * @return $this
+     */
+    public function setRoles($roles)
+    {
+        $this->container['roles'] = $roles;
 
         return $this;
     }
