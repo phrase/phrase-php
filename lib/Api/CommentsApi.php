@@ -2318,7 +2318,6 @@ class CommentsApi
      *
      * @param  string $project_id Project ID (required)
      * @param  string $key_id Translation Key ID (required)
-     * @param  \Phrase\Model\CommentsListParameters $comments_list_parameters comments_list_parameters (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  int $page Page number (optional)
      * @param  int $per_page Limit on the number of objects to be returned, between 1 and 100. 25 by default (optional)
@@ -2332,9 +2331,9 @@ class CommentsApi
      * @throws \InvalidArgumentException
      * @return \Phrase\Model\Comment[]
      */
-    public function commentsList($project_id, $key_id, $comments_list_parameters, $x_phrase_app_otp = null, $page = null, $per_page = null, $branch = null, $query = null, $locale_ids = null, $filters = null, $order = null)
+    public function commentsList($project_id, $key_id, $x_phrase_app_otp = null, $page = null, $per_page = null, $branch = null, $query = null, $locale_ids = null, $filters = null, $order = null)
     {
-        list($response) = $this->commentsListWithHttpInfo($project_id, $key_id, $comments_list_parameters, $x_phrase_app_otp, $page, $per_page, $branch, $query, $locale_ids, $filters, $order);
+        list($response) = $this->commentsListWithHttpInfo($project_id, $key_id, $x_phrase_app_otp, $page, $per_page, $branch, $query, $locale_ids, $filters, $order);
         return $response;
     }
 
@@ -2345,7 +2344,6 @@ class CommentsApi
      *
      * @param  string $project_id Project ID (required)
      * @param  string $key_id Translation Key ID (required)
-     * @param  \Phrase\Model\CommentsListParameters $comments_list_parameters (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  int $page Page number (optional)
      * @param  int $per_page Limit on the number of objects to be returned, between 1 and 100. 25 by default (optional)
@@ -2359,9 +2357,9 @@ class CommentsApi
      * @throws \InvalidArgumentException
      * @return array of \Phrase\Model\Comment[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function commentsListWithHttpInfo($project_id, $key_id, $comments_list_parameters, $x_phrase_app_otp = null, $page = null, $per_page = null, $branch = null, $query = null, $locale_ids = null, $filters = null, $order = null)
+    public function commentsListWithHttpInfo($project_id, $key_id, $x_phrase_app_otp = null, $page = null, $per_page = null, $branch = null, $query = null, $locale_ids = null, $filters = null, $order = null)
     {
-        $request = $this->commentsListRequest($project_id, $key_id, $comments_list_parameters, $x_phrase_app_otp, $page, $per_page, $branch, $query, $locale_ids, $filters, $order);
+        $request = $this->commentsListRequest($project_id, $key_id, $x_phrase_app_otp, $page, $per_page, $branch, $query, $locale_ids, $filters, $order);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2443,7 +2441,6 @@ class CommentsApi
      *
      * @param  string $project_id Project ID (required)
      * @param  string $key_id Translation Key ID (required)
-     * @param  \Phrase\Model\CommentsListParameters $comments_list_parameters (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  int $page Page number (optional)
      * @param  int $per_page Limit on the number of objects to be returned, between 1 and 100. 25 by default (optional)
@@ -2456,9 +2453,9 @@ class CommentsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function commentsListAsync($project_id, $key_id, $comments_list_parameters, $x_phrase_app_otp = null, $page = null, $per_page = null, $branch = null, $query = null, $locale_ids = null, $filters = null, $order = null)
+    public function commentsListAsync($project_id, $key_id, $x_phrase_app_otp = null, $page = null, $per_page = null, $branch = null, $query = null, $locale_ids = null, $filters = null, $order = null)
     {
-        return $this->commentsListAsyncWithHttpInfo($project_id, $key_id, $comments_list_parameters, $x_phrase_app_otp, $page, $per_page, $branch, $query, $locale_ids, $filters, $order)
+        return $this->commentsListAsyncWithHttpInfo($project_id, $key_id, $x_phrase_app_otp, $page, $per_page, $branch, $query, $locale_ids, $filters, $order)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2473,7 +2470,6 @@ class CommentsApi
      *
      * @param  string $project_id Project ID (required)
      * @param  string $key_id Translation Key ID (required)
-     * @param  \Phrase\Model\CommentsListParameters $comments_list_parameters (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  int $page Page number (optional)
      * @param  int $per_page Limit on the number of objects to be returned, between 1 and 100. 25 by default (optional)
@@ -2486,10 +2482,10 @@ class CommentsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function commentsListAsyncWithHttpInfo($project_id, $key_id, $comments_list_parameters, $x_phrase_app_otp = null, $page = null, $per_page = null, $branch = null, $query = null, $locale_ids = null, $filters = null, $order = null)
+    public function commentsListAsyncWithHttpInfo($project_id, $key_id, $x_phrase_app_otp = null, $page = null, $per_page = null, $branch = null, $query = null, $locale_ids = null, $filters = null, $order = null)
     {
         $returnType = '\Phrase\Model\Comment[]';
-        $request = $this->commentsListRequest($project_id, $key_id, $comments_list_parameters, $x_phrase_app_otp, $page, $per_page, $branch, $query, $locale_ids, $filters, $order);
+        $request = $this->commentsListRequest($project_id, $key_id, $x_phrase_app_otp, $page, $per_page, $branch, $query, $locale_ids, $filters, $order);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2530,7 +2526,6 @@ class CommentsApi
      *
      * @param  string $project_id Project ID (required)
      * @param  string $key_id Translation Key ID (required)
-     * @param  \Phrase\Model\CommentsListParameters $comments_list_parameters (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  int $page Page number (optional)
      * @param  int $per_page Limit on the number of objects to be returned, between 1 and 100. 25 by default (optional)
@@ -2543,7 +2538,7 @@ class CommentsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function commentsListRequest($project_id, $key_id, $comments_list_parameters, $x_phrase_app_otp = null, $page = null, $per_page = null, $branch = null, $query = null, $locale_ids = null, $filters = null, $order = null)
+    protected function commentsListRequest($project_id, $key_id, $x_phrase_app_otp = null, $page = null, $per_page = null, $branch = null, $query = null, $locale_ids = null, $filters = null, $order = null)
     {
         // verify the required parameter 'project_id' is set
         if ($project_id === null || (is_array($project_id) && count($project_id) === 0)) {
@@ -2555,12 +2550,6 @@ class CommentsApi
         if ($key_id === null || (is_array($key_id) && count($key_id) === 0)) {
             throw new \InvalidArgumentException(
                 'Missing the required parameter $key_id when calling commentsList'
-            );
-        }
-        // verify the required parameter 'comments_list_parameters' is set
-        if ($comments_list_parameters === null || (is_array($comments_list_parameters) && count($comments_list_parameters) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $comments_list_parameters when calling commentsList'
             );
         }
 
@@ -2673,9 +2662,6 @@ class CommentsApi
 
         // body params
         $_tempBody = null;
-        if (isset($comments_list_parameters)) {
-            $_tempBody = $comments_list_parameters;
-        }
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
@@ -2684,7 +2670,7 @@ class CommentsApi
         } else {
             $headers = $this->headerSelector->selectHeaders(
                 ['application/json'],
-                ['application/json']
+                []
             );
         }
 

@@ -81,7 +81,6 @@ docs/Model/CommentCreateParameters1.md
 docs/Model/CommentMarkReadParameters.md
 docs/Model/CommentReaction.md
 docs/Model/CommentUpdateParameters.md
-docs/Model/CommentsListParameters.md
 docs/Model/CurrentUser.md
 docs/Model/CustomMetadataDataType.md
 docs/Model/CustomMetadataPropertiesCreateParameters.md
@@ -205,7 +204,6 @@ docs/Model/ReleasePreview.md
 docs/Model/ReleaseTrigger.md
 docs/Model/ReleaseUpdateParameters.md
 docs/Model/ReleaseUpdateParameters1.md
-docs/Model/RepliesListParameters.md
 docs/Model/RepoSync.md
 docs/Model/RepoSyncEvent.md
 docs/Model/Screenshot.md
@@ -351,7 +349,6 @@ lib/Model/CommentCreateParameters1.php
 lib/Model/CommentMarkReadParameters.php
 lib/Model/CommentReaction.php
 lib/Model/CommentUpdateParameters.php
-lib/Model/CommentsListParameters.php
 lib/Model/CurrentUser.php
 lib/Model/CustomMetadataDataType.php
 lib/Model/CustomMetadataPropertiesCreateParameters.php
@@ -476,7 +473,6 @@ lib/Model/ReleasePreview.php
 lib/Model/ReleaseTrigger.php
 lib/Model/ReleaseUpdateParameters.php
 lib/Model/ReleaseUpdateParameters1.php
-lib/Model/RepliesListParameters.php
 lib/Model/RepoSync.php
 lib/Model/RepoSyncEvent.php
 lib/Model/Screenshot.php
@@ -617,7 +613,6 @@ test/Model/CommentMarkReadParametersTest.php
 test/Model/CommentReactionTest.php
 test/Model/CommentTest.php
 test/Model/CommentUpdateParametersTest.php
-test/Model/CommentsListParametersTest.php
 test/Model/CurrentUserTest.php
 test/Model/CustomMetadataDataTypeTest.php
 test/Model/CustomMetadataPropertiesCreateParametersTest.php
@@ -741,7 +736,6 @@ test/Model/ReleaseTest.php
 test/Model/ReleaseTriggerTest.php
 test/Model/ReleaseUpdateParameters1Test.php
 test/Model/ReleaseUpdateParametersTest.php
-test/Model/RepliesListParametersTest.php
 test/Model/RepoSyncEventTest.php
 test/Model/RepoSyncTest.php
 test/Model/ScreenshotMarkerCreateParametersTest.php

@@ -480,7 +480,7 @@ Name | Type | Description  | Notes
 
 ## commentsList
 
-> \Phrase\Model\Comment[] commentsList($project_id, $key_id, $comments_list_parameters, $x_phrase_app_otp, $page, $per_page, $branch, $query, $locale_ids, $filters, $order)
+> \Phrase\Model\Comment[] commentsList($project_id, $key_id, $x_phrase_app_otp, $page, $per_page, $branch, $query, $locale_ids, $filters, $order)
 
 List comments
 
@@ -503,7 +503,6 @@ $apiInstance = new Phrase\Api\CommentsApi(
 );
 $project_id = 'project_id_example'; // string | Project ID
 $key_id = 'key_id_example'; // string | Translation Key ID
-$comments_list_parameters = new \Phrase\Model\CommentsListParameters(); // \Phrase\Model\CommentsListParameters | 
 $x_phrase_app_otp = 'x_phrase_app_otp_example'; // string | Two-Factor-Authentication token (optional)
 $page = 1; // int | Page number
 $per_page = 25; // int | Limit on the number of objects to be returned, between 1 and 100. 25 by default
@@ -514,7 +513,7 @@ $filters = ["read","unread"]; // string[] | Specify the filter for the comments
 $order = desc; // string | Order direction. Can be one of: asc, desc.
 
 try {
-    $result = $apiInstance->commentsList($project_id, $key_id, $comments_list_parameters, $x_phrase_app_otp, $page, $per_page, $branch, $query, $locale_ids, $filters, $order);
+    $result = $apiInstance->commentsList($project_id, $key_id, $x_phrase_app_otp, $page, $per_page, $branch, $query, $locale_ids, $filters, $order);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CommentsApi->commentsList: ', $e->getMessage(), PHP_EOL;
@@ -529,7 +528,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **project_id** | **string**| Project ID |
  **key_id** | **string**| Translation Key ID |
- **comments_list_parameters** | [**\Phrase\Model\CommentsListParameters**](../Model/CommentsListParameters.md)|  |
  **x_phrase_app_otp** | **string**| Two-Factor-Authentication token (optional) | [optional]
  **page** | **int**| Page number | [optional]
  **per_page** | **int**| Limit on the number of objects to be returned, between 1 and 100. 25 by default | [optional]
@@ -549,7 +547,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
+- **Content-Type**: Not defined
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
