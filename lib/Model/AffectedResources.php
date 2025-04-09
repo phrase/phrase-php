@@ -173,7 +173,7 @@ class AffectedResources implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['records_affected'] = isset($data['records_affected']) ? $data['records_affected'] : null;
     }

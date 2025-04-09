@@ -203,7 +203,7 @@ class ReleaseCreateParameters1 implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['cron_schedule'] = isset($data['cron_schedule']) ? $data['cron_schedule'] : null;
         $this->container['time_zone'] = isset($data['time_zone']) ? $data['time_zone'] : null;

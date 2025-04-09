@@ -178,7 +178,7 @@ class KeyLinksBatchDestroyParameters implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['child_key_ids'] = isset($data['child_key_ids']) ? $data['child_key_ids'] : null;
         $this->container['unlink_parent'] = isset($data['unlink_parent']) ? $data['unlink_parent'] : false;

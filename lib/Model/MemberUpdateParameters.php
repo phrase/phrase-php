@@ -203,7 +203,7 @@ class MemberUpdateParameters implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['strategy'] = isset($data['strategy']) ? $data['strategy'] : null;
         $this->container['role'] = isset($data['role']) ? $data['role'] : null;

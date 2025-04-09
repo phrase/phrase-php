@@ -193,7 +193,7 @@ class CustomMetadataPropertiesCreateParameters implements ModelInterface, ArrayA
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['data_type'] = isset($data['data_type']) ? $data['data_type'] : null;

@@ -213,7 +213,7 @@ class Branch implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['base_project_id'] = isset($data['base_project_id']) ? $data['base_project_id'] : null;
         $this->container['branch_project_id'] = isset($data['branch_project_id']) ? $data['branch_project_id'] : null;

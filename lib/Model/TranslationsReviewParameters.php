@@ -178,7 +178,7 @@ class TranslationsReviewParameters implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['branch'] = isset($data['branch']) ? $data['branch'] : null;
         $this->container['q'] = isset($data['q']) ? $data['q'] : null;

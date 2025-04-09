@@ -243,7 +243,7 @@ class LocaleDownloadCreateParameters implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['file_format'] = isset($data['file_format']) ? $data['file_format'] : null;
         $this->container['branch'] = isset($data['branch']) ? $data['branch'] : null;

@@ -208,7 +208,7 @@ class ProjectReport implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['locales_count'] = isset($data['locales_count']) ? $data['locales_count'] : null;
         $this->container['keys_count'] = isset($data['keys_count']) ? $data['keys_count'] : null;

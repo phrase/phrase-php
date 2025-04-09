@@ -178,7 +178,7 @@ class GlossaryTermTranslationCreateParameters implements ModelInterface, ArrayAc
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['locale_code'] = isset($data['locale_code']) ? $data['locale_code'] : null;
         $this->container['content'] = isset($data['content']) ? $data['content'] : null;

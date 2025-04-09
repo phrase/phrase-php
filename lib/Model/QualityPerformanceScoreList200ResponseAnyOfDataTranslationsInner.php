@@ -183,7 +183,7 @@ class QualityPerformanceScoreList200ResponseAnyOfDataTranslationsInner implement
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['engine'] = isset($data['engine']) ? $data['engine'] : null;
         $this->container['score'] = isset($data['score']) ? $data['score'] : null;

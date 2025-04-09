@@ -203,7 +203,7 @@ class LocaleStatistics implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['keys_total_count'] = isset($data['keys_total_count']) ? $data['keys_total_count'] : null;
         $this->container['keys_untranslated_count'] = isset($data['keys_untranslated_count']) ? $data['keys_untranslated_count'] : null;

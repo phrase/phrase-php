@@ -178,7 +178,7 @@ class MemberUpdateSettingsParameters implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['project_role'] = isset($data['project_role']) ? $data['project_role'] : null;
         $this->container['locale_ids'] = isset($data['locale_ids']) ? $data['locale_ids'] : null;
