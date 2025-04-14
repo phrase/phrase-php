@@ -62,7 +62,9 @@ class UploadSummary implements ModelInterface, ArrayAccess
         'translations_created' => 'int',
         'translations_updated' => 'int',
         'tags_created' => 'int',
-        'translation_keys_ignored' => 'int'
+        'translation_keys_ignored' => 'int',
+        'processed_translations' => 'int',
+        'upload_total_translations' => 'int'
     ];
 
     /**
@@ -78,7 +80,9 @@ class UploadSummary implements ModelInterface, ArrayAccess
         'translations_created' => null,
         'translations_updated' => null,
         'tags_created' => null,
-        'translation_keys_ignored' => null
+        'translation_keys_ignored' => null,
+        'processed_translations' => null,
+        'upload_total_translations' => null
     ];
 
     /**
@@ -115,7 +119,9 @@ class UploadSummary implements ModelInterface, ArrayAccess
         'translations_created' => 'translations_created',
         'translations_updated' => 'translations_updated',
         'tags_created' => 'tags_created',
-        'translation_keys_ignored' => 'translation_keys_ignored'
+        'translation_keys_ignored' => 'translation_keys_ignored',
+        'processed_translations' => 'processed_translations',
+        'upload_total_translations' => 'upload_total_translations'
     ];
 
     /**
@@ -131,7 +137,9 @@ class UploadSummary implements ModelInterface, ArrayAccess
         'translations_created' => 'setTranslationsCreated',
         'translations_updated' => 'setTranslationsUpdated',
         'tags_created' => 'setTagsCreated',
-        'translation_keys_ignored' => 'setTranslationKeysIgnored'
+        'translation_keys_ignored' => 'setTranslationKeysIgnored',
+        'processed_translations' => 'setProcessedTranslations',
+        'upload_total_translations' => 'setUploadTotalTranslations'
     ];
 
     /**
@@ -147,7 +155,9 @@ class UploadSummary implements ModelInterface, ArrayAccess
         'translations_created' => 'getTranslationsCreated',
         'translations_updated' => 'getTranslationsUpdated',
         'tags_created' => 'getTagsCreated',
-        'translation_keys_ignored' => 'getTranslationKeysIgnored'
+        'translation_keys_ignored' => 'getTranslationKeysIgnored',
+        'processed_translations' => 'getProcessedTranslations',
+        'upload_total_translations' => 'getUploadTotalTranslations'
     ];
 
     /**
@@ -218,6 +228,8 @@ class UploadSummary implements ModelInterface, ArrayAccess
         $this->container['translations_updated'] = isset($data['translations_updated']) ? $data['translations_updated'] : null;
         $this->container['tags_created'] = isset($data['tags_created']) ? $data['tags_created'] : null;
         $this->container['translation_keys_ignored'] = isset($data['translation_keys_ignored']) ? $data['translation_keys_ignored'] : null;
+        $this->container['processed_translations'] = isset($data['processed_translations']) ? $data['processed_translations'] : null;
+        $this->container['upload_total_translations'] = isset($data['upload_total_translations']) ? $data['upload_total_translations'] : null;
     }
 
     /**
@@ -432,6 +444,54 @@ class UploadSummary implements ModelInterface, ArrayAccess
     public function setTranslationKeysIgnored($translation_keys_ignored)
     {
         $this->container['translation_keys_ignored'] = $translation_keys_ignored;
+
+        return $this;
+    }
+
+    /**
+     * Gets processed_translations
+     *
+     * @return int|null
+     */
+    public function getProcessedTranslations()
+    {
+        return $this->container['processed_translations'];
+    }
+
+    /**
+     * Sets processed_translations
+     *
+     * @param int|null $processed_translations processed_translations
+     *
+     * @return $this
+     */
+    public function setProcessedTranslations($processed_translations)
+    {
+        $this->container['processed_translations'] = $processed_translations;
+
+        return $this;
+    }
+
+    /**
+     * Gets upload_total_translations
+     *
+     * @return int|null
+     */
+    public function getUploadTotalTranslations()
+    {
+        return $this->container['upload_total_translations'];
+    }
+
+    /**
+     * Sets upload_total_translations
+     *
+     * @param int|null $upload_total_translations upload_total_translations
+     *
+     * @return $this
+     */
+    public function setUploadTotalTranslations($upload_total_translations)
+    {
+        $this->container['upload_total_translations'] = $upload_total_translations;
 
         return $this;
     }

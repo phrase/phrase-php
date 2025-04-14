@@ -131,4 +131,18 @@ class UploadSummaryTest extends TestCase
     public function testPropertyTranslationKeysIgnored()
     {
     }
+
+    /**
+     * Test attribute "processed_translations"
+     */
+    public function testPropertyProcessedTranslations()
+    {
+    }
+
+    /**
+     * Test attribute "upload_total_translations"
+     */
+    public function testPropertyUploadTotalTranslations()
+    {
+    }
 }
