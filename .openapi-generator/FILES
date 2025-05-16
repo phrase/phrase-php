@@ -246,6 +246,7 @@ docs/Model/TranslationKeyDetails.md
 docs/Model/TranslationOrder.md
 docs/Model/TranslationParent.md
 docs/Model/TranslationReviewParameters.md
+docs/Model/TranslationUnreviewParameters.md
 docs/Model/TranslationUnverifyParameters.md
 docs/Model/TranslationUpdateParameters.md
 docs/Model/TranslationVerifyParameters.md
@@ -255,6 +256,7 @@ docs/Model/TranslationsExcludeParameters.md
 docs/Model/TranslationsIncludeParameters.md
 docs/Model/TranslationsReviewParameters.md
 docs/Model/TranslationsSearchParameters.md
+docs/Model/TranslationsUnreviewParameters.md
 docs/Model/TranslationsUnverifyParameters.md
 docs/Model/TranslationsVerifyParameters.md
 docs/Model/Upload.md
@@ -515,6 +517,7 @@ lib/Model/TranslationKeyDetails.php
 lib/Model/TranslationOrder.php
 lib/Model/TranslationParent.php
 lib/Model/TranslationReviewParameters.php
+lib/Model/TranslationUnreviewParameters.php
 lib/Model/TranslationUnverifyParameters.php
 lib/Model/TranslationUpdateParameters.php
 lib/Model/TranslationVerifyParameters.php
@@ -524,6 +527,7 @@ lib/Model/TranslationsExcludeParameters.php
 lib/Model/TranslationsIncludeParameters.php
 lib/Model/TranslationsReviewParameters.php
 lib/Model/TranslationsSearchParameters.php
+lib/Model/TranslationsUnreviewParameters.php
 lib/Model/TranslationsUnverifyParameters.php
 lib/Model/TranslationsVerifyParameters.php
 lib/Model/Upload.php
@@ -778,6 +782,7 @@ test/Model/TranslationOrderTest.php
 test/Model/TranslationParentTest.php
 test/Model/TranslationReviewParametersTest.php
 test/Model/TranslationTest.php
+test/Model/TranslationUnreviewParametersTest.php
 test/Model/TranslationUnverifyParametersTest.php
 test/Model/TranslationUpdateParametersTest.php
 test/Model/TranslationVerifyParametersTest.php
@@ -787,6 +792,7 @@ test/Model/TranslationsExcludeParametersTest.php
 test/Model/TranslationsIncludeParametersTest.php
 test/Model/TranslationsReviewParametersTest.php
 test/Model/TranslationsSearchParametersTest.php
+test/Model/TranslationsUnreviewParametersTest.php
 test/Model/TranslationsUnverifyParametersTest.php
 test/Model/TranslationsVerifyParametersTest.php
 test/Model/UploadSummaryTest.php

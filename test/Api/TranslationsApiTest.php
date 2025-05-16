@@ -121,6 +121,16 @@ class TranslationsApiTest extends TestCase
     }
 
     /**
+     * Test case for translationUnreview
+     *
+     * Unreview a translation.
+     *
+     */
+    public function testTranslationUnreview()
+    {
+    }
+
+    /**
      * Test case for translationUnverify
      *
      * Mark a translation as unverified.
@@ -217,6 +227,16 @@ class TranslationsApiTest extends TestCase
      *
      */
     public function testTranslationsSearch()
+    {
+    }
+
+    /**
+     * Test case for translationsUnreviewCollection
+     *
+     * Unreview translations selected by query.
+     *
+     */
+    public function testTranslationsUnreviewCollection()
     {
     }
 
