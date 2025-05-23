@@ -704,15 +704,16 @@ class TagsApi
      * @param  string $project_id Project ID (required)
      * @param  string $name name (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
+     * @param  bool $omit_statistics omit statistics in the response (optional)
      * @param  string $branch specify the branch to use (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Phrase\Model\TagWithStats
      */
-    public function tagShow($project_id, $name, $x_phrase_app_otp = null, $branch = null)
+    public function tagShow($project_id, $name, $x_phrase_app_otp = null, $omit_statistics = null, $branch = null)
     {
-        list($response) = $this->tagShowWithHttpInfo($project_id, $name, $x_phrase_app_otp, $branch);
+        list($response) = $this->tagShowWithHttpInfo($project_id, $name, $x_phrase_app_otp, $omit_statistics, $branch);
         return $response;
     }
 
@@ -724,15 +725,16 @@ class TagsApi
      * @param  string $project_id Project ID (required)
      * @param  string $name name (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
+     * @param  bool $omit_statistics omit statistics in the response (optional)
      * @param  string $branch specify the branch to use (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Phrase\Model\TagWithStats, HTTP status code, HTTP response headers (array of strings)
      */
-    public function tagShowWithHttpInfo($project_id, $name, $x_phrase_app_otp = null, $branch = null)
+    public function tagShowWithHttpInfo($project_id, $name, $x_phrase_app_otp = null, $omit_statistics = null, $branch = null)
     {
-        $request = $this->tagShowRequest($project_id, $name, $x_phrase_app_otp, $branch);
+        $request = $this->tagShowRequest($project_id, $name, $x_phrase_app_otp, $omit_statistics, $branch);
 
         try {
             $options = $this->createHttpClientOption();
@@ -815,14 +817,15 @@ class TagsApi
      * @param  string $project_id Project ID (required)
      * @param  string $name name (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
+     * @param  bool $omit_statistics omit statistics in the response (optional)
      * @param  string $branch specify the branch to use (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function tagShowAsync($project_id, $name, $x_phrase_app_otp = null, $branch = null)
+    public function tagShowAsync($project_id, $name, $x_phrase_app_otp = null, $omit_statistics = null, $branch = null)
     {
-        return $this->tagShowAsyncWithHttpInfo($project_id, $name, $x_phrase_app_otp, $branch)
+        return $this->tagShowAsyncWithHttpInfo($project_id, $name, $x_phrase_app_otp, $omit_statistics, $branch)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -838,15 +841,16 @@ class TagsApi
      * @param  string $project_id Project ID (required)
      * @param  string $name name (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
+     * @param  bool $omit_statistics omit statistics in the response (optional)
      * @param  string $branch specify the branch to use (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function tagShowAsyncWithHttpInfo($project_id, $name, $x_phrase_app_otp = null, $branch = null)
+    public function tagShowAsyncWithHttpInfo($project_id, $name, $x_phrase_app_otp = null, $omit_statistics = null, $branch = null)
     {
         $returnType = '\Phrase\Model\TagWithStats';
-        $request = $this->tagShowRequest($project_id, $name, $x_phrase_app_otp, $branch);
+        $request = $this->tagShowRequest($project_id, $name, $x_phrase_app_otp, $omit_statistics, $branch);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -888,12 +892,13 @@ class TagsApi
      * @param  string $project_id Project ID (required)
      * @param  string $name name (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
+     * @param  bool $omit_statistics omit statistics in the response (optional)
      * @param  string $branch specify the branch to use (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function tagShowRequest($project_id, $name, $x_phrase_app_otp = null, $branch = null)
+    protected function tagShowRequest($project_id, $name, $x_phrase_app_otp = null, $omit_statistics = null, $branch = null)
     {
         // verify the required parameter 'project_id' is set
         if ($project_id === null || (is_array($project_id) && count($project_id) === 0)) {
@@ -915,6 +920,17 @@ class TagsApi
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        if ($omit_statistics !== null) {
+            if('form' === 'form' && is_array($omit_statistics)) {
+                foreach($omit_statistics as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['omit_statistics'] = $omit_statistics;
+            }
+        }
         // query params
         if ($branch !== null) {
             if('form' === 'form' && is_array($branch)) {

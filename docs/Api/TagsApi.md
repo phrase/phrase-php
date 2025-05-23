@@ -140,7 +140,7 @@ void (empty response body)
 
 ## tagShow
 
-> \Phrase\Model\TagWithStats tagShow($project_id, $name, $x_phrase_app_otp, $branch)
+> \Phrase\Model\TagWithStats tagShow($project_id, $name, $x_phrase_app_otp, $omit_statistics, $branch)
 
 Get a single tag
 
@@ -164,10 +164,11 @@ $apiInstance = new Phrase\Api\TagsApi(
 $project_id = 'project_id_example'; // string | Project ID
 $name = 'name_example'; // string | name
 $x_phrase_app_otp = 'x_phrase_app_otp_example'; // string | Two-Factor-Authentication token (optional)
+$omit_statistics = true; // bool | omit statistics in the response
 $branch = my-feature-branch; // string | specify the branch to use
 
 try {
-    $result = $apiInstance->tagShow($project_id, $name, $x_phrase_app_otp, $branch);
+    $result = $apiInstance->tagShow($project_id, $name, $x_phrase_app_otp, $omit_statistics, $branch);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling TagsApi->tagShow: ', $e->getMessage(), PHP_EOL;
@@ -183,6 +184,7 @@ Name | Type | Description  | Notes
  **project_id** | **string**| Project ID |
  **name** | **string**| name |
  **x_phrase_app_otp** | **string**| Two-Factor-Authentication token (optional) | [optional]
+ **omit_statistics** | **bool**| omit statistics in the response | [optional]
  **branch** | **string**| specify the branch to use | [optional]
 
 ### Return type
