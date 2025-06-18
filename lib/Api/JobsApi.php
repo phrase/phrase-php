@@ -3485,7 +3485,7 @@ class JobsApi
      * @param  int $per_page Limit on the number of objects to be returned, between 1 and 100. 25 by default (optional)
      * @param  string $owned_by filter by user owning job (optional)
      * @param  string $assigned_to filter by user assigned to job (optional)
-     * @param  string $state filter by state of job; valid states are: &lt;code&gt;draft&lt;/code&gt;, &lt;code&gt;in_progress&lt;/code&gt;, &lt;code&gt;completed&lt;/code&gt; (optional)
+     * @param  string $state filter by state of job; valid states are: &#x60;draft&#x60;, &#x60;in_progress&#x60;, &#x60;completed&#x60; (optional)
      * @param  string $updated_since filter by jobs updated since given date (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
@@ -3509,7 +3509,7 @@ class JobsApi
      * @param  int $per_page Limit on the number of objects to be returned, between 1 and 100. 25 by default (optional)
      * @param  string $owned_by filter by user owning job (optional)
      * @param  string $assigned_to filter by user assigned to job (optional)
-     * @param  string $state filter by state of job; valid states are: &lt;code&gt;draft&lt;/code&gt;, &lt;code&gt;in_progress&lt;/code&gt;, &lt;code&gt;completed&lt;/code&gt; (optional)
+     * @param  string $state filter by state of job; valid states are: &#x60;draft&#x60;, &#x60;in_progress&#x60;, &#x60;completed&#x60; (optional)
      * @param  string $updated_since filter by jobs updated since given date (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
@@ -3604,7 +3604,7 @@ class JobsApi
      * @param  int $per_page Limit on the number of objects to be returned, between 1 and 100. 25 by default (optional)
      * @param  string $owned_by filter by user owning job (optional)
      * @param  string $assigned_to filter by user assigned to job (optional)
-     * @param  string $state filter by state of job; valid states are: &lt;code&gt;draft&lt;/code&gt;, &lt;code&gt;in_progress&lt;/code&gt;, &lt;code&gt;completed&lt;/code&gt; (optional)
+     * @param  string $state filter by state of job; valid states are: &#x60;draft&#x60;, &#x60;in_progress&#x60;, &#x60;completed&#x60; (optional)
      * @param  string $updated_since filter by jobs updated since given date (optional)
      *
      * @throws \InvalidArgumentException
@@ -3631,7 +3631,7 @@ class JobsApi
      * @param  int $per_page Limit on the number of objects to be returned, between 1 and 100. 25 by default (optional)
      * @param  string $owned_by filter by user owning job (optional)
      * @param  string $assigned_to filter by user assigned to job (optional)
-     * @param  string $state filter by state of job; valid states are: &lt;code&gt;draft&lt;/code&gt;, &lt;code&gt;in_progress&lt;/code&gt;, &lt;code&gt;completed&lt;/code&gt; (optional)
+     * @param  string $state filter by state of job; valid states are: &#x60;draft&#x60;, &#x60;in_progress&#x60;, &#x60;completed&#x60; (optional)
      * @param  string $updated_since filter by jobs updated since given date (optional)
      *
      * @throws \InvalidArgumentException
@@ -3685,7 +3685,7 @@ class JobsApi
      * @param  int $per_page Limit on the number of objects to be returned, between 1 and 100. 25 by default (optional)
      * @param  string $owned_by filter by user owning job (optional)
      * @param  string $assigned_to filter by user assigned to job (optional)
-     * @param  string $state filter by state of job; valid states are: &lt;code&gt;draft&lt;/code&gt;, &lt;code&gt;in_progress&lt;/code&gt;, &lt;code&gt;completed&lt;/code&gt; (optional)
+     * @param  string $state filter by state of job; valid states are: &#x60;draft&#x60;, &#x60;in_progress&#x60;, &#x60;completed&#x60; (optional)
      * @param  string $updated_since filter by jobs updated since given date (optional)
      *
      * @throws \InvalidArgumentException
@@ -3873,7 +3873,7 @@ class JobsApi
      * @param  string $branch Branch to use (optional)
      * @param  string $owned_by filter by user owning job (optional)
      * @param  string $assigned_to filter by user assigned to job (optional)
-     * @param  string $state filter by state of job; valid states are: &lt;code&gt;draft&lt;/code&gt;, &lt;code&gt;in_progress&lt;/code&gt;, &lt;code&gt;completed&lt;/code&gt; (optional)
+     * @param  string $state filter by state of job; valid states are: &#x60;draft&#x60;, &#x60;in_progress&#x60;, &#x60;completed&#x60; (optional)
      * @param  string $updated_since filter by jobs updated since given date (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
@@ -3898,7 +3898,7 @@ class JobsApi
      * @param  string $branch Branch to use (optional)
      * @param  string $owned_by filter by user owning job (optional)
      * @param  string $assigned_to filter by user assigned to job (optional)
-     * @param  string $state filter by state of job; valid states are: &lt;code&gt;draft&lt;/code&gt;, &lt;code&gt;in_progress&lt;/code&gt;, &lt;code&gt;completed&lt;/code&gt; (optional)
+     * @param  string $state filter by state of job; valid states are: &#x60;draft&#x60;, &#x60;in_progress&#x60;, &#x60;completed&#x60; (optional)
      * @param  string $updated_since filter by jobs updated since given date (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
@@ -3994,7 +3994,7 @@ class JobsApi
      * @param  string $branch Branch to use (optional)
      * @param  string $owned_by filter by user owning job (optional)
      * @param  string $assigned_to filter by user assigned to job (optional)
-     * @param  string $state filter by state of job; valid states are: &lt;code&gt;draft&lt;/code&gt;, &lt;code&gt;in_progress&lt;/code&gt;, &lt;code&gt;completed&lt;/code&gt; (optional)
+     * @param  string $state filter by state of job; valid states are: &#x60;draft&#x60;, &#x60;in_progress&#x60;, &#x60;completed&#x60; (optional)
      * @param  string $updated_since filter by jobs updated since given date (optional)
      *
      * @throws \InvalidArgumentException
@@ -4022,7 +4022,7 @@ class JobsApi
      * @param  string $branch Branch to use (optional)
      * @param  string $owned_by filter by user owning job (optional)
      * @param  string $assigned_to filter by user assigned to job (optional)
-     * @param  string $state filter by state of job; valid states are: &lt;code&gt;draft&lt;/code&gt;, &lt;code&gt;in_progress&lt;/code&gt;, &lt;code&gt;completed&lt;/code&gt; (optional)
+     * @param  string $state filter by state of job; valid states are: &#x60;draft&#x60;, &#x60;in_progress&#x60;, &#x60;completed&#x60; (optional)
      * @param  string $updated_since filter by jobs updated since given date (optional)
      *
      * @throws \InvalidArgumentException
@@ -4077,7 +4077,7 @@ class JobsApi
      * @param  string $branch Branch to use (optional)
      * @param  string $owned_by filter by user owning job (optional)
      * @param  string $assigned_to filter by user assigned to job (optional)
-     * @param  string $state filter by state of job; valid states are: &lt;code&gt;draft&lt;/code&gt;, &lt;code&gt;in_progress&lt;/code&gt;, &lt;code&gt;completed&lt;/code&gt; (optional)
+     * @param  string $state filter by state of job; valid states are: &#x60;draft&#x60;, &#x60;in_progress&#x60;, &#x60;completed&#x60; (optional)
      * @param  string $updated_since filter by jobs updated since given date (optional)
      *
      * @throws \InvalidArgumentException

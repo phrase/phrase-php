@@ -395,7 +395,7 @@ class MemberUpdateParameters implements ModelInterface, ArrayAccess
     /**
      * Sets permissions
      *
-     * @param array&lt;string,string&gt;|null $permissions Additional permissions depending on member role. Available permissions are <code>create_upload</code> and <code>review_translations</code>
+     * @param array&lt;string,string&gt;|null $permissions Additional permissions depending on member role. Available permissions are `create_upload` and `review_translations`
      *
      * @return $this
      */

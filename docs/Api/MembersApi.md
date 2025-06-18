@@ -18,7 +18,7 @@ Method | HTTP request | Description
 
 Remove a user from the account
 
-Remove a user from the account. The user will be removed from the account but not deleted from Phrase. Access token scope must include <code>team.manage</code>.
+Remove a user from the account. The user will be removed from the account but not deleted from Phrase. Access token scope must include `team.manage`.
 
 ### Example
 
@@ -80,7 +80,7 @@ void (empty response body)
 
 Get single member
 
-Get details on a single user in the account. Access token scope must include <code>team.manage</code>.
+Get details on a single user in the account. Access token scope must include `team.manage`.
 
 ### Example
 
@@ -143,7 +143,7 @@ Name | Type | Description  | Notes
 
 Update a member
 
-Update user permissions in the account. Developers and translators need <code>project_ids</code> and <code>locale_ids</code> assigned to access them. Access token scope must include <code>team.manage</code>.
+Update user permissions in the account. Developers and translators need `project_ids` and `locale_ids` assigned to access them. Access token scope must include `team.manage`.
 
 ### Example
 
@@ -208,7 +208,7 @@ Name | Type | Description  | Notes
 
 Update a member's project settings
 
-Update user settings in the project. Access token scope must include <code>team.manage</code>.
+Update user settings in the project. Access token scope must include `team.manage`.
 
 ### Example
 
@@ -273,7 +273,7 @@ Name | Type | Description  | Notes
 
 List members
 
-Get all users active in the account. It also lists resources like projects and locales the member has access to. In case nothing is shown the default access from the role is used. Access token scope must include <code>team.manage</code>.
+Get all users active in the account. It also lists resources like projects and locales the member has access to. In case nothing is shown the default access from the role is used. Access token scope must include `team.manage`.
 
 ### Example
 

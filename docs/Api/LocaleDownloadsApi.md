@@ -36,8 +36,8 @@ $project_id = 'project_id_example'; // string | Project ID
 $locale_id = 'locale_id_example'; // string | Locale ID
 $locale_download_create_parameters = new \Phrase\Model\LocaleDownloadCreateParameters(); // \Phrase\Model\LocaleDownloadCreateParameters | 
 $x_phrase_app_otp = 'x_phrase_app_otp_example'; // string | Two-Factor-Authentication token (optional)
-$if_modified_since = 'if_modified_since_example'; // string | Last modified condition, see <a href=\"#overview--conditional-get-requests--http-caching\">Conditional GET requests / HTTP Caching</a> (optional)
-$if_none_match = 'if_none_match_example'; // string | ETag condition, see <a href=\"#overview--conditional-get-requests--http-caching\">Conditional GET requests / HTTP Caching</a> (optional)
+$if_modified_since = 'if_modified_since_example'; // string | Last modified condition, see [Conditional GET requests / HTTP Caching](/en/api/strings/pagination#conditional-get-requests-%2F-http-caching) (optional)
+$if_none_match = 'if_none_match_example'; // string | ETag condition, see [Conditional GET requests / HTTP Caching](/en/api/strings/pagination#conditional-get-requests-%2F-http-caching) (optional)
 
 try {
     $result = $apiInstance->localeDownloadCreate($project_id, $locale_id, $locale_download_create_parameters, $x_phrase_app_otp, $if_modified_since, $if_none_match);
@@ -57,8 +57,8 @@ Name | Type | Description  | Notes
  **locale_id** | **string**| Locale ID |
  **locale_download_create_parameters** | [**\Phrase\Model\LocaleDownloadCreateParameters**](../Model/LocaleDownloadCreateParameters.md)|  |
  **x_phrase_app_otp** | **string**| Two-Factor-Authentication token (optional) | [optional]
- **if_modified_since** | **string**| Last modified condition, see &lt;a href&#x3D;\&quot;#overview--conditional-get-requests--http-caching\&quot;&gt;Conditional GET requests / HTTP Caching&lt;/a&gt; (optional) | [optional]
- **if_none_match** | **string**| ETag condition, see &lt;a href&#x3D;\&quot;#overview--conditional-get-requests--http-caching\&quot;&gt;Conditional GET requests / HTTP Caching&lt;/a&gt; (optional) | [optional]
+ **if_modified_since** | **string**| Last modified condition, see [Conditional GET requests / HTTP Caching](/en/api/strings/pagination#conditional-get-requests-%2F-http-caching) (optional) | [optional]
+ **if_none_match** | **string**| ETag condition, see [Conditional GET requests / HTTP Caching](/en/api/strings/pagination#conditional-get-requests-%2F-http-caching) (optional) | [optional]
 
 ### Return type
 
@@ -105,8 +105,8 @@ $project_id = 'project_id_example'; // string | Project ID
 $locale_id = 'locale_id_example'; // string | Locale ID
 $id = 'id_example'; // string | ID
 $x_phrase_app_otp = 'x_phrase_app_otp_example'; // string | Two-Factor-Authentication token (optional)
-$if_modified_since = 'if_modified_since_example'; // string | Last modified condition, see <a href=\"#overview--conditional-get-requests--http-caching\">Conditional GET requests / HTTP Caching</a> (optional)
-$if_none_match = 'if_none_match_example'; // string | ETag condition, see <a href=\"#overview--conditional-get-requests--http-caching\">Conditional GET requests / HTTP Caching</a> (optional)
+$if_modified_since = 'if_modified_since_example'; // string | Last modified condition, see [Conditional GET requests / HTTP Caching](/en/api/strings/pagination#conditional-get-requests-%2F-http-caching) (optional)
+$if_none_match = 'if_none_match_example'; // string | ETag condition, see [Conditional GET requests / HTTP Caching](/en/api/strings/pagination#conditional-get-requests-%2F-http-caching) (optional)
 
 try {
     $result = $apiInstance->localeDownloadShow($project_id, $locale_id, $id, $x_phrase_app_otp, $if_modified_since, $if_none_match);
@@ -126,8 +126,8 @@ Name | Type | Description  | Notes
  **locale_id** | **string**| Locale ID |
  **id** | **string**| ID |
  **x_phrase_app_otp** | **string**| Two-Factor-Authentication token (optional) | [optional]
- **if_modified_since** | **string**| Last modified condition, see &lt;a href&#x3D;\&quot;#overview--conditional-get-requests--http-caching\&quot;&gt;Conditional GET requests / HTTP Caching&lt;/a&gt; (optional) | [optional]
- **if_none_match** | **string**| ETag condition, see &lt;a href&#x3D;\&quot;#overview--conditional-get-requests--http-caching\&quot;&gt;Conditional GET requests / HTTP Caching&lt;/a&gt; (optional) | [optional]
+ **if_modified_since** | **string**| Last modified condition, see [Conditional GET requests / HTTP Caching](/en/api/strings/pagination#conditional-get-requests-%2F-http-caching) (optional) | [optional]
+ **if_none_match** | **string**| ETag condition, see [Conditional GET requests / HTTP Caching](/en/api/strings/pagination#conditional-get-requests-%2F-http-caching) (optional) | [optional]
 
 ### Return type
 

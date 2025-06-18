@@ -377,7 +377,7 @@ class TranslationCreateParameters implements ModelInterface, ArrayAccess
     /**
      * Sets unverified
      *
-     * @param bool|null $unverified Indicates whether translation is unverified. Part of the <a href=\"https://support.phrase.com/hc/en-us/articles/5784094755484\" target=\"_blank\">Advanced Workflows</a> feature.
+     * @param bool|null $unverified Indicates whether translation is unverified. Part of the [Advanced Workflows](https://support.phrase.com/hc/en-us/articles/5784094755484) feature.
      *
      * @return $this
      */

@@ -758,7 +758,7 @@ $page = 1; // int | Page number
 $per_page = 25; // int | Limit on the number of objects to be returned, between 1 and 100. 25 by default
 $owned_by = abcd1234cdef1234abcd1234cdef1234; // string | filter by user owning job
 $assigned_to = abcd1234cdef1234abcd1234cdef1234; // string | filter by user assigned to job
-$state = completed; // string | filter by state of job; valid states are: <code>draft</code>, <code>in_progress</code>, <code>completed</code>
+$state = completed; // string | filter by state of job; valid states are: `draft`, `in_progress`, `completed`
 $updated_since = 2013-02-21T00:00:00.000Z; // string | filter by jobs updated since given date
 
 try {
@@ -781,7 +781,7 @@ Name | Type | Description  | Notes
  **per_page** | **int**| Limit on the number of objects to be returned, between 1 and 100. 25 by default | [optional]
  **owned_by** | **string**| filter by user owning job | [optional]
  **assigned_to** | **string**| filter by user assigned to job | [optional]
- **state** | **string**| filter by state of job; valid states are: &lt;code&gt;draft&lt;/code&gt;, &lt;code&gt;in_progress&lt;/code&gt;, &lt;code&gt;completed&lt;/code&gt; | [optional]
+ **state** | **string**| filter by state of job; valid states are: &#x60;draft&#x60;, &#x60;in_progress&#x60;, &#x60;completed&#x60; | [optional]
  **updated_since** | **string**| filter by jobs updated since given date | [optional]
 
 ### Return type
@@ -832,7 +832,7 @@ $per_page = 25; // int | Limit on the number of objects to be returned, between 
 $branch = my-feature-branch; // string | Branch to use
 $owned_by = abcd1234cdef1234abcd1234cdef1234; // string | filter by user owning job
 $assigned_to = abcd1234cdef1234abcd1234cdef1234; // string | filter by user assigned to job
-$state = completed; // string | filter by state of job; valid states are: <code>draft</code>, <code>in_progress</code>, <code>completed</code>
+$state = completed; // string | filter by state of job; valid states are: `draft`, `in_progress`, `completed`
 $updated_since = 2013-02-21T00:00:00.000Z; // string | filter by jobs updated since given date
 
 try {
@@ -856,7 +856,7 @@ Name | Type | Description  | Notes
  **branch** | **string**| Branch to use | [optional]
  **owned_by** | **string**| filter by user owning job | [optional]
  **assigned_to** | **string**| filter by user assigned to job | [optional]
- **state** | **string**| filter by state of job; valid states are: &lt;code&gt;draft&lt;/code&gt;, &lt;code&gt;in_progress&lt;/code&gt;, &lt;code&gt;completed&lt;/code&gt; | [optional]
+ **state** | **string**| filter by state of job; valid states are: &#x60;draft&#x60;, &#x60;in_progress&#x60;, &#x60;completed&#x60; | [optional]
  **updated_since** | **string**| filter by jobs updated since given date | [optional]
 
 ### Return type

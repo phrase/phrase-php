@@ -365,7 +365,7 @@ class DistributionCreateParameters implements ModelInterface, ArrayAccess
     /**
      * Sets format_options
      *
-     * @param array&lt;string,string&gt;|null $format_options Additional formatting and render options. Only <code>enclose_in_cdata</code> is available for platform <code>android</code>.
+     * @param array&lt;string,string&gt;|null $format_options Additional formatting and render options. Only `enclose_in_cdata` is available for platform `android`.
      *
      * @return $this
      */

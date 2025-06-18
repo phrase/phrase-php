@@ -374,7 +374,7 @@ class ProjectCreateParameters implements ModelInterface, ArrayAccess
     /**
      * Sets main_format
      *
-     * @param string|null $main_format Main file format specified by its API Extension name. Used for locale downloads if no format is specified. For API Extension names of available file formats see <a href=\"https://support.phrase.com/hc/en-us/sections/6111343326364\">Format Guide</a> or our <a href=\"#formats\">Formats API Endpoint</a>.
+     * @param string|null $main_format Main file format specified by its API Extension name. Used for locale downloads if no format is specified. For API Extension names of available file formats see [Format Guide](https://support.phrase.com/hc/en-us/sections/6111343326364) or our [Formats API Endpoint](/en/api/strings/formats/list-formats).
      *
      * @return $this
      */
@@ -566,7 +566,7 @@ class ProjectCreateParameters implements ModelInterface, ArrayAccess
     /**
      * Sets workflow
      *
-     * @param string|null $workflow (Optional) Review Workflow. \"simple\" / \"review\". <a href=\"https://support.phrase.com/hc/en-us/articles/5784094755484\">Read more</a>
+     * @param string|null $workflow (Optional) Review Workflow. \"simple\" / \"review\". [Read more](https://support.phrase.com/hc/en-us/articles/5784094755484)
      *
      * @return $this
      */
@@ -686,7 +686,7 @@ class ProjectCreateParameters implements ModelInterface, ArrayAccess
     /**
      * Sets enable_icu_message_format
      *
-     * @param bool|null $enable_icu_message_format (Optional) We can validate and highlight your ICU messages. <a href=\"https://support.phrase.com/hc/en-us/articles/5822319545116\">Read more</a>
+     * @param bool|null $enable_icu_message_format (Optional) We can validate and highlight your ICU messages. [Read more](https://support.phrase.com/hc/en-us/articles/5822319545116)
      *
      * @return $this
      */
@@ -734,7 +734,7 @@ class ProjectCreateParameters implements ModelInterface, ArrayAccess
     /**
      * Sets autotranslate_enabled
      *
-     * @param bool|null $autotranslate_enabled (Optional) Autopilot, requires machine_translation_enabled. <a href=\"https://support.phrase.com/hc/en-us/articles/5822187934364\">Read more</a>
+     * @param bool|null $autotranslate_enabled (Optional) Autopilot, requires machine_translation_enabled. [Read more](https://support.phrase.com/hc/en-us/articles/5822187934364)
      *
      * @return $this
      */

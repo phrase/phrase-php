@@ -278,7 +278,7 @@ class ScreenshotMarkerCreateParameters implements ModelInterface, ArrayAccess
     /**
      * Sets presentation
      *
-     * @param string|null $presentation Presentation details of the screenshot marker in JSON format.<br/><br/>Each Screenshot Marker is represented as a rectangular shaped highlight box with the name of the specified Key attached. You can specify the marker position on the screenshot (<code>x</code>-axis and <code>y</code>-axis in pixels) from the top left corner of the screenshot and the dimensions of the marker itself (<code>w</code> and <code>h</code> in pixels).
+     * @param string|null $presentation Presentation details of the screenshot marker in JSON format.  Each Screenshot Marker is represented as a rectangular shaped highlight box with the name of the specified Key attached. You can specify the marker position on the screenshot (`x`-axis and `y`-axis in pixels) from the top left corner of the screenshot and the dimensions of the marker itself (`w` and `h` in pixels).
      *
      * @return $this
      */

@@ -377,7 +377,7 @@ class LocaleCreateParameters implements ModelInterface, ArrayAccess
     /**
      * Sets main
      *
-     * @param bool|null $main Indicates whether locale is a main locale. Main locales are part of the <a href=\"https://support.phrase.com/hc/en-us/articles/5784094755484\" target=\"_blank\">Verification System</a> feature.
+     * @param bool|null $main Indicates whether locale is a main locale. Main locales are part of the [Verification System](https://support.phrase.com/hc/en-us/articles/5784094755484) feature.
      *
      * @return $this
      */
@@ -473,7 +473,7 @@ class LocaleCreateParameters implements ModelInterface, ArrayAccess
     /**
      * Sets unverify_new_translations
      *
-     * @param bool|null $unverify_new_translations Indicates that new translations for this locale should be marked as unverified. Part of the <a href=\"https://support.phrase.com/hc/en-us/articles/5784094755484\" target=\"_blank\">Advanced Workflows</a> feature.
+     * @param bool|null $unverify_new_translations Indicates that new translations for this locale should be marked as unverified. Part of the [Advanced Workflows](https://support.phrase.com/hc/en-us/articles/5784094755484) feature.
      *
      * @return $this
      */
@@ -497,7 +497,7 @@ class LocaleCreateParameters implements ModelInterface, ArrayAccess
     /**
      * Sets unverify_updated_translations
      *
-     * @param bool|null $unverify_updated_translations Indicates that updated translations for this locale should be marked as unverified. Part of the <a href=\"https://support.phrase.com/hc/en-us/articles/5784094755484\" target=\"_blank\">Advanced Workflows</a> feature.
+     * @param bool|null $unverify_updated_translations Indicates that updated translations for this locale should be marked as unverified. Part of the [Advanced Workflows](https://support.phrase.com/hc/en-us/articles/5784094755484) feature.
      *
      * @return $this
      */

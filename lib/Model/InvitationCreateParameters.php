@@ -263,7 +263,7 @@ class InvitationCreateParameters implements ModelInterface, ArrayAccess
     /**
      * Sets email
      *
-     * @param string $email The email of the invited user. The <code>email</code> can not be updated once created. Create a new invitation for each unique email.
+     * @param string $email The email of the invited user. The `email` can not be updated once created. Create a new invitation for each unique email.
      *
      * @return $this
      */
@@ -431,7 +431,7 @@ class InvitationCreateParameters implements ModelInterface, ArrayAccess
     /**
      * Sets permissions
      *
-     * @param array&lt;string,string&gt;|null $permissions Additional permissions depending on invitation role. Available permissions are <code>create_upload</code> and <code>review_translations</code>
+     * @param array&lt;string,string&gt;|null $permissions Additional permissions depending on invitation role. Available permissions are `create_upload` and `review_translations`
      *
      * @return $this
      */
