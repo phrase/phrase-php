@@ -1049,7 +1049,7 @@ class LocalesApi
      * @param  bool $filter_by_prefix Only download translation keys containing the specified prefix, and remove the prefix from the generated file. (optional)
      * @param  object $custom_metadata_filters Custom metadata filters. Provide the name of the metadata field and the value to filter by. Only keys with matching metadata will be included in the download. (optional)
      * @param  string[] $locale_ids Locale IDs or locale names (optional)
-     * @param  string $updated_since Only include keys that have been updated since the given date. The date must be in ISO 8601 format (e.g., &#x60;2023-01-01T00:00:00Z&#x60;). (optional)
+     * @param  string $updated_since Only include translations and keys that have been updated since the given date. The date must be in ISO 8601 format (e.g., &#x60;2023-01-01T00:00:00Z&#x60;). (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1091,7 +1091,7 @@ class LocalesApi
      * @param  bool $filter_by_prefix Only download translation keys containing the specified prefix, and remove the prefix from the generated file. (optional)
      * @param  object $custom_metadata_filters Custom metadata filters. Provide the name of the metadata field and the value to filter by. Only keys with matching metadata will be included in the download. (optional)
      * @param  string[] $locale_ids Locale IDs or locale names (optional)
-     * @param  string $updated_since Only include keys that have been updated since the given date. The date must be in ISO 8601 format (e.g., &#x60;2023-01-01T00:00:00Z&#x60;). (optional)
+     * @param  string $updated_since Only include translations and keys that have been updated since the given date. The date must be in ISO 8601 format (e.g., &#x60;2023-01-01T00:00:00Z&#x60;). (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1204,7 +1204,7 @@ class LocalesApi
      * @param  bool $filter_by_prefix Only download translation keys containing the specified prefix, and remove the prefix from the generated file. (optional)
      * @param  object $custom_metadata_filters Custom metadata filters. Provide the name of the metadata field and the value to filter by. Only keys with matching metadata will be included in the download. (optional)
      * @param  string[] $locale_ids Locale IDs or locale names (optional)
-     * @param  string $updated_since Only include keys that have been updated since the given date. The date must be in ISO 8601 format (e.g., &#x60;2023-01-01T00:00:00Z&#x60;). (optional)
+     * @param  string $updated_since Only include translations and keys that have been updated since the given date. The date must be in ISO 8601 format (e.g., &#x60;2023-01-01T00:00:00Z&#x60;). (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1249,7 +1249,7 @@ class LocalesApi
      * @param  bool $filter_by_prefix Only download translation keys containing the specified prefix, and remove the prefix from the generated file. (optional)
      * @param  object $custom_metadata_filters Custom metadata filters. Provide the name of the metadata field and the value to filter by. Only keys with matching metadata will be included in the download. (optional)
      * @param  string[] $locale_ids Locale IDs or locale names (optional)
-     * @param  string $updated_since Only include keys that have been updated since the given date. The date must be in ISO 8601 format (e.g., &#x60;2023-01-01T00:00:00Z&#x60;). (optional)
+     * @param  string $updated_since Only include translations and keys that have been updated since the given date. The date must be in ISO 8601 format (e.g., &#x60;2023-01-01T00:00:00Z&#x60;). (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1321,7 +1321,7 @@ class LocalesApi
      * @param  bool $filter_by_prefix Only download translation keys containing the specified prefix, and remove the prefix from the generated file. (optional)
      * @param  object $custom_metadata_filters Custom metadata filters. Provide the name of the metadata field and the value to filter by. Only keys with matching metadata will be included in the download. (optional)
      * @param  string[] $locale_ids Locale IDs or locale names (optional)
-     * @param  string $updated_since Only include keys that have been updated since the given date. The date must be in ISO 8601 format (e.g., &#x60;2023-01-01T00:00:00Z&#x60;). (optional)
+     * @param  string $updated_since Only include translations and keys that have been updated since the given date. The date must be in ISO 8601 format (e.g., &#x60;2023-01-01T00:00:00Z&#x60;). (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request

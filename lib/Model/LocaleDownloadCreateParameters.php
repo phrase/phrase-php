@@ -668,7 +668,7 @@ class LocaleDownloadCreateParameters implements ModelInterface, ArrayAccess
     /**
      * Sets updated_since
      *
-     * @param string|null $updated_since Only include keys that have been updated since the given date. The date must be in ISO 8601 format (e.g., `2023-01-01T00:00:00Z`).
+     * @param string|null $updated_since Only include translations and keys that have been updated since the given date. The date must be in ISO 8601 format (e.g., `2023-01-01T00:00:00Z`).
      *
      * @return $this
      */
