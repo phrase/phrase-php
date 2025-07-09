@@ -180,4 +180,11 @@ class LocaleDownloadCreateParametersTest extends TestCase
     public function testPropertyCustomMetadataFilters()
     {
     }
+
+    /**
+     * Test attribute "updated_since"
+     */
+    public function testPropertyUpdatedSince()
+    {
+    }
 }

@@ -69,7 +69,8 @@ class LocaleDownloadCreateParameters implements ModelInterface, ArrayAccess
         'locale_ids' => 'string[]',
         'fallback_locale_id' => 'string',
         'source_locale_id' => 'string',
-        'custom_metadata_filters' => 'object'
+        'custom_metadata_filters' => 'object',
+        'updated_since' => 'string'
     ];
 
     /**
@@ -92,7 +93,8 @@ class LocaleDownloadCreateParameters implements ModelInterface, ArrayAccess
         'locale_ids' => null,
         'fallback_locale_id' => null,
         'source_locale_id' => null,
-        'custom_metadata_filters' => null
+        'custom_metadata_filters' => null,
+        'updated_since' => null
     ];
 
     /**
@@ -136,7 +138,8 @@ class LocaleDownloadCreateParameters implements ModelInterface, ArrayAccess
         'locale_ids' => 'locale_ids',
         'fallback_locale_id' => 'fallback_locale_id',
         'source_locale_id' => 'source_locale_id',
-        'custom_metadata_filters' => 'custom_metadata_filters'
+        'custom_metadata_filters' => 'custom_metadata_filters',
+        'updated_since' => 'updated_since'
     ];
 
     /**
@@ -159,7 +162,8 @@ class LocaleDownloadCreateParameters implements ModelInterface, ArrayAccess
         'locale_ids' => 'setLocaleIds',
         'fallback_locale_id' => 'setFallbackLocaleId',
         'source_locale_id' => 'setSourceLocaleId',
-        'custom_metadata_filters' => 'setCustomMetadataFilters'
+        'custom_metadata_filters' => 'setCustomMetadataFilters',
+        'updated_since' => 'setUpdatedSince'
     ];
 
     /**
@@ -182,7 +186,8 @@ class LocaleDownloadCreateParameters implements ModelInterface, ArrayAccess
         'locale_ids' => 'getLocaleIds',
         'fallback_locale_id' => 'getFallbackLocaleId',
         'source_locale_id' => 'getSourceLocaleId',
-        'custom_metadata_filters' => 'getCustomMetadataFilters'
+        'custom_metadata_filters' => 'getCustomMetadataFilters',
+        'updated_since' => 'getUpdatedSince'
     ];
 
     /**
@@ -260,6 +265,7 @@ class LocaleDownloadCreateParameters implements ModelInterface, ArrayAccess
         $this->container['fallback_locale_id'] = isset($data['fallback_locale_id']) ? $data['fallback_locale_id'] : null;
         $this->container['source_locale_id'] = isset($data['source_locale_id']) ? $data['source_locale_id'] : null;
         $this->container['custom_metadata_filters'] = isset($data['custom_metadata_filters']) ? $data['custom_metadata_filters'] : null;
+        $this->container['updated_since'] = isset($data['updated_since']) ? $data['updated_since'] : null;
     }
 
     /**
@@ -645,6 +651,30 @@ class LocaleDownloadCreateParameters implements ModelInterface, ArrayAccess
     public function setCustomMetadataFilters($custom_metadata_filters)
     {
         $this->container['custom_metadata_filters'] = $custom_metadata_filters;
+
+        return $this;
+    }
+
+    /**
+     * Gets updated_since
+     *
+     * @return string|null
+     */
+    public function getUpdatedSince()
+    {
+        return $this->container['updated_since'];
+    }
+
+    /**
+     * Sets updated_since
+     *
+     * @param string|null $updated_since Only include keys that have been updated since the given date. The date must be in ISO 8601 format (e.g., `2023-01-01T00:00:00Z`).
+     *
+     * @return $this
+     */
+    public function setUpdatedSince($updated_since)
+    {
+        $this->container['updated_since'] = $updated_since;
 
         return $this;
     }

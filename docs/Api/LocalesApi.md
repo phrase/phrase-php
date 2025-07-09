@@ -208,7 +208,7 @@ void (empty response body)
 
 ## localeDownload
 
-> \SplFileObject localeDownload($project_id, $id, $x_phrase_app_otp, $if_modified_since, $if_none_match, $branch, $file_format, $tags, $tag, $include_empty_translations, $exclude_empty_zero_forms, $include_translated_keys, $keep_notranslate_tags, $convert_emoji, $format_options, $encoding, $skip_unverified_translations, $include_unverified_translations, $use_last_reviewed_version, $fallback_locale_id, $source_locale_id, $translation_key_prefix, $filter_by_prefix, $custom_metadata_filters, $locale_ids)
+> \SplFileObject localeDownload($project_id, $id, $x_phrase_app_otp, $if_modified_since, $if_none_match, $branch, $file_format, $tags, $tag, $include_empty_translations, $exclude_empty_zero_forms, $include_translated_keys, $keep_notranslate_tags, $convert_emoji, $format_options, $encoding, $skip_unverified_translations, $include_unverified_translations, $use_last_reviewed_version, $fallback_locale_id, $source_locale_id, $translation_key_prefix, $filter_by_prefix, $custom_metadata_filters, $locale_ids, $updated_since)
 
 Download a locale
 
@@ -254,9 +254,10 @@ $translation_key_prefix = prefix_; // string | Download all translation keys, an
 $filter_by_prefix = True; // bool | Only download translation keys containing the specified prefix, and remove the prefix from the generated file.
 $custom_metadata_filters = array('key' => new \stdClass); // object | Custom metadata filters. Provide the name of the metadata field and the value to filter by. Only keys with matching metadata will be included in the download.
 $locale_ids = ["de","en"]; // string[] | Locale IDs or locale names
+$updated_since = 2023-01-01T00:00:00Z; // string | Only include keys that have been updated since the given date. The date must be in ISO 8601 format (e.g., `2023-01-01T00:00:00Z`).
 
 try {
-    $result = $apiInstance->localeDownload($project_id, $id, $x_phrase_app_otp, $if_modified_since, $if_none_match, $branch, $file_format, $tags, $tag, $include_empty_translations, $exclude_empty_zero_forms, $include_translated_keys, $keep_notranslate_tags, $convert_emoji, $format_options, $encoding, $skip_unverified_translations, $include_unverified_translations, $use_last_reviewed_version, $fallback_locale_id, $source_locale_id, $translation_key_prefix, $filter_by_prefix, $custom_metadata_filters, $locale_ids);
+    $result = $apiInstance->localeDownload($project_id, $id, $x_phrase_app_otp, $if_modified_since, $if_none_match, $branch, $file_format, $tags, $tag, $include_empty_translations, $exclude_empty_zero_forms, $include_translated_keys, $keep_notranslate_tags, $convert_emoji, $format_options, $encoding, $skip_unverified_translations, $include_unverified_translations, $use_last_reviewed_version, $fallback_locale_id, $source_locale_id, $translation_key_prefix, $filter_by_prefix, $custom_metadata_filters, $locale_ids, $updated_since);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling LocalesApi->localeDownload: ', $e->getMessage(), PHP_EOL;
@@ -294,6 +295,7 @@ Name | Type | Description  | Notes
  **filter_by_prefix** | **bool**| Only download translation keys containing the specified prefix, and remove the prefix from the generated file. | [optional]
  **custom_metadata_filters** | [**object**](../Model/.md)| Custom metadata filters. Provide the name of the metadata field and the value to filter by. Only keys with matching metadata will be included in the download. | [optional]
  **locale_ids** | [**string[]**](../Model/string.md)| Locale IDs or locale names | [optional]
+ **updated_since** | **string**| Only include keys that have been updated since the given date. The date must be in ISO 8601 format (e.g., &#x60;2023-01-01T00:00:00Z&#x60;). | [optional]
 
 ### Return type
 
