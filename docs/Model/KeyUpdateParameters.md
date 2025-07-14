@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **name** | **string** | Key name | [optional] 
 **description** | **string** | Key description (usually includes contextual information for translators) | [optional] 
 **plural** | **bool** | Indicates whether key supports pluralization | [optional] 
+**use_ordinal_rules** | **bool** | Indicates whether key uses ordinal rules for pluralization | [optional] 
 **name_plural** | **string** | Plural name for the key (used in some file formats, e.g. Gettext) | [optional] 
 **data_type** | **string** | Type of the key. Can be one of the following: string, number, boolean, array, markdown. | [optional] 
 **tags** | **string** | List of tags separated by comma to be associated with the key. | [optional] 

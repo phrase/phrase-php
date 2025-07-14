@@ -59,6 +59,7 @@ class KeyCreateParameters implements ModelInterface, ArrayAccess
         'name' => 'string',
         'description' => 'string',
         'plural' => 'bool',
+        'use_ordinal_rules' => 'bool',
         'name_plural' => 'string',
         'data_type' => 'string',
         'tags' => 'string',
@@ -85,6 +86,7 @@ class KeyCreateParameters implements ModelInterface, ArrayAccess
         'name' => null,
         'description' => null,
         'plural' => null,
+        'use_ordinal_rules' => null,
         'name_plural' => null,
         'data_type' => null,
         'tags' => null,
@@ -132,6 +134,7 @@ class KeyCreateParameters implements ModelInterface, ArrayAccess
         'name' => 'name',
         'description' => 'description',
         'plural' => 'plural',
+        'use_ordinal_rules' => 'use_ordinal_rules',
         'name_plural' => 'name_plural',
         'data_type' => 'data_type',
         'tags' => 'tags',
@@ -158,6 +161,7 @@ class KeyCreateParameters implements ModelInterface, ArrayAccess
         'name' => 'setName',
         'description' => 'setDescription',
         'plural' => 'setPlural',
+        'use_ordinal_rules' => 'setUseOrdinalRules',
         'name_plural' => 'setNamePlural',
         'data_type' => 'setDataType',
         'tags' => 'setTags',
@@ -184,6 +188,7 @@ class KeyCreateParameters implements ModelInterface, ArrayAccess
         'name' => 'getName',
         'description' => 'getDescription',
         'plural' => 'getPlural',
+        'use_ordinal_rules' => 'getUseOrdinalRules',
         'name_plural' => 'getNamePlural',
         'data_type' => 'getDataType',
         'tags' => 'getTags',
@@ -264,6 +269,7 @@ class KeyCreateParameters implements ModelInterface, ArrayAccess
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['plural'] = isset($data['plural']) ? $data['plural'] : null;
+        $this->container['use_ordinal_rules'] = isset($data['use_ordinal_rules']) ? $data['use_ordinal_rules'] : null;
         $this->container['name_plural'] = isset($data['name_plural']) ? $data['name_plural'] : null;
         $this->container['data_type'] = isset($data['data_type']) ? $data['data_type'] : null;
         $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
@@ -399,6 +405,30 @@ class KeyCreateParameters implements ModelInterface, ArrayAccess
     public function setPlural($plural)
     {
         $this->container['plural'] = $plural;
+
+        return $this;
+    }
+
+    /**
+     * Gets use_ordinal_rules
+     *
+     * @return bool|null
+     */
+    public function getUseOrdinalRules()
+    {
+        return $this->container['use_ordinal_rules'];
+    }
+
+    /**
+     * Sets use_ordinal_rules
+     *
+     * @param bool|null $use_ordinal_rules Indicates whether key uses ordinal rules for pluralization
+     *
+     * @return $this
+     */
+    public function setUseOrdinalRules($use_ordinal_rules)
+    {
+        $this->container['use_ordinal_rules'] = $use_ordinal_rules;
 
         return $this;
     }

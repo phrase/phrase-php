@@ -105,6 +105,13 @@ class KeyCreateParametersTest extends TestCase
     }
 
     /**
+     * Test attribute "use_ordinal_rules"
+     */
+    public function testPropertyUseOrdinalRules()
+    {
+    }
+
+    /**
      * Test attribute "name_plural"
      */
     public function testPropertyNamePlural()

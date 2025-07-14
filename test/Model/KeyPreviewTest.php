@@ -96,4 +96,11 @@ class KeyPreviewTest extends TestCase
     public function testPropertyPlural()
     {
     }
+
+    /**
+     * Test attribute "use_ordinal_rules"
+     */
+    public function testPropertyUseOrdinalRules()
+    {
+    }
 }

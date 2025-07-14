@@ -57,7 +57,8 @@ class KeyPreview implements ModelInterface, ArrayAccess
     protected static $openAPITypes = [
         'id' => 'string',
         'name' => 'string',
-        'plural' => 'bool'
+        'plural' => 'bool',
+        'use_ordinal_rules' => 'bool'
     ];
 
     /**
@@ -68,7 +69,8 @@ class KeyPreview implements ModelInterface, ArrayAccess
     protected static $openAPIFormats = [
         'id' => null,
         'name' => null,
-        'plural' => null
+        'plural' => null,
+        'use_ordinal_rules' => null
     ];
 
     /**
@@ -100,7 +102,8 @@ class KeyPreview implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'id' => 'id',
         'name' => 'name',
-        'plural' => 'plural'
+        'plural' => 'plural',
+        'use_ordinal_rules' => 'use_ordinal_rules'
     ];
 
     /**
@@ -111,7 +114,8 @@ class KeyPreview implements ModelInterface, ArrayAccess
     protected static $setters = [
         'id' => 'setId',
         'name' => 'setName',
-        'plural' => 'setPlural'
+        'plural' => 'setPlural',
+        'use_ordinal_rules' => 'setUseOrdinalRules'
     ];
 
     /**
@@ -122,7 +126,8 @@ class KeyPreview implements ModelInterface, ArrayAccess
     protected static $getters = [
         'id' => 'getId',
         'name' => 'getName',
-        'plural' => 'getPlural'
+        'plural' => 'getPlural',
+        'use_ordinal_rules' => 'getUseOrdinalRules'
     ];
 
     /**
@@ -188,6 +193,7 @@ class KeyPreview implements ModelInterface, ArrayAccess
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['plural'] = isset($data['plural']) ? $data['plural'] : null;
+        $this->container['use_ordinal_rules'] = isset($data['use_ordinal_rules']) ? $data['use_ordinal_rules'] : null;
     }
 
     /**
@@ -282,6 +288,30 @@ class KeyPreview implements ModelInterface, ArrayAccess
     public function setPlural($plural)
     {
         $this->container['plural'] = $plural;
+
+        return $this;
+    }
+
+    /**
+     * Gets use_ordinal_rules
+     *
+     * @return bool|null
+     */
+    public function getUseOrdinalRules()
+    {
+        return $this->container['use_ordinal_rules'];
+    }
+
+    /**
+     * Sets use_ordinal_rules
+     *
+     * @param bool|null $use_ordinal_rules use_ordinal_rules
+     *
+     * @return $this
+     */
+    public function setUseOrdinalRules($use_ordinal_rules)
+    {
+        $this->container['use_ordinal_rules'] = $use_ordinal_rules;
 
         return $this;
     }
