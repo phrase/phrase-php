@@ -62,6 +62,7 @@ class LocaleDetails implements ModelInterface, ArrayAccess
         'main' => 'bool',
         'rtl' => 'bool',
         'plural_forms' => 'string[]',
+        'ordinal_plural_forms' => 'string[]',
         'source_locale' => '\Phrase\Model\LocalePreview',
         'fallback_locale' => '\Phrase\Model\LocalePreview',
         'created_at' => '\DateTime',
@@ -82,6 +83,7 @@ class LocaleDetails implements ModelInterface, ArrayAccess
         'main' => null,
         'rtl' => null,
         'plural_forms' => null,
+        'ordinal_plural_forms' => null,
         'source_locale' => null,
         'fallback_locale' => null,
         'created_at' => 'date-time',
@@ -123,6 +125,7 @@ class LocaleDetails implements ModelInterface, ArrayAccess
         'main' => 'main',
         'rtl' => 'rtl',
         'plural_forms' => 'plural_forms',
+        'ordinal_plural_forms' => 'ordinal_plural_forms',
         'source_locale' => 'source_locale',
         'fallback_locale' => 'fallback_locale',
         'created_at' => 'created_at',
@@ -143,6 +146,7 @@ class LocaleDetails implements ModelInterface, ArrayAccess
         'main' => 'setMain',
         'rtl' => 'setRtl',
         'plural_forms' => 'setPluralForms',
+        'ordinal_plural_forms' => 'setOrdinalPluralForms',
         'source_locale' => 'setSourceLocale',
         'fallback_locale' => 'setFallbackLocale',
         'created_at' => 'setCreatedAt',
@@ -163,6 +167,7 @@ class LocaleDetails implements ModelInterface, ArrayAccess
         'main' => 'getMain',
         'rtl' => 'getRtl',
         'plural_forms' => 'getPluralForms',
+        'ordinal_plural_forms' => 'getOrdinalPluralForms',
         'source_locale' => 'getSourceLocale',
         'fallback_locale' => 'getFallbackLocale',
         'created_at' => 'getCreatedAt',
@@ -237,6 +242,7 @@ class LocaleDetails implements ModelInterface, ArrayAccess
         $this->container['main'] = isset($data['main']) ? $data['main'] : null;
         $this->container['rtl'] = isset($data['rtl']) ? $data['rtl'] : null;
         $this->container['plural_forms'] = isset($data['plural_forms']) ? $data['plural_forms'] : null;
+        $this->container['ordinal_plural_forms'] = isset($data['ordinal_plural_forms']) ? $data['ordinal_plural_forms'] : null;
         $this->container['source_locale'] = isset($data['source_locale']) ? $data['source_locale'] : null;
         $this->container['fallback_locale'] = isset($data['fallback_locale']) ? $data['fallback_locale'] : null;
         $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
@@ -432,6 +438,30 @@ class LocaleDetails implements ModelInterface, ArrayAccess
     public function setPluralForms($plural_forms)
     {
         $this->container['plural_forms'] = $plural_forms;
+
+        return $this;
+    }
+
+    /**
+     * Gets ordinal_plural_forms
+     *
+     * @return string[]|null
+     */
+    public function getOrdinalPluralForms()
+    {
+        return $this->container['ordinal_plural_forms'];
+    }
+
+    /**
+     * Sets ordinal_plural_forms
+     *
+     * @param string[]|null $ordinal_plural_forms ordinal_plural_forms
+     *
+     * @return $this
+     */
+    public function setOrdinalPluralForms($ordinal_plural_forms)
+    {
+        $this->container['ordinal_plural_forms'] = $ordinal_plural_forms;
 
         return $this;
     }

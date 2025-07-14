@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **description** | **string** |  | [optional] 
 **name_hash** | **string** |  | [optional] 
 **plural** | **bool** |  | [optional] 
+**use_ordinal_rules** | **bool** |  | [optional] 
 **tags** | **string[]** |  | [optional] 
 **data_type** | **string** |  | [optional] 
 **created_at** | **\DateTime** |  | [optional] 

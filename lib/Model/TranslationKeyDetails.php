@@ -60,6 +60,7 @@ class TranslationKeyDetails implements ModelInterface, ArrayAccess
         'description' => 'string',
         'name_hash' => 'string',
         'plural' => 'bool',
+        'use_ordinal_rules' => 'bool',
         'tags' => 'string[]',
         'data_type' => 'string',
         'created_at' => '\DateTime',
@@ -87,6 +88,7 @@ class TranslationKeyDetails implements ModelInterface, ArrayAccess
         'description' => null,
         'name_hash' => null,
         'plural' => null,
+        'use_ordinal_rules' => null,
         'tags' => null,
         'data_type' => null,
         'created_at' => 'date-time',
@@ -135,6 +137,7 @@ class TranslationKeyDetails implements ModelInterface, ArrayAccess
         'description' => 'description',
         'name_hash' => 'name_hash',
         'plural' => 'plural',
+        'use_ordinal_rules' => 'use_ordinal_rules',
         'tags' => 'tags',
         'data_type' => 'data_type',
         'created_at' => 'created_at',
@@ -162,6 +165,7 @@ class TranslationKeyDetails implements ModelInterface, ArrayAccess
         'description' => 'setDescription',
         'name_hash' => 'setNameHash',
         'plural' => 'setPlural',
+        'use_ordinal_rules' => 'setUseOrdinalRules',
         'tags' => 'setTags',
         'data_type' => 'setDataType',
         'created_at' => 'setCreatedAt',
@@ -189,6 +193,7 @@ class TranslationKeyDetails implements ModelInterface, ArrayAccess
         'description' => 'getDescription',
         'name_hash' => 'getNameHash',
         'plural' => 'getPlural',
+        'use_ordinal_rules' => 'getUseOrdinalRules',
         'tags' => 'getTags',
         'data_type' => 'getDataType',
         'created_at' => 'getCreatedAt',
@@ -270,6 +275,7 @@ class TranslationKeyDetails implements ModelInterface, ArrayAccess
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['name_hash'] = isset($data['name_hash']) ? $data['name_hash'] : null;
         $this->container['plural'] = isset($data['plural']) ? $data['plural'] : null;
+        $this->container['use_ordinal_rules'] = isset($data['use_ordinal_rules']) ? $data['use_ordinal_rules'] : null;
         $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
         $this->container['data_type'] = isset($data['data_type']) ? $data['data_type'] : null;
         $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
@@ -426,6 +432,30 @@ class TranslationKeyDetails implements ModelInterface, ArrayAccess
     public function setPlural($plural)
     {
         $this->container['plural'] = $plural;
+
+        return $this;
+    }
+
+    /**
+     * Gets use_ordinal_rules
+     *
+     * @return bool|null
+     */
+    public function getUseOrdinalRules()
+    {
+        return $this->container['use_ordinal_rules'];
+    }
+
+    /**
+     * Sets use_ordinal_rules
+     *
+     * @param bool|null $use_ordinal_rules use_ordinal_rules
+     *
+     * @return $this
+     */
+    public function setUseOrdinalRules($use_ordinal_rules)
+    {
+        $this->container['use_ordinal_rules'] = $use_ordinal_rules;
 
         return $this;
     }

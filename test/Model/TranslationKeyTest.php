@@ -112,6 +112,13 @@ class TranslationKeyTest extends TestCase
     }
 
     /**
+     * Test attribute "use_ordinal_rules"
+     */
+    public function testPropertyUseOrdinalRules()
+    {
+    }
+
+    /**
      * Test attribute "tags"
      */
     public function testPropertyTags()

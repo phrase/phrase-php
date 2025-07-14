@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **main** | **bool** |  | [optional] 
 **rtl** | **bool** |  | [optional] 
 **plural_forms** | **string[]** |  | [optional] 
+**ordinal_plural_forms** | **string[]** |  | [optional] 
 **source_locale** | [**\Phrase\Model\LocalePreview**](LocalePreview.md) |  | [optional] 
 **fallback_locale** | [**\Phrase\Model\LocalePreview**](LocalePreview.md) |  | [optional] 
 **created_at** | **\DateTime** |  | [optional] 

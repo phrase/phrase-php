@@ -126,6 +126,13 @@ class LocaleTest extends TestCase
     }
 
     /**
+     * Test attribute "ordinal_plural_forms"
+     */
+    public function testPropertyOrdinalPluralForms()
+    {
+    }
+
+    /**
      * Test attribute "source_locale"
      */
     public function testPropertySourceLocale()
