@@ -187,4 +187,11 @@ class JobDetailsTest extends TestCase
     public function testPropertyKeys()
     {
     }
+
+    /**
+     * Test attribute "annotations"
+     */
+    public function testPropertyAnnotations()
+    {
+    }
 }

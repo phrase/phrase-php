@@ -20,6 +20,7 @@ Name | Type | Description | Notes
 **source_locale** | [**\Phrase\Model\LocalePreview**](LocalePreview.md) |  | [optional] 
 **locales** | [**\Phrase\Model\LocalePreview[]**](LocalePreview.md) |  | [optional] 
 **keys** | [**\Phrase\Model\KeyPreview[]**](KeyPreview.md) |  | [optional] 
+**annotations** | [**\Phrase\Model\JobAnnotationShort[]**](JobAnnotationShort.md) |  | [optional] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

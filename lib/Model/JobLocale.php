@@ -62,7 +62,8 @@ class JobLocale implements ModelInterface, ArrayAccess
         'teams' => '\Phrase\Model\LocaleTeamPreview[]',
         'completed' => 'bool',
         'translation_completed_at' => '\DateTime',
-        'review_completed_at' => '\DateTime'
+        'review_completed_at' => '\DateTime',
+        'annotations' => '\Phrase\Model\JobAnnotationShort[]'
     ];
 
     /**
@@ -78,7 +79,8 @@ class JobLocale implements ModelInterface, ArrayAccess
         'teams' => null,
         'completed' => null,
         'translation_completed_at' => 'date-time',
-        'review_completed_at' => 'date-time'
+        'review_completed_at' => 'date-time',
+        'annotations' => null
     ];
 
     /**
@@ -115,7 +117,8 @@ class JobLocale implements ModelInterface, ArrayAccess
         'teams' => 'teams',
         'completed' => 'completed',
         'translation_completed_at' => 'translation_completed_at',
-        'review_completed_at' => 'review_completed_at'
+        'review_completed_at' => 'review_completed_at',
+        'annotations' => 'annotations'
     ];
 
     /**
@@ -131,7 +134,8 @@ class JobLocale implements ModelInterface, ArrayAccess
         'teams' => 'setTeams',
         'completed' => 'setCompleted',
         'translation_completed_at' => 'setTranslationCompletedAt',
-        'review_completed_at' => 'setReviewCompletedAt'
+        'review_completed_at' => 'setReviewCompletedAt',
+        'annotations' => 'setAnnotations'
     ];
 
     /**
@@ -147,7 +151,8 @@ class JobLocale implements ModelInterface, ArrayAccess
         'teams' => 'getTeams',
         'completed' => 'getCompleted',
         'translation_completed_at' => 'getTranslationCompletedAt',
-        'review_completed_at' => 'getReviewCompletedAt'
+        'review_completed_at' => 'getReviewCompletedAt',
+        'annotations' => 'getAnnotations'
     ];
 
     /**
@@ -218,6 +223,7 @@ class JobLocale implements ModelInterface, ArrayAccess
         $this->container['completed'] = isset($data['completed']) ? $data['completed'] : null;
         $this->container['translation_completed_at'] = isset($data['translation_completed_at']) ? $data['translation_completed_at'] : null;
         $this->container['review_completed_at'] = isset($data['review_completed_at']) ? $data['review_completed_at'] : null;
+        $this->container['annotations'] = isset($data['annotations']) ? $data['annotations'] : null;
     }
 
     /**
@@ -432,6 +438,30 @@ class JobLocale implements ModelInterface, ArrayAccess
     public function setReviewCompletedAt($review_completed_at)
     {
         $this->container['review_completed_at'] = $review_completed_at;
+
+        return $this;
+    }
+
+    /**
+     * Gets annotations
+     *
+     * @return \Phrase\Model\JobAnnotationShort[]|null
+     */
+    public function getAnnotations()
+    {
+        return $this->container['annotations'];
+    }
+
+    /**
+     * Sets annotations
+     *
+     * @param \Phrase\Model\JobAnnotationShort[]|null $annotations annotations
+     *
+     * @return $this
+     */
+    public function setAnnotations($annotations)
+    {
+        $this->container['annotations'] = $annotations;
 
         return $this;
     }

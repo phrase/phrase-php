@@ -284,7 +284,7 @@ Name | Type | Description  | Notes
 
 ## jobLocaleShow
 
-> \Phrase\Model\JobLocale jobLocaleShow($project_id, $job_id, $id, $x_phrase_app_otp, $branch)
+> \Phrase\Model\JobLocale jobLocaleShow($project_id, $job_id, $id, $x_phrase_app_otp, $branch, $include_annotations)
 
 Show single job target locale
 
@@ -310,9 +310,10 @@ $job_id = 'job_id_example'; // string | Job ID
 $id = 'id_example'; // string | ID
 $x_phrase_app_otp = 'x_phrase_app_otp_example'; // string | Two-Factor-Authentication token (optional)
 $branch = my-feature-branch; // string | Branch to use
+$include_annotations = false; // bool | Include job-locale annotations in the response
 
 try {
-    $result = $apiInstance->jobLocaleShow($project_id, $job_id, $id, $x_phrase_app_otp, $branch);
+    $result = $apiInstance->jobLocaleShow($project_id, $job_id, $id, $x_phrase_app_otp, $branch, $include_annotations);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling JobLocalesApi->jobLocaleShow: ', $e->getMessage(), PHP_EOL;
@@ -330,6 +331,7 @@ Name | Type | Description  | Notes
  **id** | **string**| ID |
  **x_phrase_app_otp** | **string**| Two-Factor-Authentication token (optional) | [optional]
  **branch** | **string**| Branch to use | [optional]
+ **include_annotations** | **bool**| Include job-locale annotations in the response | [optional] [default to false]
 
 ### Return type
 
@@ -483,7 +485,7 @@ Name | Type | Description  | Notes
 
 ## jobLocalesList
 
-> \Phrase\Model\JobLocale[] jobLocalesList($project_id, $job_id, $x_phrase_app_otp, $page, $per_page, $branch)
+> \Phrase\Model\JobLocale[] jobLocalesList($project_id, $job_id, $x_phrase_app_otp, $page, $per_page, $branch, $include_annotations)
 
 List job target locales
 
@@ -510,9 +512,10 @@ $x_phrase_app_otp = 'x_phrase_app_otp_example'; // string | Two-Factor-Authentic
 $page = 1; // int | Page number
 $per_page = 25; // int | Limit on the number of objects to be returned, between 1 and 100. 25 by default
 $branch = my-feature-branch; // string | Branch to use
+$include_annotations = false; // bool | Include job-locale annotations in the response
 
 try {
-    $result = $apiInstance->jobLocalesList($project_id, $job_id, $x_phrase_app_otp, $page, $per_page, $branch);
+    $result = $apiInstance->jobLocalesList($project_id, $job_id, $x_phrase_app_otp, $page, $per_page, $branch, $include_annotations);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling JobLocalesApi->jobLocalesList: ', $e->getMessage(), PHP_EOL;
@@ -531,6 +534,7 @@ Name | Type | Description  | Notes
  **page** | **int**| Page number | [optional]
  **per_page** | **int**| Limit on the number of objects to be returned, between 1 and 100. 25 by default | [optional]
  **branch** | **string**| Branch to use | [optional]
+ **include_annotations** | **bool**| Include job-locale annotations in the response | [optional] [default to false]
 
 ### Return type
 

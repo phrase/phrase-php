@@ -21,6 +21,7 @@ docs/Api/GlossaryTermTranslationsApi.md
 docs/Api/GlossaryTermsApi.md
 docs/Api/ICUApi.md
 docs/Api/InvitationsApi.md
+docs/Api/JobAnnotationsApi.md
 docs/Api/JobCommentsApi.md
 docs/Api/JobLocalesApi.md
 docs/Api/JobTemplateLocalesApi.md
@@ -115,6 +116,9 @@ docs/Model/InvitationCreateParameters.md
 docs/Model/InvitationUpdateParameters.md
 docs/Model/InvitationUpdateSettingsParameters.md
 docs/Model/Job.md
+docs/Model/JobAnnotation.md
+docs/Model/JobAnnotationShort.md
+docs/Model/JobAnnotationUpdateParameters.md
 docs/Model/JobComment.md
 docs/Model/JobCommentCreateParameters.md
 docs/Model/JobCommentUpdateParameters.md
@@ -288,6 +292,7 @@ lib/Api/GlossaryTermTranslationsApi.php
 lib/Api/GlossaryTermsApi.php
 lib/Api/ICUApi.php
 lib/Api/InvitationsApi.php
+lib/Api/JobAnnotationsApi.php
 lib/Api/JobCommentsApi.php
 lib/Api/JobLocalesApi.php
 lib/Api/JobTemplateLocalesApi.php
@@ -385,6 +390,9 @@ lib/Model/InvitationCreateParameters.php
 lib/Model/InvitationUpdateParameters.php
 lib/Model/InvitationUpdateSettingsParameters.php
 lib/Model/Job.php
+lib/Model/JobAnnotation.php
+lib/Model/JobAnnotationShort.php
+lib/Model/JobAnnotationUpdateParameters.php
 lib/Model/JobComment.php
 lib/Model/JobCommentCreateParameters.php
 lib/Model/JobCommentUpdateParameters.php
@@ -560,6 +568,7 @@ test/Api/GlossaryTermTranslationsApiTest.php
 test/Api/GlossaryTermsApiTest.php
 test/Api/ICUApiTest.php
 test/Api/InvitationsApiTest.php
+test/Api/JobAnnotationsApiTest.php
 test/Api/JobCommentsApiTest.php
 test/Api/JobLocalesApiTest.php
 test/Api/JobTemplateLocalesApiTest.php
@@ -650,6 +659,9 @@ test/Model/InvitationCreateParametersTest.php
 test/Model/InvitationTest.php
 test/Model/InvitationUpdateParametersTest.php
 test/Model/InvitationUpdateSettingsParametersTest.php
+test/Model/JobAnnotationShortTest.php
+test/Model/JobAnnotationTest.php
+test/Model/JobAnnotationUpdateParametersTest.php
 test/Model/JobCommentCreateParametersTest.php
 test/Model/JobCommentTest.php
 test/Model/JobCommentUpdateParametersTest.php

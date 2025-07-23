@@ -1,6 +1,6 @@
 <?php
 /**
- * JobLocaleTest
+ * JobAnnotationShortTest
  *
  * PHP version 5
  *
@@ -30,15 +30,15 @@ namespace Phrase;
 use PHPUnit\Framework\TestCase;
 
 /**
- * JobLocaleTest Class Doc Comment
+ * JobAnnotationShortTest Class Doc Comment
  *
  * @category    Class
- * @description JobLocale
+ * @description JobAnnotationShort
  * @package     Phrase
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class JobLocaleTest extends TestCase
+class JobAnnotationShortTest extends TestCase
 {
 
     /**
@@ -70,72 +70,23 @@ class JobLocaleTest extends TestCase
     }
 
     /**
-     * Test "JobLocale"
+     * Test "JobAnnotationShort"
      */
-    public function testJobLocale()
+    public function testJobAnnotationShort()
     {
     }
 
     /**
-     * Test attribute "id"
+     * Test attribute "name"
      */
-    public function testPropertyId()
+    public function testPropertyName()
     {
     }
 
     /**
-     * Test attribute "job"
+     * Test attribute "value"
      */
-    public function testPropertyJob()
-    {
-    }
-
-    /**
-     * Test attribute "locale"
-     */
-    public function testPropertyLocale()
-    {
-    }
-
-    /**
-     * Test attribute "users"
-     */
-    public function testPropertyUsers()
-    {
-    }
-
-    /**
-     * Test attribute "teams"
-     */
-    public function testPropertyTeams()
-    {
-    }
-
-    /**
-     * Test attribute "completed"
-     */
-    public function testPropertyCompleted()
-    {
-    }
-
-    /**
-     * Test attribute "translation_completed_at"
-     */
-    public function testPropertyTranslationCompletedAt()
-    {
-    }
-
-    /**
-     * Test attribute "review_completed_at"
-     */
-    public function testPropertyReviewCompletedAt()
-    {
-    }
-
-    /**
-     * Test attribute "annotations"
-     */
-    public function testPropertyAnnotations()
+    public function testPropertyValue()
     {
     }
 }

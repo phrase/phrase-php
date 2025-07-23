@@ -70,7 +70,8 @@ class JobDetails implements ModelInterface, ArrayAccess
         'source_translations_updated_at' => '\DateTime',
         'source_locale' => '\Phrase\Model\LocalePreview',
         'locales' => '\Phrase\Model\LocalePreview[]',
-        'keys' => '\Phrase\Model\KeyPreview[]'
+        'keys' => '\Phrase\Model\KeyPreview[]',
+        'annotations' => '\Phrase\Model\JobAnnotationShort[]'
     ];
 
     /**
@@ -94,7 +95,8 @@ class JobDetails implements ModelInterface, ArrayAccess
         'source_translations_updated_at' => 'date-time',
         'source_locale' => null,
         'locales' => null,
-        'keys' => null
+        'keys' => null,
+        'annotations' => null
     ];
 
     /**
@@ -139,7 +141,8 @@ class JobDetails implements ModelInterface, ArrayAccess
         'source_translations_updated_at' => 'source_translations_updated_at',
         'source_locale' => 'source_locale',
         'locales' => 'locales',
-        'keys' => 'keys'
+        'keys' => 'keys',
+        'annotations' => 'annotations'
     ];
 
     /**
@@ -163,7 +166,8 @@ class JobDetails implements ModelInterface, ArrayAccess
         'source_translations_updated_at' => 'setSourceTranslationsUpdatedAt',
         'source_locale' => 'setSourceLocale',
         'locales' => 'setLocales',
-        'keys' => 'setKeys'
+        'keys' => 'setKeys',
+        'annotations' => 'setAnnotations'
     ];
 
     /**
@@ -187,7 +191,8 @@ class JobDetails implements ModelInterface, ArrayAccess
         'source_translations_updated_at' => 'getSourceTranslationsUpdatedAt',
         'source_locale' => 'getSourceLocale',
         'locales' => 'getLocales',
-        'keys' => 'getKeys'
+        'keys' => 'getKeys',
+        'annotations' => 'getAnnotations'
     ];
 
     /**
@@ -266,6 +271,7 @@ class JobDetails implements ModelInterface, ArrayAccess
         $this->container['source_locale'] = isset($data['source_locale']) ? $data['source_locale'] : null;
         $this->container['locales'] = isset($data['locales']) ? $data['locales'] : null;
         $this->container['keys'] = isset($data['keys']) ? $data['keys'] : null;
+        $this->container['annotations'] = isset($data['annotations']) ? $data['annotations'] : null;
     }
 
     /**
@@ -672,6 +678,30 @@ class JobDetails implements ModelInterface, ArrayAccess
     public function setKeys($keys)
     {
         $this->container['keys'] = $keys;
+
+        return $this;
+    }
+
+    /**
+     * Gets annotations
+     *
+     * @return \Phrase\Model\JobAnnotationShort[]|null
+     */
+    public function getAnnotations()
+    {
+        return $this->container['annotations'];
+    }
+
+    /**
+     * Sets annotations
+     *
+     * @param \Phrase\Model\JobAnnotationShort[]|null $annotations annotations
+     *
+     * @return $this
+     */
+    public function setAnnotations($annotations)
+    {
+        $this->container['annotations'] = $annotations;
 
         return $this;
     }

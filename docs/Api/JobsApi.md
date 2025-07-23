@@ -472,7 +472,7 @@ Name | Type | Description  | Notes
 
 ## jobShow
 
-> \Phrase\Model\JobDetails jobShow($project_id, $id, $x_phrase_app_otp, $branch)
+> \Phrase\Model\JobDetails jobShow($project_id, $id, $x_phrase_app_otp, $branch, $include_annotations)
 
 Get a single job
 
@@ -496,10 +496,11 @@ $apiInstance = new Phrase\Api\JobsApi(
 $project_id = 'project_id_example'; // string | Project ID
 $id = 'id_example'; // string | ID
 $x_phrase_app_otp = 'x_phrase_app_otp_example'; // string | Two-Factor-Authentication token (optional)
-$branch = my-feature-branch; // string | specify the branch to use
+$branch = my-feature-branch; // string | Branch to use
+$include_annotations = false; // bool | Include job-locale annotations in the response
 
 try {
-    $result = $apiInstance->jobShow($project_id, $id, $x_phrase_app_otp, $branch);
+    $result = $apiInstance->jobShow($project_id, $id, $x_phrase_app_otp, $branch, $include_annotations);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling JobsApi->jobShow: ', $e->getMessage(), PHP_EOL;
@@ -515,7 +516,8 @@ Name | Type | Description  | Notes
  **project_id** | **string**| Project ID |
  **id** | **string**| ID |
  **x_phrase_app_otp** | **string**| Two-Factor-Authentication token (optional) | [optional]
- **branch** | **string**| specify the branch to use | [optional]
+ **branch** | **string**| Branch to use | [optional]
+ **include_annotations** | **bool**| Include job-locale annotations in the response | [optional] [default to false]
 
 ### Return type
 

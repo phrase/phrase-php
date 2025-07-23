@@ -1,6 +1,6 @@
 <?php
 /**
- * JobLocalesApi
+ * JobAnnotationsApi
  * PHP version 5
  *
  * @category Class
@@ -38,14 +38,14 @@ use Phrase\HeaderSelector;
 use Phrase\ObjectSerializer;
 
 /**
- * JobLocalesApi Class Doc Comment
+ * JobAnnotationsApi Class Doc Comment
  *
  * @category Class
  * @package  Phrase
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class JobLocalesApi
+class JobAnnotationsApi
 {
     /**
      * @var ClientInterface
@@ -114,699 +114,13 @@ class JobLocalesApi
     }
 
     /**
-     * Operation jobLocaleComplete
+     * Operation jobAnnotationDelete
      *
-     * Complete a job locale
-     *
-     * @param  string $project_id Project ID (required)
-     * @param  string $job_id Job ID (required)
-     * @param  string $id ID (required)
-     * @param  \Phrase\Model\JobLocaleCompleteParameters $job_locale_complete_parameters job_locale_complete_parameters (required)
-     * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
-     *
-     * @throws \Phrase\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \Phrase\Model\JobLocale
-     */
-    public function jobLocaleComplete($project_id, $job_id, $id, $job_locale_complete_parameters, $x_phrase_app_otp = null)
-    {
-        list($response) = $this->jobLocaleCompleteWithHttpInfo($project_id, $job_id, $id, $job_locale_complete_parameters, $x_phrase_app_otp);
-        return $response;
-    }
-
-    /**
-     * Operation jobLocaleCompleteWithHttpInfo
-     *
-     * Complete a job locale
+     * Delete a job annotation
      *
      * @param  string $project_id Project ID (required)
      * @param  string $job_id Job ID (required)
-     * @param  string $id ID (required)
-     * @param  \Phrase\Model\JobLocaleCompleteParameters $job_locale_complete_parameters (required)
-     * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
-     *
-     * @throws \Phrase\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of \Phrase\Model\JobLocale, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function jobLocaleCompleteWithHttpInfo($project_id, $job_id, $id, $job_locale_complete_parameters, $x_phrase_app_otp = null)
-    {
-        $request = $this->jobLocaleCompleteRequest($project_id, $job_id, $id, $job_locale_complete_parameters, $x_phrase_app_otp);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
-                );
-            }
-
-            $responseBody = $response->getBody();
-            switch($statusCode) {
-                case 200:
-                    if ('\Phrase\Model\JobLocale' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = (string) $responseBody;
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\Phrase\Model\JobLocale', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-            }
-
-            $returnType = '\Phrase\Model\JobLocale';
-            $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = (string) $responseBody;
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Phrase\Model\JobLocale',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation jobLocaleCompleteAsync
-     *
-     * Complete a job locale
-     *
-     * @param  string $project_id Project ID (required)
-     * @param  string $job_id Job ID (required)
-     * @param  string $id ID (required)
-     * @param  \Phrase\Model\JobLocaleCompleteParameters $job_locale_complete_parameters (required)
-     * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function jobLocaleCompleteAsync($project_id, $job_id, $id, $job_locale_complete_parameters, $x_phrase_app_otp = null)
-    {
-        return $this->jobLocaleCompleteAsyncWithHttpInfo($project_id, $job_id, $id, $job_locale_complete_parameters, $x_phrase_app_otp)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation jobLocaleCompleteAsyncWithHttpInfo
-     *
-     * Complete a job locale
-     *
-     * @param  string $project_id Project ID (required)
-     * @param  string $job_id Job ID (required)
-     * @param  string $id ID (required)
-     * @param  \Phrase\Model\JobLocaleCompleteParameters $job_locale_complete_parameters (required)
-     * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function jobLocaleCompleteAsyncWithHttpInfo($project_id, $job_id, $id, $job_locale_complete_parameters, $x_phrase_app_otp = null)
-    {
-        $returnType = '\Phrase\Model\JobLocale';
-        $request = $this->jobLocaleCompleteRequest($project_id, $job_id, $id, $job_locale_complete_parameters, $x_phrase_app_otp);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = (string) $responseBody;
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'jobLocaleComplete'
-     *
-     * @param  string $project_id Project ID (required)
-     * @param  string $job_id Job ID (required)
-     * @param  string $id ID (required)
-     * @param  \Phrase\Model\JobLocaleCompleteParameters $job_locale_complete_parameters (required)
-     * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    protected function jobLocaleCompleteRequest($project_id, $job_id, $id, $job_locale_complete_parameters, $x_phrase_app_otp = null)
-    {
-        // verify the required parameter 'project_id' is set
-        if ($project_id === null || (is_array($project_id) && count($project_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $project_id when calling jobLocaleComplete'
-            );
-        }
-        // verify the required parameter 'job_id' is set
-        if ($job_id === null || (is_array($job_id) && count($job_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $job_id when calling jobLocaleComplete'
-            );
-        }
-        // verify the required parameter 'id' is set
-        if ($id === null || (is_array($id) && count($id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $id when calling jobLocaleComplete'
-            );
-        }
-        // verify the required parameter 'job_locale_complete_parameters' is set
-        if ($job_locale_complete_parameters === null || (is_array($job_locale_complete_parameters) && count($job_locale_complete_parameters) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $job_locale_complete_parameters when calling jobLocaleComplete'
-            );
-        }
-
-        $resourcePath = '/projects/{project_id}/jobs/{job_id}/locales/{id}/complete';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-        // header params
-        if ($x_phrase_app_otp !== null) {
-            $headerParams['X-PhraseApp-OTP'] = ObjectSerializer::toHeaderValue($x_phrase_app_otp);
-        }
-
-        // path params
-        if ($project_id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'project_id' . '}',
-                ObjectSerializer::toPathValue($project_id),
-                $resourcePath
-            );
-        }
-        // path params
-        if ($job_id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'job_id' . '}',
-                ObjectSerializer::toPathValue($job_id),
-                $resourcePath
-            );
-        }
-        // path params
-        if ($id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'id' . '}',
-                ObjectSerializer::toPathValue($id),
-                $resourcePath
-            );
-        }
-
-        // body params
-        $_tempBody = null;
-        if (isset($job_locale_complete_parameters)) {
-            $_tempBody = $job_locale_complete_parameters;
-        }
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                ['application/json']
-            );
-        }
-
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
-            } else {
-                $httpBody = $_tempBody;
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
-            }
-        }
-
-        // this endpoint requires HTTP basic authentication
-        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
-            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
-        }
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
-        if ($apiKey !== null) {
-            $headers['Authorization'] = $apiKey;
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = http_build_query($queryParams);
-        return new Request(
-            'POST',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation jobLocaleCompleteReview
-     *
-     * Review a job locale
-     *
-     * @param  string $project_id Project ID (required)
-     * @param  string $job_id Job ID (required)
-     * @param  string $id ID (required)
-     * @param  \Phrase\Model\JobLocaleCompleteReviewParameters $job_locale_complete_review_parameters job_locale_complete_review_parameters (required)
-     * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
-     *
-     * @throws \Phrase\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \Phrase\Model\JobLocale
-     */
-    public function jobLocaleCompleteReview($project_id, $job_id, $id, $job_locale_complete_review_parameters, $x_phrase_app_otp = null)
-    {
-        list($response) = $this->jobLocaleCompleteReviewWithHttpInfo($project_id, $job_id, $id, $job_locale_complete_review_parameters, $x_phrase_app_otp);
-        return $response;
-    }
-
-    /**
-     * Operation jobLocaleCompleteReviewWithHttpInfo
-     *
-     * Review a job locale
-     *
-     * @param  string $project_id Project ID (required)
-     * @param  string $job_id Job ID (required)
-     * @param  string $id ID (required)
-     * @param  \Phrase\Model\JobLocaleCompleteReviewParameters $job_locale_complete_review_parameters (required)
-     * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
-     *
-     * @throws \Phrase\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of \Phrase\Model\JobLocale, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function jobLocaleCompleteReviewWithHttpInfo($project_id, $job_id, $id, $job_locale_complete_review_parameters, $x_phrase_app_otp = null)
-    {
-        $request = $this->jobLocaleCompleteReviewRequest($project_id, $job_id, $id, $job_locale_complete_review_parameters, $x_phrase_app_otp);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
-                );
-            }
-
-            $responseBody = $response->getBody();
-            switch($statusCode) {
-                case 200:
-                    if ('\Phrase\Model\JobLocale' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = (string) $responseBody;
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\Phrase\Model\JobLocale', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-            }
-
-            $returnType = '\Phrase\Model\JobLocale';
-            $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = (string) $responseBody;
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Phrase\Model\JobLocale',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation jobLocaleCompleteReviewAsync
-     *
-     * Review a job locale
-     *
-     * @param  string $project_id Project ID (required)
-     * @param  string $job_id Job ID (required)
-     * @param  string $id ID (required)
-     * @param  \Phrase\Model\JobLocaleCompleteReviewParameters $job_locale_complete_review_parameters (required)
-     * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function jobLocaleCompleteReviewAsync($project_id, $job_id, $id, $job_locale_complete_review_parameters, $x_phrase_app_otp = null)
-    {
-        return $this->jobLocaleCompleteReviewAsyncWithHttpInfo($project_id, $job_id, $id, $job_locale_complete_review_parameters, $x_phrase_app_otp)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation jobLocaleCompleteReviewAsyncWithHttpInfo
-     *
-     * Review a job locale
-     *
-     * @param  string $project_id Project ID (required)
-     * @param  string $job_id Job ID (required)
-     * @param  string $id ID (required)
-     * @param  \Phrase\Model\JobLocaleCompleteReviewParameters $job_locale_complete_review_parameters (required)
-     * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function jobLocaleCompleteReviewAsyncWithHttpInfo($project_id, $job_id, $id, $job_locale_complete_review_parameters, $x_phrase_app_otp = null)
-    {
-        $returnType = '\Phrase\Model\JobLocale';
-        $request = $this->jobLocaleCompleteReviewRequest($project_id, $job_id, $id, $job_locale_complete_review_parameters, $x_phrase_app_otp);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = (string) $responseBody;
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'jobLocaleCompleteReview'
-     *
-     * @param  string $project_id Project ID (required)
-     * @param  string $job_id Job ID (required)
-     * @param  string $id ID (required)
-     * @param  \Phrase\Model\JobLocaleCompleteReviewParameters $job_locale_complete_review_parameters (required)
-     * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    protected function jobLocaleCompleteReviewRequest($project_id, $job_id, $id, $job_locale_complete_review_parameters, $x_phrase_app_otp = null)
-    {
-        // verify the required parameter 'project_id' is set
-        if ($project_id === null || (is_array($project_id) && count($project_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $project_id when calling jobLocaleCompleteReview'
-            );
-        }
-        // verify the required parameter 'job_id' is set
-        if ($job_id === null || (is_array($job_id) && count($job_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $job_id when calling jobLocaleCompleteReview'
-            );
-        }
-        // verify the required parameter 'id' is set
-        if ($id === null || (is_array($id) && count($id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $id when calling jobLocaleCompleteReview'
-            );
-        }
-        // verify the required parameter 'job_locale_complete_review_parameters' is set
-        if ($job_locale_complete_review_parameters === null || (is_array($job_locale_complete_review_parameters) && count($job_locale_complete_review_parameters) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $job_locale_complete_review_parameters when calling jobLocaleCompleteReview'
-            );
-        }
-
-        $resourcePath = '/projects/{project_id}/jobs/{job_id}/locales/{id}/complete_review';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-        // header params
-        if ($x_phrase_app_otp !== null) {
-            $headerParams['X-PhraseApp-OTP'] = ObjectSerializer::toHeaderValue($x_phrase_app_otp);
-        }
-
-        // path params
-        if ($project_id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'project_id' . '}',
-                ObjectSerializer::toPathValue($project_id),
-                $resourcePath
-            );
-        }
-        // path params
-        if ($job_id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'job_id' . '}',
-                ObjectSerializer::toPathValue($job_id),
-                $resourcePath
-            );
-        }
-        // path params
-        if ($id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'id' . '}',
-                ObjectSerializer::toPathValue($id),
-                $resourcePath
-            );
-        }
-
-        // body params
-        $_tempBody = null;
-        if (isset($job_locale_complete_review_parameters)) {
-            $_tempBody = $job_locale_complete_review_parameters;
-        }
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                ['application/json']
-            );
-        }
-
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
-            } else {
-                $httpBody = $_tempBody;
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
-            }
-        }
-
-        // this endpoint requires HTTP basic authentication
-        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
-            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
-        }
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
-        if ($apiKey !== null) {
-            $headers['Authorization'] = $apiKey;
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = http_build_query($queryParams);
-        return new Request(
-            'POST',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation jobLocaleDelete
-     *
-     * Remove a target locale from a job
-     *
-     * @param  string $project_id Project ID (required)
-     * @param  string $job_id Job ID (required)
-     * @param  string $id ID (required)
+     * @param  string $id Name of the annotation to delete. (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  string $branch Branch to use (optional)
      *
@@ -814,19 +128,19 @@ class JobLocalesApi
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function jobLocaleDelete($project_id, $job_id, $id, $x_phrase_app_otp = null, $branch = null)
+    public function jobAnnotationDelete($project_id, $job_id, $id, $x_phrase_app_otp = null, $branch = null)
     {
-        $this->jobLocaleDeleteWithHttpInfo($project_id, $job_id, $id, $x_phrase_app_otp, $branch);
+        $this->jobAnnotationDeleteWithHttpInfo($project_id, $job_id, $id, $x_phrase_app_otp, $branch);
     }
 
     /**
-     * Operation jobLocaleDeleteWithHttpInfo
+     * Operation jobAnnotationDeleteWithHttpInfo
      *
-     * Remove a target locale from a job
+     * Delete a job annotation
      *
      * @param  string $project_id Project ID (required)
      * @param  string $job_id Job ID (required)
-     * @param  string $id ID (required)
+     * @param  string $id Name of the annotation to delete. (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  string $branch Branch to use (optional)
      *
@@ -834,9 +148,9 @@ class JobLocalesApi
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function jobLocaleDeleteWithHttpInfo($project_id, $job_id, $id, $x_phrase_app_otp = null, $branch = null)
+    public function jobAnnotationDeleteWithHttpInfo($project_id, $job_id, $id, $x_phrase_app_otp = null, $branch = null)
     {
-        $request = $this->jobLocaleDeleteRequest($project_id, $job_id, $id, $x_phrase_app_otp, $branch);
+        $request = $this->jobAnnotationDeleteRequest($project_id, $job_id, $id, $x_phrase_app_otp, $branch);
 
         try {
             $options = $this->createHttpClientOption();
@@ -876,22 +190,22 @@ class JobLocalesApi
     }
 
     /**
-     * Operation jobLocaleDeleteAsync
+     * Operation jobAnnotationDeleteAsync
      *
-     * Remove a target locale from a job
+     * Delete a job annotation
      *
      * @param  string $project_id Project ID (required)
      * @param  string $job_id Job ID (required)
-     * @param  string $id ID (required)
+     * @param  string $id Name of the annotation to delete. (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  string $branch Branch to use (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function jobLocaleDeleteAsync($project_id, $job_id, $id, $x_phrase_app_otp = null, $branch = null)
+    public function jobAnnotationDeleteAsync($project_id, $job_id, $id, $x_phrase_app_otp = null, $branch = null)
     {
-        return $this->jobLocaleDeleteAsyncWithHttpInfo($project_id, $job_id, $id, $x_phrase_app_otp, $branch)
+        return $this->jobAnnotationDeleteAsyncWithHttpInfo($project_id, $job_id, $id, $x_phrase_app_otp, $branch)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -900,23 +214,23 @@ class JobLocalesApi
     }
 
     /**
-     * Operation jobLocaleDeleteAsyncWithHttpInfo
+     * Operation jobAnnotationDeleteAsyncWithHttpInfo
      *
-     * Remove a target locale from a job
+     * Delete a job annotation
      *
      * @param  string $project_id Project ID (required)
      * @param  string $job_id Job ID (required)
-     * @param  string $id ID (required)
+     * @param  string $id Name of the annotation to delete. (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  string $branch Branch to use (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function jobLocaleDeleteAsyncWithHttpInfo($project_id, $job_id, $id, $x_phrase_app_otp = null, $branch = null)
+    public function jobAnnotationDeleteAsyncWithHttpInfo($project_id, $job_id, $id, $x_phrase_app_otp = null, $branch = null)
     {
         $returnType = '';
-        $request = $this->jobLocaleDeleteRequest($project_id, $job_id, $id, $x_phrase_app_otp, $branch);
+        $request = $this->jobAnnotationDeleteRequest($project_id, $job_id, $id, $x_phrase_app_otp, $branch);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -942,39 +256,39 @@ class JobLocalesApi
     }
 
     /**
-     * Create request for operation 'jobLocaleDelete'
+     * Create request for operation 'jobAnnotationDelete'
      *
      * @param  string $project_id Project ID (required)
      * @param  string $job_id Job ID (required)
-     * @param  string $id ID (required)
+     * @param  string $id Name of the annotation to delete. (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  string $branch Branch to use (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function jobLocaleDeleteRequest($project_id, $job_id, $id, $x_phrase_app_otp = null, $branch = null)
+    protected function jobAnnotationDeleteRequest($project_id, $job_id, $id, $x_phrase_app_otp = null, $branch = null)
     {
         // verify the required parameter 'project_id' is set
         if ($project_id === null || (is_array($project_id) && count($project_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $project_id when calling jobLocaleDelete'
+                'Missing the required parameter $project_id when calling jobAnnotationDelete'
             );
         }
         // verify the required parameter 'job_id' is set
         if ($job_id === null || (is_array($job_id) && count($job_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $job_id when calling jobLocaleDelete'
+                'Missing the required parameter $job_id when calling jobAnnotationDelete'
             );
         }
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $id when calling jobLocaleDelete'
+                'Missing the required parameter $id when calling jobAnnotationDelete'
             );
         }
 
-        $resourcePath = '/projects/{project_id}/jobs/{job_id}/locales/{id}';
+        $resourcePath = '/projects/{project_id}/jobs/{job_id}/annotations/{id}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1097,44 +411,44 @@ class JobLocalesApi
     }
 
     /**
-     * Operation jobLocaleReopen
+     * Operation jobAnnotationUpdate
      *
-     * Reopen a job locale
+     * Create/Update a job annotation
      *
      * @param  string $project_id Project ID (required)
      * @param  string $job_id Job ID (required)
-     * @param  string $id ID (required)
-     * @param  \Phrase\Model\JobLocaleReopenParameters $job_locale_reopen_parameters job_locale_reopen_parameters (required)
+     * @param  string $id Name of the annotation to set or update. (required)
+     * @param  \Phrase\Model\JobAnnotationUpdateParameters $job_annotation_update_parameters job_annotation_update_parameters (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Phrase\Model\JobLocale
+     * @return \Phrase\Model\JobAnnotation
      */
-    public function jobLocaleReopen($project_id, $job_id, $id, $job_locale_reopen_parameters, $x_phrase_app_otp = null)
+    public function jobAnnotationUpdate($project_id, $job_id, $id, $job_annotation_update_parameters, $x_phrase_app_otp = null)
     {
-        list($response) = $this->jobLocaleReopenWithHttpInfo($project_id, $job_id, $id, $job_locale_reopen_parameters, $x_phrase_app_otp);
+        list($response) = $this->jobAnnotationUpdateWithHttpInfo($project_id, $job_id, $id, $job_annotation_update_parameters, $x_phrase_app_otp);
         return $response;
     }
 
     /**
-     * Operation jobLocaleReopenWithHttpInfo
+     * Operation jobAnnotationUpdateWithHttpInfo
      *
-     * Reopen a job locale
+     * Create/Update a job annotation
      *
      * @param  string $project_id Project ID (required)
      * @param  string $job_id Job ID (required)
-     * @param  string $id ID (required)
-     * @param  \Phrase\Model\JobLocaleReopenParameters $job_locale_reopen_parameters (required)
+     * @param  string $id Name of the annotation to set or update. (required)
+     * @param  \Phrase\Model\JobAnnotationUpdateParameters $job_annotation_update_parameters (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Phrase\Model\JobLocale, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Phrase\Model\JobAnnotation, HTTP status code, HTTP response headers (array of strings)
      */
-    public function jobLocaleReopenWithHttpInfo($project_id, $job_id, $id, $job_locale_reopen_parameters, $x_phrase_app_otp = null)
+    public function jobAnnotationUpdateWithHttpInfo($project_id, $job_id, $id, $job_annotation_update_parameters, $x_phrase_app_otp = null)
     {
-        $request = $this->jobLocaleReopenRequest($project_id, $job_id, $id, $job_locale_reopen_parameters, $x_phrase_app_otp);
+        $request = $this->jobAnnotationUpdateRequest($project_id, $job_id, $id, $job_annotation_update_parameters, $x_phrase_app_otp);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1167,20 +481,20 @@ class JobLocalesApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\Phrase\Model\JobLocale' === '\SplFileObject') {
+                    if ('\Phrase\Model\JobAnnotation' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Phrase\Model\JobLocale', []),
+                        ObjectSerializer::deserialize($content, '\Phrase\Model\JobAnnotation', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Phrase\Model\JobLocale';
+            $returnType = '\Phrase\Model\JobAnnotation';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -1199,7 +513,7 @@ class JobLocalesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Phrase\Model\JobLocale',
+                        '\Phrase\Model\JobAnnotation',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1210,22 +524,22 @@ class JobLocalesApi
     }
 
     /**
-     * Operation jobLocaleReopenAsync
+     * Operation jobAnnotationUpdateAsync
      *
-     * Reopen a job locale
+     * Create/Update a job annotation
      *
      * @param  string $project_id Project ID (required)
      * @param  string $job_id Job ID (required)
-     * @param  string $id ID (required)
-     * @param  \Phrase\Model\JobLocaleReopenParameters $job_locale_reopen_parameters (required)
+     * @param  string $id Name of the annotation to set or update. (required)
+     * @param  \Phrase\Model\JobAnnotationUpdateParameters $job_annotation_update_parameters (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function jobLocaleReopenAsync($project_id, $job_id, $id, $job_locale_reopen_parameters, $x_phrase_app_otp = null)
+    public function jobAnnotationUpdateAsync($project_id, $job_id, $id, $job_annotation_update_parameters, $x_phrase_app_otp = null)
     {
-        return $this->jobLocaleReopenAsyncWithHttpInfo($project_id, $job_id, $id, $job_locale_reopen_parameters, $x_phrase_app_otp)
+        return $this->jobAnnotationUpdateAsyncWithHttpInfo($project_id, $job_id, $id, $job_annotation_update_parameters, $x_phrase_app_otp)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1234,23 +548,23 @@ class JobLocalesApi
     }
 
     /**
-     * Operation jobLocaleReopenAsyncWithHttpInfo
+     * Operation jobAnnotationUpdateAsyncWithHttpInfo
      *
-     * Reopen a job locale
+     * Create/Update a job annotation
      *
      * @param  string $project_id Project ID (required)
      * @param  string $job_id Job ID (required)
-     * @param  string $id ID (required)
-     * @param  \Phrase\Model\JobLocaleReopenParameters $job_locale_reopen_parameters (required)
+     * @param  string $id Name of the annotation to set or update. (required)
+     * @param  \Phrase\Model\JobAnnotationUpdateParameters $job_annotation_update_parameters (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function jobLocaleReopenAsyncWithHttpInfo($project_id, $job_id, $id, $job_locale_reopen_parameters, $x_phrase_app_otp = null)
+    public function jobAnnotationUpdateAsyncWithHttpInfo($project_id, $job_id, $id, $job_annotation_update_parameters, $x_phrase_app_otp = null)
     {
-        $returnType = '\Phrase\Model\JobLocale';
-        $request = $this->jobLocaleReopenRequest($project_id, $job_id, $id, $job_locale_reopen_parameters, $x_phrase_app_otp);
+        $returnType = '\Phrase\Model\JobAnnotation';
+        $request = $this->jobAnnotationUpdateRequest($project_id, $job_id, $id, $job_annotation_update_parameters, $x_phrase_app_otp);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1287,45 +601,45 @@ class JobLocalesApi
     }
 
     /**
-     * Create request for operation 'jobLocaleReopen'
+     * Create request for operation 'jobAnnotationUpdate'
      *
      * @param  string $project_id Project ID (required)
      * @param  string $job_id Job ID (required)
-     * @param  string $id ID (required)
-     * @param  \Phrase\Model\JobLocaleReopenParameters $job_locale_reopen_parameters (required)
+     * @param  string $id Name of the annotation to set or update. (required)
+     * @param  \Phrase\Model\JobAnnotationUpdateParameters $job_annotation_update_parameters (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function jobLocaleReopenRequest($project_id, $job_id, $id, $job_locale_reopen_parameters, $x_phrase_app_otp = null)
+    protected function jobAnnotationUpdateRequest($project_id, $job_id, $id, $job_annotation_update_parameters, $x_phrase_app_otp = null)
     {
         // verify the required parameter 'project_id' is set
         if ($project_id === null || (is_array($project_id) && count($project_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $project_id when calling jobLocaleReopen'
+                'Missing the required parameter $project_id when calling jobAnnotationUpdate'
             );
         }
         // verify the required parameter 'job_id' is set
         if ($job_id === null || (is_array($job_id) && count($job_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $job_id when calling jobLocaleReopen'
+                'Missing the required parameter $job_id when calling jobAnnotationUpdate'
             );
         }
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $id when calling jobLocaleReopen'
+                'Missing the required parameter $id when calling jobAnnotationUpdate'
             );
         }
-        // verify the required parameter 'job_locale_reopen_parameters' is set
-        if ($job_locale_reopen_parameters === null || (is_array($job_locale_reopen_parameters) && count($job_locale_reopen_parameters) === 0)) {
+        // verify the required parameter 'job_annotation_update_parameters' is set
+        if ($job_annotation_update_parameters === null || (is_array($job_annotation_update_parameters) && count($job_annotation_update_parameters) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $job_locale_reopen_parameters when calling jobLocaleReopen'
+                'Missing the required parameter $job_annotation_update_parameters when calling jobAnnotationUpdate'
             );
         }
 
-        $resourcePath = '/projects/{project_id}/jobs/{job_id}/locales/{id}/reopen';
+        $resourcePath = '/projects/{project_id}/jobs/{job_id}/annotations/{id}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1365,8 +679,8 @@ class JobLocalesApi
 
         // body params
         $_tempBody = null;
-        if (isset($job_locale_reopen_parameters)) {
-            $_tempBody = $job_locale_reopen_parameters;
+        if (isset($job_annotation_update_parameters)) {
+            $_tempBody = $job_annotation_update_parameters;
         }
 
         if ($multipart) {
@@ -1432,7 +746,7 @@ class JobLocalesApi
 
         $query = http_build_query($queryParams);
         return new Request(
-            'POST',
+            'PATCH',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
@@ -1440,46 +754,42 @@ class JobLocalesApi
     }
 
     /**
-     * Operation jobLocaleShow
+     * Operation jobAnnotationsList
      *
-     * Show single job target locale
+     * List job annotations
      *
      * @param  string $project_id Project ID (required)
      * @param  string $job_id Job ID (required)
-     * @param  string $id ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  string $branch Branch to use (optional)
-     * @param  bool $include_annotations Include job-locale annotations in the response (optional, default to false)
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Phrase\Model\JobLocale
+     * @return \Phrase\Model\JobAnnotation[]
      */
-    public function jobLocaleShow($project_id, $job_id, $id, $x_phrase_app_otp = null, $branch = null, $include_annotations = false)
+    public function jobAnnotationsList($project_id, $job_id, $x_phrase_app_otp = null, $branch = null)
     {
-        list($response) = $this->jobLocaleShowWithHttpInfo($project_id, $job_id, $id, $x_phrase_app_otp, $branch, $include_annotations);
+        list($response) = $this->jobAnnotationsListWithHttpInfo($project_id, $job_id, $x_phrase_app_otp, $branch);
         return $response;
     }
 
     /**
-     * Operation jobLocaleShowWithHttpInfo
+     * Operation jobAnnotationsListWithHttpInfo
      *
-     * Show single job target locale
+     * List job annotations
      *
      * @param  string $project_id Project ID (required)
      * @param  string $job_id Job ID (required)
-     * @param  string $id ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  string $branch Branch to use (optional)
-     * @param  bool $include_annotations Include job-locale annotations in the response (optional, default to false)
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Phrase\Model\JobLocale, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Phrase\Model\JobAnnotation[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function jobLocaleShowWithHttpInfo($project_id, $job_id, $id, $x_phrase_app_otp = null, $branch = null, $include_annotations = false)
+    public function jobAnnotationsListWithHttpInfo($project_id, $job_id, $x_phrase_app_otp = null, $branch = null)
     {
-        $request = $this->jobLocaleShowRequest($project_id, $job_id, $id, $x_phrase_app_otp, $branch, $include_annotations);
+        $request = $this->jobAnnotationsListRequest($project_id, $job_id, $x_phrase_app_otp, $branch);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1512,20 +822,20 @@ class JobLocalesApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\Phrase\Model\JobLocale' === '\SplFileObject') {
+                    if ('\Phrase\Model\JobAnnotation[]' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Phrase\Model\JobLocale', []),
+                        ObjectSerializer::deserialize($content, '\Phrase\Model\JobAnnotation[]', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Phrase\Model\JobLocale';
+            $returnType = '\Phrase\Model\JobAnnotation[]';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -1544,7 +854,7 @@ class JobLocalesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Phrase\Model\JobLocale',
+                        '\Phrase\Model\JobAnnotation[]',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1555,23 +865,21 @@ class JobLocalesApi
     }
 
     /**
-     * Operation jobLocaleShowAsync
+     * Operation jobAnnotationsListAsync
      *
-     * Show single job target locale
+     * List job annotations
      *
      * @param  string $project_id Project ID (required)
      * @param  string $job_id Job ID (required)
-     * @param  string $id ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  string $branch Branch to use (optional)
-     * @param  bool $include_annotations Include job-locale annotations in the response (optional, default to false)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function jobLocaleShowAsync($project_id, $job_id, $id, $x_phrase_app_otp = null, $branch = null, $include_annotations = false)
+    public function jobAnnotationsListAsync($project_id, $job_id, $x_phrase_app_otp = null, $branch = null)
     {
-        return $this->jobLocaleShowAsyncWithHttpInfo($project_id, $job_id, $id, $x_phrase_app_otp, $branch, $include_annotations)
+        return $this->jobAnnotationsListAsyncWithHttpInfo($project_id, $job_id, $x_phrase_app_otp, $branch)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1580,24 +888,22 @@ class JobLocalesApi
     }
 
     /**
-     * Operation jobLocaleShowAsyncWithHttpInfo
+     * Operation jobAnnotationsListAsyncWithHttpInfo
      *
-     * Show single job target locale
+     * List job annotations
      *
      * @param  string $project_id Project ID (required)
      * @param  string $job_id Job ID (required)
-     * @param  string $id ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  string $branch Branch to use (optional)
-     * @param  bool $include_annotations Include job-locale annotations in the response (optional, default to false)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function jobLocaleShowAsyncWithHttpInfo($project_id, $job_id, $id, $x_phrase_app_otp = null, $branch = null, $include_annotations = false)
+    public function jobAnnotationsListAsyncWithHttpInfo($project_id, $job_id, $x_phrase_app_otp = null, $branch = null)
     {
-        $returnType = '\Phrase\Model\JobLocale';
-        $request = $this->jobLocaleShowRequest($project_id, $job_id, $id, $x_phrase_app_otp, $branch, $include_annotations);
+        $returnType = '\Phrase\Model\JobAnnotation[]';
+        $request = $this->jobAnnotationsListRequest($project_id, $job_id, $x_phrase_app_otp, $branch);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1634,40 +940,32 @@ class JobLocalesApi
     }
 
     /**
-     * Create request for operation 'jobLocaleShow'
+     * Create request for operation 'jobAnnotationsList'
      *
      * @param  string $project_id Project ID (required)
      * @param  string $job_id Job ID (required)
-     * @param  string $id ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  string $branch Branch to use (optional)
-     * @param  bool $include_annotations Include job-locale annotations in the response (optional, default to false)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function jobLocaleShowRequest($project_id, $job_id, $id, $x_phrase_app_otp = null, $branch = null, $include_annotations = false)
+    protected function jobAnnotationsListRequest($project_id, $job_id, $x_phrase_app_otp = null, $branch = null)
     {
         // verify the required parameter 'project_id' is set
         if ($project_id === null || (is_array($project_id) && count($project_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $project_id when calling jobLocaleShow'
+                'Missing the required parameter $project_id when calling jobAnnotationsList'
             );
         }
         // verify the required parameter 'job_id' is set
         if ($job_id === null || (is_array($job_id) && count($job_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $job_id when calling jobLocaleShow'
-            );
-        }
-        // verify the required parameter 'id' is set
-        if ($id === null || (is_array($id) && count($id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $id when calling jobLocaleShow'
+                'Missing the required parameter $job_id when calling jobAnnotationsList'
             );
         }
 
-        $resourcePath = '/projects/{project_id}/jobs/{job_id}/locales/{id}';
+        $resourcePath = '/projects/{project_id}/jobs/{job_id}/annotations';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1683,17 +981,6 @@ class JobLocalesApi
             }
             else {
                 $queryParams['branch'] = $branch;
-            }
-        }
-        // query params
-        if ($include_annotations !== null) {
-            if('form' === 'form' && is_array($include_annotations)) {
-                foreach($include_annotations as $key => $value) {
-                    $queryParams[$key] = $value;
-                }
-            }
-            else {
-                $queryParams['include_annotations'] = $include_annotations;
             }
         }
 
@@ -1715,14 +1002,6 @@ class JobLocalesApi
             $resourcePath = str_replace(
                 '{' . 'job_id' . '}',
                 ObjectSerializer::toPathValue($job_id),
-                $resourcePath
-            );
-        }
-        // path params
-        if ($id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'id' . '}',
-                ObjectSerializer::toPathValue($id),
                 $resourcePath
             );
         }
@@ -1801,44 +1080,362 @@ class JobLocalesApi
     }
 
     /**
-     * Operation jobLocaleUpdate
+     * Operation jobLocaleAnnotationDelete
      *
-     * Update a job target locale
+     * Delete a job locale annotation
      *
      * @param  string $project_id Project ID (required)
      * @param  string $job_id Job ID (required)
-     * @param  string $id ID (required)
-     * @param  \Phrase\Model\JobLocaleUpdateParameters $job_locale_update_parameters job_locale_update_parameters (required)
+     * @param  string $job_locale_id Job Locale ID (required)
+     * @param  string $id Name of the annotation to delete. (required)
+     * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
+     * @param  string $branch Branch to use (optional)
+     *
+     * @throws \Phrase\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return void
+     */
+    public function jobLocaleAnnotationDelete($project_id, $job_id, $job_locale_id, $id, $x_phrase_app_otp = null, $branch = null)
+    {
+        $this->jobLocaleAnnotationDeleteWithHttpInfo($project_id, $job_id, $job_locale_id, $id, $x_phrase_app_otp, $branch);
+    }
+
+    /**
+     * Operation jobLocaleAnnotationDeleteWithHttpInfo
+     *
+     * Delete a job locale annotation
+     *
+     * @param  string $project_id Project ID (required)
+     * @param  string $job_id Job ID (required)
+     * @param  string $job_locale_id Job Locale ID (required)
+     * @param  string $id Name of the annotation to delete. (required)
+     * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
+     * @param  string $branch Branch to use (optional)
+     *
+     * @throws \Phrase\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function jobLocaleAnnotationDeleteWithHttpInfo($project_id, $job_id, $job_locale_id, $id, $x_phrase_app_otp = null, $branch = null)
+    {
+        $request = $this->jobLocaleAnnotationDeleteRequest($project_id, $job_id, $job_locale_id, $id, $x_phrase_app_otp, $branch);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            return [null, $statusCode, $response->getHeaders()];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation jobLocaleAnnotationDeleteAsync
+     *
+     * Delete a job locale annotation
+     *
+     * @param  string $project_id Project ID (required)
+     * @param  string $job_id Job ID (required)
+     * @param  string $job_locale_id Job Locale ID (required)
+     * @param  string $id Name of the annotation to delete. (required)
+     * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
+     * @param  string $branch Branch to use (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function jobLocaleAnnotationDeleteAsync($project_id, $job_id, $job_locale_id, $id, $x_phrase_app_otp = null, $branch = null)
+    {
+        return $this->jobLocaleAnnotationDeleteAsyncWithHttpInfo($project_id, $job_id, $job_locale_id, $id, $x_phrase_app_otp, $branch)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation jobLocaleAnnotationDeleteAsyncWithHttpInfo
+     *
+     * Delete a job locale annotation
+     *
+     * @param  string $project_id Project ID (required)
+     * @param  string $job_id Job ID (required)
+     * @param  string $job_locale_id Job Locale ID (required)
+     * @param  string $id Name of the annotation to delete. (required)
+     * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
+     * @param  string $branch Branch to use (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function jobLocaleAnnotationDeleteAsyncWithHttpInfo($project_id, $job_id, $job_locale_id, $id, $x_phrase_app_otp = null, $branch = null)
+    {
+        $returnType = '';
+        $request = $this->jobLocaleAnnotationDeleteRequest($project_id, $job_id, $job_locale_id, $id, $x_phrase_app_otp, $branch);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'jobLocaleAnnotationDelete'
+     *
+     * @param  string $project_id Project ID (required)
+     * @param  string $job_id Job ID (required)
+     * @param  string $job_locale_id Job Locale ID (required)
+     * @param  string $id Name of the annotation to delete. (required)
+     * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
+     * @param  string $branch Branch to use (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function jobLocaleAnnotationDeleteRequest($project_id, $job_id, $job_locale_id, $id, $x_phrase_app_otp = null, $branch = null)
+    {
+        // verify the required parameter 'project_id' is set
+        if ($project_id === null || (is_array($project_id) && count($project_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $project_id when calling jobLocaleAnnotationDelete'
+            );
+        }
+        // verify the required parameter 'job_id' is set
+        if ($job_id === null || (is_array($job_id) && count($job_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $job_id when calling jobLocaleAnnotationDelete'
+            );
+        }
+        // verify the required parameter 'job_locale_id' is set
+        if ($job_locale_id === null || (is_array($job_locale_id) && count($job_locale_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $job_locale_id when calling jobLocaleAnnotationDelete'
+            );
+        }
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id when calling jobLocaleAnnotationDelete'
+            );
+        }
+
+        $resourcePath = '/projects/{project_id}/jobs/{job_id}/locales/{job_locale_id}/annotations/{id}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        if ($branch !== null) {
+            if('form' === 'form' && is_array($branch)) {
+                foreach($branch as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['branch'] = $branch;
+            }
+        }
+
+        // header params
+        if ($x_phrase_app_otp !== null) {
+            $headerParams['X-PhraseApp-OTP'] = ObjectSerializer::toHeaderValue($x_phrase_app_otp);
+        }
+
+        // path params
+        if ($project_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'project_id' . '}',
+                ObjectSerializer::toPathValue($project_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($job_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'job_id' . '}',
+                ObjectSerializer::toPathValue($job_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($job_locale_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'job_locale_id' . '}',
+                ObjectSerializer::toPathValue($job_locale_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'id' . '}',
+                ObjectSerializer::toPathValue($id),
+                $resourcePath
+            );
+        }
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                []
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                [],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
+            }
+        }
+
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = http_build_query($queryParams);
+        return new Request(
+            'DELETE',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation jobLocaleAnnotationUpdate
+     *
+     * Create/Update a job locale annotation
+     *
+     * @param  string $project_id Project ID (required)
+     * @param  string $job_id Job ID (required)
+     * @param  string $job_locale_id Job Locale ID (required)
+     * @param  string $id Name of the annotation to set or update. (required)
+     * @param  \Phrase\Model\JobAnnotationUpdateParameters $job_annotation_update_parameters job_annotation_update_parameters (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Phrase\Model\JobLocale
+     * @return \Phrase\Model\JobAnnotation
      */
-    public function jobLocaleUpdate($project_id, $job_id, $id, $job_locale_update_parameters, $x_phrase_app_otp = null)
+    public function jobLocaleAnnotationUpdate($project_id, $job_id, $job_locale_id, $id, $job_annotation_update_parameters, $x_phrase_app_otp = null)
     {
-        list($response) = $this->jobLocaleUpdateWithHttpInfo($project_id, $job_id, $id, $job_locale_update_parameters, $x_phrase_app_otp);
+        list($response) = $this->jobLocaleAnnotationUpdateWithHttpInfo($project_id, $job_id, $job_locale_id, $id, $job_annotation_update_parameters, $x_phrase_app_otp);
         return $response;
     }
 
     /**
-     * Operation jobLocaleUpdateWithHttpInfo
+     * Operation jobLocaleAnnotationUpdateWithHttpInfo
      *
-     * Update a job target locale
+     * Create/Update a job locale annotation
      *
      * @param  string $project_id Project ID (required)
      * @param  string $job_id Job ID (required)
-     * @param  string $id ID (required)
-     * @param  \Phrase\Model\JobLocaleUpdateParameters $job_locale_update_parameters (required)
+     * @param  string $job_locale_id Job Locale ID (required)
+     * @param  string $id Name of the annotation to set or update. (required)
+     * @param  \Phrase\Model\JobAnnotationUpdateParameters $job_annotation_update_parameters (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Phrase\Model\JobLocale, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Phrase\Model\JobAnnotation, HTTP status code, HTTP response headers (array of strings)
      */
-    public function jobLocaleUpdateWithHttpInfo($project_id, $job_id, $id, $job_locale_update_parameters, $x_phrase_app_otp = null)
+    public function jobLocaleAnnotationUpdateWithHttpInfo($project_id, $job_id, $job_locale_id, $id, $job_annotation_update_parameters, $x_phrase_app_otp = null)
     {
-        $request = $this->jobLocaleUpdateRequest($project_id, $job_id, $id, $job_locale_update_parameters, $x_phrase_app_otp);
+        $request = $this->jobLocaleAnnotationUpdateRequest($project_id, $job_id, $job_locale_id, $id, $job_annotation_update_parameters, $x_phrase_app_otp);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1871,20 +1468,20 @@ class JobLocalesApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\Phrase\Model\JobLocale' === '\SplFileObject') {
+                    if ('\Phrase\Model\JobAnnotation' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Phrase\Model\JobLocale', []),
+                        ObjectSerializer::deserialize($content, '\Phrase\Model\JobAnnotation', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Phrase\Model\JobLocale';
+            $returnType = '\Phrase\Model\JobAnnotation';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -1903,7 +1500,7 @@ class JobLocalesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Phrase\Model\JobLocale',
+                        '\Phrase\Model\JobAnnotation',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1914,22 +1511,23 @@ class JobLocalesApi
     }
 
     /**
-     * Operation jobLocaleUpdateAsync
+     * Operation jobLocaleAnnotationUpdateAsync
      *
-     * Update a job target locale
+     * Create/Update a job locale annotation
      *
      * @param  string $project_id Project ID (required)
      * @param  string $job_id Job ID (required)
-     * @param  string $id ID (required)
-     * @param  \Phrase\Model\JobLocaleUpdateParameters $job_locale_update_parameters (required)
+     * @param  string $job_locale_id Job Locale ID (required)
+     * @param  string $id Name of the annotation to set or update. (required)
+     * @param  \Phrase\Model\JobAnnotationUpdateParameters $job_annotation_update_parameters (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function jobLocaleUpdateAsync($project_id, $job_id, $id, $job_locale_update_parameters, $x_phrase_app_otp = null)
+    public function jobLocaleAnnotationUpdateAsync($project_id, $job_id, $job_locale_id, $id, $job_annotation_update_parameters, $x_phrase_app_otp = null)
     {
-        return $this->jobLocaleUpdateAsyncWithHttpInfo($project_id, $job_id, $id, $job_locale_update_parameters, $x_phrase_app_otp)
+        return $this->jobLocaleAnnotationUpdateAsyncWithHttpInfo($project_id, $job_id, $job_locale_id, $id, $job_annotation_update_parameters, $x_phrase_app_otp)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1938,23 +1536,24 @@ class JobLocalesApi
     }
 
     /**
-     * Operation jobLocaleUpdateAsyncWithHttpInfo
+     * Operation jobLocaleAnnotationUpdateAsyncWithHttpInfo
      *
-     * Update a job target locale
+     * Create/Update a job locale annotation
      *
      * @param  string $project_id Project ID (required)
      * @param  string $job_id Job ID (required)
-     * @param  string $id ID (required)
-     * @param  \Phrase\Model\JobLocaleUpdateParameters $job_locale_update_parameters (required)
+     * @param  string $job_locale_id Job Locale ID (required)
+     * @param  string $id Name of the annotation to set or update. (required)
+     * @param  \Phrase\Model\JobAnnotationUpdateParameters $job_annotation_update_parameters (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function jobLocaleUpdateAsyncWithHttpInfo($project_id, $job_id, $id, $job_locale_update_parameters, $x_phrase_app_otp = null)
+    public function jobLocaleAnnotationUpdateAsyncWithHttpInfo($project_id, $job_id, $job_locale_id, $id, $job_annotation_update_parameters, $x_phrase_app_otp = null)
     {
-        $returnType = '\Phrase\Model\JobLocale';
-        $request = $this->jobLocaleUpdateRequest($project_id, $job_id, $id, $job_locale_update_parameters, $x_phrase_app_otp);
+        $returnType = '\Phrase\Model\JobAnnotation';
+        $request = $this->jobLocaleAnnotationUpdateRequest($project_id, $job_id, $job_locale_id, $id, $job_annotation_update_parameters, $x_phrase_app_otp);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1991,45 +1590,52 @@ class JobLocalesApi
     }
 
     /**
-     * Create request for operation 'jobLocaleUpdate'
+     * Create request for operation 'jobLocaleAnnotationUpdate'
      *
      * @param  string $project_id Project ID (required)
      * @param  string $job_id Job ID (required)
-     * @param  string $id ID (required)
-     * @param  \Phrase\Model\JobLocaleUpdateParameters $job_locale_update_parameters (required)
+     * @param  string $job_locale_id Job Locale ID (required)
+     * @param  string $id Name of the annotation to set or update. (required)
+     * @param  \Phrase\Model\JobAnnotationUpdateParameters $job_annotation_update_parameters (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function jobLocaleUpdateRequest($project_id, $job_id, $id, $job_locale_update_parameters, $x_phrase_app_otp = null)
+    protected function jobLocaleAnnotationUpdateRequest($project_id, $job_id, $job_locale_id, $id, $job_annotation_update_parameters, $x_phrase_app_otp = null)
     {
         // verify the required parameter 'project_id' is set
         if ($project_id === null || (is_array($project_id) && count($project_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $project_id when calling jobLocaleUpdate'
+                'Missing the required parameter $project_id when calling jobLocaleAnnotationUpdate'
             );
         }
         // verify the required parameter 'job_id' is set
         if ($job_id === null || (is_array($job_id) && count($job_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $job_id when calling jobLocaleUpdate'
+                'Missing the required parameter $job_id when calling jobLocaleAnnotationUpdate'
+            );
+        }
+        // verify the required parameter 'job_locale_id' is set
+        if ($job_locale_id === null || (is_array($job_locale_id) && count($job_locale_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $job_locale_id when calling jobLocaleAnnotationUpdate'
             );
         }
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $id when calling jobLocaleUpdate'
+                'Missing the required parameter $id when calling jobLocaleAnnotationUpdate'
             );
         }
-        // verify the required parameter 'job_locale_update_parameters' is set
-        if ($job_locale_update_parameters === null || (is_array($job_locale_update_parameters) && count($job_locale_update_parameters) === 0)) {
+        // verify the required parameter 'job_annotation_update_parameters' is set
+        if ($job_annotation_update_parameters === null || (is_array($job_annotation_update_parameters) && count($job_annotation_update_parameters) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $job_locale_update_parameters when calling jobLocaleUpdate'
+                'Missing the required parameter $job_annotation_update_parameters when calling jobLocaleAnnotationUpdate'
             );
         }
 
-        $resourcePath = '/projects/{project_id}/jobs/{job_id}/locales/{id}';
+        $resourcePath = '/projects/{project_id}/jobs/{job_id}/locales/{job_locale_id}/annotations/{id}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2059,6 +1665,14 @@ class JobLocalesApi
             );
         }
         // path params
+        if ($job_locale_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'job_locale_id' . '}',
+                ObjectSerializer::toPathValue($job_locale_id),
+                $resourcePath
+            );
+        }
+        // path params
         if ($id !== null) {
             $resourcePath = str_replace(
                 '{' . 'id' . '}',
@@ -2069,8 +1683,8 @@ class JobLocalesApi
 
         // body params
         $_tempBody = null;
-        if (isset($job_locale_update_parameters)) {
-            $_tempBody = $job_locale_update_parameters;
+        if (isset($job_annotation_update_parameters)) {
+            $_tempBody = $job_annotation_update_parameters;
         }
 
         if ($multipart) {
@@ -2144,42 +1758,44 @@ class JobLocalesApi
     }
 
     /**
-     * Operation jobLocalesCreate
+     * Operation jobLocaleAnnotationsList
      *
-     * Add a target locale to a job
+     * List job locale annotations
      *
      * @param  string $project_id Project ID (required)
      * @param  string $job_id Job ID (required)
-     * @param  \Phrase\Model\JobLocalesCreateParameters $job_locales_create_parameters job_locales_create_parameters (required)
+     * @param  string $job_locale_id Job Locale ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
+     * @param  string $branch Branch to use (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Phrase\Model\JobLocale
+     * @return \Phrase\Model\JobAnnotation[]
      */
-    public function jobLocalesCreate($project_id, $job_id, $job_locales_create_parameters, $x_phrase_app_otp = null)
+    public function jobLocaleAnnotationsList($project_id, $job_id, $job_locale_id, $x_phrase_app_otp = null, $branch = null)
     {
-        list($response) = $this->jobLocalesCreateWithHttpInfo($project_id, $job_id, $job_locales_create_parameters, $x_phrase_app_otp);
+        list($response) = $this->jobLocaleAnnotationsListWithHttpInfo($project_id, $job_id, $job_locale_id, $x_phrase_app_otp, $branch);
         return $response;
     }
 
     /**
-     * Operation jobLocalesCreateWithHttpInfo
+     * Operation jobLocaleAnnotationsListWithHttpInfo
      *
-     * Add a target locale to a job
+     * List job locale annotations
      *
      * @param  string $project_id Project ID (required)
      * @param  string $job_id Job ID (required)
-     * @param  \Phrase\Model\JobLocalesCreateParameters $job_locales_create_parameters (required)
+     * @param  string $job_locale_id Job Locale ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
+     * @param  string $branch Branch to use (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Phrase\Model\JobLocale, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Phrase\Model\JobAnnotation[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function jobLocalesCreateWithHttpInfo($project_id, $job_id, $job_locales_create_parameters, $x_phrase_app_otp = null)
+    public function jobLocaleAnnotationsListWithHttpInfo($project_id, $job_id, $job_locale_id, $x_phrase_app_otp = null, $branch = null)
     {
-        $request = $this->jobLocalesCreateRequest($project_id, $job_id, $job_locales_create_parameters, $x_phrase_app_otp);
+        $request = $this->jobLocaleAnnotationsListRequest($project_id, $job_id, $job_locale_id, $x_phrase_app_otp, $branch);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2211,21 +1827,21 @@ class JobLocalesApi
 
             $responseBody = $response->getBody();
             switch($statusCode) {
-                case 201:
-                    if ('\Phrase\Model\JobLocale' === '\SplFileObject') {
+                case 200:
+                    if ('\Phrase\Model\JobAnnotation[]' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Phrase\Model\JobLocale', []),
+                        ObjectSerializer::deserialize($content, '\Phrase\Model\JobAnnotation[]', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Phrase\Model\JobLocale';
+            $returnType = '\Phrase\Model\JobAnnotation[]';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -2241,10 +1857,10 @@ class JobLocalesApi
 
         } catch (ApiException $e) {
             switch ($e->getCode()) {
-                case 201:
+                case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Phrase\Model\JobLocale',
+                        '\Phrase\Model\JobAnnotation[]',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2255,21 +1871,22 @@ class JobLocalesApi
     }
 
     /**
-     * Operation jobLocalesCreateAsync
+     * Operation jobLocaleAnnotationsListAsync
      *
-     * Add a target locale to a job
+     * List job locale annotations
      *
      * @param  string $project_id Project ID (required)
      * @param  string $job_id Job ID (required)
-     * @param  \Phrase\Model\JobLocalesCreateParameters $job_locales_create_parameters (required)
+     * @param  string $job_locale_id Job Locale ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
+     * @param  string $branch Branch to use (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function jobLocalesCreateAsync($project_id, $job_id, $job_locales_create_parameters, $x_phrase_app_otp = null)
+    public function jobLocaleAnnotationsListAsync($project_id, $job_id, $job_locale_id, $x_phrase_app_otp = null, $branch = null)
     {
-        return $this->jobLocalesCreateAsyncWithHttpInfo($project_id, $job_id, $job_locales_create_parameters, $x_phrase_app_otp)
+        return $this->jobLocaleAnnotationsListAsyncWithHttpInfo($project_id, $job_id, $job_locale_id, $x_phrase_app_otp, $branch)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2278,22 +1895,23 @@ class JobLocalesApi
     }
 
     /**
-     * Operation jobLocalesCreateAsyncWithHttpInfo
+     * Operation jobLocaleAnnotationsListAsyncWithHttpInfo
      *
-     * Add a target locale to a job
+     * List job locale annotations
      *
      * @param  string $project_id Project ID (required)
      * @param  string $job_id Job ID (required)
-     * @param  \Phrase\Model\JobLocalesCreateParameters $job_locales_create_parameters (required)
+     * @param  string $job_locale_id Job Locale ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
+     * @param  string $branch Branch to use (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function jobLocalesCreateAsyncWithHttpInfo($project_id, $job_id, $job_locales_create_parameters, $x_phrase_app_otp = null)
+    public function jobLocaleAnnotationsListAsyncWithHttpInfo($project_id, $job_id, $job_locale_id, $x_phrase_app_otp = null, $branch = null)
     {
-        $returnType = '\Phrase\Model\JobLocale';
-        $request = $this->jobLocalesCreateRequest($project_id, $job_id, $job_locales_create_parameters, $x_phrase_app_otp);
+        $returnType = '\Phrase\Model\JobAnnotation[]';
+        $request = $this->jobLocaleAnnotationsListRequest($project_id, $job_id, $job_locale_id, $x_phrase_app_otp, $branch);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2330,399 +1948,45 @@ class JobLocalesApi
     }
 
     /**
-     * Create request for operation 'jobLocalesCreate'
+     * Create request for operation 'jobLocaleAnnotationsList'
      *
      * @param  string $project_id Project ID (required)
      * @param  string $job_id Job ID (required)
-     * @param  \Phrase\Model\JobLocalesCreateParameters $job_locales_create_parameters (required)
+     * @param  string $job_locale_id Job Locale ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
+     * @param  string $branch Branch to use (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function jobLocalesCreateRequest($project_id, $job_id, $job_locales_create_parameters, $x_phrase_app_otp = null)
+    protected function jobLocaleAnnotationsListRequest($project_id, $job_id, $job_locale_id, $x_phrase_app_otp = null, $branch = null)
     {
         // verify the required parameter 'project_id' is set
         if ($project_id === null || (is_array($project_id) && count($project_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $project_id when calling jobLocalesCreate'
+                'Missing the required parameter $project_id when calling jobLocaleAnnotationsList'
             );
         }
         // verify the required parameter 'job_id' is set
         if ($job_id === null || (is_array($job_id) && count($job_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $job_id when calling jobLocalesCreate'
+                'Missing the required parameter $job_id when calling jobLocaleAnnotationsList'
             );
         }
-        // verify the required parameter 'job_locales_create_parameters' is set
-        if ($job_locales_create_parameters === null || (is_array($job_locales_create_parameters) && count($job_locales_create_parameters) === 0)) {
+        // verify the required parameter 'job_locale_id' is set
+        if ($job_locale_id === null || (is_array($job_locale_id) && count($job_locale_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $job_locales_create_parameters when calling jobLocalesCreate'
+                'Missing the required parameter $job_locale_id when calling jobLocaleAnnotationsList'
             );
         }
 
-        $resourcePath = '/projects/{project_id}/jobs/{job_id}/locales';
+        $resourcePath = '/projects/{project_id}/jobs/{job_id}/locales/{job_locale_id}/annotations';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
         $httpBody = '';
         $multipart = false;
 
-
-        // header params
-        if ($x_phrase_app_otp !== null) {
-            $headerParams['X-PhraseApp-OTP'] = ObjectSerializer::toHeaderValue($x_phrase_app_otp);
-        }
-
-        // path params
-        if ($project_id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'project_id' . '}',
-                ObjectSerializer::toPathValue($project_id),
-                $resourcePath
-            );
-        }
-        // path params
-        if ($job_id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'job_id' . '}',
-                ObjectSerializer::toPathValue($job_id),
-                $resourcePath
-            );
-        }
-
-        // body params
-        $_tempBody = null;
-        if (isset($job_locales_create_parameters)) {
-            $_tempBody = $job_locales_create_parameters;
-        }
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                ['application/json']
-            );
-        }
-
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            if ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
-            } else {
-                $httpBody = $_tempBody;
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
-            }
-        }
-
-        // this endpoint requires HTTP basic authentication
-        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
-            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
-        }
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
-        if ($apiKey !== null) {
-            $headers['Authorization'] = $apiKey;
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = http_build_query($queryParams);
-        return new Request(
-            'POST',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation jobLocalesList
-     *
-     * List job target locales
-     *
-     * @param  string $project_id Project ID (required)
-     * @param  string $job_id Job ID (required)
-     * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
-     * @param  int $page Page number (optional)
-     * @param  int $per_page Limit on the number of objects to be returned, between 1 and 100. 25 by default (optional)
-     * @param  string $branch Branch to use (optional)
-     * @param  bool $include_annotations Include job-locale annotations in the response (optional, default to false)
-     *
-     * @throws \Phrase\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \Phrase\Model\JobLocale[]
-     */
-    public function jobLocalesList($project_id, $job_id, $x_phrase_app_otp = null, $page = null, $per_page = null, $branch = null, $include_annotations = false)
-    {
-        list($response) = $this->jobLocalesListWithHttpInfo($project_id, $job_id, $x_phrase_app_otp, $page, $per_page, $branch, $include_annotations);
-        return $response;
-    }
-
-    /**
-     * Operation jobLocalesListWithHttpInfo
-     *
-     * List job target locales
-     *
-     * @param  string $project_id Project ID (required)
-     * @param  string $job_id Job ID (required)
-     * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
-     * @param  int $page Page number (optional)
-     * @param  int $per_page Limit on the number of objects to be returned, between 1 and 100. 25 by default (optional)
-     * @param  string $branch Branch to use (optional)
-     * @param  bool $include_annotations Include job-locale annotations in the response (optional, default to false)
-     *
-     * @throws \Phrase\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of \Phrase\Model\JobLocale[], HTTP status code, HTTP response headers (array of strings)
-     */
-    public function jobLocalesListWithHttpInfo($project_id, $job_id, $x_phrase_app_otp = null, $page = null, $per_page = null, $branch = null, $include_annotations = false)
-    {
-        $request = $this->jobLocalesListRequest($project_id, $job_id, $x_phrase_app_otp, $page, $per_page, $branch, $include_annotations);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
-                );
-            }
-
-            $responseBody = $response->getBody();
-            switch($statusCode) {
-                case 200:
-                    if ('\Phrase\Model\JobLocale[]' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = (string) $responseBody;
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\Phrase\Model\JobLocale[]', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-            }
-
-            $returnType = '\Phrase\Model\JobLocale[]';
-            $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = (string) $responseBody;
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Phrase\Model\JobLocale[]',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation jobLocalesListAsync
-     *
-     * List job target locales
-     *
-     * @param  string $project_id Project ID (required)
-     * @param  string $job_id Job ID (required)
-     * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
-     * @param  int $page Page number (optional)
-     * @param  int $per_page Limit on the number of objects to be returned, between 1 and 100. 25 by default (optional)
-     * @param  string $branch Branch to use (optional)
-     * @param  bool $include_annotations Include job-locale annotations in the response (optional, default to false)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function jobLocalesListAsync($project_id, $job_id, $x_phrase_app_otp = null, $page = null, $per_page = null, $branch = null, $include_annotations = false)
-    {
-        return $this->jobLocalesListAsyncWithHttpInfo($project_id, $job_id, $x_phrase_app_otp, $page, $per_page, $branch, $include_annotations)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation jobLocalesListAsyncWithHttpInfo
-     *
-     * List job target locales
-     *
-     * @param  string $project_id Project ID (required)
-     * @param  string $job_id Job ID (required)
-     * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
-     * @param  int $page Page number (optional)
-     * @param  int $per_page Limit on the number of objects to be returned, between 1 and 100. 25 by default (optional)
-     * @param  string $branch Branch to use (optional)
-     * @param  bool $include_annotations Include job-locale annotations in the response (optional, default to false)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function jobLocalesListAsyncWithHttpInfo($project_id, $job_id, $x_phrase_app_otp = null, $page = null, $per_page = null, $branch = null, $include_annotations = false)
-    {
-        $returnType = '\Phrase\Model\JobLocale[]';
-        $request = $this->jobLocalesListRequest($project_id, $job_id, $x_phrase_app_otp, $page, $per_page, $branch, $include_annotations);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = (string) $responseBody;
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'jobLocalesList'
-     *
-     * @param  string $project_id Project ID (required)
-     * @param  string $job_id Job ID (required)
-     * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
-     * @param  int $page Page number (optional)
-     * @param  int $per_page Limit on the number of objects to be returned, between 1 and 100. 25 by default (optional)
-     * @param  string $branch Branch to use (optional)
-     * @param  bool $include_annotations Include job-locale annotations in the response (optional, default to false)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    protected function jobLocalesListRequest($project_id, $job_id, $x_phrase_app_otp = null, $page = null, $per_page = null, $branch = null, $include_annotations = false)
-    {
-        // verify the required parameter 'project_id' is set
-        if ($project_id === null || (is_array($project_id) && count($project_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $project_id when calling jobLocalesList'
-            );
-        }
-        // verify the required parameter 'job_id' is set
-        if ($job_id === null || (is_array($job_id) && count($job_id) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $job_id when calling jobLocalesList'
-            );
-        }
-
-        $resourcePath = '/projects/{project_id}/jobs/{job_id}/locales';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-        // query params
-        if ($page !== null) {
-            if('form' === 'form' && is_array($page)) {
-                foreach($page as $key => $value) {
-                    $queryParams[$key] = $value;
-                }
-            }
-            else {
-                $queryParams['page'] = $page;
-            }
-        }
-        // query params
-        if ($per_page !== null) {
-            if('form' === 'form' && is_array($per_page)) {
-                foreach($per_page as $key => $value) {
-                    $queryParams[$key] = $value;
-                }
-            }
-            else {
-                $queryParams['per_page'] = $per_page;
-            }
-        }
         // query params
         if ($branch !== null) {
             if('form' === 'form' && is_array($branch)) {
@@ -2734,17 +1998,6 @@ class JobLocalesApi
                 $queryParams['branch'] = $branch;
             }
         }
-        // query params
-        if ($include_annotations !== null) {
-            if('form' === 'form' && is_array($include_annotations)) {
-                foreach($include_annotations as $key => $value) {
-                    $queryParams[$key] = $value;
-                }
-            }
-            else {
-                $queryParams['include_annotations'] = $include_annotations;
-            }
-        }
 
         // header params
         if ($x_phrase_app_otp !== null) {
@@ -2764,6 +2017,14 @@ class JobLocalesApi
             $resourcePath = str_replace(
                 '{' . 'job_id' . '}',
                 ObjectSerializer::toPathValue($job_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($job_locale_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'job_locale_id' . '}',
+                ObjectSerializer::toPathValue($job_locale_id),
                 $resourcePath
             );
         }

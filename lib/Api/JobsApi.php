@@ -2230,15 +2230,16 @@ class JobsApi
      * @param  string $project_id Project ID (required)
      * @param  string $id ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
-     * @param  string $branch specify the branch to use (optional)
+     * @param  string $branch Branch to use (optional)
+     * @param  bool $include_annotations Include job-locale annotations in the response (optional, default to false)
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Phrase\Model\JobDetails
      */
-    public function jobShow($project_id, $id, $x_phrase_app_otp = null, $branch = null)
+    public function jobShow($project_id, $id, $x_phrase_app_otp = null, $branch = null, $include_annotations = false)
     {
-        list($response) = $this->jobShowWithHttpInfo($project_id, $id, $x_phrase_app_otp, $branch);
+        list($response) = $this->jobShowWithHttpInfo($project_id, $id, $x_phrase_app_otp, $branch, $include_annotations);
         return $response;
     }
 
@@ -2250,15 +2251,16 @@ class JobsApi
      * @param  string $project_id Project ID (required)
      * @param  string $id ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
-     * @param  string $branch specify the branch to use (optional)
+     * @param  string $branch Branch to use (optional)
+     * @param  bool $include_annotations Include job-locale annotations in the response (optional, default to false)
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Phrase\Model\JobDetails, HTTP status code, HTTP response headers (array of strings)
      */
-    public function jobShowWithHttpInfo($project_id, $id, $x_phrase_app_otp = null, $branch = null)
+    public function jobShowWithHttpInfo($project_id, $id, $x_phrase_app_otp = null, $branch = null, $include_annotations = false)
     {
-        $request = $this->jobShowRequest($project_id, $id, $x_phrase_app_otp, $branch);
+        $request = $this->jobShowRequest($project_id, $id, $x_phrase_app_otp, $branch, $include_annotations);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2341,14 +2343,15 @@ class JobsApi
      * @param  string $project_id Project ID (required)
      * @param  string $id ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
-     * @param  string $branch specify the branch to use (optional)
+     * @param  string $branch Branch to use (optional)
+     * @param  bool $include_annotations Include job-locale annotations in the response (optional, default to false)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function jobShowAsync($project_id, $id, $x_phrase_app_otp = null, $branch = null)
+    public function jobShowAsync($project_id, $id, $x_phrase_app_otp = null, $branch = null, $include_annotations = false)
     {
-        return $this->jobShowAsyncWithHttpInfo($project_id, $id, $x_phrase_app_otp, $branch)
+        return $this->jobShowAsyncWithHttpInfo($project_id, $id, $x_phrase_app_otp, $branch, $include_annotations)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2364,15 +2367,16 @@ class JobsApi
      * @param  string $project_id Project ID (required)
      * @param  string $id ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
-     * @param  string $branch specify the branch to use (optional)
+     * @param  string $branch Branch to use (optional)
+     * @param  bool $include_annotations Include job-locale annotations in the response (optional, default to false)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function jobShowAsyncWithHttpInfo($project_id, $id, $x_phrase_app_otp = null, $branch = null)
+    public function jobShowAsyncWithHttpInfo($project_id, $id, $x_phrase_app_otp = null, $branch = null, $include_annotations = false)
     {
         $returnType = '\Phrase\Model\JobDetails';
-        $request = $this->jobShowRequest($project_id, $id, $x_phrase_app_otp, $branch);
+        $request = $this->jobShowRequest($project_id, $id, $x_phrase_app_otp, $branch, $include_annotations);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2414,12 +2418,13 @@ class JobsApi
      * @param  string $project_id Project ID (required)
      * @param  string $id ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
-     * @param  string $branch specify the branch to use (optional)
+     * @param  string $branch Branch to use (optional)
+     * @param  bool $include_annotations Include job-locale annotations in the response (optional, default to false)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function jobShowRequest($project_id, $id, $x_phrase_app_otp = null, $branch = null)
+    protected function jobShowRequest($project_id, $id, $x_phrase_app_otp = null, $branch = null, $include_annotations = false)
     {
         // verify the required parameter 'project_id' is set
         if ($project_id === null || (is_array($project_id) && count($project_id) === 0)) {
@@ -2450,6 +2455,17 @@ class JobsApi
             }
             else {
                 $queryParams['branch'] = $branch;
+            }
+        }
+        // query params
+        if ($include_annotations !== null) {
+            if('form' === 'form' && is_array($include_annotations)) {
+                foreach($include_annotations as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['include_annotations'] = $include_annotations;
             }
         }
 

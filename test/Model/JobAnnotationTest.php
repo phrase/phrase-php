@@ -1,6 +1,6 @@
 <?php
 /**
- * JobLocaleTest
+ * JobAnnotationTest
  *
  * PHP version 5
  *
@@ -30,15 +30,15 @@ namespace Phrase;
 use PHPUnit\Framework\TestCase;
 
 /**
- * JobLocaleTest Class Doc Comment
+ * JobAnnotationTest Class Doc Comment
  *
  * @category    Class
- * @description JobLocale
+ * @description JobAnnotation
  * @package     Phrase
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class JobLocaleTest extends TestCase
+class JobAnnotationTest extends TestCase
 {
 
     /**
@@ -70,72 +70,37 @@ class JobLocaleTest extends TestCase
     }
 
     /**
-     * Test "JobLocale"
+     * Test "JobAnnotation"
      */
-    public function testJobLocale()
+    public function testJobAnnotation()
     {
     }
 
     /**
-     * Test attribute "id"
+     * Test attribute "name"
      */
-    public function testPropertyId()
+    public function testPropertyName()
     {
     }
 
     /**
-     * Test attribute "job"
+     * Test attribute "value"
      */
-    public function testPropertyJob()
+    public function testPropertyValue()
     {
     }
 
     /**
-     * Test attribute "locale"
+     * Test attribute "created_at"
      */
-    public function testPropertyLocale()
+    public function testPropertyCreatedAt()
     {
     }
 
     /**
-     * Test attribute "users"
+     * Test attribute "updated_at"
      */
-    public function testPropertyUsers()
-    {
-    }
-
-    /**
-     * Test attribute "teams"
-     */
-    public function testPropertyTeams()
-    {
-    }
-
-    /**
-     * Test attribute "completed"
-     */
-    public function testPropertyCompleted()
-    {
-    }
-
-    /**
-     * Test attribute "translation_completed_at"
-     */
-    public function testPropertyTranslationCompletedAt()
-    {
-    }
-
-    /**
-     * Test attribute "review_completed_at"
-     */
-    public function testPropertyReviewCompletedAt()
-    {
-    }
-
-    /**
-     * Test attribute "annotations"
-     */
-    public function testPropertyAnnotations()
+    public function testPropertyUpdatedAt()
     {
     }
 }
