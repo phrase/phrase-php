@@ -41,7 +41,7 @@ $x_phrase_app_otp = 'x_phrase_app_otp_example'; // string | Two-Factor-Authentic
 $branch = 'branch_example'; // string | specify the branch to use
 $tags = 'tags_example'; // string | List of tags separated by comma to be associated with the new keys contained in the upload.
 $update_translations = True; // bool | Indicates whether existing translations should be updated with the file content.
-$update_custom_metadata = true; // bool | Indicates whether existing custom metadata properties should be updated with the file content
+$update_custom_metadata = true; // bool | Determines whether to update custom metadata values when uploading a file. If set to true, existing metadata can be changed or removed. Passing an empty value deletes the corresponding metadata property.
 $update_translation_keys = true; // bool | Pass `false` here to prevent new keys from being created and existing keys updated.
 $update_translations_on_source_match = false; // bool | Update target translations only if the source translations of the uploaded multilingual file match the stored translations.
 $update_descriptions = True; // bool | Existing key descriptions will be updated with the file content. Empty descriptions overwrite existing descriptions.
@@ -79,7 +79,7 @@ Name | Type | Description  | Notes
  **branch** | **string**| specify the branch to use | [optional]
  **tags** | **string**| List of tags separated by comma to be associated with the new keys contained in the upload. | [optional]
  **update_translations** | **bool**| Indicates whether existing translations should be updated with the file content. | [optional]
- **update_custom_metadata** | **bool**| Indicates whether existing custom metadata properties should be updated with the file content | [optional] [default to true]
+ **update_custom_metadata** | **bool**| Determines whether to update custom metadata values when uploading a file. If set to true, existing metadata can be changed or removed. Passing an empty value deletes the corresponding metadata property. | [optional] [default to true]
  **update_translation_keys** | **bool**| Pass &#x60;false&#x60; here to prevent new keys from being created and existing keys updated. | [optional] [default to true]
  **update_translations_on_source_match** | **bool**| Update target translations only if the source translations of the uploaded multilingual file match the stored translations. | [optional] [default to false]
  **update_descriptions** | **bool**| Existing key descriptions will be updated with the file content. Empty descriptions overwrite existing descriptions. | [optional]
