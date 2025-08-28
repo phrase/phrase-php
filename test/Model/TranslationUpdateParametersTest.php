@@ -117,4 +117,11 @@ class TranslationUpdateParametersTest extends TestCase
     public function testPropertyAutotranslate()
     {
     }
+
+    /**
+     * Test attribute "reviewed"
+     */
+    public function testPropertyReviewed()
+    {
+    }
 }

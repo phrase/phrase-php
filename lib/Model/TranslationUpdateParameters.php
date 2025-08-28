@@ -60,7 +60,8 @@ class TranslationUpdateParameters implements ModelInterface, ArrayAccess
         'plural_suffix' => 'string',
         'unverified' => 'bool',
         'excluded' => 'bool',
-        'autotranslate' => 'bool'
+        'autotranslate' => 'bool',
+        'reviewed' => 'bool'
     ];
 
     /**
@@ -74,7 +75,8 @@ class TranslationUpdateParameters implements ModelInterface, ArrayAccess
         'plural_suffix' => null,
         'unverified' => null,
         'excluded' => null,
-        'autotranslate' => null
+        'autotranslate' => null,
+        'reviewed' => null
     ];
 
     /**
@@ -109,7 +111,8 @@ class TranslationUpdateParameters implements ModelInterface, ArrayAccess
         'plural_suffix' => 'plural_suffix',
         'unverified' => 'unverified',
         'excluded' => 'excluded',
-        'autotranslate' => 'autotranslate'
+        'autotranslate' => 'autotranslate',
+        'reviewed' => 'reviewed'
     ];
 
     /**
@@ -123,7 +126,8 @@ class TranslationUpdateParameters implements ModelInterface, ArrayAccess
         'plural_suffix' => 'setPluralSuffix',
         'unverified' => 'setUnverified',
         'excluded' => 'setExcluded',
-        'autotranslate' => 'setAutotranslate'
+        'autotranslate' => 'setAutotranslate',
+        'reviewed' => 'setReviewed'
     ];
 
     /**
@@ -137,7 +141,8 @@ class TranslationUpdateParameters implements ModelInterface, ArrayAccess
         'plural_suffix' => 'getPluralSuffix',
         'unverified' => 'getUnverified',
         'excluded' => 'getExcluded',
-        'autotranslate' => 'getAutotranslate'
+        'autotranslate' => 'getAutotranslate',
+        'reviewed' => 'getReviewed'
     ];
 
     /**
@@ -206,6 +211,7 @@ class TranslationUpdateParameters implements ModelInterface, ArrayAccess
         $this->container['unverified'] = isset($data['unverified']) ? $data['unverified'] : null;
         $this->container['excluded'] = isset($data['excluded']) ? $data['excluded'] : null;
         $this->container['autotranslate'] = isset($data['autotranslate']) ? $data['autotranslate'] : null;
+        $this->container['reviewed'] = isset($data['reviewed']) ? $data['reviewed'] : null;
     }
 
     /**
@@ -372,6 +378,30 @@ class TranslationUpdateParameters implements ModelInterface, ArrayAccess
     public function setAutotranslate($autotranslate)
     {
         $this->container['autotranslate'] = $autotranslate;
+
+        return $this;
+    }
+
+    /**
+     * Gets reviewed
+     *
+     * @return bool|null
+     */
+    public function getReviewed()
+    {
+        return $this->container['reviewed'];
+    }
+
+    /**
+     * Sets reviewed
+     *
+     * @param bool|null $reviewed When set to `true`, the translation will be marked as reviewed.
+     *
+     * @return $this
+     */
+    public function setReviewed($reviewed)
+    {
+        $this->container['reviewed'] = $reviewed;
 
         return $this;
     }
