@@ -154,6 +154,13 @@ Class | Method | HTTP request | Description
 *AuthorizationsApi* | [**authorizationShow**](docs/Api/AuthorizationsApi.md#authorizationshow) | **GET** /authorizations/{id} | Get a single authorization
 *AuthorizationsApi* | [**authorizationUpdate**](docs/Api/AuthorizationsApi.md#authorizationupdate) | **PATCH** /authorizations/{id} | Update an authorization
 *AuthorizationsApi* | [**authorizationsList**](docs/Api/AuthorizationsApi.md#authorizationslist) | **GET** /authorizations | List authorizations
+*AutomationsApi* | [**automationActivate**](docs/Api/AutomationsApi.md#automationactivate) | **POST** /accounts/{account_id}/automations/{automation_id}/activate | Activate an automation
+*AutomationsApi* | [**automationCreate**](docs/Api/AutomationsApi.md#automationcreate) | **POST** /accounts/{account_id}/automations | Create an automation
+*AutomationsApi* | [**automationDeactivate**](docs/Api/AutomationsApi.md#automationdeactivate) | **POST** /accounts/{account_id}/automations/{automation_id}/deactivate | Deactivate an automation
+*AutomationsApi* | [**automationDelete**](docs/Api/AutomationsApi.md#automationdelete) | **DELETE** /accounts/{account_id}/automations/{automation_id} | Destroy automation
+*AutomationsApi* | [**automationShow**](docs/Api/AutomationsApi.md#automationshow) | **GET** /accounts/{account_id}/automations/{automation_id} | Get a single automation
+*AutomationsApi* | [**automationUpdate**](docs/Api/AutomationsApi.md#automationupdate) | **PATCH** /accounts/{account_id}/automations/{automation_id} | Update an automation
+*AutomationsApi* | [**automationsList**](docs/Api/AutomationsApi.md#automationslist) | **GET** /accounts/{account_id}/automations | List automations
 *BlacklistedKeysApi* | [**blacklistedKeyCreate**](docs/Api/BlacklistedKeysApi.md#blacklistedkeycreate) | **POST** /projects/{project_id}/blacklisted_keys | Create a blocked key
 *BlacklistedKeysApi* | [**blacklistedKeyDelete**](docs/Api/BlacklistedKeysApi.md#blacklistedkeydelete) | **DELETE** /projects/{project_id}/blacklisted_keys/{id} | Delete a blocked key
 *BlacklistedKeysApi* | [**blacklistedKeyShow**](docs/Api/BlacklistedKeysApi.md#blacklistedkeyshow) | **GET** /projects/{project_id}/blacklisted_keys/{id} | Get a single blocked key
@@ -435,6 +442,9 @@ Class | Method | HTTP request | Description
  - [AuthorizationCreateParameters](docs/Model/AuthorizationCreateParameters.md)
  - [AuthorizationUpdateParameters](docs/Model/AuthorizationUpdateParameters.md)
  - [AuthorizationWithToken](docs/Model/AuthorizationWithToken.md)
+ - [Automation](docs/Model/Automation.md)
+ - [AutomationsCreateParameters](docs/Model/AutomationsCreateParameters.md)
+ - [AutomationsCreateParameters1](docs/Model/AutomationsCreateParameters1.md)
  - [BlacklistedKey](docs/Model/BlacklistedKey.md)
  - [BlacklistedKeyCreateParameters](docs/Model/BlacklistedKeyCreateParameters.md)
  - [BlacklistedKeyUpdateParameters](docs/Model/BlacklistedKeyUpdateParameters.md)
