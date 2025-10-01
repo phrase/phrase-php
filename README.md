@@ -171,6 +171,7 @@ Class | Method | HTTP request | Description
 *BranchesApi* | [**branchDelete**](docs/Api/BranchesApi.md#branchdelete) | **DELETE** /projects/{project_id}/branches/{name} | Delete a branch
 *BranchesApi* | [**branchMerge**](docs/Api/BranchesApi.md#branchmerge) | **PATCH** /projects/{project_id}/branches/{name}/merge | Merge a branch
 *BranchesApi* | [**branchShow**](docs/Api/BranchesApi.md#branchshow) | **GET** /projects/{project_id}/branches/{name} | Get a single branch
+*BranchesApi* | [**branchSync**](docs/Api/BranchesApi.md#branchsync) | **PATCH** /projects/{project_id}/branches/{name}/sync | Sync a branch
 *BranchesApi* | [**branchUpdate**](docs/Api/BranchesApi.md#branchupdate) | **PATCH** /projects/{project_id}/branches/{name} | Update a branch
 *BranchesApi* | [**branchesList**](docs/Api/BranchesApi.md#brancheslist) | **GET** /projects/{project_id}/branches | List branches
 *CommentReactionsApi* | [**reactionCreate**](docs/Api/CommentReactionsApi.md#reactioncreate) | **POST** /projects/{project_id}/keys/{key_id}/comments/{comment_id}/reactions | Create a reaction
@@ -452,6 +453,7 @@ Class | Method | HTTP request | Description
  - [BranchCreateParameters](docs/Model/BranchCreateParameters.md)
  - [BranchMergeParameters](docs/Model/BranchMergeParameters.md)
  - [BranchName](docs/Model/BranchName.md)
+ - [BranchSyncParameters](docs/Model/BranchSyncParameters.md)
  - [BranchUpdateParameters](docs/Model/BranchUpdateParameters.md)
  - [Comment](docs/Model/Comment.md)
  - [CommentCreateParameters](docs/Model/CommentCreateParameters.md)

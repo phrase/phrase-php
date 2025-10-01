@@ -79,6 +79,7 @@ docs/Model/Branch.md
 docs/Model/BranchCreateParameters.md
 docs/Model/BranchMergeParameters.md
 docs/Model/BranchName.md
+docs/Model/BranchSyncParameters.md
 docs/Model/BranchUpdateParameters.md
 docs/Model/Comment.md
 docs/Model/CommentCreateParameters.md
@@ -357,6 +358,7 @@ lib/Model/Branch.php
 lib/Model/BranchCreateParameters.php
 lib/Model/BranchMergeParameters.php
 lib/Model/BranchName.php
+lib/Model/BranchSyncParameters.php
 lib/Model/BranchUpdateParameters.php
 lib/Model/Comment.php
 lib/Model/CommentCreateParameters.php
@@ -630,6 +632,7 @@ test/Model/BlacklistedKeyUpdateParametersTest.php
 test/Model/BranchCreateParametersTest.php
 test/Model/BranchMergeParametersTest.php
 test/Model/BranchNameTest.php
+test/Model/BranchSyncParametersTest.php
 test/Model/BranchTest.php
 test/Model/BranchUpdateParametersTest.php
 test/Model/CommentCreateParameters1Test.php

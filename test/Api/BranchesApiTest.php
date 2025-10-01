@@ -121,6 +121,16 @@ class BranchesApiTest extends TestCase
     }
 
     /**
+     * Test case for branchSync
+     *
+     * Sync a branch.
+     *
+     */
+    public function testBranchSync()
+    {
+    }
+
+    /**
      * Test case for branchUpdate
      *
      * Update a branch.

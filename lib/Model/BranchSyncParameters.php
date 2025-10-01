@@ -1,6 +1,6 @@
 <?php
 /**
- * BranchMergeParameters
+ * BranchSyncParameters
  *
  * PHP version 5
  *
@@ -31,14 +31,14 @@ use \ArrayAccess;
 use \Phrase\ObjectSerializer;
 
 /**
- * BranchMergeParameters Class Doc Comment
+ * BranchSyncParameters Class Doc Comment
  *
  * @category Class
  * @package  Phrase
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class BranchMergeParameters implements ModelInterface, ArrayAccess
+class BranchSyncParameters implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -47,7 +47,7 @@ class BranchMergeParameters implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'branch_merge_parameters';
+    protected static $openAPIModelName = 'branch_sync_parameters';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -215,7 +215,7 @@ class BranchMergeParameters implements ModelInterface, ArrayAccess
     /**
      * Sets strategy
      *
-     * @param string|null $strategy strategy used for merge conflicts, use_main or use_branch
+     * @param string|null $strategy strategy used for conflicts, use_main or use_branch
      *
      * @return $this
      */

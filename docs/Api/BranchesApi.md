@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**branchDelete**](BranchesApi.md#branchDelete) | **DELETE** /projects/{project_id}/branches/{name} | Delete a branch
 [**branchMerge**](BranchesApi.md#branchMerge) | **PATCH** /projects/{project_id}/branches/{name}/merge | Merge a branch
 [**branchShow**](BranchesApi.md#branchShow) | **GET** /projects/{project_id}/branches/{name} | Get a single branch
+[**branchSync**](BranchesApi.md#branchSync) | **PATCH** /projects/{project_id}/branches/{name}/sync | Sync a branch
 [**branchUpdate**](BranchesApi.md#branchUpdate) | **PATCH** /projects/{project_id}/branches/{name} | Update a branch
 [**branchesList**](BranchesApi.md#branchesList) | **GET** /projects/{project_id}/branches | List branches
 
@@ -207,7 +208,7 @@ void (empty response body)
 
 Merge a branch
 
-Merge an existing branch.   *Note: Merging a branch may take several minutes depending on diff size.*
+Merge an existing branch.  *Note: Merging a branch may take several minutes depending on diff size.*
 
 ### Example
 
@@ -322,6 +323,70 @@ Name | Type | Description  | Notes
 
 - **Content-Type**: Not defined
 - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
+
+
+## branchSync
+
+> branchSync($project_id, $name, $branch_sync_parameters, $x_phrase_app_otp)
+
+Sync a branch
+
+Sync an existing branch.  *Note: Only available for branches created with new branching. New branching is currently in private beta*
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$config = Phrase\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = Phrase\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'token');
+
+$apiInstance = new Phrase\Api\BranchesApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$project_id = 'project_id_example'; // string | Project ID
+$name = 'name_example'; // string | name
+$branch_sync_parameters = new \Phrase\Model\BranchSyncParameters(); // \Phrase\Model\BranchSyncParameters | 
+$x_phrase_app_otp = 'x_phrase_app_otp_example'; // string | Two-Factor-Authentication token (optional)
+
+try {
+    $apiInstance->branchSync($project_id, $name, $branch_sync_parameters, $x_phrase_app_otp);
+} catch (Exception $e) {
+    echo 'Exception when calling BranchesApi->branchSync: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **project_id** | **string**| Project ID |
+ **name** | **string**| name |
+ **branch_sync_parameters** | [**\Phrase\Model\BranchSyncParameters**](../Model/BranchSyncParameters.md)|  |
+ **x_phrase_app_otp** | **string**| Two-Factor-Authentication token (optional) | [optional]
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[Basic](../../README.md#Basic), [Token](../../README.md#Token)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../../README.md#documentation-for-models)
