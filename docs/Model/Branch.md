@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **merged_by** | [**\Phrase\Model\UserPreview**](UserPreview.md) |  | [optional] 
 **created_by** | [**\Phrase\Model\UserPreview**](UserPreview.md) |  | [optional] 
 **state** | **string** |  | [optional] 
+**child_branches** | **string[]** |  | [optional] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

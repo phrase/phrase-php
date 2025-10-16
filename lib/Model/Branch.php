@@ -63,7 +63,8 @@ class Branch implements ModelInterface, ArrayAccess
         'merged_at' => '\DateTime',
         'merged_by' => '\Phrase\Model\UserPreview',
         'created_by' => '\Phrase\Model\UserPreview',
-        'state' => 'string'
+        'state' => 'string',
+        'child_branches' => 'string[]'
     ];
 
     /**
@@ -80,7 +81,8 @@ class Branch implements ModelInterface, ArrayAccess
         'merged_at' => 'date-time',
         'merged_by' => null,
         'created_by' => null,
-        'state' => null
+        'state' => null,
+        'child_branches' => null
     ];
 
     /**
@@ -118,7 +120,8 @@ class Branch implements ModelInterface, ArrayAccess
         'merged_at' => 'merged_at',
         'merged_by' => 'merged_by',
         'created_by' => 'created_by',
-        'state' => 'state'
+        'state' => 'state',
+        'child_branches' => 'child_branches'
     ];
 
     /**
@@ -135,7 +138,8 @@ class Branch implements ModelInterface, ArrayAccess
         'merged_at' => 'setMergedAt',
         'merged_by' => 'setMergedBy',
         'created_by' => 'setCreatedBy',
-        'state' => 'setState'
+        'state' => 'setState',
+        'child_branches' => 'setChildBranches'
     ];
 
     /**
@@ -152,7 +156,8 @@ class Branch implements ModelInterface, ArrayAccess
         'merged_at' => 'getMergedAt',
         'merged_by' => 'getMergedBy',
         'created_by' => 'getCreatedBy',
-        'state' => 'getState'
+        'state' => 'getState',
+        'child_branches' => 'getChildBranches'
     ];
 
     /**
@@ -224,6 +229,7 @@ class Branch implements ModelInterface, ArrayAccess
         $this->container['merged_by'] = isset($data['merged_by']) ? $data['merged_by'] : null;
         $this->container['created_by'] = isset($data['created_by']) ? $data['created_by'] : null;
         $this->container['state'] = isset($data['state']) ? $data['state'] : null;
+        $this->container['child_branches'] = isset($data['child_branches']) ? $data['child_branches'] : null;
     }
 
     /**
@@ -462,6 +468,30 @@ class Branch implements ModelInterface, ArrayAccess
     public function setState($state)
     {
         $this->container['state'] = $state;
+
+        return $this;
+    }
+
+    /**
+     * Gets child_branches
+     *
+     * @return string[]|null
+     */
+    public function getChildBranches()
+    {
+        return $this->container['child_branches'];
+    }
+
+    /**
+     * Sets child_branches
+     *
+     * @param string[]|null $child_branches child_branches
+     *
+     * @return $this
+     */
+    public function setChildBranches($child_branches)
+    {
+        $this->container['child_branches'] = $child_branches;
 
         return $this;
     }

@@ -138,4 +138,11 @@ class BranchTest extends TestCase
     public function testPropertyState()
     {
     }
+
+    /**
+     * Test attribute "child_branches"
+     */
+    public function testPropertyChildBranches()
+    {
+    }
 }
