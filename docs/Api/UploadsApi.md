@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 ## uploadCreate
 
-> \Phrase\Model\Upload uploadCreate($project_id, $file, $file_format, $locale_id, $x_phrase_app_otp, $branch, $tags, $update_translations, $update_custom_metadata, $update_translation_keys, $update_translations_on_source_match, $update_descriptions, $convert_emoji, $skip_upload_tags, $skip_unverification, $file_encoding, $locale_mapping, $format_options, $autotranslate, $verify_mentioned_translations, $mark_reviewed, $tag_only_affected_keys, $translation_key_prefix)
+> \Phrase\Model\Upload uploadCreate($project_id, $file, $file_format, $locale_id, $x_phrase_app_otp, $branch, $tags, $update_translations, $update_custom_metadata, $update_translation_keys, $update_translations_on_source_match, $source_locale_id, $update_descriptions, $convert_emoji, $skip_upload_tags, $skip_unverification, $file_encoding, $locale_mapping, $format_options, $autotranslate, $verify_mentioned_translations, $mark_reviewed, $tag_only_affected_keys, $translation_key_prefix)
 
 Upload a new file
 
@@ -44,6 +44,7 @@ $update_translations = True; // bool | Indicates whether existing translations s
 $update_custom_metadata = true; // bool | Determines whether to update custom metadata values when uploading a file. If set to true, existing metadata can be changed or removed. Passing an empty value deletes the corresponding metadata property.
 $update_translation_keys = true; // bool | Pass `false` here to prevent new keys from being created and existing keys updated.
 $update_translations_on_source_match = false; // bool | Update target translations only if the source translations of the uploaded multilingual file match the stored translations.
+$source_locale_id = 'source_locale_id_example'; // string | Specifies the source locale for multilingual files. Can be the name or id of the locale. Preferred is id.
 $update_descriptions = True; // bool | Existing key descriptions will be updated with the file content. Empty descriptions overwrite existing descriptions.
 $convert_emoji = True; // bool | This option is obsolete. Providing the option will cause a bad request error.
 $skip_upload_tags = True; // bool | Indicates whether the upload should not create upload tags.
@@ -58,7 +59,7 @@ $tag_only_affected_keys = false; // bool | Indicates whether only keys affected 
 $translation_key_prefix = 'translation_key_prefix_example'; // string | This prefix will be added to all uploaded translation key names to prevent collisions. Use a meaningful prefix related to your project or file to keep key names organized.
 
 try {
-    $result = $apiInstance->uploadCreate($project_id, $file, $file_format, $locale_id, $x_phrase_app_otp, $branch, $tags, $update_translations, $update_custom_metadata, $update_translation_keys, $update_translations_on_source_match, $update_descriptions, $convert_emoji, $skip_upload_tags, $skip_unverification, $file_encoding, $locale_mapping, $format_options, $autotranslate, $verify_mentioned_translations, $mark_reviewed, $tag_only_affected_keys, $translation_key_prefix);
+    $result = $apiInstance->uploadCreate($project_id, $file, $file_format, $locale_id, $x_phrase_app_otp, $branch, $tags, $update_translations, $update_custom_metadata, $update_translation_keys, $update_translations_on_source_match, $source_locale_id, $update_descriptions, $convert_emoji, $skip_upload_tags, $skip_unverification, $file_encoding, $locale_mapping, $format_options, $autotranslate, $verify_mentioned_translations, $mark_reviewed, $tag_only_affected_keys, $translation_key_prefix);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling UploadsApi->uploadCreate: ', $e->getMessage(), PHP_EOL;
@@ -82,6 +83,7 @@ Name | Type | Description  | Notes
  **update_custom_metadata** | **bool**| Determines whether to update custom metadata values when uploading a file. If set to true, existing metadata can be changed or removed. Passing an empty value deletes the corresponding metadata property. | [optional] [default to true]
  **update_translation_keys** | **bool**| Pass &#x60;false&#x60; here to prevent new keys from being created and existing keys updated. | [optional] [default to true]
  **update_translations_on_source_match** | **bool**| Update target translations only if the source translations of the uploaded multilingual file match the stored translations. | [optional] [default to false]
+ **source_locale_id** | **string**| Specifies the source locale for multilingual files. Can be the name or id of the locale. Preferred is id. | [optional]
  **update_descriptions** | **bool**| Existing key descriptions will be updated with the file content. Empty descriptions overwrite existing descriptions. | [optional]
  **convert_emoji** | **bool**| This option is obsolete. Providing the option will cause a bad request error. | [optional]
  **skip_upload_tags** | **bool**| Indicates whether the upload should not create upload tags. | [optional]
