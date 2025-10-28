@@ -281,7 +281,7 @@ class KeysIncludeParameters implements ModelInterface, ArrayAccess
     /**
      * Sets target_locale_id
      *
-     * @param string|null $target_locale_id Locale used to exlcude or include keys.
+     * @param string|null $target_locale_id Include translations in locale
      *
      * @return $this
      */
