@@ -2232,14 +2232,15 @@ class JobsApi
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  string $branch Branch to use (optional)
      * @param  bool $include_annotations Include job-locale annotations in the response (optional, default to false)
+     * @param  bool $omit_translation_keys Omit translation keys in the response to reduce payload size for bigger jobs (optional, default to false)
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Phrase\Model\JobDetails
      */
-    public function jobShow($project_id, $id, $x_phrase_app_otp = null, $branch = null, $include_annotations = false)
+    public function jobShow($project_id, $id, $x_phrase_app_otp = null, $branch = null, $include_annotations = false, $omit_translation_keys = false)
     {
-        list($response) = $this->jobShowWithHttpInfo($project_id, $id, $x_phrase_app_otp, $branch, $include_annotations);
+        list($response) = $this->jobShowWithHttpInfo($project_id, $id, $x_phrase_app_otp, $branch, $include_annotations, $omit_translation_keys);
         return $response;
     }
 
@@ -2253,14 +2254,15 @@ class JobsApi
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  string $branch Branch to use (optional)
      * @param  bool $include_annotations Include job-locale annotations in the response (optional, default to false)
+     * @param  bool $omit_translation_keys Omit translation keys in the response to reduce payload size for bigger jobs (optional, default to false)
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Phrase\Model\JobDetails, HTTP status code, HTTP response headers (array of strings)
      */
-    public function jobShowWithHttpInfo($project_id, $id, $x_phrase_app_otp = null, $branch = null, $include_annotations = false)
+    public function jobShowWithHttpInfo($project_id, $id, $x_phrase_app_otp = null, $branch = null, $include_annotations = false, $omit_translation_keys = false)
     {
-        $request = $this->jobShowRequest($project_id, $id, $x_phrase_app_otp, $branch, $include_annotations);
+        $request = $this->jobShowRequest($project_id, $id, $x_phrase_app_otp, $branch, $include_annotations, $omit_translation_keys);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2345,13 +2347,14 @@ class JobsApi
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  string $branch Branch to use (optional)
      * @param  bool $include_annotations Include job-locale annotations in the response (optional, default to false)
+     * @param  bool $omit_translation_keys Omit translation keys in the response to reduce payload size for bigger jobs (optional, default to false)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function jobShowAsync($project_id, $id, $x_phrase_app_otp = null, $branch = null, $include_annotations = false)
+    public function jobShowAsync($project_id, $id, $x_phrase_app_otp = null, $branch = null, $include_annotations = false, $omit_translation_keys = false)
     {
-        return $this->jobShowAsyncWithHttpInfo($project_id, $id, $x_phrase_app_otp, $branch, $include_annotations)
+        return $this->jobShowAsyncWithHttpInfo($project_id, $id, $x_phrase_app_otp, $branch, $include_annotations, $omit_translation_keys)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2369,14 +2372,15 @@ class JobsApi
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  string $branch Branch to use (optional)
      * @param  bool $include_annotations Include job-locale annotations in the response (optional, default to false)
+     * @param  bool $omit_translation_keys Omit translation keys in the response to reduce payload size for bigger jobs (optional, default to false)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function jobShowAsyncWithHttpInfo($project_id, $id, $x_phrase_app_otp = null, $branch = null, $include_annotations = false)
+    public function jobShowAsyncWithHttpInfo($project_id, $id, $x_phrase_app_otp = null, $branch = null, $include_annotations = false, $omit_translation_keys = false)
     {
         $returnType = '\Phrase\Model\JobDetails';
-        $request = $this->jobShowRequest($project_id, $id, $x_phrase_app_otp, $branch, $include_annotations);
+        $request = $this->jobShowRequest($project_id, $id, $x_phrase_app_otp, $branch, $include_annotations, $omit_translation_keys);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2420,11 +2424,12 @@ class JobsApi
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  string $branch Branch to use (optional)
      * @param  bool $include_annotations Include job-locale annotations in the response (optional, default to false)
+     * @param  bool $omit_translation_keys Omit translation keys in the response to reduce payload size for bigger jobs (optional, default to false)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function jobShowRequest($project_id, $id, $x_phrase_app_otp = null, $branch = null, $include_annotations = false)
+    protected function jobShowRequest($project_id, $id, $x_phrase_app_otp = null, $branch = null, $include_annotations = false, $omit_translation_keys = false)
     {
         // verify the required parameter 'project_id' is set
         if ($project_id === null || (is_array($project_id) && count($project_id) === 0)) {
@@ -2466,6 +2471,17 @@ class JobsApi
             }
             else {
                 $queryParams['include_annotations'] = $include_annotations;
+            }
+        }
+        // query params
+        if ($omit_translation_keys !== null) {
+            if('form' === 'form' && is_array($omit_translation_keys)) {
+                foreach($omit_translation_keys as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['omit_translation_keys'] = $omit_translation_keys;
             }
         }
 

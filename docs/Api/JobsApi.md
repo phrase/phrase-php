@@ -472,7 +472,7 @@ Name | Type | Description  | Notes
 
 ## jobShow
 
-> \Phrase\Model\JobDetails jobShow($project_id, $id, $x_phrase_app_otp, $branch, $include_annotations)
+> \Phrase\Model\JobDetails jobShow($project_id, $id, $x_phrase_app_otp, $branch, $include_annotations, $omit_translation_keys)
 
 Get a single job
 
@@ -498,9 +498,10 @@ $id = 'id_example'; // string | ID
 $x_phrase_app_otp = 'x_phrase_app_otp_example'; // string | Two-Factor-Authentication token (optional)
 $branch = my-feature-branch; // string | Branch to use
 $include_annotations = false; // bool | Include job-locale annotations in the response
+$omit_translation_keys = false; // bool | Omit translation keys in the response to reduce payload size for bigger jobs
 
 try {
-    $result = $apiInstance->jobShow($project_id, $id, $x_phrase_app_otp, $branch, $include_annotations);
+    $result = $apiInstance->jobShow($project_id, $id, $x_phrase_app_otp, $branch, $include_annotations, $omit_translation_keys);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling JobsApi->jobShow: ', $e->getMessage(), PHP_EOL;
@@ -518,6 +519,7 @@ Name | Type | Description  | Notes
  **x_phrase_app_otp** | **string**| Two-Factor-Authentication token (optional) | [optional]
  **branch** | **string**| Branch to use | [optional]
  **include_annotations** | **bool**| Include job-locale annotations in the response | [optional] [default to false]
+ **omit_translation_keys** | **bool**| Omit translation keys in the response to reduce payload size for bigger jobs | [optional] [default to false]
 
 ### Return type
 
