@@ -121,6 +121,16 @@ class AutomationsApiTest extends TestCase
     }
 
     /**
+     * Test case for automationTrigger
+     *
+     * Trigger an automation.
+     *
+     */
+    public function testAutomationTrigger()
+    {
+    }
+
+    /**
      * Test case for automationUpdate
      *
      * Update an automation.
