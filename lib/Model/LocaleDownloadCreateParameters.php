@@ -68,6 +68,7 @@ class LocaleDownloadCreateParameters implements ModelInterface, ArrayAccess
         'use_last_reviewed_version' => 'bool',
         'locale_ids' => 'string[]',
         'fallback_locale_id' => 'string',
+        'use_locale_fallback' => 'bool',
         'source_locale_id' => 'string',
         'custom_metadata_filters' => 'object',
         'updated_since' => 'string'
@@ -92,6 +93,7 @@ class LocaleDownloadCreateParameters implements ModelInterface, ArrayAccess
         'use_last_reviewed_version' => null,
         'locale_ids' => null,
         'fallback_locale_id' => null,
+        'use_locale_fallback' => null,
         'source_locale_id' => null,
         'custom_metadata_filters' => null,
         'updated_since' => null
@@ -137,6 +139,7 @@ class LocaleDownloadCreateParameters implements ModelInterface, ArrayAccess
         'use_last_reviewed_version' => 'use_last_reviewed_version',
         'locale_ids' => 'locale_ids',
         'fallback_locale_id' => 'fallback_locale_id',
+        'use_locale_fallback' => 'use_locale_fallback',
         'source_locale_id' => 'source_locale_id',
         'custom_metadata_filters' => 'custom_metadata_filters',
         'updated_since' => 'updated_since'
@@ -161,6 +164,7 @@ class LocaleDownloadCreateParameters implements ModelInterface, ArrayAccess
         'use_last_reviewed_version' => 'setUseLastReviewedVersion',
         'locale_ids' => 'setLocaleIds',
         'fallback_locale_id' => 'setFallbackLocaleId',
+        'use_locale_fallback' => 'setUseLocaleFallback',
         'source_locale_id' => 'setSourceLocaleId',
         'custom_metadata_filters' => 'setCustomMetadataFilters',
         'updated_since' => 'setUpdatedSince'
@@ -185,6 +189,7 @@ class LocaleDownloadCreateParameters implements ModelInterface, ArrayAccess
         'use_last_reviewed_version' => 'getUseLastReviewedVersion',
         'locale_ids' => 'getLocaleIds',
         'fallback_locale_id' => 'getFallbackLocaleId',
+        'use_locale_fallback' => 'getUseLocaleFallback',
         'source_locale_id' => 'getSourceLocaleId',
         'custom_metadata_filters' => 'getCustomMetadataFilters',
         'updated_since' => 'getUpdatedSince'
@@ -263,6 +268,7 @@ class LocaleDownloadCreateParameters implements ModelInterface, ArrayAccess
         $this->container['use_last_reviewed_version'] = isset($data['use_last_reviewed_version']) ? $data['use_last_reviewed_version'] : null;
         $this->container['locale_ids'] = isset($data['locale_ids']) ? $data['locale_ids'] : null;
         $this->container['fallback_locale_id'] = isset($data['fallback_locale_id']) ? $data['fallback_locale_id'] : null;
+        $this->container['use_locale_fallback'] = isset($data['use_locale_fallback']) ? $data['use_locale_fallback'] : null;
         $this->container['source_locale_id'] = isset($data['source_locale_id']) ? $data['source_locale_id'] : null;
         $this->container['custom_metadata_filters'] = isset($data['custom_metadata_filters']) ? $data['custom_metadata_filters'] : null;
         $this->container['updated_since'] = isset($data['updated_since']) ? $data['updated_since'] : null;
@@ -596,13 +602,37 @@ class LocaleDownloadCreateParameters implements ModelInterface, ArrayAccess
     /**
      * Sets fallback_locale_id
      *
-     * @param string|null $fallback_locale_id If a key has no translation in the locale being downloaded the translation in the fallback locale will be used. Provide the ID of the locale that should be used as the fallback. Requires include_empty_translations to be set to `true`.
+     * @param string|null $fallback_locale_id If a key has no translation in the locale being downloaded, the translation in the fallback locale will be used. Provide the ID of the locale that should be used as the fallback. Requires `include_empty_translations` to be set to `true`. Mutually exclusive with `use_locale_fallback`.
      *
      * @return $this
      */
     public function setFallbackLocaleId($fallback_locale_id)
     {
         $this->container['fallback_locale_id'] = $fallback_locale_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets use_locale_fallback
+     *
+     * @return bool|null
+     */
+    public function getUseLocaleFallback()
+    {
+        return $this->container['use_locale_fallback'];
+    }
+
+    /**
+     * Sets use_locale_fallback
+     *
+     * @param bool|null $use_locale_fallback If a key has no translation in the locale being downloaded, the translation in the fallback locale will be used. Fallback locale is defined in [locale's settings](/en/api/strings/locales/update-a-locale#body-fallback-locale-id). Requires `include_empty_translations` to be set to `true`. Mutually exclusive with `fallback_locale_id`.
+     *
+     * @return $this
+     */
+    public function setUseLocaleFallback($use_locale_fallback)
+    {
+        $this->container['use_locale_fallback'] = $use_locale_fallback;
 
         return $this;
     }

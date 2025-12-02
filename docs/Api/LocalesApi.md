@@ -208,7 +208,7 @@ void (empty response body)
 
 ## localeDownload
 
-> \SplFileObject localeDownload($project_id, $id, $x_phrase_app_otp, $if_modified_since, $if_none_match, $branch, $file_format, $tags, $tag, $include_empty_translations, $exclude_empty_zero_forms, $include_translated_keys, $keep_notranslate_tags, $convert_emoji, $format_options, $encoding, $skip_unverified_translations, $include_unverified_translations, $use_last_reviewed_version, $fallback_locale_id, $source_locale_id, $translation_key_prefix, $filter_by_prefix, $custom_metadata_filters, $locale_ids, $updated_since)
+> \SplFileObject localeDownload($project_id, $id, $x_phrase_app_otp, $if_modified_since, $if_none_match, $branch, $file_format, $tags, $tag, $include_empty_translations, $exclude_empty_zero_forms, $include_translated_keys, $keep_notranslate_tags, $convert_emoji, $format_options, $encoding, $skip_unverified_translations, $include_unverified_translations, $use_last_reviewed_version, $fallback_locale_id, $use_locale_fallback, $source_locale_id, $translation_key_prefix, $filter_by_prefix, $custom_metadata_filters, $locale_ids, $updated_since)
 
 Download a locale
 
@@ -248,7 +248,8 @@ $encoding = 'encoding_example'; // string | Enforces a specific encoding on the 
 $skip_unverified_translations = True; // bool | Indicates whether the locale file should skip all unverified translations. This parameter is deprecated and should be replaced with `include_unverified_translations`.
 $include_unverified_translations = True; // bool | if set to false unverified translations are excluded
 $use_last_reviewed_version = True; // bool | If set to true the last reviewed version of a translation is used. This is only available if the review workflow is enabled for the project.
-$fallback_locale_id = 'fallback_locale_id_example'; // string | If a key has no translation in the locale being downloaded the translation in the fallback locale will be used. Provide the ID of the locale that should be used as the fallback. Requires include_empty_translations to be set to `true`.
+$fallback_locale_id = 'fallback_locale_id_example'; // string | If a key has no translation in the locale being downloaded, the translation in the fallback locale will be used. Provide the ID of the locale that should be used as the fallback. Requires `include_empty_translations` to be set to `true`. Mutually exclusive with `use_locale_fallback`.
+$use_locale_fallback = true; // bool | If a key has no translation in the locale being downloaded, the translation in the fallback locale will be used. Fallback locale is defined in [locale's settings](/en/api/strings/locales/update-a-locale#body-fallback-locale-id). Requires `include_empty_translations` to be set to `true`. Mutually exclusive with `fallback_locale_id`.
 $source_locale_id = 'source_locale_id_example'; // string | Provides the source language of a corresponding job as the source language of the generated locale file. This parameter will be ignored unless used in combination with a `tag` parameter indicating a specific job.
 $translation_key_prefix = prefix_; // string | Download all translation keys, and remove the specified prefix where possible. Warning: this may create duplicate key names if other keys share the same name after the prefix is removed.
 $filter_by_prefix = True; // bool | Only download translation keys containing the specified prefix, and remove the prefix from the generated file.
@@ -257,7 +258,7 @@ $locale_ids = ["de","en"]; // string[] | Locale IDs or locale names
 $updated_since = 2023-01-01T00:00:00Z; // string | Only include translations and keys that have been updated since the given date. The date must be in ISO 8601 format (e.g., `2023-01-01T00:00:00Z`).
 
 try {
-    $result = $apiInstance->localeDownload($project_id, $id, $x_phrase_app_otp, $if_modified_since, $if_none_match, $branch, $file_format, $tags, $tag, $include_empty_translations, $exclude_empty_zero_forms, $include_translated_keys, $keep_notranslate_tags, $convert_emoji, $format_options, $encoding, $skip_unverified_translations, $include_unverified_translations, $use_last_reviewed_version, $fallback_locale_id, $source_locale_id, $translation_key_prefix, $filter_by_prefix, $custom_metadata_filters, $locale_ids, $updated_since);
+    $result = $apiInstance->localeDownload($project_id, $id, $x_phrase_app_otp, $if_modified_since, $if_none_match, $branch, $file_format, $tags, $tag, $include_empty_translations, $exclude_empty_zero_forms, $include_translated_keys, $keep_notranslate_tags, $convert_emoji, $format_options, $encoding, $skip_unverified_translations, $include_unverified_translations, $use_last_reviewed_version, $fallback_locale_id, $use_locale_fallback, $source_locale_id, $translation_key_prefix, $filter_by_prefix, $custom_metadata_filters, $locale_ids, $updated_since);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling LocalesApi->localeDownload: ', $e->getMessage(), PHP_EOL;
@@ -289,7 +290,8 @@ Name | Type | Description  | Notes
  **skip_unverified_translations** | **bool**| Indicates whether the locale file should skip all unverified translations. This parameter is deprecated and should be replaced with &#x60;include_unverified_translations&#x60;. | [optional]
  **include_unverified_translations** | **bool**| if set to false unverified translations are excluded | [optional]
  **use_last_reviewed_version** | **bool**| If set to true the last reviewed version of a translation is used. This is only available if the review workflow is enabled for the project. | [optional]
- **fallback_locale_id** | **string**| If a key has no translation in the locale being downloaded the translation in the fallback locale will be used. Provide the ID of the locale that should be used as the fallback. Requires include_empty_translations to be set to &#x60;true&#x60;. | [optional]
+ **fallback_locale_id** | **string**| If a key has no translation in the locale being downloaded, the translation in the fallback locale will be used. Provide the ID of the locale that should be used as the fallback. Requires &#x60;include_empty_translations&#x60; to be set to &#x60;true&#x60;. Mutually exclusive with &#x60;use_locale_fallback&#x60;. | [optional]
+ **use_locale_fallback** | **bool**| If a key has no translation in the locale being downloaded, the translation in the fallback locale will be used. Fallback locale is defined in [locale&#39;s settings](/en/api/strings/locales/update-a-locale#body-fallback-locale-id). Requires &#x60;include_empty_translations&#x60; to be set to &#x60;true&#x60;. Mutually exclusive with &#x60;fallback_locale_id&#x60;. | [optional]
  **source_locale_id** | **string**| Provides the source language of a corresponding job as the source language of the generated locale file. This parameter will be ignored unless used in combination with a &#x60;tag&#x60; parameter indicating a specific job. | [optional]
  **translation_key_prefix** | **string**| Download all translation keys, and remove the specified prefix where possible. Warning: this may create duplicate key names if other keys share the same name after the prefix is removed. | [optional]
  **filter_by_prefix** | **bool**| Only download translation keys containing the specified prefix, and remove the prefix from the generated file. | [optional]

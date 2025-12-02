@@ -168,6 +168,13 @@ class LocaleDownloadCreateParametersTest extends TestCase
     }
 
     /**
+     * Test attribute "use_locale_fallback"
+     */
+    public function testPropertyUseLocaleFallback()
+    {
+    }
+
+    /**
      * Test attribute "source_locale_id"
      */
     public function testPropertySourceLocaleId()
