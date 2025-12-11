@@ -76,6 +76,7 @@ docs/Model/BlacklistedKey.md
 docs/Model/BlacklistedKeyCreateParameters.md
 docs/Model/BlacklistedKeyUpdateParameters.md
 docs/Model/Branch.md
+docs/Model/BranchCreateComparisonParameters.md
 docs/Model/BranchCreateParameters.md
 docs/Model/BranchMergeParameters.md
 docs/Model/BranchName.md
@@ -355,6 +356,7 @@ lib/Model/BlacklistedKey.php
 lib/Model/BlacklistedKeyCreateParameters.php
 lib/Model/BlacklistedKeyUpdateParameters.php
 lib/Model/Branch.php
+lib/Model/BranchCreateComparisonParameters.php
 lib/Model/BranchCreateParameters.php
 lib/Model/BranchMergeParameters.php
 lib/Model/BranchName.php
@@ -629,6 +631,7 @@ test/Model/AutomationsCreateParametersTest.php
 test/Model/BlacklistedKeyCreateParametersTest.php
 test/Model/BlacklistedKeyTest.php
 test/Model/BlacklistedKeyUpdateParametersTest.php
+test/Model/BranchCreateComparisonParametersTest.php
 test/Model/BranchCreateParametersTest.php
 test/Model/BranchMergeParametersTest.php
 test/Model/BranchNameTest.php

@@ -168,6 +168,7 @@ Class | Method | HTTP request | Description
 *BlacklistedKeysApi* | [**blacklistedKeyUpdate**](docs/Api/BlacklistedKeysApi.md#blacklistedkeyupdate) | **PATCH** /projects/{project_id}/blacklisted_keys/{id} | Update a blocked key
 *BlacklistedKeysApi* | [**blacklistedKeysList**](docs/Api/BlacklistedKeysApi.md#blacklistedkeyslist) | **GET** /projects/{project_id}/blacklisted_keys | List blocked keys
 *BranchesApi* | [**branchCompare**](docs/Api/BranchesApi.md#branchcompare) | **GET** /projects/{project_id}/branches/{name}/compare | Compare branches
+*BranchesApi* | [**branchComparisonCreate**](docs/Api/BranchesApi.md#branchcomparisoncreate) | **POST** /projects/{project_id}/branches/{name}/compare | Create comparison (async.)
 *BranchesApi* | [**branchCreate**](docs/Api/BranchesApi.md#branchcreate) | **POST** /projects/{project_id}/branches | Create a branch
 *BranchesApi* | [**branchDelete**](docs/Api/BranchesApi.md#branchdelete) | **DELETE** /projects/{project_id}/branches/{name} | Delete a branch
 *BranchesApi* | [**branchMerge**](docs/Api/BranchesApi.md#branchmerge) | **PATCH** /projects/{project_id}/branches/{name}/merge | Merge a branch
@@ -451,6 +452,7 @@ Class | Method | HTTP request | Description
  - [BlacklistedKeyCreateParameters](docs/Model/BlacklistedKeyCreateParameters.md)
  - [BlacklistedKeyUpdateParameters](docs/Model/BlacklistedKeyUpdateParameters.md)
  - [Branch](docs/Model/Branch.md)
+ - [BranchCreateComparisonParameters](docs/Model/BranchCreateComparisonParameters.md)
  - [BranchCreateParameters](docs/Model/BranchCreateParameters.md)
  - [BranchMergeParameters](docs/Model/BranchMergeParameters.md)
  - [BranchName](docs/Model/BranchName.md)

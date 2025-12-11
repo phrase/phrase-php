@@ -81,6 +81,16 @@ class BranchesApiTest extends TestCase
     }
 
     /**
+     * Test case for branchComparisonCreate
+     *
+     * Create comparison (async.).
+     *
+     */
+    public function testBranchComparisonCreate()
+    {
+    }
+
+    /**
      * Test case for branchCreate
      *
      * Create a branch.
