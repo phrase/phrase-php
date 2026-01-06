@@ -120,16 +120,14 @@ class LocalesApi
      *
      * @param  string $id ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
-     * @param  int $page Page number (optional)
-     * @param  int $per_page Limit on the number of objects to be returned, between 1 and 100. 25 by default (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Phrase\Model\LocalePreview1[]
      */
-    public function accountLocales($id, $x_phrase_app_otp = null, $page = null, $per_page = null)
+    public function accountLocales($id, $x_phrase_app_otp = null)
     {
-        list($response) = $this->accountLocalesWithHttpInfo($id, $x_phrase_app_otp, $page, $per_page);
+        list($response) = $this->accountLocalesWithHttpInfo($id, $x_phrase_app_otp);
         return $response;
     }
 
@@ -140,16 +138,14 @@ class LocalesApi
      *
      * @param  string $id ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
-     * @param  int $page Page number (optional)
-     * @param  int $per_page Limit on the number of objects to be returned, between 1 and 100. 25 by default (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Phrase\Model\LocalePreview1[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function accountLocalesWithHttpInfo($id, $x_phrase_app_otp = null, $page = null, $per_page = null)
+    public function accountLocalesWithHttpInfo($id, $x_phrase_app_otp = null)
     {
-        $request = $this->accountLocalesRequest($id, $x_phrase_app_otp, $page, $per_page);
+        $request = $this->accountLocalesRequest($id, $x_phrase_app_otp);
 
         try {
             $options = $this->createHttpClientOption();
@@ -231,15 +227,13 @@ class LocalesApi
      *
      * @param  string $id ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
-     * @param  int $page Page number (optional)
-     * @param  int $per_page Limit on the number of objects to be returned, between 1 and 100. 25 by default (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function accountLocalesAsync($id, $x_phrase_app_otp = null, $page = null, $per_page = null)
+    public function accountLocalesAsync($id, $x_phrase_app_otp = null)
     {
-        return $this->accountLocalesAsyncWithHttpInfo($id, $x_phrase_app_otp, $page, $per_page)
+        return $this->accountLocalesAsyncWithHttpInfo($id, $x_phrase_app_otp)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -254,16 +248,14 @@ class LocalesApi
      *
      * @param  string $id ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
-     * @param  int $page Page number (optional)
-     * @param  int $per_page Limit on the number of objects to be returned, between 1 and 100. 25 by default (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function accountLocalesAsyncWithHttpInfo($id, $x_phrase_app_otp = null, $page = null, $per_page = null)
+    public function accountLocalesAsyncWithHttpInfo($id, $x_phrase_app_otp = null)
     {
         $returnType = '\Phrase\Model\LocalePreview1[]';
-        $request = $this->accountLocalesRequest($id, $x_phrase_app_otp, $page, $per_page);
+        $request = $this->accountLocalesRequest($id, $x_phrase_app_otp);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -304,13 +296,11 @@ class LocalesApi
      *
      * @param  string $id ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
-     * @param  int $page Page number (optional)
-     * @param  int $per_page Limit on the number of objects to be returned, between 1 and 100. 25 by default (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function accountLocalesRequest($id, $x_phrase_app_otp = null, $page = null, $per_page = null)
+    protected function accountLocalesRequest($id, $x_phrase_app_otp = null)
     {
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
@@ -326,28 +316,6 @@ class LocalesApi
         $httpBody = '';
         $multipart = false;
 
-        // query params
-        if ($page !== null) {
-            if('form' === 'form' && is_array($page)) {
-                foreach($page as $key => $value) {
-                    $queryParams[$key] = $value;
-                }
-            }
-            else {
-                $queryParams['page'] = $page;
-            }
-        }
-        // query params
-        if ($per_page !== null) {
-            if('form' === 'form' && is_array($per_page)) {
-                foreach($per_page as $key => $value) {
-                    $queryParams[$key] = $value;
-                }
-            }
-            else {
-                $queryParams['per_page'] = $per_page;
-            }
-        }
 
         // header params
         if ($x_phrase_app_otp !== null) {

@@ -55,7 +55,6 @@ class LocalePreview1 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'id' => 'string',
         'name' => 'string',
         'code' => 'string',
         'project' => '\Phrase\Model\ProjectShort'
@@ -67,7 +66,6 @@ class LocalePreview1 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'id' => null,
         'name' => null,
         'code' => null,
         'project' => null
@@ -100,7 +98,6 @@ class LocalePreview1 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'id',
         'name' => 'name',
         'code' => 'code',
         'project' => 'project'
@@ -112,7 +109,6 @@ class LocalePreview1 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId',
         'name' => 'setName',
         'code' => 'setCode',
         'project' => 'setProject'
@@ -124,7 +120,6 @@ class LocalePreview1 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId',
         'name' => 'getName',
         'code' => 'getCode',
         'project' => 'getProject'
@@ -190,7 +185,6 @@ class LocalePreview1 implements ModelInterface, ArrayAccess
      */
     public function __construct(?array $data = null)
     {
-        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['code'] = isset($data['code']) ? $data['code'] : null;
         $this->container['project'] = isset($data['project']) ? $data['project'] : null;
@@ -219,30 +213,6 @@ class LocalePreview1 implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets id
-     *
-     * @return string|null
-     */
-    public function getId()
-    {
-        return $this->container['id'];
-    }
-
-    /**
-     * Sets id
-     *
-     * @param string|null $id id
-     *
-     * @return $this
-     */
-    public function setId($id)
-    {
-        $this->container['id'] = $id;
-
-        return $this;
-    }
 
     /**
      * Gets name
