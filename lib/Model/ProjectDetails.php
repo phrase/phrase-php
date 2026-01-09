@@ -66,7 +66,21 @@ class ProjectDetails implements ModelInterface, ArrayAccess
         'point_of_contact' => '\Phrase\Model\UserPreview',
         'created_at' => '\DateTime',
         'updated_at' => '\DateTime',
-        'shares_translation_memory' => 'bool'
+        'shares_translation_memory' => 'bool',
+        'machine_translation_enabled' => 'bool',
+        'zero_plural_form_enabled' => 'bool',
+        'enable_all_data_type_translation_keys_for_translators' => 'bool',
+        'enable_icu_message_format' => 'bool',
+        'enable_branching' => 'bool',
+        'protect_master_branch' => 'bool',
+        'autotranslate_enabled' => 'bool',
+        'autotranslate_check_new_translation_keys' => 'bool',
+        'autotranslate_check_new_uploads' => 'bool',
+        'autotranslate_check_new_locales' => 'bool',
+        'autotranslate_mark_as_unverified' => 'bool',
+        'autotranslate_use_machine_translation' => 'bool',
+        'autotranslate_use_translation_memory' => 'bool',
+        'default_encoding' => 'string'
     ];
 
     /**
@@ -86,7 +100,21 @@ class ProjectDetails implements ModelInterface, ArrayAccess
         'point_of_contact' => null,
         'created_at' => 'date-time',
         'updated_at' => 'date-time',
-        'shares_translation_memory' => null
+        'shares_translation_memory' => null,
+        'machine_translation_enabled' => null,
+        'zero_plural_form_enabled' => null,
+        'enable_all_data_type_translation_keys_for_translators' => null,
+        'enable_icu_message_format' => null,
+        'enable_branching' => null,
+        'protect_master_branch' => null,
+        'autotranslate_enabled' => null,
+        'autotranslate_check_new_translation_keys' => null,
+        'autotranslate_check_new_uploads' => null,
+        'autotranslate_check_new_locales' => null,
+        'autotranslate_mark_as_unverified' => null,
+        'autotranslate_use_machine_translation' => null,
+        'autotranslate_use_translation_memory' => null,
+        'default_encoding' => null
     ];
 
     /**
@@ -127,7 +155,21 @@ class ProjectDetails implements ModelInterface, ArrayAccess
         'point_of_contact' => 'point_of_contact',
         'created_at' => 'created_at',
         'updated_at' => 'updated_at',
-        'shares_translation_memory' => 'shares_translation_memory'
+        'shares_translation_memory' => 'shares_translation_memory',
+        'machine_translation_enabled' => 'machine_translation_enabled',
+        'zero_plural_form_enabled' => 'zero_plural_form_enabled',
+        'enable_all_data_type_translation_keys_for_translators' => 'enable_all_data_type_translation_keys_for_translators',
+        'enable_icu_message_format' => 'enable_icu_message_format',
+        'enable_branching' => 'enable_branching',
+        'protect_master_branch' => 'protect_master_branch',
+        'autotranslate_enabled' => 'autotranslate_enabled',
+        'autotranslate_check_new_translation_keys' => 'autotranslate_check_new_translation_keys',
+        'autotranslate_check_new_uploads' => 'autotranslate_check_new_uploads',
+        'autotranslate_check_new_locales' => 'autotranslate_check_new_locales',
+        'autotranslate_mark_as_unverified' => 'autotranslate_mark_as_unverified',
+        'autotranslate_use_machine_translation' => 'autotranslate_use_machine_translation',
+        'autotranslate_use_translation_memory' => 'autotranslate_use_translation_memory',
+        'default_encoding' => 'default_encoding'
     ];
 
     /**
@@ -147,7 +189,21 @@ class ProjectDetails implements ModelInterface, ArrayAccess
         'point_of_contact' => 'setPointOfContact',
         'created_at' => 'setCreatedAt',
         'updated_at' => 'setUpdatedAt',
-        'shares_translation_memory' => 'setSharesTranslationMemory'
+        'shares_translation_memory' => 'setSharesTranslationMemory',
+        'machine_translation_enabled' => 'setMachineTranslationEnabled',
+        'zero_plural_form_enabled' => 'setZeroPluralFormEnabled',
+        'enable_all_data_type_translation_keys_for_translators' => 'setEnableAllDataTypeTranslationKeysForTranslators',
+        'enable_icu_message_format' => 'setEnableIcuMessageFormat',
+        'enable_branching' => 'setEnableBranching',
+        'protect_master_branch' => 'setProtectMasterBranch',
+        'autotranslate_enabled' => 'setAutotranslateEnabled',
+        'autotranslate_check_new_translation_keys' => 'setAutotranslateCheckNewTranslationKeys',
+        'autotranslate_check_new_uploads' => 'setAutotranslateCheckNewUploads',
+        'autotranslate_check_new_locales' => 'setAutotranslateCheckNewLocales',
+        'autotranslate_mark_as_unverified' => 'setAutotranslateMarkAsUnverified',
+        'autotranslate_use_machine_translation' => 'setAutotranslateUseMachineTranslation',
+        'autotranslate_use_translation_memory' => 'setAutotranslateUseTranslationMemory',
+        'default_encoding' => 'setDefaultEncoding'
     ];
 
     /**
@@ -167,7 +223,21 @@ class ProjectDetails implements ModelInterface, ArrayAccess
         'point_of_contact' => 'getPointOfContact',
         'created_at' => 'getCreatedAt',
         'updated_at' => 'getUpdatedAt',
-        'shares_translation_memory' => 'getSharesTranslationMemory'
+        'shares_translation_memory' => 'getSharesTranslationMemory',
+        'machine_translation_enabled' => 'getMachineTranslationEnabled',
+        'zero_plural_form_enabled' => 'getZeroPluralFormEnabled',
+        'enable_all_data_type_translation_keys_for_translators' => 'getEnableAllDataTypeTranslationKeysForTranslators',
+        'enable_icu_message_format' => 'getEnableIcuMessageFormat',
+        'enable_branching' => 'getEnableBranching',
+        'protect_master_branch' => 'getProtectMasterBranch',
+        'autotranslate_enabled' => 'getAutotranslateEnabled',
+        'autotranslate_check_new_translation_keys' => 'getAutotranslateCheckNewTranslationKeys',
+        'autotranslate_check_new_uploads' => 'getAutotranslateCheckNewUploads',
+        'autotranslate_check_new_locales' => 'getAutotranslateCheckNewLocales',
+        'autotranslate_mark_as_unverified' => 'getAutotranslateMarkAsUnverified',
+        'autotranslate_use_machine_translation' => 'getAutotranslateUseMachineTranslation',
+        'autotranslate_use_translation_memory' => 'getAutotranslateUseTranslationMemory',
+        'default_encoding' => 'getDefaultEncoding'
     ];
 
     /**
@@ -242,6 +312,20 @@ class ProjectDetails implements ModelInterface, ArrayAccess
         $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
         $this->container['updated_at'] = isset($data['updated_at']) ? $data['updated_at'] : null;
         $this->container['shares_translation_memory'] = isset($data['shares_translation_memory']) ? $data['shares_translation_memory'] : null;
+        $this->container['machine_translation_enabled'] = isset($data['machine_translation_enabled']) ? $data['machine_translation_enabled'] : null;
+        $this->container['zero_plural_form_enabled'] = isset($data['zero_plural_form_enabled']) ? $data['zero_plural_form_enabled'] : null;
+        $this->container['enable_all_data_type_translation_keys_for_translators'] = isset($data['enable_all_data_type_translation_keys_for_translators']) ? $data['enable_all_data_type_translation_keys_for_translators'] : null;
+        $this->container['enable_icu_message_format'] = isset($data['enable_icu_message_format']) ? $data['enable_icu_message_format'] : null;
+        $this->container['enable_branching'] = isset($data['enable_branching']) ? $data['enable_branching'] : null;
+        $this->container['protect_master_branch'] = isset($data['protect_master_branch']) ? $data['protect_master_branch'] : null;
+        $this->container['autotranslate_enabled'] = isset($data['autotranslate_enabled']) ? $data['autotranslate_enabled'] : null;
+        $this->container['autotranslate_check_new_translation_keys'] = isset($data['autotranslate_check_new_translation_keys']) ? $data['autotranslate_check_new_translation_keys'] : null;
+        $this->container['autotranslate_check_new_uploads'] = isset($data['autotranslate_check_new_uploads']) ? $data['autotranslate_check_new_uploads'] : null;
+        $this->container['autotranslate_check_new_locales'] = isset($data['autotranslate_check_new_locales']) ? $data['autotranslate_check_new_locales'] : null;
+        $this->container['autotranslate_mark_as_unverified'] = isset($data['autotranslate_mark_as_unverified']) ? $data['autotranslate_mark_as_unverified'] : null;
+        $this->container['autotranslate_use_machine_translation'] = isset($data['autotranslate_use_machine_translation']) ? $data['autotranslate_use_machine_translation'] : null;
+        $this->container['autotranslate_use_translation_memory'] = isset($data['autotranslate_use_translation_memory']) ? $data['autotranslate_use_translation_memory'] : null;
+        $this->container['default_encoding'] = isset($data['default_encoding']) ? $data['default_encoding'] : null;
     }
 
     /**
@@ -552,6 +636,342 @@ class ProjectDetails implements ModelInterface, ArrayAccess
     public function setSharesTranslationMemory($shares_translation_memory)
     {
         $this->container['shares_translation_memory'] = $shares_translation_memory;
+
+        return $this;
+    }
+
+    /**
+     * Gets machine_translation_enabled
+     *
+     * @return bool|null
+     */
+    public function getMachineTranslationEnabled()
+    {
+        return $this->container['machine_translation_enabled'];
+    }
+
+    /**
+     * Sets machine_translation_enabled
+     *
+     * @param bool|null $machine_translation_enabled machine_translation_enabled
+     *
+     * @return $this
+     */
+    public function setMachineTranslationEnabled($machine_translation_enabled)
+    {
+        $this->container['machine_translation_enabled'] = $machine_translation_enabled;
+
+        return $this;
+    }
+
+    /**
+     * Gets zero_plural_form_enabled
+     *
+     * @return bool|null
+     */
+    public function getZeroPluralFormEnabled()
+    {
+        return $this->container['zero_plural_form_enabled'];
+    }
+
+    /**
+     * Sets zero_plural_form_enabled
+     *
+     * @param bool|null $zero_plural_form_enabled zero_plural_form_enabled
+     *
+     * @return $this
+     */
+    public function setZeroPluralFormEnabled($zero_plural_form_enabled)
+    {
+        $this->container['zero_plural_form_enabled'] = $zero_plural_form_enabled;
+
+        return $this;
+    }
+
+    /**
+     * Gets enable_all_data_type_translation_keys_for_translators
+     *
+     * @return bool|null
+     */
+    public function getEnableAllDataTypeTranslationKeysForTranslators()
+    {
+        return $this->container['enable_all_data_type_translation_keys_for_translators'];
+    }
+
+    /**
+     * Sets enable_all_data_type_translation_keys_for_translators
+     *
+     * @param bool|null $enable_all_data_type_translation_keys_for_translators enable_all_data_type_translation_keys_for_translators
+     *
+     * @return $this
+     */
+    public function setEnableAllDataTypeTranslationKeysForTranslators($enable_all_data_type_translation_keys_for_translators)
+    {
+        $this->container['enable_all_data_type_translation_keys_for_translators'] = $enable_all_data_type_translation_keys_for_translators;
+
+        return $this;
+    }
+
+    /**
+     * Gets enable_icu_message_format
+     *
+     * @return bool|null
+     */
+    public function getEnableIcuMessageFormat()
+    {
+        return $this->container['enable_icu_message_format'];
+    }
+
+    /**
+     * Sets enable_icu_message_format
+     *
+     * @param bool|null $enable_icu_message_format enable_icu_message_format
+     *
+     * @return $this
+     */
+    public function setEnableIcuMessageFormat($enable_icu_message_format)
+    {
+        $this->container['enable_icu_message_format'] = $enable_icu_message_format;
+
+        return $this;
+    }
+
+    /**
+     * Gets enable_branching
+     *
+     * @return bool|null
+     */
+    public function getEnableBranching()
+    {
+        return $this->container['enable_branching'];
+    }
+
+    /**
+     * Sets enable_branching
+     *
+     * @param bool|null $enable_branching enable_branching
+     *
+     * @return $this
+     */
+    public function setEnableBranching($enable_branching)
+    {
+        $this->container['enable_branching'] = $enable_branching;
+
+        return $this;
+    }
+
+    /**
+     * Gets protect_master_branch
+     *
+     * @return bool|null
+     */
+    public function getProtectMasterBranch()
+    {
+        return $this->container['protect_master_branch'];
+    }
+
+    /**
+     * Sets protect_master_branch
+     *
+     * @param bool|null $protect_master_branch protect_master_branch
+     *
+     * @return $this
+     */
+    public function setProtectMasterBranch($protect_master_branch)
+    {
+        $this->container['protect_master_branch'] = $protect_master_branch;
+
+        return $this;
+    }
+
+    /**
+     * Gets autotranslate_enabled
+     *
+     * @return bool|null
+     */
+    public function getAutotranslateEnabled()
+    {
+        return $this->container['autotranslate_enabled'];
+    }
+
+    /**
+     * Sets autotranslate_enabled
+     *
+     * @param bool|null $autotranslate_enabled autotranslate_enabled
+     *
+     * @return $this
+     */
+    public function setAutotranslateEnabled($autotranslate_enabled)
+    {
+        $this->container['autotranslate_enabled'] = $autotranslate_enabled;
+
+        return $this;
+    }
+
+    /**
+     * Gets autotranslate_check_new_translation_keys
+     *
+     * @return bool|null
+     */
+    public function getAutotranslateCheckNewTranslationKeys()
+    {
+        return $this->container['autotranslate_check_new_translation_keys'];
+    }
+
+    /**
+     * Sets autotranslate_check_new_translation_keys
+     *
+     * @param bool|null $autotranslate_check_new_translation_keys autotranslate_check_new_translation_keys
+     *
+     * @return $this
+     */
+    public function setAutotranslateCheckNewTranslationKeys($autotranslate_check_new_translation_keys)
+    {
+        $this->container['autotranslate_check_new_translation_keys'] = $autotranslate_check_new_translation_keys;
+
+        return $this;
+    }
+
+    /**
+     * Gets autotranslate_check_new_uploads
+     *
+     * @return bool|null
+     */
+    public function getAutotranslateCheckNewUploads()
+    {
+        return $this->container['autotranslate_check_new_uploads'];
+    }
+
+    /**
+     * Sets autotranslate_check_new_uploads
+     *
+     * @param bool|null $autotranslate_check_new_uploads autotranslate_check_new_uploads
+     *
+     * @return $this
+     */
+    public function setAutotranslateCheckNewUploads($autotranslate_check_new_uploads)
+    {
+        $this->container['autotranslate_check_new_uploads'] = $autotranslate_check_new_uploads;
+
+        return $this;
+    }
+
+    /**
+     * Gets autotranslate_check_new_locales
+     *
+     * @return bool|null
+     */
+    public function getAutotranslateCheckNewLocales()
+    {
+        return $this->container['autotranslate_check_new_locales'];
+    }
+
+    /**
+     * Sets autotranslate_check_new_locales
+     *
+     * @param bool|null $autotranslate_check_new_locales autotranslate_check_new_locales
+     *
+     * @return $this
+     */
+    public function setAutotranslateCheckNewLocales($autotranslate_check_new_locales)
+    {
+        $this->container['autotranslate_check_new_locales'] = $autotranslate_check_new_locales;
+
+        return $this;
+    }
+
+    /**
+     * Gets autotranslate_mark_as_unverified
+     *
+     * @return bool|null
+     */
+    public function getAutotranslateMarkAsUnverified()
+    {
+        return $this->container['autotranslate_mark_as_unverified'];
+    }
+
+    /**
+     * Sets autotranslate_mark_as_unverified
+     *
+     * @param bool|null $autotranslate_mark_as_unverified autotranslate_mark_as_unverified
+     *
+     * @return $this
+     */
+    public function setAutotranslateMarkAsUnverified($autotranslate_mark_as_unverified)
+    {
+        $this->container['autotranslate_mark_as_unverified'] = $autotranslate_mark_as_unverified;
+
+        return $this;
+    }
+
+    /**
+     * Gets autotranslate_use_machine_translation
+     *
+     * @return bool|null
+     */
+    public function getAutotranslateUseMachineTranslation()
+    {
+        return $this->container['autotranslate_use_machine_translation'];
+    }
+
+    /**
+     * Sets autotranslate_use_machine_translation
+     *
+     * @param bool|null $autotranslate_use_machine_translation autotranslate_use_machine_translation
+     *
+     * @return $this
+     */
+    public function setAutotranslateUseMachineTranslation($autotranslate_use_machine_translation)
+    {
+        $this->container['autotranslate_use_machine_translation'] = $autotranslate_use_machine_translation;
+
+        return $this;
+    }
+
+    /**
+     * Gets autotranslate_use_translation_memory
+     *
+     * @return bool|null
+     */
+    public function getAutotranslateUseTranslationMemory()
+    {
+        return $this->container['autotranslate_use_translation_memory'];
+    }
+
+    /**
+     * Sets autotranslate_use_translation_memory
+     *
+     * @param bool|null $autotranslate_use_translation_memory autotranslate_use_translation_memory
+     *
+     * @return $this
+     */
+    public function setAutotranslateUseTranslationMemory($autotranslate_use_translation_memory)
+    {
+        $this->container['autotranslate_use_translation_memory'] = $autotranslate_use_translation_memory;
+
+        return $this;
+    }
+
+    /**
+     * Gets default_encoding
+     *
+     * @return string|null
+     */
+    public function getDefaultEncoding()
+    {
+        return $this->container['default_encoding'];
+    }
+
+    /**
+     * Sets default_encoding
+     *
+     * @param string|null $default_encoding default_encoding
+     *
+     * @return $this
+     */
+    public function setDefaultEncoding($default_encoding)
+    {
+        $this->container['default_encoding'] = $default_encoding;
 
         return $this;
     }
