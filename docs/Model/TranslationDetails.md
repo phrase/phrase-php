@@ -15,9 +15,9 @@ Name | Type | Description | Notes
 **state** | **string** |  | [optional] 
 **created_at** | **\DateTime** |  | [optional] 
 **updated_at** | **\DateTime** |  | [optional] 
+**linked_translation** | [**\Phrase\Model\TranslationParent**](TranslationParent.md) |  | [optional] 
 **user** | [**\Phrase\Model\UserPreview**](UserPreview.md) |  | [optional] 
 **word_count** | **int** |  | [optional] 
-**linked_translation** | [**\Phrase\Model\TranslationParent**](TranslationParent.md) |  | [optional] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

@@ -152,4 +152,11 @@ class TranslationTest extends TestCase
     public function testPropertyUpdatedAt()
     {
     }
+
+    /**
+     * Test attribute "linked_translation"
+     */
+    public function testPropertyLinkedTranslation()
+    {
+    }
 }

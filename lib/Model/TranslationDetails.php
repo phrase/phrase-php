@@ -66,9 +66,9 @@ class TranslationDetails implements ModelInterface, ArrayAccess
         'state' => 'string',
         'created_at' => '\DateTime',
         'updated_at' => '\DateTime',
+        'linked_translation' => '\Phrase\Model\TranslationParent',
         'user' => '\Phrase\Model\UserPreview',
-        'word_count' => 'int',
-        'linked_translation' => '\Phrase\Model\TranslationParent'
+        'word_count' => 'int'
     ];
 
     /**
@@ -88,9 +88,9 @@ class TranslationDetails implements ModelInterface, ArrayAccess
         'state' => null,
         'created_at' => 'date-time',
         'updated_at' => 'date-time',
+        'linked_translation' => null,
         'user' => null,
-        'word_count' => null,
-        'linked_translation' => null
+        'word_count' => null
     ];
 
     /**
@@ -131,9 +131,9 @@ class TranslationDetails implements ModelInterface, ArrayAccess
         'state' => 'state',
         'created_at' => 'created_at',
         'updated_at' => 'updated_at',
+        'linked_translation' => 'linked_translation',
         'user' => 'user',
-        'word_count' => 'word_count',
-        'linked_translation' => 'linked_translation'
+        'word_count' => 'word_count'
     ];
 
     /**
@@ -153,9 +153,9 @@ class TranslationDetails implements ModelInterface, ArrayAccess
         'state' => 'setState',
         'created_at' => 'setCreatedAt',
         'updated_at' => 'setUpdatedAt',
+        'linked_translation' => 'setLinkedTranslation',
         'user' => 'setUser',
-        'word_count' => 'setWordCount',
-        'linked_translation' => 'setLinkedTranslation'
+        'word_count' => 'setWordCount'
     ];
 
     /**
@@ -175,9 +175,9 @@ class TranslationDetails implements ModelInterface, ArrayAccess
         'state' => 'getState',
         'created_at' => 'getCreatedAt',
         'updated_at' => 'getUpdatedAt',
+        'linked_translation' => 'getLinkedTranslation',
         'user' => 'getUser',
-        'word_count' => 'getWordCount',
-        'linked_translation' => 'getLinkedTranslation'
+        'word_count' => 'getWordCount'
     ];
 
     /**
@@ -251,9 +251,9 @@ class TranslationDetails implements ModelInterface, ArrayAccess
         $this->container['state'] = isset($data['state']) ? $data['state'] : null;
         $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
         $this->container['updated_at'] = isset($data['updated_at']) ? $data['updated_at'] : null;
+        $this->container['linked_translation'] = isset($data['linked_translation']) ? $data['linked_translation'] : null;
         $this->container['user'] = isset($data['user']) ? $data['user'] : null;
         $this->container['word_count'] = isset($data['word_count']) ? $data['word_count'] : null;
-        $this->container['linked_translation'] = isset($data['linked_translation']) ? $data['linked_translation'] : null;
     }
 
     /**
@@ -545,6 +545,30 @@ class TranslationDetails implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets linked_translation
+     *
+     * @return \Phrase\Model\TranslationParent|null
+     */
+    public function getLinkedTranslation()
+    {
+        return $this->container['linked_translation'];
+    }
+
+    /**
+     * Sets linked_translation
+     *
+     * @param \Phrase\Model\TranslationParent|null $linked_translation linked_translation
+     *
+     * @return $this
+     */
+    public function setLinkedTranslation($linked_translation)
+    {
+        $this->container['linked_translation'] = $linked_translation;
+
+        return $this;
+    }
+
+    /**
      * Gets user
      *
      * @return \Phrase\Model\UserPreview|null
@@ -588,30 +612,6 @@ class TranslationDetails implements ModelInterface, ArrayAccess
     public function setWordCount($word_count)
     {
         $this->container['word_count'] = $word_count;
-
-        return $this;
-    }
-
-    /**
-     * Gets linked_translation
-     *
-     * @return \Phrase\Model\TranslationParent|null
-     */
-    public function getLinkedTranslation()
-    {
-        return $this->container['linked_translation'];
-    }
-
-    /**
-     * Sets linked_translation
-     *
-     * @param \Phrase\Model\TranslationParent|null $linked_translation linked_translation
-     *
-     * @return $this
-     */
-    public function setLinkedTranslation($linked_translation)
-    {
-        $this->container['linked_translation'] = $linked_translation;
 
         return $this;
     }

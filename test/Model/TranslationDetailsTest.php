@@ -154,6 +154,13 @@ class TranslationDetailsTest extends TestCase
     }
 
     /**
+     * Test attribute "linked_translation"
+     */
+    public function testPropertyLinkedTranslation()
+    {
+    }
+
+    /**
      * Test attribute "user"
      */
     public function testPropertyUser()
@@ -164,13 +171,6 @@ class TranslationDetailsTest extends TestCase
      * Test attribute "word_count"
      */
     public function testPropertyWordCount()
-    {
-    }
-
-    /**
-     * Test attribute "linked_translation"
-     */
-    public function testPropertyLinkedTranslation()
     {
     }
 }

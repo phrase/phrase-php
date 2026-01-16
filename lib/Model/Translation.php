@@ -65,7 +65,8 @@ class Translation implements ModelInterface, ArrayAccess
         'placeholders' => 'string[]',
         'state' => 'string',
         'created_at' => '\DateTime',
-        'updated_at' => '\DateTime'
+        'updated_at' => '\DateTime',
+        'linked_translation' => '\Phrase\Model\TranslationParent'
     ];
 
     /**
@@ -84,7 +85,8 @@ class Translation implements ModelInterface, ArrayAccess
         'placeholders' => null,
         'state' => null,
         'created_at' => 'date-time',
-        'updated_at' => 'date-time'
+        'updated_at' => 'date-time',
+        'linked_translation' => null
     ];
 
     /**
@@ -124,7 +126,8 @@ class Translation implements ModelInterface, ArrayAccess
         'placeholders' => 'placeholders',
         'state' => 'state',
         'created_at' => 'created_at',
-        'updated_at' => 'updated_at'
+        'updated_at' => 'updated_at',
+        'linked_translation' => 'linked_translation'
     ];
 
     /**
@@ -143,7 +146,8 @@ class Translation implements ModelInterface, ArrayAccess
         'placeholders' => 'setPlaceholders',
         'state' => 'setState',
         'created_at' => 'setCreatedAt',
-        'updated_at' => 'setUpdatedAt'
+        'updated_at' => 'setUpdatedAt',
+        'linked_translation' => 'setLinkedTranslation'
     ];
 
     /**
@@ -162,7 +166,8 @@ class Translation implements ModelInterface, ArrayAccess
         'placeholders' => 'getPlaceholders',
         'state' => 'getState',
         'created_at' => 'getCreatedAt',
-        'updated_at' => 'getUpdatedAt'
+        'updated_at' => 'getUpdatedAt',
+        'linked_translation' => 'getLinkedTranslation'
     ];
 
     /**
@@ -236,6 +241,7 @@ class Translation implements ModelInterface, ArrayAccess
         $this->container['state'] = isset($data['state']) ? $data['state'] : null;
         $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
         $this->container['updated_at'] = isset($data['updated_at']) ? $data['updated_at'] : null;
+        $this->container['linked_translation'] = isset($data['linked_translation']) ? $data['linked_translation'] : null;
     }
 
     /**
@@ -522,6 +528,30 @@ class Translation implements ModelInterface, ArrayAccess
     public function setUpdatedAt($updated_at)
     {
         $this->container['updated_at'] = $updated_at;
+
+        return $this;
+    }
+
+    /**
+     * Gets linked_translation
+     *
+     * @return \Phrase\Model\TranslationParent|null
+     */
+    public function getLinkedTranslation()
+    {
+        return $this->container['linked_translation'];
+    }
+
+    /**
+     * Sets linked_translation
+     *
+     * @param \Phrase\Model\TranslationParent|null $linked_translation linked_translation
+     *
+     * @return $this
+     */
+    public function setLinkedTranslation($linked_translation)
+    {
+        $this->container['linked_translation'] = $linked_translation;
 
         return $this;
     }
