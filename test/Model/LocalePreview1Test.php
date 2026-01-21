@@ -89,11 +89,4 @@ class LocalePreview1Test extends TestCase
     public function testPropertyCode()
     {
     }
-
-    /**
-     * Test attribute "project"
-     */
-    public function testPropertyProject()
-    {
-    }
 }

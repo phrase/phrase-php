@@ -56,8 +56,7 @@ class LocalePreview1 implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'name' => 'string',
-        'code' => 'string',
-        'project' => '\Phrase\Model\ProjectShort'
+        'code' => 'string'
     ];
 
     /**
@@ -67,8 +66,7 @@ class LocalePreview1 implements ModelInterface, ArrayAccess
       */
     protected static $openAPIFormats = [
         'name' => null,
-        'code' => null,
-        'project' => null
+        'code' => null
     ];
 
     /**
@@ -99,8 +97,7 @@ class LocalePreview1 implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'name' => 'name',
-        'code' => 'code',
-        'project' => 'project'
+        'code' => 'code'
     ];
 
     /**
@@ -110,8 +107,7 @@ class LocalePreview1 implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'name' => 'setName',
-        'code' => 'setCode',
-        'project' => 'setProject'
+        'code' => 'setCode'
     ];
 
     /**
@@ -121,8 +117,7 @@ class LocalePreview1 implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'name' => 'getName',
-        'code' => 'getCode',
-        'project' => 'getProject'
+        'code' => 'getCode'
     ];
 
     /**
@@ -187,7 +182,6 @@ class LocalePreview1 implements ModelInterface, ArrayAccess
     {
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['code'] = isset($data['code']) ? $data['code'] : null;
-        $this->container['project'] = isset($data['project']) ? $data['project'] : null;
     }
 
     /**
@@ -258,30 +252,6 @@ class LocalePreview1 implements ModelInterface, ArrayAccess
     public function setCode($code)
     {
         $this->container['code'] = $code;
-
-        return $this;
-    }
-
-    /**
-     * Gets project
-     *
-     * @return \Phrase\Model\ProjectShort|null
-     */
-    public function getProject()
-    {
-        return $this->container['project'];
-    }
-
-    /**
-     * Sets project
-     *
-     * @param \Phrase\Model\ProjectShort|null $project project
-     *
-     * @return $this
-     */
-    public function setProject($project)
-    {
-        $this->container['project'] = $project;
 
         return $this;
     }
