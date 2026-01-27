@@ -54,6 +54,7 @@ docs/Api/StyleGuidesApi.md
 docs/Api/TagsApi.md
 docs/Api/TeamsApi.md
 docs/Api/TranslationsApi.md
+docs/Api/UploadBatchesApi.md
 docs/Api/UploadsApi.md
 docs/Api/UsersApi.md
 docs/Api/VariablesApi.md
@@ -271,6 +272,8 @@ docs/Model/TranslationsUnreviewParameters.md
 docs/Model/TranslationsUnverifyParameters.md
 docs/Model/TranslationsVerifyParameters.md
 docs/Model/Upload.md
+docs/Model/UploadBatch.md
+docs/Model/UploadBatchesCreateParameters.md
 docs/Model/UploadSummary.md
 docs/Model/User.md
 docs/Model/UserPreview.md
@@ -332,6 +335,7 @@ lib/Api/StyleGuidesApi.php
 lib/Api/TagsApi.php
 lib/Api/TeamsApi.php
 lib/Api/TranslationsApi.php
+lib/Api/UploadBatchesApi.php
 lib/Api/UploadsApi.php
 lib/Api/UsersApi.php
 lib/Api/VariablesApi.php
@@ -553,6 +557,8 @@ lib/Model/TranslationsUnreviewParameters.php
 lib/Model/TranslationsUnverifyParameters.php
 lib/Model/TranslationsVerifyParameters.php
 lib/Model/Upload.php
+lib/Model/UploadBatch.php
+lib/Model/UploadBatchesCreateParameters.php
 lib/Model/UploadSummary.php
 lib/Model/User.php
 lib/Model/UserPreview.php
@@ -613,6 +619,7 @@ test/Api/StyleGuidesApiTest.php
 test/Api/TagsApiTest.php
 test/Api/TeamsApiTest.php
 test/Api/TranslationsApiTest.php
+test/Api/UploadBatchesApiTest.php
 test/Api/UsersApiTest.php
 test/Api/VariablesApiTest.php
 test/Api/VersionsHistoryApiTest.php
@@ -828,6 +835,8 @@ test/Model/TranslationsSearchParametersTest.php
 test/Model/TranslationsUnreviewParametersTest.php
 test/Model/TranslationsUnverifyParametersTest.php
 test/Model/TranslationsVerifyParametersTest.php
+test/Model/UploadBatchTest.php
+test/Model/UploadBatchesCreateParametersTest.php
 test/Model/UploadSummaryTest.php
 test/Model/UploadTest.php
 test/Model/UserPreviewTest.php
