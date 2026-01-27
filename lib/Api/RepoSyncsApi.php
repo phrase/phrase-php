@@ -1051,15 +1051,16 @@ class RepoSyncsApi
      * @param  string $account_id Account ID (required)
      * @param  string $id ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
+     * @param  string $branch Branch to use (optional)
      * @param  \Phrase\Model\RepoSyncImportParameters $repo_sync_import_parameters repo_sync_import_parameters (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Phrase\Model\RepoSyncEvent
      */
-    public function repoSyncImport($account_id, $id, $x_phrase_app_otp = null, $repo_sync_import_parameters = null)
+    public function repoSyncImport($account_id, $id, $x_phrase_app_otp = null, $branch = null, $repo_sync_import_parameters = null)
     {
-        list($response) = $this->repoSyncImportWithHttpInfo($account_id, $id, $x_phrase_app_otp, $repo_sync_import_parameters);
+        list($response) = $this->repoSyncImportWithHttpInfo($account_id, $id, $x_phrase_app_otp, $branch, $repo_sync_import_parameters);
         return $response;
     }
 
@@ -1071,15 +1072,16 @@ class RepoSyncsApi
      * @param  string $account_id Account ID (required)
      * @param  string $id ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
+     * @param  string $branch Branch to use (optional)
      * @param  \Phrase\Model\RepoSyncImportParameters $repo_sync_import_parameters (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Phrase\Model\RepoSyncEvent, HTTP status code, HTTP response headers (array of strings)
      */
-    public function repoSyncImportWithHttpInfo($account_id, $id, $x_phrase_app_otp = null, $repo_sync_import_parameters = null)
+    public function repoSyncImportWithHttpInfo($account_id, $id, $x_phrase_app_otp = null, $branch = null, $repo_sync_import_parameters = null)
     {
-        $request = $this->repoSyncImportRequest($account_id, $id, $x_phrase_app_otp, $repo_sync_import_parameters);
+        $request = $this->repoSyncImportRequest($account_id, $id, $x_phrase_app_otp, $branch, $repo_sync_import_parameters);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1162,14 +1164,15 @@ class RepoSyncsApi
      * @param  string $account_id Account ID (required)
      * @param  string $id ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
+     * @param  string $branch Branch to use (optional)
      * @param  \Phrase\Model\RepoSyncImportParameters $repo_sync_import_parameters (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function repoSyncImportAsync($account_id, $id, $x_phrase_app_otp = null, $repo_sync_import_parameters = null)
+    public function repoSyncImportAsync($account_id, $id, $x_phrase_app_otp = null, $branch = null, $repo_sync_import_parameters = null)
     {
-        return $this->repoSyncImportAsyncWithHttpInfo($account_id, $id, $x_phrase_app_otp, $repo_sync_import_parameters)
+        return $this->repoSyncImportAsyncWithHttpInfo($account_id, $id, $x_phrase_app_otp, $branch, $repo_sync_import_parameters)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1185,15 +1188,16 @@ class RepoSyncsApi
      * @param  string $account_id Account ID (required)
      * @param  string $id ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
+     * @param  string $branch Branch to use (optional)
      * @param  \Phrase\Model\RepoSyncImportParameters $repo_sync_import_parameters (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function repoSyncImportAsyncWithHttpInfo($account_id, $id, $x_phrase_app_otp = null, $repo_sync_import_parameters = null)
+    public function repoSyncImportAsyncWithHttpInfo($account_id, $id, $x_phrase_app_otp = null, $branch = null, $repo_sync_import_parameters = null)
     {
         $returnType = '\Phrase\Model\RepoSyncEvent';
-        $request = $this->repoSyncImportRequest($account_id, $id, $x_phrase_app_otp, $repo_sync_import_parameters);
+        $request = $this->repoSyncImportRequest($account_id, $id, $x_phrase_app_otp, $branch, $repo_sync_import_parameters);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1235,12 +1239,13 @@ class RepoSyncsApi
      * @param  string $account_id Account ID (required)
      * @param  string $id ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
+     * @param  string $branch Branch to use (optional)
      * @param  \Phrase\Model\RepoSyncImportParameters $repo_sync_import_parameters (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function repoSyncImportRequest($account_id, $id, $x_phrase_app_otp = null, $repo_sync_import_parameters = null)
+    protected function repoSyncImportRequest($account_id, $id, $x_phrase_app_otp = null, $branch = null, $repo_sync_import_parameters = null)
     {
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -1262,6 +1267,17 @@ class RepoSyncsApi
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        if ($branch !== null) {
+            if('form' === 'form' && is_array($branch)) {
+                foreach($branch as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['branch'] = $branch;
+            }
+        }
 
         // header params
         if ($x_phrase_app_otp !== null) {
