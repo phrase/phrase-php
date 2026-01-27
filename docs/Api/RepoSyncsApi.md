@@ -204,7 +204,7 @@ Name | Type | Description  | Notes
 
 ## repoSyncImport
 
-> \Phrase\Model\RepoSyncEvent repoSyncImport($account_id, $id, $x_phrase_app_otp)
+> \Phrase\Model\RepoSyncEvent repoSyncImport($account_id, $id, $x_phrase_app_otp, $repo_sync_import_parameters)
 
 Import from code repository
 
@@ -228,9 +228,10 @@ $apiInstance = new Phrase\Api\RepoSyncsApi(
 $account_id = 'account_id_example'; // string | Account ID
 $id = 'id_example'; // string | ID
 $x_phrase_app_otp = 'x_phrase_app_otp_example'; // string | Two-Factor-Authentication token (optional)
+$repo_sync_import_parameters = new \Phrase\Model\RepoSyncImportParameters(); // \Phrase\Model\RepoSyncImportParameters | 
 
 try {
-    $result = $apiInstance->repoSyncImport($account_id, $id, $x_phrase_app_otp);
+    $result = $apiInstance->repoSyncImport($account_id, $id, $x_phrase_app_otp, $repo_sync_import_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling RepoSyncsApi->repoSyncImport: ', $e->getMessage(), PHP_EOL;
@@ -246,6 +247,7 @@ Name | Type | Description  | Notes
  **account_id** | **string**| Account ID |
  **id** | **string**| ID |
  **x_phrase_app_otp** | **string**| Two-Factor-Authentication token (optional) | [optional]
+ **repo_sync_import_parameters** | [**\Phrase\Model\RepoSyncImportParameters**](../Model/RepoSyncImportParameters.md)|  | [optional]
 
 ### Return type
 
@@ -257,7 +259,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
