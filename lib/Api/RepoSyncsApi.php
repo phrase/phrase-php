@@ -741,14 +741,15 @@ class RepoSyncsApi
      * @param  string $account_id Account ID (required)
      * @param  string $id ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
+     * @param  \Phrase\Model\RepoSyncExportParameters $repo_sync_export_parameters repo_sync_export_parameters (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Phrase\Model\RepoSyncEvent
      */
-    public function repoSyncExport($account_id, $id, $x_phrase_app_otp = null)
+    public function repoSyncExport($account_id, $id, $x_phrase_app_otp = null, $repo_sync_export_parameters = null)
     {
-        list($response) = $this->repoSyncExportWithHttpInfo($account_id, $id, $x_phrase_app_otp);
+        list($response) = $this->repoSyncExportWithHttpInfo($account_id, $id, $x_phrase_app_otp, $repo_sync_export_parameters);
         return $response;
     }
 
@@ -760,14 +761,15 @@ class RepoSyncsApi
      * @param  string $account_id Account ID (required)
      * @param  string $id ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
+     * @param  \Phrase\Model\RepoSyncExportParameters $repo_sync_export_parameters (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Phrase\Model\RepoSyncEvent, HTTP status code, HTTP response headers (array of strings)
      */
-    public function repoSyncExportWithHttpInfo($account_id, $id, $x_phrase_app_otp = null)
+    public function repoSyncExportWithHttpInfo($account_id, $id, $x_phrase_app_otp = null, $repo_sync_export_parameters = null)
     {
-        $request = $this->repoSyncExportRequest($account_id, $id, $x_phrase_app_otp);
+        $request = $this->repoSyncExportRequest($account_id, $id, $x_phrase_app_otp, $repo_sync_export_parameters);
 
         try {
             $options = $this->createHttpClientOption();
@@ -850,13 +852,14 @@ class RepoSyncsApi
      * @param  string $account_id Account ID (required)
      * @param  string $id ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
+     * @param  \Phrase\Model\RepoSyncExportParameters $repo_sync_export_parameters (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function repoSyncExportAsync($account_id, $id, $x_phrase_app_otp = null)
+    public function repoSyncExportAsync($account_id, $id, $x_phrase_app_otp = null, $repo_sync_export_parameters = null)
     {
-        return $this->repoSyncExportAsyncWithHttpInfo($account_id, $id, $x_phrase_app_otp)
+        return $this->repoSyncExportAsyncWithHttpInfo($account_id, $id, $x_phrase_app_otp, $repo_sync_export_parameters)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -872,14 +875,15 @@ class RepoSyncsApi
      * @param  string $account_id Account ID (required)
      * @param  string $id ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
+     * @param  \Phrase\Model\RepoSyncExportParameters $repo_sync_export_parameters (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function repoSyncExportAsyncWithHttpInfo($account_id, $id, $x_phrase_app_otp = null)
+    public function repoSyncExportAsyncWithHttpInfo($account_id, $id, $x_phrase_app_otp = null, $repo_sync_export_parameters = null)
     {
         $returnType = '\Phrase\Model\RepoSyncEvent';
-        $request = $this->repoSyncExportRequest($account_id, $id, $x_phrase_app_otp);
+        $request = $this->repoSyncExportRequest($account_id, $id, $x_phrase_app_otp, $repo_sync_export_parameters);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -921,11 +925,12 @@ class RepoSyncsApi
      * @param  string $account_id Account ID (required)
      * @param  string $id ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
+     * @param  \Phrase\Model\RepoSyncExportParameters $repo_sync_export_parameters (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function repoSyncExportRequest($account_id, $id, $x_phrase_app_otp = null)
+    protected function repoSyncExportRequest($account_id, $id, $x_phrase_app_otp = null, $repo_sync_export_parameters = null)
     {
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -972,6 +977,9 @@ class RepoSyncsApi
 
         // body params
         $_tempBody = null;
+        if (isset($repo_sync_export_parameters)) {
+            $_tempBody = $repo_sync_export_parameters;
+        }
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
@@ -980,7 +988,7 @@ class RepoSyncsApi
         } else {
             $headers = $this->headerSelector->selectHeaders(
                 ['application/json'],
-                []
+                ['application/json']
             );
         }
 

@@ -141,7 +141,7 @@ Name | Type | Description  | Notes
 
 ## repoSyncExport
 
-> \Phrase\Model\RepoSyncEvent repoSyncExport($account_id, $id, $x_phrase_app_otp)
+> \Phrase\Model\RepoSyncEvent repoSyncExport($account_id, $id, $x_phrase_app_otp, $repo_sync_export_parameters)
 
 Export to code repository
 
@@ -165,9 +165,10 @@ $apiInstance = new Phrase\Api\RepoSyncsApi(
 $account_id = 'account_id_example'; // string | Account ID
 $id = 'id_example'; // string | ID
 $x_phrase_app_otp = 'x_phrase_app_otp_example'; // string | Two-Factor-Authentication token (optional)
+$repo_sync_export_parameters = new \Phrase\Model\RepoSyncExportParameters(); // \Phrase\Model\RepoSyncExportParameters | 
 
 try {
-    $result = $apiInstance->repoSyncExport($account_id, $id, $x_phrase_app_otp);
+    $result = $apiInstance->repoSyncExport($account_id, $id, $x_phrase_app_otp, $repo_sync_export_parameters);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling RepoSyncsApi->repoSyncExport: ', $e->getMessage(), PHP_EOL;
@@ -183,6 +184,7 @@ Name | Type | Description  | Notes
  **account_id** | **string**| Account ID |
  **id** | **string**| ID |
  **x_phrase_app_otp** | **string**| Two-Factor-Authentication token (optional) | [optional]
+ **repo_sync_export_parameters** | [**\Phrase\Model\RepoSyncExportParameters**](../Model/RepoSyncExportParameters.md)|  | [optional]
 
 ### Return type
 
@@ -194,7 +196,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
