@@ -436,7 +436,11 @@ class Configuration
         return array(
           array(
             "url" => "https://api.phrase.com/v2",
-            "description" => "No description provided",
+            "description" => "EU production server",
+          ),
+          array(
+            "url" => "https://api.us.app.phrase.com/v2",
+            "description" => "US production server",
           )
         );
     }
