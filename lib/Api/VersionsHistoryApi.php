@@ -469,14 +469,15 @@ class VersionsHistoryApi
      * @param  int $page Page number (optional)
      * @param  int $per_page Limit on the number of objects to be returned, between 1 and 100. 25 by default (optional)
      * @param  string $branch specify the branch to use (optional)
+     * @param  bool $only_content_updates Indicates whether only content updates should be returned (optional, default to false)
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Phrase\Model\TranslationVersion[]
+     * @return \Phrase\Model\TranslationVersionWithUser[]
      */
-    public function versionsList($project_id, $translation_id, $x_phrase_app_otp = null, $page = null, $per_page = null, $branch = null)
+    public function versionsList($project_id, $translation_id, $x_phrase_app_otp = null, $page = null, $per_page = null, $branch = null, $only_content_updates = false)
     {
-        list($response) = $this->versionsListWithHttpInfo($project_id, $translation_id, $x_phrase_app_otp, $page, $per_page, $branch);
+        list($response) = $this->versionsListWithHttpInfo($project_id, $translation_id, $x_phrase_app_otp, $page, $per_page, $branch, $only_content_updates);
         return $response;
     }
 
@@ -491,14 +492,15 @@ class VersionsHistoryApi
      * @param  int $page Page number (optional)
      * @param  int $per_page Limit on the number of objects to be returned, between 1 and 100. 25 by default (optional)
      * @param  string $branch specify the branch to use (optional)
+     * @param  bool $only_content_updates Indicates whether only content updates should be returned (optional, default to false)
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Phrase\Model\TranslationVersion[], HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Phrase\Model\TranslationVersionWithUser[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function versionsListWithHttpInfo($project_id, $translation_id, $x_phrase_app_otp = null, $page = null, $per_page = null, $branch = null)
+    public function versionsListWithHttpInfo($project_id, $translation_id, $x_phrase_app_otp = null, $page = null, $per_page = null, $branch = null, $only_content_updates = false)
     {
-        $request = $this->versionsListRequest($project_id, $translation_id, $x_phrase_app_otp, $page, $per_page, $branch);
+        $request = $this->versionsListRequest($project_id, $translation_id, $x_phrase_app_otp, $page, $per_page, $branch, $only_content_updates);
 
         try {
             $options = $this->createHttpClientOption();
@@ -531,20 +533,20 @@ class VersionsHistoryApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\Phrase\Model\TranslationVersion[]' === '\SplFileObject') {
+                    if ('\Phrase\Model\TranslationVersionWithUser[]' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Phrase\Model\TranslationVersion[]', []),
+                        ObjectSerializer::deserialize($content, '\Phrase\Model\TranslationVersionWithUser[]', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Phrase\Model\TranslationVersion[]';
+            $returnType = '\Phrase\Model\TranslationVersionWithUser[]';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -563,7 +565,7 @@ class VersionsHistoryApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Phrase\Model\TranslationVersion[]',
+                        '\Phrase\Model\TranslationVersionWithUser[]',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -584,13 +586,14 @@ class VersionsHistoryApi
      * @param  int $page Page number (optional)
      * @param  int $per_page Limit on the number of objects to be returned, between 1 and 100. 25 by default (optional)
      * @param  string $branch specify the branch to use (optional)
+     * @param  bool $only_content_updates Indicates whether only content updates should be returned (optional, default to false)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function versionsListAsync($project_id, $translation_id, $x_phrase_app_otp = null, $page = null, $per_page = null, $branch = null)
+    public function versionsListAsync($project_id, $translation_id, $x_phrase_app_otp = null, $page = null, $per_page = null, $branch = null, $only_content_updates = false)
     {
-        return $this->versionsListAsyncWithHttpInfo($project_id, $translation_id, $x_phrase_app_otp, $page, $per_page, $branch)
+        return $this->versionsListAsyncWithHttpInfo($project_id, $translation_id, $x_phrase_app_otp, $page, $per_page, $branch, $only_content_updates)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -609,14 +612,15 @@ class VersionsHistoryApi
      * @param  int $page Page number (optional)
      * @param  int $per_page Limit on the number of objects to be returned, between 1 and 100. 25 by default (optional)
      * @param  string $branch specify the branch to use (optional)
+     * @param  bool $only_content_updates Indicates whether only content updates should be returned (optional, default to false)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function versionsListAsyncWithHttpInfo($project_id, $translation_id, $x_phrase_app_otp = null, $page = null, $per_page = null, $branch = null)
+    public function versionsListAsyncWithHttpInfo($project_id, $translation_id, $x_phrase_app_otp = null, $page = null, $per_page = null, $branch = null, $only_content_updates = false)
     {
-        $returnType = '\Phrase\Model\TranslationVersion[]';
-        $request = $this->versionsListRequest($project_id, $translation_id, $x_phrase_app_otp, $page, $per_page, $branch);
+        $returnType = '\Phrase\Model\TranslationVersionWithUser[]';
+        $request = $this->versionsListRequest($project_id, $translation_id, $x_phrase_app_otp, $page, $per_page, $branch, $only_content_updates);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -661,11 +665,12 @@ class VersionsHistoryApi
      * @param  int $page Page number (optional)
      * @param  int $per_page Limit on the number of objects to be returned, between 1 and 100. 25 by default (optional)
      * @param  string $branch specify the branch to use (optional)
+     * @param  bool $only_content_updates Indicates whether only content updates should be returned (optional, default to false)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function versionsListRequest($project_id, $translation_id, $x_phrase_app_otp = null, $page = null, $per_page = null, $branch = null)
+    protected function versionsListRequest($project_id, $translation_id, $x_phrase_app_otp = null, $page = null, $per_page = null, $branch = null, $only_content_updates = false)
     {
         // verify the required parameter 'project_id' is set
         if ($project_id === null || (is_array($project_id) && count($project_id) === 0)) {
@@ -718,6 +723,17 @@ class VersionsHistoryApi
             }
             else {
                 $queryParams['branch'] = $branch;
+            }
+        }
+        // query params
+        if ($only_content_updates !== null) {
+            if('form' === 'form' && is_array($only_content_updates)) {
+                foreach($only_content_updates as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['only_content_updates'] = $only_content_updates;
             }
         }
 

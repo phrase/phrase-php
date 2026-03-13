@@ -78,7 +78,7 @@ Name | Type | Description  | Notes
 
 ## versionsList
 
-> \Phrase\Model\TranslationVersion[] versionsList($project_id, $translation_id, $x_phrase_app_otp, $page, $per_page, $branch)
+> \Phrase\Model\TranslationVersionWithUser[] versionsList($project_id, $translation_id, $x_phrase_app_otp, $page, $per_page, $branch, $only_content_updates)
 
 List all versions
 
@@ -105,9 +105,10 @@ $x_phrase_app_otp = 'x_phrase_app_otp_example'; // string | Two-Factor-Authentic
 $page = 1; // int | Page number
 $per_page = 25; // int | Limit on the number of objects to be returned, between 1 and 100. 25 by default
 $branch = my-feature-branch; // string | specify the branch to use
+$only_content_updates = true; // bool | Indicates whether only content updates should be returned
 
 try {
-    $result = $apiInstance->versionsList($project_id, $translation_id, $x_phrase_app_otp, $page, $per_page, $branch);
+    $result = $apiInstance->versionsList($project_id, $translation_id, $x_phrase_app_otp, $page, $per_page, $branch, $only_content_updates);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling VersionsHistoryApi->versionsList: ', $e->getMessage(), PHP_EOL;
@@ -126,10 +127,11 @@ Name | Type | Description  | Notes
  **page** | **int**| Page number | [optional]
  **per_page** | **int**| Limit on the number of objects to be returned, between 1 and 100. 25 by default | [optional]
  **branch** | **string**| specify the branch to use | [optional]
+ **only_content_updates** | **bool**| Indicates whether only content updates should be returned | [optional] [default to false]
 
 ### Return type
 
-[**\Phrase\Model\TranslationVersion[]**](../Model/TranslationVersion.md)
+[**\Phrase\Model\TranslationVersionWithUser[]**](../Model/TranslationVersionWithUser.md)
 
 ### Authorization
 
