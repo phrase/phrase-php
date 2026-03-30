@@ -236,4 +236,11 @@ class ProjectCreateParametersTest extends TestCase
     public function testPropertyAutotranslateUseTranslationMemory()
     {
     }
+
+    /**
+     * Test attribute "placeholder_styles"
+     */
+    public function testPropertyPlaceholderStyles()
+    {
+    }
 }

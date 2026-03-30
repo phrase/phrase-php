@@ -236,4 +236,11 @@ class ProjectUpdateParametersTest extends TestCase
     public function testPropertyDefaultEncoding()
     {
     }
+
+    /**
+     * Test attribute "placeholder_styles"
+     */
+    public function testPropertyPlaceholderStyles()
+    {
+    }
 }

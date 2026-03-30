@@ -257,4 +257,25 @@ class ProjectDetailsTest extends TestCase
     public function testPropertyDefaultEncoding()
     {
     }
+
+    /**
+     * Test attribute "cldr_version"
+     */
+    public function testPropertyCldrVersion()
+    {
+    }
+
+    /**
+     * Test attribute "job_locking_enabled"
+     */
+    public function testPropertyJobLockingEnabled()
+    {
+    }
+
+    /**
+     * Test attribute "placeholder_styles"
+     */
+    public function testPropertyPlaceholderStyles()
+    {
+    }
 }

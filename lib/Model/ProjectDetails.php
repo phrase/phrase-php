@@ -80,7 +80,10 @@ class ProjectDetails implements ModelInterface, ArrayAccess
         'autotranslate_mark_as_unverified' => 'bool',
         'autotranslate_use_machine_translation' => 'bool',
         'autotranslate_use_translation_memory' => 'bool',
-        'default_encoding' => 'string'
+        'default_encoding' => 'string',
+        'cldr_version' => 'string',
+        'job_locking_enabled' => 'bool',
+        'placeholder_styles' => 'string[]'
     ];
 
     /**
@@ -114,7 +117,10 @@ class ProjectDetails implements ModelInterface, ArrayAccess
         'autotranslate_mark_as_unverified' => null,
         'autotranslate_use_machine_translation' => null,
         'autotranslate_use_translation_memory' => null,
-        'default_encoding' => null
+        'default_encoding' => null,
+        'cldr_version' => null,
+        'job_locking_enabled' => null,
+        'placeholder_styles' => null
     ];
 
     /**
@@ -169,7 +175,10 @@ class ProjectDetails implements ModelInterface, ArrayAccess
         'autotranslate_mark_as_unverified' => 'autotranslate_mark_as_unverified',
         'autotranslate_use_machine_translation' => 'autotranslate_use_machine_translation',
         'autotranslate_use_translation_memory' => 'autotranslate_use_translation_memory',
-        'default_encoding' => 'default_encoding'
+        'default_encoding' => 'default_encoding',
+        'cldr_version' => 'cldr_version',
+        'job_locking_enabled' => 'job_locking_enabled',
+        'placeholder_styles' => 'placeholder_styles'
     ];
 
     /**
@@ -203,7 +212,10 @@ class ProjectDetails implements ModelInterface, ArrayAccess
         'autotranslate_mark_as_unverified' => 'setAutotranslateMarkAsUnverified',
         'autotranslate_use_machine_translation' => 'setAutotranslateUseMachineTranslation',
         'autotranslate_use_translation_memory' => 'setAutotranslateUseTranslationMemory',
-        'default_encoding' => 'setDefaultEncoding'
+        'default_encoding' => 'setDefaultEncoding',
+        'cldr_version' => 'setCldrVersion',
+        'job_locking_enabled' => 'setJobLockingEnabled',
+        'placeholder_styles' => 'setPlaceholderStyles'
     ];
 
     /**
@@ -237,7 +249,10 @@ class ProjectDetails implements ModelInterface, ArrayAccess
         'autotranslate_mark_as_unverified' => 'getAutotranslateMarkAsUnverified',
         'autotranslate_use_machine_translation' => 'getAutotranslateUseMachineTranslation',
         'autotranslate_use_translation_memory' => 'getAutotranslateUseTranslationMemory',
-        'default_encoding' => 'getDefaultEncoding'
+        'default_encoding' => 'getDefaultEncoding',
+        'cldr_version' => 'getCldrVersion',
+        'job_locking_enabled' => 'getJobLockingEnabled',
+        'placeholder_styles' => 'getPlaceholderStyles'
     ];
 
     /**
@@ -326,6 +341,9 @@ class ProjectDetails implements ModelInterface, ArrayAccess
         $this->container['autotranslate_use_machine_translation'] = isset($data['autotranslate_use_machine_translation']) ? $data['autotranslate_use_machine_translation'] : null;
         $this->container['autotranslate_use_translation_memory'] = isset($data['autotranslate_use_translation_memory']) ? $data['autotranslate_use_translation_memory'] : null;
         $this->container['default_encoding'] = isset($data['default_encoding']) ? $data['default_encoding'] : null;
+        $this->container['cldr_version'] = isset($data['cldr_version']) ? $data['cldr_version'] : null;
+        $this->container['job_locking_enabled'] = isset($data['job_locking_enabled']) ? $data['job_locking_enabled'] : null;
+        $this->container['placeholder_styles'] = isset($data['placeholder_styles']) ? $data['placeholder_styles'] : null;
     }
 
     /**
@@ -972,6 +990,78 @@ class ProjectDetails implements ModelInterface, ArrayAccess
     public function setDefaultEncoding($default_encoding)
     {
         $this->container['default_encoding'] = $default_encoding;
+
+        return $this;
+    }
+
+    /**
+     * Gets cldr_version
+     *
+     * @return string|null
+     */
+    public function getCldrVersion()
+    {
+        return $this->container['cldr_version'];
+    }
+
+    /**
+     * Sets cldr_version
+     *
+     * @param string|null $cldr_version cldr_version
+     *
+     * @return $this
+     */
+    public function setCldrVersion($cldr_version)
+    {
+        $this->container['cldr_version'] = $cldr_version;
+
+        return $this;
+    }
+
+    /**
+     * Gets job_locking_enabled
+     *
+     * @return bool|null
+     */
+    public function getJobLockingEnabled()
+    {
+        return $this->container['job_locking_enabled'];
+    }
+
+    /**
+     * Sets job_locking_enabled
+     *
+     * @param bool|null $job_locking_enabled job_locking_enabled
+     *
+     * @return $this
+     */
+    public function setJobLockingEnabled($job_locking_enabled)
+    {
+        $this->container['job_locking_enabled'] = $job_locking_enabled;
+
+        return $this;
+    }
+
+    /**
+     * Gets placeholder_styles
+     *
+     * @return string[]|null
+     */
+    public function getPlaceholderStyles()
+    {
+        return $this->container['placeholder_styles'];
+    }
+
+    /**
+     * Sets placeholder_styles
+     *
+     * @param string[]|null $placeholder_styles placeholder_styles
+     *
+     * @return $this
+     */
+    public function setPlaceholderStyles($placeholder_styles)
+    {
+        $this->container['placeholder_styles'] = $placeholder_styles;
 
         return $this;
     }

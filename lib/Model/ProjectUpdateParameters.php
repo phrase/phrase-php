@@ -77,7 +77,8 @@ class ProjectUpdateParameters implements ModelInterface, ArrayAccess
         'autotranslate_mark_as_unverified' => 'bool',
         'autotranslate_use_machine_translation' => 'bool',
         'autotranslate_use_translation_memory' => 'bool',
-        'default_encoding' => 'string'
+        'default_encoding' => 'string',
+        'placeholder_styles' => 'string[]'
     ];
 
     /**
@@ -108,7 +109,8 @@ class ProjectUpdateParameters implements ModelInterface, ArrayAccess
         'autotranslate_mark_as_unverified' => null,
         'autotranslate_use_machine_translation' => null,
         'autotranslate_use_translation_memory' => null,
-        'default_encoding' => null
+        'default_encoding' => null,
+        'placeholder_styles' => null
     ];
 
     /**
@@ -160,7 +162,8 @@ class ProjectUpdateParameters implements ModelInterface, ArrayAccess
         'autotranslate_mark_as_unverified' => 'autotranslate_mark_as_unverified',
         'autotranslate_use_machine_translation' => 'autotranslate_use_machine_translation',
         'autotranslate_use_translation_memory' => 'autotranslate_use_translation_memory',
-        'default_encoding' => 'default_encoding'
+        'default_encoding' => 'default_encoding',
+        'placeholder_styles' => 'placeholder_styles'
     ];
 
     /**
@@ -191,7 +194,8 @@ class ProjectUpdateParameters implements ModelInterface, ArrayAccess
         'autotranslate_mark_as_unverified' => 'setAutotranslateMarkAsUnverified',
         'autotranslate_use_machine_translation' => 'setAutotranslateUseMachineTranslation',
         'autotranslate_use_translation_memory' => 'setAutotranslateUseTranslationMemory',
-        'default_encoding' => 'setDefaultEncoding'
+        'default_encoding' => 'setDefaultEncoding',
+        'placeholder_styles' => 'setPlaceholderStyles'
     ];
 
     /**
@@ -222,7 +226,8 @@ class ProjectUpdateParameters implements ModelInterface, ArrayAccess
         'autotranslate_mark_as_unverified' => 'getAutotranslateMarkAsUnverified',
         'autotranslate_use_machine_translation' => 'getAutotranslateUseMachineTranslation',
         'autotranslate_use_translation_memory' => 'getAutotranslateUseTranslationMemory',
-        'default_encoding' => 'getDefaultEncoding'
+        'default_encoding' => 'getDefaultEncoding',
+        'placeholder_styles' => 'getPlaceholderStyles'
     ];
 
     /**
@@ -329,6 +334,7 @@ class ProjectUpdateParameters implements ModelInterface, ArrayAccess
         $this->container['autotranslate_use_machine_translation'] = isset($data['autotranslate_use_machine_translation']) ? $data['autotranslate_use_machine_translation'] : null;
         $this->container['autotranslate_use_translation_memory'] = isset($data['autotranslate_use_translation_memory']) ? $data['autotranslate_use_translation_memory'] : null;
         $this->container['default_encoding'] = isset($data['default_encoding']) ? $data['default_encoding'] : null;
+        $this->container['placeholder_styles'] = isset($data['placeholder_styles']) ? $data['placeholder_styles'] : null;
     }
 
     /**
@@ -920,6 +926,30 @@ class ProjectUpdateParameters implements ModelInterface, ArrayAccess
             );
         }
         $this->container['default_encoding'] = $default_encoding;
+
+        return $this;
+    }
+
+    /**
+     * Gets placeholder_styles
+     *
+     * @return string[]|null
+     */
+    public function getPlaceholderStyles()
+    {
+        return $this->container['placeholder_styles'];
+    }
+
+    /**
+     * Sets placeholder_styles
+     *
+     * @param string[]|null $placeholder_styles (Optional) List of placeholder styles enabled for the project.
+     *
+     * @return $this
+     */
+    public function setPlaceholderStyles($placeholder_styles)
+    {
+        $this->container['placeholder_styles'] = $placeholder_styles;
 
         return $this;
     }

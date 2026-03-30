@@ -77,7 +77,8 @@ class ProjectCreateParameters implements ModelInterface, ArrayAccess
         'autotranslate_check_new_locales' => 'bool',
         'autotranslate_mark_as_unverified' => 'bool',
         'autotranslate_use_machine_translation' => 'bool',
-        'autotranslate_use_translation_memory' => 'bool'
+        'autotranslate_use_translation_memory' => 'bool',
+        'placeholder_styles' => 'string[]'
     ];
 
     /**
@@ -108,7 +109,8 @@ class ProjectCreateParameters implements ModelInterface, ArrayAccess
         'autotranslate_check_new_locales' => null,
         'autotranslate_mark_as_unverified' => null,
         'autotranslate_use_machine_translation' => null,
-        'autotranslate_use_translation_memory' => null
+        'autotranslate_use_translation_memory' => null,
+        'placeholder_styles' => null
     ];
 
     /**
@@ -160,7 +162,8 @@ class ProjectCreateParameters implements ModelInterface, ArrayAccess
         'autotranslate_check_new_locales' => 'autotranslate_check_new_locales',
         'autotranslate_mark_as_unverified' => 'autotranslate_mark_as_unverified',
         'autotranslate_use_machine_translation' => 'autotranslate_use_machine_translation',
-        'autotranslate_use_translation_memory' => 'autotranslate_use_translation_memory'
+        'autotranslate_use_translation_memory' => 'autotranslate_use_translation_memory',
+        'placeholder_styles' => 'placeholder_styles'
     ];
 
     /**
@@ -191,7 +194,8 @@ class ProjectCreateParameters implements ModelInterface, ArrayAccess
         'autotranslate_check_new_locales' => 'setAutotranslateCheckNewLocales',
         'autotranslate_mark_as_unverified' => 'setAutotranslateMarkAsUnverified',
         'autotranslate_use_machine_translation' => 'setAutotranslateUseMachineTranslation',
-        'autotranslate_use_translation_memory' => 'setAutotranslateUseTranslationMemory'
+        'autotranslate_use_translation_memory' => 'setAutotranslateUseTranslationMemory',
+        'placeholder_styles' => 'setPlaceholderStyles'
     ];
 
     /**
@@ -222,7 +226,8 @@ class ProjectCreateParameters implements ModelInterface, ArrayAccess
         'autotranslate_check_new_locales' => 'getAutotranslateCheckNewLocales',
         'autotranslate_mark_as_unverified' => 'getAutotranslateMarkAsUnverified',
         'autotranslate_use_machine_translation' => 'getAutotranslateUseMachineTranslation',
-        'autotranslate_use_translation_memory' => 'getAutotranslateUseTranslationMemory'
+        'autotranslate_use_translation_memory' => 'getAutotranslateUseTranslationMemory',
+        'placeholder_styles' => 'getPlaceholderStyles'
     ];
 
     /**
@@ -308,6 +313,7 @@ class ProjectCreateParameters implements ModelInterface, ArrayAccess
         $this->container['autotranslate_mark_as_unverified'] = isset($data['autotranslate_mark_as_unverified']) ? $data['autotranslate_mark_as_unverified'] : null;
         $this->container['autotranslate_use_machine_translation'] = isset($data['autotranslate_use_machine_translation']) ? $data['autotranslate_use_machine_translation'] : null;
         $this->container['autotranslate_use_translation_memory'] = isset($data['autotranslate_use_translation_memory']) ? $data['autotranslate_use_translation_memory'] : null;
+        $this->container['placeholder_styles'] = isset($data['placeholder_styles']) ? $data['placeholder_styles'] : null;
     }
 
     /**
@@ -885,6 +891,30 @@ class ProjectCreateParameters implements ModelInterface, ArrayAccess
     public function setAutotranslateUseTranslationMemory($autotranslate_use_translation_memory)
     {
         $this->container['autotranslate_use_translation_memory'] = $autotranslate_use_translation_memory;
+
+        return $this;
+    }
+
+    /**
+     * Gets placeholder_styles
+     *
+     * @return string[]|null
+     */
+    public function getPlaceholderStyles()
+    {
+        return $this->container['placeholder_styles'];
+    }
+
+    /**
+     * Sets placeholder_styles
+     *
+     * @param string[]|null $placeholder_styles (Optional) List of placeholder styles enabled for the project.
+     *
+     * @return $this
+     */
+    public function setPlaceholderStyles($placeholder_styles)
+    {
+        $this->container['placeholder_styles'] = $placeholder_styles;
 
         return $this;
     }
