@@ -82,4 +82,11 @@ class RepoSyncImportParametersTest extends TestCase
     public function testPropertyRepositoryBranch()
     {
     }
+
+    /**
+     * Test attribute "branch"
+     */
+    public function testPropertyBranch()
+    {
+    }
 }

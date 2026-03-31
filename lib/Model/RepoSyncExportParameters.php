@@ -55,7 +55,8 @@ class RepoSyncExportParameters implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'pr_branch' => 'string'
+        'pr_branch' => 'string',
+        'branch' => 'string'
     ];
 
     /**
@@ -64,7 +65,8 @@ class RepoSyncExportParameters implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'pr_branch' => null
+        'pr_branch' => null,
+        'branch' => null
     ];
 
     /**
@@ -94,7 +96,8 @@ class RepoSyncExportParameters implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'pr_branch' => 'pr_branch'
+        'pr_branch' => 'pr_branch',
+        'branch' => 'branch'
     ];
 
     /**
@@ -103,7 +106,8 @@ class RepoSyncExportParameters implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'pr_branch' => 'setPrBranch'
+        'pr_branch' => 'setPrBranch',
+        'branch' => 'setBranch'
     ];
 
     /**
@@ -112,7 +116,8 @@ class RepoSyncExportParameters implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'pr_branch' => 'getPrBranch'
+        'pr_branch' => 'getPrBranch',
+        'branch' => 'getBranch'
     ];
 
     /**
@@ -176,6 +181,7 @@ class RepoSyncExportParameters implements ModelInterface, ArrayAccess
     public function __construct(?array $data = null)
     {
         $this->container['pr_branch'] = isset($data['pr_branch']) ? $data['pr_branch'] : null;
+        $this->container['branch'] = isset($data['branch']) ? $data['branch'] : null;
     }
 
     /**
@@ -222,6 +228,30 @@ class RepoSyncExportParameters implements ModelInterface, ArrayAccess
     public function setPrBranch($pr_branch)
     {
         $this->container['pr_branch'] = $pr_branch;
+
+        return $this;
+    }
+
+    /**
+     * Gets branch
+     *
+     * @return string|null
+     */
+    public function getBranch()
+    {
+        return $this->container['branch'];
+    }
+
+    /**
+     * Sets branch
+     *
+     * @param string|null $branch Strings branch to export from
+     *
+     * @return $this
+     */
+    public function setBranch($branch)
+    {
+        $this->container['branch'] = $branch;
 
         return $this;
     }

@@ -55,7 +55,8 @@ class RepoSyncImportParameters implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'repository_branch' => 'string'
+        'repository_branch' => 'string',
+        'branch' => 'string'
     ];
 
     /**
@@ -64,7 +65,8 @@ class RepoSyncImportParameters implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'repository_branch' => null
+        'repository_branch' => null,
+        'branch' => null
     ];
 
     /**
@@ -94,7 +96,8 @@ class RepoSyncImportParameters implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'repository_branch' => 'repository_branch'
+        'repository_branch' => 'repository_branch',
+        'branch' => 'branch'
     ];
 
     /**
@@ -103,7 +106,8 @@ class RepoSyncImportParameters implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'repository_branch' => 'setRepositoryBranch'
+        'repository_branch' => 'setRepositoryBranch',
+        'branch' => 'setBranch'
     ];
 
     /**
@@ -112,7 +116,8 @@ class RepoSyncImportParameters implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'repository_branch' => 'getRepositoryBranch'
+        'repository_branch' => 'getRepositoryBranch',
+        'branch' => 'getBranch'
     ];
 
     /**
@@ -176,6 +181,7 @@ class RepoSyncImportParameters implements ModelInterface, ArrayAccess
     public function __construct(?array $data = null)
     {
         $this->container['repository_branch'] = isset($data['repository_branch']) ? $data['repository_branch'] : null;
+        $this->container['branch'] = isset($data['branch']) ? $data['branch'] : null;
     }
 
     /**
@@ -222,6 +228,30 @@ class RepoSyncImportParameters implements ModelInterface, ArrayAccess
     public function setRepositoryBranch($repository_branch)
     {
         $this->container['repository_branch'] = $repository_branch;
+
+        return $this;
+    }
+
+    /**
+     * Gets branch
+     *
+     * @return string|null
+     */
+    public function getBranch()
+    {
+        return $this->container['branch'];
+    }
+
+    /**
+     * Sets branch
+     *
+     * @param string|null $branch Strings branch to import to
+     *
+     * @return $this
+     */
+    public function setBranch($branch)
+    {
+        $this->container['branch'] = $branch;
 
         return $this;
     }
