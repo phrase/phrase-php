@@ -138,4 +138,11 @@ class JobCreateParametersTest extends TestCase
     public function testPropertyJobTemplateId()
     {
     }
+
+    /**
+     * Test attribute "autotranslate"
+     */
+    public function testPropertyAutotranslate()
+    {
+    }
 }

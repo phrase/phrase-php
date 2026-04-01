@@ -110,4 +110,11 @@ class JobUpdateParametersTest extends TestCase
     public function testPropertyTicketUrl()
     {
     }
+
+    /**
+     * Test attribute "autotranslate"
+     */
+    public function testPropertyAutotranslate()
+    {
+    }
 }

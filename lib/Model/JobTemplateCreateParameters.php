@@ -57,7 +57,8 @@ class JobTemplateCreateParameters implements ModelInterface, ArrayAccess
     protected static $openAPITypes = [
         'branch' => 'string',
         'name' => 'string',
-        'briefing' => 'string'
+        'briefing' => 'string',
+        'autotranslate' => 'bool'
     ];
 
     /**
@@ -68,7 +69,8 @@ class JobTemplateCreateParameters implements ModelInterface, ArrayAccess
     protected static $openAPIFormats = [
         'branch' => null,
         'name' => null,
-        'briefing' => null
+        'briefing' => null,
+        'autotranslate' => null
     ];
 
     /**
@@ -100,7 +102,8 @@ class JobTemplateCreateParameters implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'branch' => 'branch',
         'name' => 'name',
-        'briefing' => 'briefing'
+        'briefing' => 'briefing',
+        'autotranslate' => 'autotranslate'
     ];
 
     /**
@@ -111,7 +114,8 @@ class JobTemplateCreateParameters implements ModelInterface, ArrayAccess
     protected static $setters = [
         'branch' => 'setBranch',
         'name' => 'setName',
-        'briefing' => 'setBriefing'
+        'briefing' => 'setBriefing',
+        'autotranslate' => 'setAutotranslate'
     ];
 
     /**
@@ -122,7 +126,8 @@ class JobTemplateCreateParameters implements ModelInterface, ArrayAccess
     protected static $getters = [
         'branch' => 'getBranch',
         'name' => 'getName',
-        'briefing' => 'getBriefing'
+        'briefing' => 'getBriefing',
+        'autotranslate' => 'getAutotranslate'
     ];
 
     /**
@@ -188,6 +193,7 @@ class JobTemplateCreateParameters implements ModelInterface, ArrayAccess
         $this->container['branch'] = isset($data['branch']) ? $data['branch'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['briefing'] = isset($data['briefing']) ? $data['briefing'] : null;
+        $this->container['autotranslate'] = isset($data['autotranslate']) ? $data['autotranslate'] : null;
     }
 
     /**
@@ -285,6 +291,30 @@ class JobTemplateCreateParameters implements ModelInterface, ArrayAccess
     public function setBriefing($briefing)
     {
         $this->container['briefing'] = $briefing;
+
+        return $this;
+    }
+
+    /**
+     * Gets autotranslate
+     *
+     * @return bool|null
+     */
+    public function getAutotranslate()
+    {
+        return $this->container['autotranslate'];
+    }
+
+    /**
+     * Sets autotranslate
+     *
+     * @param bool|null $autotranslate Automatically translate the job using machine translation.
+     *
+     * @return $this
+     */
+    public function setAutotranslate($autotranslate)
+    {
+        $this->container['autotranslate'] = $autotranslate;
 
         return $this;
     }

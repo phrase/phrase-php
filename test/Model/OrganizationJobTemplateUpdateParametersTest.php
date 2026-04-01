@@ -89,4 +89,11 @@ class OrganizationJobTemplateUpdateParametersTest extends TestCase
     public function testPropertyBriefing()
     {
     }
+
+    /**
+     * Test attribute "autotranslate"
+     */
+    public function testPropertyAutotranslate()
+    {
+    }
 }

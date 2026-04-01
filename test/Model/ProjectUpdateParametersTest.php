@@ -231,6 +231,13 @@ class ProjectUpdateParametersTest extends TestCase
     }
 
     /**
+     * Test attribute "autotranslate_overwrite_unverified_translations"
+     */
+    public function testPropertyAutotranslateOverwriteUnverifiedTranslations()
+    {
+    }
+
+    /**
      * Test attribute "default_encoding"
      */
     public function testPropertyDefaultEncoding()

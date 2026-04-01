@@ -238,6 +238,13 @@ class ProjectCreateParametersTest extends TestCase
     }
 
     /**
+     * Test attribute "autotranslate_overwrite_unverified_translations"
+     */
+    public function testPropertyAutotranslateOverwriteUnverifiedTranslations()
+    {
+    }
+
+    /**
      * Test attribute "placeholder_styles"
      */
     public function testPropertyPlaceholderStyles()

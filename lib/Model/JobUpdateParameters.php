@@ -59,7 +59,8 @@ class JobUpdateParameters implements ModelInterface, ArrayAccess
         'name' => 'string',
         'briefing' => 'string',
         'due_date' => '\DateTime',
-        'ticket_url' => 'string'
+        'ticket_url' => 'string',
+        'autotranslate' => 'bool'
     ];
 
     /**
@@ -72,7 +73,8 @@ class JobUpdateParameters implements ModelInterface, ArrayAccess
         'name' => null,
         'briefing' => null,
         'due_date' => 'date-time',
-        'ticket_url' => null
+        'ticket_url' => null,
+        'autotranslate' => null
     ];
 
     /**
@@ -106,7 +108,8 @@ class JobUpdateParameters implements ModelInterface, ArrayAccess
         'name' => 'name',
         'briefing' => 'briefing',
         'due_date' => 'due_date',
-        'ticket_url' => 'ticket_url'
+        'ticket_url' => 'ticket_url',
+        'autotranslate' => 'autotranslate'
     ];
 
     /**
@@ -119,7 +122,8 @@ class JobUpdateParameters implements ModelInterface, ArrayAccess
         'name' => 'setName',
         'briefing' => 'setBriefing',
         'due_date' => 'setDueDate',
-        'ticket_url' => 'setTicketUrl'
+        'ticket_url' => 'setTicketUrl',
+        'autotranslate' => 'setAutotranslate'
     ];
 
     /**
@@ -132,7 +136,8 @@ class JobUpdateParameters implements ModelInterface, ArrayAccess
         'name' => 'getName',
         'briefing' => 'getBriefing',
         'due_date' => 'getDueDate',
-        'ticket_url' => 'getTicketUrl'
+        'ticket_url' => 'getTicketUrl',
+        'autotranslate' => 'getAutotranslate'
     ];
 
     /**
@@ -200,6 +205,7 @@ class JobUpdateParameters implements ModelInterface, ArrayAccess
         $this->container['briefing'] = isset($data['briefing']) ? $data['briefing'] : null;
         $this->container['due_date'] = isset($data['due_date']) ? $data['due_date'] : null;
         $this->container['ticket_url'] = isset($data['ticket_url']) ? $data['ticket_url'] : null;
+        $this->container['autotranslate'] = isset($data['autotranslate']) ? $data['autotranslate'] : null;
     }
 
     /**
@@ -342,6 +348,30 @@ class JobUpdateParameters implements ModelInterface, ArrayAccess
     public function setTicketUrl($ticket_url)
     {
         $this->container['ticket_url'] = $ticket_url;
+
+        return $this;
+    }
+
+    /**
+     * Gets autotranslate
+     *
+     * @return bool|null
+     */
+    public function getAutotranslate()
+    {
+        return $this->container['autotranslate'];
+    }
+
+    /**
+     * Sets autotranslate
+     *
+     * @param bool|null $autotranslate Automatically translate the job using machine translation
+     *
+     * @return $this
+     */
+    public function setAutotranslate($autotranslate)
+    {
+        $this->container['autotranslate'] = $autotranslate;
 
         return $this;
     }

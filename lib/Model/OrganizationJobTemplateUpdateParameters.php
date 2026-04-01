@@ -56,7 +56,8 @@ class OrganizationJobTemplateUpdateParameters implements ModelInterface, ArrayAc
       */
     protected static $openAPITypes = [
         'name' => 'string',
-        'briefing' => 'string'
+        'briefing' => 'string',
+        'autotranslate' => 'bool'
     ];
 
     /**
@@ -66,7 +67,8 @@ class OrganizationJobTemplateUpdateParameters implements ModelInterface, ArrayAc
       */
     protected static $openAPIFormats = [
         'name' => null,
-        'briefing' => null
+        'briefing' => null,
+        'autotranslate' => null
     ];
 
     /**
@@ -97,7 +99,8 @@ class OrganizationJobTemplateUpdateParameters implements ModelInterface, ArrayAc
      */
     protected static $attributeMap = [
         'name' => 'name',
-        'briefing' => 'briefing'
+        'briefing' => 'briefing',
+        'autotranslate' => 'autotranslate'
     ];
 
     /**
@@ -107,7 +110,8 @@ class OrganizationJobTemplateUpdateParameters implements ModelInterface, ArrayAc
      */
     protected static $setters = [
         'name' => 'setName',
-        'briefing' => 'setBriefing'
+        'briefing' => 'setBriefing',
+        'autotranslate' => 'setAutotranslate'
     ];
 
     /**
@@ -117,7 +121,8 @@ class OrganizationJobTemplateUpdateParameters implements ModelInterface, ArrayAc
      */
     protected static $getters = [
         'name' => 'getName',
-        'briefing' => 'getBriefing'
+        'briefing' => 'getBriefing',
+        'autotranslate' => 'getAutotranslate'
     ];
 
     /**
@@ -182,6 +187,7 @@ class OrganizationJobTemplateUpdateParameters implements ModelInterface, ArrayAc
     {
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['briefing'] = isset($data['briefing']) ? $data['briefing'] : null;
+        $this->container['autotranslate'] = isset($data['autotranslate']) ? $data['autotranslate'] : null;
     }
 
     /**
@@ -255,6 +261,30 @@ class OrganizationJobTemplateUpdateParameters implements ModelInterface, ArrayAc
     public function setBriefing($briefing)
     {
         $this->container['briefing'] = $briefing;
+
+        return $this;
+    }
+
+    /**
+     * Gets autotranslate
+     *
+     * @return bool|null
+     */
+    public function getAutotranslate()
+    {
+        return $this->container['autotranslate'];
+    }
+
+    /**
+     * Sets autotranslate
+     *
+     * @param bool|null $autotranslate Automatically translate the job using machine translation.
+     *
+     * @return $this
+     */
+    public function setAutotranslate($autotranslate)
+    {
+        $this->container['autotranslate'] = $autotranslate;
 
         return $this;
     }

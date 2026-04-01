@@ -78,6 +78,7 @@ class ProjectCreateParameters implements ModelInterface, ArrayAccess
         'autotranslate_mark_as_unverified' => 'bool',
         'autotranslate_use_machine_translation' => 'bool',
         'autotranslate_use_translation_memory' => 'bool',
+        'autotranslate_overwrite_unverified_translations' => 'bool',
         'placeholder_styles' => 'string[]'
     ];
 
@@ -110,6 +111,7 @@ class ProjectCreateParameters implements ModelInterface, ArrayAccess
         'autotranslate_mark_as_unverified' => null,
         'autotranslate_use_machine_translation' => null,
         'autotranslate_use_translation_memory' => null,
+        'autotranslate_overwrite_unverified_translations' => null,
         'placeholder_styles' => null
     ];
 
@@ -163,6 +165,7 @@ class ProjectCreateParameters implements ModelInterface, ArrayAccess
         'autotranslate_mark_as_unverified' => 'autotranslate_mark_as_unverified',
         'autotranslate_use_machine_translation' => 'autotranslate_use_machine_translation',
         'autotranslate_use_translation_memory' => 'autotranslate_use_translation_memory',
+        'autotranslate_overwrite_unverified_translations' => 'autotranslate_overwrite_unverified_translations',
         'placeholder_styles' => 'placeholder_styles'
     ];
 
@@ -195,6 +198,7 @@ class ProjectCreateParameters implements ModelInterface, ArrayAccess
         'autotranslate_mark_as_unverified' => 'setAutotranslateMarkAsUnverified',
         'autotranslate_use_machine_translation' => 'setAutotranslateUseMachineTranslation',
         'autotranslate_use_translation_memory' => 'setAutotranslateUseTranslationMemory',
+        'autotranslate_overwrite_unverified_translations' => 'setAutotranslateOverwriteUnverifiedTranslations',
         'placeholder_styles' => 'setPlaceholderStyles'
     ];
 
@@ -227,6 +231,7 @@ class ProjectCreateParameters implements ModelInterface, ArrayAccess
         'autotranslate_mark_as_unverified' => 'getAutotranslateMarkAsUnverified',
         'autotranslate_use_machine_translation' => 'getAutotranslateUseMachineTranslation',
         'autotranslate_use_translation_memory' => 'getAutotranslateUseTranslationMemory',
+        'autotranslate_overwrite_unverified_translations' => 'getAutotranslateOverwriteUnverifiedTranslations',
         'placeholder_styles' => 'getPlaceholderStyles'
     ];
 
@@ -313,6 +318,7 @@ class ProjectCreateParameters implements ModelInterface, ArrayAccess
         $this->container['autotranslate_mark_as_unverified'] = isset($data['autotranslate_mark_as_unverified']) ? $data['autotranslate_mark_as_unverified'] : null;
         $this->container['autotranslate_use_machine_translation'] = isset($data['autotranslate_use_machine_translation']) ? $data['autotranslate_use_machine_translation'] : null;
         $this->container['autotranslate_use_translation_memory'] = isset($data['autotranslate_use_translation_memory']) ? $data['autotranslate_use_translation_memory'] : null;
+        $this->container['autotranslate_overwrite_unverified_translations'] = isset($data['autotranslate_overwrite_unverified_translations']) ? $data['autotranslate_overwrite_unverified_translations'] : null;
         $this->container['placeholder_styles'] = isset($data['placeholder_styles']) ? $data['placeholder_styles'] : null;
     }
 
@@ -891,6 +897,30 @@ class ProjectCreateParameters implements ModelInterface, ArrayAccess
     public function setAutotranslateUseTranslationMemory($autotranslate_use_translation_memory)
     {
         $this->container['autotranslate_use_translation_memory'] = $autotranslate_use_translation_memory;
+
+        return $this;
+    }
+
+    /**
+     * Gets autotranslate_overwrite_unverified_translations
+     *
+     * @return bool|null
+     */
+    public function getAutotranslateOverwriteUnverifiedTranslations()
+    {
+        return $this->container['autotranslate_overwrite_unverified_translations'];
+    }
+
+    /**
+     * Sets autotranslate_overwrite_unverified_translations
+     *
+     * @param bool|null $autotranslate_overwrite_unverified_translations (Optional) Requires autotranslate_enabled to be true
+     *
+     * @return $this
+     */
+    public function setAutotranslateOverwriteUnverifiedTranslations($autotranslate_overwrite_unverified_translations)
+    {
+        $this->container['autotranslate_overwrite_unverified_translations'] = $autotranslate_overwrite_unverified_translations;
 
         return $this;
     }
