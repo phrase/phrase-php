@@ -126,6 +126,13 @@ class UploadTest extends TestCase
     }
 
     /**
+     * Test attribute "user"
+     */
+    public function testPropertyUser()
+    {
+    }
+
+    /**
      * Test attribute "summary"
      */
     public function testPropertySummary()

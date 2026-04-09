@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **tag** | **string** | Unique tag of the upload | [optional] 
 **tags** | **string[]** | List of tags that were assigned to the uploaded keys | [optional] 
 **url** | **string** | The URL to the upload in Phrase Strings app. | [optional] 
+**user** | [**\Phrase\Model\UserPreview**](.md) |  | [optional] 
 **summary** | [**\Phrase\Model\UploadSummary**](UploadSummary.md) |  | [optional] 
 **created_at** | **\DateTime** |  | [optional] 
 **updated_at** | **\DateTime** |  | [optional] 

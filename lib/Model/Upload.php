@@ -62,6 +62,7 @@ class Upload implements ModelInterface, ArrayAccess
         'tag' => 'string',
         'tags' => 'string[]',
         'url' => 'string',
+        'user' => '\Phrase\Model\UserPreview',
         'summary' => '\Phrase\Model\UploadSummary',
         'created_at' => '\DateTime',
         'updated_at' => '\DateTime'
@@ -80,6 +81,7 @@ class Upload implements ModelInterface, ArrayAccess
         'tag' => null,
         'tags' => null,
         'url' => null,
+        'user' => null,
         'summary' => null,
         'created_at' => 'date-time',
         'updated_at' => 'date-time'
@@ -119,6 +121,7 @@ class Upload implements ModelInterface, ArrayAccess
         'tag' => 'tag',
         'tags' => 'tags',
         'url' => 'url',
+        'user' => 'user',
         'summary' => 'summary',
         'created_at' => 'created_at',
         'updated_at' => 'updated_at'
@@ -137,6 +140,7 @@ class Upload implements ModelInterface, ArrayAccess
         'tag' => 'setTag',
         'tags' => 'setTags',
         'url' => 'setUrl',
+        'user' => 'setUser',
         'summary' => 'setSummary',
         'created_at' => 'setCreatedAt',
         'updated_at' => 'setUpdatedAt'
@@ -155,6 +159,7 @@ class Upload implements ModelInterface, ArrayAccess
         'tag' => 'getTag',
         'tags' => 'getTags',
         'url' => 'getUrl',
+        'user' => 'getUser',
         'summary' => 'getSummary',
         'created_at' => 'getCreatedAt',
         'updated_at' => 'getUpdatedAt'
@@ -227,6 +232,7 @@ class Upload implements ModelInterface, ArrayAccess
         $this->container['tag'] = isset($data['tag']) ? $data['tag'] : null;
         $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
         $this->container['url'] = isset($data['url']) ? $data['url'] : null;
+        $this->container['user'] = isset($data['user']) ? $data['user'] : null;
         $this->container['summary'] = isset($data['summary']) ? $data['summary'] : null;
         $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
         $this->container['updated_at'] = isset($data['updated_at']) ? $data['updated_at'] : null;
@@ -420,6 +426,30 @@ class Upload implements ModelInterface, ArrayAccess
     public function setUrl($url)
     {
         $this->container['url'] = $url;
+
+        return $this;
+    }
+
+    /**
+     * Gets user
+     *
+     * @return \Phrase\Model\UserPreview|null
+     */
+    public function getUser()
+    {
+        return $this->container['user'];
+    }
+
+    /**
+     * Sets user
+     *
+     * @param \Phrase\Model\UserPreview|null $user user
+     *
+     * @return $this
+     */
+    public function setUser($user)
+    {
+        $this->container['user'] = $user;
 
         return $this;
     }
