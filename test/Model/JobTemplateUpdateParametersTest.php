@@ -103,4 +103,11 @@ class JobTemplateUpdateParametersTest extends TestCase
     public function testPropertyAutotranslate()
     {
     }
+
+    /**
+     * Test attribute "source_locale_id"
+     */
+    public function testPropertySourceLocaleId()
+    {
+    }
 }

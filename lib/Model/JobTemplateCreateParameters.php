@@ -58,7 +58,8 @@ class JobTemplateCreateParameters implements ModelInterface, ArrayAccess
         'branch' => 'string',
         'name' => 'string',
         'briefing' => 'string',
-        'autotranslate' => 'bool'
+        'autotranslate' => 'bool',
+        'source_locale_id' => 'string'
     ];
 
     /**
@@ -70,7 +71,8 @@ class JobTemplateCreateParameters implements ModelInterface, ArrayAccess
         'branch' => null,
         'name' => null,
         'briefing' => null,
-        'autotranslate' => null
+        'autotranslate' => null,
+        'source_locale_id' => null
     ];
 
     /**
@@ -103,7 +105,8 @@ class JobTemplateCreateParameters implements ModelInterface, ArrayAccess
         'branch' => 'branch',
         'name' => 'name',
         'briefing' => 'briefing',
-        'autotranslate' => 'autotranslate'
+        'autotranslate' => 'autotranslate',
+        'source_locale_id' => 'source_locale_id'
     ];
 
     /**
@@ -115,7 +118,8 @@ class JobTemplateCreateParameters implements ModelInterface, ArrayAccess
         'branch' => 'setBranch',
         'name' => 'setName',
         'briefing' => 'setBriefing',
-        'autotranslate' => 'setAutotranslate'
+        'autotranslate' => 'setAutotranslate',
+        'source_locale_id' => 'setSourceLocaleId'
     ];
 
     /**
@@ -127,7 +131,8 @@ class JobTemplateCreateParameters implements ModelInterface, ArrayAccess
         'branch' => 'getBranch',
         'name' => 'getName',
         'briefing' => 'getBriefing',
-        'autotranslate' => 'getAutotranslate'
+        'autotranslate' => 'getAutotranslate',
+        'source_locale_id' => 'getSourceLocaleId'
     ];
 
     /**
@@ -194,6 +199,7 @@ class JobTemplateCreateParameters implements ModelInterface, ArrayAccess
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['briefing'] = isset($data['briefing']) ? $data['briefing'] : null;
         $this->container['autotranslate'] = isset($data['autotranslate']) ? $data['autotranslate'] : null;
+        $this->container['source_locale_id'] = isset($data['source_locale_id']) ? $data['source_locale_id'] : null;
     }
 
     /**
@@ -315,6 +321,30 @@ class JobTemplateCreateParameters implements ModelInterface, ArrayAccess
     public function setAutotranslate($autotranslate)
     {
         $this->container['autotranslate'] = $autotranslate;
+
+        return $this;
+    }
+
+    /**
+     * Gets source_locale_id
+     *
+     * @return string|null
+     */
+    public function getSourceLocaleId()
+    {
+        return $this->container['source_locale_id'];
+    }
+
+    /**
+     * Sets source_locale_id
+     *
+     * @param string|null $source_locale_id The API id of the source language. This locale will be set as source locale for the job template. If not provided, the project default locale will be used.
+     *
+     * @return $this
+     */
+    public function setSourceLocaleId($source_locale_id)
+    {
+        $this->container['source_locale_id'] = $source_locale_id;
 
         return $this;
     }
