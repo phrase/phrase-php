@@ -112,6 +112,13 @@ class JobUpdateParametersTest extends TestCase
     }
 
     /**
+     * Test attribute "target_locale_ids"
+     */
+    public function testPropertyTargetLocaleIds()
+    {
+    }
+
+    /**
      * Test attribute "autotranslate"
      */
     public function testPropertyAutotranslate()

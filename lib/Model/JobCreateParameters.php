@@ -63,6 +63,7 @@ class JobCreateParameters implements ModelInterface, ArrayAccess
         'ticket_url' => 'string',
         'tags' => 'string[]',
         'translation_key_ids' => 'string[]',
+        'target_locale_ids' => 'string[]',
         'job_template_id' => 'string',
         'autotranslate' => 'bool'
     ];
@@ -81,6 +82,7 @@ class JobCreateParameters implements ModelInterface, ArrayAccess
         'ticket_url' => null,
         'tags' => null,
         'translation_key_ids' => null,
+        'target_locale_ids' => null,
         'job_template_id' => null,
         'autotranslate' => null
     ];
@@ -120,6 +122,7 @@ class JobCreateParameters implements ModelInterface, ArrayAccess
         'ticket_url' => 'ticket_url',
         'tags' => 'tags',
         'translation_key_ids' => 'translation_key_ids',
+        'target_locale_ids' => 'target_locale_ids',
         'job_template_id' => 'job_template_id',
         'autotranslate' => 'autotranslate'
     ];
@@ -138,6 +141,7 @@ class JobCreateParameters implements ModelInterface, ArrayAccess
         'ticket_url' => 'setTicketUrl',
         'tags' => 'setTags',
         'translation_key_ids' => 'setTranslationKeyIds',
+        'target_locale_ids' => 'setTargetLocaleIds',
         'job_template_id' => 'setJobTemplateId',
         'autotranslate' => 'setAutotranslate'
     ];
@@ -156,6 +160,7 @@ class JobCreateParameters implements ModelInterface, ArrayAccess
         'ticket_url' => 'getTicketUrl',
         'tags' => 'getTags',
         'translation_key_ids' => 'getTranslationKeyIds',
+        'target_locale_ids' => 'getTargetLocaleIds',
         'job_template_id' => 'getJobTemplateId',
         'autotranslate' => 'getAutotranslate'
     ];
@@ -228,6 +233,7 @@ class JobCreateParameters implements ModelInterface, ArrayAccess
         $this->container['ticket_url'] = isset($data['ticket_url']) ? $data['ticket_url'] : null;
         $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
         $this->container['translation_key_ids'] = isset($data['translation_key_ids']) ? $data['translation_key_ids'] : null;
+        $this->container['target_locale_ids'] = isset($data['target_locale_ids']) ? $data['target_locale_ids'] : null;
         $this->container['job_template_id'] = isset($data['job_template_id']) ? $data['job_template_id'] : null;
         $this->container['autotranslate'] = isset($data['autotranslate']) ? $data['autotranslate'] : null;
     }
@@ -452,6 +458,30 @@ class JobCreateParameters implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets target_locale_ids
+     *
+     * @return string[]|null
+     */
+    public function getTargetLocaleIds()
+    {
+        return $this->container['target_locale_ids'];
+    }
+
+    /**
+     * Sets target_locale_ids
+     *
+     * @param string[]|null $target_locale_ids List of target locales for the job. Mutually exclusive with `job_template_id`.
+     *
+     * @return $this
+     */
+    public function setTargetLocaleIds($target_locale_ids)
+    {
+        $this->container['target_locale_ids'] = $target_locale_ids;
+
+        return $this;
+    }
+
+    /**
      * Gets job_template_id
      *
      * @return string|null
@@ -464,7 +494,7 @@ class JobCreateParameters implements ModelInterface, ArrayAccess
     /**
      * Sets job_template_id
      *
-     * @param string|null $job_template_id id of a job template you would like to model the created job after. Any manually added parameters will take preference over template attributes.
+     * @param string|null $job_template_id id of a job template you would like to model the created job after. Any manually added parameters will take preference over template attributes. Mutually exclusive with `target_locale_ids`.
      *
      * @return $this
      */

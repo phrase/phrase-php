@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **briefing** | **string** | Briefing for the translators | [optional] 
 **due_date** | **\DateTime** | Date the job should be finished | [optional] 
 **ticket_url** | **string** | URL to a ticket for this job (e.g. Jira, Trello) | [optional] 
+**target_locale_ids** | **string[]** | List of target locales for the job. | [optional] 
 **autotranslate** | **bool** | Automatically translate the job using machine translation | [optional] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)

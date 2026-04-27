@@ -60,6 +60,7 @@ class JobUpdateParameters implements ModelInterface, ArrayAccess
         'briefing' => 'string',
         'due_date' => '\DateTime',
         'ticket_url' => 'string',
+        'target_locale_ids' => 'string[]',
         'autotranslate' => 'bool'
     ];
 
@@ -74,6 +75,7 @@ class JobUpdateParameters implements ModelInterface, ArrayAccess
         'briefing' => null,
         'due_date' => 'date-time',
         'ticket_url' => null,
+        'target_locale_ids' => null,
         'autotranslate' => null
     ];
 
@@ -109,6 +111,7 @@ class JobUpdateParameters implements ModelInterface, ArrayAccess
         'briefing' => 'briefing',
         'due_date' => 'due_date',
         'ticket_url' => 'ticket_url',
+        'target_locale_ids' => 'target_locale_ids',
         'autotranslate' => 'autotranslate'
     ];
 
@@ -123,6 +126,7 @@ class JobUpdateParameters implements ModelInterface, ArrayAccess
         'briefing' => 'setBriefing',
         'due_date' => 'setDueDate',
         'ticket_url' => 'setTicketUrl',
+        'target_locale_ids' => 'setTargetLocaleIds',
         'autotranslate' => 'setAutotranslate'
     ];
 
@@ -137,6 +141,7 @@ class JobUpdateParameters implements ModelInterface, ArrayAccess
         'briefing' => 'getBriefing',
         'due_date' => 'getDueDate',
         'ticket_url' => 'getTicketUrl',
+        'target_locale_ids' => 'getTargetLocaleIds',
         'autotranslate' => 'getAutotranslate'
     ];
 
@@ -205,6 +210,7 @@ class JobUpdateParameters implements ModelInterface, ArrayAccess
         $this->container['briefing'] = isset($data['briefing']) ? $data['briefing'] : null;
         $this->container['due_date'] = isset($data['due_date']) ? $data['due_date'] : null;
         $this->container['ticket_url'] = isset($data['ticket_url']) ? $data['ticket_url'] : null;
+        $this->container['target_locale_ids'] = isset($data['target_locale_ids']) ? $data['target_locale_ids'] : null;
         $this->container['autotranslate'] = isset($data['autotranslate']) ? $data['autotranslate'] : null;
     }
 
@@ -348,6 +354,30 @@ class JobUpdateParameters implements ModelInterface, ArrayAccess
     public function setTicketUrl($ticket_url)
     {
         $this->container['ticket_url'] = $ticket_url;
+
+        return $this;
+    }
+
+    /**
+     * Gets target_locale_ids
+     *
+     * @return string[]|null
+     */
+    public function getTargetLocaleIds()
+    {
+        return $this->container['target_locale_ids'];
+    }
+
+    /**
+     * Sets target_locale_ids
+     *
+     * @param string[]|null $target_locale_ids List of target locales for the job.
+     *
+     * @return $this
+     */
+    public function setTargetLocaleIds($target_locale_ids)
+    {
+        $this->container['target_locale_ids'] = $target_locale_ids;
 
         return $this;
     }

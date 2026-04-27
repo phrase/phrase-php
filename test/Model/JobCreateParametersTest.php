@@ -133,6 +133,13 @@ class JobCreateParametersTest extends TestCase
     }
 
     /**
+     * Test attribute "target_locale_ids"
+     */
+    public function testPropertyTargetLocaleIds()
+    {
+    }
+
+    /**
      * Test attribute "job_template_id"
      */
     public function testPropertyJobTemplateId()
