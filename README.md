@@ -347,6 +347,7 @@ Class | Method | HTTP request | Description
 *RepoSyncEventsApi* | [**repoSyncEventList**](docs/Api/RepoSyncEventsApi.md#reposynceventlist) | **GET** /accounts/{account_id}/repo_syncs/{id}/events | Repository Syncs History
 *RepoSyncEventsApi* | [**repoSyncEventShow**](docs/Api/RepoSyncEventsApi.md#reposynceventshow) | **GET** /accounts/{account_id}/repo_syncs/{repo_sync_id}/events/{id} | Get a single Repo Sync Event
 *RepoSyncsApi* | [**repoSyncActivate**](docs/Api/RepoSyncsApi.md#reposyncactivate) | **POST** /accounts/{account_id}/repo_syncs/{id}/activate | Activate a Repo Sync
+*RepoSyncsApi* | [**repoSyncCreate**](docs/Api/RepoSyncsApi.md#reposynccreate) | **POST** /accounts/{account_id}/repo_syncs | Create a Repo Sync
 *RepoSyncsApi* | [**repoSyncDeactivate**](docs/Api/RepoSyncsApi.md#reposyncdeactivate) | **POST** /accounts/{account_id}/repo_syncs/{id}/deactivate | Deactivate a Repo Sync
 *RepoSyncsApi* | [**repoSyncExport**](docs/Api/RepoSyncsApi.md#reposyncexport) | **POST** /accounts/{account_id}/repo_syncs/{id}/export | Export to code repository
 *RepoSyncsApi* | [**repoSyncImport**](docs/Api/RepoSyncsApi.md#reposyncimport) | **POST** /accounts/{account_id}/repo_syncs/{id}/import | Import from code repository
@@ -592,6 +593,7 @@ Class | Method | HTTP request | Description
  - [ReleaseUpdateParameters](docs/Model/ReleaseUpdateParameters.md)
  - [ReleaseUpdateParameters1](docs/Model/ReleaseUpdateParameters1.md)
  - [RepoSync](docs/Model/RepoSync.md)
+ - [RepoSyncCreateParameters](docs/Model/RepoSyncCreateParameters.md)
  - [RepoSyncEvent](docs/Model/RepoSyncEvent.md)
  - [RepoSyncExportParameters](docs/Model/RepoSyncExportParameters.md)
  - [RepoSyncImportParameters](docs/Model/RepoSyncImportParameters.md)

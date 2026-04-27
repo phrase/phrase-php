@@ -81,6 +81,16 @@ class RepoSyncsApiTest extends TestCase
     }
 
     /**
+     * Test case for repoSyncCreate
+     *
+     * Create a Repo Sync.
+     *
+     */
+    public function testRepoSyncCreate()
+    {
+    }
+
+    /**
      * Test case for repoSyncDeactivate
      *
      * Deactivate a Repo Sync.

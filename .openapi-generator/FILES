@@ -216,6 +216,7 @@ docs/Model/ReleaseTrigger.md
 docs/Model/ReleaseUpdateParameters.md
 docs/Model/ReleaseUpdateParameters1.md
 docs/Model/RepoSync.md
+docs/Model/RepoSyncCreateParameters.md
 docs/Model/RepoSyncEvent.md
 docs/Model/RepoSyncExportParameters.md
 docs/Model/RepoSyncImportParameters.md
@@ -502,6 +503,7 @@ lib/Model/ReleaseTrigger.php
 lib/Model/ReleaseUpdateParameters.php
 lib/Model/ReleaseUpdateParameters1.php
 lib/Model/RepoSync.php
+lib/Model/RepoSyncCreateParameters.php
 lib/Model/RepoSyncEvent.php
 lib/Model/RepoSyncExportParameters.php
 lib/Model/RepoSyncImportParameters.php
@@ -781,6 +783,7 @@ test/Model/ReleaseTest.php
 test/Model/ReleaseTriggerTest.php
 test/Model/ReleaseUpdateParameters1Test.php
 test/Model/ReleaseUpdateParametersTest.php
+test/Model/RepoSyncCreateParametersTest.php
 test/Model/RepoSyncEventTest.php
 test/Model/RepoSyncExportParametersTest.php
 test/Model/RepoSyncImportParametersTest.php
