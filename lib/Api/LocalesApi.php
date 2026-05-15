@@ -2328,14 +2328,15 @@ class LocalesApi
      * @param  int $per_page Limit on the number of objects to be returned, between 1 and 100. 25 by default (optional)
      * @param  string $sort_by Sort locales. Valid options are \&quot;name_asc\&quot;, \&quot;name_desc\&quot;, \&quot;default_asc\&quot;, \&quot;default_desc\&quot;. (optional)
      * @param  string $branch specify the branch to use (optional)
+     * @param  string $q Specify a query to filter locales. Currently supports &#x60;name&#x60; argument, filtering only locales with names starting with the given string. (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Phrase\Model\Locale[]
      */
-    public function localesList($project_id, $x_phrase_app_otp = null, $page = null, $per_page = null, $sort_by = null, $branch = null)
+    public function localesList($project_id, $x_phrase_app_otp = null, $page = null, $per_page = null, $sort_by = null, $branch = null, $q = null)
     {
-        list($response) = $this->localesListWithHttpInfo($project_id, $x_phrase_app_otp, $page, $per_page, $sort_by, $branch);
+        list($response) = $this->localesListWithHttpInfo($project_id, $x_phrase_app_otp, $page, $per_page, $sort_by, $branch, $q);
         return $response;
     }
 
@@ -2350,14 +2351,15 @@ class LocalesApi
      * @param  int $per_page Limit on the number of objects to be returned, between 1 and 100. 25 by default (optional)
      * @param  string $sort_by Sort locales. Valid options are \&quot;name_asc\&quot;, \&quot;name_desc\&quot;, \&quot;default_asc\&quot;, \&quot;default_desc\&quot;. (optional)
      * @param  string $branch specify the branch to use (optional)
+     * @param  string $q Specify a query to filter locales. Currently supports &#x60;name&#x60; argument, filtering only locales with names starting with the given string. (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Phrase\Model\Locale[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function localesListWithHttpInfo($project_id, $x_phrase_app_otp = null, $page = null, $per_page = null, $sort_by = null, $branch = null)
+    public function localesListWithHttpInfo($project_id, $x_phrase_app_otp = null, $page = null, $per_page = null, $sort_by = null, $branch = null, $q = null)
     {
-        $request = $this->localesListRequest($project_id, $x_phrase_app_otp, $page, $per_page, $sort_by, $branch);
+        $request = $this->localesListRequest($project_id, $x_phrase_app_otp, $page, $per_page, $sort_by, $branch, $q);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2443,13 +2445,14 @@ class LocalesApi
      * @param  int $per_page Limit on the number of objects to be returned, between 1 and 100. 25 by default (optional)
      * @param  string $sort_by Sort locales. Valid options are \&quot;name_asc\&quot;, \&quot;name_desc\&quot;, \&quot;default_asc\&quot;, \&quot;default_desc\&quot;. (optional)
      * @param  string $branch specify the branch to use (optional)
+     * @param  string $q Specify a query to filter locales. Currently supports &#x60;name&#x60; argument, filtering only locales with names starting with the given string. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function localesListAsync($project_id, $x_phrase_app_otp = null, $page = null, $per_page = null, $sort_by = null, $branch = null)
+    public function localesListAsync($project_id, $x_phrase_app_otp = null, $page = null, $per_page = null, $sort_by = null, $branch = null, $q = null)
     {
-        return $this->localesListAsyncWithHttpInfo($project_id, $x_phrase_app_otp, $page, $per_page, $sort_by, $branch)
+        return $this->localesListAsyncWithHttpInfo($project_id, $x_phrase_app_otp, $page, $per_page, $sort_by, $branch, $q)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2468,14 +2471,15 @@ class LocalesApi
      * @param  int $per_page Limit on the number of objects to be returned, between 1 and 100. 25 by default (optional)
      * @param  string $sort_by Sort locales. Valid options are \&quot;name_asc\&quot;, \&quot;name_desc\&quot;, \&quot;default_asc\&quot;, \&quot;default_desc\&quot;. (optional)
      * @param  string $branch specify the branch to use (optional)
+     * @param  string $q Specify a query to filter locales. Currently supports &#x60;name&#x60; argument, filtering only locales with names starting with the given string. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function localesListAsyncWithHttpInfo($project_id, $x_phrase_app_otp = null, $page = null, $per_page = null, $sort_by = null, $branch = null)
+    public function localesListAsyncWithHttpInfo($project_id, $x_phrase_app_otp = null, $page = null, $per_page = null, $sort_by = null, $branch = null, $q = null)
     {
         $returnType = '\Phrase\Model\Locale[]';
-        $request = $this->localesListRequest($project_id, $x_phrase_app_otp, $page, $per_page, $sort_by, $branch);
+        $request = $this->localesListRequest($project_id, $x_phrase_app_otp, $page, $per_page, $sort_by, $branch, $q);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2520,11 +2524,12 @@ class LocalesApi
      * @param  int $per_page Limit on the number of objects to be returned, between 1 and 100. 25 by default (optional)
      * @param  string $sort_by Sort locales. Valid options are \&quot;name_asc\&quot;, \&quot;name_desc\&quot;, \&quot;default_asc\&quot;, \&quot;default_desc\&quot;. (optional)
      * @param  string $branch specify the branch to use (optional)
+     * @param  string $q Specify a query to filter locales. Currently supports &#x60;name&#x60; argument, filtering only locales with names starting with the given string. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function localesListRequest($project_id, $x_phrase_app_otp = null, $page = null, $per_page = null, $sort_by = null, $branch = null)
+    protected function localesListRequest($project_id, $x_phrase_app_otp = null, $page = null, $per_page = null, $sort_by = null, $branch = null, $q = null)
     {
         // verify the required parameter 'project_id' is set
         if ($project_id === null || (is_array($project_id) && count($project_id) === 0)) {
@@ -2582,6 +2587,17 @@ class LocalesApi
             }
             else {
                 $queryParams['branch'] = $branch;
+            }
+        }
+        // query params
+        if ($q !== null) {
+            if('form' === 'form' && is_array($q)) {
+                foreach($q as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['q'] = $q;
             }
         }
 

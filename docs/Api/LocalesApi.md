@@ -445,7 +445,7 @@ Name | Type | Description  | Notes
 
 ## localesList
 
-> \Phrase\Model\Locale[] localesList($project_id, $x_phrase_app_otp, $page, $per_page, $sort_by, $branch)
+> \Phrase\Model\Locale[] localesList($project_id, $x_phrase_app_otp, $page, $per_page, $sort_by, $branch, $q)
 
 List locales
 
@@ -472,9 +472,10 @@ $page = 1; // int | Page number
 $per_page = 25; // int | Limit on the number of objects to be returned, between 1 and 100. 25 by default
 $sort_by = 'sort_by_example'; // string | Sort locales. Valid options are \"name_asc\", \"name_desc\", \"default_asc\", \"default_desc\".
 $branch = my-feature-branch; // string | specify the branch to use
+$q = name:en; // string | Specify a query to filter locales. Currently supports `name` argument, filtering only locales with names starting with the given string.
 
 try {
-    $result = $apiInstance->localesList($project_id, $x_phrase_app_otp, $page, $per_page, $sort_by, $branch);
+    $result = $apiInstance->localesList($project_id, $x_phrase_app_otp, $page, $per_page, $sort_by, $branch, $q);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling LocalesApi->localesList: ', $e->getMessage(), PHP_EOL;
@@ -493,6 +494,7 @@ Name | Type | Description  | Notes
  **per_page** | **int**| Limit on the number of objects to be returned, between 1 and 100. 25 by default | [optional]
  **sort_by** | **string**| Sort locales. Valid options are \&quot;name_asc\&quot;, \&quot;name_desc\&quot;, \&quot;default_asc\&quot;, \&quot;default_desc\&quot;. | [optional]
  **branch** | **string**| specify the branch to use | [optional]
+ **q** | **string**| Specify a query to filter locales. Currently supports &#x60;name&#x60; argument, filtering only locales with names starting with the given string. | [optional]
 
 ### Return type
 
