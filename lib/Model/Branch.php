@@ -58,6 +58,7 @@ class Branch implements ModelInterface, ArrayAccess
         'base_project_id' => 'string',
         'branch_project_id' => 'string',
         'name' => 'string',
+        'base' => 'string',
         'created_at' => '\DateTime',
         'updated_at' => '\DateTime',
         'merged_at' => '\DateTime',
@@ -76,6 +77,7 @@ class Branch implements ModelInterface, ArrayAccess
         'base_project_id' => null,
         'branch_project_id' => null,
         'name' => null,
+        'base' => null,
         'created_at' => 'date-time',
         'updated_at' => 'date-time',
         'merged_at' => 'date-time',
@@ -115,6 +117,7 @@ class Branch implements ModelInterface, ArrayAccess
         'base_project_id' => 'base_project_id',
         'branch_project_id' => 'branch_project_id',
         'name' => 'name',
+        'base' => 'base',
         'created_at' => 'created_at',
         'updated_at' => 'updated_at',
         'merged_at' => 'merged_at',
@@ -133,6 +136,7 @@ class Branch implements ModelInterface, ArrayAccess
         'base_project_id' => 'setBaseProjectId',
         'branch_project_id' => 'setBranchProjectId',
         'name' => 'setName',
+        'base' => 'setBase',
         'created_at' => 'setCreatedAt',
         'updated_at' => 'setUpdatedAt',
         'merged_at' => 'setMergedAt',
@@ -151,6 +155,7 @@ class Branch implements ModelInterface, ArrayAccess
         'base_project_id' => 'getBaseProjectId',
         'branch_project_id' => 'getBranchProjectId',
         'name' => 'getName',
+        'base' => 'getBase',
         'created_at' => 'getCreatedAt',
         'updated_at' => 'getUpdatedAt',
         'merged_at' => 'getMergedAt',
@@ -201,8 +206,33 @@ class Branch implements ModelInterface, ArrayAccess
         return self::$openAPIModelName;
     }
 
+    const STATE_CREATING_BRANCH = 'creating_branch';
+    const STATE_MERGING_BRANCH = 'merging_branch';
+    const STATE_SYNCING_BRANCH = 'syncing_branch';
+    const STATE_MERGED = 'merged';
+    const STATE_SUCCESS = 'success';
+    const STATE_BRANCH_ERROR = 'branch_error';
+    const STATE_MERGE_CONFLICT = 'merge_conflict';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getStateAllowableValues()
+    {
+        return [
+            self::STATE_CREATING_BRANCH,
+            self::STATE_MERGING_BRANCH,
+            self::STATE_SYNCING_BRANCH,
+            self::STATE_MERGED,
+            self::STATE_SUCCESS,
+            self::STATE_BRANCH_ERROR,
+            self::STATE_MERGE_CONFLICT,
+        ];
+    }
     
 
     /**
@@ -223,6 +253,7 @@ class Branch implements ModelInterface, ArrayAccess
         $this->container['base_project_id'] = isset($data['base_project_id']) ? $data['base_project_id'] : null;
         $this->container['branch_project_id'] = isset($data['branch_project_id']) ? $data['branch_project_id'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['base'] = isset($data['base']) ? $data['base'] : null;
         $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
         $this->container['updated_at'] = isset($data['updated_at']) ? $data['updated_at'] : null;
         $this->container['merged_at'] = isset($data['merged_at']) ? $data['merged_at'] : null;
@@ -240,6 +271,14 @@ class Branch implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        $allowedValues = $this->getStateAllowableValues();
+        if (!is_null($this->container['state']) && !in_array($this->container['state'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'state', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
 
         return $invalidProperties;
     }
@@ -324,6 +363,30 @@ class Branch implements ModelInterface, ArrayAccess
     public function setName($name)
     {
         $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets base
+     *
+     * @return string|null
+     */
+    public function getBase()
+    {
+        return $this->container['base'];
+    }
+
+    /**
+     * Sets base
+     *
+     * @param string|null $base Name of the base branch this branch was created from. Only present for branches created with the newer branching system.
+     *
+     * @return $this
+     */
+    public function setBase($base)
+    {
+        $this->container['base'] = $base;
 
         return $this;
     }
@@ -467,6 +530,15 @@ class Branch implements ModelInterface, ArrayAccess
      */
     public function setState($state)
     {
+        $allowedValues = $this->getStateAllowableValues();
+        if (!is_null($state) && !in_array($state, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'state', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['state'] = $state;
 
         return $this;

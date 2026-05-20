@@ -156,8 +156,23 @@ class BranchMergeParameters implements ModelInterface, ArrayAccess
         return self::$openAPIModelName;
     }
 
+    const STRATEGY_MAIN = 'use_main';
+    const STRATEGY_BRANCH = 'use_branch';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getStrategyAllowableValues()
+    {
+        return [
+            self::STRATEGY_MAIN,
+            self::STRATEGY_BRANCH,
+        ];
+    }
     
 
     /**
@@ -187,6 +202,14 @@ class BranchMergeParameters implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        $allowedValues = $this->getStrategyAllowableValues();
+        if (!is_null($this->container['strategy']) && !in_array($this->container['strategy'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'strategy', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -215,12 +238,21 @@ class BranchMergeParameters implements ModelInterface, ArrayAccess
     /**
      * Sets strategy
      *
-     * @param string|null $strategy strategy used for merge conflicts, use_main or use_branch
+     * @param string|null $strategy Conflict resolution strategy applied when the branch and its base have diverged. `use_main` keeps the values from the base branch; `use_branch` keeps the values from the branch being merged.
      *
      * @return $this
      */
     public function setStrategy($strategy)
     {
+        $allowedValues = $this->getStrategyAllowableValues();
+        if (!is_null($strategy) && !in_array($strategy, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'strategy', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['strategy'] = $strategy;
 
         return $this;

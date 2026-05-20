@@ -55,7 +55,8 @@ class BranchCreateParameters implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'name' => 'string'
+        'name' => 'string',
+        'base' => 'string'
     ];
 
     /**
@@ -64,7 +65,8 @@ class BranchCreateParameters implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'name' => null
+        'name' => null,
+        'base' => null
     ];
 
     /**
@@ -94,7 +96,8 @@ class BranchCreateParameters implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'name' => 'name'
+        'name' => 'name',
+        'base' => 'base'
     ];
 
     /**
@@ -103,7 +106,8 @@ class BranchCreateParameters implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'name' => 'setName'
+        'name' => 'setName',
+        'base' => 'setBase'
     ];
 
     /**
@@ -112,7 +116,8 @@ class BranchCreateParameters implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'name' => 'getName'
+        'name' => 'getName',
+        'base' => 'getBase'
     ];
 
     /**
@@ -176,6 +181,7 @@ class BranchCreateParameters implements ModelInterface, ArrayAccess
     public function __construct(?array $data = null)
     {
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['base'] = isset($data['base']) ? $data['base'] : null;
     }
 
     /**
@@ -225,6 +231,30 @@ class BranchCreateParameters implements ModelInterface, ArrayAccess
     public function setName($name)
     {
         $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets base
+     *
+     * @return string|null
+     */
+    public function getBase()
+    {
+        return $this->container['base'];
+    }
+
+    /**
+     * Sets base
+     *
+     * @param string|null $base Name of an existing branch to use as the base for the new branch.
+     *
+     * @return $this
+     */
+    public function setBase($base)
+    {
+        $this->container['base'] = $base;
 
         return $this;
     }

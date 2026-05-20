@@ -82,4 +82,11 @@ class BranchCreateParametersTest extends TestCase
     public function testPropertyName()
     {
     }
+
+    /**
+     * Test attribute "base"
+     */
+    public function testPropertyBase()
+    {
+    }
 }

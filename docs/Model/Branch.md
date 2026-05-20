@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **base_project_id** | **string** |  | [optional] 
 **branch_project_id** | **string** |  | [optional] 
 **name** | **string** |  | [optional] 
+**base** | **string** | Name of the base branch this branch was created from. Only present for branches created with the newer branching system. | [optional] 
 **created_at** | **\DateTime** |  | [optional] 
 **updated_at** | **\DateTime** |  | [optional] 
 **merged_at** | **\DateTime** |  | [optional] 

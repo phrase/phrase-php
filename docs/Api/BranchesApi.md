@@ -148,7 +148,7 @@ void (empty response body)
 
 Create a branch
 
-Create a new branch.  *Note: Creating a new branch may take several minutes depending on the project size.*
+Create a new branch.  Branch project provisioning runs asynchronously, so the newly created branch is returned in a transitional state (typically `creating_branch`) and only reaches `success` once the underlying project has been set up. Poll the branch resource until its `state` becomes `success` before performing further operations on it.  Requires the Branching feature to be enabled on the account.  *Note: Creating a new branch may take several minutes depending on the project size.*
 
 ### Example
 
@@ -211,7 +211,7 @@ Name | Type | Description  | Notes
 
 Delete a branch
 
-Delete an existing branch.
+Delete an existing branch.  A branch cannot be deleted while it still has open jobs or open translation orders attached to its branch project — in that case the request is rejected with `409 Conflict`. A branch whose current `state` does not allow deletion (for example, while a merge or sync is in progress) is rejected with `422 Unprocessable Entity`.  Requires the Branching feature to be enabled on the account.
 
 ### Example
 
@@ -260,7 +260,7 @@ void (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: Not defined
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../../README.md#documentation-for-models)
@@ -273,7 +273,7 @@ void (empty response body)
 
 Merge a branch
 
-Merge an existing branch.  *Note: Merging a branch may take several minutes depending on diff size.*
+Merge an existing branch back into its base branch.  The merge runs asynchronously. The branch transitions to `merging_branch` and settles in `merged`, `merge_error`, or `merge_conflict` once the background job completes; the response body for this request is empty. Poll the branch resource to observe the final state.  A branch cannot be merged while it still has open jobs or open translation orders attached to its branch project — in that case the request is rejected with `409 Conflict`. A branch whose current `state` does not allow a merge is rejected with `422 Unprocessable Entity`.  Requires the Branching feature to be enabled on the account.  *Note: Merging a branch may take several minutes depending on diff size.*
 
 ### Example
 
@@ -324,7 +324,7 @@ void (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: application/json
-- **Accept**: Not defined
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../../README.md#documentation-for-models)
@@ -337,7 +337,7 @@ void (empty response body)
 
 Get a single branch
 
-Get details on a single branch for a given project.
+Get details on a single branch for a given project.  Requires the Branching feature to be enabled on the account.
 
 ### Example
 
@@ -400,7 +400,7 @@ Name | Type | Description  | Notes
 
 Sync a branch
 
-Sync an existing branch.  *Note: Only available for branches created with new branching.*
+Pull changes from the base branch into this branch, applying the chosen conflict-resolution strategy.  The sync runs asynchronously. The branch transitions to `syncing_branch` and settles back into `success` (or `merge_conflict` / `branch_error`) once the background job completes; the response body for this request is empty. Poll the branch resource to observe the final state.  Only branches created with the newer branching system can be synced. Requests against branches from the older system, or against branches whose current state does not allow a sync, are rejected with `422 Unprocessable Entity` and an empty body.  Requires the Branching feature to be enabled on the account.
 
 ### Example
 
@@ -451,7 +451,7 @@ void (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: application/json
-- **Accept**: Not defined
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../../README.md#documentation-for-models)
@@ -464,7 +464,7 @@ void (empty response body)
 
 Update a branch
 
-Update an existing branch.
+Update an existing branch. Only the branch name can be changed.  Requires the Branching feature to be enabled on the account.
 
 ### Example
 
@@ -529,7 +529,7 @@ Name | Type | Description  | Notes
 
 List branches
 
-List all branches the of the current project.
+List all branches of the current project.  Requires the Branching feature to be enabled on the account.
 
 ### Example
 

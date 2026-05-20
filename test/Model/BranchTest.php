@@ -98,6 +98,13 @@ class BranchTest extends TestCase
     }
 
     /**
+     * Test attribute "base"
+     */
+    public function testPropertyBase()
+    {
+    }
+
+    /**
      * Test attribute "created_at"
      */
     public function testPropertyCreatedAt()
