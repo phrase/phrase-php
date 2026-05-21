@@ -140,6 +140,13 @@ class ReleaseTest extends TestCase
     }
 
     /**
+     * Test attribute "state"
+     */
+    public function testPropertyState()
+    {
+    }
+
+    /**
      * Test attribute "project"
      */
     public function testPropertyProject()

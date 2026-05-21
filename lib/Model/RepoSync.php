@@ -61,6 +61,7 @@ class RepoSync implements ModelInterface, ArrayAccess
         'enabled' => 'bool',
         'auto_import' => 'bool',
         'repo_name' => 'string',
+        'pr_branch' => 'string',
         'created_at' => '\DateTime',
         'last_import_at' => '\DateTime',
         'last_export_at' => '\DateTime'
@@ -78,6 +79,7 @@ class RepoSync implements ModelInterface, ArrayAccess
         'enabled' => null,
         'auto_import' => null,
         'repo_name' => null,
+        'pr_branch' => null,
         'created_at' => 'date-time',
         'last_import_at' => 'date-time',
         'last_export_at' => 'date-time'
@@ -116,6 +118,7 @@ class RepoSync implements ModelInterface, ArrayAccess
         'enabled' => 'enabled',
         'auto_import' => 'auto_import',
         'repo_name' => 'repo_name',
+        'pr_branch' => 'pr_branch',
         'created_at' => 'created_at',
         'last_import_at' => 'last_import_at',
         'last_export_at' => 'last_export_at'
@@ -133,6 +136,7 @@ class RepoSync implements ModelInterface, ArrayAccess
         'enabled' => 'setEnabled',
         'auto_import' => 'setAutoImport',
         'repo_name' => 'setRepoName',
+        'pr_branch' => 'setPrBranch',
         'created_at' => 'setCreatedAt',
         'last_import_at' => 'setLastImportAt',
         'last_export_at' => 'setLastExportAt'
@@ -150,6 +154,7 @@ class RepoSync implements ModelInterface, ArrayAccess
         'enabled' => 'getEnabled',
         'auto_import' => 'getAutoImport',
         'repo_name' => 'getRepoName',
+        'pr_branch' => 'getPrBranch',
         'created_at' => 'getCreatedAt',
         'last_import_at' => 'getLastImportAt',
         'last_export_at' => 'getLastExportAt'
@@ -221,6 +226,7 @@ class RepoSync implements ModelInterface, ArrayAccess
         $this->container['enabled'] = isset($data['enabled']) ? $data['enabled'] : null;
         $this->container['auto_import'] = isset($data['auto_import']) ? $data['auto_import'] : null;
         $this->container['repo_name'] = isset($data['repo_name']) ? $data['repo_name'] : null;
+        $this->container['pr_branch'] = isset($data['pr_branch']) ? $data['pr_branch'] : null;
         $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
         $this->container['last_import_at'] = isset($data['last_import_at']) ? $data['last_import_at'] : null;
         $this->container['last_export_at'] = isset($data['last_export_at']) ? $data['last_export_at'] : null;
@@ -390,6 +396,30 @@ class RepoSync implements ModelInterface, ArrayAccess
     public function setRepoName($repo_name)
     {
         $this->container['repo_name'] = $repo_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets pr_branch
+     *
+     * @return string|null
+     */
+    public function getPrBranch()
+    {
+        return $this->container['pr_branch'];
+    }
+
+    /**
+     * Sets pr_branch
+     *
+     * @param string|null $pr_branch Branch used as the source of exports/PRs. May be `null` when the sync is configured to push directly to `base_branch`.
+     *
+     * @return $this
+     */
+    public function setPrBranch($pr_branch)
+    {
+        $this->container['pr_branch'] = $pr_branch;
 
         return $this;
     }

@@ -56,7 +56,7 @@ class ScreenshotMarker implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'id' => 'string',
-        'presentation' => 'string',
+        'presentation' => '\Phrase\Model\ScreenshotMarkerPresentation',
         'presentation_type' => 'string',
         'created_at' => '\DateTime',
         'updated_at' => '\DateTime',
@@ -259,7 +259,7 @@ class ScreenshotMarker implements ModelInterface, ArrayAccess
     /**
      * Gets presentation
      *
-     * @return string|null
+     * @return \Phrase\Model\ScreenshotMarkerPresentation|null
      */
     public function getPresentation()
     {
@@ -269,7 +269,7 @@ class ScreenshotMarker implements ModelInterface, ArrayAccess
     /**
      * Sets presentation
      *
-     * @param string|null $presentation presentation
+     * @param \Phrase\Model\ScreenshotMarkerPresentation|null $presentation presentation
      *
      * @return $this
      */
@@ -293,7 +293,7 @@ class ScreenshotMarker implements ModelInterface, ArrayAccess
     /**
      * Sets presentation_type
      *
-     * @param string|null $presentation_type presentation_type
+     * @param string|null $presentation_type Marker presentation style. The default value is `default`.
      *
      * @return $this
      */

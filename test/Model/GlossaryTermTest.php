@@ -119,6 +119,13 @@ class GlossaryTermTest extends TestCase
     }
 
     /**
+     * Test attribute "glossary"
+     */
+    public function testPropertyGlossary()
+    {
+    }
+
+    /**
      * Test attribute "created_at"
      */
     public function testPropertyCreatedAt()

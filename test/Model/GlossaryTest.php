@@ -98,6 +98,13 @@ class GlossaryTest extends TestCase
     }
 
     /**
+     * Test attribute "spaces"
+     */
+    public function testPropertySpaces()
+    {
+    }
+
+    /**
      * Test attribute "created_at"
      */
     public function testPropertyCreatedAt()

@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **environments** | **string[]** |  | [optional] 
 **locales** | [**\Phrase\Model\LocalePreview[]**](LocalePreview.md) |  | [optional] 
 **tags** | **string[]** |  | [optional] 
+**state** | **string** |  | [optional] 
 **project** | [**\Phrase\Model\ProjectShort**](ProjectShort.md) |  | [optional] 
 **created_at** | **\DateTime** |  | [optional] 
 **updated_at** | **\DateTime** |  | [optional] 

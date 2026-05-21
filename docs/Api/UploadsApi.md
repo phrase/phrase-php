@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 ## uploadCreate
 
-> \Phrase\Model\Upload uploadCreate($project_id, $file, $file_format, $locale_id, $x_phrase_app_otp, $branch, $tags, $update_translations, $update_custom_metadata, $update_translation_keys, $update_translations_on_source_match, $source_locale_id, $update_descriptions, $convert_emoji, $skip_upload_tags, $skip_unverification, $file_encoding, $locale_mapping, $format_options, $autotranslate, $verify_mentioned_translations, $mark_reviewed, $tag_only_affected_keys, $translation_key_prefix)
+> \Phrase\Model\Upload uploadCreate($project_id, $file, $file_format, $locale_id, $x_phrase_app_otp, $branch, $tags, $update_translations, $update_custom_metadata, $update_translation_keys, $update_translations_on_source_match, $source_locale_id, $update_descriptions, $convert_emoji, $skip_upload_tags, $skip_unverification, $file_encoding, $locale_mapping, $format_options, $autotranslate, $verify_mentioned_translations, $mark_reviewed, $tag_only_affected_keys, $translation_key_prefix, $skip_automated_job_creation)
 
 Upload a new file
 
@@ -57,9 +57,10 @@ $verify_mentioned_translations = false; // bool | Indicates whether all translat
 $mark_reviewed = True; // bool | Indicated whether the imported translations should be marked as reviewed. This setting is available if the review workflow is enabled for the project.
 $tag_only_affected_keys = false; // bool | Indicates whether only keys affected (created or updated) by the upload should be tagged. The default is `false`
 $translation_key_prefix = 'translation_key_prefix_example'; // string | This prefix will be added to all uploaded translation key names to prevent collisions. Use a meaningful prefix related to your project or file to keep key names organized.
+$skip_automated_job_creation = false; // bool | When `true`, the automation rules for the project will not fire for this upload, so no jobs are created as a side effect of importing this file. Defaults to `false`.
 
 try {
-    $result = $apiInstance->uploadCreate($project_id, $file, $file_format, $locale_id, $x_phrase_app_otp, $branch, $tags, $update_translations, $update_custom_metadata, $update_translation_keys, $update_translations_on_source_match, $source_locale_id, $update_descriptions, $convert_emoji, $skip_upload_tags, $skip_unverification, $file_encoding, $locale_mapping, $format_options, $autotranslate, $verify_mentioned_translations, $mark_reviewed, $tag_only_affected_keys, $translation_key_prefix);
+    $result = $apiInstance->uploadCreate($project_id, $file, $file_format, $locale_id, $x_phrase_app_otp, $branch, $tags, $update_translations, $update_custom_metadata, $update_translation_keys, $update_translations_on_source_match, $source_locale_id, $update_descriptions, $convert_emoji, $skip_upload_tags, $skip_unverification, $file_encoding, $locale_mapping, $format_options, $autotranslate, $verify_mentioned_translations, $mark_reviewed, $tag_only_affected_keys, $translation_key_prefix, $skip_automated_job_creation);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling UploadsApi->uploadCreate: ', $e->getMessage(), PHP_EOL;
@@ -96,6 +97,7 @@ Name | Type | Description  | Notes
  **mark_reviewed** | **bool**| Indicated whether the imported translations should be marked as reviewed. This setting is available if the review workflow is enabled for the project. | [optional]
  **tag_only_affected_keys** | **bool**| Indicates whether only keys affected (created or updated) by the upload should be tagged. The default is &#x60;false&#x60; | [optional] [default to false]
  **translation_key_prefix** | **string**| This prefix will be added to all uploaded translation key names to prevent collisions. Use a meaningful prefix related to your project or file to keep key names organized. | [optional]
+ **skip_automated_job_creation** | **bool**| When &#x60;true&#x60;, the automation rules for the project will not fire for this upload, so no jobs are created as a side effect of importing this file. Defaults to &#x60;false&#x60;. | [optional] [default to false]
 
 ### Return type
 

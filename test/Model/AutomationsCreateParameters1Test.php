@@ -131,4 +131,18 @@ class AutomationsCreateParameters1Test extends TestCase
     public function testPropertyTimeZone()
     {
     }
+
+    /**
+     * Test attribute "job_owner_id"
+     */
+    public function testPropertyJobOwnerId()
+    {
+    }
+
+    /**
+     * Test attribute "include_only_updated_locales"
+     */
+    public function testPropertyIncludeOnlyUpdatedLocales()
+    {
+    }
 }

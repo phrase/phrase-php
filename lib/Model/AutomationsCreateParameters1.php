@@ -62,7 +62,9 @@ class AutomationsCreateParameters1 implements ModelInterface, ArrayAccess
         'status_filters' => 'string[]',
         'tags' => 'string[]',
         'cron_schedule' => 'string',
-        'time_zone' => 'string'
+        'time_zone' => 'string',
+        'job_owner_id' => 'string',
+        'include_only_updated_locales' => 'bool'
     ];
 
     /**
@@ -78,7 +80,9 @@ class AutomationsCreateParameters1 implements ModelInterface, ArrayAccess
         'status_filters' => null,
         'tags' => null,
         'cron_schedule' => null,
-        'time_zone' => null
+        'time_zone' => null,
+        'job_owner_id' => null,
+        'include_only_updated_locales' => null
     ];
 
     /**
@@ -115,7 +119,9 @@ class AutomationsCreateParameters1 implements ModelInterface, ArrayAccess
         'status_filters' => 'status_filters',
         'tags' => 'tags',
         'cron_schedule' => 'cron_schedule',
-        'time_zone' => 'time_zone'
+        'time_zone' => 'time_zone',
+        'job_owner_id' => 'job_owner_id',
+        'include_only_updated_locales' => 'include_only_updated_locales'
     ];
 
     /**
@@ -131,7 +137,9 @@ class AutomationsCreateParameters1 implements ModelInterface, ArrayAccess
         'status_filters' => 'setStatusFilters',
         'tags' => 'setTags',
         'cron_schedule' => 'setCronSchedule',
-        'time_zone' => 'setTimeZone'
+        'time_zone' => 'setTimeZone',
+        'job_owner_id' => 'setJobOwnerId',
+        'include_only_updated_locales' => 'setIncludeOnlyUpdatedLocales'
     ];
 
     /**
@@ -147,7 +155,9 @@ class AutomationsCreateParameters1 implements ModelInterface, ArrayAccess
         'status_filters' => 'getStatusFilters',
         'tags' => 'getTags',
         'cron_schedule' => 'getCronSchedule',
-        'time_zone' => 'getTimeZone'
+        'time_zone' => 'getTimeZone',
+        'job_owner_id' => 'getJobOwnerId',
+        'include_only_updated_locales' => 'getIncludeOnlyUpdatedLocales'
     ];
 
     /**
@@ -250,6 +260,8 @@ class AutomationsCreateParameters1 implements ModelInterface, ArrayAccess
         $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
         $this->container['cron_schedule'] = isset($data['cron_schedule']) ? $data['cron_schedule'] : null;
         $this->container['time_zone'] = isset($data['time_zone']) ? $data['time_zone'] : null;
+        $this->container['job_owner_id'] = isset($data['job_owner_id']) ? $data['job_owner_id'] : null;
+        $this->container['include_only_updated_locales'] = isset($data['include_only_updated_locales']) ? $data['include_only_updated_locales'] : null;
     }
 
     /**
@@ -502,6 +514,54 @@ class AutomationsCreateParameters1 implements ModelInterface, ArrayAccess
     public function setTimeZone($time_zone)
     {
         $this->container['time_zone'] = $time_zone;
+
+        return $this;
+    }
+
+    /**
+     * Gets job_owner_id
+     *
+     * @return string|null
+     */
+    public function getJobOwnerId()
+    {
+        return $this->container['job_owner_id'];
+    }
+
+    /**
+     * Sets job_owner_id
+     *
+     * @param string|null $job_owner_id User ID of the job owner that newly created jobs are assigned to.
+     *
+     * @return $this
+     */
+    public function setJobOwnerId($job_owner_id)
+    {
+        $this->container['job_owner_id'] = $job_owner_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets include_only_updated_locales
+     *
+     * @return bool|null
+     */
+    public function getIncludeOnlyUpdatedLocales()
+    {
+        return $this->container['include_only_updated_locales'];
+    }
+
+    /**
+     * Sets include_only_updated_locales
+     *
+     * @param bool|null $include_only_updated_locales When `true`, the automation only acts on locales that changed since its last run.
+     *
+     * @return $this
+     */
+    public function setIncludeOnlyUpdatedLocales($include_only_updated_locales)
+    {
+        $this->container['include_only_updated_locales'] = $include_only_updated_locales;
 
         return $this;
     }

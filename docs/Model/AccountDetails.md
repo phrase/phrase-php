@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **updated_at** | **\DateTime** |  | [optional] 
 **company_logo_url** | **string** |  | [optional] 
 **subscription** | [**\Phrase\Model\Subscription**](Subscription.md) |  | [optional] 
-**roles** | **string[]** |  | [optional] 
+**roles** | **string[]** | Roles the requesting user holds in the account. | [optional] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

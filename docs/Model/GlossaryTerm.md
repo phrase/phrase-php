@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **translatable** | **bool** |  | [optional] 
 **case_sensitive** | **bool** |  | [optional] 
 **translations** | [**\Phrase\Model\GlossaryTermTranslation[]**](GlossaryTermTranslation.md) |  | [optional] 
+**glossary** | [**\Phrase\Model\GlossaryTermGlossary**](GlossaryTermGlossary.md) |  | [optional] 
 **created_at** | **\DateTime** |  | [optional] 
 **updated_at** | **\DateTime** |  | [optional] 
 

@@ -8,9 +8,9 @@ Name | Type | Description | Notes
 **name** | **string** |  | [optional] 
 **project** | [**\Phrase\Model\ProjectShort**](ProjectShort.md) |  | [optional] 
 **platforms** | **string[]** |  | [optional] 
-**locales** | [**\Phrase\Model\LocalePreview[]**](LocalePreview.md) |  | [optional] 
-**releases** | [**\Phrase\Model\ReleasePreview[]**](ReleasePreview.md) |  | [optional] 
+**release_count** | **int** |  | [optional] 
 **created_at** | **\DateTime** |  | [optional] 
+**updated_at** | **\DateTime** |  | [optional] 
 **deleted_at** | **\DateTime** |  | [optional] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)

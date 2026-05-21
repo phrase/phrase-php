@@ -180,6 +180,14 @@ class DocumentsApi
 
         } catch (ApiException $e) {
             switch ($e->getCode()) {
+                case 422:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Phrase\Model\DocumentDelete422Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
             }
             throw $e;
         }
@@ -307,11 +315,11 @@ class DocumentsApi
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
-                []
+                ['application/json']
             );
         } else {
             $headers = $this->headerSelector->selectHeaders(
-                [],
+                ['application/json'],
                 []
             );
         }
@@ -384,14 +392,15 @@ class DocumentsApi
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  int $page Page number (optional)
      * @param  int $per_page Limit on the number of objects to be returned, between 1 and 100. 25 by default (optional)
+     * @param  string $q Search query. Filters documents by name (case-insensitive substring match). (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Phrase\Model\Document[]
      */
-    public function documentsList($project_id, $x_phrase_app_otp = null, $page = null, $per_page = null)
+    public function documentsList($project_id, $x_phrase_app_otp = null, $page = null, $per_page = null, $q = null)
     {
-        list($response) = $this->documentsListWithHttpInfo($project_id, $x_phrase_app_otp, $page, $per_page);
+        list($response) = $this->documentsListWithHttpInfo($project_id, $x_phrase_app_otp, $page, $per_page, $q);
         return $response;
     }
 
@@ -404,14 +413,15 @@ class DocumentsApi
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  int $page Page number (optional)
      * @param  int $per_page Limit on the number of objects to be returned, between 1 and 100. 25 by default (optional)
+     * @param  string $q Search query. Filters documents by name (case-insensitive substring match). (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Phrase\Model\Document[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function documentsListWithHttpInfo($project_id, $x_phrase_app_otp = null, $page = null, $per_page = null)
+    public function documentsListWithHttpInfo($project_id, $x_phrase_app_otp = null, $page = null, $per_page = null, $q = null)
     {
-        $request = $this->documentsListRequest($project_id, $x_phrase_app_otp, $page, $per_page);
+        $request = $this->documentsListRequest($project_id, $x_phrase_app_otp, $page, $per_page, $q);
 
         try {
             $options = $this->createHttpClientOption();
@@ -495,13 +505,14 @@ class DocumentsApi
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  int $page Page number (optional)
      * @param  int $per_page Limit on the number of objects to be returned, between 1 and 100. 25 by default (optional)
+     * @param  string $q Search query. Filters documents by name (case-insensitive substring match). (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function documentsListAsync($project_id, $x_phrase_app_otp = null, $page = null, $per_page = null)
+    public function documentsListAsync($project_id, $x_phrase_app_otp = null, $page = null, $per_page = null, $q = null)
     {
-        return $this->documentsListAsyncWithHttpInfo($project_id, $x_phrase_app_otp, $page, $per_page)
+        return $this->documentsListAsyncWithHttpInfo($project_id, $x_phrase_app_otp, $page, $per_page, $q)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -518,14 +529,15 @@ class DocumentsApi
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  int $page Page number (optional)
      * @param  int $per_page Limit on the number of objects to be returned, between 1 and 100. 25 by default (optional)
+     * @param  string $q Search query. Filters documents by name (case-insensitive substring match). (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function documentsListAsyncWithHttpInfo($project_id, $x_phrase_app_otp = null, $page = null, $per_page = null)
+    public function documentsListAsyncWithHttpInfo($project_id, $x_phrase_app_otp = null, $page = null, $per_page = null, $q = null)
     {
         $returnType = '\Phrase\Model\Document[]';
-        $request = $this->documentsListRequest($project_id, $x_phrase_app_otp, $page, $per_page);
+        $request = $this->documentsListRequest($project_id, $x_phrase_app_otp, $page, $per_page, $q);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -568,11 +580,12 @@ class DocumentsApi
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  int $page Page number (optional)
      * @param  int $per_page Limit on the number of objects to be returned, between 1 and 100. 25 by default (optional)
+     * @param  string $q Search query. Filters documents by name (case-insensitive substring match). (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function documentsListRequest($project_id, $x_phrase_app_otp = null, $page = null, $per_page = null)
+    protected function documentsListRequest($project_id, $x_phrase_app_otp = null, $page = null, $per_page = null, $q = null)
     {
         // verify the required parameter 'project_id' is set
         if ($project_id === null || (is_array($project_id) && count($project_id) === 0)) {
@@ -608,6 +621,17 @@ class DocumentsApi
             }
             else {
                 $queryParams['per_page'] = $per_page;
+            }
+        }
+        // query params
+        if ($q !== null) {
+            if('form' === 'form' && is_array($q)) {
+                foreach($q as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['q'] = $q;
             }
         }
 

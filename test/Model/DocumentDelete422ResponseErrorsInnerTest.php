@@ -1,6 +1,6 @@
 <?php
 /**
- * TranslationCreateParametersTest
+ * DocumentDelete422ResponseErrorsInnerTest
  *
  * PHP version 5
  *
@@ -30,15 +30,15 @@ namespace Phrase;
 use PHPUnit\Framework\TestCase;
 
 /**
- * TranslationCreateParametersTest Class Doc Comment
+ * DocumentDelete422ResponseErrorsInnerTest Class Doc Comment
  *
  * @category    Class
- * @description TranslationCreateParameters
+ * @description DocumentDelete422ResponseErrorsInner
  * @package     Phrase
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class TranslationCreateParametersTest extends TestCase
+class DocumentDelete422ResponseErrorsInnerTest extends TestCase
 {
 
     /**
@@ -70,79 +70,30 @@ class TranslationCreateParametersTest extends TestCase
     }
 
     /**
-     * Test "TranslationCreateParameters"
+     * Test "DocumentDelete422ResponseErrorsInner"
      */
-    public function testTranslationCreateParameters()
+    public function testDocumentDelete422ResponseErrorsInner()
     {
     }
 
     /**
-     * Test attribute "branch"
+     * Test attribute "resource"
      */
-    public function testPropertyBranch()
+    public function testPropertyResource()
     {
     }
 
     /**
-     * Test attribute "locale_id"
+     * Test attribute "field"
      */
-    public function testPropertyLocaleId()
+    public function testPropertyField()
     {
     }
 
     /**
-     * Test attribute "key_id"
+     * Test attribute "message"
      */
-    public function testPropertyKeyId()
-    {
-    }
-
-    /**
-     * Test attribute "content"
-     */
-    public function testPropertyContent()
-    {
-    }
-
-    /**
-     * Test attribute "plural_suffix"
-     */
-    public function testPropertyPluralSuffix()
-    {
-    }
-
-    /**
-     * Test attribute "unverified"
-     */
-    public function testPropertyUnverified()
-    {
-    }
-
-    /**
-     * Test attribute "excluded"
-     */
-    public function testPropertyExcluded()
-    {
-    }
-
-    /**
-     * Test attribute "autotranslate"
-     */
-    public function testPropertyAutotranslate()
-    {
-    }
-
-    /**
-     * Test attribute "minor_change"
-     */
-    public function testPropertyMinorChange()
-    {
-    }
-
-    /**
-     * Test attribute "reviewed"
-     */
-    public function testPropertyReviewed()
+    public function testPropertyMessage()
     {
     }
 }

@@ -59,9 +59,9 @@ class Distribution implements ModelInterface, ArrayAccess
         'name' => 'string',
         'project' => '\Phrase\Model\ProjectShort',
         'platforms' => 'string[]',
-        'locales' => '\Phrase\Model\LocalePreview[]',
-        'releases' => '\Phrase\Model\ReleasePreview[]',
+        'release_count' => 'int',
         'created_at' => '\DateTime',
+        'updated_at' => '\DateTime',
         'deleted_at' => '\DateTime'
     ];
 
@@ -75,9 +75,9 @@ class Distribution implements ModelInterface, ArrayAccess
         'name' => null,
         'project' => null,
         'platforms' => null,
-        'locales' => null,
-        'releases' => null,
+        'release_count' => null,
         'created_at' => 'date-time',
+        'updated_at' => 'date-time',
         'deleted_at' => 'date-time'
     ];
 
@@ -112,9 +112,9 @@ class Distribution implements ModelInterface, ArrayAccess
         'name' => 'name',
         'project' => 'project',
         'platforms' => 'platforms',
-        'locales' => 'locales',
-        'releases' => 'releases',
+        'release_count' => 'release_count',
         'created_at' => 'created_at',
+        'updated_at' => 'updated_at',
         'deleted_at' => 'deleted_at'
     ];
 
@@ -128,9 +128,9 @@ class Distribution implements ModelInterface, ArrayAccess
         'name' => 'setName',
         'project' => 'setProject',
         'platforms' => 'setPlatforms',
-        'locales' => 'setLocales',
-        'releases' => 'setReleases',
+        'release_count' => 'setReleaseCount',
         'created_at' => 'setCreatedAt',
+        'updated_at' => 'setUpdatedAt',
         'deleted_at' => 'setDeletedAt'
     ];
 
@@ -144,9 +144,9 @@ class Distribution implements ModelInterface, ArrayAccess
         'name' => 'getName',
         'project' => 'getProject',
         'platforms' => 'getPlatforms',
-        'locales' => 'getLocales',
-        'releases' => 'getReleases',
+        'release_count' => 'getReleaseCount',
         'created_at' => 'getCreatedAt',
+        'updated_at' => 'getUpdatedAt',
         'deleted_at' => 'getDeletedAt'
     ];
 
@@ -214,9 +214,9 @@ class Distribution implements ModelInterface, ArrayAccess
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['project'] = isset($data['project']) ? $data['project'] : null;
         $this->container['platforms'] = isset($data['platforms']) ? $data['platforms'] : null;
-        $this->container['locales'] = isset($data['locales']) ? $data['locales'] : null;
-        $this->container['releases'] = isset($data['releases']) ? $data['releases'] : null;
+        $this->container['release_count'] = isset($data['release_count']) ? $data['release_count'] : null;
         $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
+        $this->container['updated_at'] = isset($data['updated_at']) ? $data['updated_at'] : null;
         $this->container['deleted_at'] = isset($data['deleted_at']) ? $data['deleted_at'] : null;
     }
 
@@ -341,49 +341,25 @@ class Distribution implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets locales
+     * Gets release_count
      *
-     * @return \Phrase\Model\LocalePreview[]|null
+     * @return int|null
      */
-    public function getLocales()
+    public function getReleaseCount()
     {
-        return $this->container['locales'];
+        return $this->container['release_count'];
     }
 
     /**
-     * Sets locales
+     * Sets release_count
      *
-     * @param \Phrase\Model\LocalePreview[]|null $locales locales
+     * @param int|null $release_count release_count
      *
      * @return $this
      */
-    public function setLocales($locales)
+    public function setReleaseCount($release_count)
     {
-        $this->container['locales'] = $locales;
-
-        return $this;
-    }
-
-    /**
-     * Gets releases
-     *
-     * @return \Phrase\Model\ReleasePreview[]|null
-     */
-    public function getReleases()
-    {
-        return $this->container['releases'];
-    }
-
-    /**
-     * Sets releases
-     *
-     * @param \Phrase\Model\ReleasePreview[]|null $releases releases
-     *
-     * @return $this
-     */
-    public function setReleases($releases)
-    {
-        $this->container['releases'] = $releases;
+        $this->container['release_count'] = $release_count;
 
         return $this;
     }
@@ -408,6 +384,30 @@ class Distribution implements ModelInterface, ArrayAccess
     public function setCreatedAt($created_at)
     {
         $this->container['created_at'] = $created_at;
+
+        return $this;
+    }
+
+    /**
+     * Gets updated_at
+     *
+     * @return \DateTime|null
+     */
+    public function getUpdatedAt()
+    {
+        return $this->container['updated_at'];
+    }
+
+    /**
+     * Sets updated_at
+     *
+     * @param \DateTime|null $updated_at updated_at
+     *
+     * @return $this
+     */
+    public function setUpdatedAt($updated_at)
+    {
+        $this->container['updated_at'] = $updated_at;
 
         return $this;
     }

@@ -154,9 +154,9 @@ class TranslationOrderTest extends TestCase
     }
 
     /**
-     * Test attribute "tag"
+     * Test attribute "tag_name"
      */
-    public function testPropertyTag()
+    public function testPropertyTagName()
     {
     }
 

@@ -789,7 +789,7 @@ class CustomMetadataApi
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Phrase\Model\CustomMetadataProperty|\Phrase\Model\CustomMetadataPropertyCreate422Response
+     * @return \Phrase\Model\CustomMetadataProperty|\Phrase\Model\DocumentDelete422Response
      */
     public function customMetadataPropertyCreate($account_id, $custom_metadata_properties_create_parameters, $x_phrase_app_otp = null)
     {
@@ -808,7 +808,7 @@ class CustomMetadataApi
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Phrase\Model\CustomMetadataProperty|\Phrase\Model\CustomMetadataPropertyCreate422Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Phrase\Model\CustomMetadataProperty|\Phrase\Model\DocumentDelete422Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function customMetadataPropertyCreateWithHttpInfo($account_id, $custom_metadata_properties_create_parameters, $x_phrase_app_otp = null)
     {
@@ -857,14 +857,14 @@ class CustomMetadataApi
                         $response->getHeaders()
                     ];
                 case 422:
-                    if ('\Phrase\Model\CustomMetadataPropertyCreate422Response' === '\SplFileObject') {
+                    if ('\Phrase\Model\DocumentDelete422Response' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Phrase\Model\CustomMetadataPropertyCreate422Response', []),
+                        ObjectSerializer::deserialize($content, '\Phrase\Model\DocumentDelete422Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -897,7 +897,7 @@ class CustomMetadataApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Phrase\Model\CustomMetadataPropertyCreate422Response',
+                        '\Phrase\Model\DocumentDelete422Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);

@@ -79,7 +79,14 @@ class ProjectUpdateParameters implements ModelInterface, ArrayAccess
         'autotranslate_use_translation_memory' => 'bool',
         'autotranslate_overwrite_unverified_translations' => 'bool',
         'default_encoding' => 'string',
-        'placeholder_styles' => 'string[]'
+        'placeholder_styles' => 'string[]',
+        'autocomplete_job_enabled' => 'bool',
+        'job_locking_enabled' => 'bool',
+        'smart_suggest_enabled' => 'bool',
+        'smart_suggest_use_glossary' => 'bool',
+        'smart_suggest_use_machine_translation' => 'bool',
+        'translation_keys_sort_collation' => 'string',
+        'cldr_version' => 'string'
     ];
 
     /**
@@ -112,7 +119,14 @@ class ProjectUpdateParameters implements ModelInterface, ArrayAccess
         'autotranslate_use_translation_memory' => null,
         'autotranslate_overwrite_unverified_translations' => null,
         'default_encoding' => null,
-        'placeholder_styles' => null
+        'placeholder_styles' => null,
+        'autocomplete_job_enabled' => null,
+        'job_locking_enabled' => null,
+        'smart_suggest_enabled' => null,
+        'smart_suggest_use_glossary' => null,
+        'smart_suggest_use_machine_translation' => null,
+        'translation_keys_sort_collation' => null,
+        'cldr_version' => null
     ];
 
     /**
@@ -166,7 +180,14 @@ class ProjectUpdateParameters implements ModelInterface, ArrayAccess
         'autotranslate_use_translation_memory' => 'autotranslate_use_translation_memory',
         'autotranslate_overwrite_unverified_translations' => 'autotranslate_overwrite_unverified_translations',
         'default_encoding' => 'default_encoding',
-        'placeholder_styles' => 'placeholder_styles'
+        'placeholder_styles' => 'placeholder_styles',
+        'autocomplete_job_enabled' => 'autocomplete_job_enabled',
+        'job_locking_enabled' => 'job_locking_enabled',
+        'smart_suggest_enabled' => 'smart_suggest_enabled',
+        'smart_suggest_use_glossary' => 'smart_suggest_use_glossary',
+        'smart_suggest_use_machine_translation' => 'smart_suggest_use_machine_translation',
+        'translation_keys_sort_collation' => 'translation_keys_sort_collation',
+        'cldr_version' => 'cldr_version'
     ];
 
     /**
@@ -199,7 +220,14 @@ class ProjectUpdateParameters implements ModelInterface, ArrayAccess
         'autotranslate_use_translation_memory' => 'setAutotranslateUseTranslationMemory',
         'autotranslate_overwrite_unverified_translations' => 'setAutotranslateOverwriteUnverifiedTranslations',
         'default_encoding' => 'setDefaultEncoding',
-        'placeholder_styles' => 'setPlaceholderStyles'
+        'placeholder_styles' => 'setPlaceholderStyles',
+        'autocomplete_job_enabled' => 'setAutocompleteJobEnabled',
+        'job_locking_enabled' => 'setJobLockingEnabled',
+        'smart_suggest_enabled' => 'setSmartSuggestEnabled',
+        'smart_suggest_use_glossary' => 'setSmartSuggestUseGlossary',
+        'smart_suggest_use_machine_translation' => 'setSmartSuggestUseMachineTranslation',
+        'translation_keys_sort_collation' => 'setTranslationKeysSortCollation',
+        'cldr_version' => 'setCldrVersion'
     ];
 
     /**
@@ -232,7 +260,14 @@ class ProjectUpdateParameters implements ModelInterface, ArrayAccess
         'autotranslate_use_translation_memory' => 'getAutotranslateUseTranslationMemory',
         'autotranslate_overwrite_unverified_translations' => 'getAutotranslateOverwriteUnverifiedTranslations',
         'default_encoding' => 'getDefaultEncoding',
-        'placeholder_styles' => 'getPlaceholderStyles'
+        'placeholder_styles' => 'getPlaceholderStyles',
+        'autocomplete_job_enabled' => 'getAutocompleteJobEnabled',
+        'job_locking_enabled' => 'getJobLockingEnabled',
+        'smart_suggest_enabled' => 'getSmartSuggestEnabled',
+        'smart_suggest_use_glossary' => 'getSmartSuggestUseGlossary',
+        'smart_suggest_use_machine_translation' => 'getSmartSuggestUseMachineTranslation',
+        'translation_keys_sort_collation' => 'getTranslationKeysSortCollation',
+        'cldr_version' => 'getCldrVersion'
     ];
 
     /**
@@ -341,6 +376,13 @@ class ProjectUpdateParameters implements ModelInterface, ArrayAccess
         $this->container['autotranslate_overwrite_unverified_translations'] = isset($data['autotranslate_overwrite_unverified_translations']) ? $data['autotranslate_overwrite_unverified_translations'] : null;
         $this->container['default_encoding'] = isset($data['default_encoding']) ? $data['default_encoding'] : null;
         $this->container['placeholder_styles'] = isset($data['placeholder_styles']) ? $data['placeholder_styles'] : null;
+        $this->container['autocomplete_job_enabled'] = isset($data['autocomplete_job_enabled']) ? $data['autocomplete_job_enabled'] : null;
+        $this->container['job_locking_enabled'] = isset($data['job_locking_enabled']) ? $data['job_locking_enabled'] : null;
+        $this->container['smart_suggest_enabled'] = isset($data['smart_suggest_enabled']) ? $data['smart_suggest_enabled'] : null;
+        $this->container['smart_suggest_use_glossary'] = isset($data['smart_suggest_use_glossary']) ? $data['smart_suggest_use_glossary'] : null;
+        $this->container['smart_suggest_use_machine_translation'] = isset($data['smart_suggest_use_machine_translation']) ? $data['smart_suggest_use_machine_translation'] : null;
+        $this->container['translation_keys_sort_collation'] = isset($data['translation_keys_sort_collation']) ? $data['translation_keys_sort_collation'] : null;
+        $this->container['cldr_version'] = isset($data['cldr_version']) ? $data['cldr_version'] : null;
     }
 
     /**
@@ -388,7 +430,7 @@ class ProjectUpdateParameters implements ModelInterface, ArrayAccess
     /**
      * Sets account_id
      *
-     * @param string|null $account_id Required if the requesting user is a member of multiple accounts. Account ID to specify the actual account the project should be created in.
+     * @param string|null $account_id (Optional) ID of an account the requesting user belongs to. Used only to disambiguate the request context; the project itself cannot be moved between accounts through this endpoint.
      *
      * @return $this
      */
@@ -980,6 +1022,174 @@ class ProjectUpdateParameters implements ModelInterface, ArrayAccess
     public function setPlaceholderStyles($placeholder_styles)
     {
         $this->container['placeholder_styles'] = $placeholder_styles;
+
+        return $this;
+    }
+
+    /**
+     * Gets autocomplete_job_enabled
+     *
+     * @return bool|null
+     */
+    public function getAutocompleteJobEnabled()
+    {
+        return $this->container['autocomplete_job_enabled'];
+    }
+
+    /**
+     * Sets autocomplete_job_enabled
+     *
+     * @param bool|null $autocomplete_job_enabled (Optional) Enable autocomplete-job behavior so that newly created keys and locales are automatically added to in-progress jobs.
+     *
+     * @return $this
+     */
+    public function setAutocompleteJobEnabled($autocomplete_job_enabled)
+    {
+        $this->container['autocomplete_job_enabled'] = $autocomplete_job_enabled;
+
+        return $this;
+    }
+
+    /**
+     * Gets job_locking_enabled
+     *
+     * @return bool|null
+     */
+    public function getJobLockingEnabled()
+    {
+        return $this->container['job_locking_enabled'];
+    }
+
+    /**
+     * Sets job_locking_enabled
+     *
+     * @param bool|null $job_locking_enabled (Optional) When enabled, translations are locked once a job moves into review.
+     *
+     * @return $this
+     */
+    public function setJobLockingEnabled($job_locking_enabled)
+    {
+        $this->container['job_locking_enabled'] = $job_locking_enabled;
+
+        return $this;
+    }
+
+    /**
+     * Gets smart_suggest_enabled
+     *
+     * @return bool|null
+     */
+    public function getSmartSuggestEnabled()
+    {
+        return $this->container['smart_suggest_enabled'];
+    }
+
+    /**
+     * Sets smart_suggest_enabled
+     *
+     * @param bool|null $smart_suggest_enabled (Optional) Enable Smart Suggest for the project.
+     *
+     * @return $this
+     */
+    public function setSmartSuggestEnabled($smart_suggest_enabled)
+    {
+        $this->container['smart_suggest_enabled'] = $smart_suggest_enabled;
+
+        return $this;
+    }
+
+    /**
+     * Gets smart_suggest_use_glossary
+     *
+     * @return bool|null
+     */
+    public function getSmartSuggestUseGlossary()
+    {
+        return $this->container['smart_suggest_use_glossary'];
+    }
+
+    /**
+     * Sets smart_suggest_use_glossary
+     *
+     * @param bool|null $smart_suggest_use_glossary (Optional) Allow Smart Suggest to source suggestions from the project glossary.
+     *
+     * @return $this
+     */
+    public function setSmartSuggestUseGlossary($smart_suggest_use_glossary)
+    {
+        $this->container['smart_suggest_use_glossary'] = $smart_suggest_use_glossary;
+
+        return $this;
+    }
+
+    /**
+     * Gets smart_suggest_use_machine_translation
+     *
+     * @return bool|null
+     */
+    public function getSmartSuggestUseMachineTranslation()
+    {
+        return $this->container['smart_suggest_use_machine_translation'];
+    }
+
+    /**
+     * Sets smart_suggest_use_machine_translation
+     *
+     * @param bool|null $smart_suggest_use_machine_translation (Optional) Allow Smart Suggest to source suggestions from machine translation.
+     *
+     * @return $this
+     */
+    public function setSmartSuggestUseMachineTranslation($smart_suggest_use_machine_translation)
+    {
+        $this->container['smart_suggest_use_machine_translation'] = $smart_suggest_use_machine_translation;
+
+        return $this;
+    }
+
+    /**
+     * Gets translation_keys_sort_collation
+     *
+     * @return string|null
+     */
+    public function getTranslationKeysSortCollation()
+    {
+        return $this->container['translation_keys_sort_collation'];
+    }
+
+    /**
+     * Sets translation_keys_sort_collation
+     *
+     * @param string|null $translation_keys_sort_collation (Optional) Collation used when sorting translation keys alphabetically.
+     *
+     * @return $this
+     */
+    public function setTranslationKeysSortCollation($translation_keys_sort_collation)
+    {
+        $this->container['translation_keys_sort_collation'] = $translation_keys_sort_collation;
+
+        return $this;
+    }
+
+    /**
+     * Gets cldr_version
+     *
+     * @return string|null
+     */
+    public function getCldrVersion()
+    {
+        return $this->container['cldr_version'];
+    }
+
+    /**
+     * Sets cldr_version
+     *
+     * @param string|null $cldr_version (Optional) CLDR plural-rule version used by the project.
+     *
+     * @return $this
+     */
+    public function setCldrVersion($cldr_version)
+    {
+        $this->container['cldr_version'] = $cldr_version;
 
         return $this;
     }

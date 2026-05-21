@@ -77,9 +77,9 @@ class UploadBatchTest extends TestCase
     }
 
     /**
-     * Test attribute "state"
+     * Test attribute "status"
      */
-    public function testPropertyState()
+    public function testPropertyStatus()
     {
     }
 
@@ -87,6 +87,13 @@ class UploadBatchTest extends TestCase
      * Test attribute "delete_unmentioned_keys"
      */
     public function testPropertyDeleteUnmentionedKeys()
+    {
+    }
+
+    /**
+     * Test attribute "uploads_count"
+     */
+    public function testPropertyUploadsCount()
     {
     }
 

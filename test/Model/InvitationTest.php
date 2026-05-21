@@ -175,9 +175,9 @@ class InvitationTest extends TestCase
     }
 
     /**
-     * Test attribute "project_role"
+     * Test attribute "project_roles"
      */
-    public function testPropertyProjectRole()
+    public function testPropertyProjectRoles()
     {
     }
 }

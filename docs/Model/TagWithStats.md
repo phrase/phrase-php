@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **string** |  | [optional] 
 **keys_count** | **int** |  | [optional] 
+**system_tag** | **bool** | &#x60;true&#x60; when the tag was created automatically by the system (e.g. for jobs, uploads, or Figma attachments) rather than by a user. | [optional] 
 **created_at** | **\DateTime** |  | [optional] 
 **updated_at** | **\DateTime** |  | [optional] 
 **statistics** | [**\Phrase\Model\TagWithStats1Statistics1[]**](TagWithStats1Statistics1.md) |  | [optional] 

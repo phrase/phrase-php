@@ -124,4 +124,11 @@ class TranslationUpdateParametersTest extends TestCase
     public function testPropertyReviewed()
     {
     }
+
+    /**
+     * Test attribute "minor_change"
+     */
+    public function testPropertyMinorChange()
+    {
+    }
 }

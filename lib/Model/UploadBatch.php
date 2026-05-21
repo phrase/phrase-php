@@ -55,8 +55,9 @@ class UploadBatch implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'state' => 'string',
+        'status' => 'string',
         'delete_unmentioned_keys' => 'bool',
+        'uploads_count' => 'int',
         'created_at' => '\DateTime',
         'updated_at' => '\DateTime',
         'project' => '\Phrase\Model\ProjectShort',
@@ -70,8 +71,9 @@ class UploadBatch implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'state' => null,
+        'status' => null,
         'delete_unmentioned_keys' => null,
+        'uploads_count' => null,
         'created_at' => 'date-time',
         'updated_at' => 'date-time',
         'project' => null,
@@ -106,8 +108,9 @@ class UploadBatch implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'state' => 'state',
+        'status' => 'status',
         'delete_unmentioned_keys' => 'delete_unmentioned_keys',
+        'uploads_count' => 'uploads_count',
         'created_at' => 'created_at',
         'updated_at' => 'updated_at',
         'project' => 'project',
@@ -121,8 +124,9 @@ class UploadBatch implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'state' => 'setState',
+        'status' => 'setStatus',
         'delete_unmentioned_keys' => 'setDeleteUnmentionedKeys',
+        'uploads_count' => 'setUploadsCount',
         'created_at' => 'setCreatedAt',
         'updated_at' => 'setUpdatedAt',
         'project' => 'setProject',
@@ -136,8 +140,9 @@ class UploadBatch implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'state' => 'getState',
+        'status' => 'getStatus',
         'delete_unmentioned_keys' => 'getDeleteUnmentionedKeys',
+        'uploads_count' => 'getUploadsCount',
         'created_at' => 'getCreatedAt',
         'updated_at' => 'getUpdatedAt',
         'project' => 'getProject',
@@ -186,8 +191,8 @@ class UploadBatch implements ModelInterface, ArrayAccess
         return self::$openAPIModelName;
     }
 
-    const STATE_STARTED = 'started';
-    const STATE_DONE = 'done';
+    const STATUS_STARTED = 'started';
+    const STATUS_DONE = 'done';
     
 
     
@@ -196,11 +201,11 @@ class UploadBatch implements ModelInterface, ArrayAccess
      *
      * @return string[]
      */
-    public function getStateAllowableValues()
+    public function getStatusAllowableValues()
     {
         return [
-            self::STATE_STARTED,
-            self::STATE_DONE,
+            self::STATUS_STARTED,
+            self::STATUS_DONE,
         ];
     }
     
@@ -220,8 +225,9 @@ class UploadBatch implements ModelInterface, ArrayAccess
      */
     public function __construct(?array $data = null)
     {
-        $this->container['state'] = isset($data['state']) ? $data['state'] : null;
+        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['delete_unmentioned_keys'] = isset($data['delete_unmentioned_keys']) ? $data['delete_unmentioned_keys'] : null;
+        $this->container['uploads_count'] = isset($data['uploads_count']) ? $data['uploads_count'] : null;
         $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
         $this->container['updated_at'] = isset($data['updated_at']) ? $data['updated_at'] : null;
         $this->container['project'] = isset($data['project']) ? $data['project'] : null;
@@ -238,10 +244,10 @@ class UploadBatch implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        $allowedValues = $this->getStateAllowableValues();
-        if (!is_null($this->container['state']) && !in_array($this->container['state'], $allowedValues, true)) {
+        $allowedValues = $this->getStatusAllowableValues();
+        if (!is_null($this->container['status']) && !in_array($this->container['status'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
-                "invalid value for 'state', must be one of '%s'",
+                "invalid value for 'status', must be one of '%s'",
                 implode("', '", $allowedValues)
             );
         }
@@ -262,34 +268,34 @@ class UploadBatch implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets state
+     * Gets status
      *
      * @return string|null
      */
-    public function getState()
+    public function getStatus()
     {
-        return $this->container['state'];
+        return $this->container['status'];
     }
 
     /**
-     * Sets state
+     * Sets status
      *
-     * @param string|null $state Processing state of the upload batch
+     * @param string|null $status Processing state of the upload batch
      *
      * @return $this
      */
-    public function setState($state)
+    public function setStatus($status)
     {
-        $allowedValues = $this->getStateAllowableValues();
-        if (!is_null($state) && !in_array($state, $allowedValues, true)) {
+        $allowedValues = $this->getStatusAllowableValues();
+        if (!is_null($status) && !in_array($status, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
-                    "Invalid value for 'state', must be one of '%s'",
+                    "Invalid value for 'status', must be one of '%s'",
                     implode("', '", $allowedValues)
                 )
             );
         }
-        $this->container['state'] = $state;
+        $this->container['status'] = $status;
 
         return $this;
     }
@@ -314,6 +320,30 @@ class UploadBatch implements ModelInterface, ArrayAccess
     public function setDeleteUnmentionedKeys($delete_unmentioned_keys)
     {
         $this->container['delete_unmentioned_keys'] = $delete_unmentioned_keys;
+
+        return $this;
+    }
+
+    /**
+     * Gets uploads_count
+     *
+     * @return int|null
+     */
+    public function getUploadsCount()
+    {
+        return $this->container['uploads_count'];
+    }
+
+    /**
+     * Sets uploads_count
+     *
+     * @param int|null $uploads_count Number of uploads attached to this batch.
+     *
+     * @return $this
+     */
+    public function setUploadsCount($uploads_count)
+    {
+        $this->container['uploads_count'] = $uploads_count;
 
         return $this;
     }

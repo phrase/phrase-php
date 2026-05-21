@@ -197,7 +197,7 @@ void (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: Not defined
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../../README.md#documentation-for-models)
@@ -271,7 +271,7 @@ Name | Type | Description  | Notes
 
 ## ordersList
 
-> \Phrase\Model\TranslationOrder[] ordersList($project_id, $x_phrase_app_otp, $page, $per_page, $branch)
+> \Phrase\Model\TranslationOrder[] ordersList($project_id, $x_phrase_app_otp, $page, $per_page, $branch, $translation_id)
 
 List orders
 
@@ -297,9 +297,10 @@ $x_phrase_app_otp = 'x_phrase_app_otp_example'; // string | Two-Factor-Authentic
 $page = 1; // int | Page number
 $per_page = 25; // int | Limit on the number of objects to be returned, between 1 and 100. 25 by default
 $branch = my-feature-branch; // string | specify the branch to use
+$translation_id = abcd1234cdef1234abcd1234cdef1234; // string | Filter the result to orders that include the given translation. When supplied with a translation code that does not exist, an empty list is returned.
 
 try {
-    $result = $apiInstance->ordersList($project_id, $x_phrase_app_otp, $page, $per_page, $branch);
+    $result = $apiInstance->ordersList($project_id, $x_phrase_app_otp, $page, $per_page, $branch, $translation_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling OrdersApi->ordersList: ', $e->getMessage(), PHP_EOL;
@@ -317,6 +318,7 @@ Name | Type | Description  | Notes
  **page** | **int**| Page number | [optional]
  **per_page** | **int**| Limit on the number of objects to be returned, between 1 and 100. 25 by default | [optional]
  **branch** | **string**| specify the branch to use | [optional]
+ **translation_id** | **string**| Filter the result to orders that include the given translation. When supplied with a translation code that does not exist, an empty list is returned. | [optional]
 
 ### Return type
 

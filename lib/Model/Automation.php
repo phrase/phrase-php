@@ -61,7 +61,10 @@ class Automation implements ModelInterface, ArrayAccess
         'trigger' => 'string',
         'status_filters' => 'string[]',
         'project_id' => 'string',
+        'project_ids' => 'string[]',
         'job_template_id' => 'string',
+        'job_owner_id' => 'string',
+        'include_only_updated_locales' => 'bool',
         'tags' => 'string[]',
         'cron_schedule' => 'string',
         'time_zone' => 'string',
@@ -82,7 +85,10 @@ class Automation implements ModelInterface, ArrayAccess
         'trigger' => null,
         'status_filters' => null,
         'project_id' => null,
+        'project_ids' => null,
         'job_template_id' => null,
+        'job_owner_id' => null,
+        'include_only_updated_locales' => null,
         'tags' => null,
         'cron_schedule' => null,
         'time_zone' => null,
@@ -124,7 +130,10 @@ class Automation implements ModelInterface, ArrayAccess
         'trigger' => 'trigger',
         'status_filters' => 'status_filters',
         'project_id' => 'project_id',
+        'project_ids' => 'project_ids',
         'job_template_id' => 'job_template_id',
+        'job_owner_id' => 'job_owner_id',
+        'include_only_updated_locales' => 'include_only_updated_locales',
         'tags' => 'tags',
         'cron_schedule' => 'cron_schedule',
         'time_zone' => 'time_zone',
@@ -145,7 +154,10 @@ class Automation implements ModelInterface, ArrayAccess
         'trigger' => 'setTrigger',
         'status_filters' => 'setStatusFilters',
         'project_id' => 'setProjectId',
+        'project_ids' => 'setProjectIds',
         'job_template_id' => 'setJobTemplateId',
+        'job_owner_id' => 'setJobOwnerId',
+        'include_only_updated_locales' => 'setIncludeOnlyUpdatedLocales',
         'tags' => 'setTags',
         'cron_schedule' => 'setCronSchedule',
         'time_zone' => 'setTimeZone',
@@ -166,7 +178,10 @@ class Automation implements ModelInterface, ArrayAccess
         'trigger' => 'getTrigger',
         'status_filters' => 'getStatusFilters',
         'project_id' => 'getProjectId',
+        'project_ids' => 'getProjectIds',
         'job_template_id' => 'getJobTemplateId',
+        'job_owner_id' => 'getJobOwnerId',
+        'include_only_updated_locales' => 'getIncludeOnlyUpdatedLocales',
         'tags' => 'getTags',
         'cron_schedule' => 'getCronSchedule',
         'time_zone' => 'getTimeZone',
@@ -290,7 +305,10 @@ class Automation implements ModelInterface, ArrayAccess
         $this->container['trigger'] = isset($data['trigger']) ? $data['trigger'] : null;
         $this->container['status_filters'] = isset($data['status_filters']) ? $data['status_filters'] : null;
         $this->container['project_id'] = isset($data['project_id']) ? $data['project_id'] : null;
+        $this->container['project_ids'] = isset($data['project_ids']) ? $data['project_ids'] : null;
         $this->container['job_template_id'] = isset($data['job_template_id']) ? $data['job_template_id'] : null;
+        $this->container['job_owner_id'] = isset($data['job_owner_id']) ? $data['job_owner_id'] : null;
+        $this->container['include_only_updated_locales'] = isset($data['include_only_updated_locales']) ? $data['include_only_updated_locales'] : null;
         $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
         $this->container['cron_schedule'] = isset($data['cron_schedule']) ? $data['cron_schedule'] : null;
         $this->container['time_zone'] = isset($data['time_zone']) ? $data['time_zone'] : null;
@@ -511,6 +529,30 @@ class Automation implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets project_ids
+     *
+     * @return string[]|null
+     */
+    public function getProjectIds()
+    {
+        return $this->container['project_ids'];
+    }
+
+    /**
+     * Sets project_ids
+     *
+     * @param string[]|null $project_ids All project IDs the automation applies to. Returned alongside the singular `project_id` for backwards compatibility.
+     *
+     * @return $this
+     */
+    public function setProjectIds($project_ids)
+    {
+        $this->container['project_ids'] = $project_ids;
+
+        return $this;
+    }
+
+    /**
      * Gets job_template_id
      *
      * @return string|null
@@ -530,6 +572,54 @@ class Automation implements ModelInterface, ArrayAccess
     public function setJobTemplateId($job_template_id)
     {
         $this->container['job_template_id'] = $job_template_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets job_owner_id
+     *
+     * @return string|null
+     */
+    public function getJobOwnerId()
+    {
+        return $this->container['job_owner_id'];
+    }
+
+    /**
+     * Sets job_owner_id
+     *
+     * @param string|null $job_owner_id User ID of the job owner that newly created jobs are assigned to.
+     *
+     * @return $this
+     */
+    public function setJobOwnerId($job_owner_id)
+    {
+        $this->container['job_owner_id'] = $job_owner_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets include_only_updated_locales
+     *
+     * @return bool|null
+     */
+    public function getIncludeOnlyUpdatedLocales()
+    {
+        return $this->container['include_only_updated_locales'];
+    }
+
+    /**
+     * Sets include_only_updated_locales
+     *
+     * @param bool|null $include_only_updated_locales When `true`, the automation only acts on locales that changed since its last run.
+     *
+     * @return $this
+     */
+    public function setIncludeOnlyUpdatedLocales($include_only_updated_locales)
+    {
+        $this->container['include_only_updated_locales'] = $include_only_updated_locales;
 
         return $this;
     }

@@ -208,4 +208,18 @@ class KeyCreateParametersTest extends TestCase
     public function testPropertyCustomMetadata()
     {
     }
+
+    /**
+     * Test attribute "excluded_in_locales"
+     */
+    public function testPropertyExcludedInLocales()
+    {
+    }
+
+    /**
+     * Test attribute "format_value_type"
+     */
+    public function testPropertyFormatValueType()
+    {
+    }
 }

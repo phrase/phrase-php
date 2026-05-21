@@ -124,7 +124,7 @@ class JobTemplatesApi
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Phrase\Model\JobTemplateDetails
+     * @return \Phrase\Model\JobTemplateDetails|\Phrase\Model\DocumentDelete422Response
      */
     public function jobTemplateCreate($project_id, $job_template_create_parameters, $x_phrase_app_otp = null)
     {
@@ -143,7 +143,7 @@ class JobTemplatesApi
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Phrase\Model\JobTemplateDetails, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Phrase\Model\JobTemplateDetails|\Phrase\Model\DocumentDelete422Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function jobTemplateCreateWithHttpInfo($project_id, $job_template_create_parameters, $x_phrase_app_otp = null)
     {
@@ -191,6 +191,18 @@ class JobTemplatesApi
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
+                case 422:
+                    if ('\Phrase\Model\DocumentDelete422Response' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Phrase\Model\DocumentDelete422Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
             }
 
             $returnType = '\Phrase\Model\JobTemplateDetails';
@@ -213,6 +225,14 @@ class JobTemplatesApi
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\Phrase\Model\JobTemplateDetails',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 422:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Phrase\Model\DocumentDelete422Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -487,6 +507,14 @@ class JobTemplatesApi
 
         } catch (ApiException $e) {
             switch ($e->getCode()) {
+                case 422:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Phrase\Model\DocumentDelete422Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
             }
             throw $e;
         }
@@ -628,11 +656,11 @@ class JobTemplatesApi
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
-                []
+                ['application/json']
             );
         } else {
             $headers = $this->headerSelector->selectHeaders(
-                [],
+                ['application/json'],
                 []
             );
         }
@@ -708,7 +736,7 @@ class JobTemplatesApi
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Phrase\Model\JobTemplateDetails
+     * @return \Phrase\Model\JobTemplateDetails|\Phrase\Model\DocumentDelete422Response
      */
     public function jobTemplateUpdate($project_id, $id, $job_template_update_parameters, $x_phrase_app_otp = null)
     {
@@ -728,7 +756,7 @@ class JobTemplatesApi
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Phrase\Model\JobTemplateDetails, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Phrase\Model\JobTemplateDetails|\Phrase\Model\DocumentDelete422Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function jobTemplateUpdateWithHttpInfo($project_id, $id, $job_template_update_parameters, $x_phrase_app_otp = null)
     {
@@ -776,6 +804,18 @@ class JobTemplatesApi
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
+                case 422:
+                    if ('\Phrase\Model\DocumentDelete422Response' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Phrase\Model\DocumentDelete422Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
             }
 
             $returnType = '\Phrase\Model\JobTemplateDetails';
@@ -798,6 +838,14 @@ class JobTemplatesApi
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\Phrase\Model\JobTemplateDetails',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 422:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Phrase\Model\DocumentDelete422Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);

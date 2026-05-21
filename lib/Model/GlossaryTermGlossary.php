@@ -1,6 +1,6 @@
 <?php
 /**
- * CustomMetadataPropertyCreate422Response
+ * GlossaryTermGlossary
  *
  * PHP version 5
  *
@@ -31,14 +31,15 @@ use \ArrayAccess;
 use \Phrase\ObjectSerializer;
 
 /**
- * CustomMetadataPropertyCreate422Response Class Doc Comment
+ * GlossaryTermGlossary Class Doc Comment
  *
  * @category Class
+ * @description The glossary this term belongs to.
  * @package  Phrase
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class CustomMetadataPropertyCreate422Response implements ModelInterface, ArrayAccess
+class GlossaryTermGlossary implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -47,7 +48,7 @@ class CustomMetadataPropertyCreate422Response implements ModelInterface, ArrayAc
       *
       * @var string
       */
-    protected static $openAPIModelName = 'custom_metadata_property_create_422_response';
+    protected static $openAPIModelName = 'glossary_term_glossary';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -55,8 +56,8 @@ class CustomMetadataPropertyCreate422Response implements ModelInterface, ArrayAc
       * @var string[]
       */
     protected static $openAPITypes = [
-        'message' => 'string',
-        'errors' => '\Phrase\Model\CustomMetadataPropertyCreate422ResponseErrorsInner[]'
+        'id' => 'string',
+        'name' => 'string'
     ];
 
     /**
@@ -65,8 +66,8 @@ class CustomMetadataPropertyCreate422Response implements ModelInterface, ArrayAc
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'message' => null,
-        'errors' => null
+        'id' => null,
+        'name' => null
     ];
 
     /**
@@ -96,8 +97,8 @@ class CustomMetadataPropertyCreate422Response implements ModelInterface, ArrayAc
      * @var string[]
      */
     protected static $attributeMap = [
-        'message' => 'message',
-        'errors' => 'errors'
+        'id' => 'id',
+        'name' => 'name'
     ];
 
     /**
@@ -106,8 +107,8 @@ class CustomMetadataPropertyCreate422Response implements ModelInterface, ArrayAc
      * @var string[]
      */
     protected static $setters = [
-        'message' => 'setMessage',
-        'errors' => 'setErrors'
+        'id' => 'setId',
+        'name' => 'setName'
     ];
 
     /**
@@ -116,8 +117,8 @@ class CustomMetadataPropertyCreate422Response implements ModelInterface, ArrayAc
      * @var string[]
      */
     protected static $getters = [
-        'message' => 'getMessage',
-        'errors' => 'getErrors'
+        'id' => 'getId',
+        'name' => 'getName'
     ];
 
     /**
@@ -180,8 +181,8 @@ class CustomMetadataPropertyCreate422Response implements ModelInterface, ArrayAc
      */
     public function __construct(?array $data = null)
     {
-        $this->container['message'] = isset($data['message']) ? $data['message'] : null;
-        $this->container['errors'] = isset($data['errors']) ? $data['errors'] : null;
+        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
     }
 
     /**
@@ -209,49 +210,49 @@ class CustomMetadataPropertyCreate422Response implements ModelInterface, ArrayAc
 
 
     /**
-     * Gets message
+     * Gets id
      *
      * @return string|null
      */
-    public function getMessage()
+    public function getId()
     {
-        return $this->container['message'];
+        return $this->container['id'];
     }
 
     /**
-     * Sets message
+     * Sets id
      *
-     * @param string|null $message message
+     * @param string|null $id id
      *
      * @return $this
      */
-    public function setMessage($message)
+    public function setId($id)
     {
-        $this->container['message'] = $message;
+        $this->container['id'] = $id;
 
         return $this;
     }
 
     /**
-     * Gets errors
+     * Gets name
      *
-     * @return \Phrase\Model\CustomMetadataPropertyCreate422ResponseErrorsInner[]|null
+     * @return string|null
      */
-    public function getErrors()
+    public function getName()
     {
-        return $this->container['errors'];
+        return $this->container['name'];
     }
 
     /**
-     * Sets errors
+     * Sets name
      *
-     * @param \Phrase\Model\CustomMetadataPropertyCreate422ResponseErrorsInner[]|null $errors errors
+     * @param string|null $name name
      *
      * @return $this
      */
-    public function setErrors($errors)
+    public function setName($name)
     {
-        $this->container['errors'] = $errors;
+        $this->container['name'] = $name;
 
         return $this;
     }

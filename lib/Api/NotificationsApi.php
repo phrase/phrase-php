@@ -122,14 +122,15 @@ class NotificationsApi
      * @param  int $page Page number (optional)
      * @param  int $per_page Limit on the number of objects to be returned, between 1 and 100. 25 by default (optional)
      * @param  bool $unseen Include only unseen notifications (optional)
+     * @param  int $last_days Restrict the results to notifications created within the last N days. Coerced to integer; non-numeric values resolve to 0 (returning nothing). (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Phrase\Model\Notification[]
      */
-    public function notificationsList($x_phrase_app_otp = null, $page = null, $per_page = null, $unseen = null)
+    public function notificationsList($x_phrase_app_otp = null, $page = null, $per_page = null, $unseen = null, $last_days = null)
     {
-        list($response) = $this->notificationsListWithHttpInfo($x_phrase_app_otp, $page, $per_page, $unseen);
+        list($response) = $this->notificationsListWithHttpInfo($x_phrase_app_otp, $page, $per_page, $unseen, $last_days);
         return $response;
     }
 
@@ -142,14 +143,15 @@ class NotificationsApi
      * @param  int $page Page number (optional)
      * @param  int $per_page Limit on the number of objects to be returned, between 1 and 100. 25 by default (optional)
      * @param  bool $unseen Include only unseen notifications (optional)
+     * @param  int $last_days Restrict the results to notifications created within the last N days. Coerced to integer; non-numeric values resolve to 0 (returning nothing). (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Phrase\Model\Notification[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function notificationsListWithHttpInfo($x_phrase_app_otp = null, $page = null, $per_page = null, $unseen = null)
+    public function notificationsListWithHttpInfo($x_phrase_app_otp = null, $page = null, $per_page = null, $unseen = null, $last_days = null)
     {
-        $request = $this->notificationsListRequest($x_phrase_app_otp, $page, $per_page, $unseen);
+        $request = $this->notificationsListRequest($x_phrase_app_otp, $page, $per_page, $unseen, $last_days);
 
         try {
             $options = $this->createHttpClientOption();
@@ -233,13 +235,14 @@ class NotificationsApi
      * @param  int $page Page number (optional)
      * @param  int $per_page Limit on the number of objects to be returned, between 1 and 100. 25 by default (optional)
      * @param  bool $unseen Include only unseen notifications (optional)
+     * @param  int $last_days Restrict the results to notifications created within the last N days. Coerced to integer; non-numeric values resolve to 0 (returning nothing). (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function notificationsListAsync($x_phrase_app_otp = null, $page = null, $per_page = null, $unseen = null)
+    public function notificationsListAsync($x_phrase_app_otp = null, $page = null, $per_page = null, $unseen = null, $last_days = null)
     {
-        return $this->notificationsListAsyncWithHttpInfo($x_phrase_app_otp, $page, $per_page, $unseen)
+        return $this->notificationsListAsyncWithHttpInfo($x_phrase_app_otp, $page, $per_page, $unseen, $last_days)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -256,14 +259,15 @@ class NotificationsApi
      * @param  int $page Page number (optional)
      * @param  int $per_page Limit on the number of objects to be returned, between 1 and 100. 25 by default (optional)
      * @param  bool $unseen Include only unseen notifications (optional)
+     * @param  int $last_days Restrict the results to notifications created within the last N days. Coerced to integer; non-numeric values resolve to 0 (returning nothing). (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function notificationsListAsyncWithHttpInfo($x_phrase_app_otp = null, $page = null, $per_page = null, $unseen = null)
+    public function notificationsListAsyncWithHttpInfo($x_phrase_app_otp = null, $page = null, $per_page = null, $unseen = null, $last_days = null)
     {
         $returnType = '\Phrase\Model\Notification[]';
-        $request = $this->notificationsListRequest($x_phrase_app_otp, $page, $per_page, $unseen);
+        $request = $this->notificationsListRequest($x_phrase_app_otp, $page, $per_page, $unseen, $last_days);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -306,11 +310,12 @@ class NotificationsApi
      * @param  int $page Page number (optional)
      * @param  int $per_page Limit on the number of objects to be returned, between 1 and 100. 25 by default (optional)
      * @param  bool $unseen Include only unseen notifications (optional)
+     * @param  int $last_days Restrict the results to notifications created within the last N days. Coerced to integer; non-numeric values resolve to 0 (returning nothing). (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function notificationsListRequest($x_phrase_app_otp = null, $page = null, $per_page = null, $unseen = null)
+    protected function notificationsListRequest($x_phrase_app_otp = null, $page = null, $per_page = null, $unseen = null, $last_days = null)
     {
 
         $resourcePath = '/notifications';
@@ -351,6 +356,17 @@ class NotificationsApi
             }
             else {
                 $queryParams['unseen'] = $unseen;
+            }
+        }
+        // query params
+        if ($last_days !== null) {
+            if('form' === 'form' && is_array($last_days)) {
+                foreach($last_days as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['last_days'] = $last_days;
             }
         }
 

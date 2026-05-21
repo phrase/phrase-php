@@ -124,7 +124,7 @@ class RepoSyncsApi
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Phrase\Model\RepoSync
+     * @return \Phrase\Model\RepoSync|\Phrase\Model\DocumentDelete422Response
      */
     public function repoSyncActivate($account_id, $id, $x_phrase_app_otp = null)
     {
@@ -143,7 +143,7 @@ class RepoSyncsApi
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Phrase\Model\RepoSync, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Phrase\Model\RepoSync|\Phrase\Model\DocumentDelete422Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function repoSyncActivateWithHttpInfo($account_id, $id, $x_phrase_app_otp = null)
     {
@@ -191,6 +191,18 @@ class RepoSyncsApi
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
+                case 422:
+                    if ('\Phrase\Model\DocumentDelete422Response' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Phrase\Model\DocumentDelete422Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
             }
 
             $returnType = '\Phrase\Model\RepoSync';
@@ -213,6 +225,14 @@ class RepoSyncsApi
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\Phrase\Model\RepoSync',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 422:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Phrase\Model\DocumentDelete422Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -434,7 +454,7 @@ class RepoSyncsApi
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Phrase\Model\RepoSync|\Phrase\Model\CustomMetadataPropertyCreate422Response
+     * @return \Phrase\Model\RepoSync|\Phrase\Model\DocumentDelete422Response
      */
     public function repoSyncCreate($account_id, $repo_sync_create_parameters, $x_phrase_app_otp = null)
     {
@@ -453,7 +473,7 @@ class RepoSyncsApi
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Phrase\Model\RepoSync|\Phrase\Model\CustomMetadataPropertyCreate422Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Phrase\Model\RepoSync|\Phrase\Model\DocumentDelete422Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function repoSyncCreateWithHttpInfo($account_id, $repo_sync_create_parameters, $x_phrase_app_otp = null)
     {
@@ -502,14 +522,14 @@ class RepoSyncsApi
                         $response->getHeaders()
                     ];
                 case 422:
-                    if ('\Phrase\Model\CustomMetadataPropertyCreate422Response' === '\SplFileObject') {
+                    if ('\Phrase\Model\DocumentDelete422Response' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Phrase\Model\CustomMetadataPropertyCreate422Response', []),
+                        ObjectSerializer::deserialize($content, '\Phrase\Model\DocumentDelete422Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -542,7 +562,7 @@ class RepoSyncsApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Phrase\Model\CustomMetadataPropertyCreate422Response',
+                        '\Phrase\Model\DocumentDelete422Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -759,7 +779,7 @@ class RepoSyncsApi
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Phrase\Model\RepoSync
+     * @return \Phrase\Model\RepoSync|\Phrase\Model\DocumentDelete422Response
      */
     public function repoSyncDeactivate($account_id, $id, $x_phrase_app_otp = null)
     {
@@ -778,7 +798,7 @@ class RepoSyncsApi
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Phrase\Model\RepoSync, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Phrase\Model\RepoSync|\Phrase\Model\DocumentDelete422Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function repoSyncDeactivateWithHttpInfo($account_id, $id, $x_phrase_app_otp = null)
     {
@@ -826,6 +846,18 @@ class RepoSyncsApi
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
+                case 422:
+                    if ('\Phrase\Model\DocumentDelete422Response' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Phrase\Model\DocumentDelete422Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
             }
 
             $returnType = '\Phrase\Model\RepoSync';
@@ -848,6 +880,14 @@ class RepoSyncsApi
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\Phrase\Model\RepoSync',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 422:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Phrase\Model\DocumentDelete422Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1070,7 +1110,7 @@ class RepoSyncsApi
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Phrase\Model\RepoSyncEvent
+     * @return \Phrase\Model\RepoSyncEvent|\Phrase\Model\DocumentDelete422Response
      */
     public function repoSyncExport($account_id, $id, $x_phrase_app_otp = null, $repo_sync_export_parameters = null)
     {
@@ -1090,7 +1130,7 @@ class RepoSyncsApi
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Phrase\Model\RepoSyncEvent, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Phrase\Model\RepoSyncEvent|\Phrase\Model\DocumentDelete422Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function repoSyncExportWithHttpInfo($account_id, $id, $x_phrase_app_otp = null, $repo_sync_export_parameters = null)
     {
@@ -1138,6 +1178,18 @@ class RepoSyncsApi
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
+                case 422:
+                    if ('\Phrase\Model\DocumentDelete422Response' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Phrase\Model\DocumentDelete422Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
             }
 
             $returnType = '\Phrase\Model\RepoSyncEvent';
@@ -1160,6 +1212,14 @@ class RepoSyncsApi
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\Phrase\Model\RepoSyncEvent',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 422:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Phrase\Model\DocumentDelete422Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1388,7 +1448,7 @@ class RepoSyncsApi
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Phrase\Model\RepoSyncEvent
+     * @return \Phrase\Model\RepoSyncEvent|\Phrase\Model\DocumentDelete422Response
      */
     public function repoSyncImport($account_id, $id, $x_phrase_app_otp = null, $repo_sync_import_parameters = null)
     {
@@ -1408,7 +1468,7 @@ class RepoSyncsApi
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Phrase\Model\RepoSyncEvent, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Phrase\Model\RepoSyncEvent|\Phrase\Model\DocumentDelete422Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function repoSyncImportWithHttpInfo($account_id, $id, $x_phrase_app_otp = null, $repo_sync_import_parameters = null)
     {
@@ -1456,6 +1516,18 @@ class RepoSyncsApi
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
+                case 422:
+                    if ('\Phrase\Model\DocumentDelete422Response' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Phrase\Model\DocumentDelete422Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
             }
 
             $returnType = '\Phrase\Model\RepoSyncEvent';
@@ -1478,6 +1550,14 @@ class RepoSyncsApi
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\Phrase\Model\RepoSyncEvent',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 422:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Phrase\Model\DocumentDelete422Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);

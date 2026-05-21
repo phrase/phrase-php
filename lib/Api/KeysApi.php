@@ -124,7 +124,7 @@ class KeysApi
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Phrase\Model\TranslationKeyDetails
+     * @return \Phrase\Model\TranslationKeyDetails|\Phrase\Model\DocumentDelete422Response
      */
     public function keyCreate($project_id, $key_create_parameters, $x_phrase_app_otp = null)
     {
@@ -143,7 +143,7 @@ class KeysApi
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Phrase\Model\TranslationKeyDetails, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Phrase\Model\TranslationKeyDetails|\Phrase\Model\DocumentDelete422Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function keyCreateWithHttpInfo($project_id, $key_create_parameters, $x_phrase_app_otp = null)
     {
@@ -191,6 +191,18 @@ class KeysApi
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
+                case 422:
+                    if ('\Phrase\Model\DocumentDelete422Response' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Phrase\Model\DocumentDelete422Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
             }
 
             $returnType = '\Phrase\Model\TranslationKeyDetails';
@@ -213,6 +225,14 @@ class KeysApi
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\Phrase\Model\TranslationKeyDetails',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 422:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Phrase\Model\DocumentDelete422Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -487,6 +507,14 @@ class KeysApi
 
         } catch (ApiException $e) {
             switch ($e->getCode()) {
+                case 422:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Phrase\Model\DocumentDelete422Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
             }
             throw $e;
         }
@@ -628,11 +656,11 @@ class KeysApi
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
-                []
+                ['application/json']
             );
         } else {
             $headers = $this->headerSelector->selectHeaders(
-                [],
+                ['application/json'],
                 []
             );
         }
@@ -1034,7 +1062,7 @@ class KeysApi
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Phrase\Model\TranslationKeyDetails
+     * @return \Phrase\Model\TranslationKeyDetails|\Phrase\Model\DocumentDelete422Response
      */
     public function keyUpdate($project_id, $id, $key_update_parameters, $x_phrase_app_otp = null)
     {
@@ -1054,7 +1082,7 @@ class KeysApi
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Phrase\Model\TranslationKeyDetails, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Phrase\Model\TranslationKeyDetails|\Phrase\Model\DocumentDelete422Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function keyUpdateWithHttpInfo($project_id, $id, $key_update_parameters, $x_phrase_app_otp = null)
     {
@@ -1102,6 +1130,18 @@ class KeysApi
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
+                case 422:
+                    if ('\Phrase\Model\DocumentDelete422Response' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Phrase\Model\DocumentDelete422Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
             }
 
             $returnType = '\Phrase\Model\TranslationKeyDetails';
@@ -1124,6 +1164,14 @@ class KeysApi
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\Phrase\Model\TranslationKeyDetails',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 422:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Phrase\Model\DocumentDelete422Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3046,7 +3094,7 @@ class KeysApi
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Phrase\Model\AffectedResources
+     * @return \Phrase\Model\AffectedResources|\Phrase\Model\DocumentDelete422Response
      */
     public function keysTag($project_id, $keys_tag_parameters, $x_phrase_app_otp = null)
     {
@@ -3065,7 +3113,7 @@ class KeysApi
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Phrase\Model\AffectedResources, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Phrase\Model\AffectedResources|\Phrase\Model\DocumentDelete422Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function keysTagWithHttpInfo($project_id, $keys_tag_parameters, $x_phrase_app_otp = null)
     {
@@ -3113,6 +3161,18 @@ class KeysApi
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
+                case 422:
+                    if ('\Phrase\Model\DocumentDelete422Response' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Phrase\Model\DocumentDelete422Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
             }
 
             $returnType = '\Phrase\Model\AffectedResources';
@@ -3135,6 +3195,14 @@ class KeysApi
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\Phrase\Model\AffectedResources',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 422:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Phrase\Model\DocumentDelete422Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);

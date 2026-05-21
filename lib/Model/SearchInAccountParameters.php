@@ -58,7 +58,8 @@ class SearchInAccountParameters implements ModelInterface, ArrayAccess
         'query' => 'string',
         'locale_code' => 'string',
         'page' => 'int',
-        'per_page' => 'int'
+        'per_page' => 'int',
+        'project_ids' => 'string[]'
     ];
 
     /**
@@ -70,7 +71,8 @@ class SearchInAccountParameters implements ModelInterface, ArrayAccess
         'query' => null,
         'locale_code' => null,
         'page' => null,
-        'per_page' => null
+        'per_page' => null,
+        'project_ids' => null
     ];
 
     /**
@@ -103,7 +105,8 @@ class SearchInAccountParameters implements ModelInterface, ArrayAccess
         'query' => 'query',
         'locale_code' => 'locale_code',
         'page' => 'page',
-        'per_page' => 'per_page'
+        'per_page' => 'per_page',
+        'project_ids' => 'project_ids'
     ];
 
     /**
@@ -115,7 +118,8 @@ class SearchInAccountParameters implements ModelInterface, ArrayAccess
         'query' => 'setQuery',
         'locale_code' => 'setLocaleCode',
         'page' => 'setPage',
-        'per_page' => 'setPerPage'
+        'per_page' => 'setPerPage',
+        'project_ids' => 'setProjectIds'
     ];
 
     /**
@@ -127,7 +131,8 @@ class SearchInAccountParameters implements ModelInterface, ArrayAccess
         'query' => 'getQuery',
         'locale_code' => 'getLocaleCode',
         'page' => 'getPage',
-        'per_page' => 'getPerPage'
+        'per_page' => 'getPerPage',
+        'project_ids' => 'getProjectIds'
     ];
 
     /**
@@ -194,6 +199,7 @@ class SearchInAccountParameters implements ModelInterface, ArrayAccess
         $this->container['locale_code'] = isset($data['locale_code']) ? $data['locale_code'] : null;
         $this->container['page'] = isset($data['page']) ? $data['page'] : null;
         $this->container['per_page'] = isset($data['per_page']) ? $data['per_page'] : null;
+        $this->container['project_ids'] = isset($data['project_ids']) ? $data['project_ids'] : null;
     }
 
     /**
@@ -312,6 +318,30 @@ class SearchInAccountParameters implements ModelInterface, ArrayAccess
     public function setPerPage($per_page)
     {
         $this->container['per_page'] = $per_page;
+
+        return $this;
+    }
+
+    /**
+     * Gets project_ids
+     *
+     * @return string[]|null
+     */
+    public function getProjectIds()
+    {
+        return $this->container['project_ids'];
+    }
+
+    /**
+     * Sets project_ids
+     *
+     * @param string[]|null $project_ids Limit the search to the given project codes. When omitted, the search spans every project the user can access in this account.
+     *
+     * @return $this
+     */
+    public function setProjectIds($project_ids)
+    {
+        $this->container['project_ids'] = $project_ids;
 
         return $this;
     }

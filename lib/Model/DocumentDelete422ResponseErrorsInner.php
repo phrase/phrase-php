@@ -1,6 +1,6 @@
 <?php
 /**
- * CustomMetadataPropertyCreate422ResponseErrorsInner
+ * DocumentDelete422ResponseErrorsInner
  *
  * PHP version 5
  *
@@ -31,14 +31,14 @@ use \ArrayAccess;
 use \Phrase\ObjectSerializer;
 
 /**
- * CustomMetadataPropertyCreate422ResponseErrorsInner Class Doc Comment
+ * DocumentDelete422ResponseErrorsInner Class Doc Comment
  *
  * @category Class
  * @package  Phrase
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class CustomMetadataPropertyCreate422ResponseErrorsInner implements ModelInterface, ArrayAccess
+class DocumentDelete422ResponseErrorsInner implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -47,7 +47,7 @@ class CustomMetadataPropertyCreate422ResponseErrorsInner implements ModelInterfa
       *
       * @var string
       */
-    protected static $openAPIModelName = 'custom_metadata_property_create_422_response_errors_inner';
+    protected static $openAPIModelName = 'document_delete_422_response_errors_inner';
 
     /**
       * Array of property to type mappings. Used for (de)serialization

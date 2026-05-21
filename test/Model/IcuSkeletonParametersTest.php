@@ -84,6 +84,13 @@ class IcuSkeletonParametersTest extends TestCase
     }
 
     /**
+     * Test attribute "id"
+     */
+    public function testPropertyId()
+    {
+    }
+
+    /**
      * Test attribute "locale_codes"
      */
     public function testPropertyLocaleCodes()

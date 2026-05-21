@@ -58,6 +58,7 @@ class Glossary implements ModelInterface, ArrayAccess
         'id' => 'string',
         'name' => 'string',
         'projects' => '\Phrase\Model\ProjectShort[]',
+        'spaces' => '\Phrase\Model\Space[]',
         'created_at' => '\DateTime',
         'updated_at' => '\DateTime'
     ];
@@ -71,6 +72,7 @@ class Glossary implements ModelInterface, ArrayAccess
         'id' => null,
         'name' => null,
         'projects' => null,
+        'spaces' => null,
         'created_at' => 'date-time',
         'updated_at' => 'date-time'
     ];
@@ -105,6 +107,7 @@ class Glossary implements ModelInterface, ArrayAccess
         'id' => 'id',
         'name' => 'name',
         'projects' => 'projects',
+        'spaces' => 'spaces',
         'created_at' => 'created_at',
         'updated_at' => 'updated_at'
     ];
@@ -118,6 +121,7 @@ class Glossary implements ModelInterface, ArrayAccess
         'id' => 'setId',
         'name' => 'setName',
         'projects' => 'setProjects',
+        'spaces' => 'setSpaces',
         'created_at' => 'setCreatedAt',
         'updated_at' => 'setUpdatedAt'
     ];
@@ -131,6 +135,7 @@ class Glossary implements ModelInterface, ArrayAccess
         'id' => 'getId',
         'name' => 'getName',
         'projects' => 'getProjects',
+        'spaces' => 'getSpaces',
         'created_at' => 'getCreatedAt',
         'updated_at' => 'getUpdatedAt'
     ];
@@ -198,6 +203,7 @@ class Glossary implements ModelInterface, ArrayAccess
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['projects'] = isset($data['projects']) ? $data['projects'] : null;
+        $this->container['spaces'] = isset($data['spaces']) ? $data['spaces'] : null;
         $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
         $this->container['updated_at'] = isset($data['updated_at']) ? $data['updated_at'] : null;
     }
@@ -294,6 +300,30 @@ class Glossary implements ModelInterface, ArrayAccess
     public function setProjects($projects)
     {
         $this->container['projects'] = $projects;
+
+        return $this;
+    }
+
+    /**
+     * Gets spaces
+     *
+     * @return \Phrase\Model\Space[]|null
+     */
+    public function getSpaces()
+    {
+        return $this->container['spaces'];
+    }
+
+    /**
+     * Sets spaces
+     *
+     * @param \Phrase\Model\Space[]|null $spaces spaces
+     *
+     * @return $this
+     */
+    public function setSpaces($spaces)
+    {
+        $this->container['spaces'] = $spaces;
 
         return $this;
     }

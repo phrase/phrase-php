@@ -1,6 +1,6 @@
 <?php
 /**
- * IcuSkeletonParameters
+ * ScreenshotMarkerPresentation
  *
  * PHP version 5
  *
@@ -31,14 +31,15 @@ use \ArrayAccess;
 use \Phrase\ObjectSerializer;
 
 /**
- * IcuSkeletonParameters Class Doc Comment
+ * ScreenshotMarkerPresentation Class Doc Comment
  *
  * @category Class
+ * @description Coordinates and size of the marker on the screenshot, in pixels.
  * @package  Phrase
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class IcuSkeletonParameters implements ModelInterface, ArrayAccess
+class ScreenshotMarkerPresentation implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -47,7 +48,7 @@ class IcuSkeletonParameters implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'icu_skeleton_parameters';
+    protected static $openAPIModelName = 'screenshot_marker_presentation';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -55,12 +56,10 @@ class IcuSkeletonParameters implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'content' => 'string',
-        'id' => 'string',
-        'locale_codes' => 'string[]',
-        'keep_content' => 'bool',
-        'zero_form_enabled' => 'bool',
-        'cldr_version' => 'string'
+        'x' => 'int',
+        'y' => 'int',
+        'w' => 'int',
+        'h' => 'int'
     ];
 
     /**
@@ -69,12 +68,10 @@ class IcuSkeletonParameters implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'content' => null,
-        'id' => null,
-        'locale_codes' => null,
-        'keep_content' => null,
-        'zero_form_enabled' => null,
-        'cldr_version' => null
+        'x' => null,
+        'y' => null,
+        'w' => null,
+        'h' => null
     ];
 
     /**
@@ -104,12 +101,10 @@ class IcuSkeletonParameters implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'content' => 'content',
-        'id' => 'id',
-        'locale_codes' => 'locale_codes',
-        'keep_content' => 'keep_content',
-        'zero_form_enabled' => 'zero_form_enabled',
-        'cldr_version' => 'cldr_version'
+        'x' => 'x',
+        'y' => 'y',
+        'w' => 'w',
+        'h' => 'h'
     ];
 
     /**
@@ -118,12 +113,10 @@ class IcuSkeletonParameters implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'content' => 'setContent',
-        'id' => 'setId',
-        'locale_codes' => 'setLocaleCodes',
-        'keep_content' => 'setKeepContent',
-        'zero_form_enabled' => 'setZeroFormEnabled',
-        'cldr_version' => 'setCldrVersion'
+        'x' => 'setX',
+        'y' => 'setY',
+        'w' => 'setW',
+        'h' => 'setH'
     ];
 
     /**
@@ -132,12 +125,10 @@ class IcuSkeletonParameters implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'content' => 'getContent',
-        'id' => 'getId',
-        'locale_codes' => 'getLocaleCodes',
-        'keep_content' => 'getKeepContent',
-        'zero_form_enabled' => 'getZeroFormEnabled',
-        'cldr_version' => 'getCldrVersion'
+        'x' => 'getX',
+        'y' => 'getY',
+        'w' => 'getW',
+        'h' => 'getH'
     ];
 
     /**
@@ -200,12 +191,10 @@ class IcuSkeletonParameters implements ModelInterface, ArrayAccess
      */
     public function __construct(?array $data = null)
     {
-        $this->container['content'] = isset($data['content']) ? $data['content'] : null;
-        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
-        $this->container['locale_codes'] = isset($data['locale_codes']) ? $data['locale_codes'] : null;
-        $this->container['keep_content'] = isset($data['keep_content']) ? $data['keep_content'] : null;
-        $this->container['zero_form_enabled'] = isset($data['zero_form_enabled']) ? $data['zero_form_enabled'] : null;
-        $this->container['cldr_version'] = isset($data['cldr_version']) ? $data['cldr_version'] : null;
+        $this->container['x'] = isset($data['x']) ? $data['x'] : null;
+        $this->container['y'] = isset($data['y']) ? $data['y'] : null;
+        $this->container['w'] = isset($data['w']) ? $data['w'] : null;
+        $this->container['h'] = isset($data['h']) ? $data['h'] : null;
     }
 
     /**
@@ -233,145 +222,97 @@ class IcuSkeletonParameters implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets content
+     * Gets x
      *
-     * @return string|null
+     * @return int|null
      */
-    public function getContent()
+    public function getX()
     {
-        return $this->container['content'];
+        return $this->container['x'];
     }
 
     /**
-     * Sets content
+     * Sets x
      *
-     * @param string|null $content Source content to derive skeletons from. Mutually exclusive with `id`; exactly one of the two must be provided.
+     * @param int|null $x x
      *
      * @return $this
      */
-    public function setContent($content)
+    public function setX($x)
     {
-        $this->container['content'] = $content;
+        $this->container['x'] = $x;
 
         return $this;
     }
 
     /**
-     * Gets id
+     * Gets y
      *
-     * @return string|null
+     * @return int|null
      */
-    public function getId()
+    public function getY()
     {
-        return $this->container['id'];
+        return $this->container['y'];
     }
 
     /**
-     * Sets id
+     * Sets y
      *
-     * @param string|null $id Translation code to source content from. Mutually exclusive with `content`; exactly one of the two must be provided.
+     * @param int|null $y y
      *
      * @return $this
      */
-    public function setId($id)
+    public function setY($y)
     {
-        $this->container['id'] = $id;
+        $this->container['y'] = $y;
 
         return $this;
     }
 
     /**
-     * Gets locale_codes
+     * Gets w
      *
-     * @return string[]|null
+     * @return int|null
      */
-    public function getLocaleCodes()
+    public function getW()
     {
-        return $this->container['locale_codes'];
+        return $this->container['w'];
     }
 
     /**
-     * Sets locale_codes
+     * Sets w
      *
-     * @param string[]|null $locale_codes Locale codes
+     * @param int|null $w w
      *
      * @return $this
      */
-    public function setLocaleCodes($locale_codes)
+    public function setW($w)
     {
-        $this->container['locale_codes'] = $locale_codes;
+        $this->container['w'] = $w;
 
         return $this;
     }
 
     /**
-     * Gets keep_content
+     * Gets h
      *
-     * @return bool|null
+     * @return int|null
      */
-    public function getKeepContent()
+    public function getH()
     {
-        return $this->container['keep_content'];
+        return $this->container['h'];
     }
 
     /**
-     * Sets keep_content
+     * Sets h
      *
-     * @param bool|null $keep_content Keep the content and add missing plural forms for each locale
+     * @param int|null $h h
      *
      * @return $this
      */
-    public function setKeepContent($keep_content)
+    public function setH($h)
     {
-        $this->container['keep_content'] = $keep_content;
-
-        return $this;
-    }
-
-    /**
-     * Gets zero_form_enabled
-     *
-     * @return bool|null
-     */
-    public function getZeroFormEnabled()
-    {
-        return $this->container['zero_form_enabled'];
-    }
-
-    /**
-     * Sets zero_form_enabled
-     *
-     * @param bool|null $zero_form_enabled Indicates whether the zero form should be included or excluded in the returned skeletons
-     *
-     * @return $this
-     */
-    public function setZeroFormEnabled($zero_form_enabled)
-    {
-        $this->container['zero_form_enabled'] = $zero_form_enabled;
-
-        return $this;
-    }
-
-    /**
-     * Gets cldr_version
-     *
-     * @return string|null
-     */
-    public function getCldrVersion()
-    {
-        return $this->container['cldr_version'];
-    }
-
-    /**
-     * Sets cldr_version
-     *
-     * @param string|null $cldr_version Strings supports two CLDR variants, when it comes to pluralization rules. \\ You can choose which one you want to use when constructing the skeletons. Possible values \\ are `legacy` and `cldr_41`. Default value is `legacy`.
-     *
-     * @return $this
-     */
-    public function setCldrVersion($cldr_version)
-    {
-        $this->container['cldr_version'] = $cldr_version;
+        $this->container['h'] = $h;
 
         return $this;
     }

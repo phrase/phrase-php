@@ -124,7 +124,7 @@ class QualityPerformanceScoreApi
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Phrase\Model\QualityPerformanceScoreList200Response|\Phrase\Model\CustomMetadataPropertyCreate422Response
+     * @return \Phrase\Model\QualityPerformanceScoreList200Response|\Phrase\Model\DocumentDelete422Response
      */
     public function qualityPerformanceScoreList($project_id, $quality_performance_score_list_request, $x_phrase_app_otp = null)
     {
@@ -143,7 +143,7 @@ class QualityPerformanceScoreApi
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Phrase\Model\QualityPerformanceScoreList200Response|\Phrase\Model\CustomMetadataPropertyCreate422Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Phrase\Model\QualityPerformanceScoreList200Response|\Phrase\Model\DocumentDelete422Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function qualityPerformanceScoreListWithHttpInfo($project_id, $quality_performance_score_list_request, $x_phrase_app_otp = null)
     {
@@ -192,14 +192,14 @@ class QualityPerformanceScoreApi
                         $response->getHeaders()
                     ];
                 case 422:
-                    if ('\Phrase\Model\CustomMetadataPropertyCreate422Response' === '\SplFileObject') {
+                    if ('\Phrase\Model\DocumentDelete422Response' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Phrase\Model\CustomMetadataPropertyCreate422Response', []),
+                        ObjectSerializer::deserialize($content, '\Phrase\Model\DocumentDelete422Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -232,7 +232,7 @@ class QualityPerformanceScoreApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Phrase\Model\CustomMetadataPropertyCreate422Response',
+                        '\Phrase\Model\DocumentDelete422Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);

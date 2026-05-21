@@ -57,6 +57,7 @@ class Tag implements ModelInterface, ArrayAccess
     protected static $openAPITypes = [
         'name' => 'string',
         'keys_count' => 'int',
+        'system_tag' => 'bool',
         'created_at' => '\DateTime',
         'updated_at' => '\DateTime'
     ];
@@ -69,6 +70,7 @@ class Tag implements ModelInterface, ArrayAccess
     protected static $openAPIFormats = [
         'name' => null,
         'keys_count' => null,
+        'system_tag' => null,
         'created_at' => 'date-time',
         'updated_at' => 'date-time'
     ];
@@ -102,6 +104,7 @@ class Tag implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'name' => 'name',
         'keys_count' => 'keys_count',
+        'system_tag' => 'system_tag',
         'created_at' => 'created_at',
         'updated_at' => 'updated_at'
     ];
@@ -114,6 +117,7 @@ class Tag implements ModelInterface, ArrayAccess
     protected static $setters = [
         'name' => 'setName',
         'keys_count' => 'setKeysCount',
+        'system_tag' => 'setSystemTag',
         'created_at' => 'setCreatedAt',
         'updated_at' => 'setUpdatedAt'
     ];
@@ -126,6 +130,7 @@ class Tag implements ModelInterface, ArrayAccess
     protected static $getters = [
         'name' => 'getName',
         'keys_count' => 'getKeysCount',
+        'system_tag' => 'getSystemTag',
         'created_at' => 'getCreatedAt',
         'updated_at' => 'getUpdatedAt'
     ];
@@ -192,6 +197,7 @@ class Tag implements ModelInterface, ArrayAccess
     {
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['keys_count'] = isset($data['keys_count']) ? $data['keys_count'] : null;
+        $this->container['system_tag'] = isset($data['system_tag']) ? $data['system_tag'] : null;
         $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
         $this->container['updated_at'] = isset($data['updated_at']) ? $data['updated_at'] : null;
     }
@@ -264,6 +270,30 @@ class Tag implements ModelInterface, ArrayAccess
     public function setKeysCount($keys_count)
     {
         $this->container['keys_count'] = $keys_count;
+
+        return $this;
+    }
+
+    /**
+     * Gets system_tag
+     *
+     * @return bool|null
+     */
+    public function getSystemTag()
+    {
+        return $this->container['system_tag'];
+    }
+
+    /**
+     * Sets system_tag
+     *
+     * @param bool|null $system_tag `true` when the tag was created automatically by the system (e.g. for jobs, uploads, or Figma attachments) rather than by a user.
+     *
+     * @return $this
+     */
+    public function setSystemTag($system_tag)
+    {
+        $this->container['system_tag'] = $system_tag;
 
         return $this;
     }

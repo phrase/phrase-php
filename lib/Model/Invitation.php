@@ -69,7 +69,7 @@ class Invitation implements ModelInterface, ArrayAccess
         'updated_at' => '\DateTime',
         'accepted_at' => '\DateTime',
         'spaces' => '\Phrase\Model\Space[]',
-        'project_role' => '\Phrase\Model\MemberProjectDetailProjectRolesInner[]'
+        'project_roles' => '\Phrase\Model\MemberProjectDetailProjectRolesInner[]'
     ];
 
     /**
@@ -92,7 +92,7 @@ class Invitation implements ModelInterface, ArrayAccess
         'updated_at' => 'date-time',
         'accepted_at' => 'date-time',
         'spaces' => null,
-        'project_role' => null
+        'project_roles' => null
     ];
 
     /**
@@ -136,7 +136,7 @@ class Invitation implements ModelInterface, ArrayAccess
         'updated_at' => 'updated_at',
         'accepted_at' => 'accepted_at',
         'spaces' => 'spaces',
-        'project_role' => 'project_role'
+        'project_roles' => 'project_roles'
     ];
 
     /**
@@ -159,7 +159,7 @@ class Invitation implements ModelInterface, ArrayAccess
         'updated_at' => 'setUpdatedAt',
         'accepted_at' => 'setAcceptedAt',
         'spaces' => 'setSpaces',
-        'project_role' => 'setProjectRole'
+        'project_roles' => 'setProjectRoles'
     ];
 
     /**
@@ -182,7 +182,7 @@ class Invitation implements ModelInterface, ArrayAccess
         'updated_at' => 'getUpdatedAt',
         'accepted_at' => 'getAcceptedAt',
         'spaces' => 'getSpaces',
-        'project_role' => 'getProjectRole'
+        'project_roles' => 'getProjectRoles'
     ];
 
     /**
@@ -259,7 +259,7 @@ class Invitation implements ModelInterface, ArrayAccess
         $this->container['updated_at'] = isset($data['updated_at']) ? $data['updated_at'] : null;
         $this->container['accepted_at'] = isset($data['accepted_at']) ? $data['accepted_at'] : null;
         $this->container['spaces'] = isset($data['spaces']) ? $data['spaces'] : null;
-        $this->container['project_role'] = isset($data['project_role']) ? $data['project_role'] : null;
+        $this->container['project_roles'] = isset($data['project_roles']) ? $data['project_roles'] : null;
     }
 
     /**
@@ -623,25 +623,25 @@ class Invitation implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets project_role
+     * Gets project_roles
      *
      * @return \Phrase\Model\MemberProjectDetailProjectRolesInner[]|null
      */
-    public function getProjectRole()
+    public function getProjectRoles()
     {
-        return $this->container['project_role'];
+        return $this->container['project_roles'];
     }
 
     /**
-     * Sets project_role
+     * Sets project_roles
      *
-     * @param \Phrase\Model\MemberProjectDetailProjectRolesInner[]|null $project_role project_role
+     * @param \Phrase\Model\MemberProjectDetailProjectRolesInner[]|null $project_roles Per-project roles assigned to the invitee.
      *
      * @return $this
      */
-    public function setProjectRole($project_role)
+    public function setProjectRoles($project_roles)
     {
-        $this->container['project_role'] = $project_role;
+        $this->container['project_roles'] = $project_roles;
 
         return $this;
     }

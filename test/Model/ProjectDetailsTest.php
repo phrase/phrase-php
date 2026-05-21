@@ -252,6 +252,20 @@ class ProjectDetailsTest extends TestCase
     }
 
     /**
+     * Test attribute "autotranslate_overwrite_unverified_translations"
+     */
+    public function testPropertyAutotranslateOverwriteUnverifiedTranslations()
+    {
+    }
+
+    /**
+     * Test attribute "autocomplete_job_enabled"
+     */
+    public function testPropertyAutocompleteJobEnabled()
+    {
+    }
+
+    /**
      * Test attribute "default_encoding"
      */
     public function testPropertyDefaultEncoding()
@@ -276,6 +290,13 @@ class ProjectDetailsTest extends TestCase
      * Test attribute "placeholder_styles"
      */
     public function testPropertyPlaceholderStyles()
+    {
+    }
+
+    /**
+     * Test attribute "branch"
+     */
+    public function testPropertyBranch()
     {
     }
 }

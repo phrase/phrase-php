@@ -142,14 +142,15 @@ class UploadsApi
      * @param  bool $mark_reviewed Indicated whether the imported translations should be marked as reviewed. This setting is available if the review workflow is enabled for the project. (optional)
      * @param  bool $tag_only_affected_keys Indicates whether only keys affected (created or updated) by the upload should be tagged. The default is &#x60;false&#x60; (optional, default to false)
      * @param  string $translation_key_prefix This prefix will be added to all uploaded translation key names to prevent collisions. Use a meaningful prefix related to your project or file to keep key names organized. (optional)
+     * @param  bool $skip_automated_job_creation When &#x60;true&#x60;, the automation rules for the project will not fire for this upload, so no jobs are created as a side effect of importing this file. Defaults to &#x60;false&#x60;. (optional, default to false)
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Phrase\Model\Upload
+     * @return \Phrase\Model\Upload|\Phrase\Model\DocumentDelete422Response
      */
-    public function uploadCreate($project_id, $file, $file_format, $locale_id, $x_phrase_app_otp = null, $branch = null, $tags = null, $update_translations = null, $update_custom_metadata = true, $update_translation_keys = true, $update_translations_on_source_match = false, $source_locale_id = null, $update_descriptions = null, $convert_emoji = null, $skip_upload_tags = null, $skip_unverification = null, $file_encoding = null, $locale_mapping = null, $format_options = null, $autotranslate = null, $verify_mentioned_translations = false, $mark_reviewed = null, $tag_only_affected_keys = false, $translation_key_prefix = null)
+    public function uploadCreate($project_id, $file, $file_format, $locale_id, $x_phrase_app_otp = null, $branch = null, $tags = null, $update_translations = null, $update_custom_metadata = true, $update_translation_keys = true, $update_translations_on_source_match = false, $source_locale_id = null, $update_descriptions = null, $convert_emoji = null, $skip_upload_tags = null, $skip_unverification = null, $file_encoding = null, $locale_mapping = null, $format_options = null, $autotranslate = null, $verify_mentioned_translations = false, $mark_reviewed = null, $tag_only_affected_keys = false, $translation_key_prefix = null, $skip_automated_job_creation = false)
     {
-        list($response) = $this->uploadCreateWithHttpInfo($project_id, $file, $file_format, $locale_id, $x_phrase_app_otp, $branch, $tags, $update_translations, $update_custom_metadata, $update_translation_keys, $update_translations_on_source_match, $source_locale_id, $update_descriptions, $convert_emoji, $skip_upload_tags, $skip_unverification, $file_encoding, $locale_mapping, $format_options, $autotranslate, $verify_mentioned_translations, $mark_reviewed, $tag_only_affected_keys, $translation_key_prefix);
+        list($response) = $this->uploadCreateWithHttpInfo($project_id, $file, $file_format, $locale_id, $x_phrase_app_otp, $branch, $tags, $update_translations, $update_custom_metadata, $update_translation_keys, $update_translations_on_source_match, $source_locale_id, $update_descriptions, $convert_emoji, $skip_upload_tags, $skip_unverification, $file_encoding, $locale_mapping, $format_options, $autotranslate, $verify_mentioned_translations, $mark_reviewed, $tag_only_affected_keys, $translation_key_prefix, $skip_automated_job_creation);
         return $response;
     }
 
@@ -182,14 +183,15 @@ class UploadsApi
      * @param  bool $mark_reviewed Indicated whether the imported translations should be marked as reviewed. This setting is available if the review workflow is enabled for the project. (optional)
      * @param  bool $tag_only_affected_keys Indicates whether only keys affected (created or updated) by the upload should be tagged. The default is &#x60;false&#x60; (optional, default to false)
      * @param  string $translation_key_prefix This prefix will be added to all uploaded translation key names to prevent collisions. Use a meaningful prefix related to your project or file to keep key names organized. (optional)
+     * @param  bool $skip_automated_job_creation When &#x60;true&#x60;, the automation rules for the project will not fire for this upload, so no jobs are created as a side effect of importing this file. Defaults to &#x60;false&#x60;. (optional, default to false)
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Phrase\Model\Upload, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Phrase\Model\Upload|\Phrase\Model\DocumentDelete422Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function uploadCreateWithHttpInfo($project_id, $file, $file_format, $locale_id, $x_phrase_app_otp = null, $branch = null, $tags = null, $update_translations = null, $update_custom_metadata = true, $update_translation_keys = true, $update_translations_on_source_match = false, $source_locale_id = null, $update_descriptions = null, $convert_emoji = null, $skip_upload_tags = null, $skip_unverification = null, $file_encoding = null, $locale_mapping = null, $format_options = null, $autotranslate = null, $verify_mentioned_translations = false, $mark_reviewed = null, $tag_only_affected_keys = false, $translation_key_prefix = null)
+    public function uploadCreateWithHttpInfo($project_id, $file, $file_format, $locale_id, $x_phrase_app_otp = null, $branch = null, $tags = null, $update_translations = null, $update_custom_metadata = true, $update_translation_keys = true, $update_translations_on_source_match = false, $source_locale_id = null, $update_descriptions = null, $convert_emoji = null, $skip_upload_tags = null, $skip_unverification = null, $file_encoding = null, $locale_mapping = null, $format_options = null, $autotranslate = null, $verify_mentioned_translations = false, $mark_reviewed = null, $tag_only_affected_keys = false, $translation_key_prefix = null, $skip_automated_job_creation = false)
     {
-        $request = $this->uploadCreateRequest($project_id, $file, $file_format, $locale_id, $x_phrase_app_otp, $branch, $tags, $update_translations, $update_custom_metadata, $update_translation_keys, $update_translations_on_source_match, $source_locale_id, $update_descriptions, $convert_emoji, $skip_upload_tags, $skip_unverification, $file_encoding, $locale_mapping, $format_options, $autotranslate, $verify_mentioned_translations, $mark_reviewed, $tag_only_affected_keys, $translation_key_prefix);
+        $request = $this->uploadCreateRequest($project_id, $file, $file_format, $locale_id, $x_phrase_app_otp, $branch, $tags, $update_translations, $update_custom_metadata, $update_translation_keys, $update_translations_on_source_match, $source_locale_id, $update_descriptions, $convert_emoji, $skip_upload_tags, $skip_unverification, $file_encoding, $locale_mapping, $format_options, $autotranslate, $verify_mentioned_translations, $mark_reviewed, $tag_only_affected_keys, $translation_key_prefix, $skip_automated_job_creation);
 
         try {
             $options = $this->createHttpClientOption();
@@ -233,6 +235,18 @@ class UploadsApi
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
+                case 422:
+                    if ('\Phrase\Model\DocumentDelete422Response' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Phrase\Model\DocumentDelete422Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
             }
 
             $returnType = '\Phrase\Model\Upload';
@@ -255,6 +269,14 @@ class UploadsApi
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\Phrase\Model\Upload',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 422:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Phrase\Model\DocumentDelete422Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -293,13 +315,14 @@ class UploadsApi
      * @param  bool $mark_reviewed Indicated whether the imported translations should be marked as reviewed. This setting is available if the review workflow is enabled for the project. (optional)
      * @param  bool $tag_only_affected_keys Indicates whether only keys affected (created or updated) by the upload should be tagged. The default is &#x60;false&#x60; (optional, default to false)
      * @param  string $translation_key_prefix This prefix will be added to all uploaded translation key names to prevent collisions. Use a meaningful prefix related to your project or file to keep key names organized. (optional)
+     * @param  bool $skip_automated_job_creation When &#x60;true&#x60;, the automation rules for the project will not fire for this upload, so no jobs are created as a side effect of importing this file. Defaults to &#x60;false&#x60;. (optional, default to false)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function uploadCreateAsync($project_id, $file, $file_format, $locale_id, $x_phrase_app_otp = null, $branch = null, $tags = null, $update_translations = null, $update_custom_metadata = true, $update_translation_keys = true, $update_translations_on_source_match = false, $source_locale_id = null, $update_descriptions = null, $convert_emoji = null, $skip_upload_tags = null, $skip_unverification = null, $file_encoding = null, $locale_mapping = null, $format_options = null, $autotranslate = null, $verify_mentioned_translations = false, $mark_reviewed = null, $tag_only_affected_keys = false, $translation_key_prefix = null)
+    public function uploadCreateAsync($project_id, $file, $file_format, $locale_id, $x_phrase_app_otp = null, $branch = null, $tags = null, $update_translations = null, $update_custom_metadata = true, $update_translation_keys = true, $update_translations_on_source_match = false, $source_locale_id = null, $update_descriptions = null, $convert_emoji = null, $skip_upload_tags = null, $skip_unverification = null, $file_encoding = null, $locale_mapping = null, $format_options = null, $autotranslate = null, $verify_mentioned_translations = false, $mark_reviewed = null, $tag_only_affected_keys = false, $translation_key_prefix = null, $skip_automated_job_creation = false)
     {
-        return $this->uploadCreateAsyncWithHttpInfo($project_id, $file, $file_format, $locale_id, $x_phrase_app_otp, $branch, $tags, $update_translations, $update_custom_metadata, $update_translation_keys, $update_translations_on_source_match, $source_locale_id, $update_descriptions, $convert_emoji, $skip_upload_tags, $skip_unverification, $file_encoding, $locale_mapping, $format_options, $autotranslate, $verify_mentioned_translations, $mark_reviewed, $tag_only_affected_keys, $translation_key_prefix)
+        return $this->uploadCreateAsyncWithHttpInfo($project_id, $file, $file_format, $locale_id, $x_phrase_app_otp, $branch, $tags, $update_translations, $update_custom_metadata, $update_translation_keys, $update_translations_on_source_match, $source_locale_id, $update_descriptions, $convert_emoji, $skip_upload_tags, $skip_unverification, $file_encoding, $locale_mapping, $format_options, $autotranslate, $verify_mentioned_translations, $mark_reviewed, $tag_only_affected_keys, $translation_key_prefix, $skip_automated_job_creation)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -336,14 +359,15 @@ class UploadsApi
      * @param  bool $mark_reviewed Indicated whether the imported translations should be marked as reviewed. This setting is available if the review workflow is enabled for the project. (optional)
      * @param  bool $tag_only_affected_keys Indicates whether only keys affected (created or updated) by the upload should be tagged. The default is &#x60;false&#x60; (optional, default to false)
      * @param  string $translation_key_prefix This prefix will be added to all uploaded translation key names to prevent collisions. Use a meaningful prefix related to your project or file to keep key names organized. (optional)
+     * @param  bool $skip_automated_job_creation When &#x60;true&#x60;, the automation rules for the project will not fire for this upload, so no jobs are created as a side effect of importing this file. Defaults to &#x60;false&#x60;. (optional, default to false)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function uploadCreateAsyncWithHttpInfo($project_id, $file, $file_format, $locale_id, $x_phrase_app_otp = null, $branch = null, $tags = null, $update_translations = null, $update_custom_metadata = true, $update_translation_keys = true, $update_translations_on_source_match = false, $source_locale_id = null, $update_descriptions = null, $convert_emoji = null, $skip_upload_tags = null, $skip_unverification = null, $file_encoding = null, $locale_mapping = null, $format_options = null, $autotranslate = null, $verify_mentioned_translations = false, $mark_reviewed = null, $tag_only_affected_keys = false, $translation_key_prefix = null)
+    public function uploadCreateAsyncWithHttpInfo($project_id, $file, $file_format, $locale_id, $x_phrase_app_otp = null, $branch = null, $tags = null, $update_translations = null, $update_custom_metadata = true, $update_translation_keys = true, $update_translations_on_source_match = false, $source_locale_id = null, $update_descriptions = null, $convert_emoji = null, $skip_upload_tags = null, $skip_unverification = null, $file_encoding = null, $locale_mapping = null, $format_options = null, $autotranslate = null, $verify_mentioned_translations = false, $mark_reviewed = null, $tag_only_affected_keys = false, $translation_key_prefix = null, $skip_automated_job_creation = false)
     {
         $returnType = '\Phrase\Model\Upload';
-        $request = $this->uploadCreateRequest($project_id, $file, $file_format, $locale_id, $x_phrase_app_otp, $branch, $tags, $update_translations, $update_custom_metadata, $update_translation_keys, $update_translations_on_source_match, $source_locale_id, $update_descriptions, $convert_emoji, $skip_upload_tags, $skip_unverification, $file_encoding, $locale_mapping, $format_options, $autotranslate, $verify_mentioned_translations, $mark_reviewed, $tag_only_affected_keys, $translation_key_prefix);
+        $request = $this->uploadCreateRequest($project_id, $file, $file_format, $locale_id, $x_phrase_app_otp, $branch, $tags, $update_translations, $update_custom_metadata, $update_translation_keys, $update_translations_on_source_match, $source_locale_id, $update_descriptions, $convert_emoji, $skip_upload_tags, $skip_unverification, $file_encoding, $locale_mapping, $format_options, $autotranslate, $verify_mentioned_translations, $mark_reviewed, $tag_only_affected_keys, $translation_key_prefix, $skip_automated_job_creation);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -406,11 +430,12 @@ class UploadsApi
      * @param  bool $mark_reviewed Indicated whether the imported translations should be marked as reviewed. This setting is available if the review workflow is enabled for the project. (optional)
      * @param  bool $tag_only_affected_keys Indicates whether only keys affected (created or updated) by the upload should be tagged. The default is &#x60;false&#x60; (optional, default to false)
      * @param  string $translation_key_prefix This prefix will be added to all uploaded translation key names to prevent collisions. Use a meaningful prefix related to your project or file to keep key names organized. (optional)
+     * @param  bool $skip_automated_job_creation When &#x60;true&#x60;, the automation rules for the project will not fire for this upload, so no jobs are created as a side effect of importing this file. Defaults to &#x60;false&#x60;. (optional, default to false)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function uploadCreateRequest($project_id, $file, $file_format, $locale_id, $x_phrase_app_otp = null, $branch = null, $tags = null, $update_translations = null, $update_custom_metadata = true, $update_translation_keys = true, $update_translations_on_source_match = false, $source_locale_id = null, $update_descriptions = null, $convert_emoji = null, $skip_upload_tags = null, $skip_unverification = null, $file_encoding = null, $locale_mapping = null, $format_options = null, $autotranslate = null, $verify_mentioned_translations = false, $mark_reviewed = null, $tag_only_affected_keys = false, $translation_key_prefix = null)
+    protected function uploadCreateRequest($project_id, $file, $file_format, $locale_id, $x_phrase_app_otp = null, $branch = null, $tags = null, $update_translations = null, $update_custom_metadata = true, $update_translation_keys = true, $update_translations_on_source_match = false, $source_locale_id = null, $update_descriptions = null, $convert_emoji = null, $skip_upload_tags = null, $skip_unverification = null, $file_encoding = null, $locale_mapping = null, $format_options = null, $autotranslate = null, $verify_mentioned_translations = false, $mark_reviewed = null, $tag_only_affected_keys = false, $translation_key_prefix = null, $skip_automated_job_creation = false)
     {
         // verify the required parameter 'project_id' is set
         if ($project_id === null || (is_array($project_id) && count($project_id) === 0)) {
@@ -547,6 +572,10 @@ class UploadsApi
         // form params
         if ($translation_key_prefix !== null) {
             $this->formParamsAppend($formParams, 'translation_key_prefix', $translation_key_prefix);
+        }
+        // form params
+        if ($skip_automated_job_creation !== null) {
+            $this->formParamsAppend($formParams, 'skip_automated_job_creation', $skip_automated_job_creation);
         }
         // body params
         $_tempBody = null;

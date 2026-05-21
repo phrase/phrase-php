@@ -194,4 +194,11 @@ class JobDetailsTest extends TestCase
     public function testPropertyAnnotations()
     {
     }
+
+    /**
+     * Test attribute "locked"
+     */
+    public function testPropertyLocked()
+    {
+    }
 }

@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 ## distributionCreate
 
-> \Phrase\Model\Distribution distributionCreate($account_id, $distribution_create_parameters, $x_phrase_app_otp)
+> \Phrase\Model\DistributionDetails distributionCreate($account_id, $distribution_create_parameters, $x_phrase_app_otp)
 
 Create a distribution
 
@@ -59,7 +59,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Phrase\Model\Distribution**](../Model/Distribution.md)
+[**\Phrase\Model\DistributionDetails**](../Model/DistributionDetails.md)
 
 ### Authorization
 
@@ -130,7 +130,7 @@ void (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: Not defined
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../../README.md#documentation-for-models)
@@ -139,7 +139,7 @@ void (empty response body)
 
 ## distributionShow
 
-> \Phrase\Model\Distribution distributionShow($account_id, $id, $x_phrase_app_otp)
+> \Phrase\Model\DistributionDetails distributionShow($account_id, $id, $x_phrase_app_otp)
 
 Get a single distribution
 
@@ -184,7 +184,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Phrase\Model\Distribution**](../Model/Distribution.md)
+[**\Phrase\Model\DistributionDetails**](../Model/DistributionDetails.md)
 
 ### Authorization
 
@@ -202,7 +202,7 @@ Name | Type | Description  | Notes
 
 ## distributionUpdate
 
-> \Phrase\Model\Distribution distributionUpdate($account_id, $id, $distribution_update_parameters, $x_phrase_app_otp)
+> \Phrase\Model\DistributionDetails distributionUpdate($account_id, $id, $distribution_update_parameters, $x_phrase_app_otp)
 
 Update a distribution
 
@@ -249,7 +249,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Phrase\Model\Distribution**](../Model/Distribution.md)
+[**\Phrase\Model\DistributionDetails**](../Model/DistributionDetails.md)
 
 ### Authorization
 
@@ -267,7 +267,7 @@ Name | Type | Description  | Notes
 
 ## distributionsList
 
-> \Phrase\Model\DistributionPreview[] distributionsList($account_id, $x_phrase_app_otp, $page, $per_page)
+> \Phrase\Model\Distribution[] distributionsList($account_id, $x_phrase_app_otp, $page, $per_page)
 
 List distributions
 
@@ -314,7 +314,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Phrase\Model\DistributionPreview[]**](../Model/DistributionPreview.md)
+[**\Phrase\Model\Distribution[]**](../Model/Distribution.md)
 
 ### Authorization
 

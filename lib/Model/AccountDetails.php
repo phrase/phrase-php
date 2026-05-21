@@ -455,7 +455,7 @@ class AccountDetails implements ModelInterface, ArrayAccess
     /**
      * Sets roles
      *
-     * @param string[]|null $roles roles
+     * @param string[]|null $roles Roles the requesting user holds in the account.
      *
      * @return $this
      */

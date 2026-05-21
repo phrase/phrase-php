@@ -123,7 +123,7 @@ class ProjectsApi
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Phrase\Model\ProjectDetails
+     * @return \Phrase\Model\ProjectDetails|\Phrase\Model\DocumentDelete422Response
      */
     public function projectCreate($project_create_parameters, $x_phrase_app_otp = null)
     {
@@ -141,7 +141,7 @@ class ProjectsApi
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Phrase\Model\ProjectDetails, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Phrase\Model\ProjectDetails|\Phrase\Model\DocumentDelete422Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function projectCreateWithHttpInfo($project_create_parameters, $x_phrase_app_otp = null)
     {
@@ -189,6 +189,18 @@ class ProjectsApi
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
+                case 422:
+                    if ('\Phrase\Model\DocumentDelete422Response' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Phrase\Model\DocumentDelete422Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
             }
 
             $returnType = '\Phrase\Model\ProjectDetails';
@@ -211,6 +223,14 @@ class ProjectsApi
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\Phrase\Model\ProjectDetails',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 422:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Phrase\Model\DocumentDelete422Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -464,6 +484,14 @@ class ProjectsApi
 
         } catch (ApiException $e) {
             switch ($e->getCode()) {
+                case 422:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Phrase\Model\DocumentDelete422Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
             }
             throw $e;
         }
@@ -574,11 +602,11 @@ class ProjectsApi
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
-                []
+                ['application/json']
             );
         } else {
             $headers = $this->headerSelector->selectHeaders(
-                [],
+                ['application/json'],
                 []
             );
         }
@@ -944,7 +972,7 @@ class ProjectsApi
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Phrase\Model\ProjectDetails
+     * @return \Phrase\Model\ProjectDetails|\Phrase\Model\DocumentDelete422Response
      */
     public function projectUpdate($id, $project_update_parameters, $x_phrase_app_otp = null)
     {
@@ -963,7 +991,7 @@ class ProjectsApi
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Phrase\Model\ProjectDetails, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Phrase\Model\ProjectDetails|\Phrase\Model\DocumentDelete422Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function projectUpdateWithHttpInfo($id, $project_update_parameters, $x_phrase_app_otp = null)
     {
@@ -1011,6 +1039,18 @@ class ProjectsApi
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
+                case 422:
+                    if ('\Phrase\Model\DocumentDelete422Response' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Phrase\Model\DocumentDelete422Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
             }
 
             $returnType = '\Phrase\Model\ProjectDetails';
@@ -1033,6 +1073,14 @@ class ProjectsApi
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\Phrase\Model\ProjectDetails',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 422:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Phrase\Model\DocumentDelete422Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1247,16 +1295,17 @@ class ProjectsApi
      * @param  int $page Page number (optional)
      * @param  int $per_page Limit on the number of objects to be returned, between 1 and 100. 25 by default (optional)
      * @param  string $account_id Filter by Account ID (optional)
-     * @param  string $sort_by Sort projects. Valid options are \&quot;name_asc\&quot;, \&quot;name_desc\&quot;, \&quot;updated_at_asc\&quot;, \&quot;updated_at_desc\&quot;, \&quot;space_asc\&quot; and \&quot;space_desc\&quot;. (optional)
-     * @param  string[] $filters Filter projects. Valid options are [\&quot;favorites\&quot;]. (optional)
+     * @param  string $sort_by Sort projects. Valid values are &#x60;name_asc&#x60;, &#x60;name_desc&#x60;, &#x60;updated_at_asc&#x60;, &#x60;updated_at_desc&#x60;, &#x60;space_asc&#x60;, and &#x60;space_desc&#x60;. The trailing direction segment is optional; if omitted or invalid, projects are sorted ascending. Any other value is ignored and the default ordering is returned. (optional)
+     * @param  string[] $filters Filter projects. The only supported value is &#x60;favorites&#x60;, which restricts the results to projects the current user has starred. (optional)
+     * @param  string $q Search query. The only supported syntax is &#x60;name:&lt;text&gt;&#x60; — for example &#x60;name:android&#x60; returns projects whose name matches &#x60;android&#x60; (case-insensitive substring). Any value that does not match the &#x60;name:&#x60; prefix is ignored. (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Phrase\Model\Project[]
      */
-    public function projectsList($x_phrase_app_otp = null, $page = null, $per_page = null, $account_id = null, $sort_by = null, $filters = null)
+    public function projectsList($x_phrase_app_otp = null, $page = null, $per_page = null, $account_id = null, $sort_by = null, $filters = null, $q = null)
     {
-        list($response) = $this->projectsListWithHttpInfo($x_phrase_app_otp, $page, $per_page, $account_id, $sort_by, $filters);
+        list($response) = $this->projectsListWithHttpInfo($x_phrase_app_otp, $page, $per_page, $account_id, $sort_by, $filters, $q);
         return $response;
     }
 
@@ -1269,16 +1318,17 @@ class ProjectsApi
      * @param  int $page Page number (optional)
      * @param  int $per_page Limit on the number of objects to be returned, between 1 and 100. 25 by default (optional)
      * @param  string $account_id Filter by Account ID (optional)
-     * @param  string $sort_by Sort projects. Valid options are \&quot;name_asc\&quot;, \&quot;name_desc\&quot;, \&quot;updated_at_asc\&quot;, \&quot;updated_at_desc\&quot;, \&quot;space_asc\&quot; and \&quot;space_desc\&quot;. (optional)
-     * @param  string[] $filters Filter projects. Valid options are [\&quot;favorites\&quot;]. (optional)
+     * @param  string $sort_by Sort projects. Valid values are &#x60;name_asc&#x60;, &#x60;name_desc&#x60;, &#x60;updated_at_asc&#x60;, &#x60;updated_at_desc&#x60;, &#x60;space_asc&#x60;, and &#x60;space_desc&#x60;. The trailing direction segment is optional; if omitted or invalid, projects are sorted ascending. Any other value is ignored and the default ordering is returned. (optional)
+     * @param  string[] $filters Filter projects. The only supported value is &#x60;favorites&#x60;, which restricts the results to projects the current user has starred. (optional)
+     * @param  string $q Search query. The only supported syntax is &#x60;name:&lt;text&gt;&#x60; — for example &#x60;name:android&#x60; returns projects whose name matches &#x60;android&#x60; (case-insensitive substring). Any value that does not match the &#x60;name:&#x60; prefix is ignored. (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Phrase\Model\Project[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function projectsListWithHttpInfo($x_phrase_app_otp = null, $page = null, $per_page = null, $account_id = null, $sort_by = null, $filters = null)
+    public function projectsListWithHttpInfo($x_phrase_app_otp = null, $page = null, $per_page = null, $account_id = null, $sort_by = null, $filters = null, $q = null)
     {
-        $request = $this->projectsListRequest($x_phrase_app_otp, $page, $per_page, $account_id, $sort_by, $filters);
+        $request = $this->projectsListRequest($x_phrase_app_otp, $page, $per_page, $account_id, $sort_by, $filters, $q);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1362,15 +1412,16 @@ class ProjectsApi
      * @param  int $page Page number (optional)
      * @param  int $per_page Limit on the number of objects to be returned, between 1 and 100. 25 by default (optional)
      * @param  string $account_id Filter by Account ID (optional)
-     * @param  string $sort_by Sort projects. Valid options are \&quot;name_asc\&quot;, \&quot;name_desc\&quot;, \&quot;updated_at_asc\&quot;, \&quot;updated_at_desc\&quot;, \&quot;space_asc\&quot; and \&quot;space_desc\&quot;. (optional)
-     * @param  string[] $filters Filter projects. Valid options are [\&quot;favorites\&quot;]. (optional)
+     * @param  string $sort_by Sort projects. Valid values are &#x60;name_asc&#x60;, &#x60;name_desc&#x60;, &#x60;updated_at_asc&#x60;, &#x60;updated_at_desc&#x60;, &#x60;space_asc&#x60;, and &#x60;space_desc&#x60;. The trailing direction segment is optional; if omitted or invalid, projects are sorted ascending. Any other value is ignored and the default ordering is returned. (optional)
+     * @param  string[] $filters Filter projects. The only supported value is &#x60;favorites&#x60;, which restricts the results to projects the current user has starred. (optional)
+     * @param  string $q Search query. The only supported syntax is &#x60;name:&lt;text&gt;&#x60; — for example &#x60;name:android&#x60; returns projects whose name matches &#x60;android&#x60; (case-insensitive substring). Any value that does not match the &#x60;name:&#x60; prefix is ignored. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function projectsListAsync($x_phrase_app_otp = null, $page = null, $per_page = null, $account_id = null, $sort_by = null, $filters = null)
+    public function projectsListAsync($x_phrase_app_otp = null, $page = null, $per_page = null, $account_id = null, $sort_by = null, $filters = null, $q = null)
     {
-        return $this->projectsListAsyncWithHttpInfo($x_phrase_app_otp, $page, $per_page, $account_id, $sort_by, $filters)
+        return $this->projectsListAsyncWithHttpInfo($x_phrase_app_otp, $page, $per_page, $account_id, $sort_by, $filters, $q)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1387,16 +1438,17 @@ class ProjectsApi
      * @param  int $page Page number (optional)
      * @param  int $per_page Limit on the number of objects to be returned, between 1 and 100. 25 by default (optional)
      * @param  string $account_id Filter by Account ID (optional)
-     * @param  string $sort_by Sort projects. Valid options are \&quot;name_asc\&quot;, \&quot;name_desc\&quot;, \&quot;updated_at_asc\&quot;, \&quot;updated_at_desc\&quot;, \&quot;space_asc\&quot; and \&quot;space_desc\&quot;. (optional)
-     * @param  string[] $filters Filter projects. Valid options are [\&quot;favorites\&quot;]. (optional)
+     * @param  string $sort_by Sort projects. Valid values are &#x60;name_asc&#x60;, &#x60;name_desc&#x60;, &#x60;updated_at_asc&#x60;, &#x60;updated_at_desc&#x60;, &#x60;space_asc&#x60;, and &#x60;space_desc&#x60;. The trailing direction segment is optional; if omitted or invalid, projects are sorted ascending. Any other value is ignored and the default ordering is returned. (optional)
+     * @param  string[] $filters Filter projects. The only supported value is &#x60;favorites&#x60;, which restricts the results to projects the current user has starred. (optional)
+     * @param  string $q Search query. The only supported syntax is &#x60;name:&lt;text&gt;&#x60; — for example &#x60;name:android&#x60; returns projects whose name matches &#x60;android&#x60; (case-insensitive substring). Any value that does not match the &#x60;name:&#x60; prefix is ignored. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function projectsListAsyncWithHttpInfo($x_phrase_app_otp = null, $page = null, $per_page = null, $account_id = null, $sort_by = null, $filters = null)
+    public function projectsListAsyncWithHttpInfo($x_phrase_app_otp = null, $page = null, $per_page = null, $account_id = null, $sort_by = null, $filters = null, $q = null)
     {
         $returnType = '\Phrase\Model\Project[]';
-        $request = $this->projectsListRequest($x_phrase_app_otp, $page, $per_page, $account_id, $sort_by, $filters);
+        $request = $this->projectsListRequest($x_phrase_app_otp, $page, $per_page, $account_id, $sort_by, $filters, $q);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1439,13 +1491,14 @@ class ProjectsApi
      * @param  int $page Page number (optional)
      * @param  int $per_page Limit on the number of objects to be returned, between 1 and 100. 25 by default (optional)
      * @param  string $account_id Filter by Account ID (optional)
-     * @param  string $sort_by Sort projects. Valid options are \&quot;name_asc\&quot;, \&quot;name_desc\&quot;, \&quot;updated_at_asc\&quot;, \&quot;updated_at_desc\&quot;, \&quot;space_asc\&quot; and \&quot;space_desc\&quot;. (optional)
-     * @param  string[] $filters Filter projects. Valid options are [\&quot;favorites\&quot;]. (optional)
+     * @param  string $sort_by Sort projects. Valid values are &#x60;name_asc&#x60;, &#x60;name_desc&#x60;, &#x60;updated_at_asc&#x60;, &#x60;updated_at_desc&#x60;, &#x60;space_asc&#x60;, and &#x60;space_desc&#x60;. The trailing direction segment is optional; if omitted or invalid, projects are sorted ascending. Any other value is ignored and the default ordering is returned. (optional)
+     * @param  string[] $filters Filter projects. The only supported value is &#x60;favorites&#x60;, which restricts the results to projects the current user has starred. (optional)
+     * @param  string $q Search query. The only supported syntax is &#x60;name:&lt;text&gt;&#x60; — for example &#x60;name:android&#x60; returns projects whose name matches &#x60;android&#x60; (case-insensitive substring). Any value that does not match the &#x60;name:&#x60; prefix is ignored. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function projectsListRequest($x_phrase_app_otp = null, $page = null, $per_page = null, $account_id = null, $sort_by = null, $filters = null)
+    protected function projectsListRequest($x_phrase_app_otp = null, $page = null, $per_page = null, $account_id = null, $sort_by = null, $filters = null, $q = null)
     {
 
         $resourcePath = '/projects';
@@ -1508,6 +1561,17 @@ class ProjectsApi
             }
             else {
                 $queryParams['filters'] = $filters;
+            }
+        }
+        // query params
+        if ($q !== null) {
+            if('form' === 'form' && is_array($q)) {
+                foreach($q as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['q'] = $q;
             }
         }
 

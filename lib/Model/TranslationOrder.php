@@ -66,7 +66,7 @@ class TranslationOrder implements ModelInterface, ArrayAccess
         'progress_percent' => 'int',
         'source_locale' => '\Phrase\Model\LocalePreview',
         'target_locales' => '\Phrase\Model\LocalePreview[]',
-        'tag' => 'string',
+        'tag_name' => 'string',
         'styleguide' => '\Phrase\Model\StyleguidePreview',
         'unverify_translations_upon_delivery' => 'bool',
         'quality' => 'bool',
@@ -92,7 +92,7 @@ class TranslationOrder implements ModelInterface, ArrayAccess
         'progress_percent' => null,
         'source_locale' => null,
         'target_locales' => null,
-        'tag' => null,
+        'tag_name' => null,
         'styleguide' => null,
         'unverify_translations_upon_delivery' => null,
         'quality' => null,
@@ -139,7 +139,7 @@ class TranslationOrder implements ModelInterface, ArrayAccess
         'progress_percent' => 'progress_percent',
         'source_locale' => 'source_locale',
         'target_locales' => 'target_locales',
-        'tag' => 'tag',
+        'tag_name' => 'tag_name',
         'styleguide' => 'styleguide',
         'unverify_translations_upon_delivery' => 'unverify_translations_upon_delivery',
         'quality' => 'quality',
@@ -165,7 +165,7 @@ class TranslationOrder implements ModelInterface, ArrayAccess
         'progress_percent' => 'setProgressPercent',
         'source_locale' => 'setSourceLocale',
         'target_locales' => 'setTargetLocales',
-        'tag' => 'setTag',
+        'tag_name' => 'setTagName',
         'styleguide' => 'setStyleguide',
         'unverify_translations_upon_delivery' => 'setUnverifyTranslationsUponDelivery',
         'quality' => 'setQuality',
@@ -191,7 +191,7 @@ class TranslationOrder implements ModelInterface, ArrayAccess
         'progress_percent' => 'getProgressPercent',
         'source_locale' => 'getSourceLocale',
         'target_locales' => 'getTargetLocales',
-        'tag' => 'getTag',
+        'tag_name' => 'getTagName',
         'styleguide' => 'getStyleguide',
         'unverify_translations_upon_delivery' => 'getUnverifyTranslationsUponDelivery',
         'quality' => 'getQuality',
@@ -271,7 +271,7 @@ class TranslationOrder implements ModelInterface, ArrayAccess
         $this->container['progress_percent'] = isset($data['progress_percent']) ? $data['progress_percent'] : null;
         $this->container['source_locale'] = isset($data['source_locale']) ? $data['source_locale'] : null;
         $this->container['target_locales'] = isset($data['target_locales']) ? $data['target_locales'] : null;
-        $this->container['tag'] = isset($data['tag']) ? $data['tag'] : null;
+        $this->container['tag_name'] = isset($data['tag_name']) ? $data['tag_name'] : null;
         $this->container['styleguide'] = isset($data['styleguide']) ? $data['styleguide'] : null;
         $this->container['unverify_translations_upon_delivery'] = isset($data['unverify_translations_upon_delivery']) ? $data['unverify_translations_upon_delivery'] : null;
         $this->container['quality'] = isset($data['quality']) ? $data['quality'] : null;
@@ -569,25 +569,25 @@ class TranslationOrder implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets tag
+     * Gets tag_name
      *
      * @return string|null
      */
-    public function getTag()
+    public function getTagName()
     {
-        return $this->container['tag'];
+        return $this->container['tag_name'];
     }
 
     /**
-     * Sets tag
+     * Sets tag_name
      *
-     * @param string|null $tag tag
+     * @param string|null $tag_name Name of the tag whose keys are included in the order.
      *
      * @return $this
      */
-    public function setTag($tag)
+    public function setTagName($tag_name)
     {
-        $this->container['tag'] = $tag;
+        $this->container['tag_name'] = $tag_name;
 
         return $this;
     }

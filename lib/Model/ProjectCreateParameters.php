@@ -79,6 +79,14 @@ class ProjectCreateParameters implements ModelInterface, ArrayAccess
         'autotranslate_use_machine_translation' => 'bool',
         'autotranslate_use_translation_memory' => 'bool',
         'autotranslate_overwrite_unverified_translations' => 'bool',
+        'autocomplete_job_enabled' => 'bool',
+        'job_locking_enabled' => 'bool',
+        'smart_suggest_enabled' => 'bool',
+        'smart_suggest_use_glossary' => 'bool',
+        'smart_suggest_use_machine_translation' => 'bool',
+        'translation_keys_sort_collation' => 'string',
+        'default_encoding' => 'string',
+        'cldr_version' => 'string',
         'placeholder_styles' => 'string[]'
     ];
 
@@ -112,6 +120,14 @@ class ProjectCreateParameters implements ModelInterface, ArrayAccess
         'autotranslate_use_machine_translation' => null,
         'autotranslate_use_translation_memory' => null,
         'autotranslate_overwrite_unverified_translations' => null,
+        'autocomplete_job_enabled' => null,
+        'job_locking_enabled' => null,
+        'smart_suggest_enabled' => null,
+        'smart_suggest_use_glossary' => null,
+        'smart_suggest_use_machine_translation' => null,
+        'translation_keys_sort_collation' => null,
+        'default_encoding' => null,
+        'cldr_version' => null,
         'placeholder_styles' => null
     ];
 
@@ -166,6 +182,14 @@ class ProjectCreateParameters implements ModelInterface, ArrayAccess
         'autotranslate_use_machine_translation' => 'autotranslate_use_machine_translation',
         'autotranslate_use_translation_memory' => 'autotranslate_use_translation_memory',
         'autotranslate_overwrite_unverified_translations' => 'autotranslate_overwrite_unverified_translations',
+        'autocomplete_job_enabled' => 'autocomplete_job_enabled',
+        'job_locking_enabled' => 'job_locking_enabled',
+        'smart_suggest_enabled' => 'smart_suggest_enabled',
+        'smart_suggest_use_glossary' => 'smart_suggest_use_glossary',
+        'smart_suggest_use_machine_translation' => 'smart_suggest_use_machine_translation',
+        'translation_keys_sort_collation' => 'translation_keys_sort_collation',
+        'default_encoding' => 'default_encoding',
+        'cldr_version' => 'cldr_version',
         'placeholder_styles' => 'placeholder_styles'
     ];
 
@@ -199,6 +223,14 @@ class ProjectCreateParameters implements ModelInterface, ArrayAccess
         'autotranslate_use_machine_translation' => 'setAutotranslateUseMachineTranslation',
         'autotranslate_use_translation_memory' => 'setAutotranslateUseTranslationMemory',
         'autotranslate_overwrite_unverified_translations' => 'setAutotranslateOverwriteUnverifiedTranslations',
+        'autocomplete_job_enabled' => 'setAutocompleteJobEnabled',
+        'job_locking_enabled' => 'setJobLockingEnabled',
+        'smart_suggest_enabled' => 'setSmartSuggestEnabled',
+        'smart_suggest_use_glossary' => 'setSmartSuggestUseGlossary',
+        'smart_suggest_use_machine_translation' => 'setSmartSuggestUseMachineTranslation',
+        'translation_keys_sort_collation' => 'setTranslationKeysSortCollation',
+        'default_encoding' => 'setDefaultEncoding',
+        'cldr_version' => 'setCldrVersion',
         'placeholder_styles' => 'setPlaceholderStyles'
     ];
 
@@ -232,6 +264,14 @@ class ProjectCreateParameters implements ModelInterface, ArrayAccess
         'autotranslate_use_machine_translation' => 'getAutotranslateUseMachineTranslation',
         'autotranslate_use_translation_memory' => 'getAutotranslateUseTranslationMemory',
         'autotranslate_overwrite_unverified_translations' => 'getAutotranslateOverwriteUnverifiedTranslations',
+        'autocomplete_job_enabled' => 'getAutocompleteJobEnabled',
+        'job_locking_enabled' => 'getJobLockingEnabled',
+        'smart_suggest_enabled' => 'getSmartSuggestEnabled',
+        'smart_suggest_use_glossary' => 'getSmartSuggestUseGlossary',
+        'smart_suggest_use_machine_translation' => 'getSmartSuggestUseMachineTranslation',
+        'translation_keys_sort_collation' => 'getTranslationKeysSortCollation',
+        'default_encoding' => 'getDefaultEncoding',
+        'cldr_version' => 'getCldrVersion',
         'placeholder_styles' => 'getPlaceholderStyles'
     ];
 
@@ -276,8 +316,29 @@ class ProjectCreateParameters implements ModelInterface, ArrayAccess
         return self::$openAPIModelName;
     }
 
+    const DEFAULT_ENCODING_UTF_8 = 'UTF-8';
+    const DEFAULT_ENCODING_UTF_16 = 'UTF-16';
+    const DEFAULT_ENCODING_UTF_16_BE = 'UTF-16BE';
+    const DEFAULT_ENCODING_UTF_16_LE = 'UTF-16LE';
+    const DEFAULT_ENCODING_ISO_8859_1 = 'ISO-8859-1';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getDefaultEncodingAllowableValues()
+    {
+        return [
+            self::DEFAULT_ENCODING_UTF_8,
+            self::DEFAULT_ENCODING_UTF_16,
+            self::DEFAULT_ENCODING_UTF_16_BE,
+            self::DEFAULT_ENCODING_UTF_16_LE,
+            self::DEFAULT_ENCODING_ISO_8859_1,
+        ];
+    }
     
 
     /**
@@ -319,6 +380,14 @@ class ProjectCreateParameters implements ModelInterface, ArrayAccess
         $this->container['autotranslate_use_machine_translation'] = isset($data['autotranslate_use_machine_translation']) ? $data['autotranslate_use_machine_translation'] : null;
         $this->container['autotranslate_use_translation_memory'] = isset($data['autotranslate_use_translation_memory']) ? $data['autotranslate_use_translation_memory'] : null;
         $this->container['autotranslate_overwrite_unverified_translations'] = isset($data['autotranslate_overwrite_unverified_translations']) ? $data['autotranslate_overwrite_unverified_translations'] : null;
+        $this->container['autocomplete_job_enabled'] = isset($data['autocomplete_job_enabled']) ? $data['autocomplete_job_enabled'] : null;
+        $this->container['job_locking_enabled'] = isset($data['job_locking_enabled']) ? $data['job_locking_enabled'] : null;
+        $this->container['smart_suggest_enabled'] = isset($data['smart_suggest_enabled']) ? $data['smart_suggest_enabled'] : null;
+        $this->container['smart_suggest_use_glossary'] = isset($data['smart_suggest_use_glossary']) ? $data['smart_suggest_use_glossary'] : null;
+        $this->container['smart_suggest_use_machine_translation'] = isset($data['smart_suggest_use_machine_translation']) ? $data['smart_suggest_use_machine_translation'] : null;
+        $this->container['translation_keys_sort_collation'] = isset($data['translation_keys_sort_collation']) ? $data['translation_keys_sort_collation'] : null;
+        $this->container['default_encoding'] = isset($data['default_encoding']) ? $data['default_encoding'] : null;
+        $this->container['cldr_version'] = isset($data['cldr_version']) ? $data['cldr_version'] : null;
         $this->container['placeholder_styles'] = isset($data['placeholder_styles']) ? $data['placeholder_styles'] : null;
     }
 
@@ -334,6 +403,14 @@ class ProjectCreateParameters implements ModelInterface, ArrayAccess
         if ($this->container['name'] === null) {
             $invalidProperties[] = "'name' can't be null";
         }
+        $allowedValues = $this->getDefaultEncodingAllowableValues();
+        if (!is_null($this->container['default_encoding']) && !in_array($this->container['default_encoding'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'default_encoding', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -921,6 +998,207 @@ class ProjectCreateParameters implements ModelInterface, ArrayAccess
     public function setAutotranslateOverwriteUnverifiedTranslations($autotranslate_overwrite_unverified_translations)
     {
         $this->container['autotranslate_overwrite_unverified_translations'] = $autotranslate_overwrite_unverified_translations;
+
+        return $this;
+    }
+
+    /**
+     * Gets autocomplete_job_enabled
+     *
+     * @return bool|null
+     */
+    public function getAutocompleteJobEnabled()
+    {
+        return $this->container['autocomplete_job_enabled'];
+    }
+
+    /**
+     * Sets autocomplete_job_enabled
+     *
+     * @param bool|null $autocomplete_job_enabled (Optional) Enable autocomplete-job behavior so that newly created keys and locales are automatically added to in-progress jobs.
+     *
+     * @return $this
+     */
+    public function setAutocompleteJobEnabled($autocomplete_job_enabled)
+    {
+        $this->container['autocomplete_job_enabled'] = $autocomplete_job_enabled;
+
+        return $this;
+    }
+
+    /**
+     * Gets job_locking_enabled
+     *
+     * @return bool|null
+     */
+    public function getJobLockingEnabled()
+    {
+        return $this->container['job_locking_enabled'];
+    }
+
+    /**
+     * Sets job_locking_enabled
+     *
+     * @param bool|null $job_locking_enabled (Optional) When enabled, translations are locked once a job moves into review.
+     *
+     * @return $this
+     */
+    public function setJobLockingEnabled($job_locking_enabled)
+    {
+        $this->container['job_locking_enabled'] = $job_locking_enabled;
+
+        return $this;
+    }
+
+    /**
+     * Gets smart_suggest_enabled
+     *
+     * @return bool|null
+     */
+    public function getSmartSuggestEnabled()
+    {
+        return $this->container['smart_suggest_enabled'];
+    }
+
+    /**
+     * Sets smart_suggest_enabled
+     *
+     * @param bool|null $smart_suggest_enabled (Optional) Enable Smart Suggest for the project. Defaults to `true` when omitted.
+     *
+     * @return $this
+     */
+    public function setSmartSuggestEnabled($smart_suggest_enabled)
+    {
+        $this->container['smart_suggest_enabled'] = $smart_suggest_enabled;
+
+        return $this;
+    }
+
+    /**
+     * Gets smart_suggest_use_glossary
+     *
+     * @return bool|null
+     */
+    public function getSmartSuggestUseGlossary()
+    {
+        return $this->container['smart_suggest_use_glossary'];
+    }
+
+    /**
+     * Sets smart_suggest_use_glossary
+     *
+     * @param bool|null $smart_suggest_use_glossary (Optional) Allow Smart Suggest to source suggestions from the project glossary. Defaults to `true` when omitted.
+     *
+     * @return $this
+     */
+    public function setSmartSuggestUseGlossary($smart_suggest_use_glossary)
+    {
+        $this->container['smart_suggest_use_glossary'] = $smart_suggest_use_glossary;
+
+        return $this;
+    }
+
+    /**
+     * Gets smart_suggest_use_machine_translation
+     *
+     * @return bool|null
+     */
+    public function getSmartSuggestUseMachineTranslation()
+    {
+        return $this->container['smart_suggest_use_machine_translation'];
+    }
+
+    /**
+     * Sets smart_suggest_use_machine_translation
+     *
+     * @param bool|null $smart_suggest_use_machine_translation (Optional) Allow Smart Suggest to source suggestions from machine translation. Defaults to `true` when omitted.
+     *
+     * @return $this
+     */
+    public function setSmartSuggestUseMachineTranslation($smart_suggest_use_machine_translation)
+    {
+        $this->container['smart_suggest_use_machine_translation'] = $smart_suggest_use_machine_translation;
+
+        return $this;
+    }
+
+    /**
+     * Gets translation_keys_sort_collation
+     *
+     * @return string|null
+     */
+    public function getTranslationKeysSortCollation()
+    {
+        return $this->container['translation_keys_sort_collation'];
+    }
+
+    /**
+     * Sets translation_keys_sort_collation
+     *
+     * @param string|null $translation_keys_sort_collation (Optional) Collation used when sorting translation keys alphabetically. Defaults to `unicode_ci` when omitted.
+     *
+     * @return $this
+     */
+    public function setTranslationKeysSortCollation($translation_keys_sort_collation)
+    {
+        $this->container['translation_keys_sort_collation'] = $translation_keys_sort_collation;
+
+        return $this;
+    }
+
+    /**
+     * Gets default_encoding
+     *
+     * @return string|null
+     */
+    public function getDefaultEncoding()
+    {
+        return $this->container['default_encoding'];
+    }
+
+    /**
+     * Sets default_encoding
+     *
+     * @param string|null $default_encoding (Optional) Sets the default encoding for Uploads. If you leave it empty, we will try to guess it automatically for you when you Upload a file. You can still override this value by setting the [`file_encoding`](/en/api/strings/uploads/upload-a-new-file) parameter for Uploads.
+     *
+     * @return $this
+     */
+    public function setDefaultEncoding($default_encoding)
+    {
+        $allowedValues = $this->getDefaultEncodingAllowableValues();
+        if (!is_null($default_encoding) && !in_array($default_encoding, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'default_encoding', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['default_encoding'] = $default_encoding;
+
+        return $this;
+    }
+
+    /**
+     * Gets cldr_version
+     *
+     * @return string|null
+     */
+    public function getCldrVersion()
+    {
+        return $this->container['cldr_version'];
+    }
+
+    /**
+     * Sets cldr_version
+     *
+     * @param string|null $cldr_version (Optional) CLDR plural-rule version used by the project.
+     *
+     * @return $this
+     */
+    public function setCldrVersion($cldr_version)
+    {
+        $this->container['cldr_version'] = $cldr_version;
 
         return $this;
     }

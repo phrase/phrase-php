@@ -185,7 +185,7 @@ class LinkedKeysApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Phrase\Model\CustomMetadataPropertyCreate422Response',
+                        '\Phrase\Model\DocumentDelete422Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -409,7 +409,7 @@ class LinkedKeysApi
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Phrase\Model\KeyLink|\Phrase\Model\CustomMetadataPropertyCreate422Response
+     * @return \Phrase\Model\KeyLink|\Phrase\Model\DocumentDelete422Response
      */
     public function keyLinksCreate($project_id, $id, $key_links_create_parameters, $x_phrase_app_otp = null)
     {
@@ -429,7 +429,7 @@ class LinkedKeysApi
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Phrase\Model\KeyLink|\Phrase\Model\CustomMetadataPropertyCreate422Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Phrase\Model\KeyLink|\Phrase\Model\DocumentDelete422Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function keyLinksCreateWithHttpInfo($project_id, $id, $key_links_create_parameters, $x_phrase_app_otp = null)
     {
@@ -478,14 +478,14 @@ class LinkedKeysApi
                         $response->getHeaders()
                     ];
                 case 422:
-                    if ('\Phrase\Model\CustomMetadataPropertyCreate422Response' === '\SplFileObject') {
+                    if ('\Phrase\Model\DocumentDelete422Response' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Phrase\Model\CustomMetadataPropertyCreate422Response', []),
+                        ObjectSerializer::deserialize($content, '\Phrase\Model\DocumentDelete422Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -518,7 +518,7 @@ class LinkedKeysApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Phrase\Model\CustomMetadataPropertyCreate422Response',
+                        '\Phrase\Model\DocumentDelete422Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -813,7 +813,7 @@ class LinkedKeysApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Phrase\Model\CustomMetadataPropertyCreate422Response',
+                        '\Phrase\Model\DocumentDelete422Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);

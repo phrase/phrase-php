@@ -216,8 +216,79 @@ class StyleguideCreateParameters implements ModelInterface, ArrayAccess
         return self::$openAPIModelName;
     }
 
+    const TARGET_AUDIENCE_NOT_SPECIFIED = 'not_specified';
+    const TARGET_AUDIENCE_CHILDREN = 'children';
+    const TARGET_AUDIENCE_TEENAGER = 'teenager';
+    const TARGET_AUDIENCE_YOUNG_ADULTS = 'young_adults';
+    const TARGET_AUDIENCE_ADULTS = 'adults';
+    const TARGET_AUDIENCE_OLD_ADULTS = 'old_adults';
+    const GRAMMATICAL_PERSON_NOT_SPECIFIED = 'not_specified';
+    const GRAMMATICAL_PERSON_FIRST_PERSON_SINGULAR = 'first_person_singular';
+    const GRAMMATICAL_PERSON_SECOND_PERSON_SINGULAR = 'second_person_singular';
+    const GRAMMATICAL_PERSON_THIRD_PERSON_SINGULAR_MASCULINE = 'third_person_singular_masculine';
+    const GRAMMATICAL_PERSON_THIRD_PERSON_SINGULAR_FEMININE = 'third_person_singular_feminine';
+    const GRAMMATICAL_PERSON_THIRD_PERSON_SINGULAR_NEUTER = 'third_person_singular_neuter';
+    const GRAMMATICAL_PERSON_FIRST_PERSON_PLURAL = 'first_person_plural';
+    const GRAMMATICAL_PERSON_SECOND_PERSON_PLURAL = 'second_person_plural';
+    const GRAMMATICAL_PERSON_THIRD_PERSON_PLURAL = 'third_person_plural';
+    const VOCABULARY_TYPE_NOT_SPECIFIED = 'not_specified';
+    const VOCABULARY_TYPE_POPULAR = 'popular';
+    const VOCABULARY_TYPE_TECHNICAL = 'technical';
+    const VOCABULARY_TYPE_FICTIONAL = 'fictional';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getTargetAudienceAllowableValues()
+    {
+        return [
+            self::TARGET_AUDIENCE_NOT_SPECIFIED,
+            self::TARGET_AUDIENCE_CHILDREN,
+            self::TARGET_AUDIENCE_TEENAGER,
+            self::TARGET_AUDIENCE_YOUNG_ADULTS,
+            self::TARGET_AUDIENCE_ADULTS,
+            self::TARGET_AUDIENCE_OLD_ADULTS,
+        ];
+    }
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getGrammaticalPersonAllowableValues()
+    {
+        return [
+            self::GRAMMATICAL_PERSON_NOT_SPECIFIED,
+            self::GRAMMATICAL_PERSON_FIRST_PERSON_SINGULAR,
+            self::GRAMMATICAL_PERSON_SECOND_PERSON_SINGULAR,
+            self::GRAMMATICAL_PERSON_THIRD_PERSON_SINGULAR_MASCULINE,
+            self::GRAMMATICAL_PERSON_THIRD_PERSON_SINGULAR_FEMININE,
+            self::GRAMMATICAL_PERSON_THIRD_PERSON_SINGULAR_NEUTER,
+            self::GRAMMATICAL_PERSON_FIRST_PERSON_PLURAL,
+            self::GRAMMATICAL_PERSON_SECOND_PERSON_PLURAL,
+            self::GRAMMATICAL_PERSON_THIRD_PERSON_PLURAL,
+        ];
+    }
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getVocabularyTypeAllowableValues()
+    {
+        return [
+            self::VOCABULARY_TYPE_NOT_SPECIFIED,
+            self::VOCABULARY_TYPE_POPULAR,
+            self::VOCABULARY_TYPE_TECHNICAL,
+            self::VOCABULARY_TYPE_FICTIONAL,
+        ];
+    }
     
 
     /**
@@ -262,6 +333,30 @@ class StyleguideCreateParameters implements ModelInterface, ArrayAccess
         if ($this->container['title'] === null) {
             $invalidProperties[] = "'title' can't be null";
         }
+        $allowedValues = $this->getTargetAudienceAllowableValues();
+        if (!is_null($this->container['target_audience']) && !in_array($this->container['target_audience'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'target_audience', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
+        $allowedValues = $this->getGrammaticalPersonAllowableValues();
+        if (!is_null($this->container['grammatical_person']) && !in_array($this->container['grammatical_person'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'grammatical_person', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
+        $allowedValues = $this->getVocabularyTypeAllowableValues();
+        if (!is_null($this->container['vocabulary_type']) && !in_array($this->container['vocabulary_type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'vocabulary_type', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -338,12 +433,21 @@ class StyleguideCreateParameters implements ModelInterface, ArrayAccess
     /**
      * Sets target_audience
      *
-     * @param string|null $target_audience Can be one of: not_specified, children, teenager, young_adults, adults, old_adults.
+     * @param string|null $target_audience Target audience for the translations.
      *
      * @return $this
      */
     public function setTargetAudience($target_audience)
     {
+        $allowedValues = $this->getTargetAudienceAllowableValues();
+        if (!is_null($target_audience) && !in_array($target_audience, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'target_audience', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['target_audience'] = $target_audience;
 
         return $this;
@@ -362,12 +466,21 @@ class StyleguideCreateParameters implements ModelInterface, ArrayAccess
     /**
      * Sets grammatical_person
      *
-     * @param string|null $grammatical_person Can be one of: not_specified, first_person_singular, second_person_singular, third_person_singular_masculine, third_person_singular_feminine, third_person_singular_neuter, first_person_plural, second_person_plural, third_person_plural.
+     * @param string|null $grammatical_person Preferred grammatical person.
      *
      * @return $this
      */
     public function setGrammaticalPerson($grammatical_person)
     {
+        $allowedValues = $this->getGrammaticalPersonAllowableValues();
+        if (!is_null($grammatical_person) && !in_array($grammatical_person, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'grammatical_person', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['grammatical_person'] = $grammatical_person;
 
         return $this;
@@ -386,12 +499,21 @@ class StyleguideCreateParameters implements ModelInterface, ArrayAccess
     /**
      * Sets vocabulary_type
      *
-     * @param string|null $vocabulary_type Can be one of: not_specified, popular, technical, fictional.
+     * @param string|null $vocabulary_type Vocabulary register the translations should use.
      *
      * @return $this
      */
     public function setVocabularyType($vocabulary_type)
     {
+        $allowedValues = $this->getVocabularyTypeAllowableValues();
+        if (!is_null($vocabulary_type) && !in_array($vocabulary_type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'vocabulary_type', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['vocabulary_type'] = $vocabulary_type;
 
         return $this;

@@ -139,7 +139,7 @@ void (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: Not defined
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../../README.md#documentation-for-models)
@@ -271,7 +271,7 @@ void (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: application/json
-- **Accept**: Not defined
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../../README.md#documentation-for-models)
@@ -337,7 +337,7 @@ void (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: Not defined
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../../README.md#documentation-for-models)
@@ -509,8 +509,8 @@ $per_page = 25; // int | Limit on the number of objects to be returned, between 
 $branch = my-feature-branch; // string | specify the branch to use
 $query = Some comment content; // string | Search query for comment messages
 $locale_ids = ["someId"]; // string[] | Search comments by their assigned locales
-$filters = ["read","unread"]; // string[] | Specify the filter for the comments
-$order = desc; // string | Order direction. Can be one of: asc, desc.
+$filters = ["read","unread"]; // string[] | Specify the filter for the comments. Supported values are `read` and `unread`. Combine both to return all comments (read + unread) without filtering.
+$order = desc; // string | Order direction. Defaults to `desc`. Values other than `asc` and `desc` fall back to `desc`.
 
 try {
     $result = $apiInstance->commentsList($project_id, $key_id, $x_phrase_app_otp, $page, $per_page, $branch, $query, $locale_ids, $filters, $order);
@@ -534,8 +534,8 @@ Name | Type | Description  | Notes
  **branch** | **string**| specify the branch to use | [optional]
  **query** | **string**| Search query for comment messages | [optional]
  **locale_ids** | [**string[]**](../Model/string.md)| Search comments by their assigned locales | [optional]
- **filters** | [**string[]**](../Model/string.md)| Specify the filter for the comments | [optional]
- **order** | **string**| Order direction. Can be one of: asc, desc. | [optional]
+ **filters** | [**string[]**](../Model/string.md)| Specify the filter for the comments. Supported values are &#x60;read&#x60; and &#x60;unread&#x60;. Combine both to return all comments (read + unread) without filtering. | [optional]
+ **order** | **string**| Order direction. Defaults to &#x60;desc&#x60;. Values other than &#x60;asc&#x60; and &#x60;desc&#x60; fall back to &#x60;desc&#x60;. | [optional]
 
 ### Return type
 

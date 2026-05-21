@@ -105,16 +105,9 @@ class DistributionTest extends TestCase
     }
 
     /**
-     * Test attribute "locales"
+     * Test attribute "release_count"
      */
-    public function testPropertyLocales()
-    {
-    }
-
-    /**
-     * Test attribute "releases"
-     */
-    public function testPropertyReleases()
+    public function testPropertyReleaseCount()
     {
     }
 
@@ -122,6 +115,13 @@ class DistributionTest extends TestCase
      * Test attribute "created_at"
      */
     public function testPropertyCreatedAt()
+    {
+    }
+
+    /**
+     * Test attribute "updated_at"
+     */
+    public function testPropertyUpdatedAt()
     {
     }
 

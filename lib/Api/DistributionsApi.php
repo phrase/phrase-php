@@ -124,7 +124,7 @@ class DistributionsApi
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Phrase\Model\Distribution
+     * @return \Phrase\Model\DistributionDetails|\Phrase\Model\DocumentDelete422Response
      */
     public function distributionCreate($account_id, $distribution_create_parameters, $x_phrase_app_otp = null)
     {
@@ -143,7 +143,7 @@ class DistributionsApi
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Phrase\Model\Distribution, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Phrase\Model\DistributionDetails|\Phrase\Model\DocumentDelete422Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function distributionCreateWithHttpInfo($account_id, $distribution_create_parameters, $x_phrase_app_otp = null)
     {
@@ -180,20 +180,32 @@ class DistributionsApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 201:
-                    if ('\Phrase\Model\Distribution' === '\SplFileObject') {
+                    if ('\Phrase\Model\DistributionDetails' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Phrase\Model\Distribution', []),
+                        ObjectSerializer::deserialize($content, '\Phrase\Model\DistributionDetails', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 422:
+                    if ('\Phrase\Model\DocumentDelete422Response' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Phrase\Model\DocumentDelete422Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Phrase\Model\Distribution';
+            $returnType = '\Phrase\Model\DistributionDetails';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -212,7 +224,15 @@ class DistributionsApi
                 case 201:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Phrase\Model\Distribution',
+                        '\Phrase\Model\DistributionDetails',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 422:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Phrase\Model\DocumentDelete422Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -258,7 +278,7 @@ class DistributionsApi
      */
     public function distributionCreateAsyncWithHttpInfo($account_id, $distribution_create_parameters, $x_phrase_app_otp = null)
     {
-        $returnType = '\Phrase\Model\Distribution';
+        $returnType = '\Phrase\Model\DistributionDetails';
         $request = $this->distributionCreateRequest($account_id, $distribution_create_parameters, $x_phrase_app_otp);
 
         return $this->client
@@ -485,6 +505,14 @@ class DistributionsApi
 
         } catch (ApiException $e) {
             switch ($e->getCode()) {
+                case 422:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Phrase\Model\DocumentDelete422Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
             }
             throw $e;
         }
@@ -612,11 +640,11 @@ class DistributionsApi
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
-                []
+                ['application/json']
             );
         } else {
             $headers = $this->headerSelector->selectHeaders(
-                [],
+                ['application/json'],
                 []
             );
         }
@@ -691,7 +719,7 @@ class DistributionsApi
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Phrase\Model\Distribution
+     * @return \Phrase\Model\DistributionDetails
      */
     public function distributionShow($account_id, $id, $x_phrase_app_otp = null)
     {
@@ -710,7 +738,7 @@ class DistributionsApi
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Phrase\Model\Distribution, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Phrase\Model\DistributionDetails, HTTP status code, HTTP response headers (array of strings)
      */
     public function distributionShowWithHttpInfo($account_id, $id, $x_phrase_app_otp = null)
     {
@@ -747,20 +775,20 @@ class DistributionsApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\Phrase\Model\Distribution' === '\SplFileObject') {
+                    if ('\Phrase\Model\DistributionDetails' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Phrase\Model\Distribution', []),
+                        ObjectSerializer::deserialize($content, '\Phrase\Model\DistributionDetails', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Phrase\Model\Distribution';
+            $returnType = '\Phrase\Model\DistributionDetails';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -779,7 +807,7 @@ class DistributionsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Phrase\Model\Distribution',
+                        '\Phrase\Model\DistributionDetails',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -825,7 +853,7 @@ class DistributionsApi
      */
     public function distributionShowAsyncWithHttpInfo($account_id, $id, $x_phrase_app_otp = null)
     {
-        $returnType = '\Phrase\Model\Distribution';
+        $returnType = '\Phrase\Model\DistributionDetails';
         $request = $this->distributionShowRequest($account_id, $id, $x_phrase_app_otp);
 
         return $this->client
@@ -1002,7 +1030,7 @@ class DistributionsApi
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Phrase\Model\Distribution
+     * @return \Phrase\Model\DistributionDetails|\Phrase\Model\DocumentDelete422Response
      */
     public function distributionUpdate($account_id, $id, $distribution_update_parameters, $x_phrase_app_otp = null)
     {
@@ -1022,7 +1050,7 @@ class DistributionsApi
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Phrase\Model\Distribution, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Phrase\Model\DistributionDetails|\Phrase\Model\DocumentDelete422Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function distributionUpdateWithHttpInfo($account_id, $id, $distribution_update_parameters, $x_phrase_app_otp = null)
     {
@@ -1059,20 +1087,32 @@ class DistributionsApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\Phrase\Model\Distribution' === '\SplFileObject') {
+                    if ('\Phrase\Model\DistributionDetails' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Phrase\Model\Distribution', []),
+                        ObjectSerializer::deserialize($content, '\Phrase\Model\DistributionDetails', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 422:
+                    if ('\Phrase\Model\DocumentDelete422Response' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Phrase\Model\DocumentDelete422Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Phrase\Model\Distribution';
+            $returnType = '\Phrase\Model\DistributionDetails';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -1091,7 +1131,15 @@ class DistributionsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Phrase\Model\Distribution',
+                        '\Phrase\Model\DistributionDetails',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 422:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Phrase\Model\DocumentDelete422Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1139,7 +1187,7 @@ class DistributionsApi
      */
     public function distributionUpdateAsyncWithHttpInfo($account_id, $id, $distribution_update_parameters, $x_phrase_app_otp = null)
     {
-        $returnType = '\Phrase\Model\Distribution';
+        $returnType = '\Phrase\Model\DistributionDetails';
         $request = $this->distributionUpdateRequest($account_id, $id, $distribution_update_parameters, $x_phrase_app_otp);
 
         return $this->client
@@ -1326,7 +1374,7 @@ class DistributionsApi
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Phrase\Model\DistributionPreview[]
+     * @return \Phrase\Model\Distribution[]
      */
     public function distributionsList($account_id, $x_phrase_app_otp = null, $page = null, $per_page = null)
     {
@@ -1346,7 +1394,7 @@ class DistributionsApi
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Phrase\Model\DistributionPreview[], HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Phrase\Model\Distribution[], HTTP status code, HTTP response headers (array of strings)
      */
     public function distributionsListWithHttpInfo($account_id, $x_phrase_app_otp = null, $page = null, $per_page = null)
     {
@@ -1383,20 +1431,20 @@ class DistributionsApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\Phrase\Model\DistributionPreview[]' === '\SplFileObject') {
+                    if ('\Phrase\Model\Distribution[]' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = (string) $responseBody;
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Phrase\Model\DistributionPreview[]', []),
+                        ObjectSerializer::deserialize($content, '\Phrase\Model\Distribution[]', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Phrase\Model\DistributionPreview[]';
+            $returnType = '\Phrase\Model\Distribution[]';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -1415,7 +1463,7 @@ class DistributionsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Phrase\Model\DistributionPreview[]',
+                        '\Phrase\Model\Distribution[]',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1463,7 +1511,7 @@ class DistributionsApi
      */
     public function distributionsListAsyncWithHttpInfo($account_id, $x_phrase_app_otp = null, $page = null, $per_page = null)
     {
-        $returnType = '\Phrase\Model\DistributionPreview[]';
+        $returnType = '\Phrase\Model\Distribution[]';
         $request = $this->distributionsListRequest($account_id, $x_phrase_app_otp, $page, $per_page);
 
         return $this->client

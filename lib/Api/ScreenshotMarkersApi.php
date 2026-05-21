@@ -125,7 +125,7 @@ class ScreenshotMarkersApi
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Phrase\Model\ScreenshotMarker
+     * @return \Phrase\Model\ScreenshotMarker|\Phrase\Model\DocumentDelete422Response
      */
     public function screenshotMarkerCreate($project_id, $screenshot_id, $screenshot_marker_create_parameters, $x_phrase_app_otp = null)
     {
@@ -145,7 +145,7 @@ class ScreenshotMarkersApi
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Phrase\Model\ScreenshotMarker, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Phrase\Model\ScreenshotMarker|\Phrase\Model\DocumentDelete422Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function screenshotMarkerCreateWithHttpInfo($project_id, $screenshot_id, $screenshot_marker_create_parameters, $x_phrase_app_otp = null)
     {
@@ -193,6 +193,18 @@ class ScreenshotMarkersApi
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
+                case 422:
+                    if ('\Phrase\Model\DocumentDelete422Response' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Phrase\Model\DocumentDelete422Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
             }
 
             $returnType = '\Phrase\Model\ScreenshotMarker';
@@ -215,6 +227,14 @@ class ScreenshotMarkersApi
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\Phrase\Model\ScreenshotMarker',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 422:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Phrase\Model\DocumentDelete422Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -506,6 +526,14 @@ class ScreenshotMarkersApi
 
         } catch (ApiException $e) {
             switch ($e->getCode()) {
+                case 422:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Phrase\Model\DocumentDelete422Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
             }
             throw $e;
         }
@@ -647,11 +675,11 @@ class ScreenshotMarkersApi
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
-                []
+                ['application/json']
             );
         } else {
             $headers = $this->headerSelector->selectHeaders(
-                [],
+                ['application/json'],
                 []
             );
         }
@@ -1072,7 +1100,7 @@ class ScreenshotMarkersApi
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Phrase\Model\ScreenshotMarker
+     * @return \Phrase\Model\ScreenshotMarker|\Phrase\Model\DocumentDelete422Response
      */
     public function screenshotMarkerUpdate($project_id, $screenshot_id, $screenshot_marker_update_parameters, $x_phrase_app_otp = null)
     {
@@ -1092,7 +1120,7 @@ class ScreenshotMarkersApi
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Phrase\Model\ScreenshotMarker, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Phrase\Model\ScreenshotMarker|\Phrase\Model\DocumentDelete422Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function screenshotMarkerUpdateWithHttpInfo($project_id, $screenshot_id, $screenshot_marker_update_parameters, $x_phrase_app_otp = null)
     {
@@ -1140,6 +1168,18 @@ class ScreenshotMarkersApi
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
+                case 422:
+                    if ('\Phrase\Model\DocumentDelete422Response' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Phrase\Model\DocumentDelete422Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
             }
 
             $returnType = '\Phrase\Model\ScreenshotMarker';
@@ -1162,6 +1202,14 @@ class ScreenshotMarkersApi
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\Phrase\Model\ScreenshotMarker',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 422:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Phrase\Model\DocumentDelete422Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);

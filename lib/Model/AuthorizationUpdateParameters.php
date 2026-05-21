@@ -166,8 +166,27 @@ class AuthorizationUpdateParameters implements ModelInterface, ArrayAccess
         return self::$openAPIModelName;
     }
 
+    const SCOPES_READ = 'read';
+    const SCOPES_WRITE = 'write';
+    const SCOPES_ORDERS_CREATE = 'orders.create';
+    const SCOPES_TEAM_MANAGE = 'team.manage';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getScopesAllowableValues()
+    {
+        return [
+            self::SCOPES_READ,
+            self::SCOPES_WRITE,
+            self::SCOPES_ORDERS_CREATE,
+            self::SCOPES_TEAM_MANAGE,
+        ];
+    }
     
 
     /**
@@ -257,6 +276,15 @@ class AuthorizationUpdateParameters implements ModelInterface, ArrayAccess
      */
     public function setScopes($scopes)
     {
+        $allowedValues = $this->getScopesAllowableValues();
+        if (!is_null($scopes) && array_diff($scopes, $allowedValues)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'scopes', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['scopes'] = $scopes;
 
         return $this;

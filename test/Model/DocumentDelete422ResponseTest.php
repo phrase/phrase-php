@@ -1,6 +1,6 @@
 <?php
 /**
- * CustomMetadataPropertyCreate422ResponseErrorsInnerTest
+ * DocumentDelete422ResponseTest
  *
  * PHP version 5
  *
@@ -30,15 +30,15 @@ namespace Phrase;
 use PHPUnit\Framework\TestCase;
 
 /**
- * CustomMetadataPropertyCreate422ResponseErrorsInnerTest Class Doc Comment
+ * DocumentDelete422ResponseTest Class Doc Comment
  *
  * @category    Class
- * @description CustomMetadataPropertyCreate422ResponseErrorsInner
+ * @description DocumentDelete422Response
  * @package     Phrase
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class CustomMetadataPropertyCreate422ResponseErrorsInnerTest extends TestCase
+class DocumentDelete422ResponseTest extends TestCase
 {
 
     /**
@@ -70,23 +70,9 @@ class CustomMetadataPropertyCreate422ResponseErrorsInnerTest extends TestCase
     }
 
     /**
-     * Test "CustomMetadataPropertyCreate422ResponseErrorsInner"
+     * Test "DocumentDelete422Response"
      */
-    public function testCustomMetadataPropertyCreate422ResponseErrorsInner()
-    {
-    }
-
-    /**
-     * Test attribute "resource"
-     */
-    public function testPropertyResource()
-    {
-    }
-
-    /**
-     * Test attribute "field"
-     */
-    public function testPropertyField()
+    public function testDocumentDelete422Response()
     {
     }
 
@@ -94,6 +80,13 @@ class CustomMetadataPropertyCreate422ResponseErrorsInnerTest extends TestCase
      * Test attribute "message"
      */
     public function testPropertyMessage()
+    {
+    }
+
+    /**
+     * Test attribute "errors"
+     */
+    public function testPropertyErrors()
     {
     }
 }

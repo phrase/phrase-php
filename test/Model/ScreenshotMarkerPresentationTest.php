@@ -1,6 +1,6 @@
 <?php
 /**
- * CustomMetadataPropertyCreate422ResponseTest
+ * ScreenshotMarkerPresentationTest
  *
  * PHP version 5
  *
@@ -30,15 +30,15 @@ namespace Phrase;
 use PHPUnit\Framework\TestCase;
 
 /**
- * CustomMetadataPropertyCreate422ResponseTest Class Doc Comment
+ * ScreenshotMarkerPresentationTest Class Doc Comment
  *
  * @category    Class
- * @description CustomMetadataPropertyCreate422Response
+ * @description Coordinates and size of the marker on the screenshot, in pixels.
  * @package     Phrase
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class CustomMetadataPropertyCreate422ResponseTest extends TestCase
+class ScreenshotMarkerPresentationTest extends TestCase
 {
 
     /**
@@ -70,23 +70,37 @@ class CustomMetadataPropertyCreate422ResponseTest extends TestCase
     }
 
     /**
-     * Test "CustomMetadataPropertyCreate422Response"
+     * Test "ScreenshotMarkerPresentation"
      */
-    public function testCustomMetadataPropertyCreate422Response()
+    public function testScreenshotMarkerPresentation()
     {
     }
 
     /**
-     * Test attribute "message"
+     * Test attribute "x"
      */
-    public function testPropertyMessage()
+    public function testPropertyX()
     {
     }
 
     /**
-     * Test attribute "errors"
+     * Test attribute "y"
      */
-    public function testPropertyErrors()
+    public function testPropertyY()
+    {
+    }
+
+    /**
+     * Test attribute "w"
+     */
+    public function testPropertyW()
+    {
+    }
+
+    /**
+     * Test attribute "h"
+     */
+    public function testPropertyH()
     {
     }
 }

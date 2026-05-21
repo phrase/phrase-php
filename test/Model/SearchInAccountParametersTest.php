@@ -103,4 +103,11 @@ class SearchInAccountParametersTest extends TestCase
     public function testPropertyPerPage()
     {
     }
+
+    /**
+     * Test attribute "project_ids"
+     */
+    public function testPropertyProjectIds()
+    {
+    }
 }

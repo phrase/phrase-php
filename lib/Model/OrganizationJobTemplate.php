@@ -58,6 +58,8 @@ class OrganizationJobTemplate implements ModelInterface, ArrayAccess
         'id' => 'string',
         'name' => 'string',
         'briefing' => 'string',
+        'autotranslate_enabled' => 'bool',
+        'source_locale_id' => 'string',
         'created_at' => '\DateTime',
         'updated_at' => '\DateTime'
     ];
@@ -71,6 +73,8 @@ class OrganizationJobTemplate implements ModelInterface, ArrayAccess
         'id' => null,
         'name' => null,
         'briefing' => null,
+        'autotranslate_enabled' => null,
+        'source_locale_id' => null,
         'created_at' => 'date-time',
         'updated_at' => 'date-time'
     ];
@@ -105,6 +109,8 @@ class OrganizationJobTemplate implements ModelInterface, ArrayAccess
         'id' => 'id',
         'name' => 'name',
         'briefing' => 'briefing',
+        'autotranslate_enabled' => 'autotranslate_enabled',
+        'source_locale_id' => 'source_locale_id',
         'created_at' => 'created_at',
         'updated_at' => 'updated_at'
     ];
@@ -118,6 +124,8 @@ class OrganizationJobTemplate implements ModelInterface, ArrayAccess
         'id' => 'setId',
         'name' => 'setName',
         'briefing' => 'setBriefing',
+        'autotranslate_enabled' => 'setAutotranslateEnabled',
+        'source_locale_id' => 'setSourceLocaleId',
         'created_at' => 'setCreatedAt',
         'updated_at' => 'setUpdatedAt'
     ];
@@ -131,6 +139,8 @@ class OrganizationJobTemplate implements ModelInterface, ArrayAccess
         'id' => 'getId',
         'name' => 'getName',
         'briefing' => 'getBriefing',
+        'autotranslate_enabled' => 'getAutotranslateEnabled',
+        'source_locale_id' => 'getSourceLocaleId',
         'created_at' => 'getCreatedAt',
         'updated_at' => 'getUpdatedAt'
     ];
@@ -198,6 +208,8 @@ class OrganizationJobTemplate implements ModelInterface, ArrayAccess
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['briefing'] = isset($data['briefing']) ? $data['briefing'] : null;
+        $this->container['autotranslate_enabled'] = isset($data['autotranslate_enabled']) ? $data['autotranslate_enabled'] : null;
+        $this->container['source_locale_id'] = isset($data['source_locale_id']) ? $data['source_locale_id'] : null;
         $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
         $this->container['updated_at'] = isset($data['updated_at']) ? $data['updated_at'] : null;
     }
@@ -294,6 +306,54 @@ class OrganizationJobTemplate implements ModelInterface, ArrayAccess
     public function setBriefing($briefing)
     {
         $this->container['briefing'] = $briefing;
+
+        return $this;
+    }
+
+    /**
+     * Gets autotranslate_enabled
+     *
+     * @return bool|null
+     */
+    public function getAutotranslateEnabled()
+    {
+        return $this->container['autotranslate_enabled'];
+    }
+
+    /**
+     * Sets autotranslate_enabled
+     *
+     * @param bool|null $autotranslate_enabled When `true`, jobs created from this template are auto-translated on creation. Maps to the `autotranslate` field on the request body.
+     *
+     * @return $this
+     */
+    public function setAutotranslateEnabled($autotranslate_enabled)
+    {
+        $this->container['autotranslate_enabled'] = $autotranslate_enabled;
+
+        return $this;
+    }
+
+    /**
+     * Gets source_locale_id
+     *
+     * @return string|null
+     */
+    public function getSourceLocaleId()
+    {
+        return $this->container['source_locale_id'];
+    }
+
+    /**
+     * Sets source_locale_id
+     *
+     * @param string|null $source_locale_id Optional. ID of the source locale used by jobs created from this template. When omitted, the project's default source locale is used.
+     *
+     * @return $this
+     */
+    public function setSourceLocaleId($source_locale_id)
+    {
+        $this->container['source_locale_id'] = $source_locale_id;
 
         return $this;
     }

@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 ## notificationsList
 
-> \Phrase\Model\Notification[] notificationsList($x_phrase_app_otp, $page, $per_page, $unseen)
+> \Phrase\Model\Notification[] notificationsList($x_phrase_app_otp, $page, $per_page, $unseen, $last_days)
 
 List notifications
 
@@ -37,9 +37,10 @@ $x_phrase_app_otp = 'x_phrase_app_otp_example'; // string | Two-Factor-Authentic
 $page = 1; // int | Page number
 $per_page = 25; // int | Limit on the number of objects to be returned, between 1 and 100. 25 by default
 $unseen = true; // bool | Include only unseen notifications
+$last_days = 7; // int | Restrict the results to notifications created within the last N days. Coerced to integer; non-numeric values resolve to 0 (returning nothing).
 
 try {
-    $result = $apiInstance->notificationsList($x_phrase_app_otp, $page, $per_page, $unseen);
+    $result = $apiInstance->notificationsList($x_phrase_app_otp, $page, $per_page, $unseen, $last_days);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling NotificationsApi->notificationsList: ', $e->getMessage(), PHP_EOL;
@@ -56,6 +57,7 @@ Name | Type | Description  | Notes
  **page** | **int**| Page number | [optional]
  **per_page** | **int**| Limit on the number of objects to be returned, between 1 and 100. 25 by default | [optional]
  **unseen** | **bool**| Include only unseen notifications | [optional]
+ **last_days** | **int**| Restrict the results to notifications created within the last N days. Coerced to integer; non-numeric values resolve to 0 (returning nothing). | [optional]
 
 ### Return type
 

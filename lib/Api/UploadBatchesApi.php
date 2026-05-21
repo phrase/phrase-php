@@ -124,7 +124,7 @@ class UploadBatchesApi
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Phrase\Model\UploadBatch
+     * @return \Phrase\Model\UploadBatch|\Phrase\Model\DocumentDelete422Response
      */
     public function uploadBatchesCreate($project_id, $upload_batches_create_parameters, $x_phrase_app_otp = null)
     {
@@ -143,7 +143,7 @@ class UploadBatchesApi
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Phrase\Model\UploadBatch, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Phrase\Model\UploadBatch|\Phrase\Model\DocumentDelete422Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function uploadBatchesCreateWithHttpInfo($project_id, $upload_batches_create_parameters, $x_phrase_app_otp = null)
     {
@@ -191,6 +191,18 @@ class UploadBatchesApi
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
+                case 422:
+                    if ('\Phrase\Model\DocumentDelete422Response' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Phrase\Model\DocumentDelete422Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
             }
 
             $returnType = '\Phrase\Model\UploadBatch';
@@ -213,6 +225,14 @@ class UploadBatchesApi
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\Phrase\Model\UploadBatch',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 422:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Phrase\Model\DocumentDelete422Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);

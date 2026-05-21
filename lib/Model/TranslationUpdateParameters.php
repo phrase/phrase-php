@@ -61,7 +61,8 @@ class TranslationUpdateParameters implements ModelInterface, ArrayAccess
         'unverified' => 'bool',
         'excluded' => 'bool',
         'autotranslate' => 'bool',
-        'reviewed' => 'bool'
+        'reviewed' => 'bool',
+        'minor_change' => 'bool'
     ];
 
     /**
@@ -76,7 +77,8 @@ class TranslationUpdateParameters implements ModelInterface, ArrayAccess
         'unverified' => null,
         'excluded' => null,
         'autotranslate' => null,
-        'reviewed' => null
+        'reviewed' => null,
+        'minor_change' => null
     ];
 
     /**
@@ -112,7 +114,8 @@ class TranslationUpdateParameters implements ModelInterface, ArrayAccess
         'unverified' => 'unverified',
         'excluded' => 'excluded',
         'autotranslate' => 'autotranslate',
-        'reviewed' => 'reviewed'
+        'reviewed' => 'reviewed',
+        'minor_change' => 'minor_change'
     ];
 
     /**
@@ -127,7 +130,8 @@ class TranslationUpdateParameters implements ModelInterface, ArrayAccess
         'unverified' => 'setUnverified',
         'excluded' => 'setExcluded',
         'autotranslate' => 'setAutotranslate',
-        'reviewed' => 'setReviewed'
+        'reviewed' => 'setReviewed',
+        'minor_change' => 'setMinorChange'
     ];
 
     /**
@@ -142,7 +146,8 @@ class TranslationUpdateParameters implements ModelInterface, ArrayAccess
         'unverified' => 'getUnverified',
         'excluded' => 'getExcluded',
         'autotranslate' => 'getAutotranslate',
-        'reviewed' => 'getReviewed'
+        'reviewed' => 'getReviewed',
+        'minor_change' => 'getMinorChange'
     ];
 
     /**
@@ -212,6 +217,7 @@ class TranslationUpdateParameters implements ModelInterface, ArrayAccess
         $this->container['excluded'] = isset($data['excluded']) ? $data['excluded'] : null;
         $this->container['autotranslate'] = isset($data['autotranslate']) ? $data['autotranslate'] : null;
         $this->container['reviewed'] = isset($data['reviewed']) ? $data['reviewed'] : null;
+        $this->container['minor_change'] = isset($data['minor_change']) ? $data['minor_change'] : null;
     }
 
     /**
@@ -402,6 +408,30 @@ class TranslationUpdateParameters implements ModelInterface, ArrayAccess
     public function setReviewed($reviewed)
     {
         $this->container['reviewed'] = $reviewed;
+
+        return $this;
+    }
+
+    /**
+     * Gets minor_change
+     *
+     * @return bool|null
+     */
+    public function getMinorChange()
+    {
+        return $this->container['minor_change'];
+    }
+
+    /**
+     * Sets minor_change
+     *
+     * @param bool|null $minor_change When `true`, the update is treated as a minor edit and does not trigger downstream re-verification on the linked locales' translations.
+     *
+     * @return $this
+     */
+    public function setMinorChange($minor_change)
+    {
+        $this->container['minor_change'] = $minor_change;
 
         return $this;
     }

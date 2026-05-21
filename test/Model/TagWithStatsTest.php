@@ -91,6 +91,13 @@ class TagWithStatsTest extends TestCase
     }
 
     /**
+     * Test attribute "system_tag"
+     */
+    public function testPropertySystemTag()
+    {
+    }
+
+    /**
      * Test attribute "created_at"
      */
     public function testPropertyCreatedAt()

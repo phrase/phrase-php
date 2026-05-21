@@ -1,6 +1,6 @@
 <?php
 /**
- * DistributionPreview
+ * DistributionDetails
  *
  * PHP version 5
  *
@@ -31,14 +31,14 @@ use \ArrayAccess;
 use \Phrase\ObjectSerializer;
 
 /**
- * DistributionPreview Class Doc Comment
+ * DistributionDetails Class Doc Comment
  *
  * @category Class
  * @package  Phrase
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class DistributionPreview implements ModelInterface, ArrayAccess
+class DistributionDetails implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -47,7 +47,7 @@ class DistributionPreview implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'distribution_preview';
+    protected static $openAPIModelName = 'distribution_details';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -61,7 +61,10 @@ class DistributionPreview implements ModelInterface, ArrayAccess
         'platforms' => 'string[]',
         'release_count' => 'int',
         'created_at' => '\DateTime',
-        'deleted_at' => '\DateTime'
+        'updated_at' => '\DateTime',
+        'deleted_at' => '\DateTime',
+        'locales' => '\Phrase\Model\LocalePreview[]',
+        'releases' => '\Phrase\Model\ReleasePreview[]'
     ];
 
     /**
@@ -76,7 +79,10 @@ class DistributionPreview implements ModelInterface, ArrayAccess
         'platforms' => null,
         'release_count' => null,
         'created_at' => 'date-time',
-        'deleted_at' => 'date-time'
+        'updated_at' => 'date-time',
+        'deleted_at' => 'date-time',
+        'locales' => null,
+        'releases' => null
     ];
 
     /**
@@ -112,7 +118,10 @@ class DistributionPreview implements ModelInterface, ArrayAccess
         'platforms' => 'platforms',
         'release_count' => 'release_count',
         'created_at' => 'created_at',
-        'deleted_at' => 'deleted_at'
+        'updated_at' => 'updated_at',
+        'deleted_at' => 'deleted_at',
+        'locales' => 'locales',
+        'releases' => 'releases'
     ];
 
     /**
@@ -127,7 +136,10 @@ class DistributionPreview implements ModelInterface, ArrayAccess
         'platforms' => 'setPlatforms',
         'release_count' => 'setReleaseCount',
         'created_at' => 'setCreatedAt',
-        'deleted_at' => 'setDeletedAt'
+        'updated_at' => 'setUpdatedAt',
+        'deleted_at' => 'setDeletedAt',
+        'locales' => 'setLocales',
+        'releases' => 'setReleases'
     ];
 
     /**
@@ -142,7 +154,10 @@ class DistributionPreview implements ModelInterface, ArrayAccess
         'platforms' => 'getPlatforms',
         'release_count' => 'getReleaseCount',
         'created_at' => 'getCreatedAt',
-        'deleted_at' => 'getDeletedAt'
+        'updated_at' => 'getUpdatedAt',
+        'deleted_at' => 'getDeletedAt',
+        'locales' => 'getLocales',
+        'releases' => 'getReleases'
     ];
 
     /**
@@ -211,7 +226,10 @@ class DistributionPreview implements ModelInterface, ArrayAccess
         $this->container['platforms'] = isset($data['platforms']) ? $data['platforms'] : null;
         $this->container['release_count'] = isset($data['release_count']) ? $data['release_count'] : null;
         $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
+        $this->container['updated_at'] = isset($data['updated_at']) ? $data['updated_at'] : null;
         $this->container['deleted_at'] = isset($data['deleted_at']) ? $data['deleted_at'] : null;
+        $this->container['locales'] = isset($data['locales']) ? $data['locales'] : null;
+        $this->container['releases'] = isset($data['releases']) ? $data['releases'] : null;
     }
 
     /**
@@ -383,6 +401,30 @@ class DistributionPreview implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets updated_at
+     *
+     * @return \DateTime|null
+     */
+    public function getUpdatedAt()
+    {
+        return $this->container['updated_at'];
+    }
+
+    /**
+     * Sets updated_at
+     *
+     * @param \DateTime|null $updated_at updated_at
+     *
+     * @return $this
+     */
+    public function setUpdatedAt($updated_at)
+    {
+        $this->container['updated_at'] = $updated_at;
+
+        return $this;
+    }
+
+    /**
      * Gets deleted_at
      *
      * @return \DateTime|null
@@ -402,6 +444,54 @@ class DistributionPreview implements ModelInterface, ArrayAccess
     public function setDeletedAt($deleted_at)
     {
         $this->container['deleted_at'] = $deleted_at;
+
+        return $this;
+    }
+
+    /**
+     * Gets locales
+     *
+     * @return \Phrase\Model\LocalePreview[]|null
+     */
+    public function getLocales()
+    {
+        return $this->container['locales'];
+    }
+
+    /**
+     * Sets locales
+     *
+     * @param \Phrase\Model\LocalePreview[]|null $locales locales
+     *
+     * @return $this
+     */
+    public function setLocales($locales)
+    {
+        $this->container['locales'] = $locales;
+
+        return $this;
+    }
+
+    /**
+     * Gets releases
+     *
+     * @return \Phrase\Model\ReleasePreview[]|null
+     */
+    public function getReleases()
+    {
+        return $this->container['releases'];
+    }
+
+    /**
+     * Sets releases
+     *
+     * @param \Phrase\Model\ReleasePreview[]|null $releases releases
+     *
+     * @return $this
+     */
+    public function setReleases($releases)
+    {
+        $this->container['releases'] = $releases;
 
         return $this;
     }

@@ -205,7 +205,7 @@ void (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: Not defined
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../../README.md#documentation-for-models)
@@ -343,7 +343,7 @@ void (empty response body)
 
 ## jobLock
 
-> jobLock($project_id, $id, $x_phrase_app_otp, $branch)
+> \Phrase\Model\JobDetails jobLock($project_id, $id, $x_phrase_app_otp, $branch)
 
 Lock a job
 
@@ -370,7 +370,8 @@ $x_phrase_app_otp = 'x_phrase_app_otp_example'; // string | Two-Factor-Authentic
 $branch = my-feature-branch; // string | specify the branch to use
 
 try {
-    $apiInstance->jobLock($project_id, $id, $x_phrase_app_otp, $branch);
+    $result = $apiInstance->jobLock($project_id, $id, $x_phrase_app_otp, $branch);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling JobsApi->jobLock: ', $e->getMessage(), PHP_EOL;
 }
@@ -389,7 +390,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**\Phrase\Model\JobDetails**](../Model/JobDetails.md)
 
 ### Authorization
 
@@ -398,7 +399,7 @@ void (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: Not defined
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../../README.md#documentation-for-models)
@@ -606,7 +607,7 @@ Name | Type | Description  | Notes
 
 ## jobUnlock
 
-> jobUnlock($project_id, $id, $x_phrase_app_otp, $branch)
+> \Phrase\Model\JobDetails jobUnlock($project_id, $id, $x_phrase_app_otp, $branch)
 
 Unlock a job
 
@@ -633,7 +634,8 @@ $x_phrase_app_otp = 'x_phrase_app_otp_example'; // string | Two-Factor-Authentic
 $branch = my-feature-branch; // string | specify the branch to use
 
 try {
-    $apiInstance->jobUnlock($project_id, $id, $x_phrase_app_otp, $branch);
+    $result = $apiInstance->jobUnlock($project_id, $id, $x_phrase_app_otp, $branch);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling JobsApi->jobUnlock: ', $e->getMessage(), PHP_EOL;
 }
@@ -652,7 +654,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**\Phrase\Model\JobDetails**](../Model/JobDetails.md)
 
 ### Authorization
 
@@ -661,7 +663,7 @@ void (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: Not defined
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../../README.md#documentation-for-models)
@@ -808,7 +810,7 @@ Name | Type | Description  | Notes
 
 ## jobsList
 
-> \Phrase\Model\Job[] jobsList($project_id, $x_phrase_app_otp, $page, $per_page, $branch, $owned_by, $assigned_to, $state, $updated_since)
+> \Phrase\Model\Job[] jobsList($project_id, $x_phrase_app_otp, $page, $per_page, $branch, $owned_by, $assigned_to, $state, $states, $key_id, $updated_since)
 
 List jobs
 
@@ -837,10 +839,12 @@ $branch = my-feature-branch; // string | Branch to use
 $owned_by = abcd1234cdef1234abcd1234cdef1234; // string | filter by user owning job
 $assigned_to = abcd1234cdef1234abcd1234cdef1234; // string | filter by user assigned to job
 $state = completed; // string | filter by state of job; valid states are: `draft`, `in_progress`, `completed`
+$states = ["in_progress","completed"]; // string[] | Filter by multiple job states at once. Accepted values are the same as `state`. When supplied, `state` is ignored. Rejected with `400 Bad Request` if any value is unknown.
+$key_id = abcd1234cdef1234abcd1234cdef1234; // string | Filter to jobs that include the translation key identified by this code (matches via the job's tags).
 $updated_since = 2013-02-21T00:00:00.000Z; // string | filter by jobs updated since given date
 
 try {
-    $result = $apiInstance->jobsList($project_id, $x_phrase_app_otp, $page, $per_page, $branch, $owned_by, $assigned_to, $state, $updated_since);
+    $result = $apiInstance->jobsList($project_id, $x_phrase_app_otp, $page, $per_page, $branch, $owned_by, $assigned_to, $state, $states, $key_id, $updated_since);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling JobsApi->jobsList: ', $e->getMessage(), PHP_EOL;
@@ -861,6 +865,8 @@ Name | Type | Description  | Notes
  **owned_by** | **string**| filter by user owning job | [optional]
  **assigned_to** | **string**| filter by user assigned to job | [optional]
  **state** | **string**| filter by state of job; valid states are: &#x60;draft&#x60;, &#x60;in_progress&#x60;, &#x60;completed&#x60; | [optional]
+ **states** | [**string[]**](../Model/string.md)| Filter by multiple job states at once. Accepted values are the same as &#x60;state&#x60;. When supplied, &#x60;state&#x60; is ignored. Rejected with &#x60;400 Bad Request&#x60; if any value is unknown. | [optional]
+ **key_id** | **string**| Filter to jobs that include the translation key identified by this code (matches via the job&#39;s tags). | [optional]
  **updated_since** | **string**| filter by jobs updated since given date | [optional]
 
 ### Return type

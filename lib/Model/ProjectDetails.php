@@ -80,10 +80,13 @@ class ProjectDetails implements ModelInterface, ArrayAccess
         'autotranslate_mark_as_unverified' => 'bool',
         'autotranslate_use_machine_translation' => 'bool',
         'autotranslate_use_translation_memory' => 'bool',
+        'autotranslate_overwrite_unverified_translations' => 'bool',
+        'autocomplete_job_enabled' => 'bool',
         'default_encoding' => 'string',
         'cldr_version' => 'string',
         'job_locking_enabled' => 'bool',
-        'placeholder_styles' => 'string[]'
+        'placeholder_styles' => 'string[]',
+        'branch' => '\Phrase\Model\Branch'
     ];
 
     /**
@@ -117,10 +120,13 @@ class ProjectDetails implements ModelInterface, ArrayAccess
         'autotranslate_mark_as_unverified' => null,
         'autotranslate_use_machine_translation' => null,
         'autotranslate_use_translation_memory' => null,
+        'autotranslate_overwrite_unverified_translations' => null,
+        'autocomplete_job_enabled' => null,
         'default_encoding' => null,
         'cldr_version' => null,
         'job_locking_enabled' => null,
-        'placeholder_styles' => null
+        'placeholder_styles' => null,
+        'branch' => null
     ];
 
     /**
@@ -175,10 +181,13 @@ class ProjectDetails implements ModelInterface, ArrayAccess
         'autotranslate_mark_as_unverified' => 'autotranslate_mark_as_unverified',
         'autotranslate_use_machine_translation' => 'autotranslate_use_machine_translation',
         'autotranslate_use_translation_memory' => 'autotranslate_use_translation_memory',
+        'autotranslate_overwrite_unverified_translations' => 'autotranslate_overwrite_unverified_translations',
+        'autocomplete_job_enabled' => 'autocomplete_job_enabled',
         'default_encoding' => 'default_encoding',
         'cldr_version' => 'cldr_version',
         'job_locking_enabled' => 'job_locking_enabled',
-        'placeholder_styles' => 'placeholder_styles'
+        'placeholder_styles' => 'placeholder_styles',
+        'branch' => 'branch'
     ];
 
     /**
@@ -212,10 +221,13 @@ class ProjectDetails implements ModelInterface, ArrayAccess
         'autotranslate_mark_as_unverified' => 'setAutotranslateMarkAsUnverified',
         'autotranslate_use_machine_translation' => 'setAutotranslateUseMachineTranslation',
         'autotranslate_use_translation_memory' => 'setAutotranslateUseTranslationMemory',
+        'autotranslate_overwrite_unverified_translations' => 'setAutotranslateOverwriteUnverifiedTranslations',
+        'autocomplete_job_enabled' => 'setAutocompleteJobEnabled',
         'default_encoding' => 'setDefaultEncoding',
         'cldr_version' => 'setCldrVersion',
         'job_locking_enabled' => 'setJobLockingEnabled',
-        'placeholder_styles' => 'setPlaceholderStyles'
+        'placeholder_styles' => 'setPlaceholderStyles',
+        'branch' => 'setBranch'
     ];
 
     /**
@@ -249,10 +261,13 @@ class ProjectDetails implements ModelInterface, ArrayAccess
         'autotranslate_mark_as_unverified' => 'getAutotranslateMarkAsUnverified',
         'autotranslate_use_machine_translation' => 'getAutotranslateUseMachineTranslation',
         'autotranslate_use_translation_memory' => 'getAutotranslateUseTranslationMemory',
+        'autotranslate_overwrite_unverified_translations' => 'getAutotranslateOverwriteUnverifiedTranslations',
+        'autocomplete_job_enabled' => 'getAutocompleteJobEnabled',
         'default_encoding' => 'getDefaultEncoding',
         'cldr_version' => 'getCldrVersion',
         'job_locking_enabled' => 'getJobLockingEnabled',
-        'placeholder_styles' => 'getPlaceholderStyles'
+        'placeholder_styles' => 'getPlaceholderStyles',
+        'branch' => 'getBranch'
     ];
 
     /**
@@ -340,10 +355,13 @@ class ProjectDetails implements ModelInterface, ArrayAccess
         $this->container['autotranslate_mark_as_unverified'] = isset($data['autotranslate_mark_as_unverified']) ? $data['autotranslate_mark_as_unverified'] : null;
         $this->container['autotranslate_use_machine_translation'] = isset($data['autotranslate_use_machine_translation']) ? $data['autotranslate_use_machine_translation'] : null;
         $this->container['autotranslate_use_translation_memory'] = isset($data['autotranslate_use_translation_memory']) ? $data['autotranslate_use_translation_memory'] : null;
+        $this->container['autotranslate_overwrite_unverified_translations'] = isset($data['autotranslate_overwrite_unverified_translations']) ? $data['autotranslate_overwrite_unverified_translations'] : null;
+        $this->container['autocomplete_job_enabled'] = isset($data['autocomplete_job_enabled']) ? $data['autocomplete_job_enabled'] : null;
         $this->container['default_encoding'] = isset($data['default_encoding']) ? $data['default_encoding'] : null;
         $this->container['cldr_version'] = isset($data['cldr_version']) ? $data['cldr_version'] : null;
         $this->container['job_locking_enabled'] = isset($data['job_locking_enabled']) ? $data['job_locking_enabled'] : null;
         $this->container['placeholder_styles'] = isset($data['placeholder_styles']) ? $data['placeholder_styles'] : null;
+        $this->container['branch'] = isset($data['branch']) ? $data['branch'] : null;
     }
 
     /**
@@ -971,6 +989,54 @@ class ProjectDetails implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets autotranslate_overwrite_unverified_translations
+     *
+     * @return bool|null
+     */
+    public function getAutotranslateOverwriteUnverifiedTranslations()
+    {
+        return $this->container['autotranslate_overwrite_unverified_translations'];
+    }
+
+    /**
+     * Sets autotranslate_overwrite_unverified_translations
+     *
+     * @param bool|null $autotranslate_overwrite_unverified_translations autotranslate_overwrite_unverified_translations
+     *
+     * @return $this
+     */
+    public function setAutotranslateOverwriteUnverifiedTranslations($autotranslate_overwrite_unverified_translations)
+    {
+        $this->container['autotranslate_overwrite_unverified_translations'] = $autotranslate_overwrite_unverified_translations;
+
+        return $this;
+    }
+
+    /**
+     * Gets autocomplete_job_enabled
+     *
+     * @return bool|null
+     */
+    public function getAutocompleteJobEnabled()
+    {
+        return $this->container['autocomplete_job_enabled'];
+    }
+
+    /**
+     * Sets autocomplete_job_enabled
+     *
+     * @param bool|null $autocomplete_job_enabled autocomplete_job_enabled
+     *
+     * @return $this
+     */
+    public function setAutocompleteJobEnabled($autocomplete_job_enabled)
+    {
+        $this->container['autocomplete_job_enabled'] = $autocomplete_job_enabled;
+
+        return $this;
+    }
+
+    /**
      * Gets default_encoding
      *
      * @return string|null
@@ -1062,6 +1128,30 @@ class ProjectDetails implements ModelInterface, ArrayAccess
     public function setPlaceholderStyles($placeholder_styles)
     {
         $this->container['placeholder_styles'] = $placeholder_styles;
+
+        return $this;
+    }
+
+    /**
+     * Gets branch
+     *
+     * @return \Phrase\Model\Branch|null
+     */
+    public function getBranch()
+    {
+        return $this->container['branch'];
+    }
+
+    /**
+     * Sets branch
+     *
+     * @param \Phrase\Model\Branch|null $branch branch
+     *
+     * @return $this
+     */
+    public function setBranch($branch)
+    {
+        $this->container['branch'] = $branch;
 
         return $this;
     }

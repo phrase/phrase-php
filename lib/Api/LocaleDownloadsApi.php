@@ -127,7 +127,7 @@ class LocaleDownloadsApi
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Phrase\Model\LocaleDownload
+     * @return \Phrase\Model\LocaleDownload|\Phrase\Model\DocumentDelete422Response
      */
     public function localeDownloadCreate($project_id, $locale_id, $locale_download_create_parameters, $x_phrase_app_otp = null, $if_modified_since = null, $if_none_match = null)
     {
@@ -149,7 +149,7 @@ class LocaleDownloadsApi
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Phrase\Model\LocaleDownload, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Phrase\Model\LocaleDownload|\Phrase\Model\DocumentDelete422Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function localeDownloadCreateWithHttpInfo($project_id, $locale_id, $locale_download_create_parameters, $x_phrase_app_otp = null, $if_modified_since = null, $if_none_match = null)
     {
@@ -197,6 +197,18 @@ class LocaleDownloadsApi
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
+                case 422:
+                    if ('\Phrase\Model\DocumentDelete422Response' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Phrase\Model\DocumentDelete422Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
             }
 
             $returnType = '\Phrase\Model\LocaleDownload';
@@ -219,6 +231,14 @@ class LocaleDownloadsApi
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\Phrase\Model\LocaleDownload',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 422:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Phrase\Model\DocumentDelete422Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);

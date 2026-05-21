@@ -61,6 +61,7 @@ class GlossaryTerm implements ModelInterface, ArrayAccess
         'translatable' => 'bool',
         'case_sensitive' => 'bool',
         'translations' => '\Phrase\Model\GlossaryTermTranslation[]',
+        'glossary' => '\Phrase\Model\GlossaryTermGlossary',
         'created_at' => '\DateTime',
         'updated_at' => '\DateTime'
     ];
@@ -77,6 +78,7 @@ class GlossaryTerm implements ModelInterface, ArrayAccess
         'translatable' => null,
         'case_sensitive' => null,
         'translations' => null,
+        'glossary' => null,
         'created_at' => 'date-time',
         'updated_at' => 'date-time'
     ];
@@ -114,6 +116,7 @@ class GlossaryTerm implements ModelInterface, ArrayAccess
         'translatable' => 'translatable',
         'case_sensitive' => 'case_sensitive',
         'translations' => 'translations',
+        'glossary' => 'glossary',
         'created_at' => 'created_at',
         'updated_at' => 'updated_at'
     ];
@@ -130,6 +133,7 @@ class GlossaryTerm implements ModelInterface, ArrayAccess
         'translatable' => 'setTranslatable',
         'case_sensitive' => 'setCaseSensitive',
         'translations' => 'setTranslations',
+        'glossary' => 'setGlossary',
         'created_at' => 'setCreatedAt',
         'updated_at' => 'setUpdatedAt'
     ];
@@ -146,6 +150,7 @@ class GlossaryTerm implements ModelInterface, ArrayAccess
         'translatable' => 'getTranslatable',
         'case_sensitive' => 'getCaseSensitive',
         'translations' => 'getTranslations',
+        'glossary' => 'getGlossary',
         'created_at' => 'getCreatedAt',
         'updated_at' => 'getUpdatedAt'
     ];
@@ -216,6 +221,7 @@ class GlossaryTerm implements ModelInterface, ArrayAccess
         $this->container['translatable'] = isset($data['translatable']) ? $data['translatable'] : null;
         $this->container['case_sensitive'] = isset($data['case_sensitive']) ? $data['case_sensitive'] : null;
         $this->container['translations'] = isset($data['translations']) ? $data['translations'] : null;
+        $this->container['glossary'] = isset($data['glossary']) ? $data['glossary'] : null;
         $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
         $this->container['updated_at'] = isset($data['updated_at']) ? $data['updated_at'] : null;
     }
@@ -384,6 +390,30 @@ class GlossaryTerm implements ModelInterface, ArrayAccess
     public function setTranslations($translations)
     {
         $this->container['translations'] = $translations;
+
+        return $this;
+    }
+
+    /**
+     * Gets glossary
+     *
+     * @return \Phrase\Model\GlossaryTermGlossary|null
+     */
+    public function getGlossary()
+    {
+        return $this->container['glossary'];
+    }
+
+    /**
+     * Sets glossary
+     *
+     * @param \Phrase\Model\GlossaryTermGlossary|null $glossary glossary
+     *
+     * @return $this
+     */
+    public function setGlossary($glossary)
+    {
+        $this->container['glossary'] = $glossary;
 
         return $this;
     }

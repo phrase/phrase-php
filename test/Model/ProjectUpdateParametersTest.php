@@ -250,4 +250,53 @@ class ProjectUpdateParametersTest extends TestCase
     public function testPropertyPlaceholderStyles()
     {
     }
+
+    /**
+     * Test attribute "autocomplete_job_enabled"
+     */
+    public function testPropertyAutocompleteJobEnabled()
+    {
+    }
+
+    /**
+     * Test attribute "job_locking_enabled"
+     */
+    public function testPropertyJobLockingEnabled()
+    {
+    }
+
+    /**
+     * Test attribute "smart_suggest_enabled"
+     */
+    public function testPropertySmartSuggestEnabled()
+    {
+    }
+
+    /**
+     * Test attribute "smart_suggest_use_glossary"
+     */
+    public function testPropertySmartSuggestUseGlossary()
+    {
+    }
+
+    /**
+     * Test attribute "smart_suggest_use_machine_translation"
+     */
+    public function testPropertySmartSuggestUseMachineTranslation()
+    {
+    }
+
+    /**
+     * Test attribute "translation_keys_sort_collation"
+     */
+    public function testPropertyTranslationKeysSortCollation()
+    {
+    }
+
+    /**
+     * Test attribute "cldr_version"
+     */
+    public function testPropertyCldrVersion()
+    {
+    }
 }

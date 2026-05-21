@@ -124,7 +124,7 @@ class BlacklistedKeysApi
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Phrase\Model\BlacklistedKey
+     * @return \Phrase\Model\BlacklistedKey|\Phrase\Model\DocumentDelete422Response
      */
     public function blacklistedKeyCreate($project_id, $blacklisted_key_create_parameters, $x_phrase_app_otp = null)
     {
@@ -143,7 +143,7 @@ class BlacklistedKeysApi
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Phrase\Model\BlacklistedKey, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Phrase\Model\BlacklistedKey|\Phrase\Model\DocumentDelete422Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function blacklistedKeyCreateWithHttpInfo($project_id, $blacklisted_key_create_parameters, $x_phrase_app_otp = null)
     {
@@ -191,6 +191,18 @@ class BlacklistedKeysApi
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
+                case 422:
+                    if ('\Phrase\Model\DocumentDelete422Response' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Phrase\Model\DocumentDelete422Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
             }
 
             $returnType = '\Phrase\Model\BlacklistedKey';
@@ -213,6 +225,14 @@ class BlacklistedKeysApi
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\Phrase\Model\BlacklistedKey',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 422:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Phrase\Model\DocumentDelete422Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -485,6 +505,14 @@ class BlacklistedKeysApi
 
         } catch (ApiException $e) {
             switch ($e->getCode()) {
+                case 422:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Phrase\Model\DocumentDelete422Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
             }
             throw $e;
         }
@@ -612,11 +640,11 @@ class BlacklistedKeysApi
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
-                []
+                ['application/json']
             );
         } else {
             $headers = $this->headerSelector->selectHeaders(
-                [],
+                ['application/json'],
                 []
             );
         }
@@ -1002,7 +1030,7 @@ class BlacklistedKeysApi
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Phrase\Model\BlacklistedKey
+     * @return \Phrase\Model\BlacklistedKey|\Phrase\Model\DocumentDelete422Response
      */
     public function blacklistedKeyUpdate($project_id, $id, $blacklisted_key_update_parameters, $x_phrase_app_otp = null)
     {
@@ -1022,7 +1050,7 @@ class BlacklistedKeysApi
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Phrase\Model\BlacklistedKey, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Phrase\Model\BlacklistedKey|\Phrase\Model\DocumentDelete422Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function blacklistedKeyUpdateWithHttpInfo($project_id, $id, $blacklisted_key_update_parameters, $x_phrase_app_otp = null)
     {
@@ -1070,6 +1098,18 @@ class BlacklistedKeysApi
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
+                case 422:
+                    if ('\Phrase\Model\DocumentDelete422Response' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Phrase\Model\DocumentDelete422Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
             }
 
             $returnType = '\Phrase\Model\BlacklistedKey';
@@ -1092,6 +1132,14 @@ class BlacklistedKeysApi
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\Phrase\Model\BlacklistedKey',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 422:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Phrase\Model\DocumentDelete422Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);

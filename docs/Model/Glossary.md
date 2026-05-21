@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **id** | **string** |  | [optional] 
 **name** | **string** |  | [optional] 
 **projects** | [**\Phrase\Model\ProjectShort[]**](ProjectShort.md) |  | [optional] 
+**spaces** | [**\Phrase\Model\Space[]**](Space.md) |  | [optional] 
 **created_at** | **\DateTime** |  | [optional] 
 **updated_at** | **\DateTime** |  | [optional] 
 

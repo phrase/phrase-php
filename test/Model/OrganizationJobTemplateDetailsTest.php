@@ -98,6 +98,20 @@ class OrganizationJobTemplateDetailsTest extends TestCase
     }
 
     /**
+     * Test attribute "autotranslate_enabled"
+     */
+    public function testPropertyAutotranslateEnabled()
+    {
+    }
+
+    /**
+     * Test attribute "source_locale_id"
+     */
+    public function testPropertySourceLocaleId()
+    {
+    }
+
+    /**
      * Test attribute "created_at"
      */
     public function testPropertyCreatedAt()

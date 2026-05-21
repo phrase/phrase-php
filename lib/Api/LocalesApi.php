@@ -120,14 +120,16 @@ class LocalesApi
      *
      * @param  string $id ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
+     * @param  int $page Page number (optional)
+     * @param  int $per_page Limit on the number of objects to be returned, between 1 and 100. 25 by default (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Phrase\Model\LocalePreview1[]
      */
-    public function accountLocales($id, $x_phrase_app_otp = null)
+    public function accountLocales($id, $x_phrase_app_otp = null, $page = null, $per_page = null)
     {
-        list($response) = $this->accountLocalesWithHttpInfo($id, $x_phrase_app_otp);
+        list($response) = $this->accountLocalesWithHttpInfo($id, $x_phrase_app_otp, $page, $per_page);
         return $response;
     }
 
@@ -138,14 +140,16 @@ class LocalesApi
      *
      * @param  string $id ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
+     * @param  int $page Page number (optional)
+     * @param  int $per_page Limit on the number of objects to be returned, between 1 and 100. 25 by default (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Phrase\Model\LocalePreview1[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function accountLocalesWithHttpInfo($id, $x_phrase_app_otp = null)
+    public function accountLocalesWithHttpInfo($id, $x_phrase_app_otp = null, $page = null, $per_page = null)
     {
-        $request = $this->accountLocalesRequest($id, $x_phrase_app_otp);
+        $request = $this->accountLocalesRequest($id, $x_phrase_app_otp, $page, $per_page);
 
         try {
             $options = $this->createHttpClientOption();
@@ -227,13 +231,15 @@ class LocalesApi
      *
      * @param  string $id ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
+     * @param  int $page Page number (optional)
+     * @param  int $per_page Limit on the number of objects to be returned, between 1 and 100. 25 by default (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function accountLocalesAsync($id, $x_phrase_app_otp = null)
+    public function accountLocalesAsync($id, $x_phrase_app_otp = null, $page = null, $per_page = null)
     {
-        return $this->accountLocalesAsyncWithHttpInfo($id, $x_phrase_app_otp)
+        return $this->accountLocalesAsyncWithHttpInfo($id, $x_phrase_app_otp, $page, $per_page)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -248,14 +254,16 @@ class LocalesApi
      *
      * @param  string $id ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
+     * @param  int $page Page number (optional)
+     * @param  int $per_page Limit on the number of objects to be returned, between 1 and 100. 25 by default (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function accountLocalesAsyncWithHttpInfo($id, $x_phrase_app_otp = null)
+    public function accountLocalesAsyncWithHttpInfo($id, $x_phrase_app_otp = null, $page = null, $per_page = null)
     {
         $returnType = '\Phrase\Model\LocalePreview1[]';
-        $request = $this->accountLocalesRequest($id, $x_phrase_app_otp);
+        $request = $this->accountLocalesRequest($id, $x_phrase_app_otp, $page, $per_page);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -296,11 +304,13 @@ class LocalesApi
      *
      * @param  string $id ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
+     * @param  int $page Page number (optional)
+     * @param  int $per_page Limit on the number of objects to be returned, between 1 and 100. 25 by default (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function accountLocalesRequest($id, $x_phrase_app_otp = null)
+    protected function accountLocalesRequest($id, $x_phrase_app_otp = null, $page = null, $per_page = null)
     {
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
@@ -316,6 +326,28 @@ class LocalesApi
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        if ($page !== null) {
+            if('form' === 'form' && is_array($page)) {
+                foreach($page as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['page'] = $page;
+            }
+        }
+        // query params
+        if ($per_page !== null) {
+            if('form' === 'form' && is_array($per_page)) {
+                foreach($per_page as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['per_page'] = $per_page;
+            }
+        }
 
         // header params
         if ($x_phrase_app_otp !== null) {
@@ -415,7 +447,7 @@ class LocalesApi
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Phrase\Model\LocaleDetails
+     * @return \Phrase\Model\LocaleDetails|\Phrase\Model\DocumentDelete422Response
      */
     public function localeCreate($project_id, $locale_create_parameters, $x_phrase_app_otp = null)
     {
@@ -434,7 +466,7 @@ class LocalesApi
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Phrase\Model\LocaleDetails, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Phrase\Model\LocaleDetails|\Phrase\Model\DocumentDelete422Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function localeCreateWithHttpInfo($project_id, $locale_create_parameters, $x_phrase_app_otp = null)
     {
@@ -482,6 +514,18 @@ class LocalesApi
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
+                case 422:
+                    if ('\Phrase\Model\DocumentDelete422Response' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Phrase\Model\DocumentDelete422Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
             }
 
             $returnType = '\Phrase\Model\LocaleDetails';
@@ -504,6 +548,14 @@ class LocalesApi
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\Phrase\Model\LocaleDetails',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 422:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Phrase\Model\DocumentDelete422Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -778,6 +830,14 @@ class LocalesApi
 
         } catch (ApiException $e) {
             switch ($e->getCode()) {
+                case 422:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Phrase\Model\DocumentDelete422Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
             }
             throw $e;
         }
@@ -919,11 +979,11 @@ class LocalesApi
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
-                []
+                ['application/json']
             );
         } else {
             $headers = $this->headerSelector->selectHeaders(
-                [],
+                ['application/json'],
                 []
             );
         }
@@ -2005,7 +2065,7 @@ class LocalesApi
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Phrase\Model\LocaleDetails
+     * @return \Phrase\Model\LocaleDetails|\Phrase\Model\DocumentDelete422Response
      */
     public function localeUpdate($project_id, $id, $locale_update_parameters, $x_phrase_app_otp = null)
     {
@@ -2025,7 +2085,7 @@ class LocalesApi
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Phrase\Model\LocaleDetails, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Phrase\Model\LocaleDetails|\Phrase\Model\DocumentDelete422Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function localeUpdateWithHttpInfo($project_id, $id, $locale_update_parameters, $x_phrase_app_otp = null)
     {
@@ -2073,6 +2133,18 @@ class LocalesApi
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
+                case 422:
+                    if ('\Phrase\Model\DocumentDelete422Response' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Phrase\Model\DocumentDelete422Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
             }
 
             $returnType = '\Phrase\Model\LocaleDetails';
@@ -2095,6 +2167,14 @@ class LocalesApi
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\Phrase\Model\LocaleDetails',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 422:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Phrase\Model\DocumentDelete422Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);

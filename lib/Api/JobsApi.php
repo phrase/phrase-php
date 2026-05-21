@@ -125,7 +125,7 @@ class JobsApi
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Phrase\Model\JobDetails
+     * @return \Phrase\Model\JobDetails|\Phrase\Model\DocumentDelete422Response
      */
     public function jobComplete($project_id, $id, $job_complete_parameters, $x_phrase_app_otp = null)
     {
@@ -145,7 +145,7 @@ class JobsApi
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Phrase\Model\JobDetails, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Phrase\Model\JobDetails|\Phrase\Model\DocumentDelete422Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function jobCompleteWithHttpInfo($project_id, $id, $job_complete_parameters, $x_phrase_app_otp = null)
     {
@@ -193,6 +193,18 @@ class JobsApi
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
+                case 422:
+                    if ('\Phrase\Model\DocumentDelete422Response' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Phrase\Model\DocumentDelete422Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
             }
 
             $returnType = '\Phrase\Model\JobDetails';
@@ -215,6 +227,14 @@ class JobsApi
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\Phrase\Model\JobDetails',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 422:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Phrase\Model\DocumentDelete422Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -448,7 +468,7 @@ class JobsApi
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Phrase\Model\JobDetails
+     * @return \Phrase\Model\JobDetails|\Phrase\Model\DocumentDelete422Response
      */
     public function jobCreate($project_id, $job_create_parameters, $x_phrase_app_otp = null)
     {
@@ -467,7 +487,7 @@ class JobsApi
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Phrase\Model\JobDetails, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Phrase\Model\JobDetails|\Phrase\Model\DocumentDelete422Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function jobCreateWithHttpInfo($project_id, $job_create_parameters, $x_phrase_app_otp = null)
     {
@@ -515,6 +535,18 @@ class JobsApi
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
+                case 422:
+                    if ('\Phrase\Model\DocumentDelete422Response' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Phrase\Model\DocumentDelete422Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
             }
 
             $returnType = '\Phrase\Model\JobDetails';
@@ -537,6 +569,14 @@ class JobsApi
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\Phrase\Model\JobDetails',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 422:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Phrase\Model\DocumentDelete422Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -811,6 +851,14 @@ class JobsApi
 
         } catch (ApiException $e) {
             switch ($e->getCode()) {
+                case 422:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Phrase\Model\DocumentDelete422Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
             }
             throw $e;
         }
@@ -952,11 +1000,11 @@ class JobsApi
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
-                []
+                ['application/json']
             );
         } else {
             $headers = $this->headerSelector->selectHeaders(
-                [],
+                ['application/json'],
                 []
             );
         }
@@ -1632,11 +1680,12 @@ class JobsApi
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return void
+     * @return \Phrase\Model\JobDetails|\Phrase\Model\DocumentDelete422Response
      */
     public function jobLock($project_id, $id, $x_phrase_app_otp = null, $branch = null)
     {
-        $this->jobLockWithHttpInfo($project_id, $id, $x_phrase_app_otp, $branch);
+        list($response) = $this->jobLockWithHttpInfo($project_id, $id, $x_phrase_app_otp, $branch);
+        return $response;
     }
 
     /**
@@ -1651,7 +1700,7 @@ class JobsApi
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Phrase\Model\JobDetails|\Phrase\Model\DocumentDelete422Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function jobLockWithHttpInfo($project_id, $id, $x_phrase_app_otp = null, $branch = null)
     {
@@ -1685,10 +1734,66 @@ class JobsApi
                 );
             }
 
-            return [null, $statusCode, $response->getHeaders()];
+            $responseBody = $response->getBody();
+            switch($statusCode) {
+                case 200:
+                    if ('\Phrase\Model\JobDetails' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Phrase\Model\JobDetails', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 422:
+                    if ('\Phrase\Model\DocumentDelete422Response' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Phrase\Model\DocumentDelete422Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\Phrase\Model\JobDetails';
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = (string) $responseBody;
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
 
         } catch (ApiException $e) {
             switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Phrase\Model\JobDetails',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 422:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Phrase\Model\DocumentDelete422Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
             }
             throw $e;
         }
@@ -1732,14 +1837,25 @@ class JobsApi
      */
     public function jobLockAsyncWithHttpInfo($project_id, $id, $x_phrase_app_otp = null, $branch = null)
     {
-        $returnType = '';
+        $returnType = '\Phrase\Model\JobDetails';
         $request = $this->jobLockRequest($project_id, $id, $x_phrase_app_otp, $branch);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
                 },
                 function ($exception) {
                     $response = $exception->getResponse();
@@ -1830,11 +1946,11 @@ class JobsApi
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
-                []
+                ['application/json']
             );
         } else {
             $headers = $this->headerSelector->selectHeaders(
-                [],
+                ['application/json'],
                 []
             );
         }
@@ -1910,7 +2026,7 @@ class JobsApi
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Phrase\Model\JobDetails
+     * @return \Phrase\Model\JobDetails|\Phrase\Model\DocumentDelete422Response
      */
     public function jobReopen($project_id, $id, $job_reopen_parameters, $x_phrase_app_otp = null)
     {
@@ -1930,7 +2046,7 @@ class JobsApi
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Phrase\Model\JobDetails, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Phrase\Model\JobDetails|\Phrase\Model\DocumentDelete422Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function jobReopenWithHttpInfo($project_id, $id, $job_reopen_parameters, $x_phrase_app_otp = null)
     {
@@ -1978,6 +2094,18 @@ class JobsApi
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
+                case 422:
+                    if ('\Phrase\Model\DocumentDelete422Response' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Phrase\Model\DocumentDelete422Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
             }
 
             $returnType = '\Phrase\Model\JobDetails';
@@ -2000,6 +2128,14 @@ class JobsApi
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\Phrase\Model\JobDetails',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 422:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Phrase\Model\DocumentDelete422Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2592,7 +2728,7 @@ class JobsApi
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Phrase\Model\JobDetails
+     * @return \Phrase\Model\JobDetails|\Phrase\Model\DocumentDelete422Response
      */
     public function jobStart($project_id, $id, $job_start_parameters, $x_phrase_app_otp = null)
     {
@@ -2612,7 +2748,7 @@ class JobsApi
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Phrase\Model\JobDetails, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Phrase\Model\JobDetails|\Phrase\Model\DocumentDelete422Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function jobStartWithHttpInfo($project_id, $id, $job_start_parameters, $x_phrase_app_otp = null)
     {
@@ -2660,6 +2796,18 @@ class JobsApi
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
+                case 422:
+                    if ('\Phrase\Model\DocumentDelete422Response' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Phrase\Model\DocumentDelete422Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
             }
 
             $returnType = '\Phrase\Model\JobDetails';
@@ -2682,6 +2830,14 @@ class JobsApi
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\Phrase\Model\JobDetails',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 422:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Phrase\Model\DocumentDelete422Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2916,11 +3072,12 @@ class JobsApi
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return void
+     * @return \Phrase\Model\JobDetails|\Phrase\Model\DocumentDelete422Response
      */
     public function jobUnlock($project_id, $id, $x_phrase_app_otp = null, $branch = null)
     {
-        $this->jobUnlockWithHttpInfo($project_id, $id, $x_phrase_app_otp, $branch);
+        list($response) = $this->jobUnlockWithHttpInfo($project_id, $id, $x_phrase_app_otp, $branch);
+        return $response;
     }
 
     /**
@@ -2935,7 +3092,7 @@ class JobsApi
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Phrase\Model\JobDetails|\Phrase\Model\DocumentDelete422Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function jobUnlockWithHttpInfo($project_id, $id, $x_phrase_app_otp = null, $branch = null)
     {
@@ -2969,10 +3126,66 @@ class JobsApi
                 );
             }
 
-            return [null, $statusCode, $response->getHeaders()];
+            $responseBody = $response->getBody();
+            switch($statusCode) {
+                case 200:
+                    if ('\Phrase\Model\JobDetails' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Phrase\Model\JobDetails', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 422:
+                    if ('\Phrase\Model\DocumentDelete422Response' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Phrase\Model\DocumentDelete422Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\Phrase\Model\JobDetails';
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = (string) $responseBody;
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
 
         } catch (ApiException $e) {
             switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Phrase\Model\JobDetails',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 422:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Phrase\Model\DocumentDelete422Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
             }
             throw $e;
         }
@@ -3016,14 +3229,25 @@ class JobsApi
      */
     public function jobUnlockAsyncWithHttpInfo($project_id, $id, $x_phrase_app_otp = null, $branch = null)
     {
-        $returnType = '';
+        $returnType = '\Phrase\Model\JobDetails';
         $request = $this->jobUnlockRequest($project_id, $id, $x_phrase_app_otp, $branch);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
                 },
                 function ($exception) {
                     $response = $exception->getResponse();
@@ -3114,11 +3338,11 @@ class JobsApi
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
-                []
+                ['application/json']
             );
         } else {
             $headers = $this->headerSelector->selectHeaders(
-                [],
+                ['application/json'],
                 []
             );
         }
@@ -3194,7 +3418,7 @@ class JobsApi
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Phrase\Model\JobDetails
+     * @return \Phrase\Model\JobDetails|\Phrase\Model\DocumentDelete422Response
      */
     public function jobUpdate($project_id, $id, $job_update_parameters, $x_phrase_app_otp = null)
     {
@@ -3214,7 +3438,7 @@ class JobsApi
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Phrase\Model\JobDetails, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Phrase\Model\JobDetails|\Phrase\Model\DocumentDelete422Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function jobUpdateWithHttpInfo($project_id, $id, $job_update_parameters, $x_phrase_app_otp = null)
     {
@@ -3262,6 +3486,18 @@ class JobsApi
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
+                case 422:
+                    if ('\Phrase\Model\DocumentDelete422Response' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Phrase\Model\DocumentDelete422Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
             }
 
             $returnType = '\Phrase\Model\JobDetails';
@@ -3284,6 +3520,14 @@ class JobsApi
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\Phrase\Model\JobDetails',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 422:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Phrase\Model\DocumentDelete422Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3906,15 +4150,17 @@ class JobsApi
      * @param  string $owned_by filter by user owning job (optional)
      * @param  string $assigned_to filter by user assigned to job (optional)
      * @param  string $state filter by state of job; valid states are: &#x60;draft&#x60;, &#x60;in_progress&#x60;, &#x60;completed&#x60; (optional)
+     * @param  string[] $states Filter by multiple job states at once. Accepted values are the same as &#x60;state&#x60;. When supplied, &#x60;state&#x60; is ignored. Rejected with &#x60;400 Bad Request&#x60; if any value is unknown. (optional)
+     * @param  string $key_id Filter to jobs that include the translation key identified by this code (matches via the job&#39;s tags). (optional)
      * @param  string $updated_since filter by jobs updated since given date (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Phrase\Model\Job[]
      */
-    public function jobsList($project_id, $x_phrase_app_otp = null, $page = null, $per_page = null, $branch = null, $owned_by = null, $assigned_to = null, $state = null, $updated_since = null)
+    public function jobsList($project_id, $x_phrase_app_otp = null, $page = null, $per_page = null, $branch = null, $owned_by = null, $assigned_to = null, $state = null, $states = null, $key_id = null, $updated_since = null)
     {
-        list($response) = $this->jobsListWithHttpInfo($project_id, $x_phrase_app_otp, $page, $per_page, $branch, $owned_by, $assigned_to, $state, $updated_since);
+        list($response) = $this->jobsListWithHttpInfo($project_id, $x_phrase_app_otp, $page, $per_page, $branch, $owned_by, $assigned_to, $state, $states, $key_id, $updated_since);
         return $response;
     }
 
@@ -3931,15 +4177,17 @@ class JobsApi
      * @param  string $owned_by filter by user owning job (optional)
      * @param  string $assigned_to filter by user assigned to job (optional)
      * @param  string $state filter by state of job; valid states are: &#x60;draft&#x60;, &#x60;in_progress&#x60;, &#x60;completed&#x60; (optional)
+     * @param  string[] $states Filter by multiple job states at once. Accepted values are the same as &#x60;state&#x60;. When supplied, &#x60;state&#x60; is ignored. Rejected with &#x60;400 Bad Request&#x60; if any value is unknown. (optional)
+     * @param  string $key_id Filter to jobs that include the translation key identified by this code (matches via the job&#39;s tags). (optional)
      * @param  string $updated_since filter by jobs updated since given date (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Phrase\Model\Job[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function jobsListWithHttpInfo($project_id, $x_phrase_app_otp = null, $page = null, $per_page = null, $branch = null, $owned_by = null, $assigned_to = null, $state = null, $updated_since = null)
+    public function jobsListWithHttpInfo($project_id, $x_phrase_app_otp = null, $page = null, $per_page = null, $branch = null, $owned_by = null, $assigned_to = null, $state = null, $states = null, $key_id = null, $updated_since = null)
     {
-        $request = $this->jobsListRequest($project_id, $x_phrase_app_otp, $page, $per_page, $branch, $owned_by, $assigned_to, $state, $updated_since);
+        $request = $this->jobsListRequest($project_id, $x_phrase_app_otp, $page, $per_page, $branch, $owned_by, $assigned_to, $state, $states, $key_id, $updated_since);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4027,14 +4275,16 @@ class JobsApi
      * @param  string $owned_by filter by user owning job (optional)
      * @param  string $assigned_to filter by user assigned to job (optional)
      * @param  string $state filter by state of job; valid states are: &#x60;draft&#x60;, &#x60;in_progress&#x60;, &#x60;completed&#x60; (optional)
+     * @param  string[] $states Filter by multiple job states at once. Accepted values are the same as &#x60;state&#x60;. When supplied, &#x60;state&#x60; is ignored. Rejected with &#x60;400 Bad Request&#x60; if any value is unknown. (optional)
+     * @param  string $key_id Filter to jobs that include the translation key identified by this code (matches via the job&#39;s tags). (optional)
      * @param  string $updated_since filter by jobs updated since given date (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function jobsListAsync($project_id, $x_phrase_app_otp = null, $page = null, $per_page = null, $branch = null, $owned_by = null, $assigned_to = null, $state = null, $updated_since = null)
+    public function jobsListAsync($project_id, $x_phrase_app_otp = null, $page = null, $per_page = null, $branch = null, $owned_by = null, $assigned_to = null, $state = null, $states = null, $key_id = null, $updated_since = null)
     {
-        return $this->jobsListAsyncWithHttpInfo($project_id, $x_phrase_app_otp, $page, $per_page, $branch, $owned_by, $assigned_to, $state, $updated_since)
+        return $this->jobsListAsyncWithHttpInfo($project_id, $x_phrase_app_otp, $page, $per_page, $branch, $owned_by, $assigned_to, $state, $states, $key_id, $updated_since)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4055,15 +4305,17 @@ class JobsApi
      * @param  string $owned_by filter by user owning job (optional)
      * @param  string $assigned_to filter by user assigned to job (optional)
      * @param  string $state filter by state of job; valid states are: &#x60;draft&#x60;, &#x60;in_progress&#x60;, &#x60;completed&#x60; (optional)
+     * @param  string[] $states Filter by multiple job states at once. Accepted values are the same as &#x60;state&#x60;. When supplied, &#x60;state&#x60; is ignored. Rejected with &#x60;400 Bad Request&#x60; if any value is unknown. (optional)
+     * @param  string $key_id Filter to jobs that include the translation key identified by this code (matches via the job&#39;s tags). (optional)
      * @param  string $updated_since filter by jobs updated since given date (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function jobsListAsyncWithHttpInfo($project_id, $x_phrase_app_otp = null, $page = null, $per_page = null, $branch = null, $owned_by = null, $assigned_to = null, $state = null, $updated_since = null)
+    public function jobsListAsyncWithHttpInfo($project_id, $x_phrase_app_otp = null, $page = null, $per_page = null, $branch = null, $owned_by = null, $assigned_to = null, $state = null, $states = null, $key_id = null, $updated_since = null)
     {
         $returnType = '\Phrase\Model\Job[]';
-        $request = $this->jobsListRequest($project_id, $x_phrase_app_otp, $page, $per_page, $branch, $owned_by, $assigned_to, $state, $updated_since);
+        $request = $this->jobsListRequest($project_id, $x_phrase_app_otp, $page, $per_page, $branch, $owned_by, $assigned_to, $state, $states, $key_id, $updated_since);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4110,12 +4362,14 @@ class JobsApi
      * @param  string $owned_by filter by user owning job (optional)
      * @param  string $assigned_to filter by user assigned to job (optional)
      * @param  string $state filter by state of job; valid states are: &#x60;draft&#x60;, &#x60;in_progress&#x60;, &#x60;completed&#x60; (optional)
+     * @param  string[] $states Filter by multiple job states at once. Accepted values are the same as &#x60;state&#x60;. When supplied, &#x60;state&#x60; is ignored. Rejected with &#x60;400 Bad Request&#x60; if any value is unknown. (optional)
+     * @param  string $key_id Filter to jobs that include the translation key identified by this code (matches via the job&#39;s tags). (optional)
      * @param  string $updated_since filter by jobs updated since given date (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function jobsListRequest($project_id, $x_phrase_app_otp = null, $page = null, $per_page = null, $branch = null, $owned_by = null, $assigned_to = null, $state = null, $updated_since = null)
+    protected function jobsListRequest($project_id, $x_phrase_app_otp = null, $page = null, $per_page = null, $branch = null, $owned_by = null, $assigned_to = null, $state = null, $states = null, $key_id = null, $updated_since = null)
     {
         // verify the required parameter 'project_id' is set
         if ($project_id === null || (is_array($project_id) && count($project_id) === 0)) {
@@ -4195,6 +4449,28 @@ class JobsApi
             }
             else {
                 $queryParams['state'] = $state;
+            }
+        }
+        // query params
+        if ($states !== null) {
+            if('form' === 'form' && is_array($states)) {
+                foreach($states as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['states'] = $states;
+            }
+        }
+        // query params
+        if ($key_id !== null) {
+            if('form' === 'form' && is_array($key_id)) {
+                foreach($key_id as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['key_id'] = $key_id;
             }
         }
         // query params

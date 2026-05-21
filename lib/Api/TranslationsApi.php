@@ -124,7 +124,7 @@ class TranslationsApi
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Phrase\Model\TranslationDetails
+     * @return \Phrase\Model\TranslationDetails|\Phrase\Model\DocumentDelete422Response
      */
     public function translationCreate($project_id, $translation_create_parameters, $x_phrase_app_otp = null)
     {
@@ -143,7 +143,7 @@ class TranslationsApi
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Phrase\Model\TranslationDetails, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Phrase\Model\TranslationDetails|\Phrase\Model\DocumentDelete422Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function translationCreateWithHttpInfo($project_id, $translation_create_parameters, $x_phrase_app_otp = null)
     {
@@ -191,6 +191,18 @@ class TranslationsApi
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
+                case 422:
+                    if ('\Phrase\Model\DocumentDelete422Response' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Phrase\Model\DocumentDelete422Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
             }
 
             $returnType = '\Phrase\Model\TranslationDetails';
@@ -213,6 +225,14 @@ class TranslationsApi
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\Phrase\Model\TranslationDetails',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 422:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Phrase\Model\DocumentDelete422Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -430,7 +450,7 @@ class TranslationsApi
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Phrase\Model\TranslationDetails
+     * @return \Phrase\Model\TranslationDetails|\Phrase\Model\DocumentDelete422Response
      */
     public function translationExclude($project_id, $id, $translation_exclude_parameters, $x_phrase_app_otp = null)
     {
@@ -450,7 +470,7 @@ class TranslationsApi
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Phrase\Model\TranslationDetails, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Phrase\Model\TranslationDetails|\Phrase\Model\DocumentDelete422Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function translationExcludeWithHttpInfo($project_id, $id, $translation_exclude_parameters, $x_phrase_app_otp = null)
     {
@@ -498,6 +518,18 @@ class TranslationsApi
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
+                case 422:
+                    if ('\Phrase\Model\DocumentDelete422Response' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Phrase\Model\DocumentDelete422Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
             }
 
             $returnType = '\Phrase\Model\TranslationDetails';
@@ -520,6 +552,14 @@ class TranslationsApi
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\Phrase\Model\TranslationDetails',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 422:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Phrase\Model\DocumentDelete422Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -754,7 +794,7 @@ class TranslationsApi
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Phrase\Model\TranslationDetails
+     * @return \Phrase\Model\TranslationDetails|\Phrase\Model\DocumentDelete422Response
      */
     public function translationInclude($project_id, $id, $translation_include_parameters, $x_phrase_app_otp = null)
     {
@@ -774,7 +814,7 @@ class TranslationsApi
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Phrase\Model\TranslationDetails, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Phrase\Model\TranslationDetails|\Phrase\Model\DocumentDelete422Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function translationIncludeWithHttpInfo($project_id, $id, $translation_include_parameters, $x_phrase_app_otp = null)
     {
@@ -822,6 +862,18 @@ class TranslationsApi
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
+                case 422:
+                    if ('\Phrase\Model\DocumentDelete422Response' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Phrase\Model\DocumentDelete422Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
             }
 
             $returnType = '\Phrase\Model\TranslationDetails';
@@ -844,6 +896,14 @@ class TranslationsApi
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\Phrase\Model\TranslationDetails',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 422:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Phrase\Model\DocumentDelete422Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1078,7 +1138,7 @@ class TranslationsApi
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Phrase\Model\TranslationDetails
+     * @return \Phrase\Model\TranslationDetails|\Phrase\Model\DocumentDelete422Response
      */
     public function translationReview($project_id, $id, $translation_review_parameters, $x_phrase_app_otp = null)
     {
@@ -1098,7 +1158,7 @@ class TranslationsApi
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Phrase\Model\TranslationDetails, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Phrase\Model\TranslationDetails|\Phrase\Model\DocumentDelete422Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function translationReviewWithHttpInfo($project_id, $id, $translation_review_parameters, $x_phrase_app_otp = null)
     {
@@ -1146,6 +1206,18 @@ class TranslationsApi
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
+                case 422:
+                    if ('\Phrase\Model\DocumentDelete422Response' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Phrase\Model\DocumentDelete422Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
             }
 
             $returnType = '\Phrase\Model\TranslationDetails';
@@ -1168,6 +1240,14 @@ class TranslationsApi
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\Phrase\Model\TranslationDetails',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 422:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Phrase\Model\DocumentDelete422Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1728,7 +1808,7 @@ class TranslationsApi
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Phrase\Model\TranslationDetails
+     * @return \Phrase\Model\TranslationDetails|\Phrase\Model\DocumentDelete422Response
      */
     public function translationUnreview($project_id, $id, $translation_unreview_parameters, $x_phrase_app_otp = null)
     {
@@ -1748,7 +1828,7 @@ class TranslationsApi
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Phrase\Model\TranslationDetails, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Phrase\Model\TranslationDetails|\Phrase\Model\DocumentDelete422Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function translationUnreviewWithHttpInfo($project_id, $id, $translation_unreview_parameters, $x_phrase_app_otp = null)
     {
@@ -1796,6 +1876,18 @@ class TranslationsApi
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
+                case 422:
+                    if ('\Phrase\Model\DocumentDelete422Response' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Phrase\Model\DocumentDelete422Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
             }
 
             $returnType = '\Phrase\Model\TranslationDetails';
@@ -1818,6 +1910,14 @@ class TranslationsApi
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\Phrase\Model\TranslationDetails',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 422:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Phrase\Model\DocumentDelete422Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2052,7 +2152,7 @@ class TranslationsApi
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Phrase\Model\TranslationDetails
+     * @return \Phrase\Model\TranslationDetails|\Phrase\Model\DocumentDelete422Response
      */
     public function translationUnverify($project_id, $id, $translation_unverify_parameters, $x_phrase_app_otp = null)
     {
@@ -2072,7 +2172,7 @@ class TranslationsApi
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Phrase\Model\TranslationDetails, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Phrase\Model\TranslationDetails|\Phrase\Model\DocumentDelete422Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function translationUnverifyWithHttpInfo($project_id, $id, $translation_unverify_parameters, $x_phrase_app_otp = null)
     {
@@ -2120,6 +2220,18 @@ class TranslationsApi
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
+                case 422:
+                    if ('\Phrase\Model\DocumentDelete422Response' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Phrase\Model\DocumentDelete422Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
             }
 
             $returnType = '\Phrase\Model\TranslationDetails';
@@ -2142,6 +2254,14 @@ class TranslationsApi
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\Phrase\Model\TranslationDetails',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 422:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Phrase\Model\DocumentDelete422Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2376,7 +2496,7 @@ class TranslationsApi
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Phrase\Model\TranslationDetails
+     * @return \Phrase\Model\TranslationDetails|\Phrase\Model\DocumentDelete422Response
      */
     public function translationUpdate($project_id, $id, $translation_update_parameters, $x_phrase_app_otp = null)
     {
@@ -2396,7 +2516,7 @@ class TranslationsApi
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Phrase\Model\TranslationDetails, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Phrase\Model\TranslationDetails|\Phrase\Model\DocumentDelete422Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function translationUpdateWithHttpInfo($project_id, $id, $translation_update_parameters, $x_phrase_app_otp = null)
     {
@@ -2444,6 +2564,18 @@ class TranslationsApi
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
+                case 422:
+                    if ('\Phrase\Model\DocumentDelete422Response' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Phrase\Model\DocumentDelete422Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
             }
 
             $returnType = '\Phrase\Model\TranslationDetails';
@@ -2466,6 +2598,14 @@ class TranslationsApi
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\Phrase\Model\TranslationDetails',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 422:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Phrase\Model\DocumentDelete422Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2700,7 +2840,7 @@ class TranslationsApi
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Phrase\Model\TranslationDetails
+     * @return \Phrase\Model\TranslationDetails|\Phrase\Model\DocumentDelete422Response
      */
     public function translationVerify($project_id, $id, $translation_verify_parameters, $x_phrase_app_otp = null)
     {
@@ -2720,7 +2860,7 @@ class TranslationsApi
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Phrase\Model\TranslationDetails, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Phrase\Model\TranslationDetails|\Phrase\Model\DocumentDelete422Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function translationVerifyWithHttpInfo($project_id, $id, $translation_verify_parameters, $x_phrase_app_otp = null)
     {
@@ -2768,6 +2908,18 @@ class TranslationsApi
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
+                case 422:
+                    if ('\Phrase\Model\DocumentDelete422Response' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Phrase\Model\DocumentDelete422Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
             }
 
             $returnType = '\Phrase\Model\TranslationDetails';
@@ -2790,6 +2942,14 @@ class TranslationsApi
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\Phrase\Model\TranslationDetails',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 422:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Phrase\Model\DocumentDelete422Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4446,6 +4606,8 @@ class TranslationsApi
      * @param  int $page Page number (optional)
      * @param  int $per_page Limit on the number of objects to be returned, between 1 and 100. 25 by default (optional)
      * @param  string $branch specify the branch to use (optional)
+     * @param  string $key_id Filter translations to those attached to the key identified by this code. Equivalent to calling &#x60;GET /projects/{project_id}/keys/{key_id}/translations&#x60;. (optional)
+     * @param  string $locale_id Filter translations to those for the given locale (locale code or id). Equivalent to calling &#x60;GET /projects/{project_id}/locales/{locale_id}/translations&#x60;. (optional)
      * @param  string $sort Sort criteria. Can be one of: key_name, created_at, updated_at. (optional)
      * @param  string $order Order direction. Can be one of: asc, desc. (optional)
      * @param  string $q Specify a query to find translations by content (including wildcards).  *Note: Search is limited to 10000 results and may not include recently updated data (depending on the project size).*  The following qualifiers are supported in the query:  * &#x60;id:translation_id,...&#x60; for queries on a comma-separated list of ids * &#x60;tags:XYZ&#x60; for tags on the translation * &#x60;unverified:{true|false}&#x60; for verification status * &#x60;excluded:{true|false}&#x60; for exclusion status * &#x60;updated_at:{&gt;&#x3D;|&lt;&#x3D;}2013-02-21T00:00:00Z&#x60; for date range queries * &#x60;reviewed_after:2013-02-21T00:00:00Z&#x60; for fetching translations that were reviewed after the given timestamp  Find more examples [here](/en/api/strings/usage-examples). (optional)
@@ -4454,9 +4616,9 @@ class TranslationsApi
      * @throws \InvalidArgumentException
      * @return \Phrase\Model\Translation[]
      */
-    public function translationsList($project_id, $x_phrase_app_otp = null, $if_modified_since = null, $if_none_match = null, $page = null, $per_page = null, $branch = null, $sort = null, $order = null, $q = null)
+    public function translationsList($project_id, $x_phrase_app_otp = null, $if_modified_since = null, $if_none_match = null, $page = null, $per_page = null, $branch = null, $key_id = null, $locale_id = null, $sort = null, $order = null, $q = null)
     {
-        list($response) = $this->translationsListWithHttpInfo($project_id, $x_phrase_app_otp, $if_modified_since, $if_none_match, $page, $per_page, $branch, $sort, $order, $q);
+        list($response) = $this->translationsListWithHttpInfo($project_id, $x_phrase_app_otp, $if_modified_since, $if_none_match, $page, $per_page, $branch, $key_id, $locale_id, $sort, $order, $q);
         return $response;
     }
 
@@ -4472,6 +4634,8 @@ class TranslationsApi
      * @param  int $page Page number (optional)
      * @param  int $per_page Limit on the number of objects to be returned, between 1 and 100. 25 by default (optional)
      * @param  string $branch specify the branch to use (optional)
+     * @param  string $key_id Filter translations to those attached to the key identified by this code. Equivalent to calling &#x60;GET /projects/{project_id}/keys/{key_id}/translations&#x60;. (optional)
+     * @param  string $locale_id Filter translations to those for the given locale (locale code or id). Equivalent to calling &#x60;GET /projects/{project_id}/locales/{locale_id}/translations&#x60;. (optional)
      * @param  string $sort Sort criteria. Can be one of: key_name, created_at, updated_at. (optional)
      * @param  string $order Order direction. Can be one of: asc, desc. (optional)
      * @param  string $q Specify a query to find translations by content (including wildcards).  *Note: Search is limited to 10000 results and may not include recently updated data (depending on the project size).*  The following qualifiers are supported in the query:  * &#x60;id:translation_id,...&#x60; for queries on a comma-separated list of ids * &#x60;tags:XYZ&#x60; for tags on the translation * &#x60;unverified:{true|false}&#x60; for verification status * &#x60;excluded:{true|false}&#x60; for exclusion status * &#x60;updated_at:{&gt;&#x3D;|&lt;&#x3D;}2013-02-21T00:00:00Z&#x60; for date range queries * &#x60;reviewed_after:2013-02-21T00:00:00Z&#x60; for fetching translations that were reviewed after the given timestamp  Find more examples [here](/en/api/strings/usage-examples). (optional)
@@ -4480,9 +4644,9 @@ class TranslationsApi
      * @throws \InvalidArgumentException
      * @return array of \Phrase\Model\Translation[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function translationsListWithHttpInfo($project_id, $x_phrase_app_otp = null, $if_modified_since = null, $if_none_match = null, $page = null, $per_page = null, $branch = null, $sort = null, $order = null, $q = null)
+    public function translationsListWithHttpInfo($project_id, $x_phrase_app_otp = null, $if_modified_since = null, $if_none_match = null, $page = null, $per_page = null, $branch = null, $key_id = null, $locale_id = null, $sort = null, $order = null, $q = null)
     {
-        $request = $this->translationsListRequest($project_id, $x_phrase_app_otp, $if_modified_since, $if_none_match, $page, $per_page, $branch, $sort, $order, $q);
+        $request = $this->translationsListRequest($project_id, $x_phrase_app_otp, $if_modified_since, $if_none_match, $page, $per_page, $branch, $key_id, $locale_id, $sort, $order, $q);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4569,6 +4733,8 @@ class TranslationsApi
      * @param  int $page Page number (optional)
      * @param  int $per_page Limit on the number of objects to be returned, between 1 and 100. 25 by default (optional)
      * @param  string $branch specify the branch to use (optional)
+     * @param  string $key_id Filter translations to those attached to the key identified by this code. Equivalent to calling &#x60;GET /projects/{project_id}/keys/{key_id}/translations&#x60;. (optional)
+     * @param  string $locale_id Filter translations to those for the given locale (locale code or id). Equivalent to calling &#x60;GET /projects/{project_id}/locales/{locale_id}/translations&#x60;. (optional)
      * @param  string $sort Sort criteria. Can be one of: key_name, created_at, updated_at. (optional)
      * @param  string $order Order direction. Can be one of: asc, desc. (optional)
      * @param  string $q Specify a query to find translations by content (including wildcards).  *Note: Search is limited to 10000 results and may not include recently updated data (depending on the project size).*  The following qualifiers are supported in the query:  * &#x60;id:translation_id,...&#x60; for queries on a comma-separated list of ids * &#x60;tags:XYZ&#x60; for tags on the translation * &#x60;unverified:{true|false}&#x60; for verification status * &#x60;excluded:{true|false}&#x60; for exclusion status * &#x60;updated_at:{&gt;&#x3D;|&lt;&#x3D;}2013-02-21T00:00:00Z&#x60; for date range queries * &#x60;reviewed_after:2013-02-21T00:00:00Z&#x60; for fetching translations that were reviewed after the given timestamp  Find more examples [here](/en/api/strings/usage-examples). (optional)
@@ -4576,9 +4742,9 @@ class TranslationsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function translationsListAsync($project_id, $x_phrase_app_otp = null, $if_modified_since = null, $if_none_match = null, $page = null, $per_page = null, $branch = null, $sort = null, $order = null, $q = null)
+    public function translationsListAsync($project_id, $x_phrase_app_otp = null, $if_modified_since = null, $if_none_match = null, $page = null, $per_page = null, $branch = null, $key_id = null, $locale_id = null, $sort = null, $order = null, $q = null)
     {
-        return $this->translationsListAsyncWithHttpInfo($project_id, $x_phrase_app_otp, $if_modified_since, $if_none_match, $page, $per_page, $branch, $sort, $order, $q)
+        return $this->translationsListAsyncWithHttpInfo($project_id, $x_phrase_app_otp, $if_modified_since, $if_none_match, $page, $per_page, $branch, $key_id, $locale_id, $sort, $order, $q)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4598,6 +4764,8 @@ class TranslationsApi
      * @param  int $page Page number (optional)
      * @param  int $per_page Limit on the number of objects to be returned, between 1 and 100. 25 by default (optional)
      * @param  string $branch specify the branch to use (optional)
+     * @param  string $key_id Filter translations to those attached to the key identified by this code. Equivalent to calling &#x60;GET /projects/{project_id}/keys/{key_id}/translations&#x60;. (optional)
+     * @param  string $locale_id Filter translations to those for the given locale (locale code or id). Equivalent to calling &#x60;GET /projects/{project_id}/locales/{locale_id}/translations&#x60;. (optional)
      * @param  string $sort Sort criteria. Can be one of: key_name, created_at, updated_at. (optional)
      * @param  string $order Order direction. Can be one of: asc, desc. (optional)
      * @param  string $q Specify a query to find translations by content (including wildcards).  *Note: Search is limited to 10000 results and may not include recently updated data (depending on the project size).*  The following qualifiers are supported in the query:  * &#x60;id:translation_id,...&#x60; for queries on a comma-separated list of ids * &#x60;tags:XYZ&#x60; for tags on the translation * &#x60;unverified:{true|false}&#x60; for verification status * &#x60;excluded:{true|false}&#x60; for exclusion status * &#x60;updated_at:{&gt;&#x3D;|&lt;&#x3D;}2013-02-21T00:00:00Z&#x60; for date range queries * &#x60;reviewed_after:2013-02-21T00:00:00Z&#x60; for fetching translations that were reviewed after the given timestamp  Find more examples [here](/en/api/strings/usage-examples). (optional)
@@ -4605,10 +4773,10 @@ class TranslationsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function translationsListAsyncWithHttpInfo($project_id, $x_phrase_app_otp = null, $if_modified_since = null, $if_none_match = null, $page = null, $per_page = null, $branch = null, $sort = null, $order = null, $q = null)
+    public function translationsListAsyncWithHttpInfo($project_id, $x_phrase_app_otp = null, $if_modified_since = null, $if_none_match = null, $page = null, $per_page = null, $branch = null, $key_id = null, $locale_id = null, $sort = null, $order = null, $q = null)
     {
         $returnType = '\Phrase\Model\Translation[]';
-        $request = $this->translationsListRequest($project_id, $x_phrase_app_otp, $if_modified_since, $if_none_match, $page, $per_page, $branch, $sort, $order, $q);
+        $request = $this->translationsListRequest($project_id, $x_phrase_app_otp, $if_modified_since, $if_none_match, $page, $per_page, $branch, $key_id, $locale_id, $sort, $order, $q);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4654,6 +4822,8 @@ class TranslationsApi
      * @param  int $page Page number (optional)
      * @param  int $per_page Limit on the number of objects to be returned, between 1 and 100. 25 by default (optional)
      * @param  string $branch specify the branch to use (optional)
+     * @param  string $key_id Filter translations to those attached to the key identified by this code. Equivalent to calling &#x60;GET /projects/{project_id}/keys/{key_id}/translations&#x60;. (optional)
+     * @param  string $locale_id Filter translations to those for the given locale (locale code or id). Equivalent to calling &#x60;GET /projects/{project_id}/locales/{locale_id}/translations&#x60;. (optional)
      * @param  string $sort Sort criteria. Can be one of: key_name, created_at, updated_at. (optional)
      * @param  string $order Order direction. Can be one of: asc, desc. (optional)
      * @param  string $q Specify a query to find translations by content (including wildcards).  *Note: Search is limited to 10000 results and may not include recently updated data (depending on the project size).*  The following qualifiers are supported in the query:  * &#x60;id:translation_id,...&#x60; for queries on a comma-separated list of ids * &#x60;tags:XYZ&#x60; for tags on the translation * &#x60;unverified:{true|false}&#x60; for verification status * &#x60;excluded:{true|false}&#x60; for exclusion status * &#x60;updated_at:{&gt;&#x3D;|&lt;&#x3D;}2013-02-21T00:00:00Z&#x60; for date range queries * &#x60;reviewed_after:2013-02-21T00:00:00Z&#x60; for fetching translations that were reviewed after the given timestamp  Find more examples [here](/en/api/strings/usage-examples). (optional)
@@ -4661,7 +4831,7 @@ class TranslationsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function translationsListRequest($project_id, $x_phrase_app_otp = null, $if_modified_since = null, $if_none_match = null, $page = null, $per_page = null, $branch = null, $sort = null, $order = null, $q = null)
+    protected function translationsListRequest($project_id, $x_phrase_app_otp = null, $if_modified_since = null, $if_none_match = null, $page = null, $per_page = null, $branch = null, $key_id = null, $locale_id = null, $sort = null, $order = null, $q = null)
     {
         // verify the required parameter 'project_id' is set
         if ($project_id === null || (is_array($project_id) && count($project_id) === 0)) {
@@ -4708,6 +4878,28 @@ class TranslationsApi
             }
             else {
                 $queryParams['branch'] = $branch;
+            }
+        }
+        // query params
+        if ($key_id !== null) {
+            if('form' === 'form' && is_array($key_id)) {
+                foreach($key_id as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['key_id'] = $key_id;
+            }
+        }
+        // query params
+        if ($locale_id !== null) {
+            if('form' === 'form' && is_array($locale_id)) {
+                foreach($locale_id as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['locale_id'] = $locale_id;
             }
         }
         // query params
@@ -4850,7 +5042,7 @@ class TranslationsApi
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Phrase\Model\AffectedCount
+     * @return \Phrase\Model\AffectedCount|\Phrase\Model\DocumentDelete422Response
      */
     public function translationsReviewCollection($project_id, $translations_review_parameters, $x_phrase_app_otp = null)
     {
@@ -4869,7 +5061,7 @@ class TranslationsApi
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Phrase\Model\AffectedCount, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Phrase\Model\AffectedCount|\Phrase\Model\DocumentDelete422Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function translationsReviewCollectionWithHttpInfo($project_id, $translations_review_parameters, $x_phrase_app_otp = null)
     {
@@ -4917,6 +5109,18 @@ class TranslationsApi
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
+                case 422:
+                    if ('\Phrase\Model\DocumentDelete422Response' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Phrase\Model\DocumentDelete422Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
             }
 
             $returnType = '\Phrase\Model\AffectedCount';
@@ -4939,6 +5143,14 @@ class TranslationsApi
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\Phrase\Model\AffectedCount',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 422:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Phrase\Model\DocumentDelete422Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -5492,7 +5704,7 @@ class TranslationsApi
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Phrase\Model\AffectedCount
+     * @return \Phrase\Model\AffectedCount|\Phrase\Model\DocumentDelete422Response
      */
     public function translationsUnreviewCollection($project_id, $translations_unreview_parameters, $x_phrase_app_otp = null)
     {
@@ -5511,7 +5723,7 @@ class TranslationsApi
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Phrase\Model\AffectedCount, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Phrase\Model\AffectedCount|\Phrase\Model\DocumentDelete422Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function translationsUnreviewCollectionWithHttpInfo($project_id, $translations_unreview_parameters, $x_phrase_app_otp = null)
     {
@@ -5559,6 +5771,18 @@ class TranslationsApi
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
+                case 422:
+                    if ('\Phrase\Model\DocumentDelete422Response' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Phrase\Model\DocumentDelete422Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
             }
 
             $returnType = '\Phrase\Model\AffectedCount';
@@ -5581,6 +5805,14 @@ class TranslationsApi
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\Phrase\Model\AffectedCount',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 422:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Phrase\Model\DocumentDelete422Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -5797,7 +6029,7 @@ class TranslationsApi
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Phrase\Model\AffectedCount
+     * @return \Phrase\Model\AffectedCount|\Phrase\Model\DocumentDelete422Response
      */
     public function translationsUnverifyCollection($project_id, $translations_unverify_parameters, $x_phrase_app_otp = null)
     {
@@ -5816,7 +6048,7 @@ class TranslationsApi
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Phrase\Model\AffectedCount, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Phrase\Model\AffectedCount|\Phrase\Model\DocumentDelete422Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function translationsUnverifyCollectionWithHttpInfo($project_id, $translations_unverify_parameters, $x_phrase_app_otp = null)
     {
@@ -5864,6 +6096,18 @@ class TranslationsApi
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
+                case 422:
+                    if ('\Phrase\Model\DocumentDelete422Response' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Phrase\Model\DocumentDelete422Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
             }
 
             $returnType = '\Phrase\Model\AffectedCount';
@@ -5886,6 +6130,14 @@ class TranslationsApi
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\Phrase\Model\AffectedCount',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 422:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Phrase\Model\DocumentDelete422Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -6102,7 +6354,7 @@ class TranslationsApi
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Phrase\Model\AffectedCount
+     * @return \Phrase\Model\AffectedCount|\Phrase\Model\DocumentDelete422Response
      */
     public function translationsVerifyCollection($project_id, $translations_verify_parameters, $x_phrase_app_otp = null)
     {
@@ -6121,7 +6373,7 @@ class TranslationsApi
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Phrase\Model\AffectedCount, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Phrase\Model\AffectedCount|\Phrase\Model\DocumentDelete422Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function translationsVerifyCollectionWithHttpInfo($project_id, $translations_verify_parameters, $x_phrase_app_otp = null)
     {
@@ -6169,6 +6421,18 @@ class TranslationsApi
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
+                case 422:
+                    if ('\Phrase\Model\DocumentDelete422Response' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Phrase\Model\DocumentDelete422Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
             }
 
             $returnType = '\Phrase\Model\AffectedCount';
@@ -6191,6 +6455,14 @@ class TranslationsApi
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\Phrase\Model\AffectedCount',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 422:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Phrase\Model\DocumentDelete422Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);

@@ -119,6 +119,13 @@ class RepoSyncTest extends TestCase
     }
 
     /**
+     * Test attribute "pr_branch"
+     */
+    public function testPropertyPrBranch()
+    {
+    }
+
+    /**
      * Test attribute "created_at"
      */
     public function testPropertyCreatedAt()

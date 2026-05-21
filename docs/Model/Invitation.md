@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 **updated_at** | **\DateTime** |  | [optional] 
 **accepted_at** | **\DateTime** |  | [optional] 
 **spaces** | [**\Phrase\Model\Space[]**](Space.md) |  | [optional] 
-**project_role** | [**\Phrase\Model\MemberProjectDetailProjectRolesInner[]**](MemberProjectDetailProjectRolesInner.md) |  | [optional] 
+**project_roles** | [**\Phrase\Model\MemberProjectDetailProjectRolesInner[]**](MemberProjectDetailProjectRolesInner.md) | Per-project roles assigned to the invitee. | [optional] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

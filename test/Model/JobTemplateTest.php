@@ -112,6 +112,13 @@ class JobTemplateTest extends TestCase
     }
 
     /**
+     * Test attribute "autotranslate_enabled"
+     */
+    public function testPropertyAutotranslateEnabled()
+    {
+    }
+
+    /**
      * Test attribute "created_at"
      */
     public function testPropertyCreatedAt()

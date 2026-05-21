@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 ## accountLocales
 
-> \Phrase\Model\LocalePreview1[] accountLocales($id, $x_phrase_app_otp)
+> \Phrase\Model\LocalePreview1[] accountLocales($id, $x_phrase_app_otp, $page, $per_page)
 
 List locales used in account
 
@@ -39,9 +39,11 @@ $apiInstance = new Phrase\Api\LocalesApi(
 );
 $id = 'id_example'; // string | ID
 $x_phrase_app_otp = 'x_phrase_app_otp_example'; // string | Two-Factor-Authentication token (optional)
+$page = 1; // int | Page number
+$per_page = 25; // int | Limit on the number of objects to be returned, between 1 and 100. 25 by default
 
 try {
-    $result = $apiInstance->accountLocales($id, $x_phrase_app_otp);
+    $result = $apiInstance->accountLocales($id, $x_phrase_app_otp, $page, $per_page);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling LocalesApi->accountLocales: ', $e->getMessage(), PHP_EOL;
@@ -56,6 +58,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **string**| ID |
  **x_phrase_app_otp** | **string**| Two-Factor-Authentication token (optional) | [optional]
+ **page** | **int**| Page number | [optional]
+ **per_page** | **int**| Limit on the number of objects to be returned, between 1 and 100. 25 by default | [optional]
 
 ### Return type
 
@@ -195,7 +199,7 @@ void (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: Not defined
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../../README.md#documentation-for-models)

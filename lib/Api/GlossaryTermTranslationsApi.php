@@ -126,7 +126,7 @@ class GlossaryTermTranslationsApi
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Phrase\Model\GlossaryTermTranslation
+     * @return \Phrase\Model\GlossaryTermTranslation|\Phrase\Model\DocumentDelete422Response
      */
     public function glossaryTermTranslationCreate($account_id, $glossary_id, $term_id, $glossary_term_translation_create_parameters, $x_phrase_app_otp = null)
     {
@@ -147,7 +147,7 @@ class GlossaryTermTranslationsApi
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Phrase\Model\GlossaryTermTranslation, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Phrase\Model\GlossaryTermTranslation|\Phrase\Model\DocumentDelete422Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function glossaryTermTranslationCreateWithHttpInfo($account_id, $glossary_id, $term_id, $glossary_term_translation_create_parameters, $x_phrase_app_otp = null)
     {
@@ -195,6 +195,18 @@ class GlossaryTermTranslationsApi
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
+                case 422:
+                    if ('\Phrase\Model\DocumentDelete422Response' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Phrase\Model\DocumentDelete422Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
             }
 
             $returnType = '\Phrase\Model\GlossaryTermTranslation';
@@ -217,6 +229,14 @@ class GlossaryTermTranslationsApi
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\Phrase\Model\GlossaryTermTranslation',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 422:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Phrase\Model\DocumentDelete422Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -527,6 +547,14 @@ class GlossaryTermTranslationsApi
 
         } catch (ApiException $e) {
             switch ($e->getCode()) {
+                case 422:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Phrase\Model\DocumentDelete422Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
             }
             throw $e;
         }
@@ -688,11 +716,11 @@ class GlossaryTermTranslationsApi
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
-                []
+                ['application/json']
             );
         } else {
             $headers = $this->headerSelector->selectHeaders(
-                [],
+                ['application/json'],
                 []
             );
         }
@@ -770,7 +798,7 @@ class GlossaryTermTranslationsApi
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Phrase\Model\GlossaryTermTranslation
+     * @return \Phrase\Model\GlossaryTermTranslation|\Phrase\Model\DocumentDelete422Response
      */
     public function glossaryTermTranslationUpdate($account_id, $glossary_id, $term_id, $id, $glossary_term_translation_update_parameters, $x_phrase_app_otp = null)
     {
@@ -792,7 +820,7 @@ class GlossaryTermTranslationsApi
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Phrase\Model\GlossaryTermTranslation, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Phrase\Model\GlossaryTermTranslation|\Phrase\Model\DocumentDelete422Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function glossaryTermTranslationUpdateWithHttpInfo($account_id, $glossary_id, $term_id, $id, $glossary_term_translation_update_parameters, $x_phrase_app_otp = null)
     {
@@ -840,6 +868,18 @@ class GlossaryTermTranslationsApi
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
+                case 422:
+                    if ('\Phrase\Model\DocumentDelete422Response' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Phrase\Model\DocumentDelete422Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
             }
 
             $returnType = '\Phrase\Model\GlossaryTermTranslation';
@@ -862,6 +902,14 @@ class GlossaryTermTranslationsApi
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\Phrase\Model\GlossaryTermTranslation',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 422:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Phrase\Model\DocumentDelete422Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);

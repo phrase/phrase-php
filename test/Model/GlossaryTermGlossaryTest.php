@@ -1,6 +1,6 @@
 <?php
 /**
- * DistributionPreviewTest
+ * GlossaryTermGlossaryTest
  *
  * PHP version 5
  *
@@ -30,15 +30,15 @@ namespace Phrase;
 use PHPUnit\Framework\TestCase;
 
 /**
- * DistributionPreviewTest Class Doc Comment
+ * GlossaryTermGlossaryTest Class Doc Comment
  *
  * @category    Class
- * @description DistributionPreview
+ * @description The glossary this term belongs to.
  * @package     Phrase
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class DistributionPreviewTest extends TestCase
+class GlossaryTermGlossaryTest extends TestCase
 {
 
     /**
@@ -70,9 +70,9 @@ class DistributionPreviewTest extends TestCase
     }
 
     /**
-     * Test "DistributionPreview"
+     * Test "GlossaryTermGlossary"
      */
-    public function testDistributionPreview()
+    public function testGlossaryTermGlossary()
     {
     }
 
@@ -87,41 +87,6 @@ class DistributionPreviewTest extends TestCase
      * Test attribute "name"
      */
     public function testPropertyName()
-    {
-    }
-
-    /**
-     * Test attribute "project"
-     */
-    public function testPropertyProject()
-    {
-    }
-
-    /**
-     * Test attribute "platforms"
-     */
-    public function testPropertyPlatforms()
-    {
-    }
-
-    /**
-     * Test attribute "release_count"
-     */
-    public function testPropertyReleaseCount()
-    {
-    }
-
-    /**
-     * Test attribute "created_at"
-     */
-    public function testPropertyCreatedAt()
-    {
-    }
-
-    /**
-     * Test attribute "deleted_at"
-     */
-    public function testPropertyDeletedAt()
     {
     }
 }

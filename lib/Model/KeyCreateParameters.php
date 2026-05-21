@@ -73,7 +73,9 @@ class KeyCreateParameters implements ModelInterface, ArrayAccess
         'original_file' => 'string',
         'localized_format_string' => 'string',
         'localized_format_key' => 'string',
-        'custom_metadata' => 'object'
+        'custom_metadata' => 'object',
+        'excluded_in_locales' => 'string[]',
+        'format_value_type' => 'string'
     ];
 
     /**
@@ -100,7 +102,9 @@ class KeyCreateParameters implements ModelInterface, ArrayAccess
         'original_file' => null,
         'localized_format_string' => null,
         'localized_format_key' => null,
-        'custom_metadata' => null
+        'custom_metadata' => null,
+        'excluded_in_locales' => null,
+        'format_value_type' => null
     ];
 
     /**
@@ -148,7 +152,9 @@ class KeyCreateParameters implements ModelInterface, ArrayAccess
         'original_file' => 'original_file',
         'localized_format_string' => 'localized_format_string',
         'localized_format_key' => 'localized_format_key',
-        'custom_metadata' => 'custom_metadata'
+        'custom_metadata' => 'custom_metadata',
+        'excluded_in_locales' => 'excluded_in_locales',
+        'format_value_type' => 'format_value_type'
     ];
 
     /**
@@ -175,7 +181,9 @@ class KeyCreateParameters implements ModelInterface, ArrayAccess
         'original_file' => 'setOriginalFile',
         'localized_format_string' => 'setLocalizedFormatString',
         'localized_format_key' => 'setLocalizedFormatKey',
-        'custom_metadata' => 'setCustomMetadata'
+        'custom_metadata' => 'setCustomMetadata',
+        'excluded_in_locales' => 'setExcludedInLocales',
+        'format_value_type' => 'setFormatValueType'
     ];
 
     /**
@@ -202,7 +210,9 @@ class KeyCreateParameters implements ModelInterface, ArrayAccess
         'original_file' => 'getOriginalFile',
         'localized_format_string' => 'getLocalizedFormatString',
         'localized_format_key' => 'getLocalizedFormatKey',
-        'custom_metadata' => 'getCustomMetadata'
+        'custom_metadata' => 'getCustomMetadata',
+        'excluded_in_locales' => 'getExcludedInLocales',
+        'format_value_type' => 'getFormatValueType'
     ];
 
     /**
@@ -284,6 +294,8 @@ class KeyCreateParameters implements ModelInterface, ArrayAccess
         $this->container['localized_format_string'] = isset($data['localized_format_string']) ? $data['localized_format_string'] : null;
         $this->container['localized_format_key'] = isset($data['localized_format_key']) ? $data['localized_format_key'] : null;
         $this->container['custom_metadata'] = isset($data['custom_metadata']) ? $data['custom_metadata'] : null;
+        $this->container['excluded_in_locales'] = isset($data['excluded_in_locales']) ? $data['excluded_in_locales'] : null;
+        $this->container['format_value_type'] = isset($data['format_value_type']) ? $data['format_value_type'] : null;
     }
 
     /**
@@ -765,6 +777,54 @@ class KeyCreateParameters implements ModelInterface, ArrayAccess
     public function setCustomMetadata($custom_metadata)
     {
         $this->container['custom_metadata'] = $custom_metadata;
+
+        return $this;
+    }
+
+    /**
+     * Gets excluded_in_locales
+     *
+     * @return string[]|null
+     */
+    public function getExcludedInLocales()
+    {
+        return $this->container['excluded_in_locales'];
+    }
+
+    /**
+     * Sets excluded_in_locales
+     *
+     * @param string[]|null $excluded_in_locales Locales for which translations of this key are excluded from exports. Pass an empty array to clear exclusions.
+     *
+     * @return $this
+     */
+    public function setExcludedInLocales($excluded_in_locales)
+    {
+        $this->container['excluded_in_locales'] = $excluded_in_locales;
+
+        return $this;
+    }
+
+    /**
+     * Gets format_value_type
+     *
+     * @return string|null
+     */
+    public function getFormatValueType()
+    {
+        return $this->container['format_value_type'];
+    }
+
+    /**
+     * Sets format_value_type
+     *
+     * @param string|null $format_value_type Override of the value type for the key in the export. Most useful for formats like Android XML that distinguish string vs. plural resources.
+     *
+     * @return $this
+     */
+    public function setFormatValueType($format_value_type)
+    {
+        $this->container['format_value_type'] = $format_value_type;
 
         return $this;
     }

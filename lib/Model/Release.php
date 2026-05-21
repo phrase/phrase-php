@@ -64,6 +64,7 @@ class Release implements ModelInterface, ArrayAccess
         'environments' => 'string[]',
         'locales' => '\Phrase\Model\LocalePreview[]',
         'tags' => 'string[]',
+        'state' => 'string',
         'project' => '\Phrase\Model\ProjectShort',
         'created_at' => '\DateTime',
         'updated_at' => '\DateTime'
@@ -84,6 +85,7 @@ class Release implements ModelInterface, ArrayAccess
         'environments' => null,
         'locales' => null,
         'tags' => null,
+        'state' => null,
         'project' => null,
         'created_at' => 'date-time',
         'updated_at' => 'date-time'
@@ -125,6 +127,7 @@ class Release implements ModelInterface, ArrayAccess
         'environments' => 'environments',
         'locales' => 'locales',
         'tags' => 'tags',
+        'state' => 'state',
         'project' => 'project',
         'created_at' => 'created_at',
         'updated_at' => 'updated_at'
@@ -145,6 +148,7 @@ class Release implements ModelInterface, ArrayAccess
         'environments' => 'setEnvironments',
         'locales' => 'setLocales',
         'tags' => 'setTags',
+        'state' => 'setState',
         'project' => 'setProject',
         'created_at' => 'setCreatedAt',
         'updated_at' => 'setUpdatedAt'
@@ -165,6 +169,7 @@ class Release implements ModelInterface, ArrayAccess
         'environments' => 'getEnvironments',
         'locales' => 'getLocales',
         'tags' => 'getTags',
+        'state' => 'getState',
         'project' => 'getProject',
         'created_at' => 'getCreatedAt',
         'updated_at' => 'getUpdatedAt'
@@ -239,6 +244,7 @@ class Release implements ModelInterface, ArrayAccess
         $this->container['environments'] = isset($data['environments']) ? $data['environments'] : null;
         $this->container['locales'] = isset($data['locales']) ? $data['locales'] : null;
         $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
+        $this->container['state'] = isset($data['state']) ? $data['state'] : null;
         $this->container['project'] = isset($data['project']) ? $data['project'] : null;
         $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
         $this->container['updated_at'] = isset($data['updated_at']) ? $data['updated_at'] : null;
@@ -480,6 +486,30 @@ class Release implements ModelInterface, ArrayAccess
     public function setTags($tags)
     {
         $this->container['tags'] = $tags;
+
+        return $this;
+    }
+
+    /**
+     * Gets state
+     *
+     * @return string|null
+     */
+    public function getState()
+    {
+        return $this->container['state'];
+    }
+
+    /**
+     * Sets state
+     *
+     * @param string|null $state state
+     *
+     * @return $this
+     */
+    public function setState($state)
+    {
+        $this->container['state'] = $state;
 
         return $this;
     }

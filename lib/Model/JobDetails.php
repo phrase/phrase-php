@@ -71,7 +71,8 @@ class JobDetails implements ModelInterface, ArrayAccess
         'source_locale' => '\Phrase\Model\LocalePreview',
         'locales' => '\Phrase\Model\LocalePreview[]',
         'keys' => '\Phrase\Model\KeyPreview[]',
-        'annotations' => '\Phrase\Model\JobAnnotationShort[]'
+        'annotations' => '\Phrase\Model\JobAnnotationShort[]',
+        'locked' => 'bool'
     ];
 
     /**
@@ -96,7 +97,8 @@ class JobDetails implements ModelInterface, ArrayAccess
         'source_locale' => null,
         'locales' => null,
         'keys' => null,
-        'annotations' => null
+        'annotations' => null,
+        'locked' => null
     ];
 
     /**
@@ -142,7 +144,8 @@ class JobDetails implements ModelInterface, ArrayAccess
         'source_locale' => 'source_locale',
         'locales' => 'locales',
         'keys' => 'keys',
-        'annotations' => 'annotations'
+        'annotations' => 'annotations',
+        'locked' => 'locked'
     ];
 
     /**
@@ -167,7 +170,8 @@ class JobDetails implements ModelInterface, ArrayAccess
         'source_locale' => 'setSourceLocale',
         'locales' => 'setLocales',
         'keys' => 'setKeys',
-        'annotations' => 'setAnnotations'
+        'annotations' => 'setAnnotations',
+        'locked' => 'setLocked'
     ];
 
     /**
@@ -192,7 +196,8 @@ class JobDetails implements ModelInterface, ArrayAccess
         'source_locale' => 'getSourceLocale',
         'locales' => 'getLocales',
         'keys' => 'getKeys',
-        'annotations' => 'getAnnotations'
+        'annotations' => 'getAnnotations',
+        'locked' => 'getLocked'
     ];
 
     /**
@@ -272,6 +277,7 @@ class JobDetails implements ModelInterface, ArrayAccess
         $this->container['locales'] = isset($data['locales']) ? $data['locales'] : null;
         $this->container['keys'] = isset($data['keys']) ? $data['keys'] : null;
         $this->container['annotations'] = isset($data['annotations']) ? $data['annotations'] : null;
+        $this->container['locked'] = isset($data['locked']) ? $data['locked'] : null;
     }
 
     /**
@@ -695,13 +701,37 @@ class JobDetails implements ModelInterface, ArrayAccess
     /**
      * Sets annotations
      *
-     * @param \Phrase\Model\JobAnnotationShort[]|null $annotations annotations
+     * @param \Phrase\Model\JobAnnotationShort[]|null $annotations Returned only when `include_annotations=true` is supplied on the request.
      *
      * @return $this
      */
     public function setAnnotations($annotations)
     {
         $this->container['annotations'] = $annotations;
+
+        return $this;
+    }
+
+    /**
+     * Gets locked
+     *
+     * @return bool|null
+     */
+    public function getLocked()
+    {
+        return $this->container['locked'];
+    }
+
+    /**
+     * Sets locked
+     *
+     * @param bool|null $locked `true` if the job has been locked by the project's job-locking workflow (translations attached to the job are read-only until the job advances).
+     *
+     * @return $this
+     */
+    public function setLocked($locked)
+    {
+        $this->container['locked'] = $locked;
 
         return $this;
     }

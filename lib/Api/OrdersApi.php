@@ -125,7 +125,7 @@ class OrdersApi
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Phrase\Model\TranslationOrder
+     * @return \Phrase\Model\TranslationOrder|\Phrase\Model\DocumentDelete422Response
      */
     public function orderConfirm($project_id, $id, $order_confirm_parameters, $x_phrase_app_otp = null)
     {
@@ -145,7 +145,7 @@ class OrdersApi
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Phrase\Model\TranslationOrder, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Phrase\Model\TranslationOrder|\Phrase\Model\DocumentDelete422Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function orderConfirmWithHttpInfo($project_id, $id, $order_confirm_parameters, $x_phrase_app_otp = null)
     {
@@ -193,6 +193,18 @@ class OrdersApi
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
+                case 422:
+                    if ('\Phrase\Model\DocumentDelete422Response' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Phrase\Model\DocumentDelete422Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
             }
 
             $returnType = '\Phrase\Model\TranslationOrder';
@@ -215,6 +227,14 @@ class OrdersApi
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\Phrase\Model\TranslationOrder',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 422:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Phrase\Model\DocumentDelete422Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -448,7 +468,7 @@ class OrdersApi
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Phrase\Model\TranslationOrder
+     * @return \Phrase\Model\TranslationOrder|\Phrase\Model\DocumentDelete422Response
      */
     public function orderCreate($project_id, $order_create_parameters, $x_phrase_app_otp = null)
     {
@@ -467,7 +487,7 @@ class OrdersApi
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Phrase\Model\TranslationOrder, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Phrase\Model\TranslationOrder|\Phrase\Model\DocumentDelete422Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function orderCreateWithHttpInfo($project_id, $order_create_parameters, $x_phrase_app_otp = null)
     {
@@ -515,6 +535,18 @@ class OrdersApi
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
+                case 422:
+                    if ('\Phrase\Model\DocumentDelete422Response' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Phrase\Model\DocumentDelete422Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
             }
 
             $returnType = '\Phrase\Model\TranslationOrder';
@@ -537,6 +569,14 @@ class OrdersApi
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\Phrase\Model\TranslationOrder',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 422:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Phrase\Model\DocumentDelete422Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -811,6 +851,14 @@ class OrdersApi
 
         } catch (ApiException $e) {
             switch ($e->getCode()) {
+                case 422:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Phrase\Model\DocumentDelete422Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
             }
             throw $e;
         }
@@ -952,11 +1000,11 @@ class OrdersApi
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
-                []
+                ['application/json']
             );
         } else {
             $headers = $this->headerSelector->selectHeaders(
-                [],
+                ['application/json'],
                 []
             );
         }
@@ -1356,14 +1404,15 @@ class OrdersApi
      * @param  int $page Page number (optional)
      * @param  int $per_page Limit on the number of objects to be returned, between 1 and 100. 25 by default (optional)
      * @param  string $branch specify the branch to use (optional)
+     * @param  string $translation_id Filter the result to orders that include the given translation. When supplied with a translation code that does not exist, an empty list is returned. (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Phrase\Model\TranslationOrder[]
      */
-    public function ordersList($project_id, $x_phrase_app_otp = null, $page = null, $per_page = null, $branch = null)
+    public function ordersList($project_id, $x_phrase_app_otp = null, $page = null, $per_page = null, $branch = null, $translation_id = null)
     {
-        list($response) = $this->ordersListWithHttpInfo($project_id, $x_phrase_app_otp, $page, $per_page, $branch);
+        list($response) = $this->ordersListWithHttpInfo($project_id, $x_phrase_app_otp, $page, $per_page, $branch, $translation_id);
         return $response;
     }
 
@@ -1377,14 +1426,15 @@ class OrdersApi
      * @param  int $page Page number (optional)
      * @param  int $per_page Limit on the number of objects to be returned, between 1 and 100. 25 by default (optional)
      * @param  string $branch specify the branch to use (optional)
+     * @param  string $translation_id Filter the result to orders that include the given translation. When supplied with a translation code that does not exist, an empty list is returned. (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Phrase\Model\TranslationOrder[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function ordersListWithHttpInfo($project_id, $x_phrase_app_otp = null, $page = null, $per_page = null, $branch = null)
+    public function ordersListWithHttpInfo($project_id, $x_phrase_app_otp = null, $page = null, $per_page = null, $branch = null, $translation_id = null)
     {
-        $request = $this->ordersListRequest($project_id, $x_phrase_app_otp, $page, $per_page, $branch);
+        $request = $this->ordersListRequest($project_id, $x_phrase_app_otp, $page, $per_page, $branch, $translation_id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1469,13 +1519,14 @@ class OrdersApi
      * @param  int $page Page number (optional)
      * @param  int $per_page Limit on the number of objects to be returned, between 1 and 100. 25 by default (optional)
      * @param  string $branch specify the branch to use (optional)
+     * @param  string $translation_id Filter the result to orders that include the given translation. When supplied with a translation code that does not exist, an empty list is returned. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function ordersListAsync($project_id, $x_phrase_app_otp = null, $page = null, $per_page = null, $branch = null)
+    public function ordersListAsync($project_id, $x_phrase_app_otp = null, $page = null, $per_page = null, $branch = null, $translation_id = null)
     {
-        return $this->ordersListAsyncWithHttpInfo($project_id, $x_phrase_app_otp, $page, $per_page, $branch)
+        return $this->ordersListAsyncWithHttpInfo($project_id, $x_phrase_app_otp, $page, $per_page, $branch, $translation_id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1493,14 +1544,15 @@ class OrdersApi
      * @param  int $page Page number (optional)
      * @param  int $per_page Limit on the number of objects to be returned, between 1 and 100. 25 by default (optional)
      * @param  string $branch specify the branch to use (optional)
+     * @param  string $translation_id Filter the result to orders that include the given translation. When supplied with a translation code that does not exist, an empty list is returned. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function ordersListAsyncWithHttpInfo($project_id, $x_phrase_app_otp = null, $page = null, $per_page = null, $branch = null)
+    public function ordersListAsyncWithHttpInfo($project_id, $x_phrase_app_otp = null, $page = null, $per_page = null, $branch = null, $translation_id = null)
     {
         $returnType = '\Phrase\Model\TranslationOrder[]';
-        $request = $this->ordersListRequest($project_id, $x_phrase_app_otp, $page, $per_page, $branch);
+        $request = $this->ordersListRequest($project_id, $x_phrase_app_otp, $page, $per_page, $branch, $translation_id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1544,11 +1596,12 @@ class OrdersApi
      * @param  int $page Page number (optional)
      * @param  int $per_page Limit on the number of objects to be returned, between 1 and 100. 25 by default (optional)
      * @param  string $branch specify the branch to use (optional)
+     * @param  string $translation_id Filter the result to orders that include the given translation. When supplied with a translation code that does not exist, an empty list is returned. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function ordersListRequest($project_id, $x_phrase_app_otp = null, $page = null, $per_page = null, $branch = null)
+    protected function ordersListRequest($project_id, $x_phrase_app_otp = null, $page = null, $per_page = null, $branch = null, $translation_id = null)
     {
         // verify the required parameter 'project_id' is set
         if ($project_id === null || (is_array($project_id) && count($project_id) === 0)) {
@@ -1595,6 +1648,17 @@ class OrdersApi
             }
             else {
                 $queryParams['branch'] = $branch;
+            }
+        }
+        // query params
+        if ($translation_id !== null) {
+            if('form' === 'form' && is_array($translation_id)) {
+                foreach($translation_id as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['translation_id'] = $translation_id;
             }
         }
 

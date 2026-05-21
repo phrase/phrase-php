@@ -60,6 +60,7 @@ class JobTemplateDetails implements ModelInterface, ArrayAccess
         'briefing' => 'string',
         'project' => '\Phrase\Model\ProjectShort',
         'branch' => '\Phrase\Model\Branch',
+        'autotranslate_enabled' => 'bool',
         'created_at' => '\DateTime',
         'updated_at' => '\DateTime',
         'owner' => '\Phrase\Model\UserPreview',
@@ -78,6 +79,7 @@ class JobTemplateDetails implements ModelInterface, ArrayAccess
         'briefing' => null,
         'project' => null,
         'branch' => null,
+        'autotranslate_enabled' => null,
         'created_at' => 'date-time',
         'updated_at' => 'date-time',
         'owner' => null,
@@ -117,6 +119,7 @@ class JobTemplateDetails implements ModelInterface, ArrayAccess
         'briefing' => 'briefing',
         'project' => 'project',
         'branch' => 'branch',
+        'autotranslate_enabled' => 'autotranslate_enabled',
         'created_at' => 'created_at',
         'updated_at' => 'updated_at',
         'owner' => 'owner',
@@ -135,6 +138,7 @@ class JobTemplateDetails implements ModelInterface, ArrayAccess
         'briefing' => 'setBriefing',
         'project' => 'setProject',
         'branch' => 'setBranch',
+        'autotranslate_enabled' => 'setAutotranslateEnabled',
         'created_at' => 'setCreatedAt',
         'updated_at' => 'setUpdatedAt',
         'owner' => 'setOwner',
@@ -153,6 +157,7 @@ class JobTemplateDetails implements ModelInterface, ArrayAccess
         'briefing' => 'getBriefing',
         'project' => 'getProject',
         'branch' => 'getBranch',
+        'autotranslate_enabled' => 'getAutotranslateEnabled',
         'created_at' => 'getCreatedAt',
         'updated_at' => 'getUpdatedAt',
         'owner' => 'getOwner',
@@ -225,6 +230,7 @@ class JobTemplateDetails implements ModelInterface, ArrayAccess
         $this->container['briefing'] = isset($data['briefing']) ? $data['briefing'] : null;
         $this->container['project'] = isset($data['project']) ? $data['project'] : null;
         $this->container['branch'] = isset($data['branch']) ? $data['branch'] : null;
+        $this->container['autotranslate_enabled'] = isset($data['autotranslate_enabled']) ? $data['autotranslate_enabled'] : null;
         $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
         $this->container['updated_at'] = isset($data['updated_at']) ? $data['updated_at'] : null;
         $this->container['owner'] = isset($data['owner']) ? $data['owner'] : null;
@@ -372,6 +378,30 @@ class JobTemplateDetails implements ModelInterface, ArrayAccess
     public function setBranch($branch)
     {
         $this->container['branch'] = $branch;
+
+        return $this;
+    }
+
+    /**
+     * Gets autotranslate_enabled
+     *
+     * @return bool|null
+     */
+    public function getAutotranslateEnabled()
+    {
+        return $this->container['autotranslate_enabled'];
+    }
+
+    /**
+     * Sets autotranslate_enabled
+     *
+     * @param bool|null $autotranslate_enabled When `true`, jobs created from this template are auto-translated on creation.
+     *
+     * @return $this
+     */
+    public function setAutotranslateEnabled($autotranslate_enabled)
+    {
+        $this->container['autotranslate_enabled'] = $autotranslate_enabled;
 
         return $this;
     }

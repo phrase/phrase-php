@@ -62,7 +62,9 @@ class TranslationCreateParameters implements ModelInterface, ArrayAccess
         'plural_suffix' => 'string',
         'unverified' => 'bool',
         'excluded' => 'bool',
-        'autotranslate' => 'bool'
+        'autotranslate' => 'bool',
+        'minor_change' => 'bool',
+        'reviewed' => 'bool'
     ];
 
     /**
@@ -78,7 +80,9 @@ class TranslationCreateParameters implements ModelInterface, ArrayAccess
         'plural_suffix' => null,
         'unverified' => null,
         'excluded' => null,
-        'autotranslate' => null
+        'autotranslate' => null,
+        'minor_change' => null,
+        'reviewed' => null
     ];
 
     /**
@@ -115,7 +119,9 @@ class TranslationCreateParameters implements ModelInterface, ArrayAccess
         'plural_suffix' => 'plural_suffix',
         'unverified' => 'unverified',
         'excluded' => 'excluded',
-        'autotranslate' => 'autotranslate'
+        'autotranslate' => 'autotranslate',
+        'minor_change' => 'minor_change',
+        'reviewed' => 'reviewed'
     ];
 
     /**
@@ -131,7 +137,9 @@ class TranslationCreateParameters implements ModelInterface, ArrayAccess
         'plural_suffix' => 'setPluralSuffix',
         'unverified' => 'setUnverified',
         'excluded' => 'setExcluded',
-        'autotranslate' => 'setAutotranslate'
+        'autotranslate' => 'setAutotranslate',
+        'minor_change' => 'setMinorChange',
+        'reviewed' => 'setReviewed'
     ];
 
     /**
@@ -147,7 +155,9 @@ class TranslationCreateParameters implements ModelInterface, ArrayAccess
         'plural_suffix' => 'getPluralSuffix',
         'unverified' => 'getUnverified',
         'excluded' => 'getExcluded',
-        'autotranslate' => 'getAutotranslate'
+        'autotranslate' => 'getAutotranslate',
+        'minor_change' => 'getMinorChange',
+        'reviewed' => 'getReviewed'
     ];
 
     /**
@@ -218,6 +228,8 @@ class TranslationCreateParameters implements ModelInterface, ArrayAccess
         $this->container['unverified'] = isset($data['unverified']) ? $data['unverified'] : null;
         $this->container['excluded'] = isset($data['excluded']) ? $data['excluded'] : null;
         $this->container['autotranslate'] = isset($data['autotranslate']) ? $data['autotranslate'] : null;
+        $this->container['minor_change'] = isset($data['minor_change']) ? $data['minor_change'] : null;
+        $this->container['reviewed'] = isset($data['reviewed']) ? $data['reviewed'] : null;
     }
 
     /**
@@ -432,6 +444,54 @@ class TranslationCreateParameters implements ModelInterface, ArrayAccess
     public function setAutotranslate($autotranslate)
     {
         $this->container['autotranslate'] = $autotranslate;
+
+        return $this;
+    }
+
+    /**
+     * Gets minor_change
+     *
+     * @return bool|null
+     */
+    public function getMinorChange()
+    {
+        return $this->container['minor_change'];
+    }
+
+    /**
+     * Sets minor_change
+     *
+     * @param bool|null $minor_change When `true`, the translation is marked as a minor edit and does not trigger downstream re-verification on the linked locales' translations.
+     *
+     * @return $this
+     */
+    public function setMinorChange($minor_change)
+    {
+        $this->container['minor_change'] = $minor_change;
+
+        return $this;
+    }
+
+    /**
+     * Gets reviewed
+     *
+     * @return bool|null
+     */
+    public function getReviewed()
+    {
+        return $this->container['reviewed'];
+    }
+
+    /**
+     * Sets reviewed
+     *
+     * @param bool|null $reviewed When `true` and the project's review workflow is enabled, the translation is created in the `reviewed` state.
+     *
+     * @return $this
+     */
+    public function setReviewed($reviewed)
+    {
+        $this->container['reviewed'] = $reviewed;
 
         return $this;
     }

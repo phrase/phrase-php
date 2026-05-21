@@ -131,7 +131,7 @@ void (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: Not defined
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../../README.md#documentation-for-models)
@@ -203,11 +203,11 @@ Name | Type | Description  | Notes
 
 ## webhookTest
 
-> webhookTest($project_id, $id, $x_phrase_app_otp)
+> \Phrase\Model\Webhook webhookTest($project_id, $id, $x_phrase_app_otp)
 
 Test a webhook
 
-Perform a test request for a webhook.
+Perform a test request for a webhook. Sends a synthetic `test:event` payload to the webhook's `callback_url` and returns the webhook resource.
 
 ### Example
 
@@ -229,7 +229,8 @@ $id = 'id_example'; // string | ID
 $x_phrase_app_otp = 'x_phrase_app_otp_example'; // string | Two-Factor-Authentication token (optional)
 
 try {
-    $apiInstance->webhookTest($project_id, $id, $x_phrase_app_otp);
+    $result = $apiInstance->webhookTest($project_id, $id, $x_phrase_app_otp);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling WebhooksApi->webhookTest: ', $e->getMessage(), PHP_EOL;
 }
@@ -247,7 +248,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**\Phrase\Model\Webhook**](../Model/Webhook.md)
 
 ### Authorization
 
@@ -256,7 +257,7 @@ void (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: Not defined
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../../README.md#documentation-for-models)

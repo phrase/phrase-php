@@ -119,9 +119,30 @@ class AutomationTest extends TestCase
     }
 
     /**
+     * Test attribute "project_ids"
+     */
+    public function testPropertyProjectIds()
+    {
+    }
+
+    /**
      * Test attribute "job_template_id"
      */
     public function testPropertyJobTemplateId()
+    {
+    }
+
+    /**
+     * Test attribute "job_owner_id"
+     */
+    public function testPropertyJobOwnerId()
+    {
+    }
+
+    /**
+     * Test attribute "include_only_updated_locales"
+     */
+    public function testPropertyIncludeOnlyUpdatedLocales()
     {
     }
 

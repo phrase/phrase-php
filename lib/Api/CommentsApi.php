@@ -125,7 +125,7 @@ class CommentsApi
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Phrase\Model\Comment
+     * @return \Phrase\Model\Comment|\Phrase\Model\DocumentDelete422Response
      */
     public function commentCreate($project_id, $key_id, $comment_create_parameters, $x_phrase_app_otp = null)
     {
@@ -145,7 +145,7 @@ class CommentsApi
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Phrase\Model\Comment, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Phrase\Model\Comment|\Phrase\Model\DocumentDelete422Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function commentCreateWithHttpInfo($project_id, $key_id, $comment_create_parameters, $x_phrase_app_otp = null)
     {
@@ -193,6 +193,18 @@ class CommentsApi
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
+                case 422:
+                    if ('\Phrase\Model\DocumentDelete422Response' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Phrase\Model\DocumentDelete422Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
             }
 
             $returnType = '\Phrase\Model\Comment';
@@ -215,6 +227,14 @@ class CommentsApi
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\Phrase\Model\Comment',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 422:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Phrase\Model\DocumentDelete422Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -508,6 +528,14 @@ class CommentsApi
 
         } catch (ApiException $e) {
             switch ($e->getCode()) {
+                case 422:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Phrase\Model\DocumentDelete422Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
             }
             throw $e;
         }
@@ -666,11 +694,11 @@ class CommentsApi
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
-                []
+                ['application/json']
             );
         } else {
             $headers = $this->headerSelector->selectHeaders(
-                [],
+                ['application/json'],
                 []
             );
         }
@@ -1102,6 +1130,14 @@ class CommentsApi
 
         } catch (ApiException $e) {
             switch ($e->getCode()) {
+                case 422:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Phrase\Model\DocumentDelete422Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
             }
             throw $e;
         }
@@ -1258,11 +1294,11 @@ class CommentsApi
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
-                []
+                ['application/json']
             );
         } else {
             $headers = $this->headerSelector->selectHeaders(
-                [],
+                ['application/json'],
                 ['application/json']
             );
         }
@@ -1397,6 +1433,14 @@ class CommentsApi
 
         } catch (ApiException $e) {
             switch ($e->getCode()) {
+                case 422:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Phrase\Model\DocumentDelete422Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
             }
             throw $e;
         }
@@ -1555,11 +1599,11 @@ class CommentsApi
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
-                []
+                ['application/json']
             );
         } else {
             $headers = $this->headerSelector->selectHeaders(
-                [],
+                ['application/json'],
                 []
             );
         }
@@ -1981,7 +2025,7 @@ class CommentsApi
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Phrase\Model\Comment
+     * @return \Phrase\Model\Comment|\Phrase\Model\DocumentDelete422Response
      */
     public function commentUpdate($project_id, $key_id, $id, $comment_update_parameters, $x_phrase_app_otp = null)
     {
@@ -2002,7 +2046,7 @@ class CommentsApi
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Phrase\Model\Comment, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Phrase\Model\Comment|\Phrase\Model\DocumentDelete422Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function commentUpdateWithHttpInfo($project_id, $key_id, $id, $comment_update_parameters, $x_phrase_app_otp = null)
     {
@@ -2050,6 +2094,18 @@ class CommentsApi
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
+                case 422:
+                    if ('\Phrase\Model\DocumentDelete422Response' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Phrase\Model\DocumentDelete422Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
             }
 
             $returnType = '\Phrase\Model\Comment';
@@ -2072,6 +2128,14 @@ class CommentsApi
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\Phrase\Model\Comment',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 422:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Phrase\Model\DocumentDelete422Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2324,8 +2388,8 @@ class CommentsApi
      * @param  string $branch specify the branch to use (optional)
      * @param  string $query Search query for comment messages (optional)
      * @param  string[] $locale_ids Search comments by their assigned locales (optional)
-     * @param  string[] $filters Specify the filter for the comments (optional)
-     * @param  string $order Order direction. Can be one of: asc, desc. (optional)
+     * @param  string[] $filters Specify the filter for the comments. Supported values are &#x60;read&#x60; and &#x60;unread&#x60;. Combine both to return all comments (read + unread) without filtering. (optional)
+     * @param  string $order Order direction. Defaults to &#x60;desc&#x60;. Values other than &#x60;asc&#x60; and &#x60;desc&#x60; fall back to &#x60;desc&#x60;. (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -2350,8 +2414,8 @@ class CommentsApi
      * @param  string $branch specify the branch to use (optional)
      * @param  string $query Search query for comment messages (optional)
      * @param  string[] $locale_ids Search comments by their assigned locales (optional)
-     * @param  string[] $filters Specify the filter for the comments (optional)
-     * @param  string $order Order direction. Can be one of: asc, desc. (optional)
+     * @param  string[] $filters Specify the filter for the comments. Supported values are &#x60;read&#x60; and &#x60;unread&#x60;. Combine both to return all comments (read + unread) without filtering. (optional)
+     * @param  string $order Order direction. Defaults to &#x60;desc&#x60;. Values other than &#x60;asc&#x60; and &#x60;desc&#x60; fall back to &#x60;desc&#x60;. (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -2447,8 +2511,8 @@ class CommentsApi
      * @param  string $branch specify the branch to use (optional)
      * @param  string $query Search query for comment messages (optional)
      * @param  string[] $locale_ids Search comments by their assigned locales (optional)
-     * @param  string[] $filters Specify the filter for the comments (optional)
-     * @param  string $order Order direction. Can be one of: asc, desc. (optional)
+     * @param  string[] $filters Specify the filter for the comments. Supported values are &#x60;read&#x60; and &#x60;unread&#x60;. Combine both to return all comments (read + unread) without filtering. (optional)
+     * @param  string $order Order direction. Defaults to &#x60;desc&#x60;. Values other than &#x60;asc&#x60; and &#x60;desc&#x60; fall back to &#x60;desc&#x60;. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2476,8 +2540,8 @@ class CommentsApi
      * @param  string $branch specify the branch to use (optional)
      * @param  string $query Search query for comment messages (optional)
      * @param  string[] $locale_ids Search comments by their assigned locales (optional)
-     * @param  string[] $filters Specify the filter for the comments (optional)
-     * @param  string $order Order direction. Can be one of: asc, desc. (optional)
+     * @param  string[] $filters Specify the filter for the comments. Supported values are &#x60;read&#x60; and &#x60;unread&#x60;. Combine both to return all comments (read + unread) without filtering. (optional)
+     * @param  string $order Order direction. Defaults to &#x60;desc&#x60;. Values other than &#x60;asc&#x60; and &#x60;desc&#x60; fall back to &#x60;desc&#x60;. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2532,8 +2596,8 @@ class CommentsApi
      * @param  string $branch specify the branch to use (optional)
      * @param  string $query Search query for comment messages (optional)
      * @param  string[] $locale_ids Search comments by their assigned locales (optional)
-     * @param  string[] $filters Specify the filter for the comments (optional)
-     * @param  string $order Order direction. Can be one of: asc, desc. (optional)
+     * @param  string[] $filters Specify the filter for the comments. Supported values are &#x60;read&#x60; and &#x60;unread&#x60;. Combine both to return all comments (read + unread) without filtering. (optional)
+     * @param  string $order Order direction. Defaults to &#x60;desc&#x60;. Values other than &#x60;asc&#x60; and &#x60;desc&#x60; fall back to &#x60;desc&#x60;. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request

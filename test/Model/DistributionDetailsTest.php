@@ -1,6 +1,6 @@
 <?php
 /**
- * TranslationCreateParametersTest
+ * DistributionDetailsTest
  *
  * PHP version 5
  *
@@ -30,15 +30,15 @@ namespace Phrase;
 use PHPUnit\Framework\TestCase;
 
 /**
- * TranslationCreateParametersTest Class Doc Comment
+ * DistributionDetailsTest Class Doc Comment
  *
  * @category    Class
- * @description TranslationCreateParameters
+ * @description DistributionDetails
  * @package     Phrase
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class TranslationCreateParametersTest extends TestCase
+class DistributionDetailsTest extends TestCase
 {
 
     /**
@@ -70,79 +70,79 @@ class TranslationCreateParametersTest extends TestCase
     }
 
     /**
-     * Test "TranslationCreateParameters"
+     * Test "DistributionDetails"
      */
-    public function testTranslationCreateParameters()
+    public function testDistributionDetails()
     {
     }
 
     /**
-     * Test attribute "branch"
+     * Test attribute "id"
      */
-    public function testPropertyBranch()
+    public function testPropertyId()
     {
     }
 
     /**
-     * Test attribute "locale_id"
+     * Test attribute "name"
      */
-    public function testPropertyLocaleId()
+    public function testPropertyName()
     {
     }
 
     /**
-     * Test attribute "key_id"
+     * Test attribute "project"
      */
-    public function testPropertyKeyId()
+    public function testPropertyProject()
     {
     }
 
     /**
-     * Test attribute "content"
+     * Test attribute "platforms"
      */
-    public function testPropertyContent()
+    public function testPropertyPlatforms()
     {
     }
 
     /**
-     * Test attribute "plural_suffix"
+     * Test attribute "release_count"
      */
-    public function testPropertyPluralSuffix()
+    public function testPropertyReleaseCount()
     {
     }
 
     /**
-     * Test attribute "unverified"
+     * Test attribute "created_at"
      */
-    public function testPropertyUnverified()
+    public function testPropertyCreatedAt()
     {
     }
 
     /**
-     * Test attribute "excluded"
+     * Test attribute "updated_at"
      */
-    public function testPropertyExcluded()
+    public function testPropertyUpdatedAt()
     {
     }
 
     /**
-     * Test attribute "autotranslate"
+     * Test attribute "deleted_at"
      */
-    public function testPropertyAutotranslate()
+    public function testPropertyDeletedAt()
     {
     }
 
     /**
-     * Test attribute "minor_change"
+     * Test attribute "locales"
      */
-    public function testPropertyMinorChange()
+    public function testPropertyLocales()
     {
     }
 
     /**
-     * Test attribute "reviewed"
+     * Test attribute "releases"
      */
-    public function testPropertyReviewed()
+    public function testPropertyReleases()
     {
     }
 }
