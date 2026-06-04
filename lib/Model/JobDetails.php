@@ -65,6 +65,8 @@ class JobDetails implements ModelInterface, ArrayAccess
         'branch' => '\Phrase\Model\BranchName',
         'created_at' => '\DateTime',
         'updated_at' => '\DateTime',
+        'automation_id' => 'string',
+        'job_template_id' => 'string',
         'owner' => '\Phrase\Model\UserPreview',
         'job_tag_name' => 'string',
         'source_translations_updated_at' => '\DateTime',
@@ -91,6 +93,8 @@ class JobDetails implements ModelInterface, ArrayAccess
         'branch' => null,
         'created_at' => 'date-time',
         'updated_at' => 'date-time',
+        'automation_id' => null,
+        'job_template_id' => null,
         'owner' => null,
         'job_tag_name' => null,
         'source_translations_updated_at' => 'date-time',
@@ -138,6 +142,8 @@ class JobDetails implements ModelInterface, ArrayAccess
         'branch' => 'branch',
         'created_at' => 'created_at',
         'updated_at' => 'updated_at',
+        'automation_id' => 'automation_id',
+        'job_template_id' => 'job_template_id',
         'owner' => 'owner',
         'job_tag_name' => 'job_tag_name',
         'source_translations_updated_at' => 'source_translations_updated_at',
@@ -164,6 +170,8 @@ class JobDetails implements ModelInterface, ArrayAccess
         'branch' => 'setBranch',
         'created_at' => 'setCreatedAt',
         'updated_at' => 'setUpdatedAt',
+        'automation_id' => 'setAutomationId',
+        'job_template_id' => 'setJobTemplateId',
         'owner' => 'setOwner',
         'job_tag_name' => 'setJobTagName',
         'source_translations_updated_at' => 'setSourceTranslationsUpdatedAt',
@@ -190,6 +198,8 @@ class JobDetails implements ModelInterface, ArrayAccess
         'branch' => 'getBranch',
         'created_at' => 'getCreatedAt',
         'updated_at' => 'getUpdatedAt',
+        'automation_id' => 'getAutomationId',
+        'job_template_id' => 'getJobTemplateId',
         'owner' => 'getOwner',
         'job_tag_name' => 'getJobTagName',
         'source_translations_updated_at' => 'getSourceTranslationsUpdatedAt',
@@ -270,6 +280,8 @@ class JobDetails implements ModelInterface, ArrayAccess
         $this->container['branch'] = isset($data['branch']) ? $data['branch'] : null;
         $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
         $this->container['updated_at'] = isset($data['updated_at']) ? $data['updated_at'] : null;
+        $this->container['automation_id'] = isset($data['automation_id']) ? $data['automation_id'] : null;
+        $this->container['job_template_id'] = isset($data['job_template_id']) ? $data['job_template_id'] : null;
         $this->container['owner'] = isset($data['owner']) ? $data['owner'] : null;
         $this->container['job_tag_name'] = isset($data['job_tag_name']) ? $data['job_tag_name'] : null;
         $this->container['source_translations_updated_at'] = isset($data['source_translations_updated_at']) ? $data['source_translations_updated_at'] : null;
@@ -540,6 +552,54 @@ class JobDetails implements ModelInterface, ArrayAccess
     public function setUpdatedAt($updated_at)
     {
         $this->container['updated_at'] = $updated_at;
+
+        return $this;
+    }
+
+    /**
+     * Gets automation_id
+     *
+     * @return string|null
+     */
+    public function getAutomationId()
+    {
+        return $this->container['automation_id'];
+    }
+
+    /**
+     * Sets automation_id
+     *
+     * @param string|null $automation_id The ID of the automation that created this job, or null if the job was created manually.
+     *
+     * @return $this
+     */
+    public function setAutomationId($automation_id)
+    {
+        $this->container['automation_id'] = $automation_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets job_template_id
+     *
+     * @return string|null
+     */
+    public function getJobTemplateId()
+    {
+        return $this->container['job_template_id'];
+    }
+
+    /**
+     * Sets job_template_id
+     *
+     * @param string|null $job_template_id The ID of the job template this job was created from, or null if no template was used.
+     *
+     * @return $this
+     */
+    public function setJobTemplateId($job_template_id)
+    {
+        $this->container['job_template_id'] = $job_template_id;
 
         return $this;
     }

@@ -145,4 +145,18 @@ class JobTest extends TestCase
     public function testPropertyUpdatedAt()
     {
     }
+
+    /**
+     * Test attribute "automation_id"
+     */
+    public function testPropertyAutomationId()
+    {
+    }
+
+    /**
+     * Test attribute "job_template_id"
+     */
+    public function testPropertyJobTemplateId()
+    {
+    }
 }

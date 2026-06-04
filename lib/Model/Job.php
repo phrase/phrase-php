@@ -64,7 +64,9 @@ class Job implements ModelInterface, ArrayAccess
         'project' => '\Phrase\Model\ProjectShort',
         'branch' => '\Phrase\Model\BranchName',
         'created_at' => '\DateTime',
-        'updated_at' => '\DateTime'
+        'updated_at' => '\DateTime',
+        'automation_id' => 'string',
+        'job_template_id' => 'string'
     ];
 
     /**
@@ -82,7 +84,9 @@ class Job implements ModelInterface, ArrayAccess
         'project' => null,
         'branch' => null,
         'created_at' => 'date-time',
-        'updated_at' => 'date-time'
+        'updated_at' => 'date-time',
+        'automation_id' => null,
+        'job_template_id' => null
     ];
 
     /**
@@ -121,7 +125,9 @@ class Job implements ModelInterface, ArrayAccess
         'project' => 'project',
         'branch' => 'branch',
         'created_at' => 'created_at',
-        'updated_at' => 'updated_at'
+        'updated_at' => 'updated_at',
+        'automation_id' => 'automation_id',
+        'job_template_id' => 'job_template_id'
     ];
 
     /**
@@ -139,7 +145,9 @@ class Job implements ModelInterface, ArrayAccess
         'project' => 'setProject',
         'branch' => 'setBranch',
         'created_at' => 'setCreatedAt',
-        'updated_at' => 'setUpdatedAt'
+        'updated_at' => 'setUpdatedAt',
+        'automation_id' => 'setAutomationId',
+        'job_template_id' => 'setJobTemplateId'
     ];
 
     /**
@@ -157,7 +165,9 @@ class Job implements ModelInterface, ArrayAccess
         'project' => 'getProject',
         'branch' => 'getBranch',
         'created_at' => 'getCreatedAt',
-        'updated_at' => 'getUpdatedAt'
+        'updated_at' => 'getUpdatedAt',
+        'automation_id' => 'getAutomationId',
+        'job_template_id' => 'getJobTemplateId'
     ];
 
     /**
@@ -230,6 +240,8 @@ class Job implements ModelInterface, ArrayAccess
         $this->container['branch'] = isset($data['branch']) ? $data['branch'] : null;
         $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
         $this->container['updated_at'] = isset($data['updated_at']) ? $data['updated_at'] : null;
+        $this->container['automation_id'] = isset($data['automation_id']) ? $data['automation_id'] : null;
+        $this->container['job_template_id'] = isset($data['job_template_id']) ? $data['job_template_id'] : null;
     }
 
     /**
@@ -492,6 +504,54 @@ class Job implements ModelInterface, ArrayAccess
     public function setUpdatedAt($updated_at)
     {
         $this->container['updated_at'] = $updated_at;
+
+        return $this;
+    }
+
+    /**
+     * Gets automation_id
+     *
+     * @return string|null
+     */
+    public function getAutomationId()
+    {
+        return $this->container['automation_id'];
+    }
+
+    /**
+     * Sets automation_id
+     *
+     * @param string|null $automation_id The ID of the automation that created this job, or null if the job was created manually.
+     *
+     * @return $this
+     */
+    public function setAutomationId($automation_id)
+    {
+        $this->container['automation_id'] = $automation_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets job_template_id
+     *
+     * @return string|null
+     */
+    public function getJobTemplateId()
+    {
+        return $this->container['job_template_id'];
+    }
+
+    /**
+     * Sets job_template_id
+     *
+     * @param string|null $job_template_id The ID of the job template this job was created from, or null if no template was used.
+     *
+     * @return $this
+     */
+    public function setJobTemplateId($job_template_id)
+    {
+        $this->container['job_template_id'] = $job_template_id;
 
         return $this;
     }

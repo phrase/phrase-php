@@ -147,6 +147,20 @@ class JobDetailsTest extends TestCase
     }
 
     /**
+     * Test attribute "automation_id"
+     */
+    public function testPropertyAutomationId()
+    {
+    }
+
+    /**
+     * Test attribute "job_template_id"
+     */
+    public function testPropertyJobTemplateId()
+    {
+    }
+
+    /**
      * Test attribute "owner"
      */
     public function testPropertyOwner()
