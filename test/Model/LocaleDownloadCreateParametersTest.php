@@ -175,6 +175,13 @@ class LocaleDownloadCreateParametersTest extends TestCase
     }
 
     /**
+     * Test attribute "fallback_for_unverified_translations"
+     */
+    public function testPropertyFallbackForUnverifiedTranslations()
+    {
+    }
+
+    /**
      * Test attribute "source_locale_id"
      */
     public function testPropertySourceLocaleId()

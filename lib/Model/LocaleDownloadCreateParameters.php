@@ -69,6 +69,7 @@ class LocaleDownloadCreateParameters implements ModelInterface, ArrayAccess
         'locale_ids' => 'string[]',
         'fallback_locale_id' => 'string',
         'use_locale_fallback' => 'bool',
+        'fallback_for_unverified_translations' => 'bool',
         'source_locale_id' => 'string',
         'custom_metadata_filters' => 'object',
         'updated_since' => 'string'
@@ -94,6 +95,7 @@ class LocaleDownloadCreateParameters implements ModelInterface, ArrayAccess
         'locale_ids' => null,
         'fallback_locale_id' => null,
         'use_locale_fallback' => null,
+        'fallback_for_unverified_translations' => null,
         'source_locale_id' => null,
         'custom_metadata_filters' => null,
         'updated_since' => null
@@ -140,6 +142,7 @@ class LocaleDownloadCreateParameters implements ModelInterface, ArrayAccess
         'locale_ids' => 'locale_ids',
         'fallback_locale_id' => 'fallback_locale_id',
         'use_locale_fallback' => 'use_locale_fallback',
+        'fallback_for_unverified_translations' => 'fallback_for_unverified_translations',
         'source_locale_id' => 'source_locale_id',
         'custom_metadata_filters' => 'custom_metadata_filters',
         'updated_since' => 'updated_since'
@@ -165,6 +168,7 @@ class LocaleDownloadCreateParameters implements ModelInterface, ArrayAccess
         'locale_ids' => 'setLocaleIds',
         'fallback_locale_id' => 'setFallbackLocaleId',
         'use_locale_fallback' => 'setUseLocaleFallback',
+        'fallback_for_unverified_translations' => 'setFallbackForUnverifiedTranslations',
         'source_locale_id' => 'setSourceLocaleId',
         'custom_metadata_filters' => 'setCustomMetadataFilters',
         'updated_since' => 'setUpdatedSince'
@@ -190,6 +194,7 @@ class LocaleDownloadCreateParameters implements ModelInterface, ArrayAccess
         'locale_ids' => 'getLocaleIds',
         'fallback_locale_id' => 'getFallbackLocaleId',
         'use_locale_fallback' => 'getUseLocaleFallback',
+        'fallback_for_unverified_translations' => 'getFallbackForUnverifiedTranslations',
         'source_locale_id' => 'getSourceLocaleId',
         'custom_metadata_filters' => 'getCustomMetadataFilters',
         'updated_since' => 'getUpdatedSince'
@@ -269,6 +274,7 @@ class LocaleDownloadCreateParameters implements ModelInterface, ArrayAccess
         $this->container['locale_ids'] = isset($data['locale_ids']) ? $data['locale_ids'] : null;
         $this->container['fallback_locale_id'] = isset($data['fallback_locale_id']) ? $data['fallback_locale_id'] : null;
         $this->container['use_locale_fallback'] = isset($data['use_locale_fallback']) ? $data['use_locale_fallback'] : null;
+        $this->container['fallback_for_unverified_translations'] = isset($data['fallback_for_unverified_translations']) ? $data['fallback_for_unverified_translations'] : null;
         $this->container['source_locale_id'] = isset($data['source_locale_id']) ? $data['source_locale_id'] : null;
         $this->container['custom_metadata_filters'] = isset($data['custom_metadata_filters']) ? $data['custom_metadata_filters'] : null;
         $this->container['updated_since'] = isset($data['updated_since']) ? $data['updated_since'] : null;
@@ -602,7 +608,7 @@ class LocaleDownloadCreateParameters implements ModelInterface, ArrayAccess
     /**
      * Sets fallback_locale_id
      *
-     * @param string|null $fallback_locale_id If a key has no translation in the locale being downloaded, the translation in the fallback locale will be used. Provide the ID of the locale that should be used as the fallback. Requires `include_empty_translations` to be set to `true`. Mutually exclusive with `use_locale_fallback`.
+     * @param string|null $fallback_locale_id If a key has no translation in the locale being downloaded, the translation in the fallback locale will be used. Provide the ID of the locale that should be used as the fallback. Requires `include_empty_translations` to be set to `true` unless `fallback_for_unverified_translations` is also set to `true`. Mutually exclusive with `use_locale_fallback`.
      *
      * @return $this
      */
@@ -626,13 +632,37 @@ class LocaleDownloadCreateParameters implements ModelInterface, ArrayAccess
     /**
      * Sets use_locale_fallback
      *
-     * @param bool|null $use_locale_fallback If a key has no translation in the locale being downloaded, the translation in the fallback locale will be used. Fallback locale is defined in [locale's settings](/en/api/strings/locales/update-a-locale#body-fallback-locale-id). Requires `include_empty_translations` to be set to `true`. Mutually exclusive with `fallback_locale_id`.
+     * @param bool|null $use_locale_fallback If a key has no translation in the locale being downloaded, the translation in the fallback locale will be used. Fallback locale is defined in [locale's settings](/en/api/strings/locales/update-a-locale#body-fallback-locale-id). Requires `include_empty_translations` to be set to `true` unless `fallback_for_unverified_translations` is also set to `true`. Mutually exclusive with `fallback_locale_id`.
      *
      * @return $this
      */
     public function setUseLocaleFallback($use_locale_fallback)
     {
         $this->container['use_locale_fallback'] = $use_locale_fallback;
+
+        return $this;
+    }
+
+    /**
+     * Gets fallback_for_unverified_translations
+     *
+     * @return bool|null
+     */
+    public function getFallbackForUnverifiedTranslations()
+    {
+        return $this->container['fallback_for_unverified_translations'];
+    }
+
+    /**
+     * Sets fallback_for_unverified_translations
+     *
+     * @param bool|null $fallback_for_unverified_translations If set to `true`, translations in a non-final state are replaced by the fallback locale's translation at export time. In the simple workflow, \"non-final\" means `unverified`. In the review workflow, it additionally includes `translated` (awaiting review). No stored translations are modified. Requires `fallback_locale_id` or `use_locale_fallback` to be set; a `422` validation error is returned otherwise.
+     *
+     * @return $this
+     */
+    public function setFallbackForUnverifiedTranslations($fallback_for_unverified_translations)
+    {
+        $this->container['fallback_for_unverified_translations'] = $fallback_for_unverified_translations;
 
         return $this;
     }
