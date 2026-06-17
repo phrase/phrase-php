@@ -241,6 +241,36 @@ class Format implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['name'] === null) {
+            $invalidProperties[] = "'name' can't be null";
+        }
+        if ($this->container['api_name'] === null) {
+            $invalidProperties[] = "'api_name' can't be null";
+        }
+        if ($this->container['description'] === null) {
+            $invalidProperties[] = "'description' can't be null";
+        }
+        if ($this->container['extension'] === null) {
+            $invalidProperties[] = "'extension' can't be null";
+        }
+        if ($this->container['default_encoding'] === null) {
+            $invalidProperties[] = "'default_encoding' can't be null";
+        }
+        if ($this->container['importable'] === null) {
+            $invalidProperties[] = "'importable' can't be null";
+        }
+        if ($this->container['exportable'] === null) {
+            $invalidProperties[] = "'exportable' can't be null";
+        }
+        if ($this->container['default_file'] === null) {
+            $invalidProperties[] = "'default_file' can't be null";
+        }
+        if ($this->container['renders_default_locale'] === null) {
+            $invalidProperties[] = "'renders_default_locale' can't be null";
+        }
+        if ($this->container['includes_locale_information'] === null) {
+            $invalidProperties[] = "'includes_locale_information' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -259,7 +289,7 @@ class Format implements ModelInterface, ArrayAccess
     /**
      * Gets name
      *
-     * @return string|null
+     * @return string
      */
     public function getName()
     {
@@ -269,7 +299,7 @@ class Format implements ModelInterface, ArrayAccess
     /**
      * Sets name
      *
-     * @param string|null $name name
+     * @param string $name Human-readable display name of the format.
      *
      * @return $this
      */
@@ -283,7 +313,7 @@ class Format implements ModelInterface, ArrayAccess
     /**
      * Gets api_name
      *
-     * @return string|null
+     * @return string
      */
     public function getApiName()
     {
@@ -293,7 +323,7 @@ class Format implements ModelInterface, ArrayAccess
     /**
      * Sets api_name
      *
-     * @param string|null $api_name api_name
+     * @param string $api_name Identifier used to reference this format in API requests, such as the file_format parameter on the uploads and downloads endpoints.
      *
      * @return $this
      */
@@ -307,7 +337,7 @@ class Format implements ModelInterface, ArrayAccess
     /**
      * Gets description
      *
-     * @return string|null
+     * @return string
      */
     public function getDescription()
     {
@@ -317,7 +347,7 @@ class Format implements ModelInterface, ArrayAccess
     /**
      * Sets description
      *
-     * @param string|null $description description
+     * @param string $description Human-readable summary of the format and its typical use case.
      *
      * @return $this
      */
@@ -331,7 +361,7 @@ class Format implements ModelInterface, ArrayAccess
     /**
      * Gets extension
      *
-     * @return string|null
+     * @return string
      */
     public function getExtension()
     {
@@ -341,7 +371,7 @@ class Format implements ModelInterface, ArrayAccess
     /**
      * Sets extension
      *
-     * @param string|null $extension extension
+     * @param string $extension Default file extension associated with this format.
      *
      * @return $this
      */
@@ -355,7 +385,7 @@ class Format implements ModelInterface, ArrayAccess
     /**
      * Gets default_encoding
      *
-     * @return string|null
+     * @return string
      */
     public function getDefaultEncoding()
     {
@@ -365,7 +395,7 @@ class Format implements ModelInterface, ArrayAccess
     /**
      * Sets default_encoding
      *
-     * @param string|null $default_encoding default_encoding
+     * @param string $default_encoding Default character encoding used when reading or writing files in this format.
      *
      * @return $this
      */
@@ -379,7 +409,7 @@ class Format implements ModelInterface, ArrayAccess
     /**
      * Gets importable
      *
-     * @return bool|null
+     * @return bool
      */
     public function getImportable()
     {
@@ -389,7 +419,7 @@ class Format implements ModelInterface, ArrayAccess
     /**
      * Sets importable
      *
-     * @param bool|null $importable importable
+     * @param bool $importable Whether locale files can be imported using this format.
      *
      * @return $this
      */
@@ -403,7 +433,7 @@ class Format implements ModelInterface, ArrayAccess
     /**
      * Gets exportable
      *
-     * @return bool|null
+     * @return bool
      */
     public function getExportable()
     {
@@ -413,7 +443,7 @@ class Format implements ModelInterface, ArrayAccess
     /**
      * Sets exportable
      *
-     * @param bool|null $exportable exportable
+     * @param bool $exportable Whether locale files can be exported using this format.
      *
      * @return $this
      */
@@ -427,7 +457,7 @@ class Format implements ModelInterface, ArrayAccess
     /**
      * Gets default_file
      *
-     * @return string|null
+     * @return string
      */
     public function getDefaultFile()
     {
@@ -437,7 +467,7 @@ class Format implements ModelInterface, ArrayAccess
     /**
      * Sets default_file
      *
-     * @param string|null $default_file default_file
+     * @param string $default_file Conventional file path pattern for this format. Contains locale_name as a placeholder for the locale identifier.
      *
      * @return $this
      */
@@ -451,7 +481,7 @@ class Format implements ModelInterface, ArrayAccess
     /**
      * Gets renders_default_locale
      *
-     * @return bool|null
+     * @return bool
      */
     public function getRendersDefaultLocale()
     {
@@ -461,7 +491,7 @@ class Format implements ModelInterface, ArrayAccess
     /**
      * Sets renders_default_locale
      *
-     * @param bool|null $renders_default_locale renders_default_locale
+     * @param bool $renders_default_locale When true, exported files contain the default locale's content for any key that has no translation in the target locale.
      *
      * @return $this
      */
@@ -475,7 +505,7 @@ class Format implements ModelInterface, ArrayAccess
     /**
      * Gets includes_locale_information
      *
-     * @return bool|null
+     * @return bool
      */
     public function getIncludesLocaleInformation()
     {
@@ -485,7 +515,7 @@ class Format implements ModelInterface, ArrayAccess
     /**
      * Sets includes_locale_information
      *
-     * @param bool|null $includes_locale_information includes_locale_information
+     * @param bool $includes_locale_information When true, files in this format embed locale information so Phrase can detect the locale automatically on import.
      *
      * @return $this
      */
