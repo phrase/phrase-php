@@ -56,6 +56,7 @@ class RepoSyncCreateParameters implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'project_id' => 'string',
+        'name' => 'string',
         'git_provider' => 'string',
         'connection_type' => 'string',
         'repo_name' => 'string',
@@ -73,6 +74,7 @@ class RepoSyncCreateParameters implements ModelInterface, ArrayAccess
       */
     protected static $openAPIFormats = [
         'project_id' => null,
+        'name' => null,
         'git_provider' => null,
         'connection_type' => null,
         'repo_name' => null,
@@ -111,6 +113,7 @@ class RepoSyncCreateParameters implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'project_id' => 'project_id',
+        'name' => 'name',
         'git_provider' => 'git_provider',
         'connection_type' => 'connection_type',
         'repo_name' => 'repo_name',
@@ -128,6 +131,7 @@ class RepoSyncCreateParameters implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'project_id' => 'setProjectId',
+        'name' => 'setName',
         'git_provider' => 'setGitProvider',
         'connection_type' => 'setConnectionType',
         'repo_name' => 'setRepoName',
@@ -145,6 +149,7 @@ class RepoSyncCreateParameters implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'project_id' => 'getProjectId',
+        'name' => 'getName',
         'git_provider' => 'getGitProvider',
         'connection_type' => 'getConnectionType',
         'repo_name' => 'getRepoName',
@@ -250,6 +255,7 @@ class RepoSyncCreateParameters implements ModelInterface, ArrayAccess
     public function __construct(?array $data = null)
     {
         $this->container['project_id'] = isset($data['project_id']) ? $data['project_id'] : null;
+        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['git_provider'] = isset($data['git_provider']) ? $data['git_provider'] : 'github';
         $this->container['connection_type'] = isset($data['connection_type']) ? $data['connection_type'] : null;
         $this->container['repo_name'] = isset($data['repo_name']) ? $data['repo_name'] : null;
@@ -272,6 +278,10 @@ class RepoSyncCreateParameters implements ModelInterface, ArrayAccess
         if ($this->container['project_id'] === null) {
             $invalidProperties[] = "'project_id' can't be null";
         }
+        if (!is_null($this->container['name']) && (mb_strlen($this->container['name']) > 100)) {
+            $invalidProperties[] = "invalid value for 'name', the character length must be smaller than or equal to 100.";
+        }
+
         $allowedValues = $this->getGitProviderAllowableValues();
         if (!is_null($this->container['git_provider']) && !in_array($this->container['git_provider'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -329,6 +339,34 @@ class RepoSyncCreateParameters implements ModelInterface, ArrayAccess
     public function setProjectId($project_id)
     {
         $this->container['project_id'] = $project_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets name
+     *
+     * @return string|null
+     */
+    public function getName()
+    {
+        return $this->container['name'];
+    }
+
+    /**
+     * Sets name
+     *
+     * @param string|null $name Optional custom display name for this repo sync. Defaults to null; when null the project name is used as the display name.
+     *
+     * @return $this
+     */
+    public function setName($name)
+    {
+        if (!is_null($name) && (mb_strlen($name) > 100)) {
+            throw new \InvalidArgumentException('invalid length for $name when calling RepoSyncCreateParameters., must be smaller than or equal to 100.');
+        }
+
+        $this->container['name'] = $name;
 
         return $this;
     }

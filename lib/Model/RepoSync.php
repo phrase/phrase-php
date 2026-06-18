@@ -56,6 +56,7 @@ class RepoSync implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'id' => 'string',
+        'name' => 'string',
         'project' => '\Phrase\Model\ProjectShort',
         'provider' => 'string',
         'enabled' => 'bool',
@@ -74,6 +75,7 @@ class RepoSync implements ModelInterface, ArrayAccess
       */
     protected static $openAPIFormats = [
         'id' => null,
+        'name' => null,
         'project' => null,
         'provider' => null,
         'enabled' => null,
@@ -113,6 +115,7 @@ class RepoSync implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'id' => 'id',
+        'name' => 'name',
         'project' => 'project',
         'provider' => 'provider',
         'enabled' => 'enabled',
@@ -131,6 +134,7 @@ class RepoSync implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'id' => 'setId',
+        'name' => 'setName',
         'project' => 'setProject',
         'provider' => 'setProvider',
         'enabled' => 'setEnabled',
@@ -149,6 +153,7 @@ class RepoSync implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'id' => 'getId',
+        'name' => 'getName',
         'project' => 'getProject',
         'provider' => 'getProvider',
         'enabled' => 'getEnabled',
@@ -221,6 +226,7 @@ class RepoSync implements ModelInterface, ArrayAccess
     public function __construct(?array $data = null)
     {
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['project'] = isset($data['project']) ? $data['project'] : null;
         $this->container['provider'] = isset($data['provider']) ? $data['provider'] : null;
         $this->container['enabled'] = isset($data['enabled']) ? $data['enabled'] : null;
@@ -240,6 +246,10 @@ class RepoSync implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        if (!is_null($this->container['name']) && (mb_strlen($this->container['name']) > 100)) {
+            $invalidProperties[] = "invalid value for 'name', the character length must be smaller than or equal to 100.";
+        }
 
         return $invalidProperties;
     }
@@ -276,6 +286,34 @@ class RepoSync implements ModelInterface, ArrayAccess
     public function setId($id)
     {
         $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
+     * Gets name
+     *
+     * @return string|null
+     */
+    public function getName()
+    {
+        return $this->container['name'];
+    }
+
+    /**
+     * Sets name
+     *
+     * @param string|null $name Optional custom display name for this repo sync. When null or blank, the sync is displayed using the associated project name.
+     *
+     * @return $this
+     */
+    public function setName($name)
+    {
+        if (!is_null($name) && (mb_strlen($name) > 100)) {
+            throw new \InvalidArgumentException('invalid length for $name when calling RepoSync., must be smaller than or equal to 100.');
+        }
+
+        $this->container['name'] = $name;
 
         return $this;
     }

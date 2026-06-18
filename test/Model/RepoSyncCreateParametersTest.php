@@ -84,6 +84,13 @@ class RepoSyncCreateParametersTest extends TestCase
     }
 
     /**
+     * Test attribute "name"
+     */
+    public function testPropertyName()
+    {
+    }
+
+    /**
      * Test attribute "git_provider"
      */
     public function testPropertyGitProvider()

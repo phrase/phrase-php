@@ -84,6 +84,13 @@ class RepoSyncTest extends TestCase
     }
 
     /**
+     * Test attribute "name"
+     */
+    public function testPropertyName()
+    {
+    }
+
+    /**
      * Test attribute "project"
      */
     public function testPropertyProject()

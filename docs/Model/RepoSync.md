@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **string** |  | [optional] 
+**name** | **string** | Optional custom display name for this repo sync. When null or blank, the sync is displayed using the associated project name. | [optional] 
 **project** | [**\Phrase\Model\ProjectShort**](ProjectShort.md) |  | [optional] 
 **provider** | **string** |  | [optional] 
 **enabled** | **bool** |  | [optional] 
