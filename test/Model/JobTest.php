@@ -159,4 +159,11 @@ class JobTest extends TestCase
     public function testPropertyJobTemplateId()
     {
     }
+
+    /**
+     * Test attribute "review_due_date"
+     */
+    public function testPropertyReviewDueDate()
+    {
+    }
 }

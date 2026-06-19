@@ -66,7 +66,8 @@ class Job implements ModelInterface, ArrayAccess
         'created_at' => '\DateTime',
         'updated_at' => '\DateTime',
         'automation_id' => 'string',
-        'job_template_id' => 'string'
+        'job_template_id' => 'string',
+        'review_due_date' => '\DateTime'
     ];
 
     /**
@@ -86,7 +87,8 @@ class Job implements ModelInterface, ArrayAccess
         'created_at' => 'date-time',
         'updated_at' => 'date-time',
         'automation_id' => null,
-        'job_template_id' => null
+        'job_template_id' => null,
+        'review_due_date' => 'date-time'
     ];
 
     /**
@@ -127,7 +129,8 @@ class Job implements ModelInterface, ArrayAccess
         'created_at' => 'created_at',
         'updated_at' => 'updated_at',
         'automation_id' => 'automation_id',
-        'job_template_id' => 'job_template_id'
+        'job_template_id' => 'job_template_id',
+        'review_due_date' => 'review_due_date'
     ];
 
     /**
@@ -147,7 +150,8 @@ class Job implements ModelInterface, ArrayAccess
         'created_at' => 'setCreatedAt',
         'updated_at' => 'setUpdatedAt',
         'automation_id' => 'setAutomationId',
-        'job_template_id' => 'setJobTemplateId'
+        'job_template_id' => 'setJobTemplateId',
+        'review_due_date' => 'setReviewDueDate'
     ];
 
     /**
@@ -167,7 +171,8 @@ class Job implements ModelInterface, ArrayAccess
         'created_at' => 'getCreatedAt',
         'updated_at' => 'getUpdatedAt',
         'automation_id' => 'getAutomationId',
-        'job_template_id' => 'getJobTemplateId'
+        'job_template_id' => 'getJobTemplateId',
+        'review_due_date' => 'getReviewDueDate'
     ];
 
     /**
@@ -242,6 +247,7 @@ class Job implements ModelInterface, ArrayAccess
         $this->container['updated_at'] = isset($data['updated_at']) ? $data['updated_at'] : null;
         $this->container['automation_id'] = isset($data['automation_id']) ? $data['automation_id'] : null;
         $this->container['job_template_id'] = isset($data['job_template_id']) ? $data['job_template_id'] : null;
+        $this->container['review_due_date'] = isset($data['review_due_date']) ? $data['review_due_date'] : null;
     }
 
     /**
@@ -552,6 +558,30 @@ class Job implements ModelInterface, ArrayAccess
     public function setJobTemplateId($job_template_id)
     {
         $this->container['job_template_id'] = $job_template_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets review_due_date
+     *
+     * @return \DateTime|null
+     */
+    public function getReviewDueDate()
+    {
+        return $this->container['review_due_date'];
+    }
+
+    /**
+     * Sets review_due_date
+     *
+     * @param \DateTime|null $review_due_date The review due date for this job. Returns `null` when the project does not have review workflow enabled.
+     *
+     * @return $this
+     */
+    public function setReviewDueDate($review_due_date)
+    {
+        $this->container['review_due_date'] = $review_due_date;
 
         return $this;
     }

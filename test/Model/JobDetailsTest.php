@@ -161,6 +161,13 @@ class JobDetailsTest extends TestCase
     }
 
     /**
+     * Test attribute "review_due_date"
+     */
+    public function testPropertyReviewDueDate()
+    {
+    }
+
+    /**
      * Test attribute "owner"
      */
     public function testPropertyOwner()

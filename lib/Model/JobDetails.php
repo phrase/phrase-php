@@ -67,6 +67,7 @@ class JobDetails implements ModelInterface, ArrayAccess
         'updated_at' => '\DateTime',
         'automation_id' => 'string',
         'job_template_id' => 'string',
+        'review_due_date' => '\DateTime',
         'owner' => '\Phrase\Model\UserPreview',
         'job_tag_name' => 'string',
         'source_translations_updated_at' => '\DateTime',
@@ -95,6 +96,7 @@ class JobDetails implements ModelInterface, ArrayAccess
         'updated_at' => 'date-time',
         'automation_id' => null,
         'job_template_id' => null,
+        'review_due_date' => 'date-time',
         'owner' => null,
         'job_tag_name' => null,
         'source_translations_updated_at' => 'date-time',
@@ -144,6 +146,7 @@ class JobDetails implements ModelInterface, ArrayAccess
         'updated_at' => 'updated_at',
         'automation_id' => 'automation_id',
         'job_template_id' => 'job_template_id',
+        'review_due_date' => 'review_due_date',
         'owner' => 'owner',
         'job_tag_name' => 'job_tag_name',
         'source_translations_updated_at' => 'source_translations_updated_at',
@@ -172,6 +175,7 @@ class JobDetails implements ModelInterface, ArrayAccess
         'updated_at' => 'setUpdatedAt',
         'automation_id' => 'setAutomationId',
         'job_template_id' => 'setJobTemplateId',
+        'review_due_date' => 'setReviewDueDate',
         'owner' => 'setOwner',
         'job_tag_name' => 'setJobTagName',
         'source_translations_updated_at' => 'setSourceTranslationsUpdatedAt',
@@ -200,6 +204,7 @@ class JobDetails implements ModelInterface, ArrayAccess
         'updated_at' => 'getUpdatedAt',
         'automation_id' => 'getAutomationId',
         'job_template_id' => 'getJobTemplateId',
+        'review_due_date' => 'getReviewDueDate',
         'owner' => 'getOwner',
         'job_tag_name' => 'getJobTagName',
         'source_translations_updated_at' => 'getSourceTranslationsUpdatedAt',
@@ -282,6 +287,7 @@ class JobDetails implements ModelInterface, ArrayAccess
         $this->container['updated_at'] = isset($data['updated_at']) ? $data['updated_at'] : null;
         $this->container['automation_id'] = isset($data['automation_id']) ? $data['automation_id'] : null;
         $this->container['job_template_id'] = isset($data['job_template_id']) ? $data['job_template_id'] : null;
+        $this->container['review_due_date'] = isset($data['review_due_date']) ? $data['review_due_date'] : null;
         $this->container['owner'] = isset($data['owner']) ? $data['owner'] : null;
         $this->container['job_tag_name'] = isset($data['job_tag_name']) ? $data['job_tag_name'] : null;
         $this->container['source_translations_updated_at'] = isset($data['source_translations_updated_at']) ? $data['source_translations_updated_at'] : null;
@@ -600,6 +606,30 @@ class JobDetails implements ModelInterface, ArrayAccess
     public function setJobTemplateId($job_template_id)
     {
         $this->container['job_template_id'] = $job_template_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets review_due_date
+     *
+     * @return \DateTime|null
+     */
+    public function getReviewDueDate()
+    {
+        return $this->container['review_due_date'];
+    }
+
+    /**
+     * Sets review_due_date
+     *
+     * @param \DateTime|null $review_due_date The review due date for this job. Returns `null` when the project does not have review workflow enabled.
+     *
+     * @return $this
+     */
+    public function setReviewDueDate($review_due_date)
+    {
+        $this->container['review_due_date'] = $review_due_date;
 
         return $this;
     }
