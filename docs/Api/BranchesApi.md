@@ -18,7 +18,7 @@ Method | HTTP request | Description
 
 ## branchCompare
 
-> branchCompare($project_id, $name, $x_phrase_app_otp)
+> \Phrase\Model\BranchComparison branchCompare($project_id, $name, $x_phrase_app_otp)
 
 Compare branches
 
@@ -44,7 +44,8 @@ $name = 'name_example'; // string | name
 $x_phrase_app_otp = 'x_phrase_app_otp_example'; // string | Two-Factor-Authentication token (optional)
 
 try {
-    $apiInstance->branchCompare($project_id, $name, $x_phrase_app_otp);
+    $result = $apiInstance->branchCompare($project_id, $name, $x_phrase_app_otp);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling BranchesApi->branchCompare: ', $e->getMessage(), PHP_EOL;
 }
@@ -62,7 +63,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**\Phrase\Model\BranchComparison**](../Model/BranchComparison.md)
 
 ### Authorization
 
@@ -71,7 +72,7 @@ void (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: Not defined
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../../README.md#documentation-for-models)
