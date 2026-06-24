@@ -119,19 +119,19 @@ class ScreenshotsApi
      * Create a screenshot
      *
      * @param  string $project_id Project ID (required)
+     * @param  \SplFileObject $filename Image file to upload. Accepted formats are JPEG (jpg/jpeg), GIF, and PNG. Maximum file size is 10 MB. Submitting an unsupported format or a file exceeding the size limit returns 422. (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  string $branch specify the branch to use (optional)
-     * @param  string $name Name of the screenshot (optional)
-     * @param  string $description Description of the screenshot (optional)
-     * @param  \SplFileObject $filename Screenshot file (optional)
+     * @param  string $name Display name for the screenshot. Must be unique within the project (case-insensitive). When omitted, the name is derived from the uploaded filename. (optional)
+     * @param  string $description Optional free-text description of the screenshot. (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Phrase\Model\Screenshot|\Phrase\Model\DocumentDelete422Response
      */
-    public function screenshotCreate($project_id, $x_phrase_app_otp = null, $branch = null, $name = null, $description = null, $filename = null)
+    public function screenshotCreate($project_id, $filename, $x_phrase_app_otp = null, $branch = null, $name = null, $description = null)
     {
-        list($response) = $this->screenshotCreateWithHttpInfo($project_id, $x_phrase_app_otp, $branch, $name, $description, $filename);
+        list($response) = $this->screenshotCreateWithHttpInfo($project_id, $filename, $x_phrase_app_otp, $branch, $name, $description);
         return $response;
     }
 
@@ -141,19 +141,19 @@ class ScreenshotsApi
      * Create a screenshot
      *
      * @param  string $project_id Project ID (required)
+     * @param  \SplFileObject $filename Image file to upload. Accepted formats are JPEG (jpg/jpeg), GIF, and PNG. Maximum file size is 10 MB. Submitting an unsupported format or a file exceeding the size limit returns 422. (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  string $branch specify the branch to use (optional)
-     * @param  string $name Name of the screenshot (optional)
-     * @param  string $description Description of the screenshot (optional)
-     * @param  \SplFileObject $filename Screenshot file (optional)
+     * @param  string $name Display name for the screenshot. Must be unique within the project (case-insensitive). When omitted, the name is derived from the uploaded filename. (optional)
+     * @param  string $description Optional free-text description of the screenshot. (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Phrase\Model\Screenshot|\Phrase\Model\DocumentDelete422Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function screenshotCreateWithHttpInfo($project_id, $x_phrase_app_otp = null, $branch = null, $name = null, $description = null, $filename = null)
+    public function screenshotCreateWithHttpInfo($project_id, $filename, $x_phrase_app_otp = null, $branch = null, $name = null, $description = null)
     {
-        $request = $this->screenshotCreateRequest($project_id, $x_phrase_app_otp, $branch, $name, $description, $filename);
+        $request = $this->screenshotCreateRequest($project_id, $filename, $x_phrase_app_otp, $branch, $name, $description);
 
         try {
             $options = $this->createHttpClientOption();
@@ -254,18 +254,18 @@ class ScreenshotsApi
      * Create a screenshot
      *
      * @param  string $project_id Project ID (required)
+     * @param  \SplFileObject $filename Image file to upload. Accepted formats are JPEG (jpg/jpeg), GIF, and PNG. Maximum file size is 10 MB. Submitting an unsupported format or a file exceeding the size limit returns 422. (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  string $branch specify the branch to use (optional)
-     * @param  string $name Name of the screenshot (optional)
-     * @param  string $description Description of the screenshot (optional)
-     * @param  \SplFileObject $filename Screenshot file (optional)
+     * @param  string $name Display name for the screenshot. Must be unique within the project (case-insensitive). When omitted, the name is derived from the uploaded filename. (optional)
+     * @param  string $description Optional free-text description of the screenshot. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function screenshotCreateAsync($project_id, $x_phrase_app_otp = null, $branch = null, $name = null, $description = null, $filename = null)
+    public function screenshotCreateAsync($project_id, $filename, $x_phrase_app_otp = null, $branch = null, $name = null, $description = null)
     {
-        return $this->screenshotCreateAsyncWithHttpInfo($project_id, $x_phrase_app_otp, $branch, $name, $description, $filename)
+        return $this->screenshotCreateAsyncWithHttpInfo($project_id, $filename, $x_phrase_app_otp, $branch, $name, $description)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -279,19 +279,19 @@ class ScreenshotsApi
      * Create a screenshot
      *
      * @param  string $project_id Project ID (required)
+     * @param  \SplFileObject $filename Image file to upload. Accepted formats are JPEG (jpg/jpeg), GIF, and PNG. Maximum file size is 10 MB. Submitting an unsupported format or a file exceeding the size limit returns 422. (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  string $branch specify the branch to use (optional)
-     * @param  string $name Name of the screenshot (optional)
-     * @param  string $description Description of the screenshot (optional)
-     * @param  \SplFileObject $filename Screenshot file (optional)
+     * @param  string $name Display name for the screenshot. Must be unique within the project (case-insensitive). When omitted, the name is derived from the uploaded filename. (optional)
+     * @param  string $description Optional free-text description of the screenshot. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function screenshotCreateAsyncWithHttpInfo($project_id, $x_phrase_app_otp = null, $branch = null, $name = null, $description = null, $filename = null)
+    public function screenshotCreateAsyncWithHttpInfo($project_id, $filename, $x_phrase_app_otp = null, $branch = null, $name = null, $description = null)
     {
         $returnType = '\Phrase\Model\Screenshot';
-        $request = $this->screenshotCreateRequest($project_id, $x_phrase_app_otp, $branch, $name, $description, $filename);
+        $request = $this->screenshotCreateRequest($project_id, $filename, $x_phrase_app_otp, $branch, $name, $description);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -331,21 +331,27 @@ class ScreenshotsApi
      * Create request for operation 'screenshotCreate'
      *
      * @param  string $project_id Project ID (required)
+     * @param  \SplFileObject $filename Image file to upload. Accepted formats are JPEG (jpg/jpeg), GIF, and PNG. Maximum file size is 10 MB. Submitting an unsupported format or a file exceeding the size limit returns 422. (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  string $branch specify the branch to use (optional)
-     * @param  string $name Name of the screenshot (optional)
-     * @param  string $description Description of the screenshot (optional)
-     * @param  \SplFileObject $filename Screenshot file (optional)
+     * @param  string $name Display name for the screenshot. Must be unique within the project (case-insensitive). When omitted, the name is derived from the uploaded filename. (optional)
+     * @param  string $description Optional free-text description of the screenshot. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function screenshotCreateRequest($project_id, $x_phrase_app_otp = null, $branch = null, $name = null, $description = null, $filename = null)
+    protected function screenshotCreateRequest($project_id, $filename, $x_phrase_app_otp = null, $branch = null, $name = null, $description = null)
     {
         // verify the required parameter 'project_id' is set
         if ($project_id === null || (is_array($project_id) && count($project_id) === 0)) {
             throw new \InvalidArgumentException(
                 'Missing the required parameter $project_id when calling screenshotCreate'
+            );
+        }
+        // verify the required parameter 'filename' is set
+        if ($filename === null || (is_array($filename) && count($filename) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $filename when calling screenshotCreate'
             );
         }
 

@@ -14,11 +14,11 @@ Method | HTTP request | Description
 
 ## screenshotCreate
 
-> \Phrase\Model\Screenshot screenshotCreate($project_id, $x_phrase_app_otp, $branch, $name, $description, $filename)
+> \Phrase\Model\Screenshot screenshotCreate($project_id, $filename, $x_phrase_app_otp, $branch, $name, $description)
 
 Create a screenshot
 
-Create a new screenshot.
+Creates a screenshot in a project to provide visual context for in-context translation. Attach translation keys to regions of the uploaded image so translators can see where each string appears in your UI.  This endpoint accepts a multipart/form-data request with a binary file upload, unlike most Phrase API endpoints that use JSON. Use a multipart form client or the -F flag in curl rather than a JSON body.  The screenshot name must be unique within the project (case-insensitive). When name is omitted, it is derived from the uploaded filename. The account must have the Screenshots feature enabled; requests to projects on accounts without it return 403. Creating a screenshot requires a token with the write scope and manage access to the project.
 
 ### Example
 
@@ -36,14 +36,14 @@ $apiInstance = new Phrase\Api\ScreenshotsApi(
     $config
 );
 $project_id = 'project_id_example'; // string | Project ID
+$filename = "/path/to/file.txt"; // \SplFileObject | Image file to upload. Accepted formats are JPEG (jpg/jpeg), GIF, and PNG. Maximum file size is 10 MB. Submitting an unsupported format or a file exceeding the size limit returns 422.
 $x_phrase_app_otp = 'x_phrase_app_otp_example'; // string | Two-Factor-Authentication token (optional)
 $branch = 'branch_example'; // string | specify the branch to use
-$name = 'name_example'; // string | Name of the screenshot
-$description = 'description_example'; // string | Description of the screenshot
-$filename = "/path/to/file.txt"; // \SplFileObject | Screenshot file
+$name = 'name_example'; // string | Display name for the screenshot. Must be unique within the project (case-insensitive). When omitted, the name is derived from the uploaded filename.
+$description = 'description_example'; // string | Optional free-text description of the screenshot.
 
 try {
-    $result = $apiInstance->screenshotCreate($project_id, $x_phrase_app_otp, $branch, $name, $description, $filename);
+    $result = $apiInstance->screenshotCreate($project_id, $filename, $x_phrase_app_otp, $branch, $name, $description);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ScreenshotsApi->screenshotCreate: ', $e->getMessage(), PHP_EOL;
@@ -57,11 +57,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **project_id** | **string**| Project ID |
+ **filename** | **\SplFileObject****\SplFileObject**| Image file to upload. Accepted formats are JPEG (jpg/jpeg), GIF, and PNG. Maximum file size is 10 MB. Submitting an unsupported format or a file exceeding the size limit returns 422. |
  **x_phrase_app_otp** | **string**| Two-Factor-Authentication token (optional) | [optional]
  **branch** | **string**| specify the branch to use | [optional]
- **name** | **string**| Name of the screenshot | [optional]
- **description** | **string**| Description of the screenshot | [optional]
- **filename** | **\SplFileObject****\SplFileObject**| Screenshot file | [optional]
+ **name** | **string**| Display name for the screenshot. Must be unique within the project (case-insensitive). When omitted, the name is derived from the uploaded filename. | [optional]
+ **description** | **string**| Optional free-text description of the screenshot. | [optional]
 
 ### Return type
 
