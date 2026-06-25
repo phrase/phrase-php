@@ -120,16 +120,17 @@ class LinkedKeysApi
      *
      * @param  string $project_id Project ID (required)
      * @param  string $id Parent Translation Key ID (required)
-     * @param  \Phrase\Model\KeyLinksBatchDestroyParameters $key_links_batch_destroy_parameters key_links_batch_destroy_parameters (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
+     * @param  \Phrase\Model\KeyLinksBatchDestroyParameters $key_links_batch_destroy_parameters key_links_batch_destroy_parameters (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return void
+     * @return \Phrase\Model\KeyLink|\Phrase\Model\DocumentDelete422Response
      */
-    public function keyLinksBatchDestroy($project_id, $id, $key_links_batch_destroy_parameters, $x_phrase_app_otp = null)
+    public function keyLinksBatchDestroy($project_id, $id, $x_phrase_app_otp = null, $key_links_batch_destroy_parameters = null)
     {
-        $this->keyLinksBatchDestroyWithHttpInfo($project_id, $id, $key_links_batch_destroy_parameters, $x_phrase_app_otp);
+        list($response) = $this->keyLinksBatchDestroyWithHttpInfo($project_id, $id, $x_phrase_app_otp, $key_links_batch_destroy_parameters);
+        return $response;
     }
 
     /**
@@ -139,16 +140,16 @@ class LinkedKeysApi
      *
      * @param  string $project_id Project ID (required)
      * @param  string $id Parent Translation Key ID (required)
-     * @param  \Phrase\Model\KeyLinksBatchDestroyParameters $key_links_batch_destroy_parameters (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
+     * @param  \Phrase\Model\KeyLinksBatchDestroyParameters $key_links_batch_destroy_parameters (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Phrase\Model\KeyLink|\Phrase\Model\DocumentDelete422Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function keyLinksBatchDestroyWithHttpInfo($project_id, $id, $key_links_batch_destroy_parameters, $x_phrase_app_otp = null)
+    public function keyLinksBatchDestroyWithHttpInfo($project_id, $id, $x_phrase_app_otp = null, $key_links_batch_destroy_parameters = null)
     {
-        $request = $this->keyLinksBatchDestroyRequest($project_id, $id, $key_links_batch_destroy_parameters, $x_phrase_app_otp);
+        $request = $this->keyLinksBatchDestroyRequest($project_id, $id, $x_phrase_app_otp, $key_links_batch_destroy_parameters);
 
         try {
             $options = $this->createHttpClientOption();
@@ -178,10 +179,58 @@ class LinkedKeysApi
                 );
             }
 
-            return [null, $statusCode, $response->getHeaders()];
+            $responseBody = $response->getBody();
+            switch($statusCode) {
+                case 200:
+                    if ('\Phrase\Model\KeyLink' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Phrase\Model\KeyLink', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 422:
+                    if ('\Phrase\Model\DocumentDelete422Response' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Phrase\Model\DocumentDelete422Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\Phrase\Model\KeyLink';
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = (string) $responseBody;
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
 
         } catch (ApiException $e) {
             switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Phrase\Model\KeyLink',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
@@ -202,15 +251,15 @@ class LinkedKeysApi
      *
      * @param  string $project_id Project ID (required)
      * @param  string $id Parent Translation Key ID (required)
-     * @param  \Phrase\Model\KeyLinksBatchDestroyParameters $key_links_batch_destroy_parameters (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
+     * @param  \Phrase\Model\KeyLinksBatchDestroyParameters $key_links_batch_destroy_parameters (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function keyLinksBatchDestroyAsync($project_id, $id, $key_links_batch_destroy_parameters, $x_phrase_app_otp = null)
+    public function keyLinksBatchDestroyAsync($project_id, $id, $x_phrase_app_otp = null, $key_links_batch_destroy_parameters = null)
     {
-        return $this->keyLinksBatchDestroyAsyncWithHttpInfo($project_id, $id, $key_links_batch_destroy_parameters, $x_phrase_app_otp)
+        return $this->keyLinksBatchDestroyAsyncWithHttpInfo($project_id, $id, $x_phrase_app_otp, $key_links_batch_destroy_parameters)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -225,22 +274,33 @@ class LinkedKeysApi
      *
      * @param  string $project_id Project ID (required)
      * @param  string $id Parent Translation Key ID (required)
-     * @param  \Phrase\Model\KeyLinksBatchDestroyParameters $key_links_batch_destroy_parameters (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
+     * @param  \Phrase\Model\KeyLinksBatchDestroyParameters $key_links_batch_destroy_parameters (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function keyLinksBatchDestroyAsyncWithHttpInfo($project_id, $id, $key_links_batch_destroy_parameters, $x_phrase_app_otp = null)
+    public function keyLinksBatchDestroyAsyncWithHttpInfo($project_id, $id, $x_phrase_app_otp = null, $key_links_batch_destroy_parameters = null)
     {
-        $returnType = '';
-        $request = $this->keyLinksBatchDestroyRequest($project_id, $id, $key_links_batch_destroy_parameters, $x_phrase_app_otp);
+        $returnType = '\Phrase\Model\KeyLink';
+        $request = $this->keyLinksBatchDestroyRequest($project_id, $id, $x_phrase_app_otp, $key_links_batch_destroy_parameters);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
                 },
                 function ($exception) {
                     $response = $exception->getResponse();
@@ -264,13 +324,13 @@ class LinkedKeysApi
      *
      * @param  string $project_id Project ID (required)
      * @param  string $id Parent Translation Key ID (required)
-     * @param  \Phrase\Model\KeyLinksBatchDestroyParameters $key_links_batch_destroy_parameters (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
+     * @param  \Phrase\Model\KeyLinksBatchDestroyParameters $key_links_batch_destroy_parameters (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function keyLinksBatchDestroyRequest($project_id, $id, $key_links_batch_destroy_parameters, $x_phrase_app_otp = null)
+    protected function keyLinksBatchDestroyRequest($project_id, $id, $x_phrase_app_otp = null, $key_links_batch_destroy_parameters = null)
     {
         // verify the required parameter 'project_id' is set
         if ($project_id === null || (is_array($project_id) && count($project_id) === 0)) {
@@ -282,12 +342,6 @@ class LinkedKeysApi
         if ($id === null || (is_array($id) && count($id) === 0)) {
             throw new \InvalidArgumentException(
                 'Missing the required parameter $id when calling keyLinksBatchDestroy'
-            );
-        }
-        // verify the required parameter 'key_links_batch_destroy_parameters' is set
-        if ($key_links_batch_destroy_parameters === null || (is_array($key_links_batch_destroy_parameters) && count($key_links_batch_destroy_parameters) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $key_links_batch_destroy_parameters when calling keyLinksBatchDestroy'
             );
         }
 

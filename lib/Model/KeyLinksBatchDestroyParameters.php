@@ -56,7 +56,8 @@ class KeyLinksBatchDestroyParameters implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'child_key_ids' => 'string[]',
-        'unlink_parent' => 'bool'
+        'unlink_parent' => 'bool',
+        'strategy' => 'string'
     ];
 
     /**
@@ -66,7 +67,8 @@ class KeyLinksBatchDestroyParameters implements ModelInterface, ArrayAccess
       */
     protected static $openAPIFormats = [
         'child_key_ids' => null,
-        'unlink_parent' => null
+        'unlink_parent' => null,
+        'strategy' => null
     ];
 
     /**
@@ -97,7 +99,8 @@ class KeyLinksBatchDestroyParameters implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'child_key_ids' => 'child_key_ids',
-        'unlink_parent' => 'unlink_parent'
+        'unlink_parent' => 'unlink_parent',
+        'strategy' => 'strategy'
     ];
 
     /**
@@ -107,7 +110,8 @@ class KeyLinksBatchDestroyParameters implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'child_key_ids' => 'setChildKeyIds',
-        'unlink_parent' => 'setUnlinkParent'
+        'unlink_parent' => 'setUnlinkParent',
+        'strategy' => 'setStrategy'
     ];
 
     /**
@@ -117,7 +121,8 @@ class KeyLinksBatchDestroyParameters implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'child_key_ids' => 'getChildKeyIds',
-        'unlink_parent' => 'getUnlinkParent'
+        'unlink_parent' => 'getUnlinkParent',
+        'strategy' => 'getStrategy'
     ];
 
     /**
@@ -161,8 +166,23 @@ class KeyLinksBatchDestroyParameters implements ModelInterface, ArrayAccess
         return self::$openAPIModelName;
     }
 
+    const STRATEGY_KEEP_CONTENT = 'keep_content';
+    const STRATEGY_REMOVE_CONTENT = 'remove_content';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getStrategyAllowableValues()
+    {
+        return [
+            self::STRATEGY_KEEP_CONTENT,
+            self::STRATEGY_REMOVE_CONTENT,
+        ];
+    }
     
 
     /**
@@ -182,6 +202,7 @@ class KeyLinksBatchDestroyParameters implements ModelInterface, ArrayAccess
     {
         $this->container['child_key_ids'] = isset($data['child_key_ids']) ? $data['child_key_ids'] : null;
         $this->container['unlink_parent'] = isset($data['unlink_parent']) ? $data['unlink_parent'] : false;
+        $this->container['strategy'] = isset($data['strategy']) ? $data['strategy'] : 'keep_content';
     }
 
     /**
@@ -196,6 +217,14 @@ class KeyLinksBatchDestroyParameters implements ModelInterface, ArrayAccess
         if ($this->container['child_key_ids'] === null) {
             $invalidProperties[] = "'child_key_ids' can't be null";
         }
+        $allowedValues = $this->getStrategyAllowableValues();
+        if (!is_null($this->container['strategy']) && !in_array($this->container['strategy'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'strategy', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -224,7 +253,7 @@ class KeyLinksBatchDestroyParameters implements ModelInterface, ArrayAccess
     /**
      * Sets child_key_ids
      *
-     * @param string[] $child_key_ids The IDs of the child keys to unlink from the parent key.
+     * @param string[] $child_key_ids Codes of the child keys to unlink. Required when unlink_parent is false or omitted. Ignored when unlink_parent is true.
      *
      * @return $this
      */
@@ -248,13 +277,46 @@ class KeyLinksBatchDestroyParameters implements ModelInterface, ArrayAccess
     /**
      * Sets unlink_parent
      *
-     * @param bool|null $unlink_parent Whether to unlink the parent key as well and unmark it as linked-key.
+     * @param bool|null $unlink_parent When true, dissolves the entire linked-key group by unlinking all children and removing the group. The child_key_ids field is ignored when this is set to true.
      *
      * @return $this
      */
     public function setUnlinkParent($unlink_parent)
     {
         $this->container['unlink_parent'] = $unlink_parent;
+
+        return $this;
+    }
+
+    /**
+     * Gets strategy
+     *
+     * @return string|null
+     */
+    public function getStrategy()
+    {
+        return $this->container['strategy'];
+    }
+
+    /**
+     * Sets strategy
+     *
+     * @param string|null $strategy Controls what happens to child key translation content after unlinking. keep_content (default) copies the parent translation into each child; remove_content clears each child translation.
+     *
+     * @return $this
+     */
+    public function setStrategy($strategy)
+    {
+        $allowedValues = $this->getStrategyAllowableValues();
+        if (!is_null($strategy) && !in_array($strategy, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'strategy', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['strategy'] = $strategy;
 
         return $this;
     }
