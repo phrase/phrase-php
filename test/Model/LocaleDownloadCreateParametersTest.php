@@ -196,6 +196,20 @@ class LocaleDownloadCreateParametersTest extends TestCase
     }
 
     /**
+     * Test attribute "translation_key_prefix"
+     */
+    public function testPropertyTranslationKeyPrefix()
+    {
+    }
+
+    /**
+     * Test attribute "filter_by_prefix"
+     */
+    public function testPropertyFilterByPrefix()
+    {
+    }
+
+    /**
      * Test attribute "updated_since"
      */
     public function testPropertyUpdatedSince()

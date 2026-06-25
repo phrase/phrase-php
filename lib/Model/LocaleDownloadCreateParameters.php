@@ -72,6 +72,8 @@ class LocaleDownloadCreateParameters implements ModelInterface, ArrayAccess
         'fallback_for_unverified_translations' => 'bool',
         'source_locale_id' => 'string',
         'custom_metadata_filters' => 'object',
+        'translation_key_prefix' => 'string',
+        'filter_by_prefix' => 'bool',
         'updated_since' => 'string'
     ];
 
@@ -98,6 +100,8 @@ class LocaleDownloadCreateParameters implements ModelInterface, ArrayAccess
         'fallback_for_unverified_translations' => null,
         'source_locale_id' => null,
         'custom_metadata_filters' => null,
+        'translation_key_prefix' => null,
+        'filter_by_prefix' => null,
         'updated_since' => null
     ];
 
@@ -145,6 +149,8 @@ class LocaleDownloadCreateParameters implements ModelInterface, ArrayAccess
         'fallback_for_unverified_translations' => 'fallback_for_unverified_translations',
         'source_locale_id' => 'source_locale_id',
         'custom_metadata_filters' => 'custom_metadata_filters',
+        'translation_key_prefix' => 'translation_key_prefix',
+        'filter_by_prefix' => 'filter_by_prefix',
         'updated_since' => 'updated_since'
     ];
 
@@ -171,6 +177,8 @@ class LocaleDownloadCreateParameters implements ModelInterface, ArrayAccess
         'fallback_for_unverified_translations' => 'setFallbackForUnverifiedTranslations',
         'source_locale_id' => 'setSourceLocaleId',
         'custom_metadata_filters' => 'setCustomMetadataFilters',
+        'translation_key_prefix' => 'setTranslationKeyPrefix',
+        'filter_by_prefix' => 'setFilterByPrefix',
         'updated_since' => 'setUpdatedSince'
     ];
 
@@ -197,6 +205,8 @@ class LocaleDownloadCreateParameters implements ModelInterface, ArrayAccess
         'fallback_for_unverified_translations' => 'getFallbackForUnverifiedTranslations',
         'source_locale_id' => 'getSourceLocaleId',
         'custom_metadata_filters' => 'getCustomMetadataFilters',
+        'translation_key_prefix' => 'getTranslationKeyPrefix',
+        'filter_by_prefix' => 'getFilterByPrefix',
         'updated_since' => 'getUpdatedSince'
     ];
 
@@ -277,6 +287,8 @@ class LocaleDownloadCreateParameters implements ModelInterface, ArrayAccess
         $this->container['fallback_for_unverified_translations'] = isset($data['fallback_for_unverified_translations']) ? $data['fallback_for_unverified_translations'] : null;
         $this->container['source_locale_id'] = isset($data['source_locale_id']) ? $data['source_locale_id'] : null;
         $this->container['custom_metadata_filters'] = isset($data['custom_metadata_filters']) ? $data['custom_metadata_filters'] : null;
+        $this->container['translation_key_prefix'] = isset($data['translation_key_prefix']) ? $data['translation_key_prefix'] : null;
+        $this->container['filter_by_prefix'] = isset($data['filter_by_prefix']) ? $data['filter_by_prefix'] : null;
         $this->container['updated_since'] = isset($data['updated_since']) ? $data['updated_since'] : null;
     }
 
@@ -711,6 +723,54 @@ class LocaleDownloadCreateParameters implements ModelInterface, ArrayAccess
     public function setCustomMetadataFilters($custom_metadata_filters)
     {
         $this->container['custom_metadata_filters'] = $custom_metadata_filters;
+
+        return $this;
+    }
+
+    /**
+     * Gets translation_key_prefix
+     *
+     * @return string|null
+     */
+    public function getTranslationKeyPrefix()
+    {
+        return $this->container['translation_key_prefix'];
+    }
+
+    /**
+     * Sets translation_key_prefix
+     *
+     * @param string|null $translation_key_prefix Download all translation keys, and remove the specified prefix where possible. Warning: this may create duplicate key names if other keys share the same name after the prefix is removed.
+     *
+     * @return $this
+     */
+    public function setTranslationKeyPrefix($translation_key_prefix)
+    {
+        $this->container['translation_key_prefix'] = $translation_key_prefix;
+
+        return $this;
+    }
+
+    /**
+     * Gets filter_by_prefix
+     *
+     * @return bool|null
+     */
+    public function getFilterByPrefix()
+    {
+        return $this->container['filter_by_prefix'];
+    }
+
+    /**
+     * Sets filter_by_prefix
+     *
+     * @param bool|null $filter_by_prefix Only download translation keys containing the prefix specified by `translation_key_prefix`, and remove that prefix from the generated file. Requires `translation_key_prefix` to be set.
+     *
+     * @return $this
+     */
+    public function setFilterByPrefix($filter_by_prefix)
+    {
+        $this->container['filter_by_prefix'] = $filter_by_prefix;
 
         return $this;
     }
