@@ -65,6 +65,7 @@ class Locale implements ModelInterface, ArrayAccess
         'ordinal_plural_forms' => 'string[]',
         'source_locale' => '\Phrase\Model\LocalePreview',
         'fallback_locale' => '\Phrase\Model\LocalePreview',
+        'language_ai_profile' => 'string',
         'created_at' => '\DateTime',
         'updated_at' => '\DateTime'
     ];
@@ -85,6 +86,7 @@ class Locale implements ModelInterface, ArrayAccess
         'ordinal_plural_forms' => null,
         'source_locale' => null,
         'fallback_locale' => null,
+        'language_ai_profile' => null,
         'created_at' => 'date-time',
         'updated_at' => 'date-time'
     ];
@@ -126,6 +128,7 @@ class Locale implements ModelInterface, ArrayAccess
         'ordinal_plural_forms' => 'ordinal_plural_forms',
         'source_locale' => 'source_locale',
         'fallback_locale' => 'fallback_locale',
+        'language_ai_profile' => 'language_ai_profile',
         'created_at' => 'created_at',
         'updated_at' => 'updated_at'
     ];
@@ -146,6 +149,7 @@ class Locale implements ModelInterface, ArrayAccess
         'ordinal_plural_forms' => 'setOrdinalPluralForms',
         'source_locale' => 'setSourceLocale',
         'fallback_locale' => 'setFallbackLocale',
+        'language_ai_profile' => 'setLanguageAiProfile',
         'created_at' => 'setCreatedAt',
         'updated_at' => 'setUpdatedAt'
     ];
@@ -166,6 +170,7 @@ class Locale implements ModelInterface, ArrayAccess
         'ordinal_plural_forms' => 'getOrdinalPluralForms',
         'source_locale' => 'getSourceLocale',
         'fallback_locale' => 'getFallbackLocale',
+        'language_ai_profile' => 'getLanguageAiProfile',
         'created_at' => 'getCreatedAt',
         'updated_at' => 'getUpdatedAt'
     ];
@@ -240,6 +245,7 @@ class Locale implements ModelInterface, ArrayAccess
         $this->container['ordinal_plural_forms'] = isset($data['ordinal_plural_forms']) ? $data['ordinal_plural_forms'] : null;
         $this->container['source_locale'] = isset($data['source_locale']) ? $data['source_locale'] : null;
         $this->container['fallback_locale'] = isset($data['fallback_locale']) ? $data['fallback_locale'] : null;
+        $this->container['language_ai_profile'] = isset($data['language_ai_profile']) ? $data['language_ai_profile'] : null;
         $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
         $this->container['updated_at'] = isset($data['updated_at']) ? $data['updated_at'] : null;
     }
@@ -504,6 +510,30 @@ class Locale implements ModelInterface, ArrayAccess
     public function setFallbackLocale($fallback_locale)
     {
         $this->container['fallback_locale'] = $fallback_locale;
+
+        return $this;
+    }
+
+    /**
+     * Gets language_ai_profile
+     *
+     * @return string|null
+     */
+    public function getLanguageAiProfile()
+    {
+        return $this->container['language_ai_profile'];
+    }
+
+    /**
+     * Sets language_ai_profile
+     *
+     * @param string|null $language_ai_profile language_ai_profile
+     *
+     * @return $this
+     */
+    public function setLanguageAiProfile($language_ai_profile)
+    {
+        $this->container['language_ai_profile'] = $language_ai_profile;
 
         return $this;
     }

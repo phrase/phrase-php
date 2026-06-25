@@ -65,7 +65,8 @@ class LocaleUpdateParameters implements ModelInterface, ArrayAccess
         'fallback_locale_id' => 'string',
         'unverify_new_translations' => 'bool',
         'unverify_updated_translations' => 'bool',
-        'autotranslate' => 'bool'
+        'autotranslate' => 'bool',
+        'language_ai_profile' => 'string'
     ];
 
     /**
@@ -84,7 +85,8 @@ class LocaleUpdateParameters implements ModelInterface, ArrayAccess
         'fallback_locale_id' => null,
         'unverify_new_translations' => null,
         'unverify_updated_translations' => null,
-        'autotranslate' => null
+        'autotranslate' => null,
+        'language_ai_profile' => null
     ];
 
     /**
@@ -124,7 +126,8 @@ class LocaleUpdateParameters implements ModelInterface, ArrayAccess
         'fallback_locale_id' => 'fallback_locale_id',
         'unverify_new_translations' => 'unverify_new_translations',
         'unverify_updated_translations' => 'unverify_updated_translations',
-        'autotranslate' => 'autotranslate'
+        'autotranslate' => 'autotranslate',
+        'language_ai_profile' => 'language_ai_profile'
     ];
 
     /**
@@ -143,7 +146,8 @@ class LocaleUpdateParameters implements ModelInterface, ArrayAccess
         'fallback_locale_id' => 'setFallbackLocaleId',
         'unverify_new_translations' => 'setUnverifyNewTranslations',
         'unverify_updated_translations' => 'setUnverifyUpdatedTranslations',
-        'autotranslate' => 'setAutotranslate'
+        'autotranslate' => 'setAutotranslate',
+        'language_ai_profile' => 'setLanguageAiProfile'
     ];
 
     /**
@@ -162,7 +166,8 @@ class LocaleUpdateParameters implements ModelInterface, ArrayAccess
         'fallback_locale_id' => 'getFallbackLocaleId',
         'unverify_new_translations' => 'getUnverifyNewTranslations',
         'unverify_updated_translations' => 'getUnverifyUpdatedTranslations',
-        'autotranslate' => 'getAutotranslate'
+        'autotranslate' => 'getAutotranslate',
+        'language_ai_profile' => 'getLanguageAiProfile'
     ];
 
     /**
@@ -236,6 +241,7 @@ class LocaleUpdateParameters implements ModelInterface, ArrayAccess
         $this->container['unverify_new_translations'] = isset($data['unverify_new_translations']) ? $data['unverify_new_translations'] : null;
         $this->container['unverify_updated_translations'] = isset($data['unverify_updated_translations']) ? $data['unverify_updated_translations'] : null;
         $this->container['autotranslate'] = isset($data['autotranslate']) ? $data['autotranslate'] : null;
+        $this->container['language_ai_profile'] = isset($data['language_ai_profile']) ? $data['language_ai_profile'] : null;
     }
 
     /**
@@ -522,6 +528,30 @@ class LocaleUpdateParameters implements ModelInterface, ArrayAccess
     public function setAutotranslate($autotranslate)
     {
         $this->container['autotranslate'] = $autotranslate;
+
+        return $this;
+    }
+
+    /**
+     * Gets language_ai_profile
+     *
+     * @return string|null
+     */
+    public function getLanguageAiProfile()
+    {
+        return $this->container['language_ai_profile'];
+    }
+
+    /**
+     * Sets language_ai_profile
+     *
+     * @param string|null $language_ai_profile Identifier of the Language AI profile to use for this locale.
+     *
+     * @return $this
+     */
+    public function setLanguageAiProfile($language_ai_profile)
+    {
+        $this->container['language_ai_profile'] = $language_ai_profile;
 
         return $this;
     }

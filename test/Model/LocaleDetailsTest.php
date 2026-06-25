@@ -147,6 +147,13 @@ class LocaleDetailsTest extends TestCase
     }
 
     /**
+     * Test attribute "language_ai_profile"
+     */
+    public function testPropertyLanguageAiProfile()
+    {
+    }
+
+    /**
      * Test attribute "created_at"
      */
     public function testPropertyCreatedAt()

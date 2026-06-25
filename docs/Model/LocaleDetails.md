@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **ordinal_plural_forms** | **string[]** |  | [optional] 
 **source_locale** | [**\Phrase\Model\LocalePreview**](LocalePreview.md) |  | [optional] 
 **fallback_locale** | [**\Phrase\Model\LocalePreview**](LocalePreview.md) |  | [optional] 
+**language_ai_profile** | **string** |  | [optional] 
 **created_at** | **\DateTime** |  | [optional] 
 **updated_at** | **\DateTime** |  | [optional] 
 **statistics** | [**\Phrase\Model\LocaleStatistics**](LocaleStatistics.md) |  | [optional] 

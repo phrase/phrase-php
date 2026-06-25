@@ -152,4 +152,11 @@ class LocaleCreateParametersTest extends TestCase
     public function testPropertyAutotranslate()
     {
     }
+
+    /**
+     * Test attribute "language_ai_profile"
+     */
+    public function testPropertyLanguageAiProfile()
+    {
+    }
 }
