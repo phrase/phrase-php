@@ -748,7 +748,7 @@ class LinkedKeysApi
      *
      * @param  string $project_id Project ID (required)
      * @param  string $id Parent Translation Key ID (required)
-     * @param  string $child_key_id The ID of the child key to unlink. (required)
+     * @param  string $child_key_id The ID of the child translation key to unlink from the parent. (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
@@ -767,7 +767,7 @@ class LinkedKeysApi
      *
      * @param  string $project_id Project ID (required)
      * @param  string $id Parent Translation Key ID (required)
-     * @param  string $child_key_id The ID of the child key to unlink. (required)
+     * @param  string $child_key_id The ID of the child translation key to unlink from the parent. (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
@@ -830,7 +830,7 @@ class LinkedKeysApi
      *
      * @param  string $project_id Project ID (required)
      * @param  string $id Parent Translation Key ID (required)
-     * @param  string $child_key_id The ID of the child key to unlink. (required)
+     * @param  string $child_key_id The ID of the child translation key to unlink from the parent. (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      *
      * @throws \InvalidArgumentException
@@ -853,7 +853,7 @@ class LinkedKeysApi
      *
      * @param  string $project_id Project ID (required)
      * @param  string $id Parent Translation Key ID (required)
-     * @param  string $child_key_id The ID of the child key to unlink. (required)
+     * @param  string $child_key_id The ID of the child translation key to unlink from the parent. (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      *
      * @throws \InvalidArgumentException
@@ -892,7 +892,7 @@ class LinkedKeysApi
      *
      * @param  string $project_id Project ID (required)
      * @param  string $id Parent Translation Key ID (required)
-     * @param  string $child_key_id The ID of the child key to unlink. (required)
+     * @param  string $child_key_id The ID of the child translation key to unlink from the parent. (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      *
      * @throws \InvalidArgumentException

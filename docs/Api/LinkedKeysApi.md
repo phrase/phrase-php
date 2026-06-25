@@ -146,7 +146,7 @@ Name | Type | Description  | Notes
 
 Unlink a child key from a parent key
 
-Unlinks a single child key from a given parent key.
+Removes a single child key from a parent key's link group. A link group is the relationship model that keeps child keys synchronized with a parent: while linked, a child key's translations are derived from the parent's content. When you call this endpoint, the child key leaves the group and becomes independent — its existing translations are updated with the parent's current content and then marked unverified, signalling that reviewers should confirm the content is still appropriate for the child's context.  Use this endpoint when you need to detach one specific child key while keeping other children linked. To detach multiple children at once, use the batch unlink endpoint. This operation is only available on main projects.  It returns 422 when the child key is not currently linked to the specified parent key, or when a translation update fails during the unlink process.
 
 ### Example
 
@@ -165,7 +165,7 @@ $apiInstance = new Phrase\Api\LinkedKeysApi(
 );
 $project_id = 'project_id_example'; // string | Project ID
 $id = 'id_example'; // string | Parent Translation Key ID
-$child_key_id = 'child_key_id_example'; // string | The ID of the child key to unlink.
+$child_key_id = 1234abcd1234cdef1234abcd1234cdef; // string | The ID of the child translation key to unlink from the parent.
 $x_phrase_app_otp = 'x_phrase_app_otp_example'; // string | Two-Factor-Authentication token (optional)
 
 try {
@@ -183,7 +183,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **project_id** | **string**| Project ID |
  **id** | **string**| Parent Translation Key ID |
- **child_key_id** | **string**| The ID of the child key to unlink. |
+ **child_key_id** | **string**| The ID of the child translation key to unlink from the parent. |
  **x_phrase_app_otp** | **string**| Two-Factor-Authentication token (optional) | [optional]
 
 ### Return type
