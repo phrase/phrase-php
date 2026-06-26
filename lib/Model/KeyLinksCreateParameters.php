@@ -218,7 +218,7 @@ class KeyLinksCreateParameters implements ModelInterface, ArrayAccess
     /**
      * Sets child_key_ids
      *
-     * @param string[] $child_key_ids The IDs of the child keys to link to the parent key. Can be left empty, to only mark the given translation-key as parent
+     * @param string[] $child_key_ids Codes of the keys to link as children. Pass an empty array to mark the parent key without linking any children.
      *
      * @return $this
      */

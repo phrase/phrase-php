@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**child_key_ids** | **string[]** | The IDs of the child keys to link to the parent key. Can be left empty, to only mark the given translation-key as parent | 
+**child_key_ids** | **string[]** | Codes of the keys to link as children. Pass an empty array to mark the parent key without linking any children. | 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 
