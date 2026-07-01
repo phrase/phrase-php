@@ -1095,7 +1095,7 @@ class LinkedKeysApi
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Phrase\Model\KeyLink|\Phrase\Model\KeyLinksIndex400Response
+     * @return \Phrase\Model\KeyLink
      */
     public function keyLinksIndex($project_id, $id, $x_phrase_app_otp = null)
     {
@@ -1114,7 +1114,7 @@ class LinkedKeysApi
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Phrase\Model\KeyLink|\Phrase\Model\KeyLinksIndex400Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Phrase\Model\KeyLink, HTTP status code, HTTP response headers (array of strings)
      */
     public function keyLinksIndexWithHttpInfo($project_id, $id, $x_phrase_app_otp = null)
     {
@@ -1162,18 +1162,6 @@ class LinkedKeysApi
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
-                case 400:
-                    if ('\Phrase\Model\KeyLinksIndex400Response' === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = (string) $responseBody;
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\Phrase\Model\KeyLinksIndex400Response', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
             }
 
             $returnType = '\Phrase\Model\KeyLink';
@@ -1196,14 +1184,6 @@ class LinkedKeysApi
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\Phrase\Model\KeyLink',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 400:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Phrase\Model\KeyLinksIndex400Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);

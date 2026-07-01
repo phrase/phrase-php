@@ -162,7 +162,6 @@ docs/Model/KeyCreateParameters.md
 docs/Model/KeyLink.md
 docs/Model/KeyLinksBatchDestroyParameters.md
 docs/Model/KeyLinksCreateParameters.md
-docs/Model/KeyLinksIndex400Response.md
 docs/Model/KeyPreview.md
 docs/Model/KeyUpdateParameters.md
 docs/Model/KeysExcludeParameters.md
@@ -455,7 +454,6 @@ lib/Model/KeyCreateParameters.php
 lib/Model/KeyLink.php
 lib/Model/KeyLinksBatchDestroyParameters.php
 lib/Model/KeyLinksCreateParameters.php
-lib/Model/KeyLinksIndex400Response.php
 lib/Model/KeyPreview.php
 lib/Model/KeyUpdateParameters.php
 lib/Model/KeysExcludeParameters.php
@@ -744,7 +742,6 @@ test/Model/KeyCreateParametersTest.php
 test/Model/KeyLinkTest.php
 test/Model/KeyLinksBatchDestroyParametersTest.php
 test/Model/KeyLinksCreateParametersTest.php
-test/Model/KeyLinksIndex400ResponseTest.php
 test/Model/KeyPreviewTest.php
 test/Model/KeyUpdateParametersTest.php
 test/Model/KeysExcludeParametersTest.php
