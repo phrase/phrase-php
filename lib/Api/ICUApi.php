@@ -123,7 +123,7 @@ class ICUApi
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Phrase\Model\Icu
+     * @return \Phrase\Model\Icu|\Phrase\Model\IcuSkeletonError
      */
     public function icuSkeleton($icu_skeleton_parameters, $x_phrase_app_otp = null)
     {
@@ -141,7 +141,7 @@ class ICUApi
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Phrase\Model\Icu, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Phrase\Model\Icu|\Phrase\Model\IcuSkeletonError, HTTP status code, HTTP response headers (array of strings)
      */
     public function icuSkeletonWithHttpInfo($icu_skeleton_parameters, $x_phrase_app_otp = null)
     {
@@ -189,6 +189,18 @@ class ICUApi
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
+                case 422:
+                    if ('\Phrase\Model\IcuSkeletonError' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Phrase\Model\IcuSkeletonError', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
             }
 
             $returnType = '\Phrase\Model\Icu';
@@ -211,6 +223,14 @@ class ICUApi
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\Phrase\Model\Icu',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 422:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Phrase\Model\IcuSkeletonError',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);

@@ -122,6 +122,7 @@ docs/Model/GlossaryTermTranslationUpdateParameters.md
 docs/Model/GlossaryTermUpdateParameters.md
 docs/Model/GlossaryUpdateParameters.md
 docs/Model/Icu.md
+docs/Model/IcuSkeletonError.md
 docs/Model/IcuSkeletonParameters.md
 docs/Model/Invitation.md
 docs/Model/InvitationCreateParameters.md
@@ -414,6 +415,7 @@ lib/Model/GlossaryTermTranslationUpdateParameters.php
 lib/Model/GlossaryTermUpdateParameters.php
 lib/Model/GlossaryUpdateParameters.php
 lib/Model/Icu.php
+lib/Model/IcuSkeletonError.php
 lib/Model/IcuSkeletonParameters.php
 lib/Model/Invitation.php
 lib/Model/InvitationCreateParameters.php
@@ -701,6 +703,7 @@ test/Model/GlossaryTermTranslationUpdateParametersTest.php
 test/Model/GlossaryTermUpdateParametersTest.php
 test/Model/GlossaryTest.php
 test/Model/GlossaryUpdateParametersTest.php
+test/Model/IcuSkeletonErrorTest.php
 test/Model/IcuSkeletonParametersTest.php
 test/Model/IcuTest.php
 test/Model/InvitationCreateParametersTest.php

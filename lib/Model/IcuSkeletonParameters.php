@@ -181,8 +181,23 @@ class IcuSkeletonParameters implements ModelInterface, ArrayAccess
         return self::$openAPIModelName;
     }
 
+    const CLDR_VERSION_LEGACY = 'legacy';
+    const CLDR_VERSION_CLDR_41 = 'cldr_41';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getCldrVersionAllowableValues()
+    {
+        return [
+            self::CLDR_VERSION_LEGACY,
+            self::CLDR_VERSION_CLDR_41,
+        ];
+    }
     
 
     /**
@@ -217,6 +232,14 @@ class IcuSkeletonParameters implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        $allowedValues = $this->getCldrVersionAllowableValues();
+        if (!is_null($this->container['cldr_version']) && !in_array($this->container['cldr_version'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'cldr_version', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -245,7 +268,7 @@ class IcuSkeletonParameters implements ModelInterface, ArrayAccess
     /**
      * Sets content
      *
-     * @param string|null $content Source content to derive skeletons from. Mutually exclusive with `id`; exactly one of the two must be provided.
+     * @param string|null $content Source ICU message string to derive skeletons from. Mutually exclusive with `id`; exactly one of the two must be provided.
      *
      * @return $this
      */
@@ -269,7 +292,7 @@ class IcuSkeletonParameters implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param string|null $id Translation code to source content from. Mutually exclusive with `content`; exactly one of the two must be provided.
+     * @param string|null $id Code of an existing translation to source content from. Mutually exclusive with `content`; exactly one of the two must be provided. Returns 404 when the translation does not exist.
      *
      * @return $this
      */
@@ -293,7 +316,7 @@ class IcuSkeletonParameters implements ModelInterface, ArrayAccess
     /**
      * Sets locale_codes
      *
-     * @param string[]|null $locale_codes Locale codes
+     * @param string[]|null $locale_codes Locale codes for which to generate skeletons. The pluralization rules of each locale determine which plural forms appear in the output.
      *
      * @return $this
      */
@@ -317,7 +340,7 @@ class IcuSkeletonParameters implements ModelInterface, ArrayAccess
     /**
      * Sets keep_content
      *
-     * @param bool|null $keep_content Keep the content and add missing plural forms for each locale
+     * @param bool|null $keep_content When true, preserves the existing translation text in each plural form and adds any missing forms for the locale rather than stripping all literal content.
      *
      * @return $this
      */
@@ -341,7 +364,7 @@ class IcuSkeletonParameters implements ModelInterface, ArrayAccess
     /**
      * Sets zero_form_enabled
      *
-     * @param bool|null $zero_form_enabled Indicates whether the zero form should be included or excluded in the returned skeletons
+     * @param bool|null $zero_form_enabled When true, includes the zero plural form in the generated skeleton for locales that support it.
      *
      * @return $this
      */
@@ -365,12 +388,21 @@ class IcuSkeletonParameters implements ModelInterface, ArrayAccess
     /**
      * Sets cldr_version
      *
-     * @param string|null $cldr_version Strings supports two CLDR variants, when it comes to pluralization rules. \\ You can choose which one you want to use when constructing the skeletons. Possible values \\ are `legacy` and `cldr_41`. Default value is `legacy`.
+     * @param string|null $cldr_version Pluralization rule set to apply when constructing skeletons. Accepted values are `legacy` and `cldr_41`. Defaults to `legacy` when omitted.
      *
      * @return $this
      */
     public function setCldrVersion($cldr_version)
     {
+        $allowedValues = $this->getCldrVersionAllowableValues();
+        if (!is_null($cldr_version) && !in_array($cldr_version, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'cldr_version', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['cldr_version'] = $cldr_version;
 
         return $this;
