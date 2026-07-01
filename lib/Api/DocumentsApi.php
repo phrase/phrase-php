@@ -392,7 +392,7 @@ class DocumentsApi
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  int $page Page number (optional)
      * @param  int $per_page Limit on the number of objects to be returned, between 1 and 100. 25 by default (optional)
-     * @param  string $q Search query. Filters documents by name (case-insensitive substring match). (optional)
+     * @param  string $q Filter documents by name prefix. Returns documents whose name starts with the given value (case-insensitive). (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -413,7 +413,7 @@ class DocumentsApi
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  int $page Page number (optional)
      * @param  int $per_page Limit on the number of objects to be returned, between 1 and 100. 25 by default (optional)
-     * @param  string $q Search query. Filters documents by name (case-insensitive substring match). (optional)
+     * @param  string $q Filter documents by name prefix. Returns documents whose name starts with the given value (case-insensitive). (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -505,7 +505,7 @@ class DocumentsApi
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  int $page Page number (optional)
      * @param  int $per_page Limit on the number of objects to be returned, between 1 and 100. 25 by default (optional)
-     * @param  string $q Search query. Filters documents by name (case-insensitive substring match). (optional)
+     * @param  string $q Filter documents by name prefix. Returns documents whose name starts with the given value (case-insensitive). (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -529,7 +529,7 @@ class DocumentsApi
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  int $page Page number (optional)
      * @param  int $per_page Limit on the number of objects to be returned, between 1 and 100. 25 by default (optional)
-     * @param  string $q Search query. Filters documents by name (case-insensitive substring match). (optional)
+     * @param  string $q Filter documents by name prefix. Returns documents whose name starts with the given value (case-insensitive). (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -580,7 +580,7 @@ class DocumentsApi
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  int $page Page number (optional)
      * @param  int $per_page Limit on the number of objects to be returned, between 1 and 100. 25 by default (optional)
-     * @param  string $q Search query. Filters documents by name (case-insensitive substring match). (optional)
+     * @param  string $q Filter documents by name prefix. Returns documents whose name starts with the given value (case-insensitive). (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
