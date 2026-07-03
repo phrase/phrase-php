@@ -378,7 +378,7 @@ class AutomationsCreateParameters implements ModelInterface, ArrayAccess
     /**
      * Sets project_ids
      *
-     * @param string[] $project_ids List of project IDs to associate with the automation. Currently, only the first ID in the array is used. The array format leaves room for future support of multiple projects.
+     * @param string[] $project_ids List of project IDs to associate with the automation. Providing more than one project ID requires the `advanced_job_automation` plan feature; accounts without this feature receive a 422 response with error field `project_ids`.
      *
      * @return $this
      */
