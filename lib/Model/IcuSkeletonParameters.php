@@ -181,23 +181,8 @@ class IcuSkeletonParameters implements ModelInterface, ArrayAccess
         return self::$openAPIModelName;
     }
 
-    const CLDR_VERSION_LEGACY = 'legacy';
-    const CLDR_VERSION_CLDR_41 = 'cldr_41';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getCldrVersionAllowableValues()
-    {
-        return [
-            self::CLDR_VERSION_LEGACY,
-            self::CLDR_VERSION_CLDR_41,
-        ];
-    }
     
 
     /**
@@ -231,14 +216,6 @@ class IcuSkeletonParameters implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
-
-        $allowedValues = $this->getCldrVersionAllowableValues();
-        if (!is_null($this->container['cldr_version']) && !in_array($this->container['cldr_version'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'cldr_version', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
 
         return $invalidProperties;
     }
@@ -388,21 +365,12 @@ class IcuSkeletonParameters implements ModelInterface, ArrayAccess
     /**
      * Sets cldr_version
      *
-     * @param string|null $cldr_version Pluralization rule set to apply when constructing skeletons. Accepted values are `legacy` and `cldr_41`. Defaults to `legacy` when omitted.
+     * @param string|null $cldr_version Pluralization rule set to use when constructing skeletons. Pass `legacy` for pre-CLDR behaviour, or a CLDR version string such as `cldr48`. Defaults to the project's configured version when omitted.
      *
      * @return $this
      */
     public function setCldrVersion($cldr_version)
     {
-        $allowedValues = $this->getCldrVersionAllowableValues();
-        if (!is_null($cldr_version) && !in_array($cldr_version, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'cldr_version', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
         $this->container['cldr_version'] = $cldr_version;
 
         return $this;
