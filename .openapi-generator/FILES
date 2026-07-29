@@ -40,6 +40,7 @@ docs/Api/NotificationsApi.md
 docs/Api/OrdersApi.md
 docs/Api/OrganizationJobTemplateLocalesApi.md
 docs/Api/OrganizationJobTemplatesApi.md
+docs/Api/PreTranslationsApi.md
 docs/Api/ProjectsApi.md
 docs/Api/QualityPerformanceScoreApi.md
 docs/Api/ReleaseTriggersApi.md
@@ -202,6 +203,8 @@ docs/Model/OrganizationJobTemplateDetails.md
 docs/Model/OrganizationJobTemplateLocaleUpdateParameters.md
 docs/Model/OrganizationJobTemplateLocalesCreateParameters.md
 docs/Model/OrganizationJobTemplateUpdateParameters.md
+docs/Model/PreTranslation.md
+docs/Model/PreTranslationCreateParameters.md
 docs/Model/Project.md
 docs/Model/ProjectCreateParameters.md
 docs/Model/ProjectDetails.md
@@ -331,6 +334,7 @@ lib/Api/NotificationsApi.php
 lib/Api/OrdersApi.php
 lib/Api/OrganizationJobTemplateLocalesApi.php
 lib/Api/OrganizationJobTemplatesApi.php
+lib/Api/PreTranslationsApi.php
 lib/Api/ProjectsApi.php
 lib/Api/QualityPerformanceScoreApi.php
 lib/Api/ReleaseTriggersApi.php
@@ -497,6 +501,8 @@ lib/Model/OrganizationJobTemplateDetails.php
 lib/Model/OrganizationJobTemplateLocaleUpdateParameters.php
 lib/Model/OrganizationJobTemplateLocalesCreateParameters.php
 lib/Model/OrganizationJobTemplateUpdateParameters.php
+lib/Model/PreTranslation.php
+lib/Model/PreTranslationCreateParameters.php
 lib/Model/Project.php
 lib/Model/ProjectCreateParameters.php
 lib/Model/ProjectDetails.php
@@ -625,6 +631,7 @@ test/Api/NotificationsApiTest.php
 test/Api/OrdersApiTest.php
 test/Api/OrganizationJobTemplateLocalesApiTest.php
 test/Api/OrganizationJobTemplatesApiTest.php
+test/Api/PreTranslationsApiTest.php
 test/Api/ProjectsApiTest.php
 test/Api/QualityPerformanceScoreApiTest.php
 test/Api/ReleaseTriggersApiTest.php
@@ -786,6 +793,8 @@ test/Model/OrganizationJobTemplateLocaleUpdateParametersTest.php
 test/Model/OrganizationJobTemplateLocalesCreateParametersTest.php
 test/Model/OrganizationJobTemplateTest.php
 test/Model/OrganizationJobTemplateUpdateParametersTest.php
+test/Model/PreTranslationCreateParametersTest.php
+test/Model/PreTranslationTest.php
 test/Model/ProjectCreateParametersTest.php
 test/Model/ProjectDetailsTest.php
 test/Model/ProjectLocalesTest.php
