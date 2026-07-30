@@ -154,6 +154,8 @@ Class | Method | HTTP request | Description
 *AuthorizationsApi* | [**authorizationShow**](docs/Api/AuthorizationsApi.md#authorizationshow) | **GET** /authorizations/{id} | Get a single authorization
 *AuthorizationsApi* | [**authorizationUpdate**](docs/Api/AuthorizationsApi.md#authorizationupdate) | **PATCH** /authorizations/{id} | Update an authorization
 *AuthorizationsApi* | [**authorizationsList**](docs/Api/AuthorizationsApi.md#authorizationslist) | **GET** /authorizations | List authorizations
+*AutomationEventsApi* | [**accountAutomationEventsList**](docs/Api/AutomationEventsApi.md#accountautomationeventslist) | **GET** /accounts/{account_id}/automation_events | List automation events for an account
+*AutomationEventsApi* | [**automationEventsList**](docs/Api/AutomationEventsApi.md#automationeventslist) | **GET** /accounts/{account_id}/automations/{automation_id}/events | List events for an automation
 *AutomationsApi* | [**automationActivate**](docs/Api/AutomationsApi.md#automationactivate) | **POST** /accounts/{account_id}/automations/{automation_id}/activate | Activate an automation
 *AutomationsApi* | [**automationCreate**](docs/Api/AutomationsApi.md#automationcreate) | **POST** /accounts/{account_id}/automations | Create an automation
 *AutomationsApi* | [**automationDeactivate**](docs/Api/AutomationsApi.md#automationdeactivate) | **POST** /accounts/{account_id}/automations/{automation_id}/deactivate | Deactivate an automation
@@ -452,6 +454,8 @@ Class | Method | HTTP request | Description
  - [AuthorizationUpdateParameters](docs/Model/AuthorizationUpdateParameters.md)
  - [AuthorizationWithToken](docs/Model/AuthorizationWithToken.md)
  - [Automation](docs/Model/Automation.md)
+ - [AutomationEvent](docs/Model/AutomationEvent.md)
+ - [AutomationEventProject](docs/Model/AutomationEventProject.md)
  - [AutomationsCreateParameters](docs/Model/AutomationsCreateParameters.md)
  - [AutomationsCreateParameters1](docs/Model/AutomationsCreateParameters1.md)
  - [BlacklistedKey](docs/Model/BlacklistedKey.md)

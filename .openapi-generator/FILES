@@ -6,6 +6,7 @@ README.md
 composer.json
 docs/Api/AccountsApi.md
 docs/Api/AuthorizationsApi.md
+docs/Api/AutomationEventsApi.md
 docs/Api/AutomationsApi.md
 docs/Api/BlacklistedKeysApi.md
 docs/Api/BranchesApi.md
@@ -73,6 +74,8 @@ docs/Model/AuthorizationCreateParameters.md
 docs/Model/AuthorizationUpdateParameters.md
 docs/Model/AuthorizationWithToken.md
 docs/Model/Automation.md
+docs/Model/AutomationEvent.md
+docs/Model/AutomationEventProject.md
 docs/Model/AutomationsCreateParameters.md
 docs/Model/AutomationsCreateParameters1.md
 docs/Model/BlacklistedKey.md
@@ -300,6 +303,7 @@ docs/Model/WebhookUpdateParameters.md
 git_push.sh
 lib/Api/AccountsApi.php
 lib/Api/AuthorizationsApi.php
+lib/Api/AutomationEventsApi.php
 lib/Api/AutomationsApi.php
 lib/Api/BlacklistedKeysApi.php
 lib/Api/BranchesApi.php
@@ -370,6 +374,8 @@ lib/Model/AuthorizationCreateParameters.php
 lib/Model/AuthorizationUpdateParameters.php
 lib/Model/AuthorizationWithToken.php
 lib/Model/Automation.php
+lib/Model/AutomationEvent.php
+lib/Model/AutomationEventProject.php
 lib/Model/AutomationsCreateParameters.php
 lib/Model/AutomationsCreateParameters1.php
 lib/Model/BlacklistedKey.php
@@ -599,6 +605,7 @@ lib/ObjectSerializer.php
 phpunit.xml.dist
 test/Api/AccountsApiTest.php
 test/Api/AuthorizationsApiTest.php
+test/Api/AutomationEventsApiTest.php
 test/Api/AutomationsApiTest.php
 test/Api/BlacklistedKeysApiTest.php
 test/Api/BranchesApiTest.php
@@ -662,6 +669,8 @@ test/Model/AuthorizationCreateParametersTest.php
 test/Model/AuthorizationTest.php
 test/Model/AuthorizationUpdateParametersTest.php
 test/Model/AuthorizationWithTokenTest.php
+test/Model/AutomationEventProjectTest.php
+test/Model/AutomationEventTest.php
 test/Model/AutomationTest.php
 test/Model/AutomationsCreateParameters1Test.php
 test/Model/AutomationsCreateParametersTest.php

@@ -765,7 +765,7 @@ $per_page = 25; // int | Limit on the number of objects to be returned, between 
 $owned_by = abcd1234cdef1234abcd1234cdef1234; // string | filter by user owning job
 $assigned_to = abcd1234cdef1234abcd1234cdef1234; // string | filter by user assigned to job
 $state = completed; // string | filter by state of job; valid states are: `draft`, `in_progress`, `completed`
-$updated_since = 2013-02-21T00:00:00.000Z; // string | filter by jobs updated since given date
+$updated_since = 2013-02-21T00:00:00Z; // string | filter by jobs updated since given date
 
 try {
     $result = $apiInstance->jobsByAccount($account_id, $x_phrase_app_otp, $page, $per_page, $owned_by, $assigned_to, $state, $updated_since);
@@ -841,7 +841,7 @@ $assigned_to = abcd1234cdef1234abcd1234cdef1234; // string | filter by user assi
 $state = completed; // string | filter by state of job; valid states are: `draft`, `in_progress`, `completed`
 $states = ["in_progress","completed"]; // string[] | Filter by multiple job states at once. Accepted values are the same as `state`. When supplied, `state` is ignored. Rejected with `400 Bad Request` if any value is unknown.
 $key_id = abcd1234cdef1234abcd1234cdef1234; // string | Filter to jobs that include the translation key identified by this code (matches via the job's tags).
-$updated_since = 2013-02-21T00:00:00.000Z; // string | filter by jobs updated since given date
+$updated_since = 2013-02-21T00:00:00Z; // string | filter by jobs updated since given date
 
 try {
     $result = $apiInstance->jobsList($project_id, $x_phrase_app_otp, $page, $per_page, $branch, $owned_by, $assigned_to, $state, $states, $key_id, $updated_since);
