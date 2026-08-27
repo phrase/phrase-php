@@ -154,6 +154,27 @@ class LocaleDetailsTest extends TestCase
     }
 
     /**
+     * Test attribute "unverify_new_translations"
+     */
+    public function testPropertyUnverifyNewTranslations()
+    {
+    }
+
+    /**
+     * Test attribute "unverify_updated_translations"
+     */
+    public function testPropertyUnverifyUpdatedTranslations()
+    {
+    }
+
+    /**
+     * Test attribute "unverify_on_source_changes"
+     */
+    public function testPropertyUnverifyOnSourceChanges()
+    {
+    }
+
+    /**
      * Test attribute "created_at"
      */
     public function testPropertyCreatedAt()

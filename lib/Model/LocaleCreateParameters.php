@@ -65,6 +65,7 @@ class LocaleCreateParameters implements ModelInterface, ArrayAccess
         'fallback_locale_id' => 'string',
         'unverify_new_translations' => 'bool',
         'unverify_updated_translations' => 'bool',
+        'unverify_on_source_changes' => 'bool',
         'autotranslate' => 'bool',
         'language_ai_profile' => 'string'
     ];
@@ -85,6 +86,7 @@ class LocaleCreateParameters implements ModelInterface, ArrayAccess
         'fallback_locale_id' => null,
         'unverify_new_translations' => null,
         'unverify_updated_translations' => null,
+        'unverify_on_source_changes' => null,
         'autotranslate' => null,
         'language_ai_profile' => null
     ];
@@ -126,6 +128,7 @@ class LocaleCreateParameters implements ModelInterface, ArrayAccess
         'fallback_locale_id' => 'fallback_locale_id',
         'unverify_new_translations' => 'unverify_new_translations',
         'unverify_updated_translations' => 'unverify_updated_translations',
+        'unverify_on_source_changes' => 'unverify_on_source_changes',
         'autotranslate' => 'autotranslate',
         'language_ai_profile' => 'language_ai_profile'
     ];
@@ -146,6 +149,7 @@ class LocaleCreateParameters implements ModelInterface, ArrayAccess
         'fallback_locale_id' => 'setFallbackLocaleId',
         'unverify_new_translations' => 'setUnverifyNewTranslations',
         'unverify_updated_translations' => 'setUnverifyUpdatedTranslations',
+        'unverify_on_source_changes' => 'setUnverifyOnSourceChanges',
         'autotranslate' => 'setAutotranslate',
         'language_ai_profile' => 'setLanguageAiProfile'
     ];
@@ -166,6 +170,7 @@ class LocaleCreateParameters implements ModelInterface, ArrayAccess
         'fallback_locale_id' => 'getFallbackLocaleId',
         'unverify_new_translations' => 'getUnverifyNewTranslations',
         'unverify_updated_translations' => 'getUnverifyUpdatedTranslations',
+        'unverify_on_source_changes' => 'getUnverifyOnSourceChanges',
         'autotranslate' => 'getAutotranslate',
         'language_ai_profile' => 'getLanguageAiProfile'
     ];
@@ -240,6 +245,7 @@ class LocaleCreateParameters implements ModelInterface, ArrayAccess
         $this->container['fallback_locale_id'] = isset($data['fallback_locale_id']) ? $data['fallback_locale_id'] : null;
         $this->container['unverify_new_translations'] = isset($data['unverify_new_translations']) ? $data['unverify_new_translations'] : null;
         $this->container['unverify_updated_translations'] = isset($data['unverify_updated_translations']) ? $data['unverify_updated_translations'] : null;
+        $this->container['unverify_on_source_changes'] = isset($data['unverify_on_source_changes']) ? $data['unverify_on_source_changes'] : null;
         $this->container['autotranslate'] = isset($data['autotranslate']) ? $data['autotranslate'] : null;
         $this->container['language_ai_profile'] = isset($data['language_ai_profile']) ? $data['language_ai_profile'] : null;
     }
@@ -510,6 +516,30 @@ class LocaleCreateParameters implements ModelInterface, ArrayAccess
     public function setUnverifyUpdatedTranslations($unverify_updated_translations)
     {
         $this->container['unverify_updated_translations'] = $unverify_updated_translations;
+
+        return $this;
+    }
+
+    /**
+     * Gets unverify_on_source_changes
+     *
+     * @return bool|null
+     */
+    public function getUnverifyOnSourceChanges()
+    {
+        return $this->container['unverify_on_source_changes'];
+    }
+
+    /**
+     * Sets unverify_on_source_changes
+     *
+     * @param bool|null $unverify_on_source_changes Indicates that translations for this locale should be marked as unverified when the source language has been changed.
+     *
+     * @return $this
+     */
+    public function setUnverifyOnSourceChanges($unverify_on_source_changes)
+    {
+        $this->container['unverify_on_source_changes'] = $unverify_on_source_changes;
 
         return $this;
     }

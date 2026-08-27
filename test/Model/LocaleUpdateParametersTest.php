@@ -147,6 +147,13 @@ class LocaleUpdateParametersTest extends TestCase
     }
 
     /**
+     * Test attribute "unverify_on_source_changes"
+     */
+    public function testPropertyUnverifyOnSourceChanges()
+    {
+    }
+
+    /**
      * Test attribute "autotranslate"
      */
     public function testPropertyAutotranslate()
