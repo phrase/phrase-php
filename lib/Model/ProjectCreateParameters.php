@@ -59,6 +59,8 @@ class ProjectCreateParameters implements ModelInterface, ArrayAccess
         'main_format' => 'string',
         'media' => 'string',
         'shares_translation_memory' => 'bool',
+        'tm_ids' => 'string[]',
+        'term_base_ids' => 'string[]',
         'project_image' => '\SplFileObject',
         'remove_project_image' => 'bool',
         'account_id' => 'string',
@@ -100,6 +102,8 @@ class ProjectCreateParameters implements ModelInterface, ArrayAccess
         'main_format' => null,
         'media' => null,
         'shares_translation_memory' => null,
+        'tm_ids' => null,
+        'term_base_ids' => null,
         'project_image' => 'binary',
         'remove_project_image' => null,
         'account_id' => null,
@@ -162,6 +166,8 @@ class ProjectCreateParameters implements ModelInterface, ArrayAccess
         'main_format' => 'main_format',
         'media' => 'media',
         'shares_translation_memory' => 'shares_translation_memory',
+        'tm_ids' => 'tm_ids',
+        'term_base_ids' => 'term_base_ids',
         'project_image' => 'project_image',
         'remove_project_image' => 'remove_project_image',
         'account_id' => 'account_id',
@@ -203,6 +209,8 @@ class ProjectCreateParameters implements ModelInterface, ArrayAccess
         'main_format' => 'setMainFormat',
         'media' => 'setMedia',
         'shares_translation_memory' => 'setSharesTranslationMemory',
+        'tm_ids' => 'setTmIds',
+        'term_base_ids' => 'setTermBaseIds',
         'project_image' => 'setProjectImage',
         'remove_project_image' => 'setRemoveProjectImage',
         'account_id' => 'setAccountId',
@@ -244,6 +252,8 @@ class ProjectCreateParameters implements ModelInterface, ArrayAccess
         'main_format' => 'getMainFormat',
         'media' => 'getMedia',
         'shares_translation_memory' => 'getSharesTranslationMemory',
+        'tm_ids' => 'getTmIds',
+        'term_base_ids' => 'getTermBaseIds',
         'project_image' => 'getProjectImage',
         'remove_project_image' => 'getRemoveProjectImage',
         'account_id' => 'getAccountId',
@@ -360,6 +370,8 @@ class ProjectCreateParameters implements ModelInterface, ArrayAccess
         $this->container['main_format'] = isset($data['main_format']) ? $data['main_format'] : null;
         $this->container['media'] = isset($data['media']) ? $data['media'] : null;
         $this->container['shares_translation_memory'] = isset($data['shares_translation_memory']) ? $data['shares_translation_memory'] : null;
+        $this->container['tm_ids'] = isset($data['tm_ids']) ? $data['tm_ids'] : null;
+        $this->container['term_base_ids'] = isset($data['term_base_ids']) ? $data['term_base_ids'] : null;
         $this->container['project_image'] = isset($data['project_image']) ? $data['project_image'] : null;
         $this->container['remove_project_image'] = isset($data['remove_project_image']) ? $data['remove_project_image'] : null;
         $this->container['account_id'] = isset($data['account_id']) ? $data['account_id'] : null;
@@ -518,6 +530,54 @@ class ProjectCreateParameters implements ModelInterface, ArrayAccess
     public function setSharesTranslationMemory($shares_translation_memory)
     {
         $this->container['shares_translation_memory'] = $shares_translation_memory;
+
+        return $this;
+    }
+
+    /**
+     * Gets tm_ids
+     *
+     * @return string[]|null
+     */
+    public function getTmIds()
+    {
+        return $this->container['tm_ids'];
+    }
+
+    /**
+     * Sets tm_ids
+     *
+     * @param string[]|null $tm_ids List of TMS translation memory IDs, used to provide reference translations for the AI translation agent.
+     *
+     * @return $this
+     */
+    public function setTmIds($tm_ids)
+    {
+        $this->container['tm_ids'] = $tm_ids;
+
+        return $this;
+    }
+
+    /**
+     * Gets term_base_ids
+     *
+     * @return string[]|null
+     */
+    public function getTermBaseIds()
+    {
+        return $this->container['term_base_ids'];
+    }
+
+    /**
+     * Sets term_base_ids
+     *
+     * @param string[]|null $term_base_ids List of TMS term base IDs, used to ensure consistent terminology for the AI translation agent.
+     *
+     * @return $this
+     */
+    public function setTermBaseIds($term_base_ids)
+    {
+        $this->container['term_base_ids'] = $term_base_ids;
 
         return $this;
     }

@@ -105,6 +105,20 @@ class ProjectCreateParametersTest extends TestCase
     }
 
     /**
+     * Test attribute "tm_ids"
+     */
+    public function testPropertyTmIds()
+    {
+    }
+
+    /**
+     * Test attribute "term_base_ids"
+     */
+    public function testPropertyTermBaseIds()
+    {
+    }
+
+    /**
      * Test attribute "project_image"
      */
     public function testPropertyProjectImage()
