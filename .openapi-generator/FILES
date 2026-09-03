@@ -10,6 +10,7 @@ docs/Api/AutomationEventsApi.md
 docs/Api/AutomationsApi.md
 docs/Api/BlacklistedKeysApi.md
 docs/Api/BranchesApi.md
+docs/Api/ChecksApi.md
 docs/Api/CommentReactionsApi.md
 docs/Api/CommentRepliesApi.md
 docs/Api/CommentsApi.md
@@ -92,6 +93,7 @@ docs/Model/BranchMergeParameters.md
 docs/Model/BranchName.md
 docs/Model/BranchSyncParameters.md
 docs/Model/BranchUpdateParameters.md
+docs/Model/CheckIssue.md
 docs/Model/Comment.md
 docs/Model/CommentCreateParameters.md
 docs/Model/CommentCreateParameters1.md
@@ -307,6 +309,7 @@ lib/Api/AutomationEventsApi.php
 lib/Api/AutomationsApi.php
 lib/Api/BlacklistedKeysApi.php
 lib/Api/BranchesApi.php
+lib/Api/ChecksApi.php
 lib/Api/CommentReactionsApi.php
 lib/Api/CommentRepliesApi.php
 lib/Api/CommentsApi.php
@@ -392,6 +395,7 @@ lib/Model/BranchMergeParameters.php
 lib/Model/BranchName.php
 lib/Model/BranchSyncParameters.php
 lib/Model/BranchUpdateParameters.php
+lib/Model/CheckIssue.php
 lib/Model/Comment.php
 lib/Model/CommentCreateParameters.php
 lib/Model/CommentCreateParameters1.php
@@ -609,6 +613,7 @@ test/Api/AutomationEventsApiTest.php
 test/Api/AutomationsApiTest.php
 test/Api/BlacklistedKeysApiTest.php
 test/Api/BranchesApiTest.php
+test/Api/ChecksApiTest.php
 test/Api/CommentReactionsApiTest.php
 test/Api/CommentRepliesApiTest.php
 test/Api/CommentsApiTest.php
@@ -688,6 +693,7 @@ test/Model/BranchNameTest.php
 test/Model/BranchSyncParametersTest.php
 test/Model/BranchTest.php
 test/Model/BranchUpdateParametersTest.php
+test/Model/CheckIssueTest.php
 test/Model/CommentCreateParameters1Test.php
 test/Model/CommentCreateParametersTest.php
 test/Model/CommentMarkReadParametersTest.php
