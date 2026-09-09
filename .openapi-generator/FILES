@@ -36,6 +36,7 @@ docs/Api/KeysFigmaAttachmentsApi.md
 docs/Api/LinkedKeysApi.md
 docs/Api/LocaleDownloadsApi.md
 docs/Api/LocalesApi.md
+docs/Api/MachineTranslationApi.md
 docs/Api/MembersApi.md
 docs/Api/NotificationGroupsApi.md
 docs/Api/NotificationsApi.md
@@ -191,6 +192,10 @@ docs/Model/LocaleStatistics.md
 docs/Model/LocaleTeamPreview.md
 docs/Model/LocaleUpdateParameters.md
 docs/Model/LocaleUserPreview.md
+docs/Model/MachineTranslationLocaleProviderMapping.md
+docs/Model/MachineTranslationLocaleProviderMappingsCreateParameters.md
+docs/Model/MachineTranslationSettings.md
+docs/Model/MachineTranslationSettingsUpdateParameters.md
 docs/Model/Member.md
 docs/Model/MemberProjectDetail.md
 docs/Model/MemberProjectDetailProjectRolesInner.md
@@ -335,6 +340,7 @@ lib/Api/KeysFigmaAttachmentsApi.php
 lib/Api/LinkedKeysApi.php
 lib/Api/LocaleDownloadsApi.php
 lib/Api/LocalesApi.php
+lib/Api/MachineTranslationApi.php
 lib/Api/MembersApi.php
 lib/Api/NotificationGroupsApi.php
 lib/Api/NotificationsApi.php
@@ -493,6 +499,10 @@ lib/Model/LocaleStatistics.php
 lib/Model/LocaleTeamPreview.php
 lib/Model/LocaleUpdateParameters.php
 lib/Model/LocaleUserPreview.php
+lib/Model/MachineTranslationLocaleProviderMapping.php
+lib/Model/MachineTranslationLocaleProviderMappingsCreateParameters.php
+lib/Model/MachineTranslationSettings.php
+lib/Model/MachineTranslationSettingsUpdateParameters.php
 lib/Model/Member.php
 lib/Model/MemberProjectDetail.php
 lib/Model/MemberProjectDetailProjectRolesInner.php
@@ -637,6 +647,7 @@ test/Api/KeyFormatAnnotationsApiTest.php
 test/Api/KeysFigmaAttachmentsApiTest.php
 test/Api/LinkedKeysApiTest.php
 test/Api/LocaleDownloadsApiTest.php
+test/Api/MachineTranslationApiTest.php
 test/Api/MembersApiTest.php
 test/Api/NotificationGroupsApiTest.php
 test/Api/NotificationsApiTest.php
@@ -791,6 +802,10 @@ test/Model/LocaleTeamPreviewTest.php
 test/Model/LocaleTest.php
 test/Model/LocaleUpdateParametersTest.php
 test/Model/LocaleUserPreviewTest.php
+test/Model/MachineTranslationLocaleProviderMappingTest.php
+test/Model/MachineTranslationLocaleProviderMappingsCreateParametersTest.php
+test/Model/MachineTranslationSettingsTest.php
+test/Model/MachineTranslationSettingsUpdateParametersTest.php
 test/Model/MemberProjectDetailProjectRolesInnerTest.php
 test/Model/MemberProjectDetailTest.php
 test/Model/MemberSpacesInnerTest.php
