@@ -74,7 +74,7 @@ Name | Type | Description  | Notes
 
 ## checkIssuesList
 
-> \Phrase\Model\CheckIssue[] checkIssuesList($project_id, $x_phrase_app_otp, $page, $per_page, $state, $locale_ids, $check_names)
+> \Phrase\Model\CheckIssue[] checkIssuesList($project_id, $x_phrase_app_otp, $page, $per_page, $state, $locale_ids, $check_names, $created_since)
 
 List check issues
 
@@ -102,9 +102,10 @@ $per_page = 25; // int | Limit on the number of objects to be returned, between 
 $state = active; // string | Filter by state of the check issue. Can be one of: `active`, `solved`, `dismissed`, `all`. Defaults to `active`.
 $locale_ids = ["abcd1234cdef1234abcd1234cdef1234"]; // string[] | Filter by one or more locale IDs.
 $check_names = ["translation_placeholder_usage"]; // string[] | Filter by one or more check names. Valid values are:  - `translation_content_length` — the translation exceeds the maximum character limit configured for the key. - `translation_placeholder_usage` — the translation is missing placeholders present in the source, or contains unexpected ones. - `translation_glossary_usage` — the translation does not follow the glossary term translations.
+$created_since = 2026-01-01T12:00:00Z; // string | Return only check issues created on or after this ISO 8601 datetime. Returns 400 if the value is not a valid date-time.
 
 try {
-    $result = $apiInstance->checkIssuesList($project_id, $x_phrase_app_otp, $page, $per_page, $state, $locale_ids, $check_names);
+    $result = $apiInstance->checkIssuesList($project_id, $x_phrase_app_otp, $page, $per_page, $state, $locale_ids, $check_names, $created_since);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ChecksApi->checkIssuesList: ', $e->getMessage(), PHP_EOL;
@@ -124,6 +125,7 @@ Name | Type | Description  | Notes
  **state** | **string**| Filter by state of the check issue. Can be one of: &#x60;active&#x60;, &#x60;solved&#x60;, &#x60;dismissed&#x60;, &#x60;all&#x60;. Defaults to &#x60;active&#x60;. | [optional] [default to &#39;active&#39;]
  **locale_ids** | [**string[]**](../Model/string.md)| Filter by one or more locale IDs. | [optional]
  **check_names** | [**string[]**](../Model/string.md)| Filter by one or more check names. Valid values are:  - &#x60;translation_content_length&#x60; — the translation exceeds the maximum character limit configured for the key. - &#x60;translation_placeholder_usage&#x60; — the translation is missing placeholders present in the source, or contains unexpected ones. - &#x60;translation_glossary_usage&#x60; — the translation does not follow the glossary term translations. | [optional]
+ **created_since** | **string**| Return only check issues created on or after this ISO 8601 datetime. Returns 400 if the value is not a valid date-time. | [optional]
 
 ### Return type
 

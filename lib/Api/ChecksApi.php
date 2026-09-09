@@ -455,14 +455,15 @@ class ChecksApi
      * @param  string $state Filter by state of the check issue. Can be one of: &#x60;active&#x60;, &#x60;solved&#x60;, &#x60;dismissed&#x60;, &#x60;all&#x60;. Defaults to &#x60;active&#x60;. (optional, default to 'active')
      * @param  string[] $locale_ids Filter by one or more locale IDs. (optional)
      * @param  string[] $check_names Filter by one or more check names. Valid values are:  - &#x60;translation_content_length&#x60; — the translation exceeds the maximum character limit configured for the key. - &#x60;translation_placeholder_usage&#x60; — the translation is missing placeholders present in the source, or contains unexpected ones. - &#x60;translation_glossary_usage&#x60; — the translation does not follow the glossary term translations. (optional)
+     * @param  string $created_since Return only check issues created on or after this ISO 8601 datetime. Returns 400 if the value is not a valid date-time. (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Phrase\Model\CheckIssue[]
      */
-    public function checkIssuesList($project_id, $x_phrase_app_otp = null, $page = null, $per_page = null, $state = 'active', $locale_ids = null, $check_names = null)
+    public function checkIssuesList($project_id, $x_phrase_app_otp = null, $page = null, $per_page = null, $state = 'active', $locale_ids = null, $check_names = null, $created_since = null)
     {
-        list($response) = $this->checkIssuesListWithHttpInfo($project_id, $x_phrase_app_otp, $page, $per_page, $state, $locale_ids, $check_names);
+        list($response) = $this->checkIssuesListWithHttpInfo($project_id, $x_phrase_app_otp, $page, $per_page, $state, $locale_ids, $check_names, $created_since);
         return $response;
     }
 
@@ -478,14 +479,15 @@ class ChecksApi
      * @param  string $state Filter by state of the check issue. Can be one of: &#x60;active&#x60;, &#x60;solved&#x60;, &#x60;dismissed&#x60;, &#x60;all&#x60;. Defaults to &#x60;active&#x60;. (optional, default to 'active')
      * @param  string[] $locale_ids Filter by one or more locale IDs. (optional)
      * @param  string[] $check_names Filter by one or more check names. Valid values are:  - &#x60;translation_content_length&#x60; — the translation exceeds the maximum character limit configured for the key. - &#x60;translation_placeholder_usage&#x60; — the translation is missing placeholders present in the source, or contains unexpected ones. - &#x60;translation_glossary_usage&#x60; — the translation does not follow the glossary term translations. (optional)
+     * @param  string $created_since Return only check issues created on or after this ISO 8601 datetime. Returns 400 if the value is not a valid date-time. (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Phrase\Model\CheckIssue[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function checkIssuesListWithHttpInfo($project_id, $x_phrase_app_otp = null, $page = null, $per_page = null, $state = 'active', $locale_ids = null, $check_names = null)
+    public function checkIssuesListWithHttpInfo($project_id, $x_phrase_app_otp = null, $page = null, $per_page = null, $state = 'active', $locale_ids = null, $check_names = null, $created_since = null)
     {
-        $request = $this->checkIssuesListRequest($project_id, $x_phrase_app_otp, $page, $per_page, $state, $locale_ids, $check_names);
+        $request = $this->checkIssuesListRequest($project_id, $x_phrase_app_otp, $page, $per_page, $state, $locale_ids, $check_names, $created_since);
 
         try {
             $options = $this->createHttpClientOption();
@@ -572,13 +574,14 @@ class ChecksApi
      * @param  string $state Filter by state of the check issue. Can be one of: &#x60;active&#x60;, &#x60;solved&#x60;, &#x60;dismissed&#x60;, &#x60;all&#x60;. Defaults to &#x60;active&#x60;. (optional, default to 'active')
      * @param  string[] $locale_ids Filter by one or more locale IDs. (optional)
      * @param  string[] $check_names Filter by one or more check names. Valid values are:  - &#x60;translation_content_length&#x60; — the translation exceeds the maximum character limit configured for the key. - &#x60;translation_placeholder_usage&#x60; — the translation is missing placeholders present in the source, or contains unexpected ones. - &#x60;translation_glossary_usage&#x60; — the translation does not follow the glossary term translations. (optional)
+     * @param  string $created_since Return only check issues created on or after this ISO 8601 datetime. Returns 400 if the value is not a valid date-time. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function checkIssuesListAsync($project_id, $x_phrase_app_otp = null, $page = null, $per_page = null, $state = 'active', $locale_ids = null, $check_names = null)
+    public function checkIssuesListAsync($project_id, $x_phrase_app_otp = null, $page = null, $per_page = null, $state = 'active', $locale_ids = null, $check_names = null, $created_since = null)
     {
-        return $this->checkIssuesListAsyncWithHttpInfo($project_id, $x_phrase_app_otp, $page, $per_page, $state, $locale_ids, $check_names)
+        return $this->checkIssuesListAsyncWithHttpInfo($project_id, $x_phrase_app_otp, $page, $per_page, $state, $locale_ids, $check_names, $created_since)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -598,14 +601,15 @@ class ChecksApi
      * @param  string $state Filter by state of the check issue. Can be one of: &#x60;active&#x60;, &#x60;solved&#x60;, &#x60;dismissed&#x60;, &#x60;all&#x60;. Defaults to &#x60;active&#x60;. (optional, default to 'active')
      * @param  string[] $locale_ids Filter by one or more locale IDs. (optional)
      * @param  string[] $check_names Filter by one or more check names. Valid values are:  - &#x60;translation_content_length&#x60; — the translation exceeds the maximum character limit configured for the key. - &#x60;translation_placeholder_usage&#x60; — the translation is missing placeholders present in the source, or contains unexpected ones. - &#x60;translation_glossary_usage&#x60; — the translation does not follow the glossary term translations. (optional)
+     * @param  string $created_since Return only check issues created on or after this ISO 8601 datetime. Returns 400 if the value is not a valid date-time. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function checkIssuesListAsyncWithHttpInfo($project_id, $x_phrase_app_otp = null, $page = null, $per_page = null, $state = 'active', $locale_ids = null, $check_names = null)
+    public function checkIssuesListAsyncWithHttpInfo($project_id, $x_phrase_app_otp = null, $page = null, $per_page = null, $state = 'active', $locale_ids = null, $check_names = null, $created_since = null)
     {
         $returnType = '\Phrase\Model\CheckIssue[]';
-        $request = $this->checkIssuesListRequest($project_id, $x_phrase_app_otp, $page, $per_page, $state, $locale_ids, $check_names);
+        $request = $this->checkIssuesListRequest($project_id, $x_phrase_app_otp, $page, $per_page, $state, $locale_ids, $check_names, $created_since);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -651,11 +655,12 @@ class ChecksApi
      * @param  string $state Filter by state of the check issue. Can be one of: &#x60;active&#x60;, &#x60;solved&#x60;, &#x60;dismissed&#x60;, &#x60;all&#x60;. Defaults to &#x60;active&#x60;. (optional, default to 'active')
      * @param  string[] $locale_ids Filter by one or more locale IDs. (optional)
      * @param  string[] $check_names Filter by one or more check names. Valid values are:  - &#x60;translation_content_length&#x60; — the translation exceeds the maximum character limit configured for the key. - &#x60;translation_placeholder_usage&#x60; — the translation is missing placeholders present in the source, or contains unexpected ones. - &#x60;translation_glossary_usage&#x60; — the translation does not follow the glossary term translations. (optional)
+     * @param  string $created_since Return only check issues created on or after this ISO 8601 datetime. Returns 400 if the value is not a valid date-time. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function checkIssuesListRequest($project_id, $x_phrase_app_otp = null, $page = null, $per_page = null, $state = 'active', $locale_ids = null, $check_names = null)
+    protected function checkIssuesListRequest($project_id, $x_phrase_app_otp = null, $page = null, $per_page = null, $state = 'active', $locale_ids = null, $check_names = null, $created_since = null)
     {
         // verify the required parameter 'project_id' is set
         if ($project_id === null || (is_array($project_id) && count($project_id) === 0)) {
@@ -724,6 +729,17 @@ class ChecksApi
             }
             else {
                 $queryParams['check_names'] = $check_names;
+            }
+        }
+        // query params
+        if ($created_since !== null) {
+            if('form' === 'form' && is_array($created_since)) {
+                foreach($created_since as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['created_since'] = $created_since;
             }
         }
 
