@@ -80,6 +80,7 @@ class ProjectUpdateParameters implements ModelInterface, ArrayAccess
         'autotranslate_use_machine_translation' => 'bool',
         'autotranslate_use_translation_memory' => 'bool',
         'autotranslate_overwrite_unverified_translations' => 'bool',
+        'fallback_for_unverified_translations' => 'bool',
         'default_encoding' => 'string',
         'placeholder_styles' => 'string[]',
         'autocomplete_job_enabled' => 'bool',
@@ -122,6 +123,7 @@ class ProjectUpdateParameters implements ModelInterface, ArrayAccess
         'autotranslate_use_machine_translation' => null,
         'autotranslate_use_translation_memory' => null,
         'autotranslate_overwrite_unverified_translations' => null,
+        'fallback_for_unverified_translations' => null,
         'default_encoding' => null,
         'placeholder_styles' => null,
         'autocomplete_job_enabled' => null,
@@ -185,6 +187,7 @@ class ProjectUpdateParameters implements ModelInterface, ArrayAccess
         'autotranslate_use_machine_translation' => 'autotranslate_use_machine_translation',
         'autotranslate_use_translation_memory' => 'autotranslate_use_translation_memory',
         'autotranslate_overwrite_unverified_translations' => 'autotranslate_overwrite_unverified_translations',
+        'fallback_for_unverified_translations' => 'fallback_for_unverified_translations',
         'default_encoding' => 'default_encoding',
         'placeholder_styles' => 'placeholder_styles',
         'autocomplete_job_enabled' => 'autocomplete_job_enabled',
@@ -227,6 +230,7 @@ class ProjectUpdateParameters implements ModelInterface, ArrayAccess
         'autotranslate_use_machine_translation' => 'setAutotranslateUseMachineTranslation',
         'autotranslate_use_translation_memory' => 'setAutotranslateUseTranslationMemory',
         'autotranslate_overwrite_unverified_translations' => 'setAutotranslateOverwriteUnverifiedTranslations',
+        'fallback_for_unverified_translations' => 'setFallbackForUnverifiedTranslations',
         'default_encoding' => 'setDefaultEncoding',
         'placeholder_styles' => 'setPlaceholderStyles',
         'autocomplete_job_enabled' => 'setAutocompleteJobEnabled',
@@ -269,6 +273,7 @@ class ProjectUpdateParameters implements ModelInterface, ArrayAccess
         'autotranslate_use_machine_translation' => 'getAutotranslateUseMachineTranslation',
         'autotranslate_use_translation_memory' => 'getAutotranslateUseTranslationMemory',
         'autotranslate_overwrite_unverified_translations' => 'getAutotranslateOverwriteUnverifiedTranslations',
+        'fallback_for_unverified_translations' => 'getFallbackForUnverifiedTranslations',
         'default_encoding' => 'getDefaultEncoding',
         'placeholder_styles' => 'getPlaceholderStyles',
         'autocomplete_job_enabled' => 'getAutocompleteJobEnabled',
@@ -386,6 +391,7 @@ class ProjectUpdateParameters implements ModelInterface, ArrayAccess
         $this->container['autotranslate_use_machine_translation'] = isset($data['autotranslate_use_machine_translation']) ? $data['autotranslate_use_machine_translation'] : null;
         $this->container['autotranslate_use_translation_memory'] = isset($data['autotranslate_use_translation_memory']) ? $data['autotranslate_use_translation_memory'] : null;
         $this->container['autotranslate_overwrite_unverified_translations'] = isset($data['autotranslate_overwrite_unverified_translations']) ? $data['autotranslate_overwrite_unverified_translations'] : null;
+        $this->container['fallback_for_unverified_translations'] = isset($data['fallback_for_unverified_translations']) ? $data['fallback_for_unverified_translations'] : null;
         $this->container['default_encoding'] = isset($data['default_encoding']) ? $data['default_encoding'] : null;
         $this->container['placeholder_styles'] = isset($data['placeholder_styles']) ? $data['placeholder_styles'] : null;
         $this->container['autocomplete_job_enabled'] = isset($data['autocomplete_job_enabled']) ? $data['autocomplete_job_enabled'] : null;
@@ -1025,6 +1031,30 @@ class ProjectUpdateParameters implements ModelInterface, ArrayAccess
     public function setAutotranslateOverwriteUnverifiedTranslations($autotranslate_overwrite_unverified_translations)
     {
         $this->container['autotranslate_overwrite_unverified_translations'] = $autotranslate_overwrite_unverified_translations;
+
+        return $this;
+    }
+
+    /**
+     * Gets fallback_for_unverified_translations
+     *
+     * @return bool|null
+     */
+    public function getFallbackForUnverifiedTranslations()
+    {
+        return $this->container['fallback_for_unverified_translations'];
+    }
+
+    /**
+     * Sets fallback_for_unverified_translations
+     *
+     * @param bool|null $fallback_for_unverified_translations (Optional) When enabled, the fallback locale's translation is used on export for unverified translations in addition to empty ones. Requires a fallback locale to be configured on the locale.
+     *
+     * @return $this
+     */
+    public function setFallbackForUnverifiedTranslations($fallback_for_unverified_translations)
+    {
+        $this->container['fallback_for_unverified_translations'] = $fallback_for_unverified_translations;
 
         return $this;
     }

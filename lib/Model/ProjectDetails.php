@@ -81,6 +81,7 @@ class ProjectDetails implements ModelInterface, ArrayAccess
         'autotranslate_use_machine_translation' => 'bool',
         'autotranslate_use_translation_memory' => 'bool',
         'autotranslate_overwrite_unverified_translations' => 'bool',
+        'fallback_for_unverified_translations' => 'bool',
         'autocomplete_job_enabled' => 'bool',
         'default_encoding' => 'string',
         'cldr_version' => 'string',
@@ -121,6 +122,7 @@ class ProjectDetails implements ModelInterface, ArrayAccess
         'autotranslate_use_machine_translation' => null,
         'autotranslate_use_translation_memory' => null,
         'autotranslate_overwrite_unverified_translations' => null,
+        'fallback_for_unverified_translations' => null,
         'autocomplete_job_enabled' => null,
         'default_encoding' => null,
         'cldr_version' => null,
@@ -182,6 +184,7 @@ class ProjectDetails implements ModelInterface, ArrayAccess
         'autotranslate_use_machine_translation' => 'autotranslate_use_machine_translation',
         'autotranslate_use_translation_memory' => 'autotranslate_use_translation_memory',
         'autotranslate_overwrite_unverified_translations' => 'autotranslate_overwrite_unverified_translations',
+        'fallback_for_unverified_translations' => 'fallback_for_unverified_translations',
         'autocomplete_job_enabled' => 'autocomplete_job_enabled',
         'default_encoding' => 'default_encoding',
         'cldr_version' => 'cldr_version',
@@ -222,6 +225,7 @@ class ProjectDetails implements ModelInterface, ArrayAccess
         'autotranslate_use_machine_translation' => 'setAutotranslateUseMachineTranslation',
         'autotranslate_use_translation_memory' => 'setAutotranslateUseTranslationMemory',
         'autotranslate_overwrite_unverified_translations' => 'setAutotranslateOverwriteUnverifiedTranslations',
+        'fallback_for_unverified_translations' => 'setFallbackForUnverifiedTranslations',
         'autocomplete_job_enabled' => 'setAutocompleteJobEnabled',
         'default_encoding' => 'setDefaultEncoding',
         'cldr_version' => 'setCldrVersion',
@@ -262,6 +266,7 @@ class ProjectDetails implements ModelInterface, ArrayAccess
         'autotranslate_use_machine_translation' => 'getAutotranslateUseMachineTranslation',
         'autotranslate_use_translation_memory' => 'getAutotranslateUseTranslationMemory',
         'autotranslate_overwrite_unverified_translations' => 'getAutotranslateOverwriteUnverifiedTranslations',
+        'fallback_for_unverified_translations' => 'getFallbackForUnverifiedTranslations',
         'autocomplete_job_enabled' => 'getAutocompleteJobEnabled',
         'default_encoding' => 'getDefaultEncoding',
         'cldr_version' => 'getCldrVersion',
@@ -356,6 +361,7 @@ class ProjectDetails implements ModelInterface, ArrayAccess
         $this->container['autotranslate_use_machine_translation'] = isset($data['autotranslate_use_machine_translation']) ? $data['autotranslate_use_machine_translation'] : null;
         $this->container['autotranslate_use_translation_memory'] = isset($data['autotranslate_use_translation_memory']) ? $data['autotranslate_use_translation_memory'] : null;
         $this->container['autotranslate_overwrite_unverified_translations'] = isset($data['autotranslate_overwrite_unverified_translations']) ? $data['autotranslate_overwrite_unverified_translations'] : null;
+        $this->container['fallback_for_unverified_translations'] = isset($data['fallback_for_unverified_translations']) ? $data['fallback_for_unverified_translations'] : null;
         $this->container['autocomplete_job_enabled'] = isset($data['autocomplete_job_enabled']) ? $data['autocomplete_job_enabled'] : null;
         $this->container['default_encoding'] = isset($data['default_encoding']) ? $data['default_encoding'] : null;
         $this->container['cldr_version'] = isset($data['cldr_version']) ? $data['cldr_version'] : null;
@@ -1008,6 +1014,30 @@ class ProjectDetails implements ModelInterface, ArrayAccess
     public function setAutotranslateOverwriteUnverifiedTranslations($autotranslate_overwrite_unverified_translations)
     {
         $this->container['autotranslate_overwrite_unverified_translations'] = $autotranslate_overwrite_unverified_translations;
+
+        return $this;
+    }
+
+    /**
+     * Gets fallback_for_unverified_translations
+     *
+     * @return bool|null
+     */
+    public function getFallbackForUnverifiedTranslations()
+    {
+        return $this->container['fallback_for_unverified_translations'];
+    }
+
+    /**
+     * Sets fallback_for_unverified_translations
+     *
+     * @param bool|null $fallback_for_unverified_translations fallback_for_unverified_translations
+     *
+     * @return $this
+     */
+    public function setFallbackForUnverifiedTranslations($fallback_for_unverified_translations)
+    {
+        $this->container['fallback_for_unverified_translations'] = $fallback_for_unverified_translations;
 
         return $this;
     }

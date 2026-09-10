@@ -252,6 +252,13 @@ class ProjectUpdateParametersTest extends TestCase
     }
 
     /**
+     * Test attribute "fallback_for_unverified_translations"
+     */
+    public function testPropertyFallbackForUnverifiedTranslations()
+    {
+    }
+
+    /**
      * Test attribute "default_encoding"
      */
     public function testPropertyDefaultEncoding()

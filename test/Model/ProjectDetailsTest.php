@@ -259,6 +259,13 @@ class ProjectDetailsTest extends TestCase
     }
 
     /**
+     * Test attribute "fallback_for_unverified_translations"
+     */
+    public function testPropertyFallbackForUnverifiedTranslations()
+    {
+    }
+
+    /**
      * Test attribute "autocomplete_job_enabled"
      */
     public function testPropertyAutocompleteJobEnabled()
