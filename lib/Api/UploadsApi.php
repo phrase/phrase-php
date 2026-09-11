@@ -120,7 +120,7 @@ class UploadsApi
      *
      * @param  string $project_id Project ID (required)
      * @param  \SplFileObject $file File to be imported (required)
-     * @param  string $file_format File format. Auto-detected when possible and not specified. (required)
+     * @param  string $file_format File format of the uploaded file, given as a format&#39;s &#x60;api_name&#x60;. See our [Formats API Endpoint](/en/api/strings/formats/list-formats) for the full list of supported formats.  Optional. When omitted, Phrase tries to auto-detect the format from the file&#39;s content. This is not always possible for JSON files, since several JSON-based formats (e.g. &#x60;json&#x60;, &#x60;simple_json&#x60;, &#x60;nested_json&#x60;) share the same structure. (required)
      * @param  string $locale_id Locale of the file&#39;s content. Can be the name or id of the locale. Preferred is id. (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  string $branch specify the branch to use (optional)
@@ -161,7 +161,7 @@ class UploadsApi
      *
      * @param  string $project_id Project ID (required)
      * @param  \SplFileObject $file File to be imported (required)
-     * @param  string $file_format File format. Auto-detected when possible and not specified. (required)
+     * @param  string $file_format File format of the uploaded file, given as a format&#39;s &#x60;api_name&#x60;. See our [Formats API Endpoint](/en/api/strings/formats/list-formats) for the full list of supported formats.  Optional. When omitted, Phrase tries to auto-detect the format from the file&#39;s content. This is not always possible for JSON files, since several JSON-based formats (e.g. &#x60;json&#x60;, &#x60;simple_json&#x60;, &#x60;nested_json&#x60;) share the same structure. (required)
      * @param  string $locale_id Locale of the file&#39;s content. Can be the name or id of the locale. Preferred is id. (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  string $branch specify the branch to use (optional)
@@ -293,7 +293,7 @@ class UploadsApi
      *
      * @param  string $project_id Project ID (required)
      * @param  \SplFileObject $file File to be imported (required)
-     * @param  string $file_format File format. Auto-detected when possible and not specified. (required)
+     * @param  string $file_format File format of the uploaded file, given as a format&#39;s &#x60;api_name&#x60;. See our [Formats API Endpoint](/en/api/strings/formats/list-formats) for the full list of supported formats.  Optional. When omitted, Phrase tries to auto-detect the format from the file&#39;s content. This is not always possible for JSON files, since several JSON-based formats (e.g. &#x60;json&#x60;, &#x60;simple_json&#x60;, &#x60;nested_json&#x60;) share the same structure. (required)
      * @param  string $locale_id Locale of the file&#39;s content. Can be the name or id of the locale. Preferred is id. (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  string $branch specify the branch to use (optional)
@@ -337,7 +337,7 @@ class UploadsApi
      *
      * @param  string $project_id Project ID (required)
      * @param  \SplFileObject $file File to be imported (required)
-     * @param  string $file_format File format. Auto-detected when possible and not specified. (required)
+     * @param  string $file_format File format of the uploaded file, given as a format&#39;s &#x60;api_name&#x60;. See our [Formats API Endpoint](/en/api/strings/formats/list-formats) for the full list of supported formats.  Optional. When omitted, Phrase tries to auto-detect the format from the file&#39;s content. This is not always possible for JSON files, since several JSON-based formats (e.g. &#x60;json&#x60;, &#x60;simple_json&#x60;, &#x60;nested_json&#x60;) share the same structure. (required)
      * @param  string $locale_id Locale of the file&#39;s content. Can be the name or id of the locale. Preferred is id. (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  string $branch specify the branch to use (optional)
@@ -408,7 +408,7 @@ class UploadsApi
      *
      * @param  string $project_id Project ID (required)
      * @param  \SplFileObject $file File to be imported (required)
-     * @param  string $file_format File format. Auto-detected when possible and not specified. (required)
+     * @param  string $file_format File format of the uploaded file, given as a format&#39;s &#x60;api_name&#x60;. See our [Formats API Endpoint](/en/api/strings/formats/list-formats) for the full list of supported formats.  Optional. When omitted, Phrase tries to auto-detect the format from the file&#39;s content. This is not always possible for JSON files, since several JSON-based formats (e.g. &#x60;json&#x60;, &#x60;simple_json&#x60;, &#x60;nested_json&#x60;) share the same structure. (required)
      * @param  string $locale_id Locale of the file&#39;s content. Can be the name or id of the locale. Preferred is id. (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  string $branch specify the branch to use (optional)
