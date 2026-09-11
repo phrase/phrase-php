@@ -59,6 +59,7 @@ class Upload implements ModelInterface, ArrayAccess
         'filename' => 'string',
         'format' => 'string',
         'state' => 'string',
+        'error_message' => 'string',
         'tag' => 'string',
         'tags' => 'string[]',
         'url' => 'string',
@@ -78,6 +79,7 @@ class Upload implements ModelInterface, ArrayAccess
         'filename' => null,
         'format' => null,
         'state' => null,
+        'error_message' => null,
         'tag' => null,
         'tags' => null,
         'url' => null,
@@ -118,6 +120,7 @@ class Upload implements ModelInterface, ArrayAccess
         'filename' => 'filename',
         'format' => 'format',
         'state' => 'state',
+        'error_message' => 'error_message',
         'tag' => 'tag',
         'tags' => 'tags',
         'url' => 'url',
@@ -137,6 +140,7 @@ class Upload implements ModelInterface, ArrayAccess
         'filename' => 'setFilename',
         'format' => 'setFormat',
         'state' => 'setState',
+        'error_message' => 'setErrorMessage',
         'tag' => 'setTag',
         'tags' => 'setTags',
         'url' => 'setUrl',
@@ -156,6 +160,7 @@ class Upload implements ModelInterface, ArrayAccess
         'filename' => 'getFilename',
         'format' => 'getFormat',
         'state' => 'getState',
+        'error_message' => 'getErrorMessage',
         'tag' => 'getTag',
         'tags' => 'getTags',
         'url' => 'getUrl',
@@ -229,6 +234,7 @@ class Upload implements ModelInterface, ArrayAccess
         $this->container['filename'] = isset($data['filename']) ? $data['filename'] : null;
         $this->container['format'] = isset($data['format']) ? $data['format'] : null;
         $this->container['state'] = isset($data['state']) ? $data['state'] : null;
+        $this->container['error_message'] = isset($data['error_message']) ? $data['error_message'] : null;
         $this->container['tag'] = isset($data['tag']) ? $data['tag'] : null;
         $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
         $this->container['url'] = isset($data['url']) ? $data['url'] : null;
@@ -354,6 +360,30 @@ class Upload implements ModelInterface, ArrayAccess
     public function setState($state)
     {
         $this->container['state'] = $state;
+
+        return $this;
+    }
+
+    /**
+     * Gets error_message
+     *
+     * @return string|null
+     */
+    public function getErrorMessage()
+    {
+        return $this->container['error_message'];
+    }
+
+    /**
+     * Sets error_message
+     *
+     * @param string|null $error_message A user-facing message explaining why the upload failed, or `null` if the upload did not fail.  This message is intended for display only. Its wording may change at any time and it should not be parsed or relied upon programmatically.
+     *
+     * @return $this
+     */
+    public function setErrorMessage($error_message)
+    {
+        $this->container['error_message'] = $error_message;
 
         return $this;
     }

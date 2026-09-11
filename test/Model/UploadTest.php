@@ -105,6 +105,13 @@ class UploadTest extends TestCase
     }
 
     /**
+     * Test attribute "error_message"
+     */
+    public function testPropertyErrorMessage()
+    {
+    }
+
+    /**
      * Test attribute "tag"
      */
     public function testPropertyTag()
