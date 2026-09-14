@@ -1282,7 +1282,7 @@ class ProjectCreateParameters implements ModelInterface, ArrayAccess
     /**
      * Sets cldr_version
      *
-     * @param string|null $cldr_version (Optional) CLDR plural-rule version used by the project.
+     * @param string|null $cldr_version (Optional) CLDR plural-rule version used by the project. Pass `legacy` for pre-CLDR pluralization behaviour, or a CLDR version string such as `cldr48`. Also used as the default version for the ICU skeleton endpoint (`POST /icu/skeleton`) when its own `cldr_version` parameter is omitted.
      *
      * @return $this
      */
