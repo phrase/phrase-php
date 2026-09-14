@@ -270,7 +270,7 @@ Name | Type | Description  | Notes
 
 ## spacesList
 
-> \Phrase\Model\Space[] spacesList($account_id, $x_phrase_app_otp, $page, $per_page)
+> \Phrase\Model\Space[] spacesList($account_id, $x_phrase_app_otp, $page, $per_page, $q)
 
 List Spaces
 
@@ -295,9 +295,10 @@ $account_id = 'account_id_example'; // string | Account ID
 $x_phrase_app_otp = 'x_phrase_app_otp_example'; // string | Two-Factor-Authentication token (optional)
 $page = 1; // int | Page number
 $per_page = 25; // int | Limit on the number of objects to be returned, between 1 and 100. 25 by default
+$q = name:Engineering; // string | Filter results by name. Supports the prefix-match syntax `name:<value>`, which returns only spaces whose names begin with `<value>`. Other query formats are ignored; omitting `q` returns all accessible spaces.
 
 try {
-    $result = $apiInstance->spacesList($account_id, $x_phrase_app_otp, $page, $per_page);
+    $result = $apiInstance->spacesList($account_id, $x_phrase_app_otp, $page, $per_page, $q);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling SpacesApi->spacesList: ', $e->getMessage(), PHP_EOL;
@@ -314,6 +315,7 @@ Name | Type | Description  | Notes
  **x_phrase_app_otp** | **string**| Two-Factor-Authentication token (optional) | [optional]
  **page** | **int**| Page number | [optional]
  **per_page** | **int**| Limit on the number of objects to be returned, between 1 and 100. 25 by default | [optional]
+ **q** | **string**| Filter results by name. Supports the prefix-match syntax &#x60;name:&lt;value&gt;&#x60;, which returns only spaces whose names begin with &#x60;&lt;value&gt;&#x60;. Other query formats are ignored; omitting &#x60;q&#x60; returns all accessible spaces. | [optional]
 
 ### Return type
 

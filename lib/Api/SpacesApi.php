@@ -1323,14 +1323,15 @@ class SpacesApi
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  int $page Page number (optional)
      * @param  int $per_page Limit on the number of objects to be returned, between 1 and 100. 25 by default (optional)
+     * @param  string $q Filter results by name. Supports the prefix-match syntax &#x60;name:&lt;value&gt;&#x60;, which returns only spaces whose names begin with &#x60;&lt;value&gt;&#x60;. Other query formats are ignored; omitting &#x60;q&#x60; returns all accessible spaces. (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Phrase\Model\Space[]
      */
-    public function spacesList($account_id, $x_phrase_app_otp = null, $page = null, $per_page = null)
+    public function spacesList($account_id, $x_phrase_app_otp = null, $page = null, $per_page = null, $q = null)
     {
-        list($response) = $this->spacesListWithHttpInfo($account_id, $x_phrase_app_otp, $page, $per_page);
+        list($response) = $this->spacesListWithHttpInfo($account_id, $x_phrase_app_otp, $page, $per_page, $q);
         return $response;
     }
 
@@ -1343,14 +1344,15 @@ class SpacesApi
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  int $page Page number (optional)
      * @param  int $per_page Limit on the number of objects to be returned, between 1 and 100. 25 by default (optional)
+     * @param  string $q Filter results by name. Supports the prefix-match syntax &#x60;name:&lt;value&gt;&#x60;, which returns only spaces whose names begin with &#x60;&lt;value&gt;&#x60;. Other query formats are ignored; omitting &#x60;q&#x60; returns all accessible spaces. (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Phrase\Model\Space[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function spacesListWithHttpInfo($account_id, $x_phrase_app_otp = null, $page = null, $per_page = null)
+    public function spacesListWithHttpInfo($account_id, $x_phrase_app_otp = null, $page = null, $per_page = null, $q = null)
     {
-        $request = $this->spacesListRequest($account_id, $x_phrase_app_otp, $page, $per_page);
+        $request = $this->spacesListRequest($account_id, $x_phrase_app_otp, $page, $per_page, $q);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1434,13 +1436,14 @@ class SpacesApi
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  int $page Page number (optional)
      * @param  int $per_page Limit on the number of objects to be returned, between 1 and 100. 25 by default (optional)
+     * @param  string $q Filter results by name. Supports the prefix-match syntax &#x60;name:&lt;value&gt;&#x60;, which returns only spaces whose names begin with &#x60;&lt;value&gt;&#x60;. Other query formats are ignored; omitting &#x60;q&#x60; returns all accessible spaces. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function spacesListAsync($account_id, $x_phrase_app_otp = null, $page = null, $per_page = null)
+    public function spacesListAsync($account_id, $x_phrase_app_otp = null, $page = null, $per_page = null, $q = null)
     {
-        return $this->spacesListAsyncWithHttpInfo($account_id, $x_phrase_app_otp, $page, $per_page)
+        return $this->spacesListAsyncWithHttpInfo($account_id, $x_phrase_app_otp, $page, $per_page, $q)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1457,14 +1460,15 @@ class SpacesApi
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  int $page Page number (optional)
      * @param  int $per_page Limit on the number of objects to be returned, between 1 and 100. 25 by default (optional)
+     * @param  string $q Filter results by name. Supports the prefix-match syntax &#x60;name:&lt;value&gt;&#x60;, which returns only spaces whose names begin with &#x60;&lt;value&gt;&#x60;. Other query formats are ignored; omitting &#x60;q&#x60; returns all accessible spaces. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function spacesListAsyncWithHttpInfo($account_id, $x_phrase_app_otp = null, $page = null, $per_page = null)
+    public function spacesListAsyncWithHttpInfo($account_id, $x_phrase_app_otp = null, $page = null, $per_page = null, $q = null)
     {
         $returnType = '\Phrase\Model\Space[]';
-        $request = $this->spacesListRequest($account_id, $x_phrase_app_otp, $page, $per_page);
+        $request = $this->spacesListRequest($account_id, $x_phrase_app_otp, $page, $per_page, $q);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1507,11 +1511,12 @@ class SpacesApi
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  int $page Page number (optional)
      * @param  int $per_page Limit on the number of objects to be returned, between 1 and 100. 25 by default (optional)
+     * @param  string $q Filter results by name. Supports the prefix-match syntax &#x60;name:&lt;value&gt;&#x60;, which returns only spaces whose names begin with &#x60;&lt;value&gt;&#x60;. Other query formats are ignored; omitting &#x60;q&#x60; returns all accessible spaces. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function spacesListRequest($account_id, $x_phrase_app_otp = null, $page = null, $per_page = null)
+    protected function spacesListRequest($account_id, $x_phrase_app_otp = null, $page = null, $per_page = null, $q = null)
     {
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -1547,6 +1552,17 @@ class SpacesApi
             }
             else {
                 $queryParams['per_page'] = $per_page;
+            }
+        }
+        // query params
+        if ($q !== null) {
+            if('form' === 'form' && is_array($q)) {
+                foreach($q as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['q'] = $q;
             }
         }
 
