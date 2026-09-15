@@ -85,6 +85,7 @@ class ProjectDetails implements ModelInterface, ArrayAccess
         'autocomplete_job_enabled' => 'bool',
         'default_encoding' => 'string',
         'cldr_version' => 'string',
+        'translation_keys_sort_collation' => 'string',
         'job_locking_enabled' => 'bool',
         'placeholder_styles' => 'string[]',
         'branch' => '\Phrase\Model\Branch'
@@ -126,6 +127,7 @@ class ProjectDetails implements ModelInterface, ArrayAccess
         'autocomplete_job_enabled' => null,
         'default_encoding' => null,
         'cldr_version' => null,
+        'translation_keys_sort_collation' => null,
         'job_locking_enabled' => null,
         'placeholder_styles' => null,
         'branch' => null
@@ -188,6 +190,7 @@ class ProjectDetails implements ModelInterface, ArrayAccess
         'autocomplete_job_enabled' => 'autocomplete_job_enabled',
         'default_encoding' => 'default_encoding',
         'cldr_version' => 'cldr_version',
+        'translation_keys_sort_collation' => 'translation_keys_sort_collation',
         'job_locking_enabled' => 'job_locking_enabled',
         'placeholder_styles' => 'placeholder_styles',
         'branch' => 'branch'
@@ -229,6 +232,7 @@ class ProjectDetails implements ModelInterface, ArrayAccess
         'autocomplete_job_enabled' => 'setAutocompleteJobEnabled',
         'default_encoding' => 'setDefaultEncoding',
         'cldr_version' => 'setCldrVersion',
+        'translation_keys_sort_collation' => 'setTranslationKeysSortCollation',
         'job_locking_enabled' => 'setJobLockingEnabled',
         'placeholder_styles' => 'setPlaceholderStyles',
         'branch' => 'setBranch'
@@ -270,6 +274,7 @@ class ProjectDetails implements ModelInterface, ArrayAccess
         'autocomplete_job_enabled' => 'getAutocompleteJobEnabled',
         'default_encoding' => 'getDefaultEncoding',
         'cldr_version' => 'getCldrVersion',
+        'translation_keys_sort_collation' => 'getTranslationKeysSortCollation',
         'job_locking_enabled' => 'getJobLockingEnabled',
         'placeholder_styles' => 'getPlaceholderStyles',
         'branch' => 'getBranch'
@@ -316,8 +321,23 @@ class ProjectDetails implements ModelInterface, ArrayAccess
         return self::$openAPIModelName;
     }
 
+    const TRANSLATION_KEYS_SORT_COLLATION_GENERAL_CI = 'general_ci';
+    const TRANSLATION_KEYS_SORT_COLLATION_UNICODE_CI = 'unicode_ci';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getTranslationKeysSortCollationAllowableValues()
+    {
+        return [
+            self::TRANSLATION_KEYS_SORT_COLLATION_GENERAL_CI,
+            self::TRANSLATION_KEYS_SORT_COLLATION_UNICODE_CI,
+        ];
+    }
     
 
     /**
@@ -365,6 +385,7 @@ class ProjectDetails implements ModelInterface, ArrayAccess
         $this->container['autocomplete_job_enabled'] = isset($data['autocomplete_job_enabled']) ? $data['autocomplete_job_enabled'] : null;
         $this->container['default_encoding'] = isset($data['default_encoding']) ? $data['default_encoding'] : null;
         $this->container['cldr_version'] = isset($data['cldr_version']) ? $data['cldr_version'] : null;
+        $this->container['translation_keys_sort_collation'] = isset($data['translation_keys_sort_collation']) ? $data['translation_keys_sort_collation'] : null;
         $this->container['job_locking_enabled'] = isset($data['job_locking_enabled']) ? $data['job_locking_enabled'] : null;
         $this->container['placeholder_styles'] = isset($data['placeholder_styles']) ? $data['placeholder_styles'] : null;
         $this->container['branch'] = isset($data['branch']) ? $data['branch'] : null;
@@ -378,6 +399,14 @@ class ProjectDetails implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        $allowedValues = $this->getTranslationKeysSortCollationAllowableValues();
+        if (!is_null($this->container['translation_keys_sort_collation']) && !in_array($this->container['translation_keys_sort_collation'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'translation_keys_sort_collation', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
 
         return $invalidProperties;
     }
@@ -1110,6 +1139,39 @@ class ProjectDetails implements ModelInterface, ArrayAccess
     public function setCldrVersion($cldr_version)
     {
         $this->container['cldr_version'] = $cldr_version;
+
+        return $this;
+    }
+
+    /**
+     * Gets translation_keys_sort_collation
+     *
+     * @return string|null
+     */
+    public function getTranslationKeysSortCollation()
+    {
+        return $this->container['translation_keys_sort_collation'];
+    }
+
+    /**
+     * Sets translation_keys_sort_collation
+     *
+     * @param string|null $translation_keys_sort_collation translation_keys_sort_collation
+     *
+     * @return $this
+     */
+    public function setTranslationKeysSortCollation($translation_keys_sort_collation)
+    {
+        $allowedValues = $this->getTranslationKeysSortCollationAllowableValues();
+        if (!is_null($translation_keys_sort_collation) && !in_array($translation_keys_sort_collation, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'translation_keys_sort_collation', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['translation_keys_sort_collation'] = $translation_keys_sort_collation;
 
         return $this;
     }

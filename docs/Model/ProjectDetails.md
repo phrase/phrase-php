@@ -34,6 +34,7 @@ Name | Type | Description | Notes
 **autocomplete_job_enabled** | **bool** |  | [optional] 
 **default_encoding** | **string** |  | [optional] 
 **cldr_version** | **string** |  | [optional] 
+**translation_keys_sort_collation** | **string** |  | [optional] 
 **job_locking_enabled** | **bool** |  | [optional] 
 **placeholder_styles** | **string[]** |  | [optional] 
 **branch** | [**\Phrase\Model\Branch**](Branch.md) |  | [optional] 

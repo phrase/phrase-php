@@ -287,6 +287,13 @@ class ProjectDetailsTest extends TestCase
     }
 
     /**
+     * Test attribute "translation_keys_sort_collation"
+     */
+    public function testPropertyTranslationKeysSortCollation()
+    {
+    }
+
+    /**
      * Test attribute "job_locking_enabled"
      */
     public function testPropertyJobLockingEnabled()

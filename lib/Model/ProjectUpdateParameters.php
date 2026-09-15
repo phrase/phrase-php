@@ -331,6 +331,8 @@ class ProjectUpdateParameters implements ModelInterface, ArrayAccess
     const DEFAULT_ENCODING_UTF_16_BE = 'UTF-16BE';
     const DEFAULT_ENCODING_UTF_16_LE = 'UTF-16LE';
     const DEFAULT_ENCODING_ISO_8859_1 = 'ISO-8859-1';
+    const TRANSLATION_KEYS_SORT_COLLATION_GENERAL_CI = 'general_ci';
+    const TRANSLATION_KEYS_SORT_COLLATION_UNICODE_CI = 'unicode_ci';
     
 
     
@@ -347,6 +349,19 @@ class ProjectUpdateParameters implements ModelInterface, ArrayAccess
             self::DEFAULT_ENCODING_UTF_16_BE,
             self::DEFAULT_ENCODING_UTF_16_LE,
             self::DEFAULT_ENCODING_ISO_8859_1,
+        ];
+    }
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getTranslationKeysSortCollationAllowableValues()
+    {
+        return [
+            self::TRANSLATION_KEYS_SORT_COLLATION_GENERAL_CI,
+            self::TRANSLATION_KEYS_SORT_COLLATION_UNICODE_CI,
         ];
     }
     
@@ -416,6 +431,14 @@ class ProjectUpdateParameters implements ModelInterface, ArrayAccess
         if (!is_null($this->container['default_encoding']) && !in_array($this->container['default_encoding'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
                 "invalid value for 'default_encoding', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
+        $allowedValues = $this->getTranslationKeysSortCollationAllowableValues();
+        if (!is_null($this->container['translation_keys_sort_collation']) && !in_array($this->container['translation_keys_sort_collation'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'translation_keys_sort_collation', must be one of '%s'",
                 implode("', '", $allowedValues)
             );
         }
@@ -1255,6 +1278,15 @@ class ProjectUpdateParameters implements ModelInterface, ArrayAccess
      */
     public function setTranslationKeysSortCollation($translation_keys_sort_collation)
     {
+        $allowedValues = $this->getTranslationKeysSortCollationAllowableValues();
+        if (!is_null($translation_keys_sort_collation) && !in_array($translation_keys_sort_collation, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'translation_keys_sort_collation', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['translation_keys_sort_collation'] = $translation_keys_sort_collation;
 
         return $this;
