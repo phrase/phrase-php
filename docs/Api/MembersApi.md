@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**memberShow**](MembersApi.md#memberShow) | **GET** /accounts/{account_id}/members/{id} | Get single member
 [**memberUpdate**](MembersApi.md#memberUpdate) | **PATCH** /accounts/{account_id}/members/{id} | Update a member
 [**memberUpdateSettings**](MembersApi.md#memberUpdateSettings) | **PATCH** /projects/{project_id}/members/{id} | Update a member&#39;s project settings
+[**membersByProject**](MembersApi.md#membersByProject) | **GET** /projects/{project_id}/members | List project members
 [**membersList**](MembersApi.md#membersList) | **GET** /accounts/{account_id}/members | List members
 
 
@@ -260,6 +261,75 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
+
+
+## membersByProject
+
+> \Phrase\Model\ProjectMember[] membersByProject($project_id, $x_phrase_app_otp, $q, $job_id, $page, $per_page)
+
+List project members
+
+Get all members active in the project. Access token scope must include `read`.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$config = Phrase\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = Phrase\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'token');
+
+$apiInstance = new Phrase\Api\MembersApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$project_id = 'project_id_example'; // string | Project ID
+$x_phrase_app_otp = 'x_phrase_app_otp_example'; // string | Two-Factor-Authentication token (optional)
+$q = jane*; // string | Specify a query to search for members by name or email (including wildcards).
+$job_id = abcd1234cdef1234abcd1234cdef1234; // string | Filter members to those assigned to the job identified by this id.
+$page = 1; // int | Page number
+$per_page = 25; // int | Limit on the number of objects to be returned, between 1 and 100. 25 by default
+
+try {
+    $result = $apiInstance->membersByProject($project_id, $x_phrase_app_otp, $q, $job_id, $page, $per_page);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling MembersApi->membersByProject: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **project_id** | **string**| Project ID |
+ **x_phrase_app_otp** | **string**| Two-Factor-Authentication token (optional) | [optional]
+ **q** | **string**| Specify a query to search for members by name or email (including wildcards). | [optional]
+ **job_id** | **string**| Filter members to those assigned to the job identified by this id. | [optional]
+ **page** | **int**| Page number | [optional]
+ **per_page** | **int**| Limit on the number of objects to be returned, between 1 and 100. 25 by default | [optional]
+
+### Return type
+
+[**\Phrase\Model\ProjectMember[]**](../Model/ProjectMember.md)
+
+### Authorization
+
+[Basic](../../README.md#Basic), [Token](../../README.md#Token)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)

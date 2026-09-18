@@ -219,6 +219,7 @@ docs/Model/Project.md
 docs/Model/ProjectCreateParameters.md
 docs/Model/ProjectDetails.md
 docs/Model/ProjectLocales.md
+docs/Model/ProjectMember.md
 docs/Model/ProjectReport.md
 docs/Model/ProjectShort.md
 docs/Model/ProjectUpdateParameters.md
@@ -527,6 +528,7 @@ lib/Model/Project.php
 lib/Model/ProjectCreateParameters.php
 lib/Model/ProjectDetails.php
 lib/Model/ProjectLocales.php
+lib/Model/ProjectMember.php
 lib/Model/ProjectReport.php
 lib/Model/ProjectShort.php
 lib/Model/ProjectUpdateParameters.php
@@ -828,6 +830,7 @@ test/Model/PreTranslationTest.php
 test/Model/ProjectCreateParametersTest.php
 test/Model/ProjectDetailsTest.php
 test/Model/ProjectLocalesTest.php
+test/Model/ProjectMemberTest.php
 test/Model/ProjectReportTest.php
 test/Model/ProjectShortTest.php
 test/Model/ProjectTest.php
