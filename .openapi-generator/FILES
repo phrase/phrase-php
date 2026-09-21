@@ -56,6 +56,7 @@ docs/Api/ScreenshotsApi.md
 docs/Api/SearchApi.md
 docs/Api/SpacesApi.md
 docs/Api/StyleGuidesApi.md
+docs/Api/SupportedLanguagesApi.md
 docs/Api/TagsApi.md
 docs/Api/TeamsApi.md
 docs/Api/TranslationsApi.md
@@ -361,6 +362,7 @@ lib/Api/ScreenshotsApi.php
 lib/Api/SearchApi.php
 lib/Api/SpacesApi.php
 lib/Api/StyleGuidesApi.php
+lib/Api/SupportedLanguagesApi.php
 lib/Api/TagsApi.php
 lib/Api/TeamsApi.php
 lib/Api/TranslationsApi.php
@@ -669,6 +671,7 @@ test/Api/ScreenshotsApiTest.php
 test/Api/SearchApiTest.php
 test/Api/SpacesApiTest.php
 test/Api/StyleGuidesApiTest.php
+test/Api/SupportedLanguagesApiTest.php
 test/Api/TagsApiTest.php
 test/Api/TeamsApiTest.php
 test/Api/TranslationsApiTest.php
