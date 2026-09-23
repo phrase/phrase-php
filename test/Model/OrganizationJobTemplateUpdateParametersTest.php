@@ -96,4 +96,11 @@ class OrganizationJobTemplateUpdateParametersTest extends TestCase
     public function testPropertyAutotranslate()
     {
     }
+
+    /**
+     * Test attribute "owner_id"
+     */
+    public function testPropertyOwnerId()
+    {
+    }
 }

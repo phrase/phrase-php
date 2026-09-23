@@ -110,4 +110,11 @@ class JobTemplateCreateParametersTest extends TestCase
     public function testPropertySourceLocaleId()
     {
     }
+
+    /**
+     * Test attribute "owner_id"
+     */
+    public function testPropertyOwnerId()
+    {
+    }
 }

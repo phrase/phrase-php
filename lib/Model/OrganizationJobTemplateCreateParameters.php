@@ -57,7 +57,8 @@ class OrganizationJobTemplateCreateParameters implements ModelInterface, ArrayAc
     protected static $openAPITypes = [
         'name' => 'string',
         'briefing' => 'string',
-        'autotranslate' => 'bool'
+        'autotranslate' => 'bool',
+        'owner_id' => 'string'
     ];
 
     /**
@@ -68,7 +69,8 @@ class OrganizationJobTemplateCreateParameters implements ModelInterface, ArrayAc
     protected static $openAPIFormats = [
         'name' => null,
         'briefing' => null,
-        'autotranslate' => null
+        'autotranslate' => null,
+        'owner_id' => null
     ];
 
     /**
@@ -100,7 +102,8 @@ class OrganizationJobTemplateCreateParameters implements ModelInterface, ArrayAc
     protected static $attributeMap = [
         'name' => 'name',
         'briefing' => 'briefing',
-        'autotranslate' => 'autotranslate'
+        'autotranslate' => 'autotranslate',
+        'owner_id' => 'owner_id'
     ];
 
     /**
@@ -111,7 +114,8 @@ class OrganizationJobTemplateCreateParameters implements ModelInterface, ArrayAc
     protected static $setters = [
         'name' => 'setName',
         'briefing' => 'setBriefing',
-        'autotranslate' => 'setAutotranslate'
+        'autotranslate' => 'setAutotranslate',
+        'owner_id' => 'setOwnerId'
     ];
 
     /**
@@ -122,7 +126,8 @@ class OrganizationJobTemplateCreateParameters implements ModelInterface, ArrayAc
     protected static $getters = [
         'name' => 'getName',
         'briefing' => 'getBriefing',
-        'autotranslate' => 'getAutotranslate'
+        'autotranslate' => 'getAutotranslate',
+        'owner_id' => 'getOwnerId'
     ];
 
     /**
@@ -188,6 +193,7 @@ class OrganizationJobTemplateCreateParameters implements ModelInterface, ArrayAc
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['briefing'] = isset($data['briefing']) ? $data['briefing'] : null;
         $this->container['autotranslate'] = isset($data['autotranslate']) ? $data['autotranslate'] : null;
+        $this->container['owner_id'] = isset($data['owner_id']) ? $data['owner_id'] : null;
     }
 
     /**
@@ -285,6 +291,30 @@ class OrganizationJobTemplateCreateParameters implements ModelInterface, ArrayAc
     public function setAutotranslate($autotranslate)
     {
         $this->container['autotranslate'] = $autotranslate;
+
+        return $this;
+    }
+
+    /**
+     * Gets owner_id
+     *
+     * @return string|null
+     */
+    public function getOwnerId()
+    {
+        return $this->container['owner_id'];
+    }
+
+    /**
+     * Sets owner_id
+     *
+     * @param string|null $owner_id Code of the account member to set as the job template owner. When omitted or blank, no owner is pre-set; the user who creates a job from this template is assigned as its owner at job-creation time.
+     *
+     * @return $this
+     */
+    public function setOwnerId($owner_id)
+    {
+        $this->container['owner_id'] = $owner_id;
 
         return $this;
     }

@@ -59,7 +59,8 @@ class JobTemplateCreateParameters implements ModelInterface, ArrayAccess
         'name' => 'string',
         'briefing' => 'string',
         'autotranslate' => 'bool',
-        'source_locale_id' => 'string'
+        'source_locale_id' => 'string',
+        'owner_id' => 'string'
     ];
 
     /**
@@ -72,7 +73,8 @@ class JobTemplateCreateParameters implements ModelInterface, ArrayAccess
         'name' => null,
         'briefing' => null,
         'autotranslate' => null,
-        'source_locale_id' => null
+        'source_locale_id' => null,
+        'owner_id' => null
     ];
 
     /**
@@ -106,7 +108,8 @@ class JobTemplateCreateParameters implements ModelInterface, ArrayAccess
         'name' => 'name',
         'briefing' => 'briefing',
         'autotranslate' => 'autotranslate',
-        'source_locale_id' => 'source_locale_id'
+        'source_locale_id' => 'source_locale_id',
+        'owner_id' => 'owner_id'
     ];
 
     /**
@@ -119,7 +122,8 @@ class JobTemplateCreateParameters implements ModelInterface, ArrayAccess
         'name' => 'setName',
         'briefing' => 'setBriefing',
         'autotranslate' => 'setAutotranslate',
-        'source_locale_id' => 'setSourceLocaleId'
+        'source_locale_id' => 'setSourceLocaleId',
+        'owner_id' => 'setOwnerId'
     ];
 
     /**
@@ -132,7 +136,8 @@ class JobTemplateCreateParameters implements ModelInterface, ArrayAccess
         'name' => 'getName',
         'briefing' => 'getBriefing',
         'autotranslate' => 'getAutotranslate',
-        'source_locale_id' => 'getSourceLocaleId'
+        'source_locale_id' => 'getSourceLocaleId',
+        'owner_id' => 'getOwnerId'
     ];
 
     /**
@@ -200,6 +205,7 @@ class JobTemplateCreateParameters implements ModelInterface, ArrayAccess
         $this->container['briefing'] = isset($data['briefing']) ? $data['briefing'] : null;
         $this->container['autotranslate'] = isset($data['autotranslate']) ? $data['autotranslate'] : null;
         $this->container['source_locale_id'] = isset($data['source_locale_id']) ? $data['source_locale_id'] : null;
+        $this->container['owner_id'] = isset($data['owner_id']) ? $data['owner_id'] : null;
     }
 
     /**
@@ -345,6 +351,30 @@ class JobTemplateCreateParameters implements ModelInterface, ArrayAccess
     public function setSourceLocaleId($source_locale_id)
     {
         $this->container['source_locale_id'] = $source_locale_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets owner_id
+     *
+     * @return string|null
+     */
+    public function getOwnerId()
+    {
+        return $this->container['owner_id'];
+    }
+
+    /**
+     * Sets owner_id
+     *
+     * @param string|null $owner_id Code of the account member to set as the job template owner. The referenced user must also be a member of the project; passing the code of an account member who is not a project member returns a 404. When omitted or blank, no owner is pre-set; the user who creates a job from this template is assigned as owner at job-creation time.
+     *
+     * @return $this
+     */
+    public function setOwnerId($owner_id)
+    {
+        $this->container['owner_id'] = $owner_id;
 
         return $this;
     }
