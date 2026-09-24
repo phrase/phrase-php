@@ -1781,14 +1781,16 @@ class RepoSyncsApi
      *
      * @param  string $account_id Account ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
+     * @param  int $page Page number (optional)
+     * @param  int $per_page Limit on the number of objects to be returned, between 1 and 100. 25 by default (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Phrase\Model\RepoSync[]
      */
-    public function repoSyncList($account_id, $x_phrase_app_otp = null)
+    public function repoSyncList($account_id, $x_phrase_app_otp = null, $page = null, $per_page = null)
     {
-        list($response) = $this->repoSyncListWithHttpInfo($account_id, $x_phrase_app_otp);
+        list($response) = $this->repoSyncListWithHttpInfo($account_id, $x_phrase_app_otp, $page, $per_page);
         return $response;
     }
 
@@ -1799,14 +1801,16 @@ class RepoSyncsApi
      *
      * @param  string $account_id Account ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
+     * @param  int $page Page number (optional)
+     * @param  int $per_page Limit on the number of objects to be returned, between 1 and 100. 25 by default (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Phrase\Model\RepoSync[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function repoSyncListWithHttpInfo($account_id, $x_phrase_app_otp = null)
+    public function repoSyncListWithHttpInfo($account_id, $x_phrase_app_otp = null, $page = null, $per_page = null)
     {
-        $request = $this->repoSyncListRequest($account_id, $x_phrase_app_otp);
+        $request = $this->repoSyncListRequest($account_id, $x_phrase_app_otp, $page, $per_page);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1888,13 +1892,15 @@ class RepoSyncsApi
      *
      * @param  string $account_id Account ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
+     * @param  int $page Page number (optional)
+     * @param  int $per_page Limit on the number of objects to be returned, between 1 and 100. 25 by default (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function repoSyncListAsync($account_id, $x_phrase_app_otp = null)
+    public function repoSyncListAsync($account_id, $x_phrase_app_otp = null, $page = null, $per_page = null)
     {
-        return $this->repoSyncListAsyncWithHttpInfo($account_id, $x_phrase_app_otp)
+        return $this->repoSyncListAsyncWithHttpInfo($account_id, $x_phrase_app_otp, $page, $per_page)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1909,14 +1915,16 @@ class RepoSyncsApi
      *
      * @param  string $account_id Account ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
+     * @param  int $page Page number (optional)
+     * @param  int $per_page Limit on the number of objects to be returned, between 1 and 100. 25 by default (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function repoSyncListAsyncWithHttpInfo($account_id, $x_phrase_app_otp = null)
+    public function repoSyncListAsyncWithHttpInfo($account_id, $x_phrase_app_otp = null, $page = null, $per_page = null)
     {
         $returnType = '\Phrase\Model\RepoSync[]';
-        $request = $this->repoSyncListRequest($account_id, $x_phrase_app_otp);
+        $request = $this->repoSyncListRequest($account_id, $x_phrase_app_otp, $page, $per_page);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1957,11 +1965,13 @@ class RepoSyncsApi
      *
      * @param  string $account_id Account ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
+     * @param  int $page Page number (optional)
+     * @param  int $per_page Limit on the number of objects to be returned, between 1 and 100. 25 by default (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function repoSyncListRequest($account_id, $x_phrase_app_otp = null)
+    protected function repoSyncListRequest($account_id, $x_phrase_app_otp = null, $page = null, $per_page = null)
     {
         // verify the required parameter 'account_id' is set
         if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
@@ -1977,6 +1987,28 @@ class RepoSyncsApi
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        if ($page !== null) {
+            if('form' === 'form' && is_array($page)) {
+                foreach($page as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['page'] = $page;
+            }
+        }
+        // query params
+        if ($per_page !== null) {
+            if('form' === 'form' && is_array($per_page)) {
+                foreach($per_page as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['per_page'] = $per_page;
+            }
+        }
 
         // header params
         if ($x_phrase_app_otp !== null) {

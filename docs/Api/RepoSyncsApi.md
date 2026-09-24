@@ -335,7 +335,7 @@ Name | Type | Description  | Notes
 
 ## repoSyncList
 
-> \Phrase\Model\RepoSync[] repoSyncList($account_id, $x_phrase_app_otp)
+> \Phrase\Model\RepoSync[] repoSyncList($account_id, $x_phrase_app_otp, $page, $per_page)
 
 Get Repo Syncs
 
@@ -358,9 +358,11 @@ $apiInstance = new Phrase\Api\RepoSyncsApi(
 );
 $account_id = 'account_id_example'; // string | Account ID
 $x_phrase_app_otp = 'x_phrase_app_otp_example'; // string | Two-Factor-Authentication token (optional)
+$page = 1; // int | Page number
+$per_page = 25; // int | Limit on the number of objects to be returned, between 1 and 100. 25 by default
 
 try {
-    $result = $apiInstance->repoSyncList($account_id, $x_phrase_app_otp);
+    $result = $apiInstance->repoSyncList($account_id, $x_phrase_app_otp, $page, $per_page);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling RepoSyncsApi->repoSyncList: ', $e->getMessage(), PHP_EOL;
@@ -375,6 +377,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **account_id** | **string**| Account ID |
  **x_phrase_app_otp** | **string**| Two-Factor-Authentication token (optional) | [optional]
+ **page** | **int**| Page number | [optional]
+ **per_page** | **int**| Limit on the number of objects to be returned, between 1 and 100. 25 by default | [optional]
 
 ### Return type
 
