@@ -4,7 +4,7 @@ All URIs are relative to *https://api.phrase.com/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**reportLocalesList**](ReportsApi.md#reportLocalesList) | **GET** /projects/{project_id}/report/locales | List Locale Reports
+[**reportLocalesList**](ReportsApi.md#reportLocalesList) | **GET** /projects/{project_id}/report/locales | List Locale Reports (word count, character count, translation statistics)
 [**reportShow**](ReportsApi.md#reportShow) | **GET** /projects/{project_id}/report | Get Project Report
 
 
@@ -13,9 +13,9 @@ Method | HTTP request | Description
 
 > \Phrase\Model\LocaleReport[] reportLocalesList($project_id, $x_phrase_app_otp, $page, $per_page, $locale_codes, $tag, $branch)
 
-List Locale Reports
+List Locale Reports (word count, character count, translation statistics)
 
-List all locale reports for the given project
+List all locale reports for the given project. Each report includes translation statistics per locale, including word count and character count fields (`source_word_count`, `word_count`, `word_count_unverified`, `word_count_missing`) as well as translation completion statistics (`keys_count`, `completed_translations_count`, `untranslated_keys_count`, `unverified_translations_count`, `reviewed_translations_count`, and their percentages). Use the `tag` parameter to scope the report to a specific job (e.g. its job tag) to get job-scoped word count statistics.
 
 ### Example
 

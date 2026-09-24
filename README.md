@@ -366,7 +366,7 @@ Class | Method | HTTP request | Description
 *RepoSyncsApi* | [**repoSyncImport**](docs/Api/RepoSyncsApi.md#reposyncimport) | **POST** /accounts/{account_id}/repo_syncs/{id}/import | Import from code repository
 *RepoSyncsApi* | [**repoSyncList**](docs/Api/RepoSyncsApi.md#reposynclist) | **GET** /accounts/{account_id}/repo_syncs | Get Repo Syncs
 *RepoSyncsApi* | [**repoSyncShow**](docs/Api/RepoSyncsApi.md#reposyncshow) | **GET** /accounts/{account_id}/repo_syncs/{id} | Get a single Repo Sync
-*ReportsApi* | [**reportLocalesList**](docs/Api/ReportsApi.md#reportlocaleslist) | **GET** /projects/{project_id}/report/locales | List Locale Reports
+*ReportsApi* | [**reportLocalesList**](docs/Api/ReportsApi.md#reportlocaleslist) | **GET** /projects/{project_id}/report/locales | List Locale Reports (word count, character count, translation statistics)
 *ReportsApi* | [**reportShow**](docs/Api/ReportsApi.md#reportshow) | **GET** /projects/{project_id}/report | Get Project Report
 *ScreenshotMarkersApi* | [**screenshotMarkerCreate**](docs/Api/ScreenshotMarkersApi.md#screenshotmarkercreate) | **POST** /projects/{project_id}/screenshots/{screenshot_id}/markers | Create a screenshot marker
 *ScreenshotMarkersApi* | [**screenshotMarkerDelete**](docs/Api/ScreenshotMarkersApi.md#screenshotmarkerdelete) | **DELETE** /projects/{project_id}/screenshots/{screenshot_id}/markers | Delete a screenshot marker

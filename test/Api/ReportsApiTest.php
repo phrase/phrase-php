@@ -73,7 +73,7 @@ class ReportsApiTest extends TestCase
     /**
      * Test case for reportLocalesList
      *
-     * List Locale Reports.
+     * List Locale Reports (word count, character count, translation statistics).
      *
      */
     public function testReportLocalesList()

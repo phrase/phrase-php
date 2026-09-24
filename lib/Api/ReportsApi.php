@@ -116,7 +116,7 @@ class ReportsApi
     /**
      * Operation reportLocalesList
      *
-     * List Locale Reports
+     * List Locale Reports (word count, character count, translation statistics)
      *
      * @param  string $project_id Project ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
@@ -139,7 +139,7 @@ class ReportsApi
     /**
      * Operation reportLocalesListWithHttpInfo
      *
-     * List Locale Reports
+     * List Locale Reports (word count, character count, translation statistics)
      *
      * @param  string $project_id Project ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
@@ -233,7 +233,7 @@ class ReportsApi
     /**
      * Operation reportLocalesListAsync
      *
-     * List Locale Reports
+     * List Locale Reports (word count, character count, translation statistics)
      *
      * @param  string $project_id Project ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
@@ -259,7 +259,7 @@ class ReportsApi
     /**
      * Operation reportLocalesListAsyncWithHttpInfo
      *
-     * List Locale Reports
+     * List Locale Reports (word count, character count, translation statistics)
      *
      * @param  string $project_id Project ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
