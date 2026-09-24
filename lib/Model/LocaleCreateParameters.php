@@ -317,7 +317,7 @@ class LocaleCreateParameters implements ModelInterface, ArrayAccess
     /**
      * Sets name
      *
-     * @param string $name Locale name
+     * @param string $name Locale name. Must be unique per project.
      *
      * @return $this
      */
@@ -341,7 +341,7 @@ class LocaleCreateParameters implements ModelInterface, ArrayAccess
     /**
      * Sets code
      *
-     * @param string $code Locale ISO code
+     * @param string $code Locale ISO code. Unlike `name`, `code` is not required to be unique per project - creating a locale whose `code` duplicates an existing locale's `code` in the same project will succeed rather than error, resulting in two locales that share the same code.
      *
      * @return $this
      */
