@@ -3415,14 +3415,15 @@ class JobsApi
      * @param  string $id ID (required)
      * @param  \Phrase\Model\JobUpdateParameters $job_update_parameters job_update_parameters (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
+     * @param  string $branch Branch to use (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Phrase\Model\JobDetails|\Phrase\Model\DocumentDelete422Response
      */
-    public function jobUpdate($project_id, $id, $job_update_parameters, $x_phrase_app_otp = null)
+    public function jobUpdate($project_id, $id, $job_update_parameters, $x_phrase_app_otp = null, $branch = null)
     {
-        list($response) = $this->jobUpdateWithHttpInfo($project_id, $id, $job_update_parameters, $x_phrase_app_otp);
+        list($response) = $this->jobUpdateWithHttpInfo($project_id, $id, $job_update_parameters, $x_phrase_app_otp, $branch);
         return $response;
     }
 
@@ -3435,14 +3436,15 @@ class JobsApi
      * @param  string $id ID (required)
      * @param  \Phrase\Model\JobUpdateParameters $job_update_parameters (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
+     * @param  string $branch Branch to use (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Phrase\Model\JobDetails|\Phrase\Model\DocumentDelete422Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function jobUpdateWithHttpInfo($project_id, $id, $job_update_parameters, $x_phrase_app_otp = null)
+    public function jobUpdateWithHttpInfo($project_id, $id, $job_update_parameters, $x_phrase_app_otp = null, $branch = null)
     {
-        $request = $this->jobUpdateRequest($project_id, $id, $job_update_parameters, $x_phrase_app_otp);
+        $request = $this->jobUpdateRequest($project_id, $id, $job_update_parameters, $x_phrase_app_otp, $branch);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3546,13 +3548,14 @@ class JobsApi
      * @param  string $id ID (required)
      * @param  \Phrase\Model\JobUpdateParameters $job_update_parameters (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
+     * @param  string $branch Branch to use (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function jobUpdateAsync($project_id, $id, $job_update_parameters, $x_phrase_app_otp = null)
+    public function jobUpdateAsync($project_id, $id, $job_update_parameters, $x_phrase_app_otp = null, $branch = null)
     {
-        return $this->jobUpdateAsyncWithHttpInfo($project_id, $id, $job_update_parameters, $x_phrase_app_otp)
+        return $this->jobUpdateAsyncWithHttpInfo($project_id, $id, $job_update_parameters, $x_phrase_app_otp, $branch)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3569,14 +3572,15 @@ class JobsApi
      * @param  string $id ID (required)
      * @param  \Phrase\Model\JobUpdateParameters $job_update_parameters (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
+     * @param  string $branch Branch to use (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function jobUpdateAsyncWithHttpInfo($project_id, $id, $job_update_parameters, $x_phrase_app_otp = null)
+    public function jobUpdateAsyncWithHttpInfo($project_id, $id, $job_update_parameters, $x_phrase_app_otp = null, $branch = null)
     {
         $returnType = '\Phrase\Model\JobDetails';
-        $request = $this->jobUpdateRequest($project_id, $id, $job_update_parameters, $x_phrase_app_otp);
+        $request = $this->jobUpdateRequest($project_id, $id, $job_update_parameters, $x_phrase_app_otp, $branch);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3619,11 +3623,12 @@ class JobsApi
      * @param  string $id ID (required)
      * @param  \Phrase\Model\JobUpdateParameters $job_update_parameters (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
+     * @param  string $branch Branch to use (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function jobUpdateRequest($project_id, $id, $job_update_parameters, $x_phrase_app_otp = null)
+    protected function jobUpdateRequest($project_id, $id, $job_update_parameters, $x_phrase_app_otp = null, $branch = null)
     {
         // verify the required parameter 'project_id' is set
         if ($project_id === null || (is_array($project_id) && count($project_id) === 0)) {
@@ -3651,6 +3656,17 @@ class JobsApi
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        if ($branch !== null) {
+            if('form' === 'form' && is_array($branch)) {
+                foreach($branch as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['branch'] = $branch;
+            }
+        }
 
         // header params
         if ($x_phrase_app_otp !== null) {

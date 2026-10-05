@@ -55,7 +55,6 @@ class JobUpdateParameters implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'branch' => 'string',
         'name' => 'string',
         'briefing' => 'string',
         'due_date' => '\DateTime',
@@ -70,7 +69,6 @@ class JobUpdateParameters implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'branch' => null,
         'name' => null,
         'briefing' => null,
         'due_date' => 'date-time',
@@ -106,7 +104,6 @@ class JobUpdateParameters implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'branch' => 'branch',
         'name' => 'name',
         'briefing' => 'briefing',
         'due_date' => 'due_date',
@@ -121,7 +118,6 @@ class JobUpdateParameters implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'branch' => 'setBranch',
         'name' => 'setName',
         'briefing' => 'setBriefing',
         'due_date' => 'setDueDate',
@@ -136,7 +132,6 @@ class JobUpdateParameters implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'branch' => 'getBranch',
         'name' => 'getName',
         'briefing' => 'getBriefing',
         'due_date' => 'getDueDate',
@@ -205,7 +200,6 @@ class JobUpdateParameters implements ModelInterface, ArrayAccess
      */
     public function __construct(?array $data = null)
     {
-        $this->container['branch'] = isset($data['branch']) ? $data['branch'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['briefing'] = isset($data['briefing']) ? $data['briefing'] : null;
         $this->container['due_date'] = isset($data['due_date']) ? $data['due_date'] : null;
@@ -237,30 +231,6 @@ class JobUpdateParameters implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets branch
-     *
-     * @return string|null
-     */
-    public function getBranch()
-    {
-        return $this->container['branch'];
-    }
-
-    /**
-     * Sets branch
-     *
-     * @param string|null $branch specify the branch to use
-     *
-     * @return $this
-     */
-    public function setBranch($branch)
-    {
-        $this->container['branch'] = $branch;
-
-        return $this;
-    }
 
     /**
      * Gets name

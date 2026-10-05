@@ -77,13 +77,6 @@ class JobUpdateParametersTest extends TestCase
     }
 
     /**
-     * Test attribute "branch"
-     */
-    public function testPropertyBranch()
-    {
-    }
-
-    /**
      * Test attribute "name"
      */
     public function testPropertyName()

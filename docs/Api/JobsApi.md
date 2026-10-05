@@ -672,7 +672,7 @@ Name | Type | Description  | Notes
 
 ## jobUpdate
 
-> \Phrase\Model\JobDetails jobUpdate($project_id, $id, $job_update_parameters, $x_phrase_app_otp)
+> \Phrase\Model\JobDetails jobUpdate($project_id, $id, $job_update_parameters, $x_phrase_app_otp, $branch)
 
 Update a job
 
@@ -697,9 +697,10 @@ $project_id = 'project_id_example'; // string | Project ID
 $id = 'id_example'; // string | ID
 $job_update_parameters = new \Phrase\Model\JobUpdateParameters(); // \Phrase\Model\JobUpdateParameters | 
 $x_phrase_app_otp = 'x_phrase_app_otp_example'; // string | Two-Factor-Authentication token (optional)
+$branch = my-feature-branch; // string | Branch to use
 
 try {
-    $result = $apiInstance->jobUpdate($project_id, $id, $job_update_parameters, $x_phrase_app_otp);
+    $result = $apiInstance->jobUpdate($project_id, $id, $job_update_parameters, $x_phrase_app_otp, $branch);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling JobsApi->jobUpdate: ', $e->getMessage(), PHP_EOL;
@@ -716,6 +717,7 @@ Name | Type | Description  | Notes
  **id** | **string**| ID |
  **job_update_parameters** | [**\Phrase\Model\JobUpdateParameters**](../Model/JobUpdateParameters.md)|  |
  **x_phrase_app_otp** | **string**| Two-Factor-Authentication token (optional) | [optional]
+ **branch** | **string**| Branch to use | [optional]
 
 ### Return type
 
