@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 ## webhookDeliveriesList
 
-> \Phrase\Model\WebhookDelivery[] webhookDeliveriesList($project_id, $webhook_id, $x_phrase_app_otp, $response_status_codes)
+> \Phrase\Model\WebhookDelivery[] webhookDeliveriesList($project_id, $webhook_id, $x_phrase_app_otp, $response_status_codes, $status)
 
 List webhook deliveries
 
@@ -37,9 +37,10 @@ $project_id = 'project_id_example'; // string | Project ID
 $webhook_id = 'webhook_id_example'; // string | Webhook ID
 $x_phrase_app_otp = 'x_phrase_app_otp_example'; // string | Two-Factor-Authentication token (optional)
 $response_status_codes = 'response_status_codes_example'; // string | List of Response Status Codes
+$status = failed; // string | Filter deliveries by outcome. `success` returns deliveries with a 2xx response code or a soft error. `failed` returns all other deliveries, including exceptions and timeouts without a response code.
 
 try {
-    $result = $apiInstance->webhookDeliveriesList($project_id, $webhook_id, $x_phrase_app_otp, $response_status_codes);
+    $result = $apiInstance->webhookDeliveriesList($project_id, $webhook_id, $x_phrase_app_otp, $response_status_codes, $status);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling WebhookDeliveriesApi->webhookDeliveriesList: ', $e->getMessage(), PHP_EOL;
@@ -56,6 +57,7 @@ Name | Type | Description  | Notes
  **webhook_id** | **string**| Webhook ID |
  **x_phrase_app_otp** | **string**| Two-Factor-Authentication token (optional) | [optional]
  **response_status_codes** | **string**| List of Response Status Codes | [optional]
+ **status** | **string**| Filter deliveries by outcome. &#x60;success&#x60; returns deliveries with a 2xx response code or a soft error. &#x60;failed&#x60; returns all other deliveries, including exceptions and timeouts without a response code. | [optional]
 
 ### Return type
 

@@ -122,14 +122,15 @@ class WebhookDeliveriesApi
      * @param  string $webhook_id Webhook ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  string $response_status_codes List of Response Status Codes (optional)
+     * @param  string $status Filter deliveries by outcome. &#x60;success&#x60; returns deliveries with a 2xx response code or a soft error. &#x60;failed&#x60; returns all other deliveries, including exceptions and timeouts without a response code. (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Phrase\Model\WebhookDelivery[]
      */
-    public function webhookDeliveriesList($project_id, $webhook_id, $x_phrase_app_otp = null, $response_status_codes = null)
+    public function webhookDeliveriesList($project_id, $webhook_id, $x_phrase_app_otp = null, $response_status_codes = null, $status = null)
     {
-        list($response) = $this->webhookDeliveriesListWithHttpInfo($project_id, $webhook_id, $x_phrase_app_otp, $response_status_codes);
+        list($response) = $this->webhookDeliveriesListWithHttpInfo($project_id, $webhook_id, $x_phrase_app_otp, $response_status_codes, $status);
         return $response;
     }
 
@@ -142,14 +143,15 @@ class WebhookDeliveriesApi
      * @param  string $webhook_id Webhook ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  string $response_status_codes List of Response Status Codes (optional)
+     * @param  string $status Filter deliveries by outcome. &#x60;success&#x60; returns deliveries with a 2xx response code or a soft error. &#x60;failed&#x60; returns all other deliveries, including exceptions and timeouts without a response code. (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Phrase\Model\WebhookDelivery[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function webhookDeliveriesListWithHttpInfo($project_id, $webhook_id, $x_phrase_app_otp = null, $response_status_codes = null)
+    public function webhookDeliveriesListWithHttpInfo($project_id, $webhook_id, $x_phrase_app_otp = null, $response_status_codes = null, $status = null)
     {
-        $request = $this->webhookDeliveriesListRequest($project_id, $webhook_id, $x_phrase_app_otp, $response_status_codes);
+        $request = $this->webhookDeliveriesListRequest($project_id, $webhook_id, $x_phrase_app_otp, $response_status_codes, $status);
 
         try {
             $options = $this->createHttpClientOption();
@@ -233,13 +235,14 @@ class WebhookDeliveriesApi
      * @param  string $webhook_id Webhook ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  string $response_status_codes List of Response Status Codes (optional)
+     * @param  string $status Filter deliveries by outcome. &#x60;success&#x60; returns deliveries with a 2xx response code or a soft error. &#x60;failed&#x60; returns all other deliveries, including exceptions and timeouts without a response code. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function webhookDeliveriesListAsync($project_id, $webhook_id, $x_phrase_app_otp = null, $response_status_codes = null)
+    public function webhookDeliveriesListAsync($project_id, $webhook_id, $x_phrase_app_otp = null, $response_status_codes = null, $status = null)
     {
-        return $this->webhookDeliveriesListAsyncWithHttpInfo($project_id, $webhook_id, $x_phrase_app_otp, $response_status_codes)
+        return $this->webhookDeliveriesListAsyncWithHttpInfo($project_id, $webhook_id, $x_phrase_app_otp, $response_status_codes, $status)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -256,14 +259,15 @@ class WebhookDeliveriesApi
      * @param  string $webhook_id Webhook ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  string $response_status_codes List of Response Status Codes (optional)
+     * @param  string $status Filter deliveries by outcome. &#x60;success&#x60; returns deliveries with a 2xx response code or a soft error. &#x60;failed&#x60; returns all other deliveries, including exceptions and timeouts without a response code. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function webhookDeliveriesListAsyncWithHttpInfo($project_id, $webhook_id, $x_phrase_app_otp = null, $response_status_codes = null)
+    public function webhookDeliveriesListAsyncWithHttpInfo($project_id, $webhook_id, $x_phrase_app_otp = null, $response_status_codes = null, $status = null)
     {
         $returnType = '\Phrase\Model\WebhookDelivery[]';
-        $request = $this->webhookDeliveriesListRequest($project_id, $webhook_id, $x_phrase_app_otp, $response_status_codes);
+        $request = $this->webhookDeliveriesListRequest($project_id, $webhook_id, $x_phrase_app_otp, $response_status_codes, $status);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -306,11 +310,12 @@ class WebhookDeliveriesApi
      * @param  string $webhook_id Webhook ID (required)
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  string $response_status_codes List of Response Status Codes (optional)
+     * @param  string $status Filter deliveries by outcome. &#x60;success&#x60; returns deliveries with a 2xx response code or a soft error. &#x60;failed&#x60; returns all other deliveries, including exceptions and timeouts without a response code. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function webhookDeliveriesListRequest($project_id, $webhook_id, $x_phrase_app_otp = null, $response_status_codes = null)
+    protected function webhookDeliveriesListRequest($project_id, $webhook_id, $x_phrase_app_otp = null, $response_status_codes = null, $status = null)
     {
         // verify the required parameter 'project_id' is set
         if ($project_id === null || (is_array($project_id) && count($project_id) === 0)) {
@@ -341,6 +346,17 @@ class WebhookDeliveriesApi
             }
             else {
                 $queryParams['response_status_codes'] = $response_status_codes;
+            }
+        }
+        // query params
+        if ($status !== null) {
+            if('form' === 'form' && is_array($status)) {
+                foreach($status as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['status'] = $status;
             }
         }
 
