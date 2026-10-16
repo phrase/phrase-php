@@ -65,6 +65,7 @@ class Automation implements ModelInterface, ArrayAccess
         'job_template_id' => 'string',
         'job_owner_id' => 'string',
         'include_only_updated_locales' => 'bool',
+        'include_branches' => 'bool',
         'tags' => 'string[]',
         'cron_schedule' => 'string',
         'time_zone' => 'string',
@@ -89,6 +90,7 @@ class Automation implements ModelInterface, ArrayAccess
         'job_template_id' => null,
         'job_owner_id' => null,
         'include_only_updated_locales' => null,
+        'include_branches' => null,
         'tags' => null,
         'cron_schedule' => null,
         'time_zone' => null,
@@ -134,6 +136,7 @@ class Automation implements ModelInterface, ArrayAccess
         'job_template_id' => 'job_template_id',
         'job_owner_id' => 'job_owner_id',
         'include_only_updated_locales' => 'include_only_updated_locales',
+        'include_branches' => 'include_branches',
         'tags' => 'tags',
         'cron_schedule' => 'cron_schedule',
         'time_zone' => 'time_zone',
@@ -158,6 +161,7 @@ class Automation implements ModelInterface, ArrayAccess
         'job_template_id' => 'setJobTemplateId',
         'job_owner_id' => 'setJobOwnerId',
         'include_only_updated_locales' => 'setIncludeOnlyUpdatedLocales',
+        'include_branches' => 'setIncludeBranches',
         'tags' => 'setTags',
         'cron_schedule' => 'setCronSchedule',
         'time_zone' => 'setTimeZone',
@@ -182,6 +186,7 @@ class Automation implements ModelInterface, ArrayAccess
         'job_template_id' => 'getJobTemplateId',
         'job_owner_id' => 'getJobOwnerId',
         'include_only_updated_locales' => 'getIncludeOnlyUpdatedLocales',
+        'include_branches' => 'getIncludeBranches',
         'tags' => 'getTags',
         'cron_schedule' => 'getCronSchedule',
         'time_zone' => 'getTimeZone',
@@ -309,6 +314,7 @@ class Automation implements ModelInterface, ArrayAccess
         $this->container['job_template_id'] = isset($data['job_template_id']) ? $data['job_template_id'] : null;
         $this->container['job_owner_id'] = isset($data['job_owner_id']) ? $data['job_owner_id'] : null;
         $this->container['include_only_updated_locales'] = isset($data['include_only_updated_locales']) ? $data['include_only_updated_locales'] : null;
+        $this->container['include_branches'] = isset($data['include_branches']) ? $data['include_branches'] : null;
         $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
         $this->container['cron_schedule'] = isset($data['cron_schedule']) ? $data['cron_schedule'] : null;
         $this->container['time_zone'] = isset($data['time_zone']) ? $data['time_zone'] : null;
@@ -620,6 +626,30 @@ class Automation implements ModelInterface, ArrayAccess
     public function setIncludeOnlyUpdatedLocales($include_only_updated_locales)
     {
         $this->container['include_only_updated_locales'] = $include_only_updated_locales;
+
+        return $this;
+    }
+
+    /**
+     * Gets include_branches
+     *
+     * @return bool|null
+     */
+    public function getIncludeBranches()
+    {
+        return $this->container['include_branches'];
+    }
+
+    /**
+     * Sets include_branches
+     *
+     * @param bool|null $include_branches When true, the automation targets branches of the configured projects in addition to the main project. Requires the designated job owner to have permission to create jobs in branches for every configured project.
+     *
+     * @return $this
+     */
+    public function setIncludeBranches($include_branches)
+    {
+        $this->container['include_branches'] = $include_branches;
 
         return $this;
     }

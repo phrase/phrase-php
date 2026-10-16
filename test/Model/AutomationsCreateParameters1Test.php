@@ -145,4 +145,11 @@ class AutomationsCreateParameters1Test extends TestCase
     public function testPropertyIncludeOnlyUpdatedLocales()
     {
     }
+
+    /**
+     * Test attribute "include_branches"
+     */
+    public function testPropertyIncludeBranches()
+    {
+    }
 }

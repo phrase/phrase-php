@@ -147,6 +147,13 @@ class AutomationTest extends TestCase
     }
 
     /**
+     * Test attribute "include_branches"
+     */
+    public function testPropertyIncludeBranches()
+    {
+    }
+
+    /**
      * Test attribute "tags"
      */
     public function testPropertyTags()

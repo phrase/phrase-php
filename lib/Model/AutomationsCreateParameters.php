@@ -64,7 +64,8 @@ class AutomationsCreateParameters implements ModelInterface, ArrayAccess
         'cron_schedule' => 'string',
         'time_zone' => 'string',
         'job_owner_id' => 'string',
-        'include_only_updated_locales' => 'bool'
+        'include_only_updated_locales' => 'bool',
+        'include_branches' => 'bool'
     ];
 
     /**
@@ -82,7 +83,8 @@ class AutomationsCreateParameters implements ModelInterface, ArrayAccess
         'cron_schedule' => null,
         'time_zone' => null,
         'job_owner_id' => null,
-        'include_only_updated_locales' => null
+        'include_only_updated_locales' => null,
+        'include_branches' => null
     ];
 
     /**
@@ -121,7 +123,8 @@ class AutomationsCreateParameters implements ModelInterface, ArrayAccess
         'cron_schedule' => 'cron_schedule',
         'time_zone' => 'time_zone',
         'job_owner_id' => 'job_owner_id',
-        'include_only_updated_locales' => 'include_only_updated_locales'
+        'include_only_updated_locales' => 'include_only_updated_locales',
+        'include_branches' => 'include_branches'
     ];
 
     /**
@@ -139,7 +142,8 @@ class AutomationsCreateParameters implements ModelInterface, ArrayAccess
         'cron_schedule' => 'setCronSchedule',
         'time_zone' => 'setTimeZone',
         'job_owner_id' => 'setJobOwnerId',
-        'include_only_updated_locales' => 'setIncludeOnlyUpdatedLocales'
+        'include_only_updated_locales' => 'setIncludeOnlyUpdatedLocales',
+        'include_branches' => 'setIncludeBranches'
     ];
 
     /**
@@ -157,7 +161,8 @@ class AutomationsCreateParameters implements ModelInterface, ArrayAccess
         'cron_schedule' => 'getCronSchedule',
         'time_zone' => 'getTimeZone',
         'job_owner_id' => 'getJobOwnerId',
-        'include_only_updated_locales' => 'getIncludeOnlyUpdatedLocales'
+        'include_only_updated_locales' => 'getIncludeOnlyUpdatedLocales',
+        'include_branches' => 'getIncludeBranches'
     ];
 
     /**
@@ -262,6 +267,7 @@ class AutomationsCreateParameters implements ModelInterface, ArrayAccess
         $this->container['time_zone'] = isset($data['time_zone']) ? $data['time_zone'] : null;
         $this->container['job_owner_id'] = isset($data['job_owner_id']) ? $data['job_owner_id'] : null;
         $this->container['include_only_updated_locales'] = isset($data['include_only_updated_locales']) ? $data['include_only_updated_locales'] : null;
+        $this->container['include_branches'] = isset($data['include_branches']) ? $data['include_branches'] : null;
     }
 
     /**
@@ -562,6 +568,30 @@ class AutomationsCreateParameters implements ModelInterface, ArrayAccess
     public function setIncludeOnlyUpdatedLocales($include_only_updated_locales)
     {
         $this->container['include_only_updated_locales'] = $include_only_updated_locales;
+
+        return $this;
+    }
+
+    /**
+     * Gets include_branches
+     *
+     * @return bool|null
+     */
+    public function getIncludeBranches()
+    {
+        return $this->container['include_branches'];
+    }
+
+    /**
+     * Sets include_branches
+     *
+     * @param bool|null $include_branches When true, the automation also runs against branches of the configured projects. The designated job owner must have permission to create jobs in branches for every configured project; otherwise the request is rejected with 403.
+     *
+     * @return $this
+     */
+    public function setIncludeBranches($include_branches)
+    {
+        $this->container['include_branches'] = $include_branches;
 
         return $this;
     }
