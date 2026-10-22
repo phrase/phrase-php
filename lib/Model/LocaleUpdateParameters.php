@@ -455,7 +455,7 @@ class LocaleUpdateParameters implements ModelInterface, ArrayAccess
     /**
      * Sets fallback_locale_id
      *
-     * @param string|null $fallback_locale_id Fallback locale for empty translations. Can be a locale name or id.
+     * @param string|null $fallback_locale_id Fallback locale for empty translations. Can be a locale name or id. Send an empty string or `null` to clear the value; omit the field to leave it unchanged. The Phrase CLI drops `null` values before sending, so use an empty string there.
      *
      * @return $this
      */
@@ -575,7 +575,7 @@ class LocaleUpdateParameters implements ModelInterface, ArrayAccess
     /**
      * Sets language_ai_profile
      *
-     * @param string|null $language_ai_profile Identifier of the Language AI profile to use for this locale.
+     * @param string|null $language_ai_profile Identifier of the Language AI profile to use for this locale. Send an empty string or `null` to clear the value; omit the field to leave it unchanged. The Phrase CLI drops `null` values before sending, so use an empty string there.
      *
      * @return $this
      */

@@ -257,7 +257,7 @@ class GlossaryTermUpdateParameters implements ModelInterface, ArrayAccess
     /**
      * Sets description
      *
-     * @param string|null $description Description of term
+     * @param string|null $description Description of term. Send an empty string or `null` to clear the value; omit the field to leave it unchanged. The Phrase CLI drops `null` values before sending, so use an empty string there.
      *
      * @return $this
      */

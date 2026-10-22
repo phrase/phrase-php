@@ -443,7 +443,7 @@ class KeyUpdateParameters implements ModelInterface, ArrayAccess
     /**
      * Sets name_plural
      *
-     * @param string|null $name_plural Plural name for the key (used in some file formats, e.g. Gettext)
+     * @param string|null $name_plural Plural name for the key (used in some file formats, e.g. Gettext) Send an empty string or `null` to clear the value; omit the field to leave it unchanged. The Phrase CLI drops `null` values before sending, so use an empty string there.
      *
      * @return $this
      */
@@ -635,7 +635,7 @@ class KeyUpdateParameters implements ModelInterface, ArrayAccess
     /**
      * Sets original_file
      *
-     * @param string|null $original_file Original file attribute. Used in some formats, e.g. XLIFF.
+     * @param string|null $original_file Original file attribute. Used in some formats, e.g. XLIFF. Send an empty string or `null` to clear the value; omit the field to leave it unchanged. The Phrase CLI drops `null` values before sending, so use an empty string there.
      *
      * @return $this
      */
@@ -659,7 +659,7 @@ class KeyUpdateParameters implements ModelInterface, ArrayAccess
     /**
      * Sets localized_format_string
      *
-     * @param string|null $localized_format_string NSStringLocalizedFormatKey attribute. Used in .stringsdict format.
+     * @param string|null $localized_format_string NSStringLocalizedFormatKey attribute. Used in .stringsdict format. Send an empty string or `null` to clear the value; omit the field to leave it unchanged. The Phrase CLI drops `null` values before sending, so use an empty string there.
      *
      * @return $this
      */
@@ -683,7 +683,7 @@ class KeyUpdateParameters implements ModelInterface, ArrayAccess
     /**
      * Sets localized_format_key
      *
-     * @param string|null $localized_format_key NSStringLocalizedFormatKey attribute. Used in .stringsdict format.
+     * @param string|null $localized_format_key NSStringLocalizedFormatKey attribute. Used in .stringsdict format. Send an empty string or `null` to clear the value; omit the field to leave it unchanged. The Phrase CLI drops `null` values before sending, so use an empty string there.
      *
      * @return $this
      */

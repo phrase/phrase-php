@@ -406,7 +406,7 @@ class StyleguideUpdateParameters implements ModelInterface, ArrayAccess
     /**
      * Sets audience
      *
-     * @param string|null $audience Audience description
+     * @param string|null $audience Audience description. Send an empty string or `null` to clear the value; omit the field to leave it unchanged. The Phrase CLI drops `null` values before sending, so use an empty string there.
      *
      * @return $this
      */
@@ -529,7 +529,7 @@ class StyleguideUpdateParameters implements ModelInterface, ArrayAccess
     /**
      * Sets business
      *
-     * @param string|null $business Description of the business
+     * @param string|null $business Description of the business. Send an empty string or `null` to clear the value; omit the field to leave it unchanged. The Phrase CLI drops `null` values before sending, so use an empty string there.
      *
      * @return $this
      */
@@ -553,7 +553,7 @@ class StyleguideUpdateParameters implements ModelInterface, ArrayAccess
     /**
      * Sets company_branding
      *
-     * @param string|null $company_branding Company branding to remain consistent.
+     * @param string|null $company_branding Company branding to remain consistent. Send an empty string or `null` to clear the value; omit the field to leave it unchanged. The Phrase CLI drops `null` values before sending, so use an empty string there.
      *
      * @return $this
      */
@@ -577,7 +577,7 @@ class StyleguideUpdateParameters implements ModelInterface, ArrayAccess
     /**
      * Sets formatting
      *
-     * @param string|null $formatting Formatting requirements and character limitations.
+     * @param string|null $formatting Formatting requirements and character limitations. Send an empty string or `null` to clear the value; omit the field to leave it unchanged. The Phrase CLI drops `null` values before sending, so use an empty string there.
      *
      * @return $this
      */
@@ -601,7 +601,7 @@ class StyleguideUpdateParameters implements ModelInterface, ArrayAccess
     /**
      * Sets glossary_terms
      *
-     * @param string|null $glossary_terms List of terms and/or phrases that need to be translated consistently.
+     * @param string|null $glossary_terms List of terms and/or phrases that need to be translated consistently. Send an empty string or `null` to clear the value; omit the field to leave it unchanged. The Phrase CLI drops `null` values before sending, so use an empty string there.
      *
      * @return $this
      */
@@ -625,7 +625,7 @@ class StyleguideUpdateParameters implements ModelInterface, ArrayAccess
     /**
      * Sets grammar_consistency
      *
-     * @param string|null $grammar_consistency Formal or informal pronouns, consistent conjugation, grammatical gender
+     * @param string|null $grammar_consistency Formal or informal pronouns, consistent conjugation, grammatical gender. Send an empty string or `null` to clear the value; omit the field to leave it unchanged. The Phrase CLI drops `null` values before sending, so use an empty string there.
      *
      * @return $this
      */
@@ -649,7 +649,7 @@ class StyleguideUpdateParameters implements ModelInterface, ArrayAccess
     /**
      * Sets literal_translation
      *
-     * @param string|null $literal_translation Can be one of: Cultural/Conversational, Literal, Neutral.
+     * @param string|null $literal_translation Can be one of: Cultural/Conversational, Literal, Neutral. Send an empty string or `null` to clear the value; omit the field to leave it unchanged. The Phrase CLI drops `null` values before sending, so use an empty string there.
      *
      * @return $this
      */
@@ -673,7 +673,7 @@ class StyleguideUpdateParameters implements ModelInterface, ArrayAccess
     /**
      * Sets overall_tone
      *
-     * @param string|null $overall_tone Tone requirement descriptions
+     * @param string|null $overall_tone Tone requirement descriptions. Send an empty string or `null` to clear the value; omit the field to leave it unchanged. The Phrase CLI drops `null` values before sending, so use an empty string there.
      *
      * @return $this
      */
@@ -697,7 +697,7 @@ class StyleguideUpdateParameters implements ModelInterface, ArrayAccess
     /**
      * Sets samples
      *
-     * @param string|null $samples Provide links to sample product pages, FAQ pages, etc. to give the translator a point of reference. You can also provide past translations. Even snippets or short paragraphs are helpful for maintaining consistency.
+     * @param string|null $samples Provide links to sample product pages, FAQ pages, etc. to give the translator a point of reference. You can also provide past translations. Even snippets or short paragraphs are helpful for maintaining consistency. Send an empty string or `null` to clear the value; omit the field to leave it unchanged. The Phrase CLI drops `null` values before sending, so use an empty string there.
      *
      * @return $this
      */

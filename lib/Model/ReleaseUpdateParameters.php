@@ -239,7 +239,7 @@ class ReleaseUpdateParameters implements ModelInterface, ArrayAccess
     /**
      * Sets description
      *
-     * @param string|null $description Description of the release
+     * @param string|null $description Description of the release. Send an empty string or `null` to clear the value; omit the field to leave it unchanged. The Phrase CLI drops `null` values before sending, so use an empty string there.
      *
      * @return $this
      */
@@ -287,7 +287,7 @@ class ReleaseUpdateParameters implements ModelInterface, ArrayAccess
     /**
      * Sets app_min_version
      *
-     * @param string|null $app_min_version Minimum version of the app that the release supports in semver format
+     * @param string|null $app_min_version Minimum version of the app that the release supports in semver format. Send an empty string or `null` to clear the value; omit the field to leave it unchanged. The Phrase CLI drops `null` values before sending, so use an empty string there.
      *
      * @return $this
      */
@@ -311,7 +311,7 @@ class ReleaseUpdateParameters implements ModelInterface, ArrayAccess
     /**
      * Sets app_max_version
      *
-     * @param string|null $app_max_version Maximum version of the app that the release supports in semver format
+     * @param string|null $app_max_version Maximum version of the app that the release supports in semver format. Send an empty string or `null` to clear the value; omit the field to leave it unchanged. The Phrase CLI drops `null` values before sending, so use an empty string there.
      *
      * @return $this
      */

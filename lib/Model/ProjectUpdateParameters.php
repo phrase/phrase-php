@@ -519,7 +519,7 @@ class ProjectUpdateParameters implements ModelInterface, ArrayAccess
     /**
      * Sets point_of_contact
      *
-     * @param string|null $point_of_contact (Optional) User ID of the point of contact for the project. Pass `null` to unset.
+     * @param string|null $point_of_contact (Optional) User ID of the point of contact for the project. Pass `null` or an empty string to unset. The Phrase CLI drops `null` values before sending, so use an empty string there.
      *
      * @return $this
      */

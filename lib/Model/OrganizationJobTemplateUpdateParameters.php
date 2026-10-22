@@ -260,7 +260,7 @@ class OrganizationJobTemplateUpdateParameters implements ModelInterface, ArrayAc
     /**
      * Sets briefing
      *
-     * @param string|null $briefing Briefing for the translators
+     * @param string|null $briefing Briefing for the translators. Send an empty string or `null` to clear the value; omit the field to leave it unchanged. The Phrase CLI drops `null` values before sending, so use an empty string there.
      *
      * @return $this
      */
