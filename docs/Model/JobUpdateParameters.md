@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **name** | **string** | Job name | [optional] 
 **briefing** | **string** | Briefing for the translators | [optional] 
 **due_date** | **\DateTime** | Date the job should be finished | [optional] 
+**review_due_date** | **\DateTime** | Date the review of the job should be finished. Must not be before &#x60;due_date&#x60;. | [optional] 
 **ticket_url** | **string** | URL to a ticket for this job (e.g. Jira, Trello) | [optional] 
 **target_locale_ids** | **string[]** | List of target locales for the job. | [optional] 
 **autotranslate** | **bool** | Automatically translate the job using machine translation | [optional] 

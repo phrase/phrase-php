@@ -58,6 +58,7 @@ class JobUpdateParameters implements ModelInterface, ArrayAccess
         'name' => 'string',
         'briefing' => 'string',
         'due_date' => '\DateTime',
+        'review_due_date' => '\DateTime',
         'ticket_url' => 'string',
         'target_locale_ids' => 'string[]',
         'autotranslate' => 'bool'
@@ -72,6 +73,7 @@ class JobUpdateParameters implements ModelInterface, ArrayAccess
         'name' => null,
         'briefing' => null,
         'due_date' => 'date-time',
+        'review_due_date' => 'date-time',
         'ticket_url' => null,
         'target_locale_ids' => null,
         'autotranslate' => null
@@ -107,6 +109,7 @@ class JobUpdateParameters implements ModelInterface, ArrayAccess
         'name' => 'name',
         'briefing' => 'briefing',
         'due_date' => 'due_date',
+        'review_due_date' => 'review_due_date',
         'ticket_url' => 'ticket_url',
         'target_locale_ids' => 'target_locale_ids',
         'autotranslate' => 'autotranslate'
@@ -121,6 +124,7 @@ class JobUpdateParameters implements ModelInterface, ArrayAccess
         'name' => 'setName',
         'briefing' => 'setBriefing',
         'due_date' => 'setDueDate',
+        'review_due_date' => 'setReviewDueDate',
         'ticket_url' => 'setTicketUrl',
         'target_locale_ids' => 'setTargetLocaleIds',
         'autotranslate' => 'setAutotranslate'
@@ -135,6 +139,7 @@ class JobUpdateParameters implements ModelInterface, ArrayAccess
         'name' => 'getName',
         'briefing' => 'getBriefing',
         'due_date' => 'getDueDate',
+        'review_due_date' => 'getReviewDueDate',
         'ticket_url' => 'getTicketUrl',
         'target_locale_ids' => 'getTargetLocaleIds',
         'autotranslate' => 'getAutotranslate'
@@ -203,6 +208,7 @@ class JobUpdateParameters implements ModelInterface, ArrayAccess
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['briefing'] = isset($data['briefing']) ? $data['briefing'] : null;
         $this->container['due_date'] = isset($data['due_date']) ? $data['due_date'] : null;
+        $this->container['review_due_date'] = isset($data['review_due_date']) ? $data['review_due_date'] : null;
         $this->container['ticket_url'] = isset($data['ticket_url']) ? $data['ticket_url'] : null;
         $this->container['target_locale_ids'] = isset($data['target_locale_ids']) ? $data['target_locale_ids'] : null;
         $this->container['autotranslate'] = isset($data['autotranslate']) ? $data['autotranslate'] : null;
@@ -300,6 +306,30 @@ class JobUpdateParameters implements ModelInterface, ArrayAccess
     public function setDueDate($due_date)
     {
         $this->container['due_date'] = $due_date;
+
+        return $this;
+    }
+
+    /**
+     * Gets review_due_date
+     *
+     * @return \DateTime|null
+     */
+    public function getReviewDueDate()
+    {
+        return $this->container['review_due_date'];
+    }
+
+    /**
+     * Sets review_due_date
+     *
+     * @param \DateTime|null $review_due_date Date the review of the job should be finished. Must not be before `due_date`.
+     *
+     * @return $this
+     */
+    public function setReviewDueDate($review_due_date)
+    {
+        $this->container['review_due_date'] = $review_due_date;
 
         return $this;
     }

@@ -112,6 +112,13 @@ class JobCreateParametersTest extends TestCase
     }
 
     /**
+     * Test attribute "review_due_date"
+     */
+    public function testPropertyReviewDueDate()
+    {
+    }
+
+    /**
      * Test attribute "ticket_url"
      */
     public function testPropertyTicketUrl()
