@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **branch** | **string** | specify the branch to use | [optional] 
-**content** | **string** | Translation content | [optional] 
+**content** | **string** | Translation content. Send an empty string or &#x60;null&#x60; to clear the translation&#39;s content; omit the field to leave it unchanged. The Phrase CLI drops &#x60;null&#x60; values before sending, so use an empty string there. | [optional] 
 **plural_suffix** | **string** | Plural suffix. Can be one of: zero, one, two, few, many, other. Must be specified if the key associated to the translation is pluralized. | [optional] 
 **unverified** | **bool** | Indicates whether translation is unverified. Part of the [Advanced Workflows](https://support.phrase.com/hc/en-us/articles/5784094755484) feature. | [optional] 
 **excluded** | **bool** | Indicates whether translation is excluded. | [optional] 

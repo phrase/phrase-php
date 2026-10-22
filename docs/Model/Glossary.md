@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **string** |  | [optional] 
 **name** | **string** |  | [optional] 
+**terms_count** | **int** | Number of terms in the glossary. | [optional] 
 **projects** | [**\Phrase\Model\ProjectShort[]**](ProjectShort.md) |  | [optional] 
 **spaces** | [**\Phrase\Model\Space[]**](Space.md) |  | [optional] 
 **created_at** | **\DateTime** |  | [optional] 

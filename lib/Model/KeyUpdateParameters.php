@@ -371,7 +371,7 @@ class KeyUpdateParameters implements ModelInterface, ArrayAccess
     /**
      * Sets description
      *
-     * @param string|null $description Key description (usually includes contextual information for translators)
+     * @param string|null $description Key description (usually includes contextual information for translators). Send an empty string or `null` to clear the description; omit the field to leave it unchanged. The Phrase CLI drops `null` values before sending, so use an empty string there.
      *
      * @return $this
      */

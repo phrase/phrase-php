@@ -281,7 +281,7 @@ class TranslationUpdateParameters implements ModelInterface, ArrayAccess
     /**
      * Sets content
      *
-     * @param string|null $content Translation content
+     * @param string|null $content Translation content. Send an empty string or `null` to clear the translation's content; omit the field to leave it unchanged. The Phrase CLI drops `null` values before sending, so use an empty string there.
      *
      * @return $this
      */

@@ -57,6 +57,7 @@ class Glossary implements ModelInterface, ArrayAccess
     protected static $openAPITypes = [
         'id' => 'string',
         'name' => 'string',
+        'terms_count' => 'int',
         'projects' => '\Phrase\Model\ProjectShort[]',
         'spaces' => '\Phrase\Model\Space[]',
         'created_at' => '\DateTime',
@@ -71,6 +72,7 @@ class Glossary implements ModelInterface, ArrayAccess
     protected static $openAPIFormats = [
         'id' => null,
         'name' => null,
+        'terms_count' => null,
         'projects' => null,
         'spaces' => null,
         'created_at' => 'date-time',
@@ -106,6 +108,7 @@ class Glossary implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'id' => 'id',
         'name' => 'name',
+        'terms_count' => 'terms_count',
         'projects' => 'projects',
         'spaces' => 'spaces',
         'created_at' => 'created_at',
@@ -120,6 +123,7 @@ class Glossary implements ModelInterface, ArrayAccess
     protected static $setters = [
         'id' => 'setId',
         'name' => 'setName',
+        'terms_count' => 'setTermsCount',
         'projects' => 'setProjects',
         'spaces' => 'setSpaces',
         'created_at' => 'setCreatedAt',
@@ -134,6 +138,7 @@ class Glossary implements ModelInterface, ArrayAccess
     protected static $getters = [
         'id' => 'getId',
         'name' => 'getName',
+        'terms_count' => 'getTermsCount',
         'projects' => 'getProjects',
         'spaces' => 'getSpaces',
         'created_at' => 'getCreatedAt',
@@ -202,6 +207,7 @@ class Glossary implements ModelInterface, ArrayAccess
     {
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['terms_count'] = isset($data['terms_count']) ? $data['terms_count'] : null;
         $this->container['projects'] = isset($data['projects']) ? $data['projects'] : null;
         $this->container['spaces'] = isset($data['spaces']) ? $data['spaces'] : null;
         $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
@@ -276,6 +282,30 @@ class Glossary implements ModelInterface, ArrayAccess
     public function setName($name)
     {
         $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets terms_count
+     *
+     * @return int|null
+     */
+    public function getTermsCount()
+    {
+        return $this->container['terms_count'];
+    }
+
+    /**
+     * Sets terms_count
+     *
+     * @param int|null $terms_count Number of terms in the glossary.
+     *
+     * @return $this
+     */
+    public function setTermsCount($terms_count)
+    {
+        $this->container['terms_count'] = $terms_count;
 
         return $this;
     }

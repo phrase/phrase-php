@@ -91,6 +91,13 @@ class GlossaryTest extends TestCase
     }
 
     /**
+     * Test attribute "terms_count"
+     */
+    public function testPropertyTermsCount()
+    {
+    }
+
+    /**
      * Test attribute "projects"
      */
     public function testPropertyProjects()
