@@ -625,6 +625,7 @@ Class | Method | HTTP request | Description
  - [RepoSync](docs/Model/RepoSync.md)
  - [RepoSyncCreateParameters](docs/Model/RepoSyncCreateParameters.md)
  - [RepoSyncEvent](docs/Model/RepoSyncEvent.md)
+ - [RepoSyncEventUploadsInner](docs/Model/RepoSyncEventUploadsInner.md)
  - [RepoSyncExportParameters](docs/Model/RepoSyncExportParameters.md)
  - [RepoSyncImportParameters](docs/Model/RepoSyncImportParameters.md)
  - [Screenshot](docs/Model/Screenshot.md)

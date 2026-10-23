@@ -124,4 +124,11 @@ class RepoSyncEventTest extends TestCase
     public function testPropertyErrors()
     {
     }
+
+    /**
+     * Test attribute "uploads"
+     */
+    public function testPropertyUploads()
+    {
+    }
 }

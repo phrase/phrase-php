@@ -61,7 +61,8 @@ class RepoSyncEvent implements ModelInterface, ArrayAccess
         'status' => 'string',
         'pull_request_url' => 'string',
         'auto_import' => 'bool',
-        'errors' => 'string[]'
+        'errors' => 'string[]',
+        'uploads' => '\Phrase\Model\RepoSyncEventUploadsInner[]'
     ];
 
     /**
@@ -76,7 +77,8 @@ class RepoSyncEvent implements ModelInterface, ArrayAccess
         'status' => null,
         'pull_request_url' => null,
         'auto_import' => null,
-        'errors' => null
+        'errors' => null,
+        'uploads' => null
     ];
 
     /**
@@ -112,7 +114,8 @@ class RepoSyncEvent implements ModelInterface, ArrayAccess
         'status' => 'status',
         'pull_request_url' => 'pull_request_url',
         'auto_import' => 'auto_import',
-        'errors' => 'errors'
+        'errors' => 'errors',
+        'uploads' => 'uploads'
     ];
 
     /**
@@ -127,7 +130,8 @@ class RepoSyncEvent implements ModelInterface, ArrayAccess
         'status' => 'setStatus',
         'pull_request_url' => 'setPullRequestUrl',
         'auto_import' => 'setAutoImport',
-        'errors' => 'setErrors'
+        'errors' => 'setErrors',
+        'uploads' => 'setUploads'
     ];
 
     /**
@@ -142,7 +146,8 @@ class RepoSyncEvent implements ModelInterface, ArrayAccess
         'status' => 'getStatus',
         'pull_request_url' => 'getPullRequestUrl',
         'auto_import' => 'getAutoImport',
-        'errors' => 'getErrors'
+        'errors' => 'getErrors',
+        'uploads' => 'getUploads'
     ];
 
     /**
@@ -244,6 +249,7 @@ class RepoSyncEvent implements ModelInterface, ArrayAccess
         $this->container['pull_request_url'] = isset($data['pull_request_url']) ? $data['pull_request_url'] : null;
         $this->container['auto_import'] = isset($data['auto_import']) ? $data['auto_import'] : null;
         $this->container['errors'] = isset($data['errors']) ? $data['errors'] : null;
+        $this->container['uploads'] = isset($data['uploads']) ? $data['uploads'] : null;
     }
 
     /**
@@ -468,6 +474,30 @@ class RepoSyncEvent implements ModelInterface, ArrayAccess
     public function setErrors($errors)
     {
         $this->container['errors'] = $errors;
+
+        return $this;
+    }
+
+    /**
+     * Gets uploads
+     *
+     * @return \Phrase\Model\RepoSyncEventUploadsInner[]|null
+     */
+    public function getUploads()
+    {
+        return $this->container['uploads'];
+    }
+
+    /**
+     * Sets uploads
+     *
+     * @param \Phrase\Model\RepoSyncEventUploadsInner[]|null $uploads The uploads associated with this import event, or `null` if no upload batch has been created yet. Each entry identifies a single file upload by its public code (`id`) and its current public state (`state`). Present on show responses only; absent from list responses. Possible `state` values: `initialized`, `waiting_for_preview`, `processing`, `success`, `error`.
+     *
+     * @return $this
+     */
+    public function setUploads($uploads)
+    {
+        $this->container['uploads'] = $uploads;
 
         return $this;
     }
