@@ -66,7 +66,8 @@ class JobCreateParameters implements ModelInterface, ArrayAccess
         'translation_key_ids' => 'string[]',
         'target_locale_ids' => 'string[]',
         'job_template_id' => 'string',
-        'autotranslate' => 'bool'
+        'autotranslate' => 'bool',
+        'exclude_linked_child_keys' => 'bool'
     ];
 
     /**
@@ -86,7 +87,8 @@ class JobCreateParameters implements ModelInterface, ArrayAccess
         'translation_key_ids' => null,
         'target_locale_ids' => null,
         'job_template_id' => null,
-        'autotranslate' => null
+        'autotranslate' => null,
+        'exclude_linked_child_keys' => null
     ];
 
     /**
@@ -127,7 +129,8 @@ class JobCreateParameters implements ModelInterface, ArrayAccess
         'translation_key_ids' => 'translation_key_ids',
         'target_locale_ids' => 'target_locale_ids',
         'job_template_id' => 'job_template_id',
-        'autotranslate' => 'autotranslate'
+        'autotranslate' => 'autotranslate',
+        'exclude_linked_child_keys' => 'exclude_linked_child_keys'
     ];
 
     /**
@@ -147,7 +150,8 @@ class JobCreateParameters implements ModelInterface, ArrayAccess
         'translation_key_ids' => 'setTranslationKeyIds',
         'target_locale_ids' => 'setTargetLocaleIds',
         'job_template_id' => 'setJobTemplateId',
-        'autotranslate' => 'setAutotranslate'
+        'autotranslate' => 'setAutotranslate',
+        'exclude_linked_child_keys' => 'setExcludeLinkedChildKeys'
     ];
 
     /**
@@ -167,7 +171,8 @@ class JobCreateParameters implements ModelInterface, ArrayAccess
         'translation_key_ids' => 'getTranslationKeyIds',
         'target_locale_ids' => 'getTargetLocaleIds',
         'job_template_id' => 'getJobTemplateId',
-        'autotranslate' => 'getAutotranslate'
+        'autotranslate' => 'getAutotranslate',
+        'exclude_linked_child_keys' => 'getExcludeLinkedChildKeys'
     ];
 
     /**
@@ -242,6 +247,7 @@ class JobCreateParameters implements ModelInterface, ArrayAccess
         $this->container['target_locale_ids'] = isset($data['target_locale_ids']) ? $data['target_locale_ids'] : null;
         $this->container['job_template_id'] = isset($data['job_template_id']) ? $data['job_template_id'] : null;
         $this->container['autotranslate'] = isset($data['autotranslate']) ? $data['autotranslate'] : null;
+        $this->container['exclude_linked_child_keys'] = isset($data['exclude_linked_child_keys']) ? $data['exclude_linked_child_keys'] : null;
     }
 
     /**
@@ -555,6 +561,30 @@ class JobCreateParameters implements ModelInterface, ArrayAccess
     public function setAutotranslate($autotranslate)
     {
         $this->container['autotranslate'] = $autotranslate;
+
+        return $this;
+    }
+
+    /**
+     * Gets exclude_linked_child_keys
+     *
+     * @return bool|null
+     */
+    public function getExcludeLinkedChildKeys()
+    {
+        return $this->container['exclude_linked_child_keys'];
+    }
+
+    /**
+     * Sets exclude_linked_child_keys
+     *
+     * @param bool|null $exclude_linked_child_keys Exclude linked child keys from the job. While enabled, linked child keys cannot be added to the job. Defaults to `false`.
+     *
+     * @return $this
+     */
+    public function setExcludeLinkedChildKeys($exclude_linked_child_keys)
+    {
+        $this->container['exclude_linked_child_keys'] = $exclude_linked_child_keys;
 
         return $this;
     }

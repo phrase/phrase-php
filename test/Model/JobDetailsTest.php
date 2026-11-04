@@ -222,4 +222,11 @@ class JobDetailsTest extends TestCase
     public function testPropertyLocked()
     {
     }
+
+    /**
+     * Test attribute "exclude_linked_child_keys"
+     */
+    public function testPropertyExcludeLinkedChildKeys()
+    {
+    }
 }

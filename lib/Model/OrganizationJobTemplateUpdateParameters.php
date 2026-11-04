@@ -58,6 +58,7 @@ class OrganizationJobTemplateUpdateParameters implements ModelInterface, ArrayAc
         'name' => 'string',
         'briefing' => 'string',
         'autotranslate' => 'bool',
+        'exclude_linked_child_keys' => 'bool',
         'owner_id' => 'string'
     ];
 
@@ -70,6 +71,7 @@ class OrganizationJobTemplateUpdateParameters implements ModelInterface, ArrayAc
         'name' => null,
         'briefing' => null,
         'autotranslate' => null,
+        'exclude_linked_child_keys' => null,
         'owner_id' => null
     ];
 
@@ -103,6 +105,7 @@ class OrganizationJobTemplateUpdateParameters implements ModelInterface, ArrayAc
         'name' => 'name',
         'briefing' => 'briefing',
         'autotranslate' => 'autotranslate',
+        'exclude_linked_child_keys' => 'exclude_linked_child_keys',
         'owner_id' => 'owner_id'
     ];
 
@@ -115,6 +118,7 @@ class OrganizationJobTemplateUpdateParameters implements ModelInterface, ArrayAc
         'name' => 'setName',
         'briefing' => 'setBriefing',
         'autotranslate' => 'setAutotranslate',
+        'exclude_linked_child_keys' => 'setExcludeLinkedChildKeys',
         'owner_id' => 'setOwnerId'
     ];
 
@@ -127,6 +131,7 @@ class OrganizationJobTemplateUpdateParameters implements ModelInterface, ArrayAc
         'name' => 'getName',
         'briefing' => 'getBriefing',
         'autotranslate' => 'getAutotranslate',
+        'exclude_linked_child_keys' => 'getExcludeLinkedChildKeys',
         'owner_id' => 'getOwnerId'
     ];
 
@@ -193,6 +198,7 @@ class OrganizationJobTemplateUpdateParameters implements ModelInterface, ArrayAc
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['briefing'] = isset($data['briefing']) ? $data['briefing'] : null;
         $this->container['autotranslate'] = isset($data['autotranslate']) ? $data['autotranslate'] : null;
+        $this->container['exclude_linked_child_keys'] = isset($data['exclude_linked_child_keys']) ? $data['exclude_linked_child_keys'] : null;
         $this->container['owner_id'] = isset($data['owner_id']) ? $data['owner_id'] : null;
     }
 
@@ -291,6 +297,30 @@ class OrganizationJobTemplateUpdateParameters implements ModelInterface, ArrayAc
     public function setAutotranslate($autotranslate)
     {
         $this->container['autotranslate'] = $autotranslate;
+
+        return $this;
+    }
+
+    /**
+     * Gets exclude_linked_child_keys
+     *
+     * @return bool|null
+     */
+    public function getExcludeLinkedChildKeys()
+    {
+        return $this->container['exclude_linked_child_keys'];
+    }
+
+    /**
+     * Sets exclude_linked_child_keys
+     *
+     * @param bool|null $exclude_linked_child_keys Exclude linked child keys from jobs created from this template.
+     *
+     * @return $this
+     */
+    public function setExcludeLinkedChildKeys($exclude_linked_child_keys)
+    {
+        $this->container['exclude_linked_child_keys'] = $exclude_linked_child_keys;
 
         return $this;
     }

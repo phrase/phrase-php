@@ -105,6 +105,13 @@ class JobTemplateCreateParametersTest extends TestCase
     }
 
     /**
+     * Test attribute "exclude_linked_child_keys"
+     */
+    public function testPropertyExcludeLinkedChildKeys()
+    {
+    }
+
+    /**
      * Test attribute "source_locale_id"
      */
     public function testPropertySourceLocaleId()

@@ -98,6 +98,13 @@ class OrganizationJobTemplateCreateParametersTest extends TestCase
     }
 
     /**
+     * Test attribute "exclude_linked_child_keys"
+     */
+    public function testPropertyExcludeLinkedChildKeys()
+    {
+    }
+
+    /**
      * Test attribute "owner_id"
      */
     public function testPropertyOwnerId()

@@ -61,7 +61,8 @@ class JobUpdateParameters implements ModelInterface, ArrayAccess
         'review_due_date' => '\DateTime',
         'ticket_url' => 'string',
         'target_locale_ids' => 'string[]',
-        'autotranslate' => 'bool'
+        'autotranslate' => 'bool',
+        'exclude_linked_child_keys' => 'bool'
     ];
 
     /**
@@ -76,7 +77,8 @@ class JobUpdateParameters implements ModelInterface, ArrayAccess
         'review_due_date' => 'date-time',
         'ticket_url' => null,
         'target_locale_ids' => null,
-        'autotranslate' => null
+        'autotranslate' => null,
+        'exclude_linked_child_keys' => null
     ];
 
     /**
@@ -112,7 +114,8 @@ class JobUpdateParameters implements ModelInterface, ArrayAccess
         'review_due_date' => 'review_due_date',
         'ticket_url' => 'ticket_url',
         'target_locale_ids' => 'target_locale_ids',
-        'autotranslate' => 'autotranslate'
+        'autotranslate' => 'autotranslate',
+        'exclude_linked_child_keys' => 'exclude_linked_child_keys'
     ];
 
     /**
@@ -127,7 +130,8 @@ class JobUpdateParameters implements ModelInterface, ArrayAccess
         'review_due_date' => 'setReviewDueDate',
         'ticket_url' => 'setTicketUrl',
         'target_locale_ids' => 'setTargetLocaleIds',
-        'autotranslate' => 'setAutotranslate'
+        'autotranslate' => 'setAutotranslate',
+        'exclude_linked_child_keys' => 'setExcludeLinkedChildKeys'
     ];
 
     /**
@@ -142,7 +146,8 @@ class JobUpdateParameters implements ModelInterface, ArrayAccess
         'review_due_date' => 'getReviewDueDate',
         'ticket_url' => 'getTicketUrl',
         'target_locale_ids' => 'getTargetLocaleIds',
-        'autotranslate' => 'getAutotranslate'
+        'autotranslate' => 'getAutotranslate',
+        'exclude_linked_child_keys' => 'getExcludeLinkedChildKeys'
     ];
 
     /**
@@ -212,6 +217,7 @@ class JobUpdateParameters implements ModelInterface, ArrayAccess
         $this->container['ticket_url'] = isset($data['ticket_url']) ? $data['ticket_url'] : null;
         $this->container['target_locale_ids'] = isset($data['target_locale_ids']) ? $data['target_locale_ids'] : null;
         $this->container['autotranslate'] = isset($data['autotranslate']) ? $data['autotranslate'] : null;
+        $this->container['exclude_linked_child_keys'] = isset($data['exclude_linked_child_keys']) ? $data['exclude_linked_child_keys'] : null;
     }
 
     /**
@@ -402,6 +408,30 @@ class JobUpdateParameters implements ModelInterface, ArrayAccess
     public function setAutotranslate($autotranslate)
     {
         $this->container['autotranslate'] = $autotranslate;
+
+        return $this;
+    }
+
+    /**
+     * Gets exclude_linked_child_keys
+     *
+     * @return bool|null
+     */
+    public function getExcludeLinkedChildKeys()
+    {
+        return $this->container['exclude_linked_child_keys'];
+    }
+
+    /**
+     * Sets exclude_linked_child_keys
+     *
+     * @param bool|null $exclude_linked_child_keys Exclude linked child keys from the job. When set to `true`, linked child keys already in the job are removed and none can be added while the option is enabled.
+     *
+     * @return $this
+     */
+    public function setExcludeLinkedChildKeys($exclude_linked_child_keys)
+    {
+        $this->container['exclude_linked_child_keys'] = $exclude_linked_child_keys;
 
         return $this;
     }

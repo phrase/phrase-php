@@ -65,7 +65,8 @@ class JobTemplateDetails implements ModelInterface, ArrayAccess
         'updated_at' => '\DateTime',
         'owner' => '\Phrase\Model\UserPreview',
         'creator' => '\Phrase\Model\UserPreview',
-        'locales' => '\Phrase\Model\LocalePreview[]'
+        'locales' => '\Phrase\Model\LocalePreview[]',
+        'exclude_linked_child_keys' => 'bool'
     ];
 
     /**
@@ -84,7 +85,8 @@ class JobTemplateDetails implements ModelInterface, ArrayAccess
         'updated_at' => 'date-time',
         'owner' => null,
         'creator' => null,
-        'locales' => null
+        'locales' => null,
+        'exclude_linked_child_keys' => null
     ];
 
     /**
@@ -124,7 +126,8 @@ class JobTemplateDetails implements ModelInterface, ArrayAccess
         'updated_at' => 'updated_at',
         'owner' => 'owner',
         'creator' => 'creator',
-        'locales' => 'locales'
+        'locales' => 'locales',
+        'exclude_linked_child_keys' => 'exclude_linked_child_keys'
     ];
 
     /**
@@ -143,7 +146,8 @@ class JobTemplateDetails implements ModelInterface, ArrayAccess
         'updated_at' => 'setUpdatedAt',
         'owner' => 'setOwner',
         'creator' => 'setCreator',
-        'locales' => 'setLocales'
+        'locales' => 'setLocales',
+        'exclude_linked_child_keys' => 'setExcludeLinkedChildKeys'
     ];
 
     /**
@@ -162,7 +166,8 @@ class JobTemplateDetails implements ModelInterface, ArrayAccess
         'updated_at' => 'getUpdatedAt',
         'owner' => 'getOwner',
         'creator' => 'getCreator',
-        'locales' => 'getLocales'
+        'locales' => 'getLocales',
+        'exclude_linked_child_keys' => 'getExcludeLinkedChildKeys'
     ];
 
     /**
@@ -236,6 +241,7 @@ class JobTemplateDetails implements ModelInterface, ArrayAccess
         $this->container['owner'] = isset($data['owner']) ? $data['owner'] : null;
         $this->container['creator'] = isset($data['creator']) ? $data['creator'] : null;
         $this->container['locales'] = isset($data['locales']) ? $data['locales'] : null;
+        $this->container['exclude_linked_child_keys'] = isset($data['exclude_linked_child_keys']) ? $data['exclude_linked_child_keys'] : null;
     }
 
     /**
@@ -522,6 +528,30 @@ class JobTemplateDetails implements ModelInterface, ArrayAccess
     public function setLocales($locales)
     {
         $this->container['locales'] = $locales;
+
+        return $this;
+    }
+
+    /**
+     * Gets exclude_linked_child_keys
+     *
+     * @return bool|null
+     */
+    public function getExcludeLinkedChildKeys()
+    {
+        return $this->container['exclude_linked_child_keys'];
+    }
+
+    /**
+     * Sets exclude_linked_child_keys
+     *
+     * @param bool|null $exclude_linked_child_keys `true` if jobs created from this template exclude linked child keys.
+     *
+     * @return $this
+     */
+    public function setExcludeLinkedChildKeys($exclude_linked_child_keys)
+    {
+        $this->container['exclude_linked_child_keys'] = $exclude_linked_child_keys;
 
         return $this;
     }

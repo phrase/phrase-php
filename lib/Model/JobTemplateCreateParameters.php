@@ -59,6 +59,7 @@ class JobTemplateCreateParameters implements ModelInterface, ArrayAccess
         'name' => 'string',
         'briefing' => 'string',
         'autotranslate' => 'bool',
+        'exclude_linked_child_keys' => 'bool',
         'source_locale_id' => 'string',
         'owner_id' => 'string'
     ];
@@ -73,6 +74,7 @@ class JobTemplateCreateParameters implements ModelInterface, ArrayAccess
         'name' => null,
         'briefing' => null,
         'autotranslate' => null,
+        'exclude_linked_child_keys' => null,
         'source_locale_id' => null,
         'owner_id' => null
     ];
@@ -108,6 +110,7 @@ class JobTemplateCreateParameters implements ModelInterface, ArrayAccess
         'name' => 'name',
         'briefing' => 'briefing',
         'autotranslate' => 'autotranslate',
+        'exclude_linked_child_keys' => 'exclude_linked_child_keys',
         'source_locale_id' => 'source_locale_id',
         'owner_id' => 'owner_id'
     ];
@@ -122,6 +125,7 @@ class JobTemplateCreateParameters implements ModelInterface, ArrayAccess
         'name' => 'setName',
         'briefing' => 'setBriefing',
         'autotranslate' => 'setAutotranslate',
+        'exclude_linked_child_keys' => 'setExcludeLinkedChildKeys',
         'source_locale_id' => 'setSourceLocaleId',
         'owner_id' => 'setOwnerId'
     ];
@@ -136,6 +140,7 @@ class JobTemplateCreateParameters implements ModelInterface, ArrayAccess
         'name' => 'getName',
         'briefing' => 'getBriefing',
         'autotranslate' => 'getAutotranslate',
+        'exclude_linked_child_keys' => 'getExcludeLinkedChildKeys',
         'source_locale_id' => 'getSourceLocaleId',
         'owner_id' => 'getOwnerId'
     ];
@@ -204,6 +209,7 @@ class JobTemplateCreateParameters implements ModelInterface, ArrayAccess
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['briefing'] = isset($data['briefing']) ? $data['briefing'] : null;
         $this->container['autotranslate'] = isset($data['autotranslate']) ? $data['autotranslate'] : null;
+        $this->container['exclude_linked_child_keys'] = isset($data['exclude_linked_child_keys']) ? $data['exclude_linked_child_keys'] : null;
         $this->container['source_locale_id'] = isset($data['source_locale_id']) ? $data['source_locale_id'] : null;
         $this->container['owner_id'] = isset($data['owner_id']) ? $data['owner_id'] : null;
     }
@@ -327,6 +333,30 @@ class JobTemplateCreateParameters implements ModelInterface, ArrayAccess
     public function setAutotranslate($autotranslate)
     {
         $this->container['autotranslate'] = $autotranslate;
+
+        return $this;
+    }
+
+    /**
+     * Gets exclude_linked_child_keys
+     *
+     * @return bool|null
+     */
+    public function getExcludeLinkedChildKeys()
+    {
+        return $this->container['exclude_linked_child_keys'];
+    }
+
+    /**
+     * Sets exclude_linked_child_keys
+     *
+     * @param bool|null $exclude_linked_child_keys Exclude linked child keys from jobs created from this template. Defaults to `false`.
+     *
+     * @return $this
+     */
+    public function setExcludeLinkedChildKeys($exclude_linked_child_keys)
+    {
+        $this->container['exclude_linked_child_keys'] = $exclude_linked_child_keys;
 
         return $this;
     }

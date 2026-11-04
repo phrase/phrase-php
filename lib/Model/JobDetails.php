@@ -75,7 +75,8 @@ class JobDetails implements ModelInterface, ArrayAccess
         'locales' => '\Phrase\Model\LocalePreview[]',
         'keys' => '\Phrase\Model\KeyPreview[]',
         'annotations' => '\Phrase\Model\JobAnnotationShort[]',
-        'locked' => 'bool'
+        'locked' => 'bool',
+        'exclude_linked_child_keys' => 'bool'
     ];
 
     /**
@@ -104,7 +105,8 @@ class JobDetails implements ModelInterface, ArrayAccess
         'locales' => null,
         'keys' => null,
         'annotations' => null,
-        'locked' => null
+        'locked' => null,
+        'exclude_linked_child_keys' => null
     ];
 
     /**
@@ -154,7 +156,8 @@ class JobDetails implements ModelInterface, ArrayAccess
         'locales' => 'locales',
         'keys' => 'keys',
         'annotations' => 'annotations',
-        'locked' => 'locked'
+        'locked' => 'locked',
+        'exclude_linked_child_keys' => 'exclude_linked_child_keys'
     ];
 
     /**
@@ -183,7 +186,8 @@ class JobDetails implements ModelInterface, ArrayAccess
         'locales' => 'setLocales',
         'keys' => 'setKeys',
         'annotations' => 'setAnnotations',
-        'locked' => 'setLocked'
+        'locked' => 'setLocked',
+        'exclude_linked_child_keys' => 'setExcludeLinkedChildKeys'
     ];
 
     /**
@@ -212,7 +216,8 @@ class JobDetails implements ModelInterface, ArrayAccess
         'locales' => 'getLocales',
         'keys' => 'getKeys',
         'annotations' => 'getAnnotations',
-        'locked' => 'getLocked'
+        'locked' => 'getLocked',
+        'exclude_linked_child_keys' => 'getExcludeLinkedChildKeys'
     ];
 
     /**
@@ -296,6 +301,7 @@ class JobDetails implements ModelInterface, ArrayAccess
         $this->container['keys'] = isset($data['keys']) ? $data['keys'] : null;
         $this->container['annotations'] = isset($data['annotations']) ? $data['annotations'] : null;
         $this->container['locked'] = isset($data['locked']) ? $data['locked'] : null;
+        $this->container['exclude_linked_child_keys'] = isset($data['exclude_linked_child_keys']) ? $data['exclude_linked_child_keys'] : null;
     }
 
     /**
@@ -822,6 +828,30 @@ class JobDetails implements ModelInterface, ArrayAccess
     public function setLocked($locked)
     {
         $this->container['locked'] = $locked;
+
+        return $this;
+    }
+
+    /**
+     * Gets exclude_linked_child_keys
+     *
+     * @return bool|null
+     */
+    public function getExcludeLinkedChildKeys()
+    {
+        return $this->container['exclude_linked_child_keys'];
+    }
+
+    /**
+     * Sets exclude_linked_child_keys
+     *
+     * @param bool|null $exclude_linked_child_keys `true` if linked child keys are excluded from this job. While enabled, linked child keys cannot be added to the job.
+     *
+     * @return $this
+     */
+    public function setExcludeLinkedChildKeys($exclude_linked_child_keys)
+    {
+        $this->container['exclude_linked_child_keys'] = $exclude_linked_child_keys;
 
         return $this;
     }
