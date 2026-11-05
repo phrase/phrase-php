@@ -2357,14 +2357,15 @@ class KeysApi
      * @param  string $order Order direction. Can be one of: asc, desc. (optional)
      * @param  string $q Specify a query to do broad search for keys by name (including wildcards).  The following qualifiers are also supported in the search term:  - &#x60;ids:key_id,...&#x60; for queries on a comma-separated list of ids - &#x60;name:key_name&#x60; for text queries on exact key names - spaces, commas, and colons  need to be escaped with double backslashes - &#x60;tags:tag_name&#x60; to filter for keys with certain tags - &#x60;translated:{true|false}&#x60; for translation status (also requires &#x60;locale_id&#x60; to be specified) - &#x60;updated_at:{&gt;&#x3D;|&lt;&#x3D;}2013-02-21T00:00:00Z&#x60; for date range queries - &#x60;unmentioned_in_upload:upload_id,...&#x60; to filter keys unmentioned within upload. When multiple upload IDs provided, matches only keys not mentioned in **all** uploads  **Caution:** Query parameters with empty values will be treated as though they are not included in the request and will be ignored.  Find more examples [here](/en/api/strings/usage-examples). (optional)
      * @param  string $locale_id Locale used to determine the translation state of a key when filtering for untranslated or translated keys. (optional)
+     * @param  bool $include_linked_keys When set to &#x60;true&#x60;, each key object in the response includes a &#x60;linked_key&#x60; field describing whether the key is a parent or child in a key-link relationship, and the number of children (for parent keys) or the parent&#39;s id and name (for child keys). Keys with no active link return &#x60;linked_key: null&#x60;. Omit this parameter or set it to &#x60;false&#x60; to leave the &#x60;linked_key&#x60; field out of the response entirely. (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Phrase\Model\TranslationKey[]
      */
-    public function keysList($project_id, $x_phrase_app_otp = null, $page = null, $per_page = null, $branch = null, $sort = null, $order = null, $q = null, $locale_id = null)
+    public function keysList($project_id, $x_phrase_app_otp = null, $page = null, $per_page = null, $branch = null, $sort = null, $order = null, $q = null, $locale_id = null, $include_linked_keys = null)
     {
-        list($response) = $this->keysListWithHttpInfo($project_id, $x_phrase_app_otp, $page, $per_page, $branch, $sort, $order, $q, $locale_id);
+        list($response) = $this->keysListWithHttpInfo($project_id, $x_phrase_app_otp, $page, $per_page, $branch, $sort, $order, $q, $locale_id, $include_linked_keys);
         return $response;
     }
 
@@ -2382,14 +2383,15 @@ class KeysApi
      * @param  string $order Order direction. Can be one of: asc, desc. (optional)
      * @param  string $q Specify a query to do broad search for keys by name (including wildcards).  The following qualifiers are also supported in the search term:  - &#x60;ids:key_id,...&#x60; for queries on a comma-separated list of ids - &#x60;name:key_name&#x60; for text queries on exact key names - spaces, commas, and colons  need to be escaped with double backslashes - &#x60;tags:tag_name&#x60; to filter for keys with certain tags - &#x60;translated:{true|false}&#x60; for translation status (also requires &#x60;locale_id&#x60; to be specified) - &#x60;updated_at:{&gt;&#x3D;|&lt;&#x3D;}2013-02-21T00:00:00Z&#x60; for date range queries - &#x60;unmentioned_in_upload:upload_id,...&#x60; to filter keys unmentioned within upload. When multiple upload IDs provided, matches only keys not mentioned in **all** uploads  **Caution:** Query parameters with empty values will be treated as though they are not included in the request and will be ignored.  Find more examples [here](/en/api/strings/usage-examples). (optional)
      * @param  string $locale_id Locale used to determine the translation state of a key when filtering for untranslated or translated keys. (optional)
+     * @param  bool $include_linked_keys When set to &#x60;true&#x60;, each key object in the response includes a &#x60;linked_key&#x60; field describing whether the key is a parent or child in a key-link relationship, and the number of children (for parent keys) or the parent&#39;s id and name (for child keys). Keys with no active link return &#x60;linked_key: null&#x60;. Omit this parameter or set it to &#x60;false&#x60; to leave the &#x60;linked_key&#x60; field out of the response entirely. (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Phrase\Model\TranslationKey[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function keysListWithHttpInfo($project_id, $x_phrase_app_otp = null, $page = null, $per_page = null, $branch = null, $sort = null, $order = null, $q = null, $locale_id = null)
+    public function keysListWithHttpInfo($project_id, $x_phrase_app_otp = null, $page = null, $per_page = null, $branch = null, $sort = null, $order = null, $q = null, $locale_id = null, $include_linked_keys = null)
     {
-        $request = $this->keysListRequest($project_id, $x_phrase_app_otp, $page, $per_page, $branch, $sort, $order, $q, $locale_id);
+        $request = $this->keysListRequest($project_id, $x_phrase_app_otp, $page, $per_page, $branch, $sort, $order, $q, $locale_id, $include_linked_keys);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2478,13 +2480,14 @@ class KeysApi
      * @param  string $order Order direction. Can be one of: asc, desc. (optional)
      * @param  string $q Specify a query to do broad search for keys by name (including wildcards).  The following qualifiers are also supported in the search term:  - &#x60;ids:key_id,...&#x60; for queries on a comma-separated list of ids - &#x60;name:key_name&#x60; for text queries on exact key names - spaces, commas, and colons  need to be escaped with double backslashes - &#x60;tags:tag_name&#x60; to filter for keys with certain tags - &#x60;translated:{true|false}&#x60; for translation status (also requires &#x60;locale_id&#x60; to be specified) - &#x60;updated_at:{&gt;&#x3D;|&lt;&#x3D;}2013-02-21T00:00:00Z&#x60; for date range queries - &#x60;unmentioned_in_upload:upload_id,...&#x60; to filter keys unmentioned within upload. When multiple upload IDs provided, matches only keys not mentioned in **all** uploads  **Caution:** Query parameters with empty values will be treated as though they are not included in the request and will be ignored.  Find more examples [here](/en/api/strings/usage-examples). (optional)
      * @param  string $locale_id Locale used to determine the translation state of a key when filtering for untranslated or translated keys. (optional)
+     * @param  bool $include_linked_keys When set to &#x60;true&#x60;, each key object in the response includes a &#x60;linked_key&#x60; field describing whether the key is a parent or child in a key-link relationship, and the number of children (for parent keys) or the parent&#39;s id and name (for child keys). Keys with no active link return &#x60;linked_key: null&#x60;. Omit this parameter or set it to &#x60;false&#x60; to leave the &#x60;linked_key&#x60; field out of the response entirely. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function keysListAsync($project_id, $x_phrase_app_otp = null, $page = null, $per_page = null, $branch = null, $sort = null, $order = null, $q = null, $locale_id = null)
+    public function keysListAsync($project_id, $x_phrase_app_otp = null, $page = null, $per_page = null, $branch = null, $sort = null, $order = null, $q = null, $locale_id = null, $include_linked_keys = null)
     {
-        return $this->keysListAsyncWithHttpInfo($project_id, $x_phrase_app_otp, $page, $per_page, $branch, $sort, $order, $q, $locale_id)
+        return $this->keysListAsyncWithHttpInfo($project_id, $x_phrase_app_otp, $page, $per_page, $branch, $sort, $order, $q, $locale_id, $include_linked_keys)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2506,14 +2509,15 @@ class KeysApi
      * @param  string $order Order direction. Can be one of: asc, desc. (optional)
      * @param  string $q Specify a query to do broad search for keys by name (including wildcards).  The following qualifiers are also supported in the search term:  - &#x60;ids:key_id,...&#x60; for queries on a comma-separated list of ids - &#x60;name:key_name&#x60; for text queries on exact key names - spaces, commas, and colons  need to be escaped with double backslashes - &#x60;tags:tag_name&#x60; to filter for keys with certain tags - &#x60;translated:{true|false}&#x60; for translation status (also requires &#x60;locale_id&#x60; to be specified) - &#x60;updated_at:{&gt;&#x3D;|&lt;&#x3D;}2013-02-21T00:00:00Z&#x60; for date range queries - &#x60;unmentioned_in_upload:upload_id,...&#x60; to filter keys unmentioned within upload. When multiple upload IDs provided, matches only keys not mentioned in **all** uploads  **Caution:** Query parameters with empty values will be treated as though they are not included in the request and will be ignored.  Find more examples [here](/en/api/strings/usage-examples). (optional)
      * @param  string $locale_id Locale used to determine the translation state of a key when filtering for untranslated or translated keys. (optional)
+     * @param  bool $include_linked_keys When set to &#x60;true&#x60;, each key object in the response includes a &#x60;linked_key&#x60; field describing whether the key is a parent or child in a key-link relationship, and the number of children (for parent keys) or the parent&#39;s id and name (for child keys). Keys with no active link return &#x60;linked_key: null&#x60;. Omit this parameter or set it to &#x60;false&#x60; to leave the &#x60;linked_key&#x60; field out of the response entirely. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function keysListAsyncWithHttpInfo($project_id, $x_phrase_app_otp = null, $page = null, $per_page = null, $branch = null, $sort = null, $order = null, $q = null, $locale_id = null)
+    public function keysListAsyncWithHttpInfo($project_id, $x_phrase_app_otp = null, $page = null, $per_page = null, $branch = null, $sort = null, $order = null, $q = null, $locale_id = null, $include_linked_keys = null)
     {
         $returnType = '\Phrase\Model\TranslationKey[]';
-        $request = $this->keysListRequest($project_id, $x_phrase_app_otp, $page, $per_page, $branch, $sort, $order, $q, $locale_id);
+        $request = $this->keysListRequest($project_id, $x_phrase_app_otp, $page, $per_page, $branch, $sort, $order, $q, $locale_id, $include_linked_keys);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2561,11 +2565,12 @@ class KeysApi
      * @param  string $order Order direction. Can be one of: asc, desc. (optional)
      * @param  string $q Specify a query to do broad search for keys by name (including wildcards).  The following qualifiers are also supported in the search term:  - &#x60;ids:key_id,...&#x60; for queries on a comma-separated list of ids - &#x60;name:key_name&#x60; for text queries on exact key names - spaces, commas, and colons  need to be escaped with double backslashes - &#x60;tags:tag_name&#x60; to filter for keys with certain tags - &#x60;translated:{true|false}&#x60; for translation status (also requires &#x60;locale_id&#x60; to be specified) - &#x60;updated_at:{&gt;&#x3D;|&lt;&#x3D;}2013-02-21T00:00:00Z&#x60; for date range queries - &#x60;unmentioned_in_upload:upload_id,...&#x60; to filter keys unmentioned within upload. When multiple upload IDs provided, matches only keys not mentioned in **all** uploads  **Caution:** Query parameters with empty values will be treated as though they are not included in the request and will be ignored.  Find more examples [here](/en/api/strings/usage-examples). (optional)
      * @param  string $locale_id Locale used to determine the translation state of a key when filtering for untranslated or translated keys. (optional)
+     * @param  bool $include_linked_keys When set to &#x60;true&#x60;, each key object in the response includes a &#x60;linked_key&#x60; field describing whether the key is a parent or child in a key-link relationship, and the number of children (for parent keys) or the parent&#39;s id and name (for child keys). Keys with no active link return &#x60;linked_key: null&#x60;. Omit this parameter or set it to &#x60;false&#x60; to leave the &#x60;linked_key&#x60; field out of the response entirely. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function keysListRequest($project_id, $x_phrase_app_otp = null, $page = null, $per_page = null, $branch = null, $sort = null, $order = null, $q = null, $locale_id = null)
+    protected function keysListRequest($project_id, $x_phrase_app_otp = null, $page = null, $per_page = null, $branch = null, $sort = null, $order = null, $q = null, $locale_id = null, $include_linked_keys = null)
     {
         // verify the required parameter 'project_id' is set
         if ($project_id === null || (is_array($project_id) && count($project_id) === 0)) {
@@ -2656,6 +2661,17 @@ class KeysApi
             }
             else {
                 $queryParams['locale_id'] = $locale_id;
+            }
+        }
+        // query params
+        if ($include_linked_keys !== null) {
+            if('form' === 'form' && is_array($include_linked_keys)) {
+                foreach($include_linked_keys as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['include_linked_keys'] = $include_linked_keys;
             }
         }
 
@@ -2756,14 +2772,15 @@ class KeysApi
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  int $page Page number (optional)
      * @param  int $per_page Limit on the number of objects to be returned, between 1 and 100. 25 by default (optional)
+     * @param  bool $include_linked_keys When set to &#x60;true&#x60;, each key object in the response includes a &#x60;linked_key&#x60; field describing whether the key is a parent or child in a key-link relationship, and the number of children (for parent keys) or the parent&#39;s id and name (for child keys). Keys with no active link return &#x60;linked_key: null&#x60;. Omit this parameter or set it to &#x60;false&#x60; to leave the &#x60;linked_key&#x60; field out of the response entirely. (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Phrase\Model\TranslationKey[]
      */
-    public function keysSearch($project_id, $keys_search_parameters, $x_phrase_app_otp = null, $page = null, $per_page = null)
+    public function keysSearch($project_id, $keys_search_parameters, $x_phrase_app_otp = null, $page = null, $per_page = null, $include_linked_keys = null)
     {
-        list($response) = $this->keysSearchWithHttpInfo($project_id, $keys_search_parameters, $x_phrase_app_otp, $page, $per_page);
+        list($response) = $this->keysSearchWithHttpInfo($project_id, $keys_search_parameters, $x_phrase_app_otp, $page, $per_page, $include_linked_keys);
         return $response;
     }
 
@@ -2777,14 +2794,15 @@ class KeysApi
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  int $page Page number (optional)
      * @param  int $per_page Limit on the number of objects to be returned, between 1 and 100. 25 by default (optional)
+     * @param  bool $include_linked_keys When set to &#x60;true&#x60;, each key object in the response includes a &#x60;linked_key&#x60; field describing whether the key is a parent or child in a key-link relationship, and the number of children (for parent keys) or the parent&#39;s id and name (for child keys). Keys with no active link return &#x60;linked_key: null&#x60;. Omit this parameter or set it to &#x60;false&#x60; to leave the &#x60;linked_key&#x60; field out of the response entirely. (optional)
      *
      * @throws \Phrase\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Phrase\Model\TranslationKey[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function keysSearchWithHttpInfo($project_id, $keys_search_parameters, $x_phrase_app_otp = null, $page = null, $per_page = null)
+    public function keysSearchWithHttpInfo($project_id, $keys_search_parameters, $x_phrase_app_otp = null, $page = null, $per_page = null, $include_linked_keys = null)
     {
-        $request = $this->keysSearchRequest($project_id, $keys_search_parameters, $x_phrase_app_otp, $page, $per_page);
+        $request = $this->keysSearchRequest($project_id, $keys_search_parameters, $x_phrase_app_otp, $page, $per_page, $include_linked_keys);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2869,13 +2887,14 @@ class KeysApi
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  int $page Page number (optional)
      * @param  int $per_page Limit on the number of objects to be returned, between 1 and 100. 25 by default (optional)
+     * @param  bool $include_linked_keys When set to &#x60;true&#x60;, each key object in the response includes a &#x60;linked_key&#x60; field describing whether the key is a parent or child in a key-link relationship, and the number of children (for parent keys) or the parent&#39;s id and name (for child keys). Keys with no active link return &#x60;linked_key: null&#x60;. Omit this parameter or set it to &#x60;false&#x60; to leave the &#x60;linked_key&#x60; field out of the response entirely. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function keysSearchAsync($project_id, $keys_search_parameters, $x_phrase_app_otp = null, $page = null, $per_page = null)
+    public function keysSearchAsync($project_id, $keys_search_parameters, $x_phrase_app_otp = null, $page = null, $per_page = null, $include_linked_keys = null)
     {
-        return $this->keysSearchAsyncWithHttpInfo($project_id, $keys_search_parameters, $x_phrase_app_otp, $page, $per_page)
+        return $this->keysSearchAsyncWithHttpInfo($project_id, $keys_search_parameters, $x_phrase_app_otp, $page, $per_page, $include_linked_keys)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2893,14 +2912,15 @@ class KeysApi
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  int $page Page number (optional)
      * @param  int $per_page Limit on the number of objects to be returned, between 1 and 100. 25 by default (optional)
+     * @param  bool $include_linked_keys When set to &#x60;true&#x60;, each key object in the response includes a &#x60;linked_key&#x60; field describing whether the key is a parent or child in a key-link relationship, and the number of children (for parent keys) or the parent&#39;s id and name (for child keys). Keys with no active link return &#x60;linked_key: null&#x60;. Omit this parameter or set it to &#x60;false&#x60; to leave the &#x60;linked_key&#x60; field out of the response entirely. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function keysSearchAsyncWithHttpInfo($project_id, $keys_search_parameters, $x_phrase_app_otp = null, $page = null, $per_page = null)
+    public function keysSearchAsyncWithHttpInfo($project_id, $keys_search_parameters, $x_phrase_app_otp = null, $page = null, $per_page = null, $include_linked_keys = null)
     {
         $returnType = '\Phrase\Model\TranslationKey[]';
-        $request = $this->keysSearchRequest($project_id, $keys_search_parameters, $x_phrase_app_otp, $page, $per_page);
+        $request = $this->keysSearchRequest($project_id, $keys_search_parameters, $x_phrase_app_otp, $page, $per_page, $include_linked_keys);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2944,11 +2964,12 @@ class KeysApi
      * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
      * @param  int $page Page number (optional)
      * @param  int $per_page Limit on the number of objects to be returned, between 1 and 100. 25 by default (optional)
+     * @param  bool $include_linked_keys When set to &#x60;true&#x60;, each key object in the response includes a &#x60;linked_key&#x60; field describing whether the key is a parent or child in a key-link relationship, and the number of children (for parent keys) or the parent&#39;s id and name (for child keys). Keys with no active link return &#x60;linked_key: null&#x60;. Omit this parameter or set it to &#x60;false&#x60; to leave the &#x60;linked_key&#x60; field out of the response entirely. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function keysSearchRequest($project_id, $keys_search_parameters, $x_phrase_app_otp = null, $page = null, $per_page = null)
+    protected function keysSearchRequest($project_id, $keys_search_parameters, $x_phrase_app_otp = null, $page = null, $per_page = null, $include_linked_keys = null)
     {
         // verify the required parameter 'project_id' is set
         if ($project_id === null || (is_array($project_id) && count($project_id) === 0)) {
@@ -2990,6 +3011,17 @@ class KeysApi
             }
             else {
                 $queryParams['per_page'] = $per_page;
+            }
+        }
+        // query params
+        if ($include_linked_keys !== null) {
+            if('form' === 'form' && is_array($include_linked_keys)) {
+                foreach($include_linked_keys as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['include_linked_keys'] = $include_linked_keys;
             }
         }
 

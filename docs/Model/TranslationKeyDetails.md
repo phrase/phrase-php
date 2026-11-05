@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **data_type** | **string** |  | [optional] 
 **created_at** | **\DateTime** |  | [optional] 
 **updated_at** | **\DateTime** |  | [optional] 
+**linked_key** | [**\Phrase\Model\TranslationKeyLinkedKey**](TranslationKeyLinkedKey.md) |  | [optional] 
 **name_plural** | **string** |  | [optional] 
 **comments_count** | **int** |  | [optional] 
 **max_characters_allowed** | **int** |  | [optional] 

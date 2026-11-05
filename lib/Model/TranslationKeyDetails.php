@@ -65,6 +65,7 @@ class TranslationKeyDetails implements ModelInterface, ArrayAccess
         'data_type' => 'string',
         'created_at' => '\DateTime',
         'updated_at' => '\DateTime',
+        'linked_key' => '\Phrase\Model\TranslationKeyLinkedKey',
         'name_plural' => 'string',
         'comments_count' => 'int',
         'max_characters_allowed' => 'int',
@@ -93,6 +94,7 @@ class TranslationKeyDetails implements ModelInterface, ArrayAccess
         'data_type' => null,
         'created_at' => 'date-time',
         'updated_at' => 'date-time',
+        'linked_key' => null,
         'name_plural' => null,
         'comments_count' => null,
         'max_characters_allowed' => null,
@@ -142,6 +144,7 @@ class TranslationKeyDetails implements ModelInterface, ArrayAccess
         'data_type' => 'data_type',
         'created_at' => 'created_at',
         'updated_at' => 'updated_at',
+        'linked_key' => 'linked_key',
         'name_plural' => 'name_plural',
         'comments_count' => 'comments_count',
         'max_characters_allowed' => 'max_characters_allowed',
@@ -170,6 +173,7 @@ class TranslationKeyDetails implements ModelInterface, ArrayAccess
         'data_type' => 'setDataType',
         'created_at' => 'setCreatedAt',
         'updated_at' => 'setUpdatedAt',
+        'linked_key' => 'setLinkedKey',
         'name_plural' => 'setNamePlural',
         'comments_count' => 'setCommentsCount',
         'max_characters_allowed' => 'setMaxCharactersAllowed',
@@ -198,6 +202,7 @@ class TranslationKeyDetails implements ModelInterface, ArrayAccess
         'data_type' => 'getDataType',
         'created_at' => 'getCreatedAt',
         'updated_at' => 'getUpdatedAt',
+        'linked_key' => 'getLinkedKey',
         'name_plural' => 'getNamePlural',
         'comments_count' => 'getCommentsCount',
         'max_characters_allowed' => 'getMaxCharactersAllowed',
@@ -280,6 +285,7 @@ class TranslationKeyDetails implements ModelInterface, ArrayAccess
         $this->container['data_type'] = isset($data['data_type']) ? $data['data_type'] : null;
         $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
         $this->container['updated_at'] = isset($data['updated_at']) ? $data['updated_at'] : null;
+        $this->container['linked_key'] = isset($data['linked_key']) ? $data['linked_key'] : null;
         $this->container['name_plural'] = isset($data['name_plural']) ? $data['name_plural'] : null;
         $this->container['comments_count'] = isset($data['comments_count']) ? $data['comments_count'] : null;
         $this->container['max_characters_allowed'] = isset($data['max_characters_allowed']) ? $data['max_characters_allowed'] : null;
@@ -552,6 +558,30 @@ class TranslationKeyDetails implements ModelInterface, ArrayAccess
     public function setUpdatedAt($updated_at)
     {
         $this->container['updated_at'] = $updated_at;
+
+        return $this;
+    }
+
+    /**
+     * Gets linked_key
+     *
+     * @return \Phrase\Model\TranslationKeyLinkedKey|null
+     */
+    public function getLinkedKey()
+    {
+        return $this->container['linked_key'];
+    }
+
+    /**
+     * Sets linked_key
+     *
+     * @param \Phrase\Model\TranslationKeyLinkedKey|null $linked_key linked_key
+     *
+     * @return $this
+     */
+    public function setLinkedKey($linked_key)
+    {
+        $this->container['linked_key'] = $linked_key;
 
         return $this;
     }

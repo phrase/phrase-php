@@ -147,6 +147,13 @@ class TranslationKeyDetailsTest extends TestCase
     }
 
     /**
+     * Test attribute "linked_key"
+     */
+    public function testPropertyLinkedKey()
+    {
+    }
+
+    /**
      * Test attribute "name_plural"
      */
     public function testPropertyNamePlural()

@@ -145,4 +145,11 @@ class TranslationKeyTest extends TestCase
     public function testPropertyUpdatedAt()
     {
     }
+
+    /**
+     * Test attribute "linked_key"
+     */
+    public function testPropertyLinkedKey()
+    {
+    }
 }

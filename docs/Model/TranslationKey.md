@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **data_type** | **string** |  | [optional] 
 **created_at** | **\DateTime** |  | [optional] 
 **updated_at** | **\DateTime** |  | [optional] 
+**linked_key** | [**\Phrase\Model\TranslationKeyLinkedKey**](TranslationKeyLinkedKey.md) |  | [optional] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

@@ -281,6 +281,8 @@ docs/Model/TranslationExcludeParameters.md
 docs/Model/TranslationIncludeParameters.md
 docs/Model/TranslationKey.md
 docs/Model/TranslationKeyDetails.md
+docs/Model/TranslationKeyLinkedKey.md
+docs/Model/TranslationKeyLinkedKeyParent.md
 docs/Model/TranslationOrder.md
 docs/Model/TranslationParent.md
 docs/Model/TranslationReviewParameters.md
@@ -592,6 +594,8 @@ lib/Model/TranslationExcludeParameters.php
 lib/Model/TranslationIncludeParameters.php
 lib/Model/TranslationKey.php
 lib/Model/TranslationKeyDetails.php
+lib/Model/TranslationKeyLinkedKey.php
+lib/Model/TranslationKeyLinkedKeyParent.php
 lib/Model/TranslationOrder.php
 lib/Model/TranslationParent.php
 lib/Model/TranslationReviewParameters.php
@@ -895,6 +899,8 @@ test/Model/TranslationDetailsTest.php
 test/Model/TranslationExcludeParametersTest.php
 test/Model/TranslationIncludeParametersTest.php
 test/Model/TranslationKeyDetailsTest.php
+test/Model/TranslationKeyLinkedKeyParentTest.php
+test/Model/TranslationKeyLinkedKeyTest.php
 test/Model/TranslationKeyTest.php
 test/Model/TranslationOrderTest.php
 test/Model/TranslationParentTest.php

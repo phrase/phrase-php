@@ -64,7 +64,8 @@ class TranslationKey implements ModelInterface, ArrayAccess
         'tags' => 'string[]',
         'data_type' => 'string',
         'created_at' => '\DateTime',
-        'updated_at' => '\DateTime'
+        'updated_at' => '\DateTime',
+        'linked_key' => '\Phrase\Model\TranslationKeyLinkedKey'
     ];
 
     /**
@@ -82,7 +83,8 @@ class TranslationKey implements ModelInterface, ArrayAccess
         'tags' => null,
         'data_type' => null,
         'created_at' => 'date-time',
-        'updated_at' => 'date-time'
+        'updated_at' => 'date-time',
+        'linked_key' => null
     ];
 
     /**
@@ -121,7 +123,8 @@ class TranslationKey implements ModelInterface, ArrayAccess
         'tags' => 'tags',
         'data_type' => 'data_type',
         'created_at' => 'created_at',
-        'updated_at' => 'updated_at'
+        'updated_at' => 'updated_at',
+        'linked_key' => 'linked_key'
     ];
 
     /**
@@ -139,7 +142,8 @@ class TranslationKey implements ModelInterface, ArrayAccess
         'tags' => 'setTags',
         'data_type' => 'setDataType',
         'created_at' => 'setCreatedAt',
-        'updated_at' => 'setUpdatedAt'
+        'updated_at' => 'setUpdatedAt',
+        'linked_key' => 'setLinkedKey'
     ];
 
     /**
@@ -157,7 +161,8 @@ class TranslationKey implements ModelInterface, ArrayAccess
         'tags' => 'getTags',
         'data_type' => 'getDataType',
         'created_at' => 'getCreatedAt',
-        'updated_at' => 'getUpdatedAt'
+        'updated_at' => 'getUpdatedAt',
+        'linked_key' => 'getLinkedKey'
     ];
 
     /**
@@ -230,6 +235,7 @@ class TranslationKey implements ModelInterface, ArrayAccess
         $this->container['data_type'] = isset($data['data_type']) ? $data['data_type'] : null;
         $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
         $this->container['updated_at'] = isset($data['updated_at']) ? $data['updated_at'] : null;
+        $this->container['linked_key'] = isset($data['linked_key']) ? $data['linked_key'] : null;
     }
 
     /**
@@ -492,6 +498,30 @@ class TranslationKey implements ModelInterface, ArrayAccess
     public function setUpdatedAt($updated_at)
     {
         $this->container['updated_at'] = $updated_at;
+
+        return $this;
+    }
+
+    /**
+     * Gets linked_key
+     *
+     * @return \Phrase\Model\TranslationKeyLinkedKey|null
+     */
+    public function getLinkedKey()
+    {
+        return $this->container['linked_key'];
+    }
+
+    /**
+     * Sets linked_key
+     *
+     * @param \Phrase\Model\TranslationKeyLinkedKey|null $linked_key linked_key
+     *
+     * @return $this
+     */
+    public function setLinkedKey($linked_key)
+    {
+        $this->container['linked_key'] = $linked_key;
 
         return $this;
     }
