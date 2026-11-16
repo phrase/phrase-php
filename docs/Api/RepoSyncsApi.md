@@ -11,6 +11,7 @@ Method | HTTP request | Description
 [**repoSyncImport**](RepoSyncsApi.md#repoSyncImport) | **POST** /accounts/{account_id}/repo_syncs/{id}/import | Import from code repository
 [**repoSyncList**](RepoSyncsApi.md#repoSyncList) | **GET** /accounts/{account_id}/repo_syncs | Get Repo Syncs
 [**repoSyncShow**](RepoSyncsApi.md#repoSyncShow) | **GET** /accounts/{account_id}/repo_syncs/{id} | Get a single Repo Sync
+[**repoSyncUpdate**](RepoSyncsApi.md#repoSyncUpdate) | **PATCH** /accounts/{account_id}/repo_syncs/{id} | Update a repo sync
 
 
 
@@ -454,6 +455,71 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
+
+
+## repoSyncUpdate
+
+> \Phrase\Model\RepoSync repoSyncUpdate($account_id, $id, $repo_sync_update_parameters, $x_phrase_app_otp)
+
+Update a repo sync
+
+Update settings for an existing Repo Sync. Sending `owner_id`, `export_triggers`, or `export_schedule` requires the caller to have `manage_github_sync?` permission on the project (returns `403` otherwise). Sending `export_triggers` or `export_schedule` when the automatic export feature is not enabled for the account returns `422`.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$config = Phrase\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+$config = Phrase\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'token');
+
+$apiInstance = new Phrase\Api\RepoSyncsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$account_id = 'account_id_example'; // string | Account ID
+$id = 'id_example'; // string | ID
+$repo_sync_update_parameters = new \Phrase\Model\RepoSyncUpdateParameters(); // \Phrase\Model\RepoSyncUpdateParameters | 
+$x_phrase_app_otp = 'x_phrase_app_otp_example'; // string | Two-Factor-Authentication token (optional)
+
+try {
+    $result = $apiInstance->repoSyncUpdate($account_id, $id, $repo_sync_update_parameters, $x_phrase_app_otp);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling RepoSyncsApi->repoSyncUpdate: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **account_id** | **string**| Account ID |
+ **id** | **string**| ID |
+ **repo_sync_update_parameters** | [**\Phrase\Model\RepoSyncUpdateParameters**](../Model/RepoSyncUpdateParameters.md)|  |
+ **x_phrase_app_otp** | **string**| Two-Factor-Authentication token (optional) | [optional]
+
+### Return type
+
+[**\Phrase\Model\RepoSync**](../Model/RepoSync.md)
+
+### Authorization
+
+[Basic](../../README.md#Basic), [Token](../../README.md#Token)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)

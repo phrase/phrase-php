@@ -366,6 +366,7 @@ Class | Method | HTTP request | Description
 *RepoSyncsApi* | [**repoSyncImport**](docs/Api/RepoSyncsApi.md#reposyncimport) | **POST** /accounts/{account_id}/repo_syncs/{id}/import | Import from code repository
 *RepoSyncsApi* | [**repoSyncList**](docs/Api/RepoSyncsApi.md#reposynclist) | **GET** /accounts/{account_id}/repo_syncs | Get Repo Syncs
 *RepoSyncsApi* | [**repoSyncShow**](docs/Api/RepoSyncsApi.md#reposyncshow) | **GET** /accounts/{account_id}/repo_syncs/{id} | Get a single Repo Sync
+*RepoSyncsApi* | [**repoSyncUpdate**](docs/Api/RepoSyncsApi.md#reposyncupdate) | **PATCH** /accounts/{account_id}/repo_syncs/{id} | Update a repo sync
 *ReportsApi* | [**reportLocalesList**](docs/Api/ReportsApi.md#reportlocaleslist) | **GET** /projects/{project_id}/report/locales | List Locale Reports (word count, character count, translation statistics)
 *ReportsApi* | [**reportShow**](docs/Api/ReportsApi.md#reportshow) | **GET** /projects/{project_id}/report | Get Project Report
 *ScreenshotMarkersApi* | [**screenshotMarkerCreate**](docs/Api/ScreenshotMarkersApi.md#screenshotmarkercreate) | **POST** /projects/{project_id}/screenshots/{screenshot_id}/markers | Create a screenshot marker
@@ -624,10 +625,14 @@ Class | Method | HTTP request | Description
  - [ReleaseUpdateParameters1](docs/Model/ReleaseUpdateParameters1.md)
  - [RepoSync](docs/Model/RepoSync.md)
  - [RepoSyncCreateParameters](docs/Model/RepoSyncCreateParameters.md)
+ - [RepoSyncCreateParametersExportSchedule](docs/Model/RepoSyncCreateParametersExportSchedule.md)
  - [RepoSyncEvent](docs/Model/RepoSyncEvent.md)
  - [RepoSyncEventUploadsInner](docs/Model/RepoSyncEventUploadsInner.md)
  - [RepoSyncExportParameters](docs/Model/RepoSyncExportParameters.md)
+ - [RepoSyncExportSchedule](docs/Model/RepoSyncExportSchedule.md)
  - [RepoSyncImportParameters](docs/Model/RepoSyncImportParameters.md)
+ - [RepoSyncUpdateParameters](docs/Model/RepoSyncUpdateParameters.md)
+ - [RepoSyncUpdateParametersExportSchedule](docs/Model/RepoSyncUpdateParametersExportSchedule.md)
  - [Screenshot](docs/Model/Screenshot.md)
  - [ScreenshotMarker](docs/Model/ScreenshotMarker.md)
  - [ScreenshotMarkerCreateParameters](docs/Model/ScreenshotMarkerCreateParameters.md)
@@ -690,6 +695,7 @@ Class | Method | HTTP request | Description
  - [UploadSummary](docs/Model/UploadSummary.md)
  - [User](docs/Model/User.md)
  - [UserPreview](docs/Model/UserPreview.md)
+ - [UserShort](docs/Model/UserShort.md)
  - [Variable](docs/Model/Variable.md)
  - [VariableCreateParameters](docs/Model/VariableCreateParameters.md)
  - [VariableUpdateParameters](docs/Model/VariableUpdateParameters.md)

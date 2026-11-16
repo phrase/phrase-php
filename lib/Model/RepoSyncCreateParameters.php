@@ -64,7 +64,10 @@ class RepoSyncCreateParameters implements ModelInterface, ArrayAccess
         'pr_branch' => 'string',
         'auto_import' => 'bool',
         'access_token' => 'string',
-        'custom_api_endpoint' => 'string'
+        'custom_api_endpoint' => 'string',
+        'owner_id' => 'string',
+        'export_triggers' => 'string[]',
+        'export_schedule' => '\Phrase\Model\RepoSyncCreateParametersExportSchedule'
     ];
 
     /**
@@ -82,7 +85,10 @@ class RepoSyncCreateParameters implements ModelInterface, ArrayAccess
         'pr_branch' => null,
         'auto_import' => null,
         'access_token' => null,
-        'custom_api_endpoint' => null
+        'custom_api_endpoint' => null,
+        'owner_id' => null,
+        'export_triggers' => null,
+        'export_schedule' => null
     ];
 
     /**
@@ -121,7 +127,10 @@ class RepoSyncCreateParameters implements ModelInterface, ArrayAccess
         'pr_branch' => 'pr_branch',
         'auto_import' => 'auto_import',
         'access_token' => 'access_token',
-        'custom_api_endpoint' => 'custom_api_endpoint'
+        'custom_api_endpoint' => 'custom_api_endpoint',
+        'owner_id' => 'owner_id',
+        'export_triggers' => 'export_triggers',
+        'export_schedule' => 'export_schedule'
     ];
 
     /**
@@ -139,7 +148,10 @@ class RepoSyncCreateParameters implements ModelInterface, ArrayAccess
         'pr_branch' => 'setPrBranch',
         'auto_import' => 'setAutoImport',
         'access_token' => 'setAccessToken',
-        'custom_api_endpoint' => 'setCustomApiEndpoint'
+        'custom_api_endpoint' => 'setCustomApiEndpoint',
+        'owner_id' => 'setOwnerId',
+        'export_triggers' => 'setExportTriggers',
+        'export_schedule' => 'setExportSchedule'
     ];
 
     /**
@@ -157,7 +169,10 @@ class RepoSyncCreateParameters implements ModelInterface, ArrayAccess
         'pr_branch' => 'getPrBranch',
         'auto_import' => 'getAutoImport',
         'access_token' => 'getAccessToken',
-        'custom_api_endpoint' => 'getCustomApiEndpoint'
+        'custom_api_endpoint' => 'getCustomApiEndpoint',
+        'owner_id' => 'getOwnerId',
+        'export_triggers' => 'getExportTriggers',
+        'export_schedule' => 'getExportSchedule'
     ];
 
     /**
@@ -207,6 +222,9 @@ class RepoSyncCreateParameters implements ModelInterface, ArrayAccess
     const CONNECTION_TYPE_TOKEN = 'token';
     const CONNECTION_TYPE_GITHUB_APP = 'github_app';
     const CONNECTION_TYPE_SELF_HOSTED = 'self_hosted';
+    const EXPORT_TRIGGERS_SCHEDULE = 'schedule';
+    const EXPORT_TRIGGERS_BRANCH_MERGED = 'branch_merged';
+    const EXPORT_TRIGGERS_JOB_COMPLETED = 'job_completed';
     
 
     
@@ -238,6 +256,20 @@ class RepoSyncCreateParameters implements ModelInterface, ArrayAccess
         ];
     }
     
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getExportTriggersAllowableValues()
+    {
+        return [
+            self::EXPORT_TRIGGERS_SCHEDULE,
+            self::EXPORT_TRIGGERS_BRANCH_MERGED,
+            self::EXPORT_TRIGGERS_JOB_COMPLETED,
+        ];
+    }
+    
 
     /**
      * Associative array for storing property values
@@ -264,6 +296,9 @@ class RepoSyncCreateParameters implements ModelInterface, ArrayAccess
         $this->container['auto_import'] = isset($data['auto_import']) ? $data['auto_import'] : null;
         $this->container['access_token'] = isset($data['access_token']) ? $data['access_token'] : null;
         $this->container['custom_api_endpoint'] = isset($data['custom_api_endpoint']) ? $data['custom_api_endpoint'] : null;
+        $this->container['owner_id'] = isset($data['owner_id']) ? $data['owner_id'] : null;
+        $this->container['export_triggers'] = isset($data['export_triggers']) ? $data['export_triggers'] : null;
+        $this->container['export_schedule'] = isset($data['export_schedule']) ? $data['export_schedule'] : null;
     }
 
     /**
@@ -577,6 +612,87 @@ class RepoSyncCreateParameters implements ModelInterface, ArrayAccess
     public function setCustomApiEndpoint($custom_api_endpoint)
     {
         $this->container['custom_api_endpoint'] = $custom_api_endpoint;
+
+        return $this;
+    }
+
+    /**
+     * Gets owner_id
+     *
+     * @return string|null
+     */
+    public function getOwnerId()
+    {
+        return $this->container['owner_id'];
+    }
+
+    /**
+     * Sets owner_id
+     *
+     * @param string|null $owner_id Code of the user who will own this repo sync. Automated actions run as this user. Defaults to the account owner when not set.
+     *
+     * @return $this
+     */
+    public function setOwnerId($owner_id)
+    {
+        $this->container['owner_id'] = $owner_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets export_triggers
+     *
+     * @return string[]|null
+     */
+    public function getExportTriggers()
+    {
+        return $this->container['export_triggers'];
+    }
+
+    /**
+     * Sets export_triggers
+     *
+     * @param string[]|null $export_triggers Events that should trigger an automatic export. Requires the automatic export feature to be enabled for the account; returns `422` otherwise. Accepted values: `schedule`, `branch_merged`, `job_completed`.
+     *
+     * @return $this
+     */
+    public function setExportTriggers($export_triggers)
+    {
+        $allowedValues = $this->getExportTriggersAllowableValues();
+        if (!is_null($export_triggers) && array_diff($export_triggers, $allowedValues)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'export_triggers', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['export_triggers'] = $export_triggers;
+
+        return $this;
+    }
+
+    /**
+     * Gets export_schedule
+     *
+     * @return \Phrase\Model\RepoSyncCreateParametersExportSchedule|null
+     */
+    public function getExportSchedule()
+    {
+        return $this->container['export_schedule'];
+    }
+
+    /**
+     * Sets export_schedule
+     *
+     * @param \Phrase\Model\RepoSyncCreateParametersExportSchedule|null $export_schedule export_schedule
+     *
+     * @return $this
+     */
+    public function setExportSchedule($export_schedule)
+    {
+        $this->container['export_schedule'] = $export_schedule;
 
         return $this;
     }

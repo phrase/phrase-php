@@ -152,4 +152,25 @@ class RepoSyncTest extends TestCase
     public function testPropertyLastExportAt()
     {
     }
+
+    /**
+     * Test attribute "owner"
+     */
+    public function testPropertyOwner()
+    {
+    }
+
+    /**
+     * Test attribute "export_triggers"
+     */
+    public function testPropertyExportTriggers()
+    {
+    }
+
+    /**
+     * Test attribute "export_schedule"
+     */
+    public function testPropertyExportSchedule()
+    {
+    }
 }

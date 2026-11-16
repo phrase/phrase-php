@@ -139,4 +139,14 @@ class RepoSyncsApiTest extends TestCase
     public function testRepoSyncShow()
     {
     }
+
+    /**
+     * Test case for repoSyncUpdate
+     *
+     * Update a repo sync.
+     *
+     */
+    public function testRepoSyncUpdate()
+    {
+    }
 }

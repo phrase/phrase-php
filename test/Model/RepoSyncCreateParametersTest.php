@@ -145,4 +145,25 @@ class RepoSyncCreateParametersTest extends TestCase
     public function testPropertyCustomApiEndpoint()
     {
     }
+
+    /**
+     * Test attribute "owner_id"
+     */
+    public function testPropertyOwnerId()
+    {
+    }
+
+    /**
+     * Test attribute "export_triggers"
+     */
+    public function testPropertyExportTriggers()
+    {
+    }
+
+    /**
+     * Test attribute "export_schedule"
+     */
+    public function testPropertyExportSchedule()
+    {
+    }
 }

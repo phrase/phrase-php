@@ -65,7 +65,10 @@ class RepoSync implements ModelInterface, ArrayAccess
         'pr_branch' => 'string',
         'created_at' => '\DateTime',
         'last_import_at' => '\DateTime',
-        'last_export_at' => '\DateTime'
+        'last_export_at' => '\DateTime',
+        'owner' => '\Phrase\Model\UserShort',
+        'export_triggers' => 'string[]',
+        'export_schedule' => '\Phrase\Model\RepoSyncExportSchedule'
     ];
 
     /**
@@ -84,7 +87,10 @@ class RepoSync implements ModelInterface, ArrayAccess
         'pr_branch' => null,
         'created_at' => 'date-time',
         'last_import_at' => 'date-time',
-        'last_export_at' => 'date-time'
+        'last_export_at' => 'date-time',
+        'owner' => null,
+        'export_triggers' => null,
+        'export_schedule' => null
     ];
 
     /**
@@ -124,7 +130,10 @@ class RepoSync implements ModelInterface, ArrayAccess
         'pr_branch' => 'pr_branch',
         'created_at' => 'created_at',
         'last_import_at' => 'last_import_at',
-        'last_export_at' => 'last_export_at'
+        'last_export_at' => 'last_export_at',
+        'owner' => 'owner',
+        'export_triggers' => 'export_triggers',
+        'export_schedule' => 'export_schedule'
     ];
 
     /**
@@ -143,7 +152,10 @@ class RepoSync implements ModelInterface, ArrayAccess
         'pr_branch' => 'setPrBranch',
         'created_at' => 'setCreatedAt',
         'last_import_at' => 'setLastImportAt',
-        'last_export_at' => 'setLastExportAt'
+        'last_export_at' => 'setLastExportAt',
+        'owner' => 'setOwner',
+        'export_triggers' => 'setExportTriggers',
+        'export_schedule' => 'setExportSchedule'
     ];
 
     /**
@@ -162,7 +174,10 @@ class RepoSync implements ModelInterface, ArrayAccess
         'pr_branch' => 'getPrBranch',
         'created_at' => 'getCreatedAt',
         'last_import_at' => 'getLastImportAt',
-        'last_export_at' => 'getLastExportAt'
+        'last_export_at' => 'getLastExportAt',
+        'owner' => 'getOwner',
+        'export_triggers' => 'getExportTriggers',
+        'export_schedule' => 'getExportSchedule'
     ];
 
     /**
@@ -206,8 +221,25 @@ class RepoSync implements ModelInterface, ArrayAccess
         return self::$openAPIModelName;
     }
 
+    const EXPORT_TRIGGERS_SCHEDULE = 'schedule';
+    const EXPORT_TRIGGERS_BRANCH_MERGED = 'branch_merged';
+    const EXPORT_TRIGGERS_JOB_COMPLETED = 'job_completed';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getExportTriggersAllowableValues()
+    {
+        return [
+            self::EXPORT_TRIGGERS_SCHEDULE,
+            self::EXPORT_TRIGGERS_BRANCH_MERGED,
+            self::EXPORT_TRIGGERS_JOB_COMPLETED,
+        ];
+    }
     
 
     /**
@@ -236,6 +268,9 @@ class RepoSync implements ModelInterface, ArrayAccess
         $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
         $this->container['last_import_at'] = isset($data['last_import_at']) ? $data['last_import_at'] : null;
         $this->container['last_export_at'] = isset($data['last_export_at']) ? $data['last_export_at'] : null;
+        $this->container['owner'] = isset($data['owner']) ? $data['owner'] : null;
+        $this->container['export_triggers'] = isset($data['export_triggers']) ? $data['export_triggers'] : null;
+        $this->container['export_schedule'] = isset($data['export_schedule']) ? $data['export_schedule'] : null;
     }
 
     /**
@@ -530,6 +565,87 @@ class RepoSync implements ModelInterface, ArrayAccess
     public function setLastExportAt($last_export_at)
     {
         $this->container['last_export_at'] = $last_export_at;
+
+        return $this;
+    }
+
+    /**
+     * Gets owner
+     *
+     * @return \Phrase\Model\UserShort|null
+     */
+    public function getOwner()
+    {
+        return $this->container['owner'];
+    }
+
+    /**
+     * Sets owner
+     *
+     * @param \Phrase\Model\UserShort|null $owner owner
+     *
+     * @return $this
+     */
+    public function setOwner($owner)
+    {
+        $this->container['owner'] = $owner;
+
+        return $this;
+    }
+
+    /**
+     * Gets export_triggers
+     *
+     * @return string[]|null
+     */
+    public function getExportTriggers()
+    {
+        return $this->container['export_triggers'];
+    }
+
+    /**
+     * Sets export_triggers
+     *
+     * @param string[]|null $export_triggers Events that trigger an automatic export. Only present when the automatic export feature is enabled for the account. Possible values: `schedule` (runs on the configured schedule), `branch_merged` (runs when a branch is merged in the connected repository), `job_completed` (runs when a translation job completes in the project).
+     *
+     * @return $this
+     */
+    public function setExportTriggers($export_triggers)
+    {
+        $allowedValues = $this->getExportTriggersAllowableValues();
+        if (!is_null($export_triggers) && array_diff($export_triggers, $allowedValues)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'export_triggers', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['export_triggers'] = $export_triggers;
+
+        return $this;
+    }
+
+    /**
+     * Gets export_schedule
+     *
+     * @return \Phrase\Model\RepoSyncExportSchedule|null
+     */
+    public function getExportSchedule()
+    {
+        return $this->container['export_schedule'];
+    }
+
+    /**
+     * Sets export_schedule
+     *
+     * @param \Phrase\Model\RepoSyncExportSchedule|null $export_schedule export_schedule
+     *
+     * @return $this
+     */
+    public function setExportSchedule($export_schedule)
+    {
+        $this->container['export_schedule'] = $export_schedule;
 
         return $this;
     }

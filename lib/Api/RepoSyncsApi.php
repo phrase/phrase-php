@@ -2408,6 +2408,350 @@ class RepoSyncsApi
     }
 
     /**
+     * Operation repoSyncUpdate
+     *
+     * Update a repo sync
+     *
+     * @param  string $account_id Account ID (required)
+     * @param  string $id ID (required)
+     * @param  \Phrase\Model\RepoSyncUpdateParameters $repo_sync_update_parameters repo_sync_update_parameters (required)
+     * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
+     *
+     * @throws \Phrase\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \Phrase\Model\RepoSync|\Phrase\Model\DocumentDelete422Response
+     */
+    public function repoSyncUpdate($account_id, $id, $repo_sync_update_parameters, $x_phrase_app_otp = null)
+    {
+        list($response) = $this->repoSyncUpdateWithHttpInfo($account_id, $id, $repo_sync_update_parameters, $x_phrase_app_otp);
+        return $response;
+    }
+
+    /**
+     * Operation repoSyncUpdateWithHttpInfo
+     *
+     * Update a repo sync
+     *
+     * @param  string $account_id Account ID (required)
+     * @param  string $id ID (required)
+     * @param  \Phrase\Model\RepoSyncUpdateParameters $repo_sync_update_parameters (required)
+     * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
+     *
+     * @throws \Phrase\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \Phrase\Model\RepoSync|\Phrase\Model\DocumentDelete422Response, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function repoSyncUpdateWithHttpInfo($account_id, $id, $repo_sync_update_parameters, $x_phrase_app_otp = null)
+    {
+        $request = $this->repoSyncUpdateRequest($account_id, $id, $repo_sync_update_parameters, $x_phrase_app_otp);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            switch($statusCode) {
+                case 200:
+                    if ('\Phrase\Model\RepoSync' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Phrase\Model\RepoSync', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 422:
+                    if ('\Phrase\Model\DocumentDelete422Response' === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Phrase\Model\DocumentDelete422Response', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\Phrase\Model\RepoSync';
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = (string) $responseBody;
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Phrase\Model\RepoSync',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 422:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Phrase\Model\DocumentDelete422Response',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation repoSyncUpdateAsync
+     *
+     * Update a repo sync
+     *
+     * @param  string $account_id Account ID (required)
+     * @param  string $id ID (required)
+     * @param  \Phrase\Model\RepoSyncUpdateParameters $repo_sync_update_parameters (required)
+     * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function repoSyncUpdateAsync($account_id, $id, $repo_sync_update_parameters, $x_phrase_app_otp = null)
+    {
+        return $this->repoSyncUpdateAsyncWithHttpInfo($account_id, $id, $repo_sync_update_parameters, $x_phrase_app_otp)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation repoSyncUpdateAsyncWithHttpInfo
+     *
+     * Update a repo sync
+     *
+     * @param  string $account_id Account ID (required)
+     * @param  string $id ID (required)
+     * @param  \Phrase\Model\RepoSyncUpdateParameters $repo_sync_update_parameters (required)
+     * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function repoSyncUpdateAsyncWithHttpInfo($account_id, $id, $repo_sync_update_parameters, $x_phrase_app_otp = null)
+    {
+        $returnType = '\Phrase\Model\RepoSync';
+        $request = $this->repoSyncUpdateRequest($account_id, $id, $repo_sync_update_parameters, $x_phrase_app_otp);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = (string) $responseBody;
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'repoSyncUpdate'
+     *
+     * @param  string $account_id Account ID (required)
+     * @param  string $id ID (required)
+     * @param  \Phrase\Model\RepoSyncUpdateParameters $repo_sync_update_parameters (required)
+     * @param  string $x_phrase_app_otp Two-Factor-Authentication token (optional) (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function repoSyncUpdateRequest($account_id, $id, $repo_sync_update_parameters, $x_phrase_app_otp = null)
+    {
+        // verify the required parameter 'account_id' is set
+        if ($account_id === null || (is_array($account_id) && count($account_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $account_id when calling repoSyncUpdate'
+            );
+        }
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id when calling repoSyncUpdate'
+            );
+        }
+        // verify the required parameter 'repo_sync_update_parameters' is set
+        if ($repo_sync_update_parameters === null || (is_array($repo_sync_update_parameters) && count($repo_sync_update_parameters) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $repo_sync_update_parameters when calling repoSyncUpdate'
+            );
+        }
+
+        $resourcePath = '/accounts/{account_id}/repo_syncs/{id}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+        // header params
+        if ($x_phrase_app_otp !== null) {
+            $headerParams['X-PhraseApp-OTP'] = ObjectSerializer::toHeaderValue($x_phrase_app_otp);
+        }
+
+        // path params
+        if ($account_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'account_id' . '}',
+                ObjectSerializer::toPathValue($account_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'id' . '}',
+                ObjectSerializer::toPathValue($id),
+                $resourcePath
+            );
+        }
+
+        // body params
+        $_tempBody = null;
+        if (isset($repo_sync_update_parameters)) {
+            $_tempBody = $repo_sync_update_parameters;
+        }
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($_tempBody));
+            } else {
+                $httpBody = $_tempBody;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\Query::build($formParams);
+            }
+        }
+
+        // this endpoint requires HTTP basic authentication
+        if (!empty($this->config->getUsername()) || !(empty($this->config->getPassword()))) {
+            $headers['Authorization'] = 'Basic ' . base64_encode($this->config->getUsername() . ":" . $this->config->getPassword());
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = http_build_query($queryParams);
+        return new Request(
+            'PATCH',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Create http client option
      *
      * @throws \RuntimeException on file opening failure
