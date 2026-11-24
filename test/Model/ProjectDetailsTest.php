@@ -313,4 +313,11 @@ class ProjectDetailsTest extends TestCase
     public function testPropertyBranch()
     {
     }
+
+    /**
+     * Test attribute "note"
+     */
+    public function testPropertyNote()
+    {
+    }
 }

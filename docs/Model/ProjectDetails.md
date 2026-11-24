@@ -38,6 +38,7 @@ Name | Type | Description | Notes
 **job_locking_enabled** | **bool** |  | [optional] 
 **placeholder_styles** | **string[]** |  | [optional] 
 **branch** | [**\Phrase\Model\Branch**](Branch.md) |  | [optional] 
+**note** | [**\Phrase\Model\Note**](Note.md) |  | [optional] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

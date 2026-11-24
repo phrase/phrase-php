@@ -88,7 +88,8 @@ class ProjectDetails implements ModelInterface, ArrayAccess
         'translation_keys_sort_collation' => 'string',
         'job_locking_enabled' => 'bool',
         'placeholder_styles' => 'string[]',
-        'branch' => '\Phrase\Model\Branch'
+        'branch' => '\Phrase\Model\Branch',
+        'note' => '\Phrase\Model\Note'
     ];
 
     /**
@@ -130,7 +131,8 @@ class ProjectDetails implements ModelInterface, ArrayAccess
         'translation_keys_sort_collation' => null,
         'job_locking_enabled' => null,
         'placeholder_styles' => null,
-        'branch' => null
+        'branch' => null,
+        'note' => null
     ];
 
     /**
@@ -193,7 +195,8 @@ class ProjectDetails implements ModelInterface, ArrayAccess
         'translation_keys_sort_collation' => 'translation_keys_sort_collation',
         'job_locking_enabled' => 'job_locking_enabled',
         'placeholder_styles' => 'placeholder_styles',
-        'branch' => 'branch'
+        'branch' => 'branch',
+        'note' => 'note'
     ];
 
     /**
@@ -235,7 +238,8 @@ class ProjectDetails implements ModelInterface, ArrayAccess
         'translation_keys_sort_collation' => 'setTranslationKeysSortCollation',
         'job_locking_enabled' => 'setJobLockingEnabled',
         'placeholder_styles' => 'setPlaceholderStyles',
-        'branch' => 'setBranch'
+        'branch' => 'setBranch',
+        'note' => 'setNote'
     ];
 
     /**
@@ -277,7 +281,8 @@ class ProjectDetails implements ModelInterface, ArrayAccess
         'translation_keys_sort_collation' => 'getTranslationKeysSortCollation',
         'job_locking_enabled' => 'getJobLockingEnabled',
         'placeholder_styles' => 'getPlaceholderStyles',
-        'branch' => 'getBranch'
+        'branch' => 'getBranch',
+        'note' => 'getNote'
     ];
 
     /**
@@ -389,6 +394,7 @@ class ProjectDetails implements ModelInterface, ArrayAccess
         $this->container['job_locking_enabled'] = isset($data['job_locking_enabled']) ? $data['job_locking_enabled'] : null;
         $this->container['placeholder_styles'] = isset($data['placeholder_styles']) ? $data['placeholder_styles'] : null;
         $this->container['branch'] = isset($data['branch']) ? $data['branch'] : null;
+        $this->container['note'] = isset($data['note']) ? $data['note'] : null;
     }
 
     /**
@@ -1244,6 +1250,30 @@ class ProjectDetails implements ModelInterface, ArrayAccess
     public function setBranch($branch)
     {
         $this->container['branch'] = $branch;
+
+        return $this;
+    }
+
+    /**
+     * Gets note
+     *
+     * @return \Phrase\Model\Note|null
+     */
+    public function getNote()
+    {
+        return $this->container['note'];
+    }
+
+    /**
+     * Sets note
+     *
+     * @param \Phrase\Model\Note|null $note note
+     *
+     * @return $this
+     */
+    public function setNote($note)
+    {
+        $this->container['note'] = $note;
 
         return $this;
     }

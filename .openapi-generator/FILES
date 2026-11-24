@@ -44,6 +44,7 @@ docs/Api/OrdersApi.md
 docs/Api/OrganizationJobTemplateLocalesApi.md
 docs/Api/OrganizationJobTemplatesApi.md
 docs/Api/PreTranslationsApi.md
+docs/Api/ProjectNotesApi.md
 docs/Api/ProjectsApi.md
 docs/Api/QualityPerformanceScoreApi.md
 docs/Api/ReleaseTriggersApi.md
@@ -203,6 +204,7 @@ docs/Model/MemberProjectDetailProjectRolesInner.md
 docs/Model/MemberSpacesInner.md
 docs/Model/MemberUpdateParameters.md
 docs/Model/MemberUpdateSettingsParameters.md
+docs/Model/Note.md
 docs/Model/Notification.md
 docs/Model/NotificationGroup.md
 docs/Model/NotificationGroupDetail.md
@@ -221,6 +223,7 @@ docs/Model/ProjectCreateParameters.md
 docs/Model/ProjectDetails.md
 docs/Model/ProjectLocales.md
 docs/Model/ProjectMember.md
+docs/Model/ProjectNoteUpdateParameters.md
 docs/Model/ProjectReport.md
 docs/Model/ProjectShort.md
 docs/Model/ProjectUpdateParameters.md
@@ -358,6 +361,7 @@ lib/Api/OrdersApi.php
 lib/Api/OrganizationJobTemplateLocalesApi.php
 lib/Api/OrganizationJobTemplatesApi.php
 lib/Api/PreTranslationsApi.php
+lib/Api/ProjectNotesApi.php
 lib/Api/ProjectsApi.php
 lib/Api/QualityPerformanceScoreApi.php
 lib/Api/ReleaseTriggersApi.php
@@ -521,6 +525,7 @@ lib/Model/MemberSpacesInner.php
 lib/Model/MemberUpdateParameters.php
 lib/Model/MemberUpdateSettingsParameters.php
 lib/Model/ModelInterface.php
+lib/Model/Note.php
 lib/Model/Notification.php
 lib/Model/NotificationGroup.php
 lib/Model/NotificationGroupDetail.php
@@ -539,6 +544,7 @@ lib/Model/ProjectCreateParameters.php
 lib/Model/ProjectDetails.php
 lib/Model/ProjectLocales.php
 lib/Model/ProjectMember.php
+lib/Model/ProjectNoteUpdateParameters.php
 lib/Model/ProjectReport.php
 lib/Model/ProjectShort.php
 lib/Model/ProjectUpdateParameters.php
@@ -675,6 +681,7 @@ test/Api/OrdersApiTest.php
 test/Api/OrganizationJobTemplateLocalesApiTest.php
 test/Api/OrganizationJobTemplatesApiTest.php
 test/Api/PreTranslationsApiTest.php
+test/Api/ProjectNotesApiTest.php
 test/Api/ProjectsApiTest.php
 test/Api/QualityPerformanceScoreApiTest.php
 test/Api/ReleaseTriggersApiTest.php
@@ -833,6 +840,7 @@ test/Model/MemberSpacesInnerTest.php
 test/Model/MemberTest.php
 test/Model/MemberUpdateParametersTest.php
 test/Model/MemberUpdateSettingsParametersTest.php
+test/Model/NoteTest.php
 test/Model/NotificationGroupDetailTest.php
 test/Model/NotificationGroupTest.php
 test/Model/NotificationTest.php
@@ -850,6 +858,7 @@ test/Model/ProjectCreateParametersTest.php
 test/Model/ProjectDetailsTest.php
 test/Model/ProjectLocalesTest.php
 test/Model/ProjectMemberTest.php
+test/Model/ProjectNoteUpdateParametersTest.php
 test/Model/ProjectReportTest.php
 test/Model/ProjectShortTest.php
 test/Model/ProjectTest.php
