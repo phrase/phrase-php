@@ -59,6 +59,7 @@ class RepoSyncEvent implements ModelInterface, ArrayAccess
         'type' => 'string',
         'created_at' => '\DateTime',
         'status' => 'string',
+        'automatic' => 'bool',
         'pull_request_url' => 'string',
         'auto_import' => 'bool',
         'errors' => 'string[]',
@@ -75,6 +76,7 @@ class RepoSyncEvent implements ModelInterface, ArrayAccess
         'type' => null,
         'created_at' => 'date-time',
         'status' => null,
+        'automatic' => null,
         'pull_request_url' => null,
         'auto_import' => null,
         'errors' => null,
@@ -112,6 +114,7 @@ class RepoSyncEvent implements ModelInterface, ArrayAccess
         'type' => 'type',
         'created_at' => 'created_at',
         'status' => 'status',
+        'automatic' => 'automatic',
         'pull_request_url' => 'pull_request_url',
         'auto_import' => 'auto_import',
         'errors' => 'errors',
@@ -128,6 +131,7 @@ class RepoSyncEvent implements ModelInterface, ArrayAccess
         'type' => 'setType',
         'created_at' => 'setCreatedAt',
         'status' => 'setStatus',
+        'automatic' => 'setAutomatic',
         'pull_request_url' => 'setPullRequestUrl',
         'auto_import' => 'setAutoImport',
         'errors' => 'setErrors',
@@ -144,6 +148,7 @@ class RepoSyncEvent implements ModelInterface, ArrayAccess
         'type' => 'getType',
         'created_at' => 'getCreatedAt',
         'status' => 'getStatus',
+        'automatic' => 'getAutomatic',
         'pull_request_url' => 'getPullRequestUrl',
         'auto_import' => 'getAutoImport',
         'errors' => 'getErrors',
@@ -246,6 +251,7 @@ class RepoSyncEvent implements ModelInterface, ArrayAccess
         $this->container['type'] = isset($data['type']) ? $data['type'] : null;
         $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
+        $this->container['automatic'] = isset($data['automatic']) ? $data['automatic'] : null;
         $this->container['pull_request_url'] = isset($data['pull_request_url']) ? $data['pull_request_url'] : null;
         $this->container['auto_import'] = isset($data['auto_import']) ? $data['auto_import'] : null;
         $this->container['errors'] = isset($data['errors']) ? $data['errors'] : null;
@@ -407,6 +413,30 @@ class RepoSyncEvent implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets automatic
+     *
+     * @return bool|null
+     */
+    public function getAutomatic()
+    {
+        return $this->container['automatic'];
+    }
+
+    /**
+     * Sets automatic
+     *
+     * @param bool|null $automatic When `true`, the sync was triggered automatically (for example by a Zero Touch Localization rule or an automation). When `false`, it was triggered manually.
+     *
+     * @return $this
+     */
+    public function setAutomatic($automatic)
+    {
+        $this->container['automatic'] = $automatic;
+
+        return $this;
+    }
+
+    /**
      * Gets pull_request_url
      *
      * @return string|null
@@ -443,7 +473,7 @@ class RepoSyncEvent implements ModelInterface, ArrayAccess
     /**
      * Sets auto_import
      *
-     * @param bool|null $auto_import Whether the import was triggered by the repo push event
+     * @param bool|null $auto_import **Deprecated.** Use `automatic` instead. Only present on import events. Indicates whether the import was triggered automatically.
      *
      * @return $this
      */

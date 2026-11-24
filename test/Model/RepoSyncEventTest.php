@@ -105,6 +105,13 @@ class RepoSyncEventTest extends TestCase
     }
 
     /**
+     * Test attribute "automatic"
+     */
+    public function testPropertyAutomatic()
+    {
+    }
+
+    /**
      * Test attribute "pull_request_url"
      */
     public function testPropertyPullRequestUrl()
